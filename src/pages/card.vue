@@ -15,10 +15,10 @@
       .col-xs-12.col-sm-6.col-md-4
         h-card
           h-card-media(
-            img="/static/img/Nallah_Sindh.jpg"
+            img="static/img/Nallah_Sindh.jpg"
           )
           h-card-header(
-            avatar="/static/avatar/Kostenlose.jpg"
+            avatar="static/avatar/Kostenlose.jpg"
             text="River"
             desc="Beautifull place"
           )
@@ -28,10 +28,10 @@
       .col-xs-12.col-sm-6.col-md-4
         h-card
           h-card-media(
-            img="/static/img/Nallah_Sindh.jpg"
+            img="static/img/Nallah_Sindh.jpg"
           )
           h-card-header(
-            avatar="/static/avatar/Kostenlose.jpg"
+            avatar="static/avatar/Kostenlose.jpg"
             text="River"
             desc="Beautifull place"
           )
@@ -54,7 +54,7 @@
     .flex.flex-wrap
       h-card(style="width:256px")
         h-card-media(
-          img="/static/img/90minute.png"
+          img="static/img/90minute.png"
         )
         h-card-header(
           text="90th minute"
@@ -63,7 +63,7 @@
     
       h-card(style="width:256px")
         h-card-media(
-          img="/static/img/breakpoint.png"
+          img="static/img/breakpoint.png"
         )
         h-card-header(
           text="Break point"
@@ -72,7 +72,7 @@
     .flex.flex-wrap
       h-card(style="width:256px")
         h-card-media(
-          img="/static/img/matchday.png"
+          img="static/img/matchday.png"
         )
         h-card-header(
           text="Matchday"
@@ -81,7 +81,7 @@
     
       h-card(style="width:256px")
         h-card-media(
-          img="/static/img/bluerun.png"
+          img="static/img/bluerun.png"
         )
 
         h-card-header(
@@ -97,7 +97,7 @@
           h-card
             h-card-media(
               style="width:360px; height: 200px;"
-              img="/static/img/90minute.png"
+              img="static/img/90minute.png"
             )
               h-card-media-text.flex-items-end(
                 text="90th minute"
@@ -107,7 +107,7 @@
           h-card
             h-card-media(
               style="width:170px; height: 128px;"
-              img="/static/img/bluerun.png"
+              img="static/img/bluerun.png"
             )
               h-card-media-text.flex-items-end(
                 text="Blue run"
@@ -117,7 +117,7 @@
           h-card.h-ml-md
             h-card-media(
               style="width:160px; height: 192px;"
-              img="/static/img/breakpoint.png"
+              img="static/img/breakpoint.png"
             )
               h-card-media-text.flex-items-center(
                 text="Break point"
@@ -127,7 +127,7 @@
           h-card
             h-card-media(
               style="width:360px; height: 200px;"
-              img="/static/img/matchday.png"
+              img="static/img/matchday.png"
             )
               h-card-media-text.flex-justify-center.flex-items-center(
                 text="Match day"
