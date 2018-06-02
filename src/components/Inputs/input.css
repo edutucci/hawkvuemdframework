@@ -1,0 +1,37 @@
+.hd-input {
+	position:relative;
+  height:45px;    
+}
+
+input {
+  font-size:16px;
+  width:100%;  
+  border-style:none;
+  border-bottom: 2px solid gray;
+  outline: none;
+  z-index:1;
+  background:none;
+}
+
+.hd-input input {
+    position:absolute;
+    top:16px;  
+}
+
+.hd-input label {
+    position: absolute;
+    top:18px;   
+}
+
+.hd-input.has-focus label{
+	top:0px;
+  font-size:12px;
+}
+
+input:focus {
+	border-bottom:2px solid blue;
+}
+
+input:not(:focus) {
+  border-bottom:2px solid lightgray;
+}
