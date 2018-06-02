@@ -3,6 +3,7 @@
   <div class="flex flex-column page-container">
     <div>
        <strong>toolbar</strong>
+       <h-avatar src="static/img/hawk.jpg" size="128px"/>
     </div>
     <div class="flex-1 ">
       <div class="flex flex-row full-height full-width">
@@ -51,6 +52,7 @@
 import HCollapsible from './components/collapsible/HCollapsible.vue'
 import HCollapsibleMenu from './components/collapsible/HCollapsibleMenu.vue'
 import HCollapsibleItem from './components/collapsible/HCollapsibleItem.vue'
+import HAvatar from './components/image/HAvatar'
 
 export default {
   data () {
@@ -60,7 +62,8 @@ export default {
   components: {
     HCollapsible,
     HCollapsibleMenu,
-    HCollapsibleItem
+    HCollapsibleItem,
+    HAvatar
   },
   created () {
   }

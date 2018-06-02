@@ -22,6 +22,10 @@ export default {
         height: this.size
       }
     }
+  },
+  created () {
+    this.imgsize.width = this.size
+    this.imgsize.height = this.size
   }
 }
 </script>
