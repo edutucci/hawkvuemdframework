@@ -6,6 +6,7 @@
 
 # Hawk Framework
 Project created with vue-cli(vue-router, eslint standard)
+
 Free CSS Library for vuejs 2.x with lightweight components.
 
 # Source code
@@ -18,9 +19,6 @@ At the moment you can find tutorial how to use componentes in src/pages folder
 Download the project using the git command using the terminal and install all dependences
 ``` bash 
 git clone https://github.com/edutucci/hawkframework.git
-```
-``` bash 
-npm install
 ```
 
 ## Build Setup
