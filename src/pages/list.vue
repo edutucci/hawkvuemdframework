@@ -2,7 +2,6 @@
   <div>
     <h1>List</h1>
   
-    <div class="flex">
       <div class="col-6">
         <h-list>
           <h-app-toolbar>
@@ -13,22 +12,18 @@
           </h-app-toolbar>
           <h-list-body>
             <h-list-item @click="topicItem = 'Attractions'" :active="topicItem === 'Attractions'" >
-              <h-list-item-left
-                lefttext="Attractions"                
-                />
+              <h-list-item-left lefttext="Attractions" />
             </h-list-item>
             <h-list-item @click="topicItem = 'Dining'" :active="topicItem === 'Dining'">
-              <h-list-item-left
-                lefttext="Dining"
-                />
+              <h-list-item-left lefttext="Dining"/>
             </h-list-item>
-            <h-list-item>
+            <h-list-item @click="topicItem = 'Health'" :active="topicItem === 'Health'">
               <h-list-item-left lefttext="Health"/>
             </h-list-item>
-            <h-list-item>
+            <h-list-item @click="topicItem = 'Sports'" :active="topicItem === 'Sports'">
               <h-list-item-left lefttext="Sports"/>
             </h-list-item>
-            <h-list-item>
+            <h-list-item @click="topicItem = 'Travel'" :active="topicItem === 'Travel'">
               <h-list-item-left lefttext="Travel"/>
             </h-list-item> 
           </h-list-body>           
@@ -48,19 +43,17 @@
           <h-list-item @click="topicItem = 'Dining'" :active="topicItem === 'Dining'" >
             <h-list-item-left :icon="['fas', 'utensils']" text="Dining"/>
           </h-list-item>
-          <h-list-item>
+          <h-list-item @click="topicItem = 'Health'" :active="topicItem === 'Health'">
             <h-list-item-left :icon="['fas', 'heart']" text="Health"/>
           </h-list-item>
-          <h-list-item>
+          <h-list-item @click="topicItem = 'Sports'" :active="topicItem === 'Sports'">
             <h-list-item-left :icon="['fas', 'basketball-ball']" text="Sports"/>
           </h-list-item>
-          <h-list-item>
+          <h-list-item @click="topicItem = 'Travel'" :active="topicItem === 'Travel'">
             <h-list-item-left :icon="['fas', 'plane']" text="Travel"/>
           </h-list-item>
         </h-list>
-      </div>
-    </div>
-    
+      </div>   
    
 
       <h-list class="col-6">

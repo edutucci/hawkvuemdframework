@@ -45,7 +45,6 @@ import HCollapsible from './components/collapsible/HCollapsible.vue'
 import HCollapsibleItem from './components/collapsible/HCollapsibleItem.vue'
 import HMenuBar from './components/menu/HMenuBar.vue'
 import HMenuBarItem from './components/menu/HMenuBarItem.vue'
-import HSideNav from './components/menu/HSideNav.vue'
 import HFaIcon from './components/icons/HFaIcon'
 import HCard from './components/card/HCard.vue'
 import HSlideMenu from './components/menu/HSlideMenu.vue'
@@ -76,7 +75,6 @@ export default {
     HCollapsibleItem,
     HMenuBar,
     HMenuBarItem,
-    HSideNav,
     HCard,
     HSlideMenu,
     HList,

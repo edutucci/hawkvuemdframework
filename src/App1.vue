@@ -11,39 +11,6 @@
     </div>
 
     <br>
- <h-btn flat @click="$refs.nav.close()"> Close SideNav </h-btn>    
-    <h-side-nav ref="nav">
- <h1 slot="header">Here might be a page title</h1>
-
-When authoring components, it’s good to keep in mind whether you intend to reuse it somewhere else later. 
-
-The API for a Vue component comes in three parts - props, events, and slots:
-<p> </p>
-Capcom anunciou no último fim de semana o lançamento do game Monster Hunter: World , franquia de ação e RPG que já vendeu 40 milhões de unidades em todo o mundo.
-
-<p> </p>
-Capcom anunciou no último fim de semana o lançamento do game Monster Hunter: World , franquia de ação e RPG que já vendeu 40 milhões de unidades em todo o mundo.
-
-<p> </p>
-Capcom anunciou no último fim de semana o lançamento do game Monster Hunter: World , franquia de ação e RPG que já vendeu 40 milhões de unidades em todo o mundo.
-
-<p> </p>
-Capcom anunciou no último fim de semana o lançamento do game Monster Hunter: World , franquia de ação e RPG que já vendeu 40 milhões de unidades em todo o mundo.
-
-<p> </p>
-Capcom anunciou no último fim de semana o lançamento do game Monster Hunter: World , franquia de ação e RPG que já vendeu 40 milhões de unidades em todo o mundo.
-
-<p> </p>
-Capcom anunciou no último fim de semana o lançamento do game Monster Hunter: World , franquia de ação e RPG que já vendeu 40 milhões de unidades em todo o mundo.
-
-<p> </p>
-Capcom anunciou no último fim de semana o lançamento do game Monster Hunter: World , franquia de ação e RPG que já vendeu 40 milhões de unidades em todo o mundo.
-
-
-  <h1 slot="footer">Here might be a footer</h1>
-
-    </h-side-nav>
-
 
     <h1> Tests </h1>
 
@@ -68,7 +35,6 @@ import HBtn from './components/buttons/HBtn.vue'
 import HBtnFloat from './components/buttons/HBtnFloat.vue'
 import HTextArea from './components/Inputs/HTextArea.vue'
 import HAvatar from './components/image/HAvatar.vue'
-import HSideNav from './components/menu/HSideNav.vue'
 import HFaIcon from './components/icons/HFaIcon'
 
 export default {
@@ -81,7 +47,6 @@ export default {
     HSelect,
     HCollapsible,
     HCollapsibleItem,
-    HSideNav
   },
   data () {
     return {

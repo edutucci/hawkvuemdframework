@@ -1,5 +1,5 @@
 <template lang="pug">
-  div.flex(style="padding-right: 16px;")
+  div.flex(style="padding-right: 16px;" @click="onClick")
     h-fa-icon(:icon="icon")
 </template>
 
@@ -14,6 +14,12 @@ export default {
     icon: {
       type: Array,
       default: () => ([])
+    }
+  },
+  methods: {
+    onClick () {
+      console.log('tb click')
+      this.$emit('click')
     }
   }
 }

@@ -1,7 +1,7 @@
 <template lang="pug">
   h-page
 
-    h-app-toolbar.toolbar-top
+    h-app-toolbar.toolbar-top(style="top:80px;")
       h-app-toolbar-container(bgcolor="bg-primary" textcolor="text-white")
         h-app-toolbar-navigation(:icon="['fas', 'bars']")
         h-app-toolbar-title(title="My big music collection to sing")
@@ -13,7 +13,7 @@
             h-menu-dropdown-item(:icon="['fas', 'check-circle']" text="You are correct." @click="showModal('U clicked in circle')")
             h-menu-dropdown-item(:icon="['fas', 'handshake']" text="You are in good hands" @click="showModal('U clicked in hands')")
 
-    h-app-toolbar.toolbar-top(style="top:80px;")
+    h-app-toolbar.toolbar-top(style="top:160px;")
       h-app-toolbar-container(bgcolor="bg-secondary" textcolor="text-white")
         h-app-toolbar-navigation(:icon="['fas', 'bars']")
         h-app-toolbar-title(title="Dashboard" style="padding-top: 60px;")

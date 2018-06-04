@@ -1,5 +1,5 @@
 <template lang="pug">
-  div.flex.flex-column
+  div.flex.flex-column.full-width(style="background-color: blue")
     .flex.flex-row.flex-items-center.collapsible-menu(
        @click="setVisible()"
     )
@@ -63,8 +63,6 @@ export default {
   padding: 8px;
   cursor: pointer;
   color: white;
-  min-width: 236px;
-  max-width: 236px;
 }
 
 .collapsible-content {

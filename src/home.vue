@@ -1,42 +1,68 @@
-<template>
+<template lang="pug">
 
   <div class="flex flex-column page-container">
     <div>
-       <strong>toolbar</strong>
-       <h-avatar src="static/img/hawk.jpg" size="128px"/>
+      h-app-toolbar.toolbar-top
+        h-app-toolbar-container(bgcolor="bg-primary" textcolor="text-white")
+          h-app-toolbar-navigation(:icon="['fas', 'bars']" @click="$refs.nav.open()")
+          h-app-toolbar-title(title="Hawk Framework")
     </div>
-    <div class="flex-1 ">
+    <div class="flex-1" style="top: 90px;">
+      <h-btn textbutton @click="$refs.nav.open()"> Open SideNav </h-btn>
+      <h-btn textbutton @click="$refs.nav.close()"> Close SideNav </h-btn> 
+      <h-nav-drawer ref="nav">
+        <div class="flex flex-column bg-white full-size" style="display: inline-flex;">
+
+          <div slot="header" class="text-center h-pa-md">
+            <h-avatar src="static/img/hawk.jpg" size="64px"/> 
+            <h3 class="no-padding no-margin">Hawk </h3>
+            <h3 class="no-padding no-margin"> Framework</h3>  
+          </div>
+
+          <div class="flex-1">
+            <h-collapsible>
+            
+              <!-- <h-collapsible-menu :icon="['fas', 'check-circle']" text="Guide">
+                <h-collapsible-item text="Introduction"/>
+                <h-collapsible-item text="Installation"/>
+              </h-collapsible-menu> -->
+
+              <h-collapsible-menu :icon="['fab', 'css3']" text="CSS">
+                <h-collapsible-item text="Spacing" @click="$router.push('/spacing'), $refs.nav.close()"/>
+                <h-collapsible-item text="Flexbox" @click="$router.push('/flexbox'), $refs.nav.close()"/>
+                <h-collapsible-item text="Others" @click="$router.push('/cssothers'), $refs.nav.close()"/>
+              </h-collapsible-menu>
+              
+              <h-collapsible-menu :icon="['fas', 'hdd']" text="Components">
+                <h-collapsible-item text="Buttons" @click="$router.push('/buttons'), $refs.nav.close()"/>
+                <h-collapsible-item text="Icons" @click="$router.push('/icon'), $refs.nav.close()"/>
+                <h-collapsible-item text="Textfield" @click="$router.push('/textfield'), $refs.nav.close()"/>
+                <h-collapsible-item text="Cards" @click="$router.push('/card'), $refs.nav.close()"/>
+                <h-collapsible-item text="Menu" @click="$router.push('/menu'), $refs.nav.close()"/>
+                <h-collapsible-item text="List" @click="$router.push('/list'), $refs.nav.close()"/>
+                <h-collapsible-item text="Checkbox" @click="$router.push('/checkbox'), $refs.nav.close()"/>
+                <h-collapsible-item text="Radio" @click="$router.push('/radio'), $refs.nav.close()"/>
+                <h-collapsible-item text="Select" @click="$router.push('/select'), $refs.nav.close()"/>
+                <h-collapsible-item text="Tab" @click="$router.push('/tab'), $refs.nav.close()"/>
+                <h-collapsible-item text="Table" @click="$router.push('/table'), $refs.nav.close()"/>
+                <h-collapsible-item text="Toolbar" @click="$router.push('/toolbar'), $refs.nav.close()"/>
+              </h-collapsible-menu>
+
+            </h-collapsible>
+          </div>  
+
+          <div slot="footer" class="text-center  h-pa-md">
+            <h2 class="no-margin">Free Framework</h2>
+            <h2 class="no-margin">Pure CSS</h2>
+          </div>
+
+        </div>
+
+      </h-nav-drawer>      
+      
       <div class="flex flex-row full-height full-width">
         <div>
-          <h-collapsible>
-          
-            <!-- <h-collapsible-menu :icon="['fas', 'check-circle']" text="Guide">
-              <h-collapsible-item text="Introduction"/>
-              <h-collapsible-item text="Installation"/>
-            </h-collapsible-menu> -->
-
-            <h-collapsible-menu :icon="['fab', 'css3']" text="CSS">
-              <h-collapsible-item text="Spacing" @click="$router.push('/spacing')"/>
-              <h-collapsible-item text="Flexbox" @click="$router.push('/flexbox')"/>
-              <h-collapsible-item text="Others" @click="$router.push('/cssothers')"/>
-            </h-collapsible-menu>
-            
-            <h-collapsible-menu :icon="['fas', 'hdd']" text="Components">
-              <h-collapsible-item text="Buttons" @click="$router.push('/buttons')"/>
-              <h-collapsible-item text="Icons" @click="$router.push('/icon')"/>
-              <h-collapsible-item text="Textfield" @click="$router.push('/textfield')"/>
-              <h-collapsible-item text="Cards" @click="$router.push('/card')"/>
-              <h-collapsible-item text="Menu" @click="$router.push('/menu')"/>
-              <h-collapsible-item text="List" @click="$router.push('/list')"/>
-              <h-collapsible-item text="Checkbox" @click="$router.push('/checkbox')"/>
-              <h-collapsible-item text="Radio" @click="$router.push('/radio')"/>
-              <h-collapsible-item text="Select" @click="$router.push('/select')"/>
-              <h-collapsible-item text="Tab" @click="$router.push('/tab')"/>
-              <h-collapsible-item text="Table" @click="$router.push('/table')"/>
-              <h-collapsible-item text="Toolbar" @click="$router.push('/toolbar')"/>
-            </h-collapsible-menu>
-
-          </h-collapsible>      
+    
         </div>
         <div class="flex-1">
           <router-view/>
@@ -53,6 +79,12 @@ import HCollapsible from './components/collapsible/HCollapsible.vue'
 import HCollapsibleMenu from './components/collapsible/HCollapsibleMenu.vue'
 import HCollapsibleItem from './components/collapsible/HCollapsibleItem.vue'
 import HAvatar from './components/image/HAvatar'
+import HBtn from './components/buttons/HBtn'
+import HNavDrawer from './components/window/HNavDrawer'
+import HAppToolbar from './components/toolbar/HAppToolbar.vue'
+import HAppToolbarContainer from './components/toolbar/HAppToolbarContainer.vue'
+import HAppToolbarNavigation from './components/toolbar/HAppToolbarNavigation.vue'
+import HAppToolbarTitle from './components/toolbar/HAppToolbarTitle.vue'
 
 export default {
   data () {
@@ -63,7 +95,13 @@ export default {
     HCollapsible,
     HCollapsibleMenu,
     HCollapsibleItem,
-    HAvatar
+    HAvatar,
+    HBtn,
+    HNavDrawer,
+    HAppToolbar,
+    HAppToolbarContainer,
+    HAppToolbarNavigation,
+    HAppToolbarTitle
   },
   created () {
   }
