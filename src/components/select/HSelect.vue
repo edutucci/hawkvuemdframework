@@ -16,6 +16,7 @@
     div.full-width.dropdown-menu.boxshadow(v-if="!multiselect && magic_flag")
       div.flex.flex-items-center.flex-row.menu-item(
         :class="[bgcolor]"
+        :style="{bottom: bottom}"
         v-for="option in options"
         :key="option.value"
         @click="onChangeItem(option.value)"
@@ -66,6 +67,9 @@ export default {
     },
     multiselect: {
       type: Boolean
+    },
+    dtu: {
+      type: Boolean
     }
   },
   mixins: [ clickaway ],
@@ -79,7 +83,8 @@ export default {
         color: 'white',
         backgroundColor: 'blue'
       },
-      multiselectItem: []
+      multiselectItem: [],
+      bottom: ''
     }
   },
   methods: {

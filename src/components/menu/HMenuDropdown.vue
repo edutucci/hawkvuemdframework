@@ -12,7 +12,8 @@
     div.dropdown-menu.boxshadow(
       v-show="showdropdown"
       @click="showdropdown = !showdropdown"
-      :style="{left: left, right: right}"
+      style="color:black; background-color: white"
+      :style="{left: left, right: right, bottom: bottom}"
     )
       slot
 
@@ -40,6 +41,10 @@ export default {
     },
     rtl: {
       type: Boolean
+    },
+    dtu: {
+      type: Boolean,
+      default: false
     }
   },
   mixins: [ clickaway ],
@@ -47,13 +52,18 @@ export default {
     return {
       showdropdown: false,
       left: '0px',
-      right: ''
+      right: '',
+      bottom: ''
     }
   },
   created () {
     if (this.rtl) {
       this.left = ''
       this.right = '0px'
+    }
+
+    if (this.dtu) {
+      this.bottom = '0px'
     }
   },
   methods: {

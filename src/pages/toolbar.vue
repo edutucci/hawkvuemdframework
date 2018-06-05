@@ -33,7 +33,7 @@
         h-app-toolbar-action
           h-fa-icon(:icon="['fas', 'heart']")
         h-app-toolbar-menu
-          h-menu-dropdown(rtl :icon="['fas', 'ellipsis-v']")
+          h-menu-dropdown(rtl dtu :icon="['fas', 'ellipsis-v']")
             h-menu-dropdown-item(:icon="['fas', 'check-circle']" text="You are correct." @click="showModal('U clicked in circle')")
             h-menu-dropdown-item(:icon="['fas', 'handshake']" text="You are in good hands" @click="showModal('U clicked in hands')")
 
