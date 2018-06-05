@@ -2,7 +2,7 @@
   .full-viewport.boxshadow.page-container(
     :class="[bgcolor, textcolor]"
   )
-    slot
+    slot    
 </template>
 
 <script>
@@ -16,7 +16,8 @@ export default {
 
 <style scoped>
 .page-container {
-  position: relative;
+  margin: 0;
+  padding: 0;
 }
 </style>
 

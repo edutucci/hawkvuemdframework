@@ -9,6 +9,7 @@ import pageSpacing from './pages/css/spacing'
 import pageFlexbox from './pages/css/flexbox'
 import pageCssOthers from './pages/css/others'
 
+import mainPage from './pages/main'
 import pagebtn from './pages/buttons'
 import pageIcon from './pages/icon'
 import pageTextField from './pages/textfield'
@@ -36,21 +37,28 @@ Vue.use(VueRouter)
 Vue.use(VueHighlightJS)
 
 const routes = [
-  { path: '/spacing', component: pageSpacing },
-  { path: '/flexbox', component: pageFlexbox },
-  { path: '/cssothers', component: pageCssOthers },
-  { path: '/buttons', component: pagebtn },
-  { path: '/icon', component: pageIcon },
-  { path: '/textfield', component: pageTextField },
-  { path: '/card', component: pageCard },
-  { path: '/menu', component: pageMenu },
-  { path: '/list', component: pageList },
-  { path: '/checkbox', component: pageCheckbox },
-  { path: '/radio', component: pageRadio },
-  { path: '/select', component: pageSelect },
-  { path: '/tab', component: pageTab },
-  { path: '/table', component: pageTable },
-  { path: '/toolbar', component: pageToolbar }
+  {
+    path: '/',
+    component: Home,
+    children: [
+      { path: '', component: mainPage },
+      { path: '/spacing', component: pageSpacing },
+      { path: '/flexbox', component: pageFlexbox },
+      { path: '/cssothers', component: pageCssOthers },
+      { path: '/buttons', component: pagebtn },
+      { path: '/icon', component: pageIcon },
+      { path: '/textfield', component: pageTextField },
+      { path: '/card', component: pageCard },
+      { path: '/menu', component: pageMenu },
+      { path: '/list', component: pageList },
+      { path: '/checkbox', component: pageCheckbox },
+      { path: '/radio', component: pageRadio },
+      { path: '/select', component: pageSelect },
+      { path: '/tab', component: pageTab },
+      { path: '/table', component: pageTable },
+      { path: '/toolbar', component: pageToolbar }
+    ]
+  }
 ]
 
 const router = new VueRouter({
