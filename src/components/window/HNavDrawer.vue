@@ -49,7 +49,7 @@ export default {
 .drawer {
     height: 100%;
     position: fixed;
-    z-index: 2;
+    z-index: 13;
     top: 0;
     left: 0;
     background-color: rgba(222, 222, 222, 0.6);
