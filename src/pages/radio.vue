@@ -1,5 +1,5 @@
 <template lang="pug">
-  <div>
+  div(style="top: 50px; position: relative;")
     <h1> Radio Buttons </h1>
     div
       h1 List

@@ -1,22 +1,24 @@
 <template>
-  <div>
+  <div style="top: 50px; position: relative">
     <h1>Select</h1>
-    <div class="flex">
-      <div>
-        <h-select :options="options"
-          v-model="selectModel"
-          @input="onInput"
-          display-mode="icon"/>    
-        <span>selectModel: {{ selectModel }}</span>      
-      </div>
-      <div class="h-ml-md">
-        <h-select :options="options" v-model="selectModel1" display-mode="avatar"/>    
-        <span>selectModel1: {{ selectModel1 }}</span>       
-      </div>
+      
+    <h1>Select with Icons</h1>
+    <div class="col-6">
+      <h-select :options="options"
+        v-model="selectModel"
+        @input="onInput"
+        display-mode="icon"/>    
+      <span>selectModel: {{ selectModel }}</span>        
+    </div>
+    
+    <h1>Select with Avatar</h1>
+    <div class="col-6">    
+      <h-select :options="options" v-model="selectModel1" display-mode="avatar"/>    
+      <span>selectModel1: {{ selectModel1 }}</span>       
     </div>
 
     <h1>Multi Select</h1>
-    <div>
+    <div class="col-6">
       <h-select :options="options" v-model="multiselect" multiselect/>    
       <span>multiselect: {{ multiselect }}</span>       
     </div>

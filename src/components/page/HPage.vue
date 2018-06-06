@@ -18,6 +18,8 @@ export default {
 .page-container {
   margin: 0;
   padding: 0;
+  overflow-x: auto;
+  overflow-y: auto;
 }
 </style>
 

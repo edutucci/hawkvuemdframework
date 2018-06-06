@@ -1,6 +1,8 @@
 <template>
-	<div>
+	<div style="top: 50px; position: relative;">
         <h1>Tabs</h1>
+        
+        <h1>Horizontal Tab</h1>
         <h-tabs v-model="tabModel" @tabChange="tabChange" bgcolor="bg-secondary" textcolor="text-white" class="h-mt-md">
         <h-tab name="First tab">
             This is the content of the first tab
@@ -24,8 +26,9 @@
         </h-tab>      
         </h-tabs>
 
-        <h1>TabModel: {{tabModel}}</h1>
+        <h3>TabModel: {{tabModel}}</h3>
 
+        <h1>Vertical Tab</h1>
         <h-tabs bgcolor="bg-white" textcolor="text-secondary" class="h-mt-md">
         <h-tab name="First tab">
             This is the content of the first tab

@@ -1,5 +1,5 @@
 <template lang="pug">
-  .navbar.flex
+  .navbar.full-width.flex
     slot
 
 </template>
@@ -19,7 +19,9 @@ export default {
 .navbar {
     border-radius: 6px;
     background-color: dodgerblue;
-    padding: 6px;
+    /* padding: 6px;*/
+    margin-left: 40px;
+    margin-right: 40px; 
 }
 .menu_item {
     color: white;

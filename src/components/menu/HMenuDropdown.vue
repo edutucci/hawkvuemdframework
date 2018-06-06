@@ -40,7 +40,8 @@ export default {
       default: false
     },
     rtl: {
-      type: Boolean
+      type: Boolean,
+      default: false
     },
     dtu: {
       type: Boolean,

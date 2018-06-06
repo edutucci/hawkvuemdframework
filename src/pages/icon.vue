@@ -1,5 +1,5 @@
 <template lang="pug">
-  .full-size
+  .full-size(style="top: 50px; position: relative;")
     H1  Icons
 
     .boxshadow

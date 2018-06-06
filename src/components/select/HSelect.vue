@@ -119,7 +119,7 @@ export default {
   /* min-width: 250px; */
   max-height: 250px;
   overflow-y: scroll;
-  z-index: 5;
+  z-index: 2;
   cursor: pointer;
 }
 
@@ -127,7 +127,7 @@ input.select {
    font-size: 18px;
    /* padding-right: 25px;
    padding-left: 10px; */
-   z-index: 1;
+   z-index: 0;
    background-color: transparent !important;
    border: none;
    outline: none;
@@ -144,7 +144,7 @@ input:hover {
   color:black;
   right: 0px;
   top: 3px;
-  z-index: -1;
+  z-index: 1;
 }
 
 .dropdown-arrow:hover {

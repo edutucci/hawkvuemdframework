@@ -1,5 +1,5 @@
 <template lang="pug">
-  .full-width
+  .full-width(style="top: 50px; position: relative;")
     h1 Cards
 
     //- div.flex.flex-wrap

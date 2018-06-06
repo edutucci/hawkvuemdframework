@@ -1,14 +1,12 @@
 <template>
-  <div>
+  <div style="top: 50px; position: relative;">
     <h1>Table</h1>
-    <h1>dataBase length : {{dataBase.length}}</h1>
-    <h1>tableData length : {{tableData.length}}</h1>
-    <div class="col-md-6 col-xl-6">
+
+    <div class="col-sm-6 col-md-6 col-xl-6" style="height: 450px;">
       <h-table      
         title="Users"
         :columns="tableColumns"
         :rows="tableData"
-        style="height:400px"
         lineheight="40px"
       >
         <template slot="numero" slot-scope="row">

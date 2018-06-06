@@ -1,8 +1,6 @@
 <template>
-    <div class="boxshadow flex flex-column full-height no-user-select"
-      style="padding-left:24px; padding-right:14px;"
-    >
-      <div class="flex flex-column" style="min-height:64px;">
+    <div class="boxshadow flex flex-column full-height no-user-select">
+      <div class="flex flex-column boxshadow h-pb-md" style="min-height:64px;overflow:hidden; position:relative; z-index: 1">
         <div v-if="selectedRows.length > 0" class="flex flex-row flex-items-center full-height" style="padding-left:8px;padding-right:8px;">
           <div class="flex-1" style="color:royalblue;">
             <strong>{{selectedRows.length}} item selected</strong>
@@ -23,7 +21,7 @@
         </div>
       </div>
       
-      <div class="flex-1  table-container" @mouseleave="onMouseOverRow(-1)">
+      <div class="flex-1  table-container" @mouseleave="onMouseOverRow(-1)" style="padding-left:24px; padding-right:14px;">
         <div class="flex flex-row table-row-container">
           <div>
             <div class="flex flex-column ">
@@ -63,7 +61,7 @@
           </div>        
         </div>
       </div>
-      <div>
+      <div class="boxshadow">
         <div class="flex flex-justify-end flex-items-center">
           <div class="h-pr-sm subtitle">
             Rows per page:
