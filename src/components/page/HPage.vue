@@ -1,8 +1,8 @@
 <template lang="pug">
-  .full-viewport.boxshadow.page-container(
+  .bottom_shadow.full-size.overflow-hidden(
     :class="[bgcolor, textcolor]"
   )
-    slot    
+    slot
 </template>
 
 <script>
@@ -16,10 +16,7 @@ export default {
 
 <style scoped>
 .page-container {
-  margin: 0;
-  padding: 0;
-  overflow-x: auto;
-  overflow-y: auto;
+  overflow: hidden;
 }
 </style>
 

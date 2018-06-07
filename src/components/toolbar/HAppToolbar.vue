@@ -1,5 +1,5 @@
 <template lang="pug">
-  div.toolbar-app.full-width.flex.flex-row
+  div.full-width.flex.flex-row(style="z-index:12;")
     slot
 </template>
 

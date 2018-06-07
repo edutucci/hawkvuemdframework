@@ -3,6 +3,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import VueHighlightJS from 'vue-highlightjs'
 
+import App from './App'
 import Home from './home'
 
 import pageSpacing from './pages/css/spacing'
@@ -69,6 +70,5 @@ const router = new VueRouter({
 new Vue({
   el: '#app',
   router,
-  components: { Home },
-  template: '<Home/>'
+  ...App
 })

@@ -1,6 +1,6 @@
 <template lang="pug">
-  h-page
-    h-app-toolbar.toolbar-top-fixed
+  div
+    h-app-toolbar.top-left-fixed
       h-app-toolbar-container(bgcolor="bg-primary" textcolor="text-white")
         h-app-toolbar-navigation(:icon="['fas', 'bars']" @click="$refs.nav.open()")
         h-app-toolbar-title(title="Hawk Framework")
@@ -32,7 +32,7 @@
               <h-collapsible-item text="Flexbox" @click="$router.push('/flexbox'), $refs.nav.close()"/>
               <h-collapsible-item text="Others" @click="$router.push('/cssothers'), $refs.nav.close()"/>
             </h-collapsible-menu>
-            
+          
             <h-collapsible-menu :icon="['fas', 'hdd']" text="Components">
               <h-collapsible-item text="Buttons" @click="$router.push('/buttons'), $refs.nav.close()"/>
               <h-collapsible-item text="Icons" @click="$router.push('/icon'), $refs.nav.close()"/>
@@ -57,14 +57,17 @@
         </div>
 
       </div>
-
     </h-nav-drawer>
-    <div class="flex flex-row full-size">
-      <div class="flex-1">
-        <router-view/>
-      </div>  
+
+    <div class="flex full-width h-pt-lg rtview" style="top: 30px;">
+      div.full-width
+        router-view
     </div>
-     
+    //- <div class="flex flex-row full-size">
+    //-   <div class="flex-1">
+    //-     <router-view/>
+    //-   </div>  
+    //- </div>
 
 </template>
 
@@ -112,6 +115,12 @@ export default {
 </script>
 
 <style scoped>
+.page-container {
+  margin: 0;
+  padding: 0;
+  overflow-x: auto;
+  overflow-y: auto;
+}
 /* .page-container {
   width: calc(100vw - 270px);
   height: calc(100vh - 80px);

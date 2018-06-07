@@ -1,5 +1,5 @@
 <template lang="pug">
-  div(style="top: 50px; position: relative;")
+  div
     <h1>Textfield</h1>
 
     .col-4.boxshadow

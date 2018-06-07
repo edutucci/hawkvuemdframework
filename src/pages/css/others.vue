@@ -1,5 +1,5 @@
 <template lang="pug">
-  div
+  div.scroll
     h1 Others css Helpers
 
     strong
