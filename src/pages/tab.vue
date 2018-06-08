@@ -1,5 +1,5 @@
 <template>
-	<div style="top: 50px; position: relative;">
+	<div>
         <h1>Tabs</h1>
         
         <h1>Horizontal Tab</h1>

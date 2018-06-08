@@ -1,5 +1,5 @@
 <template>
-  <div style="top: 50px; position: relative;">
+  <div>
     <h1>List</h1>
   
       <div class="col-6">

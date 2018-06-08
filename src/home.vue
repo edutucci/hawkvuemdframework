@@ -22,10 +22,10 @@
         <div class="flex-1">
           <h-collapsible>
           
-            <!-- <h-collapsible-menu :icon="['fas', 'check-circle']" text="Guide">
-              <h-collapsible-item text="Introduction"/>
-              <h-collapsible-item text="Installation"/>
-            </h-collapsible-menu> -->
+            //- <h-collapsible-menu :icon="['fas', 'check-circle']" text="Guide">
+            //-   <h-collapsible-item text="Introduction"/>
+            //-   <h-collapsible-item text="Installation"/>
+            //- </h-collapsible-menu>
 
             <h-collapsible-menu :icon="['fab', 'css3']" text="CSS">
               <h-collapsible-item text="Spacing" @click="$router.push('/spacing'), $refs.nav.close()"/>
@@ -59,7 +59,7 @@
       </div>
     </h-nav-drawer>
 
-    <div class="flex full-width h-pt-lg rtview" style="top: 30px;">
+    <div class="flex full-width" style="top: 60px; position:relative;">
       div.full-width
         router-view
     </div>

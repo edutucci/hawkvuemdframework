@@ -1,5 +1,5 @@
 <template lang="pug">
-  div(style="top: 50px; position: relative;")
+  div
     h1  Checkbox
     
     div

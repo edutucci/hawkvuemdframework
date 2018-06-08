@@ -1,5 +1,5 @@
 <template>
-  <div style="top: 50px; position: relative">
+  <div>
     <h1>Select</h1>
       
     <h1>Select with Icons</h1>
