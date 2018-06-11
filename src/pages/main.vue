@@ -6,7 +6,7 @@
         .flex.flex-column
           .flex.flex-justify-center
             //- h-avatar(src="static/img/hawk.jpg" size="128px")
-            img(src="static/img/hawkface1.png")
+            img(src="static/img/hawkface.png")
           .flex.flex-justify-center.text-white.h-pt-md
             h1 HAWK
           .flex.flex-justify-center.text-white
