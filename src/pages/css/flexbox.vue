@@ -1,5 +1,5 @@
 <template lang="pug">
-  h-page
+  div
     h1  Flexbox (Flexible Box)
 
     .col-6

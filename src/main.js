@@ -9,6 +9,8 @@ import Home from './home'
 import pageSpacing from './pages/css/spacing'
 import pageFlexbox from './pages/css/flexbox'
 import pageCssOthers from './pages/css/others'
+import pageTextAlignment from './pages/css/textalignment'
+import pagePositioning from './pages/css/positioning'
 
 import mainPage from './pages/main'
 import pagebtn from './pages/buttons'
@@ -45,6 +47,8 @@ const routes = [
       { path: '', component: mainPage },
       { path: '/spacing', component: pageSpacing },
       { path: '/flexbox', component: pageFlexbox },
+      { path: '/textalignment', component: pageTextAlignment },
+      { path: '/positioning', component: pagePositioning },
       { path: '/cssothers', component: pageCssOthers },
       { path: '/buttons', component: pagebtn },
       { path: '/icon', component: pageIcon },

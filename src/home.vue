@@ -30,6 +30,8 @@
             <h-collapsible-menu :icon="['fab', 'css3']" text="CSS">
               <h-collapsible-item text="Spacing" @click="$router.push('/spacing'), $refs.nav.close()"/>
               <h-collapsible-item text="Flexbox" @click="$router.push('/flexbox'), $refs.nav.close()"/>
+              <h-collapsible-item text="Text Alignment" @click="$router.push('/textalignment'), $refs.nav.close()"/>
+              <h-collapsible-item text="Positioning" @click="$router.push('/positioning'), $refs.nav.close()"/>
               <h-collapsible-item text="Others" @click="$router.push('/cssothers'), $refs.nav.close()"/>
             </h-collapsible-menu>
           
