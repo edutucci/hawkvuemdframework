@@ -13,6 +13,12 @@
         div
           | Your option is: {{ termAccepted }}    
 
+    .boxshadow
+      <pre v-highlightjs="ckboolean">
+        <code class="html">
+        </code>
+      </pre>
+    
     div
       h1 List
       h-card
@@ -26,6 +32,11 @@
         div
           | Your favorites colors: {{ colors }}
 
+    .boxshadow
+      <pre v-highlightjs="cklist">
+        <code class="html">
+        </code>
+      </pre>
 
     //- div
     //-   <!-- Boolean -->
@@ -84,7 +95,33 @@ export default {
       colors: [],
       checkedNames2: ['Maça', 'Uva', 'Abacaxi'],
       checkedNumbers: [1, 3],
-      checked2: false
+      checked2: false,
+      ckboolean: `
+div
+  h1 Boolean
+  h-card
+    h-card-text(
+      desc="Do you agree to our terms and conditions?"
+    )
+    div
+      h-checkbox(v-model="termAccepted" label="I agree")
+    div
+      | Your option is: {{ termAccepted }}
+      `,
+      cklist: `
+div
+  h1 List
+  h-card
+    h-card-text(
+      desc="Select your favorite colors"
+    )
+    div
+      h-checkbox(v-model="colors" label="Red" value="Red")
+      h-checkbox(v-model="colors" label="Green" value="Green")
+      h-checkbox(v-model="colors" label="Blue" value="Blue")
+    div
+      | Your favorites colors: {{ colors }}
+      `
     }
   },
   methods: {

@@ -14,6 +14,12 @@
           h-radio(v-model="typeMovie" label="Romance" value="Romance")
         div
           | I like of: {{ typeMovie }}
+    .boxshadow
+      <pre v-highlightjs="rblist">
+        <code class="html">
+        </code>
+      </pre>
+    
     div
       h1 List with option checked
       h-card
@@ -25,6 +31,11 @@
           <h-radio v-model="gender" label="Female" value="female" />
           <div>Your gender is: {{ gender }}</div>      
         </div>
+    .boxshadow
+      <pre v-highlightjs="rbchecked">
+        <code class="html">
+        </code>
+      </pre>        
 
   </div>
 </template>
@@ -44,7 +55,35 @@ export default {
   data () {
     return {
       typeMovie: '',
-      gender: ''
+      gender: '',
+      rblist: `
+div
+  h1 List
+  h-card
+    h-card-text(
+      desc="What type of movies do you like?"
+    )
+    div
+      h-radio(v-model="typeMovie" label="Comedy" value="Comedy")
+      h-radio(v-model="typeMovie" label="Action" value="Action")
+      h-radio(v-model="typeMovie" label="Science" value="Science")
+      h-radio(v-model="typeMovie" label="Romance" value="Romance")
+    div
+      | I like of: {{ typeMovie }}
+      `,
+      rbchecked: `
+div
+  h1 List with option checked
+  h-card
+    h-card-text(
+      desc="Select your gender"
+    )      
+    <div>
+      <h-radio v-model="gender" label="Male" value="male" checked/>
+      <h-radio v-model="gender" label="Female" value="female" />
+      <div>Your gender is: {{ gender }}</div>
+    </div>
+      `
     }
   }
 }
