@@ -4,14 +4,15 @@
     
     div
       h1 Boolean
-      h-card
-        h-card-text(
-          desc="Do you agree to our terms and conditions?"
-        )
-        div
-          h-checkbox(v-model="termAccepted" label="I agree")
-        div
-          | Your option is: {{ termAccepted }}    
+      <h-card>
+        <h-card-text desc="Do you agree to our terms and conditions?"/>
+        <div>
+          <h-checkbox v-model="termAccepted" label="I agree"/>
+        </div>
+        <div>
+          | Your option is: {{ termAccepted }} 
+        </div>                  
+      </h-card> 
 
     .boxshadow
       <pre v-highlightjs="ckboolean">
@@ -21,16 +22,18 @@
     
     div
       h1 List
-      h-card
-        h-card-text(
-          desc="Select your favorite colors"
-        )
-        div
+      <h-card>
+        <h-card-text desc="Select your favorite colors"/>
+        <div>
           h-checkbox(v-model="colors" label="Red" value="Red")
           h-checkbox(v-model="colors" label="Green" value="Green")
-          h-checkbox(v-model="colors" label="Blue" value="Blue")
-        div
+          h-checkbox(v-model="colors" label="Blue" value="Blue")        
+        </div>
+
+        <div>
           | Your favorites colors: {{ colors }}
+        </div>          
+      </h-card>
 
     .boxshadow
       <pre v-highlightjs="cklist">
@@ -97,30 +100,29 @@ export default {
       checkedNumbers: [1, 3],
       checked2: false,
       ckboolean: `
-div
-  h1 Boolean
-  h-card
-    h-card-text(
-      desc="Do you agree to our terms and conditions?"
-    )
-    div
-      h-checkbox(v-model="termAccepted" label="I agree")
-    div
-      | Your option is: {{ termAccepted }}
+<h-card>
+  <h-card-text desc="Do you agree to our terms and conditions?"/>
+  <div>
+    <h-checkbox v-model="termAccepted" label="I agree"/>
+  </div>
+  <div>
+    | Your option is: {{ termAccepted }} 
+  </div>                  
+</h-card> 
       `,
       cklist: `
-div
-  h1 List
-  h-card
-    h-card-text(
-      desc="Select your favorite colors"
-    )
-    div
-      h-checkbox(v-model="colors" label="Red" value="Red")
-      h-checkbox(v-model="colors" label="Green" value="Green")
-      h-checkbox(v-model="colors" label="Blue" value="Blue")
-    div
-      | Your favorites colors: {{ colors }}
+<h-card>
+  <h-card-text desc="Select your favorite colors"/>
+  <div>
+    h-checkbox(v-model="colors" label="Red" value="Red")
+    h-checkbox(v-model="colors" label="Green" value="Green")
+    h-checkbox(v-model="colors" label="Blue" value="Blue")        
+  </div>
+
+  <div>
+    | Your favorites colors: {{ colors }}
+  </div>          
+</h-card>
       `
     }
   },

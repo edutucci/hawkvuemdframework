@@ -8,20 +8,20 @@
     label(class="control-label" v-if="floatLabel")
       | {{floatLabel}}
 
-    h-fa-icon(
-      v-if="inputtype === 'text' && showcleartext === true"
-      :icon="['fas', 'times-circle']" class="input-icon" @click="onClear"
-    )
-    h-fa-icon(
-      v-if="inputtype === 'password' && showpassword === false"
-      :icon="['fas', 'eye-slash']"
-      class="input-icon"
-      @click="showPassword"
-    )
-    h-fa-icon(
-      v-if="inputtype === 'text' && showpassword === true"
-      :icon="['fas', 'eye']" class="input-icon" @click="showPassword"
-    )
+    //- h-fa-icon(
+    //-   v-if="inputtype === 'text' && cleartext === true"
+    //-   :icon="['fas', 'times-circle']" class="input-icon" @click="onClear"
+    //- )
+    //- h-fa-icon(
+    //-   v-if="inputtype === 'password' && showpassword === false"
+    //-   :icon="['fas', 'eye-slash']"
+    //-   class="input-icon"
+    //-   @click="showPassword"
+    //- )
+    //- h-fa-icon(
+    //-   v-if="inputtype === 'text' && showpassword === true"
+    //-   :icon="['fas', 'eye']" class="input-icon" @click="showPassword"
+    //- )
 
 </template>
 
@@ -43,11 +43,11 @@ export default {
     type: {
       type: String,
       default: 'text'
-    },
-    cleartext: {
-      type: Boolean,
-      default: false
     }
+    // cleartext: {
+    //   type: Boolean,
+    //   default: false
+    // }
   },
   data () {
     return {
@@ -67,9 +67,9 @@ export default {
     }
 
     this.inputtype = this.type
-    if (this.inputtype === 'password') {
-      this.showcleartext = false
-    }
+    // if (this.inputtype === 'password') {
+    //   this.showcleartext = false
+    // }
   },
   methods: {
     onInputFocus () {

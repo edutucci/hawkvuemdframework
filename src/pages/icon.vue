@@ -4,14 +4,14 @@
 
     .boxshadow
       H1  Sizes
-      h-fa-icon(:icon=['fas', 'camera-retro'] size="xs")
-      h-fa-icon(:icon=['fas', 'camera-retro'] size="sm")
-      h-fa-icon(:icon=['fas', 'camera-retro'] size="lg")
-      h-fa-icon(:icon=['fas', 'camera-retro'] size="2x")
-      h-fa-icon(:icon=['fas', 'camera-retro'] size="4x")
-      h-fa-icon(:icon=['fas', 'camera-retro'] size="6x")
-      h-fa-icon(:icon=['fas', 'camera-retro'] size="8x")
-      h-fa-icon(:icon=['fas', 'camera-retro'] size="10x")
+      <h-fa-icon :icon="['fas', 'camera-retro']" size="xs"/>
+      <h-fa-icon :icon="['fas', 'camera-retro']" size="sm"/>
+      <h-fa-icon :icon="['fas', 'camera-retro']" size="lg"/>
+      <h-fa-icon :icon="['fas', 'camera-retro']" size="2x"/>
+      <h-fa-icon :icon="['fas', 'camera-retro']" size="4x"/>
+      <h-fa-icon :icon="['fas', 'camera-retro']" size="6x"/>
+      <h-fa-icon :icon="['fas', 'camera-retro']" size="8x"/>
+      <h-fa-icon :icon="['fas', 'camera-retro']" size="10x"/>
 
       <pre v-highlightjs="iconSizes">
         <code class="html">
@@ -24,13 +24,13 @@
       .flex
         .flex.flex-column
           div.flex.flex-justify-center
-            h-fa-icon(:icon=['fas', 'home'] size="lg")
+            <h-fa-icon :icon="['fas', 'home']" size="lg"/>
           div.flex.flex-justify-center
-            h-fa-icon(:icon=['fas', 'info'] size="lg")
+            <h-fa-icon :icon="['fas', 'info']" size="lg"/>
           div.flex.flex-justify-center
-            h-fa-icon(:icon=['fas', 'spinner'] size="lg" pulse)
+            <h-fa-icon :icon="['fas', 'spinner']" size="lg" pulse/>
           div.flex.flex-justify-center
-            h-fa-icon(:icon=['fas', 'sync'] size="lg" spin)
+            <h-fa-icon :icon="['fas', 'sync']" size="lg" spin/>
 
         .flex.flex-column
           div.flex.flex-justify-center
@@ -62,20 +62,20 @@ export default {
   data () {
     return {
       iconSizes: `
-h-fa-icon(:icon=['fas', 'camera-retro'] size="xs")
-h-fa-icon(:icon=['fas', 'camera-retro'] size="sm")
-h-fa-icon(:icon=['fas', 'camera-retro'] size="lg")
-h-fa-icon(:icon=['fas', 'camera-retro'] size="2x")
-h-fa-icon(:icon=['fas', 'camera-retro'] size="4x")
-h-fa-icon(:icon=['fas', 'camera-retro'] size="6x")
-h-fa-icon(:icon=['fas', 'camera-retro'] size="8x")
-h-fa-icon(:icon=['fas', 'camera-retro'] size="10x")      
+<h-fa-icon :icon=['fas', 'camera-retro'] size="xs"/>
+<h-fa-icon :icon=['fas', 'camera-retro'] size="sm"/>
+<h-fa-icon :icon=['fas', 'camera-retro'] size="lg"/>
+<h-fa-icon :icon=['fas', 'camera-retro'] size="2x"/>
+<h-fa-icon :icon=['fas', 'camera-retro'] size="4x"/>
+<h-fa-icon :icon=['fas', 'camera-retro'] size="6x"/>
+<h-fa-icon :icon=['fas', 'camera-retro'] size="8x"/>
+<h-fa-icon :icon=['fas', 'camera-retro'] size="10x"/>  
       `,
       iconList: `
-h-fa-icon(:icon=['fas', 'home'] size="lg")
-h-fa-icon(:icon=['fas', 'info'] size="lg")
-h-fa-icon(:icon=['fas', 'spinner'] size="lg" pulse)
-h-fa-icon(:icon=['fas', 'sync'] size="lg" spin)
+ <h-fa-icon :icon=['fas', 'home'] size="lg"/>
+ <h-fa-icon :icon=['fas', 'info'] size="lg"/>
+ <h-fa-icon :icon=['fas', 'spinner'] size="lg" pulse/>
+ <h-fa-icon :icon=['fas', 'sync'] size="lg" spin/>
       `
     }
   }

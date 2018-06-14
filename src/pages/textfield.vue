@@ -4,13 +4,24 @@
 
     .col-4.boxshadow
       H1  Text
-      h-input(:value="txtName" float-label="Name" v-model="txtName" cleartext)
-      span  Name: {{ txtName }}
+      <h-input value="txtName" float-label="Name" v-model="txtName"/>
+      <span>Name: {{ txtName }}</span>
+
+    <pre v-highlightjs="txttextcomp">
+      <code class="html">
+      </code>
+    </pre>    
     
     .col-4.boxshadow
       H1  Password
-      h-input(:value="txtPassword" type="password" float-label="Password" v-model="txtPassword" cleartext)
-      span  Password: {{ txtPassword }}
+      <h-input value="txtPassword" type="password" float-label="Password" v-model="txtPassword"/>
+      <span>Password: {{ txtPassword }}</span>
+
+    <pre v-highlightjs="txtpasswordcomp">
+      <code class="html">
+      </code>
+    </pre>
+      
   </div>
 </template>
 
@@ -24,7 +35,15 @@ export default {
   data () {
     return {
       txtName: 'Eduardo',
-      txtPassword: 'Password'
+      txtPassword: 'Password',
+      txttextcomp: `
+<h-input value="txtName" float-label="Name" v-model="txtName"/>
+<span>Name: {{ txtName }}</span>
+      `,
+      txtpasswordcomp: `
+<h-input value="txtPassword" type="password" float-label="Password" v-model="txtPassword"/>
+<span>Password: {{ txtPassword }}</span>        
+      `
     }
   }
 }

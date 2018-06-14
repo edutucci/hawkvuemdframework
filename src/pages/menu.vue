@@ -29,8 +29,13 @@
           </h-menu-dropdown>
     </div>
 
+    <pre v-highlightjs="menutop">
+      <code class="html">
+      </code>
+    </pre>
+
     <h1> Menu Dropdown Bottom of screen</h1>
-    <div class="flex h-ma-lg" style="positon: relative;">
+    <div class="flex h-ma-lg">
       .col-3.flex-1
         .row
           h1 Menu Left
@@ -47,7 +52,12 @@
             <h-menu-dropdown-item :icon="['fas', 'check-circle']" text="You are correct." @click="showModal('U clicked in circle')"/>
             <h-menu-dropdown-item :icon="['fas', 'handshake']" text="You are in good hands" @click="showModal('U clicked in hands')"/>
           </h-menu-dropdown>
-    </div>    
+    </div>
+
+      <pre v-highlightjs="menudown">
+        <code class="html">
+        </code>
+      </pre>    
 
 
     //- <p>Slide Menu</p>
@@ -115,7 +125,47 @@ export default {
           { 'label': 'item 2', 'url': 'https://www.terra.com.br/' },
           { 'label': 'item 2', 'url': 'https://www.terra.com.br/' }
         ]
-      ]
+      ],
+      menutop: `
+<div class="flex h-ma-lg">
+  .col-3.flex-1
+    .row
+      h1 Menu Left
+    .row
+      <h-menu-dropdown :icon="['fas', 'bars']">
+        <h-menu-dropdown-item :icon="['fas', 'check-circle']" text="You are correct." @click="showModal('U clicked in circle')"/>
+        <h-menu-dropdown-item :icon="['fas', 'handshake']" text="You are in good hands" @click="showModal('U clicked in hands')"/>
+      </h-menu-dropdown>
+  .col-3.flex.flex-column
+    .row.flex.flex-justify-end
+      h1 Menu Right
+    .row.flex.flex-justify-end
+      <h-menu-dropdown :icon="['fas', 'bars']" rtl="true">
+        <h-menu-dropdown-item :icon="['fas', 'check-circle']" text="You are correct." @click="showModal('U clicked in circle')"/>
+        <h-menu-dropdown-item :icon="['fas', 'handshake']" text="You are in good hands" @click="showModal('U clicked in hands')"/>
+      </h-menu-dropdown>
+</div>
+      `,
+      menudown: `
+<div class="flex h-ma-lg">
+  .col-3.flex-1
+    .row
+      h1 Menu Left
+    .row
+      <h-menu-dropdown :icon="['fas', 'bars']" dtu>
+        <h-menu-dropdown-item :icon="['fas', 'check-circle']" text="You are correct." @click="showModal('U clicked in circle')"/>
+        <h-menu-dropdown-item :icon="['fas', 'handshake']" text="You are in good hands" @click="showModal('U clicked in hands')"/>
+      </h-menu-dropdown>
+  .col-3.flex.flex-column
+    .row.flex.flex-justify-end
+      h1 Menu Right
+    .row.flex.flex-justify-end
+      <h-menu-dropdown :icon="['fas', 'bars']" rtl dtu>
+        <h-menu-dropdown-item :icon="['fas', 'check-circle']" text="You are correct." @click="showModal('U clicked in circle')"/>
+        <h-menu-dropdown-item :icon="['fas', 'handshake']" text="You are in good hands" @click="showModal('U clicked in hands')"/>
+      </h-menu-dropdown>
+</div>
+      `
     }
   },
   methods: {

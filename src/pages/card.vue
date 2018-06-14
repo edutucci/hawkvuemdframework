@@ -10,48 +10,39 @@
     //-   .col-xs-12.col-sm-6.col-lg-4(style="background-color: red")
     //-     | cccccccccccccc
 
-  
-    div
-      h-card
-        h-card-media(
-          img="static/img/Nallah_Sindh.jpg"
-        )
-        h-card-header(
-          avatar="static/avatar/Kostenlose.jpg"
-          text="River"
-          desc="Beautifull place"
-        )
-        h-card-text(
-          desc="A river in the Ganderbal district of Jammu and Kashmir state of India."
-        )
+    <div>
+      <h-card>
+        <h-card-media img="static/img/Nallah_Sindh.jpg"/>
+        <h-card-header avatar="static/avatar/Kostenlose.jpg"  text="River"  desc="Beautifull place" />
+        <h-card-text desc="A river in the Ganderbal district of Jammu and Kashmir state of India." />
+      </h-card>
+   
+    </div>
+
     .boxshadow
       <pre v-highlightjs="card1">
         <code class="html">
         </code>
       </pre>
 
-    div
-      h-card
-        h-card-media(
-          img="static/img/Nallah_Sindh.jpg"
-        )
-        h-card-header(
-          avatar="static/avatar/Kostenlose.jpg"
-          text="River"
-          desc="Beautifull place"
-        )
-        h-card-text(
-          desc="A river in the Ganderbal district of Jammu and Kashmir state of India."
-        )
-        h-card-actions
-          h-card-buttons
-            h-btn(textbutton label="explore")
-            h-btn(textbutton label="share")
-          h-card-icons
-            h-btn(textbutton)
-              h-fa-icon(:icon=['fas','heart'])
-            h-btn(textbutton)
-              h-fa-icon(:icon=['fas','share-alt'])
+    <div>
+      <h-card>
+        <h-card-media img="static/img/Nallah_Sindh.jpg"/>
+        <h-card-header avatar="static/avatar/Kostenlose.jpg"  text="River"  desc="Beautifull place" />
+        <h-card-text desc="A river in the Ganderbal district of Jammu and Kashmir state of India." />
+        <h-card-actions>
+          <h-card-buttons>
+            <h-btn textbutton label="explore"/>
+            <h-btn textbutton label="share"/>       
+          </h-card-buttons>
+          <h-card-icons>
+            <h-btn textbutton> <h-fa-icon :icon="['fas','heart']" /> </h-btn>
+            <h-btn textbutton> <h-fa-icon :icon="['fas','share-alt']" /> </h-btn>           
+          </h-card-icons>
+        </h-card-actions>
+      </h-card>    
+    </div>
+    
     .boxshadow
       <pre v-highlightjs="card2">
         <code class="html">
@@ -61,42 +52,28 @@
     h1  Card Scannable
     
     .flex.flex-wrap
-      h-card(style="width:256px")
-        h-card-media(
-          img="static/img/90minute.png"
-        )
-        h-card-header(
-          text="90th minute"
-          desc="4.31 MB"
-        )
-    
-      h-card(style="width:256px")
-        h-card-media(
-          img="static/img/breakpoint.png"
-        )
-        h-card-header(
-          text="Break point"
-          desc="5.12 MB"
-        )
-    .flex.flex-wrap
-      h-card(style="width:256px")
-        h-card-media(
-          img="static/img/matchday.png"
-        )
-        h-card-header(
-          text="Matchday"
-          desc="2.18 MB"
-        )
-    
-      h-card(style="width:256px")
-        h-card-media(
-          img="static/img/bluerun.png"
-        )
+      <h-card style="width:256px">
+       <h-card-media img="static/img/90minute.png"/>
+       <h-card-header  text="90th minute" desc="4.31 MB"/>
+      </h-card>
 
-        h-card-header(
-          text="Blue run"
-          desc="3.33 MB"
-        )
+      <h-card style="width:256px">
+       <h-card-media img="static/img/breakpoint.png"/>
+       <h-card-header text="Break point"  desc="5.12 MB"/>
+      </h-card>      
+      
+
+    .flex.flex-wrap
+      <h-card style="width:256px">
+       <h-card-media img="static/img/matchday.png"/>
+       <h-card-header text="Matchday"  desc="2.18 MB"/>
+      </h-card>
+
+      <h-card style="width:256px">
+       <h-card-media img="static/img/bluerun.png"/>
+       <h-card-header text="Blue run"  desc="3.33 MB"/>
+      </h-card>
+                
     <pre v-highlightjs="cardScannable">
       <code class="html">
       </code>
@@ -107,46 +84,32 @@
     div.flex.flex-justify-center.boxshadow.h-ma-md(style="width:380px;")
       .flex.flex-column.flex-wrap
         div.h-ma-md(style="width:360px; height: 200px;")
-          h-card
-            h-card-media(
-              style="width:360px; height: 200px;"
-              img="static/img/90minute.png"
-            )
-              h-card-media-text.flex-items-end(
-                text="90th minute"
-                desc="4.31 MB"
-              )
-        div.h-ma-md.flex.flex-items-center(style="width:360px; height: 200px;")
-          h-card
-            h-card-media(
-              style="width:170px; height: 128px;"
-              img="static/img/bluerun.png"
-            )
-              h-card-media-text.flex-items-end(
-                text="Blue run"
-                desc="3.33 MB"
-              )
+          <h-card>
+            <h-card-media style="width:360px; height: 200px;"  img="static/img/90minute.png">
+              <h-card-media-text class="flex-items-end" text="90th minute" desc="4.31 MB"/>
+            </h-card-media>
+          </h-card>
 
-          h-card.h-ml-md
-            h-card-media(
-              style="width:160px; height: 192px;"
-              img="static/img/breakpoint.png"
-            )
-              h-card-media-text.flex-items-center(
-                text="Break point"
-                desc="5.12 MB"
-              )
+        div.h-ma-md.flex.flex-items-center(style="width:360px; height: 200px;")
+          <h-card>
+            <h-card-media style="width:170px; height: 128px;" img="static/img/bluerun.png">
+              <h-card-media-text class="flex-items-end" text="Blue run" desc="3.33 MB"/>
+            </h-card-media>
+          </h-card>          
+
+          <h-card>
+            <h-card-media style="width:160px; height: 192px;"  img="static/img/breakpoint.png">
+              <h-card-media-text class="flex-items-center" text="Break point"  desc="5.12 MB"/>
+            </h-card-media>
+          </h-card>
+
         div.h-ma-md(style="width:360px; height: 200px;")
-          h-card
-            h-card-media(
-              style="width:360px; height: 200px;"
-              img="static/img/matchday.png"
-            )
-              h-card-media-text.flex-justify-center.flex-items-center(
-                text="Match day"
-                desc="2.18 MB"
-              )
-    
+          <h-card>
+            <h-card-media style="width:360px; height: 200px;" img="static/img/matchday.png">
+              <h-card-media-text class="flex-items-center flex-justify-center" text="Match day" desc="2.18 MB"/>
+            </h-card-media>
+          </h-card>          
+          
     <pre v-highlightjs="cardDistinction">
       <code class="html">
       </code>
@@ -249,124 +212,82 @@ export default {
   data () {
     return {
       card1: `
-h-card
-  h-card-media(
-    img="static/img/Nallah_Sindh.jpg"
-  )
-  h-card-header(
-    avatar="static/avatar/Kostenlose.jpg"
-    text="River"
-    desc="Beautifull place"
-  )
-  h-card-text(
-    desc="A river in the Ganderbal district of Jammu and Kashmir state of India."
-  )
+<h-card>
+  <h-card-media img="static/img/Nallah_Sindh.jpg"/>
+  <h-card-header avatar="static/avatar/Kostenlose.jpg"  text="River"  desc="Beautifull place" />
+  <h-card-text desc="A river in the Ganderbal district of Jammu and Kashmir state of India." />
+</h-card>
       `,
       card2: `
-h-card
-  h-card-media(
-    img="static/img/Nallah_Sindh.jpg"
-  )
-  h-card-header(
-    avatar="static/avatar/Kostenlose.jpg"
-    text="River"
-    desc="Beautifull place"
-  )
-  h-card-text(
-    desc="A river in the Ganderbal district of Jammu and Kashmir state of India."
-  )
-  h-card-actions
-    h-card-buttons
-      h-btn(textbutton label="explore")
-      h-btn(textbutton label="share")
-    h-card-icons
-      h-btn(textbutton)
-        h-fa-icon(:icon=['fas','heart'])
-      h-btn(textbutton)
-        h-fa-icon(:icon=['fas','share-alt'])
+<h-card>
+  <h-card-media img="static/img/Nallah_Sindh.jpg"/>
+  <h-card-header avatar="static/avatar/Kostenlose.jpg"  text="River"  desc="Beautifull place" />
+  <h-card-text desc="A river in the Ganderbal district of Jammu and Kashmir state of India." />
+  <h-card-actions>
+    <h-card-buttons>
+      <h-btn textbutton label="explore"/>
+      <h-btn textbutton label="share"/>       
+    </h-card-buttons>
+    <h-card-icons>
+      <h-btn textbutton> <h-fa-icon :icon="['fas','heart']" /> </h-btn>
+      <h-btn textbutton> <h-fa-icon :icon="['fas','share-alt']" /> </h-btn>           
+    </h-card-icons>
+  </h-card-actions>
+</h-card>
       `,
       cardScannable: `
-.flex.flex-wrap
-  h-card(style="width:256px")
-    h-card-media(
-      img="static/img/90minute.png"
-    )
-    h-card-header(
-      text="90th minute"
-      desc="4.31 MB"
-    )
+  .flex.flex-wrap
+    <h-card style="width:256px">
+      <h-card-media img="static/img/90minute.png"/>
+      <h-card-header  text="90th minute" desc="4.31 MB"/>
+    </h-card>
 
-  h-card(style="width:256px")
-    h-card-media(
-      img="static/img/breakpoint.png"
-    )
-    h-card-header(
-      text="Break point"
-      desc="5.12 MB"
-    )
-.flex.flex-wrap
-  h-card(style="width:256px")
-    h-card-media(
-      img="static/img/matchday.png"
-    )
-    h-card-header(
-      text="Matchday"
-      desc="2.18 MB"
-    )
+    <h-card style="width:256px">
+      <h-card-media img="static/img/breakpoint.png"/>
+      <h-card-header text="Break point"  desc="5.12 MB"/>
+    </h-card>      
+    
 
-  h-card(style="width:256px")
-    h-card-media(
-      img="static/img/bluerun.png"
-    )
+  .flex.flex-wrap
+    <h-card style="width:256px">
+      <h-card-media img="static/img/matchday.png"/>
+      <h-card-header text="Matchday"  desc="2.18 MB"/>
+    </h-card>
 
-    h-card-header(
-      text="Blue run"
-      desc="3.33 MB"
-    )
+    <h-card style="width:256px">
+      <h-card-media img="static/img/bluerun.png"/>
+      <h-card-header text="Blue run"  desc="3.33 MB"/>
+    </h-card>
       `,
       cardDistinction: `
-div.flex.flex-justify-center.boxshadow.h-ma-md(style="width:380px;")
-  .flex.flex-column.flex-wrap
-    div.h-ma-md(style="width:360px; height: 200px;")
-      h-card
-        h-card-media(
-          style="width:360px; height: 200px;"
-          img="static/img/90minute.png"
-        )
-          h-card-media-text.flex-items-end(
-            text="90th minute"
-            desc="4.31 MB"
-          )
-    div.h-ma-md.flex.flex-items-center(style="width:360px; height: 200px;")
-      h-card
-        h-card-media(
-          style="width:170px; height: 128px;"
-          img="static/img/bluerun.png"
-        )
-          h-card-media-text.flex-items-end(
-            text="Blue run"
-            desc="3.33 MB"
-          )
+    div.flex.flex-justify-center.boxshadow.h-ma-md(style="width:380px;")
+      .flex.flex-column.flex-wrap
+        div.h-ma-md(style="width:360px; height: 200px;")
+          <h-card>
+            <h-card-media style="width:360px; height: 200px;"  img="static/img/90minute.png">
+              <h-card-media-text class="flex-items-end" text="90th minute" desc="4.31 MB"/>
+            </h-card-media>
+          </h-card>
 
-      h-card.h-ml-md
-        h-card-media(
-          style="width:160px; height: 192px;"
-          img="static/img/breakpoint.png"
-        )
-          h-card-media-text.flex-items-center(
-            text="Break point"
-            desc="5.12 MB"
-          )
-    div.h-ma-md(style="width:360px; height: 200px;")
-      h-card
-        h-card-media(
-          style="width:360px; height: 200px;"
-          img="static/img/matchday.png"
-        )
-          h-card-media-text.flex-justify-center.flex-items-center(
-            text="Match day"
-            desc="2.18 MB"
-          )
+        div.h-ma-md.flex.flex-items-center(style="width:360px; height: 200px;")
+          <h-card>
+            <h-card-media style="width:170px; height: 128px;" img="static/img/bluerun.png">
+              <h-card-media-text class="flex-items-end" text="Blue run" desc="3.33 MB"/>
+            </h-card-media>
+          </h-card>          
+
+          <h-card>
+            <h-card-media style="width:160px; height: 192px;"  img="static/img/breakpoint.png">
+              <h-card-media-text class="flex-items-center" text="Break point"  desc="5.12 MB"/>
+            </h-card-media>
+          </h-card>
+
+        div.h-ma-md(style="width:360px; height: 200px;")
+          <h-card>
+            <h-card-media style="width:360px; height: 200px;" img="static/img/matchday.png">
+              <h-card-media-text class="flex-items-center flex-justify-center" text="Match day" desc="2.18 MB"/>
+            </h-card-media>
+          </h-card>          
       `
     }
   }
