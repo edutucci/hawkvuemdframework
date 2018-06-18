@@ -16,6 +16,7 @@ import mainPage from './pages/main'
 import pagebtn from './pages/buttons'
 import pageIcon from './pages/icon'
 import pageTextField from './pages/textfield'
+import pageSearch from './pages/search'
 import pageCard from './pages/card'
 import pageMenu from './pages/menu'
 import pageList from './pages/list'
@@ -53,6 +54,7 @@ const routes = [
       { path: '/buttons', component: pagebtn },
       { path: '/icon', component: pageIcon },
       { path: '/textfield', component: pageTextField },
+      { path: '/search', component: pageSearch },
       { path: '/card', component: pageCard },
       { path: '/menu', component: pageMenu },
       { path: '/list', component: pageList },

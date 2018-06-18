@@ -39,6 +39,7 @@
               <h-collapsible-item text="Buttons" @click="$router.push('/buttons'), $refs.nav.close()"/>
               <h-collapsible-item text="Icons" @click="$router.push('/icon'), $refs.nav.close()"/>
               <h-collapsible-item text="Textfield" @click="$router.push('/textfield'), $refs.nav.close()"/>
+              <h-collapsible-item text="Search" @click="$router.push('/search'), $refs.nav.close()"/>
               <h-collapsible-item text="Cards" @click="$router.push('/card'), $refs.nav.close()"/>
               <h-collapsible-item text="Menu" @click="$router.push('/menu'), $refs.nav.close()"/>
               <h-collapsible-item text="List" @click="$router.push('/list'), $refs.nav.close()"/>
