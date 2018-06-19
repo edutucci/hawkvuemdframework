@@ -3,13 +3,18 @@
     .icon-left
        h-fa-icon(:icon="['fas', 'search']")
     .flex-1.input-container
-      input(:value="value"  class="h-input")
+      input(
+        v-model="query"
+        placeholder="Search for something"
+        class="h-input"
+      )
 
 </template>
 
 <script>
 
 import HFaIcon from '../icons/HFaIcon.vue'
+import { debounce } from 'lodash'
 
 export default {
   components: {
@@ -24,13 +29,24 @@ export default {
     }
   },
   data () {
-    return {}
+    return {
+      query: '',
+      delay: 200
+    }
   },
   created () {
     // this.onChange()
     // this.onInputBlur()
   },
+  watch: {
+    query (query) {
+      this.searchQuery(query)
+    }
+  },
   methods: {
+    searchQuery: debounce(function (query) {
+      console.log('query: ' + query)
+    }, 1000)
   }
 }
 </script>
