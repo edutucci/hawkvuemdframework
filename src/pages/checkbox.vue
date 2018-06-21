@@ -41,39 +41,27 @@
         </code>
       </pre>
 
-    //- div
-    //-   <!-- Boolean -->
-    //-   <div>
-    //-     <h-checkbox @change="onChange" v-model="checked2" label="Aceito termos"/>
-    //-     <div>
-    //-       <span> checked2 {{ checked2 }} </span>
-    //-     </div>          
-    //-   </div>
+    <div>
+      h1 List with numbers
+      <h-card>
+        <h-card-text desc="Select yours favorite numbers" />
+        <div>
+          <h-checkbox v-model="checkedNumbers" label="1" :value="1"/>
+          <h-checkbox v-model="checkedNumbers" label="2" :value="2"/>
+          <h-checkbox v-model="checkedNumbers" label="3" :value="3"/>
+          <h-checkbox v-model="checkedNumbers" label="4" :value="4"/>        
+        </div>
+        <div>
+          <span>Favorite numbers {{ checkedNumbers }}</span>
+        </div>
+      </h-card>
+    .boxshadow
+      <pre v-highlightjs="cklistnumbers">
+        <code class="html">
+        </code>
+      </pre>
 
-    //-   <!-- <p></p>
-    //-   <h-checkbox v-model="checkedNames" label="John" value="John"/>
-    //-   <h-checkbox v-model="checkedNames" label="Mike" value="Mike"/>
-    //-   <span>checkedNames {{ checkedNames }}</span> -->
-
-    //-   <div>
-    //-     <h-checkbox @change="onChange" v-model="checkedNames2" label="Abacaxi" value="Abacaxi"/>
-    //-     <h-checkbox v-model="checkedNames2" label="Pera" value="Pera"/>
-    //-     <h-checkbox v-model="checkedNames2" label="Uva" value="Uva"/>
-    //-     <h-checkbox v-model="checkedNames2" label="Maça" value="Maça"/>
-    //-     <div>
-    //-       <span>checkedNames2 {{ checkedNames2 }}</span>
-    //-     </div>
-    //-   </div>
-
-    //-   <div>
-    //-     <h-checkbox v-model="checkedNumbers" label="1" :value="1"/>
-    //-     <h-checkbox v-model="checkedNumbers" label="2" :value="2"/>
-    //-     <h-checkbox v-model="checkedNumbers" label="3" :value="3"/>
-    //-     <h-checkbox v-model="checkedNumbers" label="4" :value="4"/>
-    //-     <div>
-    //-       <span>checkedNumbers {{ checkedNumbers }}</span>
-    //-     </div>         
-    //-   </div>
+    </div>
 
     //-   <!-- Vue Events
     //-   Vue Event 	Description
@@ -122,6 +110,20 @@ export default {
   <div>
     | Your favorites colors: {{ colors }}
   </div>          
+</h-card>
+      `,
+      cklistnumbers: `
+<h-card>
+  <h-card-text desc="Select yours favorite numbers" />
+  <div>
+    <h-checkbox v-model="checkedNumbers" label="1" :value="1"/>
+    <h-checkbox v-model="checkedNumbers" label="2" :value="2"/>
+    <h-checkbox v-model="checkedNumbers" label="3" :value="3"/>
+    <h-checkbox v-model="checkedNumbers" label="4" :value="4"/>        
+  </div>
+  <div>
+    <span>Favorite numbers {{ checkedNumbers }}</span>
+  </div>
 </h-card>
       `
     }

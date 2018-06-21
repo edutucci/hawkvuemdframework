@@ -5,7 +5,17 @@
     <h-search @search="onSearch" :options="options"/>
 
     <h1>Toggle</h1>
-    <!-- <h-toggle/> -->
+    <h-toggle/>
+
+        <div>
+          <h-toggle v-model="colors" label="Red" value="Red"/>
+          <h-toggle v-model="colors" label="Green" value="Green"/>
+          <h-toggle v-model="colors" label="Blue" value="Blue"/>        
+        </div>
+
+        <div>
+          | Your favorites colors: {{ colors }}
+        </div>     
 
   </div>
 </template>
@@ -22,7 +32,8 @@ export default {
   },
   data () {
     return {
-      options: []
+      options: [],
+      colors: []
     }
   },
   methods: {
