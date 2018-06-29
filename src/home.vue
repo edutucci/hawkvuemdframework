@@ -49,6 +49,7 @@
               <h-collapsible-item text="Tab" @click="$router.push('/tab'), $refs.nav.close()"/>
               <h-collapsible-item text="Table" @click="$router.push('/table'), $refs.nav.close()"/>
               <h-collapsible-item text="Toolbar" @click="$router.push('/toolbar'), $refs.nav.close()"/>
+              <h-collapsible-item text="Modal" @click="$router.push('/modal'), $refs.nav.close()"/>
             </h-collapsible-menu>
 
           </h-collapsible>

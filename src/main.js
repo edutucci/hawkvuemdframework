@@ -26,6 +26,7 @@ import pageSelect from './pages/select'
 import pageTab from './pages/tab'
 import pageTable from './pages/table'
 import pageToolbar from './pages/toolbar'
+import pageModal from './pages/modal'
 
 // import App from './App'
 // import HelloWorld from '@/components/HelloWorld'
@@ -63,7 +64,8 @@ const routes = [
       { path: '/select', component: pageSelect },
       { path: '/tab', component: pageTab },
       { path: '/table', component: pageTable },
-      { path: '/toolbar', component: pageToolbar }
+      { path: '/toolbar', component: pageToolbar },
+      { path: '/modal', component: pageModal }
     ]
   }
 ]
