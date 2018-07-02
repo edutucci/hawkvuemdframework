@@ -1,9 +1,13 @@
-<template>
-    <div class="flex flex-justify-center flex-items-center drawer" v-if="value">
-      <div>
-        <slot> </slot>
-      </div>
-    </div>    
+<template lang="pug">
+    .flex.flex-justify-center.flex-items-center.drawer(v-if="value" )      
+      .boxshadow.no-user-select.bg-white
+        .bg-primary.text-white.flex.h-pa-sm
+          .flex-1
+            h3  {{title}}
+          div.h-ml-sm
+            h-fa-icon(:icon="['fas', 'times']" @click="close")
+        div.h-pa-sm
+          slot
 </template>
 
 <script>
@@ -18,6 +22,10 @@ export default {
   props: {
     value: {
       type: Boolean
+    },
+    title: {
+      type: String,
+      default: () => ('')
     }
   },
   data () {
@@ -45,6 +53,10 @@ export default {
     top: 0;
     left: 0;
     background-color: rgba(222, 222, 222, 0.6);
+}
+
+h3 {
+  margin: 0;
 }
 
 </style>
