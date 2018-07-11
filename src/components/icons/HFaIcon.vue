@@ -22,7 +22,7 @@ export default {
       type: Array,
       default: () => ([])
     },
-    whiteicon: {
+    textwhite: {
       type: Boolean,
       default: false
     },

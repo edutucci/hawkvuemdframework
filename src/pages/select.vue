@@ -1,5 +1,8 @@
 <template>
   <div>
+    <h1>DatePicker</h1>
+    <h-date-picker :date="dataEvento"/>
+
     <h1>Select</h1>
     
     <h1> Select Options sample </h1>
@@ -47,7 +50,7 @@
         <code class="html">
         </code>
       </pre>
-    </div>    
+    </div>
 
     <!-- Vue Events
     Vue Event 	Description
@@ -60,17 +63,20 @@
 
 import HSelect from '../components/select/HSelect.vue'
 import HAvatar from '../components/image/HAvatar.vue'
+import HDatePicker from '../components/date/HDatePicker.vue'
 
 export default {
   components: {
     HSelect,
-    HAvatar
+    HAvatar,
+    HDatePicker
   },
   data () {
     return {
       selectModel: '',
       selectModel1: '',
       multiselect: [],
+      dataEvento: new Date(),
       options: [
         {
           'label': 'Address-book',
