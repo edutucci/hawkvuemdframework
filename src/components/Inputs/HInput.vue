@@ -1,9 +1,15 @@
 <template lang="pug">
   .input-container(v-bind:class="[inputClass]")
-    input(:value="value" :type="inputtype" class="h-input" :class="[rticon]"
+    input(
+      :value="value"
+      :type="inputtype"
+      class="h-input" :class="[rticon]"
+      :readonly="readonly"
+      :placeholder="placeholder"
       @focus="onInputFocus()"
       @blur="onInputBlur()"
       @input="onChange($event.target.value)"
+      @click="onClick"
     )
     label(class="control-label" v-if="floatLabel")
       | {{floatLabel}}
@@ -43,6 +49,14 @@ export default {
     type: {
       type: String,
       default: 'text'
+    },
+    readonly: {
+      type: Boolean,
+      default: false
+    },
+    placeholder: {
+      type: String,
+      default: ''
     }
     // cleartext: {
     //   type: Boolean,
@@ -77,7 +91,7 @@ export default {
     },
     onInputBlur () {
       // change float label position
-      if (this.floatLabel && this.value) {
+      if (this.floatLabel && (this.value || this.placeholder)) {
         this.inputClass = 'has-focus'
       } else {
         this.inputClass = ''
@@ -92,6 +106,9 @@ export default {
       }
 
       this.$emit('input', txtValue)
+    },
+    onClick () {
+      this.$emit('click')
     },
     onClear () {
       this.$emit('input', '')

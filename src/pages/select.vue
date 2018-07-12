@@ -1,7 +1,10 @@
 <template>
   <div>
     <h1>DatePicker</h1>
+    <div class="flex">
     <h-date-picker :date="dataEvento"/>
+    <h-date-picker :date="dataEvento"/>
+    </div>
 
     <h1>Select</h1>
     

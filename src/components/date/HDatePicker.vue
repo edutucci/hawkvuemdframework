@@ -1,50 +1,62 @@
 <template>
-    <div style="width:350px;">
+    <div style="width:350px; position:relative;">
       <div class="flex flex-column full-width">
         <div class="full-width">
-          <input 
-            @click= 'showDatePicker = !showDatePicker ' :placeholder= 'placeholder'
+          <!-- <input 
+            @click= "showDatePicker = !showDatePicker" :placeholder= 'placeholder'
             class="full-width"
             readonly="true"
             type='text'
-            :value= 'inputValue '>
+            :value= 'inputValue '> -->
+          <h-input @click="showDatePicker = !showDatePicker"
+            v-model="inputValue" :placeholder="placeholder"
+            :readonly="true"
+            class="full-width"/>
         </div>
-        <div class="full-width">
-          <div class="flex flex-justify-center flex-items-center bg-primary h-pa-md">
-            <div class="text-white">
-              <h-fa-icon :icon="['fas', 'chevron-left']"/>
-            </div>
-            <div class="flex-1">
-              <div class="flex flex-column">
-                <div class="flex flex-justify-center text-white">
-                  <h2>{{currentDate.getFullYear()}}</h2>
-                </div>
-                <div class="flex flex-justify-center text-white">
-                  <h2>{{week_days[currentDate.getDay()]}}, {{months[currentDate.getMonth()]}} {{currentDate.getDate()}}</h2>
+        <div v-if="showDatePicker" class="position-absolute boxshadow full-width" style="top:67px;background-color: white;">
+
+          <div class="full-width">
+            <div class="flex flex-justify-center flex-items-center bg-primary h-pa-md">
+              <div class="text-white">
+                <h-fa-icon :icon="['fas', 'chevron-left']"/>
+              </div>
+              <div class="flex-1">
+                <div class="flex flex-column">
+                  <div class="flex flex-justify-center text-white">
+                    <h2>{{currentDate.getFullYear()}}</h2>
+                  </div>
+                  <div class="flex flex-justify-center text-white">
+                    <h2>{{week_days[currentDate.getDay()]}}, {{months[currentDate.getMonth()]}} {{currentDate.getDate()}}</h2>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="text-white">
-              <h-fa-icon :icon="['fas', 'chevron-right']"/>
+              <div class="text-white">
+                <h-fa-icon :icon="['fas', 'chevron-right']"/>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="flex">
-          <div v-for="day in 6" :key="day" class="flex-1 text-center">{{week_days[day-1]}}</div>
-        </div>
-        <div class="flex" v-for="week in Calendar" :key="week.monthDay">
-          <div class="flex-1 flex flex-justify-center" v-for="day in week" :key="day.monthDay">
-            <div v-if="day.weekDay !== -1" class="btn bg-white circle flex flex-justify-center flex-items-center" :class="{activeday: day.monthDay === currentDate.getDate()}" @click="updateDate(day.date)" style="width:26px; height:26px;">{{day.monthDay}}</div>
+          <div class="flex">
+            <div v-for="day in 6" :key="day" class="flex-1 text-center">{{week_days[day-1]}}</div>
           </div>
+          <div class="flex" v-for="week in Calendar" :key="week.monthDay">
+            <div class="flex-1 flex flex-justify-center" v-for="day in week" :key="day.monthDay">
+              <div v-if="day.weekDay !== -1" class="btn bg-white circle flex flex-justify-center flex-items-center" :class="{activeday: day.monthDay === currentDate.getDate()}" @click="updateDate(day.date)" style="width:26px; height:26px;">{{day.monthDay}}</div>
+            </div>
+          </div>
+          <div class="flex flex-justify-end">
+            <h-btn textbutton label="OK" @click="configDate"/> <h-btn textbutton label="Close" @click="showDatePicker = !showDatePicker"/>
+          </div>
+
         </div>
       </div>
-
     </div>
 </template>
 
 <script>
 
 import HFaIcon from '../icons/HFaIcon'
+import HBtn from '../buttons/HBtn'
+import HInput from '../Inputs/HInput.vue'
 
 export default {
   name: 'HDatePicker ',
@@ -63,7 +75,9 @@ export default {
     }
   },
   components: {
-    HFaIcon
+    HFaIcon,
+    HBtn,
+    HInput
   },
   data () {
     return {
@@ -150,8 +164,11 @@ export default {
     },
     updateDate (date) {
       this.currentDate = date
-      this.setModelDate(date)
-      this.setInputDate(date)
+    },
+    configDate () {
+      this.showDatePicker = false
+      this.setModelDate(this.currentDate)
+      this.setInputDate(this.currentDate)
     },
     setModelDate (date) {
       this.modelValue = date
