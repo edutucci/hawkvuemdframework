@@ -13,7 +13,7 @@
         .full-width
           .flex.flex-justify-center.flex-items-center.bg-primary.h-pa-md
             .text-white
-              h-fa-icon(:icon="['fas', 'chevron-left']")
+              h-fa-icon(:icon="['fas', 'chevron-left']" @click="updateMonth(-1)")
 
             .flex-1
               .flex.flex-column
@@ -24,7 +24,7 @@
                   h2  {{week_days[currentDate.getDay()]}}, {{months[currentDate.getMonth()]}} {{currentDate.getDate()}}
 
             .text-white
-              h-fa-icon(:icon="['fas', 'chevron-right']")
+              h-fa-icon(:icon="['fas', 'chevron-right']" @click="updateMonth(+1)")
         
         .flex
           .flex-1.text-center(v-for="day in 6" :key="day")

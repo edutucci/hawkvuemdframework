@@ -51,7 +51,8 @@ export default {
       Calendar: [],
       modelValue: new Date(),
       inputValue: ' ',
-      activeday: false
+      activeday: false,
+      yearList: []
     }
   },
   mounted () {
@@ -72,8 +73,20 @@ export default {
     // let fev = new Date(2017,8,2)
     // console.log( 'jan vale: ' + jan)
     // console.log( 'fev vale: ' + fev)
+
+    this.createYearList()
   },
   methods: {
+    createYearList () {
+      let curYear = this.currentDate.getFullYear()
+
+      let minYear = curYear - 80
+      let maxYear = curYear + 51
+
+      for (let y = minYear; y < maxYear; y++) {
+        this.yearList.push(y.toString())
+      }
+    },
     updateMonth (value) {
       let currentMonth = this.currentDate.getMonth()
       // console.log( 'currentmonth vale: ' + currentMonth)
