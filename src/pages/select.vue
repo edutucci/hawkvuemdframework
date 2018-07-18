@@ -4,6 +4,7 @@
     <div class="flex">
     <h-date-picker :date="dataEvento"/>
     <h-date-picker :date="dataEvento"/>
+    <time-panel/>
     </div>
 
     <h1>Select</h1>
@@ -67,12 +68,14 @@
 import HSelect from '../components/select/HSelect.vue'
 import HAvatar from '../components/image/HAvatar.vue'
 import HDatePicker from '../components/date/HDatePicker.vue'
+import TimePanel from '../components/date/TimePanel.vue'
 
 export default {
   components: {
     HSelect,
     HAvatar,
-    HDatePicker
+    HDatePicker,
+    TimePanel
   },
   data () {
     return {
