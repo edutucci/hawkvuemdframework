@@ -46,6 +46,7 @@ export default {
         'Sexta-Feira ',
         'Sábado '
       ],
+      years: [],
       first_day: 0,
       days_of_week: 7,
       Calendar: [],
@@ -67,6 +68,8 @@ export default {
     this.getCalendar()
     this.setModelDate(this.currentDate)
     this.setInputDate(this.currentDate)
+
+    this.fillYears()
 
     // let jan = new Date(2017,0,3)
     // let fev = new Date(2017,8,2)
@@ -108,6 +111,11 @@ export default {
       this.showDatePicker = false
       this.setModelDate(this.currentDate)
       this.setInputDate(this.currentDate)
+    },
+    fillYears () {
+      for (let index = 1950; index < 1971; index++) {
+        this.years.push(index)
+      }
     },
     setModelDate (date) {
       this.modelValue = date

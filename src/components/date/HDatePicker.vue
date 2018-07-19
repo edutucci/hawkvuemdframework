@@ -14,6 +14,7 @@
           :currentdate="currentDate"
           :calendar="Calendar"
           :weekdays="week_days"
+          :years="years"
           @ok="configDate"
           @cancel="showDatePicker = !showDatePicker"
           @updateDate="updateDate"

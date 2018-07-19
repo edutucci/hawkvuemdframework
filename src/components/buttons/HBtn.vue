@@ -75,9 +75,9 @@ export default {
     }
   },
   created () {
-    if (this.textbutton) {
-      this.bgcolor = 'bg-white'
-    }
+    // if (this.textbutton) {
+    //   this.bgcolor = 'bg-white'
+    // }
   },
   methods: {
     onClick () {

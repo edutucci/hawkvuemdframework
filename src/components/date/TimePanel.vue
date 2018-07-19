@@ -1,26 +1,129 @@
 <template lang="pug">
-  <div class="clock">
-    <div class="pointerHour"></div>
-    <div class="pointerMin"></div>
-    <div class="btn btn12"> 12 </div>
-    <div class="btn btn1"> 1 </div>
-    <div class="btn btn2"> 2 </div>
-    <div class="btn btn3"> 3 </div>
-    <div class="btn btn4"> 4 </div>
-    <div class="btn btn5"> 5 </div> 
-    <div class="btn btn6"> 6 </div> 
-    <div class="btn btn7"> 7 </div> 
-    <div class="btn btn8"> 8 </div> 
-    <div class="btn btn9"> 9 </div> 
-    <div class="btn btn10"> 10 </div> 
-    <div class="btn btn11"> 11 </div> 
+  <div>
+    <div class="clock h-pa-md">
+      <div class="pointerHour bg-primary"></div>
+      <div class="pointerMin bg-primary"></div>
+      <div v-for="tH in transformsHours" :key="tH.text" class="btn circle text-primary flex flex-justify-center" :class="{activehour: tH.text === curHour}" :style="tH.transform"> 
+        | {{tH.text}} 
+      </div>
+    </div>
+    <div class="clock h-pa-md">
+      <div class="pointerHour bg-primary"></div>
+      <div class="pointerMin bg-primary"></div>
+      <div v-for="tMin in transformsMin" :key="tMin.text" class="btn circle text-primary flex flex-justify-center" :class="{activemin: tMin.text === curMin}" :style="tMin.transform"> 
+        <div>{{tMin.text}}</div>  
+      </div>
+    </div>    
   </div>
+
 </template>
 
 <script>
 export default {
   data () {
     return {
+      curHour: '1',
+      curMin: '25',
+      transformsHours: [
+        {
+          transform: { transform: 'rotate(-90deg) translate(8.5rem) rotate(90deg)' },
+          text: '12'
+        },
+        {
+          transform: { transform: 'rotate(-60deg) translate(8.5rem) rotate(60deg)' },
+          text: '1'
+        },
+        {
+          transform: { transform: 'rotate(-30deg) translate(8.5rem) rotate(30deg)' },
+          text: '2'
+        },
+        {
+          transform: { transform: 'rotate(0deg) translate(8.5rem) rotate(0deg)' },
+          text: '3'
+        },
+        {
+          transform: { transform: 'rotate(30deg) translate(8.5rem) rotate(-30deg)' },
+          text: '4'
+        },
+        {
+          transform: { transform: 'rotate(60deg) translate(8.5rem) rotate(-60deg)' },
+          text: '5'
+        },
+        {
+          transform: { transform: 'rotate(90deg) translate(8.5rem) rotate(-90deg)' },
+          text: '6'
+        },
+        {
+          transform: { transform: 'rotate(120deg) translate(8.5rem) rotate(-120deg)' },
+          text: '7'
+        },
+        {
+          transform: { transform: 'rotate(150deg) translate(8.5rem) rotate(-150deg)' },
+          text: '8'
+        },
+        {
+          transform: { transform: 'rotate(180deg) translate(8.5rem) rotate(-180deg)' },
+          text: '9'
+        },
+        {
+          transform: { transform: 'rotate(210deg) translate(8.5rem) rotate(-210deg)' },
+          text: '10'
+        },
+        {
+          transform: { transform: 'rotate(240deg) translate(8.5rem) rotate(-240deg)' },
+          text: '11'
+        }
+      ],
+      transformsMin: [
+        {
+          transform: { transform: 'rotate(-90deg) translate(8.5rem) rotate(90deg)' },
+          text: '0'
+        },
+        {
+          transform: { transform: 'rotate(-60deg) translate(8.5rem) rotate(60deg)' },
+          text: '5'
+        },
+        {
+          transform: { transform: 'rotate(-30deg) translate(8.5rem) rotate(30deg)' },
+          text: '10'
+        },
+        {
+          transform: { transform: 'rotate(0deg) translate(8.5rem) rotate(0deg)' },
+          text: '15'
+        },
+        {
+          transform: { transform: 'rotate(30deg) translate(8.5rem) rotate(-30deg)' },
+          text: '20'
+        },
+        {
+          transform: { transform: 'rotate(60deg) translate(8.5rem) rotate(-60deg)' },
+          text: '25'
+        },
+        {
+          transform: { transform: 'rotate(90deg) translate(8.5rem) rotate(-90deg)' },
+          text: '30'
+        },
+        {
+          transform: { transform: 'rotate(120deg) translate(8.5rem) rotate(-120deg)' },
+          text: '35'
+        },
+        {
+          transform: { transform: 'rotate(150deg) translate(8.5rem) rotate(-150deg)' },
+          text: '40'
+        },
+        {
+          transform: { transform: 'rotate(180deg) translate(8.5rem) rotate(-180deg)' },
+          text: '45'
+        },
+        {
+          transform: { transform: 'rotate(210deg) translate(8.5rem) rotate(-210deg)' },
+          text: '50'
+        },
+        {
+          transform: { transform: 'rotate(240deg) translate(8.5rem) rotate(-240deg)' },
+          text: '55'
+        }
+      ]
     }
   }
 }
@@ -42,122 +145,40 @@ export default {
   }
 }
 
-.pointerHour {
-  width: 4px;
-  height: 130px;
-  background-color: yellow;
-  transform: rotate(180deg);
-  /* animation: rotate 8s infinite; */
-}
-
 .pointerMin {
   width: 4px;
   height: 150px;
-  background-color: yellow;
-  transform: rotateZ(60deg);
+  transform: rotateZ(170deg);
   /* animation: rotate 3s infinite; */
+}
+
+.pointerHour {
+  width: 4px;
+  height: 130px;
+  transform: rotateZ(180deg);
+  /* animation: rotate 8s infinite; */
 }
 
 .clock > .btn {
 	position:absolute;
-    top: calc(50% - 13px);
-    left: calc(50% - 13px);
-}
-
-.clock > .pointerHour {
-	position:absolute;
-  top: calc(50% - 105px);
-  left: calc(50%); 
-transform-origin: 30% 85%;  
+  top: calc(50% - 13px);
+  left: calc(50% - 20px);
+  width: 26px;
+  height: 26px;
 }
 
 .clock > .pointerMin {
 	position:absolute;
-  top: calc(50% - 130px);
+  top: calc(50% - 125px);
   left: calc(50%); 
-transform-origin: 30% 85%;  
+  transform-origin: 30% 85%;  
 }
 
-.btn {
-	border-radius: 50%;
-  width: 26px;
-  height: 26px;
-  text-align: center;
+.clock > .pointerHour {
+	position:absolute;
+  top: calc(50% - 110px);
+  left: calc(50%); 
+  transform-origin: 30% 85%;  
 }
 
-.btnMin {
-  font-size: 10px;
-}
-
-.btn12 {
-     /* -ms-transform: translate(50px,100px);IE 9 */
-    /* -webkit-transform: translate(50px,100px); Safari */
-  transform: rotate(-90deg) translate(8.5rem) rotate(90deg);
-}
-
-.btn1 {
-     /* -ms-transform: translate(50px,100px);IE 9 */
-    /* -webkit-transform: translate(50px,100px); Safari */
-  transform: rotate(-60deg) translate(8.5rem) rotate(60deg);
-}
-
-.btn2 {
-     /* -ms-transform: translate(50px,100px);IE 9 */
-    /* -webkit-transform: translate(50px,100px); Safari */
-  transform: rotate(-30deg) translate(8.5rem) rotate(30deg);
-}
-
-.btn3 {
-     /* -ms-transform: translate(50px,100px);IE 9 */
-    /* -webkit-transform: translate(50px,100px); Safari */
-  transform: rotate(0deg) translate(8.5rem);
-}
-
-.btn4 {
-     /* -ms-transform: translate(50px,100px);IE 9 */
-    /* -webkit-transform: translate(50px,100px); Safari */
-  transform: rotate(30deg) translate(8.5rem) rotate(-30deg);
-}
-
-.btn5 {
-     /* -ms-transform: translate(50px,100px);IE 9 */
-    /* -webkit-transform: translate(50px,100px); Safari */
-  transform: rotate(60deg) translate(8.5rem) rotate(-60deg);
-}
-
-.btn6 {
-     /* -ms-transform: translate(50px,100px);IE 9 */
-    /* -webkit-transform: translate(50px,100px); Safari */
-  transform: rotate(90deg) translate(8.5rem) rotate(-90deg);
-}
-
-.btn7 {
-     /* -ms-transform: translate(50px,100px);IE 9 */
-    /* -webkit-transform: translate(50px,100px); Safari */
-  transform: rotate(120deg) translate(8.5rem) rotate(-120deg);
-}
-
-.btn8 {
-     /* -ms-transform: translate(50px,100px);IE 9 */
-    /* -webkit-transform: translate(50px,100px); Safari */
-  transform: rotate(150deg) translate(8.5rem) rotate(-150deg);
-}
-
-.btn9 {
-     /* -ms-transform: translate(50px,100px);IE 9 */
-    /* -webkit-transform: translate(50px,100px); Safari */
-  transform: rotate(180deg) translate(8.5rem) rotate(-180deg);
-}
-
-.btn10 {
-     /* -ms-transform: translate(50px,100px);IE 9 */
-    /* -webkit-transform: translate(50px,100px); Safari */
-  transform: rotate(210deg) translate(8.5rem) rotate(-210deg);
-}
-
-.btn11 {
-     /* -ms-transform: translate(50px,100px);IE 9 */
-    /* -webkit-transform: translate(50px,100px); Safari */
-  transform: rotate(240deg) translate(8.5rem) rotate(-240deg);
-}
 </style>
