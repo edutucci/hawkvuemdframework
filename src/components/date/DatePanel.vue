@@ -4,7 +4,7 @@
       .full-width.flex.flex-justify-center.flex-items-center.bg-primary.h-pa-md
         div
           .btn.bg-primary.text-white
-            h-fa-icon(:icon="['fas', 'chevron-left']")
+            h-fa-icon(:icon="['fas', 'chevron-left']" @click="updateMonth(-1)")
 
         .flex-1
           .flex.flex-column
@@ -18,7 +18,7 @@
 
         div
           .btn.bg-primary.text-white
-            h-fa-icon(:icon="['fas', 'chevron-right']")
+            h-fa-icon(:icon="['fas', 'chevron-right']" @click="updateMonth(1)")
     
     div.h-pt-md(v-if="panelMode==='days'" style="height:280px")
       .flex
@@ -38,10 +38,10 @@
         h-btn(textbutton label="OK" @click="onOK")
         h-btn(textbutton label="Close" @click="onClose")
     div.scroll(v-else-if="panelMode==='years'" style="height:280px")
-      .flex.flex-justify-center.btn.bg-white(v-for="year in years")
+      .flex.flex-justify-center.btn.bg-white(v-for="year in years" @click="updateYear(year)")
         | {{year}}
     div.scroll(v-else-if="panelMode==='months'" style="height:280px")
-      .flex.flex-justify-center.btn.bg-white(v-for="month in months")
+      .flex.flex-justify-center.btn.bg-white(v-for="(month, index) in months" @click="setMonth(index)")
         | {{month}}
 
 </template>
@@ -88,6 +88,15 @@ export default {
     },
     updateDate (date) {
       this.$emit('updateDate', date)
+    },
+    updateMonth (value) {
+      this.$emit('updateMonth', value)
+    },
+    updateYear (value) {
+      this.$emit('updateYear', value)
+    },
+    setMonth (value) {
+      this.$emit('setMonth', value)
     }
   }
 }

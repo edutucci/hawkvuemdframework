@@ -104,9 +104,16 @@ export default {
 
       this.getCalendar()
     },
+    updateYear (year) {
+      this.currentDate = new Date(year,
+        this.currentDate.getMonth(),
+        this.currentDate.getDate()
+      )
+    },
     updateDate (date) {
       this.currentDate = date
     },
+
     configDate () {
       this.showDatePicker = false
       this.setModelDate(this.currentDate)
@@ -121,6 +128,12 @@ export default {
       this.modelValue = date
       // console.log('date vale:  ' + date)
       this.$emit('input ', this.modelValue)
+    },
+    setMonth (monthNumber) {
+      this.currentDate = new Date(this.currentDate.getFullYear(),
+        monthNumber,
+        this.currentDate.getDate()
+      )
     },
     setInputDate (date) {
       this.inputValue = ' ' + date.getDate() + ' de  ' + this.months[date.getMonth()] + ' de  ' + date.getFullYear()
