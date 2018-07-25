@@ -79,12 +79,17 @@ export default {
   methods: {
     updateMonth (value) {
       let currentMonth = this.currentDate.getMonth()
-      // console.log( 'currentmonth vale: ' + currentMonth)
+      console.log('currentmonth vale: ' + currentMonth)
       // console.log( 'value vale: ' + value)
 
       currentMonth += value
       if (currentMonth > -1 || currentMonth < 12) {
         this.currentDate.setMonth(currentMonth)
+        this.currentDate = new Date(
+          this.currentDate.getFullYear(),
+          currentMonth,
+          this.currentDate.getDate()
+        )
       } else if (currentMonth === 0) {
         this.currentDate = new Date(
           this.currentDate.getFullYear() - 1,
@@ -105,13 +110,16 @@ export default {
       this.getCalendar()
     },
     updateYear (year) {
+      console.log('up year:' + year)
       this.currentDate = new Date(year,
         this.currentDate.getMonth(),
         this.currentDate.getDate()
       )
+      this.getCalendar()
     },
     updateDate (date) {
       this.currentDate = date
+      this.getCalendar()
     },
 
     configDate () {
@@ -130,10 +138,12 @@ export default {
       this.$emit('input ', this.modelValue)
     },
     setMonth (monthNumber) {
+      console.log('up month:' + monthNumber)
       this.currentDate = new Date(this.currentDate.getFullYear(),
         monthNumber,
         this.currentDate.getDate()
       )
+      this.getCalendar()
     },
     setInputDate (date) {
       this.inputValue = ' ' + date.getDate() + ' de  ' + this.months[date.getMonth()] + ' de  ' + date.getFullYear()

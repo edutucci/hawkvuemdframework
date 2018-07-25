@@ -54,6 +54,7 @@ export default {
   },
   methods: {
     onClick () {
+      console.log('emting click')
       this.$emit('click')
     }
   }

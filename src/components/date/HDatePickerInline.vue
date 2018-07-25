@@ -17,6 +17,9 @@
           @ok="configDate"
           @cancel="showDatePicker = !showDatePicker"
           @updateDate="updateDate"
+          @updateMonth="updateMonth"
+          @updateYear="updateYear"
+          @setMonth="setMonth"
         )
 
 </template>

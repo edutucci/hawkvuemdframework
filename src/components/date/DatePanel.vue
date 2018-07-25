@@ -20,9 +20,9 @@
           .btn.bg-primary.text-white
             h-fa-icon(:icon="['fas', 'chevron-right']" @click="updateMonth(1)")
     
-    div.h-pt-md(v-if="panelMode==='days'" style="height:280px")
+    div.h-pt-md(v-show="panelMode==='days'" style="height:280px")
       .flex
-        .flex-1.text-center(v-for="day in 6" :key="day")
+        .flex-1.text-center(v-for="day in 7" :key="day")
           | {{weekdays[day-1]}}
 
       .flex(v-for="week in calendar" :key="week.monthDay")
@@ -37,10 +37,10 @@
       .flex.flex-justify-end
         h-btn(textbutton label="OK" @click="onOK")
         h-btn(textbutton label="Close" @click="onClose")
-    div.scroll(v-else-if="panelMode==='years'" style="height:280px")
+    div.scroll(v-show="panelMode==='years'" style="height:280px")
       .flex.flex-justify-center.btn.bg-white(v-for="year in years" @click="updateYear(year)")
         | {{year}}
-    div.scroll(v-else-if="panelMode==='months'" style="height:280px")
+    div.scroll(v-show="panelMode==='months'" style="height:280px")
       .flex.flex-justify-center.btn.bg-white(v-for="(month, index) in months" @click="setMonth(index)")
         | {{month}}
 
@@ -90,6 +90,7 @@ export default {
       this.$emit('updateDate', date)
     },
     updateMonth (value) {
+      console.log('emting up month')
       this.$emit('updateMonth', value)
     },
     updateYear (value) {
