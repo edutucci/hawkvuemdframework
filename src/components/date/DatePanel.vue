@@ -4,31 +4,31 @@
       .full-width.flex.flex-justify-center.flex-items-center.bg-primary.h-pa-md
         div
           .btn.bg-primary.text-white
-            h-fa-icon(:icon="['fas', 'chevron-left']" @click="updateMonth(-1)")
+            h-fa-icon(:icon="['fas', 'chevron-left']" @click="onPrevNextMonth(-1)")
 
         .flex-1
           .flex.flex-column
             .flex.flex-justify-center
               .btn.bg-primary.text-white(@click="panelMode= (panelMode === 'years') ? 'days' : 'years'")
-                h2 {{currentdate.getFullYear().toString()}}
+                h2 {{currentDate.getFullYear().toString()}}
 
             .flex.flex-justify-center.text-white
               .btn.bg-primary.text-white(@click="panelMode= (panelMode === 'months') ? 'days' : 'months'")
-                h2  {{weekdays[currentdate.getDay()]}}, {{months[currentdate.getMonth()]}} {{currentdate.getDate()}}
+                h2  {{week_days[currentDate.getDay()]}}, {{months[currentDate.getMonth()]}} {{currentDate.getDate()}}
 
         div
           .btn.bg-primary.text-white
-            h-fa-icon(:icon="['fas', 'chevron-right']" @click="updateMonth(1)")
+            h-fa-icon(:icon="['fas', 'chevron-right']" @click="onPrevNextMonth(1)")
     
-    div.h-pt-md(v-show="panelMode==='days'" style="height:280px")
+    .flex-1.h-pt-md(v-show="panelMode==='days'" style="height:280px")
       .flex
         .flex-1.text-center(v-for="day in 7" :key="day")
-          | {{weekdays[day-1]}}
+          | {{week_days[day-1]}}
 
-      .flex(v-for="week in calendar" :key="week.monthDay")
+      .flex(v-for="week in Calendar" :key="week.monthDay")
         .flex-1.flex.flex-justify-center(v-for="day in week" :key="day.monthDay")
           .btn.bg-white.circle.flex.flex-justify-center.flex-items-center(v-if="day.monthDay > 0"
-            :class="{activeday: day.monthDay === currentdate.getDate()}"
+            :class="{activeday: day.monthDay === currentDate.getDate()}"
             @click="updateDate(day.date)"
             style="width:26px; height:26px;"
           )
@@ -37,35 +37,32 @@
       .flex.flex-justify-end
         h-btn(textbutton label="OK" @click="onOK")
         h-btn(textbutton label="Close" @click="onClose")
-    div.scroll(v-show="panelMode==='years'" style="height:280px")
-      .flex.flex-justify-center.btn.bg-white(v-for="year in years" @click="updateYear(year)")
+    .flex-1.scroll(v-show="panelMode==='years'" style="max-height:280px")
+      .flex.flex-justify-center.btn.bg-white(v-for="year in years" @click="onYearClick(year)")
         | {{year}}
-    div.scroll(v-show="panelMode==='months'" style="height:280px")
-      .flex.flex-justify-center.btn.bg-white(v-for="(month, index) in months" @click="setMonth(index)")
+    .flex-1.scroll(v-show="panelMode==='months'" style="max-height:280px")
+      .flex.flex-justify-center.btn.bg-white(v-for="(month, index) in months" @click="onMonthClick(index)")
         | {{month}}
 
 </template>
 
 <script>
+import HDate from './HDate'
 import HFaIcon from '../icons/HFaIcon'
 import HBtn from '../buttons/HBtn'
 
 export default {
+  extends: HDate,
   props: {
+    date: {
+      type: Date,
+      default: new Date()
+    },
     months: {
       type: Array,
       default: () => { return [] }
     },
-    years: {
-      type: Array,
-      default: () => { return [] }
-    },
-    currentdate: Date,
-    calendar: {
-      type: Array,
-      default: () => { return [] }
-    },
-    weekdays: {
+    week_days: {
       type: Array,
       default: () => { return [] }
     }
@@ -76,28 +73,32 @@ export default {
   },
   data () {
     return {
-      panelMode: 'days'
+      panelMode: 'days',
+      inputValue: ' '
     }
+  },
+  mounted () {
+    this.currentDate = this.date
+    this.getCalendar()
   },
   methods: {
     onOK () {
-      this.$emit('ok')
+      this.$emit('ok', this.currentDate)
     },
     onClose () {
       this.$emit('cancel')
     },
-    updateDate (date) {
-      this.$emit('updateDate', date)
+    onPrevNextMonth (value) {
+      this.panelMode = 'days'
+      this.updateMonth(value)
     },
-    updateMonth (value) {
-      console.log('emting up month')
-      this.$emit('updateMonth', value)
+    onMonthClick (month) {
+      this.panelMode = 'days'
+      this.setMonth(month)
     },
-    updateYear (value) {
-      this.$emit('updateYear', value)
-    },
-    setMonth (value) {
-      this.$emit('setMonth', value)
+    onYearClick (year) {
+      this.panelMode = 'days'
+      this.updateYear(year)
     }
   }
 }

@@ -2,9 +2,9 @@
   <div>
     <h1>DatePicker</h1>
     <div class="flex">
-    <h-date-picker :date="dataEvento"/>
-    <h-date-picker :date="dataEvento"/>
-    <time-panel/>
+    <h-date-picker v-model="dataEvento"/>
+    <h-date-picker v-model="dataEvento"/>
+    <h-time-picker v-model="horaEvento"/>
     </div>
 
     <h1>Select</h1>
@@ -68,21 +68,22 @@
 import HSelect from '../components/select/HSelect.vue'
 import HAvatar from '../components/image/HAvatar.vue'
 import HDatePicker from '../components/date/HDatePicker.vue'
-import TimePanel from '../components/date/TimePanel.vue'
+import HTimePicker from '../components/date/HTimePicker.vue'
 
 export default {
   components: {
     HSelect,
     HAvatar,
     HDatePicker,
-    TimePanel
+    HTimePicker
   },
   data () {
     return {
       selectModel: '',
       selectModel1: '',
       multiselect: [],
-      dataEvento: new Date(),
+      dataEvento: new Date(2015, 5, 20),
+      horaEvento: new Date(),
       options: [
         {
           'label': 'Address-book',

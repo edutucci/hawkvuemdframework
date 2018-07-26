@@ -6,16 +6,13 @@
 export default {
   data () {
     return {
-      showDatePicker: false,
       currentDate: new Date()
     }
   },
   methods: {
-    updateHour (hour) {
-      console.log('hour:' + hour)
-    },
-    updateMin (updateMin) {
-      console.log('min:' + min)
+    configTime (hour, min) {
+      console.log('configtime:' + hour + ':' + min)
+      this.currentDate = new Date(0, 0, 0, hour, min, 0)
     }
   }
 }
