@@ -1,21 +1,38 @@
 <template lang="pug">
-  <div>
-    <div v-show="panelMode==='hour'" class="clock h-pa-md">
-      <div class="bg-primary pointerHour" :style="[pointerHour]"></div>
-      <div v-for="tH in transformsHours" :key="tH.text" class="btn circle text-primary flex flex-justify-center" :class="{activehour: tH.text === curHour}" :style="tH.transform"> 
-        <div @click="updateHour(tH.text, tH.rotateZ)"> {{tH.text}} </div> 
+  <div class="full-width" style="background-color:white">
+    <div class=" flex flex-justify-center flex-items-center text-white bg-primary h-pa-md">
+      <div class="btn bg-primary" @click="panelMode='hour'"><h1>{{curHour}}</h1></div>
+      <div class="h-pl-sm h-pr-sm"><h1>:</h1></div>
+      <div class="btn bg-primary" @click="panelMode='min'"><h1>{{curMin}}</h1></div>    
+    </div>
+    <div class="flex flex-justify-center h-pa-lg">
+      // <div class="clock">
+      //   <div v-if="panelMode==='hour' || panelMode==='clock'" class="bg-primary pointerHour" :style="[pointerHour]"></div>
+      //   <div v-if="panelMode==='min' || panelMode==='clock'" class="bg-primary pointerMin" :style="[pointerMin]"></div>
+      //   <div v-if="panelMode==='hour' || panelMode==='clock'" v-for="tH in transformsHours" :key="tH.text" class="btn circle text-primary flex flex-justify-center" :class="{activehour: tH.text === curHour}" :style="tH.transform"> 
+      //     <div @click="updateHour(tH.text, tH.rotateZ)"> {{tH.text}} </div> 
+      //   </div>
+      //   <div v-if="panelMode==='min'" v-for="tMin in transformsMin" :key="tMin.text" class="btn circle text-primary flex flex-justify-center" :class="{activemin: tMin.text === curMin}" :style="tMin.transform"> 
+      //     <div @click="updateMin(tMin.text, tMin.rotateZ)">{{tMin.text}}</div>  
+      //   </div>
+      // </div>
+      <div v-show="panelMode==='hour'" class="clock">
+        <div class="bg-primary pointerHour" :style="[pointerHour]"></div>
+        <div v-for="tH in transformsHours" :key="tH.text" class="btn circle text-primary flex flex-justify-center" :class="{activehour: tH.text === curHour}" :style="tH.transform"> 
+          <div @click="updateHour(tH.text, tH.rotateZ)"> {{tH.text}} </div> 
+        </div>
       </div>
+      <div v-show="panelMode==='min'" class="clock">
+        <div class="bg-primary pointerMin" :style="[pointerMin]"></div>
+        <div v-for="tMin in transformsMin" :key="tMin.text" class="btn circle text-primary flex flex-justify-center" :class="{activemin: tMin.text === curMin}" :style="tMin.transform"> 
+          <div @click="updateMin(tMin.text, tMin.rotateZ)">{{tMin.text}}</div>  
+        </div>
+      </div> 
     </div>
-    <div v-show="panelMode==='min'" class="clock h-pa-md">
-      <div class="bg-primary pointerMin" :style="[pointerMin]"></div>
-      <div v-for="tMin in transformsMin" :key="tMin.text" class="btn circle text-primary flex flex-justify-center" :class="{activemin: tMin.text === curMin}" :style="tMin.transform"> 
-        <div @click="updateMin(tMin.text, tMin.rotateZ)">{{tMin.text}}</div>  
+      <div v-show="panelMode==='min'" class="flex flex-justify-end">
+        h-btn(textbutton label="OK" @click="onOK")
+        h-btn(textbutton label="Close" @click="onClose")
       </div>
-    </div>
-    <div v-show="panelMode==='min'" class="flex flex-justify-end">
-      h-btn(textbutton label="OK" @click="onOK")
-      h-btn(textbutton label="Close" @click="onClose")
-    </div>
   </div>
 
 </template>
@@ -27,12 +44,18 @@ import HTime from './HTime'
 
 export default {
   extends: HTime,
+  props: {
+    date: {
+      type: Date,
+      default: new Date()
+    }
+  },
   components: {
     HBtn
   },
   data () {
     return {
-      panelMode: 'hour',
+      panelMode: 'clock',
       curHour: '0',
       curMin: '0',
       pointerMin: {
@@ -231,6 +254,12 @@ export default {
       ]
     }
   },
+  mounted () {
+    this.currentDate = this.date
+    this.curHour = this.currentDate.getHours()
+    this.curMin = this.currentDate.getMinutes()
+    this.configTime(this.curHour, this.curMin)
+  },
   methods: {
     onOK () {
       this.configTime(this.curHour, this.curMin)
@@ -250,6 +279,7 @@ export default {
       console.log('min:' + min)
       this.curMin = Number(min)
       this.pointerMin.transform = rotateZ
+      this.panelMode = 'clock'
       this.$emit('updateMin', min)
     }
   }
@@ -257,6 +287,10 @@ export default {
 </script>
 
 <style scoped>
+h2,h1 {
+  margin: 0
+}
+
 .clock {
 	position: relative;
     width: 300px;

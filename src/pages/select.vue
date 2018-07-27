@@ -83,7 +83,7 @@ export default {
       selectModel1: '',
       multiselect: [],
       dataEvento: new Date(2015, 5, 20),
-      horaEvento: new Date(),
+      horaEvento: new Date(2015, 5, 20, 16, 20, 50),
       options: [
         {
           'label': 'Address-book',
