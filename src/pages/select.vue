@@ -15,7 +15,7 @@
         <code class="html">
         </code>
       </pre>
-    </div>    
+    </div>
     
     <h1>Select with Icons</h1>
     <div class="col-6">
@@ -82,8 +82,8 @@ export default {
       selectModel: '',
       selectModel1: '',
       multiselect: [],
-      dataEvento: new Date(2015, 5, 20),
-      horaEvento: new Date(2015, 5, 20, 16, 20, 50),
+      dataEvento: new Date(),
+      horaEvento: new Date(),
       options: [
         {
           'label': 'Address-book',

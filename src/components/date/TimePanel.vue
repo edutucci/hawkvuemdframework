@@ -1,38 +1,30 @@
 <template lang="pug">
   <div class="full-width" style="background-color:white">
     <div class=" flex flex-justify-center flex-items-center text-white bg-primary h-pa-md">
-      <div class="btn bg-primary" @click="panelMode='hour'"><h1>{{curHour}}</h1></div>
+      <div class="btn bg-primary" @click="panelMode= (panelMode === '12h' || panelMode === 'min') ? '24h' : '12h'"><h1>{{curHour}}</h1></div>
       <div class="h-pl-sm h-pr-sm"><h1>:</h1></div>
-      <div class="btn bg-primary" @click="panelMode='min'"><h1>{{curMin}}</h1></div>    
+      <div class="btn bg-primary" @click="panelMode= (panelMode !== 'min') ? 'min' : '12h'"><h1>{{curMin}}</h1></div>    
     </div>
     <div class="flex flex-justify-center h-pa-lg">
-      // <div class="clock">
-      //   <div v-if="panelMode==='hour' || panelMode==='clock'" class="bg-primary pointerHour" :style="[pointerHour]"></div>
-      //   <div v-if="panelMode==='min' || panelMode==='clock'" class="bg-primary pointerMin" :style="[pointerMin]"></div>
-      //   <div v-if="panelMode==='hour' || panelMode==='clock'" v-for="tH in transformsHours" :key="tH.text" class="btn circle text-primary flex flex-justify-center" :class="{activehour: tH.text === curHour}" :style="tH.transform"> 
-      //     <div @click="updateHour(tH.text, tH.rotateZ)"> {{tH.text}} </div> 
-      //   </div>
-      //   <div v-if="panelMode==='min'" v-for="tMin in transformsMin" :key="tMin.text" class="btn circle text-primary flex flex-justify-center" :class="{activemin: tMin.text === curMin}" :style="tMin.transform"> 
-      //     <div @click="updateMin(tMin.text, tMin.rotateZ)">{{tMin.text}}</div>  
-      //   </div>
-      // </div>
-      <div v-show="panelMode==='hour'" class="clock">
-        <div class="bg-primary pointerHour" :style="[pointerHour]"></div>
-        <div v-for="tH in transformsHours" :key="tH.text" class="btn circle text-primary flex flex-justify-center" :class="{activehour: tH.text === curHour}" :style="tH.transform"> 
+      <div class="clock">
+        <div v-if="panelMode==='12h'" class="bg-primary pointer12H" :style="[pointer12H]"></div>
+        <div v-if="panelMode==='24h'" class="bg-primary pointer24H" :style="[pointer24H]"></div>
+        <div v-if="panelMode==='min' || panelMode==='12h'" class="bg-primary pointerMin" :style="[pointerMin]"></div>
+        <div v-if="panelMode==='12h'" v-for="tH in transforms12Hours" :key="tH.text" class="btn circle text-primary flex flex-justify-center" :style="tH.transform"> 
+          <div> {{tH.text}} </div> 
+        </div>
+        <div v-if="panelMode==='24h'" v-for="tH in transforms24Hours" :key="tH.text" class="btn circle text-primary flex flex-justify-center" :class="{activehour: tH.text === curHour.toString()}" :style="tH.transform"> 
           <div @click="updateHour(tH.text, tH.rotateZ)"> {{tH.text}} </div> 
         </div>
-      </div>
-      <div v-show="panelMode==='min'" class="clock">
-        <div class="bg-primary pointerMin" :style="[pointerMin]"></div>
-        <div v-for="tMin in transformsMin" :key="tMin.text" class="btn circle text-primary flex flex-justify-center" :class="{activemin: tMin.text === curMin}" :style="tMin.transform"> 
+        <div v-if="panelMode==='min'" v-for="tMin in transformsMin" :key="tMin.text" class="btn circle text-primary flex flex-justify-center" :class="{activemin: tMin.text === curMin.toString()}" :style="tMin.transform"> 
           <div @click="updateMin(tMin.text, tMin.rotateZ)">{{tMin.text}}</div>  
         </div>
-      </div> 
-    </div>
-      <div v-show="panelMode==='min'" class="flex flex-justify-end">
-        h-btn(textbutton label="OK" @click="onOK")
-        h-btn(textbutton label="Close" @click="onClose")
       </div>
+    </div>
+    <div class="flex flex-justify-end">
+      h-btn(textbutton label="OK" @click="onOK")
+      h-btn(textbutton label="Close" @click="onClose")
+    </div>
   </div>
 
 </template>
@@ -55,7 +47,7 @@ export default {
   },
   data () {
     return {
-      panelMode: 'clock',
+      panelMode: '12h',
       curHour: '0',
       curMin: '0',
       pointerMin: {
@@ -63,12 +55,79 @@ export default {
         height: '150px',
         transform: 'rotateZ(0deg)'
       },
-      pointerHour: {
+      pointer12H: {
         width: '4px',
         height: '130px',
         transform: 'rotateZ(0deg)'
       },
-      transformsHours: [
+      pointer24H: {
+        width: '4px',
+        height: '130px',
+        transform: 'rotateZ(0deg)'
+      },
+      transforms12Hours: [
+        {
+          transform: { transform: 'rotate(-90deg) translate(8.5rem) rotate(90deg)' },
+          text: '12',
+          rotateZ: 'rotateZ(0deg)'
+        },
+        {
+          transform: { transform: 'rotate(-60deg) translate(8.5rem) rotate(60deg)' },
+          text: '1',
+          rotateZ: 'rotateZ(30deg)'
+        },
+        {
+          transform: { transform: 'rotate(-30deg) translate(8.5rem) rotate(30deg)' },
+          text: '2',
+          rotateZ: 'rotateZ(60deg)'
+        },
+        {
+          transform: { transform: 'rotate(0deg) translate(8.5rem) rotate(0deg)' },
+          text: '3',
+          rotateZ: 'rotateZ(90deg)'
+        },
+        {
+          transform: { transform: 'rotate(30deg) translate(8.5rem) rotate(-30deg)' },
+          text: '4',
+          rotateZ: 'rotateZ(120deg)'
+        },
+        {
+          transform: { transform: 'rotate(60deg) translate(8.5rem) rotate(-60deg)' },
+          text: '5',
+          rotateZ: 'rotateZ(150deg)'
+        },
+        {
+          transform: { transform: 'rotate(90deg) translate(8.5rem) rotate(-90deg)' },
+          text: '6',
+          rotateZ: 'rotateZ(180deg)'
+        },
+        {
+          transform: { transform: 'rotate(120deg) translate(8.5rem) rotate(-120deg)' },
+          text: '7',
+          rotateZ: 'rotateZ(210deg)'
+        },
+        {
+          transform: { transform: 'rotate(150deg) translate(8.5rem) rotate(-150deg)' },
+          text: '8',
+          rotateZ: 'rotateZ(240deg)'
+        },
+        {
+          transform: { transform: 'rotate(180deg) translate(8.5rem) rotate(-180deg)' },
+          text: '9',
+          rotateZ: 'rotateZ(270deg)'
+        },
+        {
+          transform: { transform: 'rotate(210deg) translate(8.5rem) rotate(-210deg)' },
+          text: '10',
+          rotateZ: 'rotateZ(300deg)'
+        },
+        {
+          transform: { transform: 'rotate(240deg) translate(8.5rem) rotate(-240deg)' },
+          text: '11',
+          rotateZ: 'rotateZ(330deg)'
+        }
+      ],
+      transforms24Hours: [
         {
           transform: { transform: 'rotate(-90deg) translate(8.5rem) rotate(90deg)' },
           text: '0',
@@ -259,6 +318,7 @@ export default {
     this.curHour = this.currentDate.getHours()
     this.curMin = this.currentDate.getMinutes()
     this.configTime(this.curHour, this.curMin)
+    this.updatePointers()
   },
   methods: {
     onOK () {
@@ -268,19 +328,36 @@ export default {
     onClose () {
       this.$emit('cancel')
     },
+    updatePointers () {
+      let pH = this.curHour
+      let fH = this.transforms24Hours.find(hour => hour.text === pH.toString())
+      if (fH) {
+        this.updateHour(pH, fH.rotateZ)
+      }
+
+      let pM = this.curMin
+      let minAngle = (360 / 60) * pM
+      let rotMin = 'rotateZ(' + minAngle + 'deg)'
+      this.updateMin(pM, rotMin)
+    },
     updateHour (hour, rotateZ) {
-      console.log('hour:' + hour)
       this.curHour = Number(hour)
-      this.pointerHour.transform = rotateZ
+      this.pointer12H.transform = rotateZ
+      this.pointer24H.transform = rotateZ
+      let h = this.curHour
+      if (this.curHour > 12) {
+        h = this.curHour - 12
+      }
+      let h12 = this.transforms12Hours.find(hour => hour.text === h.toString())
+      if (h12) {
+        this.pointer12H.transform = h12.rotateZ
+      }
       this.panelMode = 'min'
-      this.$emit('updateHour', hour)
     },
     updateMin (min, rotateZ) {
-      console.log('min:' + min)
       this.curMin = Number(min)
       this.pointerMin.transform = rotateZ
-      this.panelMode = 'clock'
-      this.$emit('updateMin', min)
+      this.panelMode = '12h'
     }
   }
 }
@@ -300,24 +377,10 @@ h2,h1 {
 	background-color: #E8E8E8;
 }
 
-@keyframes rotate {
+/* @keyframes rotate {
   100% {
     transform: rotateZ(360deg);
   }
-}
-
-/* .pointerMin {
-  width: 4px;
-  height: 150px;
-  transform: rotateZ(170deg);
-  animation: rotate 3s infinite;
-}
-
-.pointerHour {
-  width: 4px;
-  height: 130px;
-  transform: rotateZ(180deg);
-  animation: rotate 8s infinite;
 } */
 
 .clock > .btn {
@@ -335,7 +398,14 @@ h2,h1 {
   transform-origin: 30% 85%;  
 }
 
-.clock > .pointerHour {
+.clock > .pointer12H {
+	position:absolute;
+  top: calc(50% - 110px);
+  left: calc(50%); 
+  transform-origin: 30% 85%;  
+}
+
+.clock > .pointer24H {
 	position:absolute;
   top: calc(50% - 110px);
   left: calc(50%); 

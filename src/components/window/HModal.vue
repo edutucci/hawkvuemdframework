@@ -52,7 +52,7 @@ export default {
     z-index: 13;
     top: 0;
     left: 0;
-    background-color: rgba(222, 222, 222, 0.6);
+    background-color: rgba(0, 0, 0, 0.32);
 }
 
 h3 {
