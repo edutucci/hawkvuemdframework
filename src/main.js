@@ -27,6 +27,8 @@ import pageTab from './pages/tab'
 import pageTable from './pages/table'
 import pageToolbar from './pages/toolbar'
 import pageModal from './pages/modal'
+import pageDateTime from './pages/dateTime'
+import pageToggle from './pages/toggle'
 
 // import App from './App'
 // import HelloWorld from '@/components/HelloWorld'
@@ -65,7 +67,9 @@ const routes = [
       { path: '/tab', component: pageTab },
       { path: '/table', component: pageTable },
       { path: '/toolbar', component: pageToolbar },
-      { path: '/modal', component: pageModal }
+      { path: '/modal', component: pageModal },
+      { path: '/DateTime', component: pageDateTime },
+      { path: '/toggle', component: pageToggle }
     ]
   }
 ]

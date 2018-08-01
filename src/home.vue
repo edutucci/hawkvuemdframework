@@ -8,8 +8,6 @@
           a(href='https://github.com/edutucci/hawkframework' target="_blank")
             h-fa-icon(:icon="['fab', 'github']")
   
-    //- <h-btn textbutton @click="$refs.nav.open()"> Open SideNav </h-btn>
-    //- <h-btn textbutton @click="$refs.nav.close()"> Close SideNav </h-btn> 
     <h-nav-drawer ref="nav">
       <div class="flex flex-column bg-white full-size" style="display: inline-flex;">
 
@@ -50,6 +48,8 @@
               <h-collapsible-item text="Table" @click="$router.push('/table'), $refs.nav.close()"/>
               <h-collapsible-item text="Toolbar" @click="$router.push('/toolbar'), $refs.nav.close()"/>
               <h-collapsible-item text="Modal" @click="$router.push('/modal'), $refs.nav.close()"/>
+              <h-collapsible-item text="DateTime" @click="$router.push('/datetime'), $refs.nav.close()"/>
+              <h-collapsible-item text="Toggle" @click="$router.push('/toggle'), $refs.nav.close()"/>
             </h-collapsible-menu>
 
           </h-collapsible>

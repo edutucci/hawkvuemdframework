@@ -22,7 +22,7 @@
     .col-6.boxshadow
       h1 Flex direction
       p.desc  The flex-direction property defines in which direction the container wants to stack the flex items.
-      img.full-width(src="/static/img/flex-direction.png")
+      img.full-width(src="static/img/flex-direction.png")
       
       div
         strong row (default): left to right in ltr; right to left in rtl
@@ -120,7 +120,7 @@
     .col-6.boxshadow
       h1 Flex wrap
       p.desc  The flex-wrap property specifies whether the flex items should wrap or not.
-      img.full-width(src="/static/img/flex-wrap.png")
+      img.full-width(src="static/img/flex-wrap.png")
       
       div
         strong nowrap (default): all flex items will be on one line
@@ -179,7 +179,7 @@
     .col-6.boxshadow
       h1 Justify-content
       p.desc  The justify-content property is used to align the flex items.
-      img.full-width(src="/static/img/justify-content.png")
+      img.full-width(src="static/img/justify-content.png")
       
       div
         strong The flex-start value aligns the flex items at the beginning of the container (this is default).
@@ -291,7 +291,7 @@
     .col-6.boxshadow
       h1 Align-items
       p.desc  The align-items property is used to align the flex items vertically.
-      img.full-width(src="/static/img/align-items.png")
+      img.full-width(src="static/img/align-items.png")
       
       div
         strong The flex-start value aligns the flex items at the top of the container.
@@ -404,7 +404,7 @@
     .col-6.boxshadow
       h1 Align-content
       p.desc  The align-content property property is used to align the flex lines.
-      img.full-width(src="/static/img/align-content.png")
+      img.full-width(src="static/img/align-content.png")
       
       div
         strong The flex-start value displays the flex lines at the start of the container.
