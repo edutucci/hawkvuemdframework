@@ -10,10 +10,10 @@
 
           .flex.flex-1.flex-justify-start
             | {{text}}
-      
+
       .arrow(style="padding-left:8px;padding-right:8px;")
         h-fa-icon(
-          :class="{ 'arrow2': !isVisible, 'arrow': isVisible }"        
+          :class="{ 'arrow2': !isVisible, 'arrow': isVisible }"
           :icon="['fas', 'angle-down']"
         )
     .collapsible-content(v-if="isVisible")
@@ -68,7 +68,7 @@ export default {
 .collapsible-content {
   padding: 8px;
   background-color: dodgerblue;
-  color: white; 
+  color: white;
 }
 
 .arrow {
@@ -81,8 +81,8 @@ export default {
 
 .arrow2 {
     transform: rotate(180deg);
-    -webkit-animation-name: example2; 
-    -webkit-animation-duration: 0.3s; 
+    -webkit-animation-name: example2;
+    -webkit-animation-duration: 0.3s;
     animation-name: example2;
     animation-duration: 0.3s;
 }
@@ -98,7 +98,7 @@ export default {
  @keyframes example2 {
   0% { transform: rotate(180deg); }
   50% { transform: rotate(90deg); }
-  100% { transform: rotate(0deg); } 
-} 
+  100% { transform: rotate(0deg); }
+}
 
 </style>

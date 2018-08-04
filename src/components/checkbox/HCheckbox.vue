@@ -22,10 +22,10 @@ export default {
     model: {
       type: [String, Array, Boolean],
       default: undefined
-    },
-    id: {
-      type: [String, Number]
     }
+    // id: {
+    //   type: [String, Number]
+    // }
   },
   data () {
     return {
@@ -153,5 +153,3 @@ export default {
     transform: rotate(45deg);
 }
 </style>
-
-

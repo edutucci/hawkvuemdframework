@@ -19,7 +19,7 @@
         div
           .btn.bg-primary.text-white
             h-fa-icon(:icon="['fas', 'chevron-right']" @click="onPrevNextMonth(1)")
-    
+
     .flex-1.h-pt-md(v-show="panelMode==='days'" style="height:280px")
       .flex
         .flex-1.text-center(v-for="day in 7" :key="day")

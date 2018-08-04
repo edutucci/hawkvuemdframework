@@ -1,5 +1,5 @@
 <template>
-
+  <div></div>
 </template>
 
 <script>
@@ -99,10 +99,10 @@ export default {
           console.log(calendarDate.getDate())
           // if ( (perDay == calendarDate.getDay()) && (countDays < lastDay)  ){
           if (perDay === startDay && days <= lastDay) {
-            weekday.monthDay = days  // calendarDate.getDate(),
+            weekday.monthDay = days // calendarDate.getDate(),
             weekday.weekDay = perDay
             weekday.date = new Date(year, monnth, days)
-            days++  // calendarDate.setDate( calendarDate.getDate() + 1 )
+            days++ // calendarDate.setDate( calendarDate.getDate() + 1 )
             startDay++
           } else {
             weekday.monthDay = noDay

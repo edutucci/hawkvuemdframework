@@ -1,13 +1,13 @@
 <template  lang="pug">
   .flex.menu-item(
-    :class="[bgcolor]"  
+    :class="[bgcolor]"
     @click="onClick"
   )
     .icon-left
       h-fa-icon(:icon="icon")
 
     .flex-1(
-      :class="[textcolor]"    
+      :class="[textcolor]"
     )
       | {{text}}
 

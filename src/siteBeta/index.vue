@@ -1,0 +1,99 @@
+<template lang="pug">
+  div
+    h-app-toolbar.top-left-fixed
+      h-app-toolbar-container(bgcolor="bg-primary" textcolor="text-white")
+        h-app-toolbar-navigation(:icon="['fas', 'bars']" @click="$refs.nav.open()")
+        h-app-toolbar-title(title="Hawk Framework")
+        h-app-toolbar-action
+          a(href='https://github.com/edutucci/hawkframework' target="_blank")
+            h-fa-icon(:icon="['fab', 'github']")
+  
+    <h-nav-drawer ref="nav">
+      <div class="flex flex-column bg-white full-size" style="display: inline-flex;">
+
+        <div slot="header" class="text-center h-pa-md">
+          <h-avatar src="static/img/hawk.jpg" size="64px"/> 
+          <h3 class="no-padding no-margin">Hawk </h3>
+          <h3 class="no-padding no-margin"> Framework</h3>  
+        </div>
+
+        <div class="flex-1">
+          <h-collapsible>
+
+          </h-collapsible>
+        </div>
+
+        <div slot="footer" class="text-center  h-pa-md">
+          <h2 class="no-margin">Site Beta</h2>
+        </div>
+
+      </div>
+    </h-nav-drawer>
+
+    <div class="flex full-width" style="top: 60px; position:relative;">
+      div.full-width
+        router-view
+    </div>
+    //- <div class="flex flex-row full-size">
+    //-   <div class="flex-1">
+    //-     <router-view/>
+    //-   </div>  
+    //- </div>
+
+</template>
+
+<script>
+
+import HCollapsible from '../components/collapsible/HCollapsible.vue'
+import HCollapsibleMenu from '../components/collapsible/HCollapsibleMenu.vue'
+import HCollapsibleItem from '../components/collapsible/HCollapsibleItem.vue'
+import HAvatar from '../components/image/HAvatar'
+import HBtn from '../components/buttons/HBtn'
+import HNavDrawer from '../components/window/HNavDrawer'
+import HAppToolbar from '../components/toolbar/HAppToolbar.vue'
+import HAppToolbarContainer from '../components/toolbar/HAppToolbarContainer.vue'
+import HAppToolbarNavigation from '../components/toolbar/HAppToolbarNavigation.vue'
+import HAppToolbarTitle from '../components/toolbar/HAppToolbarTitle.vue'
+import HAppToolbarAction from '../components/toolbar/HAppToolbarAction.vue'
+import HBtnFloat from '../components/buttons/HBtnFloat.vue'
+import HFaIcon from '../components/icons/HFaIcon'
+import HPage from '../components/page/HPage'
+
+export default {
+  data () {
+    return {
+    }
+  },
+  components: {
+    HCollapsible,
+    HCollapsibleMenu,
+    HCollapsibleItem,
+    HAvatar,
+    HBtn,
+    HNavDrawer,
+    HAppToolbar,
+    HAppToolbarContainer,
+    HAppToolbarNavigation,
+    HAppToolbarTitle,
+    HAppToolbarAction,
+    HBtnFloat,
+    HFaIcon,
+    HPage
+  },
+  created () {
+  }
+}
+</script>
+
+<style scoped>
+.page-container {
+  margin: 0;
+  padding: 0;
+  overflow-x: auto;
+  overflow-y: auto;
+}
+/* .page-container {
+  width: calc(100vw - 270px);
+  height: calc(100vh - 80px);
+} */
+</style>

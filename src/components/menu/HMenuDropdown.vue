@@ -5,7 +5,7 @@
     div
       h-fa-icon(
         :textwhite="textwhite"
-        @click="showdropdown = !showdropdown"        
+        @click="showdropdown = !showdropdown"
         :icon="icon"
       )
 

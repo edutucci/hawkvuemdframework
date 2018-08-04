@@ -21,7 +21,7 @@ export default {
     background-color: dodgerblue;
     /* padding: 6px;*/
     margin-left: 40px;
-    margin-right: 40px; 
+    margin-right: 40px;
 }
 .menu_item {
     color: white;

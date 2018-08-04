@@ -14,7 +14,7 @@
         </div>
         <div>
           <slot></slot>
-        </div>        
+        </div>
       </div>
     </div>
     <div v-else>
@@ -33,7 +33,7 @@
           <slot></slot>
         </div>
       </div>
-    </div> 
+    </div>
   </div>
 </template>
 
@@ -101,7 +101,7 @@ export default {
 
 <style lang="stylus" scoped>
 @import '../../css/variables.styl'
-  
+
 .tab {
   font-size: 18px;
   cursor: pointer;

@@ -1,13 +1,36 @@
 <template lang="pug">
-  <label class="switch">
-    <input type="checkbox"  @click="onChange(this)" :checked="checkboxState">
-    <span class="slider round"></span>
-  </label>
+  <div class="flex flex-items-center switch-container">
+    <div>
+      <label class="switch">
+        <input type="checkbox"  @click="onChange(this)" :checked="checkboxState">
+        <span class="slider round"></span>
+      </label>
+    </div>
+    <div class="h-pl-sm">{{label}}</div>
+  </div>
 </template>
 
 <script>
 import HCheckbox from './HCheckbox'
 export default {
+  model: {
+    prop: 'model',
+    event: 'change'
+  },
+  props: {
+    value: {
+      type: [String, Number]
+    },
+    label: [String, Number],
+    checked: Boolean,
+    model: {
+      type: [String, Array, Boolean],
+      default: undefined
+    }
+    // id: {
+    //   type: [String, Number]
+    // }
+  },
   extends: HCheckbox,
   data () {
     return {}
@@ -16,11 +39,15 @@ export default {
 </script>
 
 <style scoped>
+.switch-container {
+  display: inline-flex;
+}
+
 .switch {
   position: relative;
   display: inline-block;
-  width: 200px;
-  height: 20px;
+  width: 40px;
+  height: 13px;
 }
 
 .switch input {display:none;}
@@ -39,30 +66,35 @@ export default {
 
 .slider:before {
   position: absolute;
-  top: -6px;
+  top: -4px;
   content: "";
-  height: 32px;
-  width: 32px;
-  left: 4px;
+  height: 21px;
+  width: 21px;
+  left: 0px;
   bottom: 4px;
-  background-color: blue;
+  box-shadow:  0 1px 3px rgba(0,0,0,.2),0 1px 1px rgba(0,0,0,.14),0 2px 1px -1px rgba(0,0,0,.12);
+  background-color: #f2f2f2;
   -webkit-transition: .4s;
   transition: .4s;
+}
+
+.slider::before > .switch-text {
+  left: 40px;
 }
 
 input:checked + .slider {
   background-color: #2196F3;
 }
 
-input:focus + .slider {
+/* input:focus + .slider {
   box-shadow: 0 0 1px #2196F3;
-}
+} */
 
 input:checked + .slider:before {
-  -webkit-transform: translateX(46px);
-  -ms-transform: translateX(46px);
-  transform: translateX(160px);
-  
+  -webkit-transform: translateX(20px);
+  -ms-transform: translateX(20px);
+  transform: translateX(20px);
+  background-color: rgb(33, 100, 243);
 }
 
 /* Rounded sliders */

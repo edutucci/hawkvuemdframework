@@ -4,7 +4,7 @@
     .flex.flex-row
       input.select(
         placeholder="Select an option"
-        @focus="magic_flag = true"   
+        @focus="magic_flag = true"
         :value="value"
         readonly
       )
@@ -31,7 +31,7 @@
       div.flex.flex-row.menu-item(
         :class="[bgcolor]"
         v-for="option in options"
-        :key="option.value"        
+        :key="option.value"
       )
         h-checkbox.h-pl-md(v-model="multiselectItem" :label="option.label" :value="option.value" @change="changeMultiselect")
 

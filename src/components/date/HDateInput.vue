@@ -7,7 +7,7 @@
           v-model="inputValue"
           :placeholder="placeholder"
           :readonly="true")
-      
+
       div.position-absolute.boxshadow.full-width(v-if="showDatePicker" style="top:67px;background-color: white;")
         date-panel(
           :week_days="week_days"

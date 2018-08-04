@@ -3,21 +3,21 @@
     <div class=" flex flex-justify-center flex-items-center text-white bg-primary h-pa-md">
       <div class="btn bg-primary" @click="panelMode= (panelMode === '12h' || panelMode === 'min') ? '24h' : '12h'"><h1>{{curHour}}</h1></div>
       <div class="h-pl-sm h-pr-sm"><h1>:</h1></div>
-      <div class="btn bg-primary" @click="panelMode= (panelMode !== 'min') ? 'min' : '12h'"><h1>{{curMin}}</h1></div>    
+      <div class="btn bg-primary" @click="panelMode= (panelMode !== 'min') ? 'min' : '12h'"><h1>{{curMin}}</h1></div>
     </div>
     <div class="flex flex-justify-center h-pa-lg">
       <div class="clock">
         <div v-if="panelMode==='12h'" class="bg-primary pointer12H" :style="[pointer12H]"></div>
         <div v-if="panelMode==='24h'" class="bg-primary pointer24H" :style="[pointer24H]"></div>
         <div v-if="panelMode==='min' || panelMode==='12h'" class="bg-primary pointerMin" :style="[pointerMin]"></div>
-        <div v-if="panelMode==='12h'" v-for="tH in transforms12Hours" :key="tH.text" class="btn circle text-primary flex flex-justify-center" :style="tH.transform"> 
-          <div> {{tH.text}} </div> 
+        <div v-if="panelMode==='12h'" v-for="tH in transforms12Hours" :key="tH.text" class="btn circle text-primary flex flex-justify-center" :style="tH.transform">
+          <div> {{tH.text}} </div>
         </div>
-        <div v-if="panelMode==='24h'" v-for="tH in transforms24Hours" :key="tH.text" class="btn circle text-primary flex flex-justify-center" :class="{activehour: tH.text === curHour.toString()}" :style="tH.transform"> 
-          <div @click="updateHour(tH.text, tH.rotateZ)"> {{tH.text}} </div> 
+        <div v-if="panelMode==='24h'" v-for="tH in transforms24Hours" :key="tH.text" class="btn circle text-primary flex flex-justify-center" :class="{activehour: tH.text === curHour.toString()}" :style="tH.transform">
+          <div @click="updateHour(tH.text, tH.rotateZ)"> {{tH.text}} </div>
         </div>
-        <div v-if="panelMode==='min'" v-for="tMin in transformsMin" :key="tMin.text" class="btn circle text-primary flex flex-justify-center" :class="{activemin: tMin.text === curMin.toString()}" :style="tMin.transform"> 
-          <div @click="updateMin(tMin.text, tMin.rotateZ)">{{tMin.text}}</div>  
+        <div v-if="panelMode==='min'" v-for="tMin in transformsMin" :key="tMin.text" class="btn circle text-primary flex flex-justify-center" :class="{activemin: tMin.text === curMin.toString()}" :style="tMin.transform">
+          <div @click="updateMin(tMin.text, tMin.rotateZ)">{{tMin.text}}</div>
         </div>
       </div>
     </div>
@@ -369,12 +369,12 @@ h2,h1 {
 }
 
 .clock {
-	position: relative;
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
-    /*border: 1px solid black;*/
-	background-color: #E8E8E8;
+  position: relative;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  /*border: 1px solid black;*/
+  background-color: #E8E8E8;
 }
 
 /* @keyframes rotate {
@@ -384,7 +384,7 @@ h2,h1 {
 } */
 
 .clock > .btn {
-	position:absolute;
+  position:absolute;
   top: calc(50% - 13px);
   left: calc(50% - 20px);
   width: 26px;
@@ -392,24 +392,24 @@ h2,h1 {
 }
 
 .clock > .pointerMin {
-	position:absolute;
+  position:absolute;
   top: calc(50% - 125px);
-  left: calc(50%); 
-  transform-origin: 30% 85%;  
+  left: calc(50%);
+  transform-origin: 30% 85%;
 }
 
 .clock > .pointer12H {
-	position:absolute;
+  position:absolute;
   top: calc(50% - 110px);
-  left: calc(50%); 
-  transform-origin: 30% 85%;  
+  left: calc(50%);
+  transform-origin: 30% 85%;
 }
 
 .clock > .pointer24H {
-	position:absolute;
+  position:absolute;
   top: calc(50% - 110px);
-  left: calc(50%); 
-  transform-origin: 30% 85%;  
+  left: calc(50%);
+  transform-origin: 30% 85%;
 }
 
 </style>

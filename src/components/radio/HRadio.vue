@@ -7,7 +7,7 @@
       @change="onChange"
     )
     span.checkmark
-    
+
 </template>
 
 <script>
@@ -112,12 +112,12 @@ export default {
 
 /* Style the indicator (dot/circle) */
 .container .checkmark:after {
- 	top: 3px;
-	left: 3px;
-	width: 10px;
-	height: 10px;
-	border-radius: 50%;
-	background: #2196F3;
+  top: 3px;
+  left: 3px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #2196F3;
 }
 
 </style>

@@ -9,7 +9,7 @@
         >
           <h-fa-icon :icon="icon.icon" />
         </div>
-      </div>     
+      </div>
       <div
       :style="{ width: activeWidth }"
       style="position:absolute; z-index: 3; left:68px;"
@@ -23,11 +23,11 @@
               </div>
               <div class="menu-title flex flex-items-center">
                 <h3>{{currentMenu.menuTitle}} </h3>
-              </div> 
-            </div> 
-            <div @click="closeMenu" class="close flex flex-justify-end flex-items-center"> 
-              <font-awesome-icon :icon="['fas', 'times-circle']"/> 
-            </div>             
+              </div>
+            </div>
+            <div @click="closeMenu" class="close flex flex-justify-end flex-items-center">
+              <font-awesome-icon :icon="['fas', 'times-circle']"/>
+            </div>
          </div>
           <div class="flex flex-column" >
             <div
@@ -39,9 +39,9 @@
             </div>
           </div>
         </div>
-      </div>        
+      </div>
 
-    </div>  
+    </div>
 
   </div>
 </template>
@@ -60,7 +60,7 @@ export default {
     },
     menu: {
       type: Array,
-      default: ''
+      default: () => { return '' }
     }
   },
   components: {

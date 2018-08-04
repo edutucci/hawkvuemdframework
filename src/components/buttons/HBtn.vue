@@ -1,5 +1,4 @@
 <template lang="pug">
-  
   div(style="display:inline-flex;")
     div(v-if="contained"
       @click="onClick"
@@ -41,7 +40,6 @@ import componentBase from '../componentBase.vue'
 import HFaIcon from '../icons/HFaIcon.vue'
 
 export default {
-  name: 'HBtn',
   extends: componentBase,
   props: {
     textbutton: {

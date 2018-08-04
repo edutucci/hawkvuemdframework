@@ -16,11 +16,11 @@
             <h2>{{title}}</h2>
           </div>
           <div class="flex flex-items-center" style="padding-bottom:10px;padding-left:8px;padding-right:8px;padding-top:8px;">
-            
+
           </div>
         </div>
       </div>
-      
+
       <div class="flex-1  table-container" @mouseleave="onMouseOverRow(-1)" style="padding-left:24px; padding-right:14px;">
         <div class="flex flex-row table-row-container">
           <div>
@@ -30,7 +30,7 @@
                 <h-checkbox v-model="selectedAllRows"  value="selectedAllRows" style="padding-top:0px; padding-left:8px;"/>
               </div>
               <div class="flex flex-items-center flex-justify-center" :style="[rowlineheight]" style="padding: 8px;"
-                v-for="(row, rowindex) in tableData.rows" 
+                v-for="(row, rowindex) in tableData.rows"
                 :key="rowindex"
                 :class="[rowbackgroundColor[rowindex]]"
                 @mouseover ="onMouseOverRow(rowindex)"
@@ -51,14 +51,14 @@
                 class= "flex flex-items-center"
                 v-for="(row, rowindex) in tableData.rows" :key="rowindex"
                 :class="[rowbackgroundColor[rowindex]]">
-                <div 
+                <div
                   @mouseover="onMouseOverRow(rowindex)"
                   class="full-width flex flex-items-center" :class="getTextAlignment(col.alignment)" style="padding: 8px;" :style="[rowlineheight]">
                   <slot :name="col.name" :rowData="row">{{row[col.name]}}</slot>
                 </div>
               </div>
-            </div>          
-          </div>        
+            </div>
+          </div>
         </div>
       </div>
       <div class="boxshadow">
@@ -75,12 +75,10 @@
           <div class="btn bg-white circle flex flex-justify-center flex-items-center" style="width:28px;height:28px;">
             <h-fa-icon :icon="['fas', 'chevron-right']" @click="onNextPage"/>
           </div>
-        </div>        
+        </div>
       </div>
-  </div> 
-
+  </div>
 </template>
-
 
 <script>
 

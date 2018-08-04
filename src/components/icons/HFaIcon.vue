@@ -1,5 +1,5 @@
 <template lang="pug">
-  font-awesome-icon.faicon(v-if="icon && icon.length" @click="onClick" 
+  font-awesome-icon.faicon(v-if="icon && icon.length" @click="onClick"
     :icon="icon" :size="size"
     :spin="spin" :pulse="pulse"
     style="cursor:pointer;"
@@ -9,14 +9,14 @@
 
 <script>
 
-import FontAwesomeIcon from '@fortawesome/vue-fontawesome'
+// import FontAwesomeIcon from '@fortawesome/vue-fontawesome'
 import componentBase from '../componentBase.vue'
 
 export default {
   extends: componentBase,
-  components: {
-    FontAwesomeIcon
-  },
+  // components: {
+  //   FontAwesomeIcon
+  // },
   props: {
     icon: {
       type: Array,
@@ -60,4 +60,3 @@ export default {
   }
 }
 </script>
-

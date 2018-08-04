@@ -1,5 +1,5 @@
 <template lang="pug">
-    .flex.flex-justify-center.flex-items-center.drawer(v-if="value" )      
+    .flex.flex-justify-center.flex-items-center.drawer(v-if="value" )
       .boxshadow.no-user-select.bg-white
         .bg-primary.text-white.flex.h-pa-sm
           .flex-1

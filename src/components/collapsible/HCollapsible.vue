@@ -1,7 +1,6 @@
 <template lang="pug">
   div.collapsible
     slot
- 
 </template>
 
 <script>

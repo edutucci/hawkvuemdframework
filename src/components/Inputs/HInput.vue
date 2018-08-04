@@ -125,7 +125,7 @@ export default {
 @import '../../css/variables.styl'
 
 .input-container {
-	position:relative;
+  position:relative;
   height:65px;
   background-color: white;
 }
@@ -133,7 +133,7 @@ export default {
 .h-input {
   font-size:18px;
   top: 30px;
-  width:100%;  
+  width:100%;
   border-style:none;
   outline: none;
   z-index:0;
@@ -161,7 +161,7 @@ export default {
 }
 
 input:focus.h-input {
-	border-bottom: 4px solid $primary
+  border-bottom: 4px solid $primary
 }
 
 .input-container.has-focus label {

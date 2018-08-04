@@ -12,10 +12,10 @@
         </main>
         <footer>
           <slot name="footer"></slot>
-        </footer>        
+        </footer>
       </div>
 
-    </div>    
+    </div>
 </template>
 
 <script>
@@ -64,6 +64,6 @@ export default {
   position: relative;
   z-index: 3;
   overflow-x: hidden;
-  overflow-y: auto;  
+  overflow-y: auto;
 }
 </style>

@@ -8,7 +8,7 @@
           v-model="query"
           placeholder="Search for something"
           class="h-input"
-        )    
+        )
     .flex.flex-column.boxshadow
       .flex.flex-items-center.menu-item.bg-white.item-padding(
         v-for="option in options"
@@ -76,14 +76,14 @@ export default {
 @import '../../css/variables.styl'
 
 .input-container {
-	position:relative;
+  position:relative;
   background-color: white;
 }
 
 .h-input {
   font-size:18px;
   font-weight: bold;
-  width:100%;  
+  width:100%;
   border-style:none;
   outline: none;
   z-index:0;

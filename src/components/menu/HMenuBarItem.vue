@@ -1,6 +1,6 @@
 <template lang="pug">
   .menu_item
-    font-awesome-icon(:icon="icon") 
+    font-awesome-icon(:icon="icon")
     strong  {{label}}
 
 </template>

@@ -7,7 +7,7 @@
           v-model="inputValue"
           :placeholder="placeholder"
           :readonly="true")
-      
+
       .flex.flex-justify-center.position-absolute.boxshadow.full-width(v-if="showTimePicker" style="top:67px;background-color: white;")
         time-panel(
           :date="value"

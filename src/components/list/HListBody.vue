@@ -9,4 +9,3 @@ export default {
   name: 'HListBody'
 }
 </script>
-
