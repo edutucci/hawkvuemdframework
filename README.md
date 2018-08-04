@@ -12,7 +12,7 @@ Free CSS Library for vuejs 2.x with lightweight components.
 At the moment you can find tutorial how to use componentes in src/pages folder
 
 # Site and Documentation
-<a href="https://hawkframework.000webhostapp.com/#/" target="_blank"> Hawk Framework </a>
+<a href="https://edutucci.github.io/hawkframework/" target="_blank"> Hawk Framework </a>
 
 ## Installation
 Download the project using the git command using the terminal and install all dependences
