@@ -1,10 +1,12 @@
 <template lang="pug">
-  div
+  div.window-height
     h-app-toolbar.top-left-fixed
       h-app-toolbar-container(bgcolor="bg-primary" textcolor="text-white")
         h-app-toolbar-navigation(:icon="['fas', 'bars']" @click="$refs.nav.open()")
         h-app-toolbar-title(title="Hawk Framework")
         h-app-toolbar-action
+          router-link(to="/login")
+            h-fa-icon(:icon="['fas', 'globe']")
           a(href='https://github.com/edutucci/hawkframework' target="_blank")
             h-fa-icon(:icon="['fab', 'github']")
 
@@ -63,9 +65,8 @@
       </div>
     </h-nav-drawer>
 
-    <div class="flex full-width" style="top: 60px; position:relative;">
-      div.full-width
-        router-view
+    <div class="flex full-width window-height" style="top: 60px; position:relative;">
+      router-view
     </div>
     //- <div class="flex flex-row full-size">
     //-   <div class="flex-1">

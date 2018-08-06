@@ -6,6 +6,7 @@ import store from './store'
 import './registerServiceWorker'
 import VueHighlightJS from 'vue-highlightjs'
 // import './components'
+import Parse from './parse'
 
 import fontawesome from '@fortawesome/fontawesome'
 import solid from '@fortawesome/fontawesome-free-solid'
@@ -26,6 +27,7 @@ Vue.use(VueHighlightJS)
 Vue.config.productionTip = false
 
 new Vue({
+  Parse,
   router,
   store,
   render: h => h(App)

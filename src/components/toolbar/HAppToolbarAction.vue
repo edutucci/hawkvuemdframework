@@ -14,4 +14,9 @@ export default {
   padding-right: 16px;
   padding-left: 16px;
 }
+
+.tbaction > a {
+  padding-right: 16px;
+  padding-left: 16px;
+}
 </style>
