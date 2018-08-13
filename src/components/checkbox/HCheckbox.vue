@@ -100,10 +100,10 @@ export default {
     position: absolute;
     top: 0;
     left: 0;
-    height: 16px;
-    width: 16px;
+    height: 14px;
+    width: 14px;
     background-color: white;
-    border: 3px solid gray;
+    border: 2px solid gray;
     border-radius: 2px;
 }
 
@@ -144,8 +144,8 @@ export default {
 .container .checkmark:after {
     left: 4px;
     top: -2px;
-    width: 5px;
-    height: 14px;
+    width: 3px;
+    height: 12px;
     border: solid white;
     border-width: 0 3px 3px 0;
     -webkit-transform: rotate(45deg);

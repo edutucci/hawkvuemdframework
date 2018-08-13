@@ -1,5 +1,5 @@
 <template lang="pug">
-  div.collapsible
+  div
     slot
 </template>
 
@@ -47,8 +47,8 @@ export default {
 
 <style scoped>
 
-.collapsible {
-  background-color: aqua;
-}
+/* .collapsible {
+  background-color: blueviolet;
+} */
 
 </style>

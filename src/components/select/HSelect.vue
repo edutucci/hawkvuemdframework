@@ -5,7 +5,7 @@
       input.select(
         placeholder="Select an option"
         @focus="magic_flag = true"
-        :value="value"
+        :value="display"
         readonly
       )
       h-fa-icon.dropdown-arrow(
@@ -19,7 +19,7 @@
         :style="{bottom: bottom}"
         v-for="option in options"
         :key="option.value"
-        @click="onChangeItem(option.value)"
+        @click="onChangeItem(option)"
       )
         div.icon-left.h-pl-md(v-if="displayMode ==='icon'")
           h-fa-icon(:icon="option.icon")
@@ -75,6 +75,7 @@ export default {
   mixins: [ clickaway ],
   data: function () {
     return {
+      display: '',
       item: 'User',
       magic_flag: false,
       isActive: true,
@@ -88,9 +89,10 @@ export default {
     }
   },
   methods: {
-    onChangeItem (value) {
-      console.log(value)
-      this.$emit('input', value)
+    onChangeItem (option) {
+      // console.log(value)
+      this.display = option.label
+      this.$emit('input', option.value)
       this.magic_flag = false
     },
     changeMultiselect () {

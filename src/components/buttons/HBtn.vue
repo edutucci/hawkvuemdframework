@@ -73,14 +73,20 @@ export default {
     }
   },
   created () {
-    // if (this.textbutton) {
-    //   this.bgcolor = 'bg-white'
+    // if (this.contained) {
+    //   console.log('passou aki')
+    //   this.setButtonColor()
     // }
   },
   methods: {
     onClick () {
       this.$emit('click')
     }
+    // setButtonColor () {
+    //   if (this.bgcolor !== 'bg-white') {
+    //     this.textcolor = 'text-white'
+    //   }
+    // }
   }
 }
 </script>

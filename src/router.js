@@ -9,7 +9,6 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'home',
       component: () => import('./views/home'),
       children: [
         { path: '', component: () => import('./views/main') },
@@ -37,11 +36,16 @@ export default new Router({
       ]
     },
     {
-      path: '/sitebeta1',
-      name: 'home',
-      component: () => import('./views/home'),
+      path: '/site1Beta',
+      component: () => import('./site1Beta/login')
+    },
+    {
+      path: '/site1Beta/main',
+      component: () => import('./site1Beta/main'),
       children: [
-        { path: '', component: () => import('./site1Beta/login') }
+        { path: '', component: () => import('./site1Beta/main') },
+        { path: 'categorias', component: () => import('./site1Beta/categorias') },
+        { path: 'produtos', component: () => import('./site1Beta/produtos') }
       ]
     }
   ]

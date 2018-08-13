@@ -1,6 +1,6 @@
 <template>
-    <div class="boxshadow flex flex-column full-height no-user-select">
-      <div class="flex flex-column boxshadow h-pb-md" style="min-height:64px;overflow:hidden; position:relative; z-index: 1">
+    <div class="boxshadow div-rounded flex flex-column full-height no-user-select">
+      <div class="flex flex-column" style="min-height:60px;overflow:hidden; position:relative; z-index: 1">
         <div v-if="selectedRows.length > 0" class="flex flex-row flex-items-center full-height" style="padding-left:8px;padding-right:8px;">
           <div class="flex-1" style="color:royalblue;">
             <strong>{{selectedRows.length}} item selected</strong>
@@ -12,8 +12,8 @@
           </div>
         </div>
         <div v-else class="flex flex-row">
-          <div class="flex flex-1 flex-items-center" style="padding-bottom:10px;padding-left:8px;padding-right:8px;padding-top:8px;">
-            <h2>{{title}}</h2>
+          <div class="flex flex-1 flex-items-center" style="padding-bottom:10px;padding-left:14px;padding-right:8px;padding-top:8px;">
+            <h3>{{title}}</h3>
           </div>
           <div class="flex flex-items-center" style="padding-bottom:10px;padding-left:8px;padding-right:8px;padding-top:8px;">
 
@@ -21,7 +21,7 @@
         </div>
       </div>
 
-      <div class="flex-1  table-container" @mouseleave="onMouseOverRow(-1)" style="padding-left:24px; padding-right:14px;">
+      <div class="flex-1  table-container" @mouseleave="onMouseOverRow(-1)" style="">
         <div class="flex flex-row table-row-container">
           <div>
             <div class="flex flex-column ">
@@ -61,7 +61,7 @@
           </div>
         </div>
       </div>
-      <div class="boxshadow">
+      <div class="">
         <div class="flex flex-justify-end flex-items-center">
           <div class="h-pr-sm subtitle">
             Rows per page:
@@ -156,6 +156,9 @@ export default {
     }
   },
   watch: {
+    rows: function (val) {
+      this.setTableRows()
+    },
     // selectedAllRows: function (val) {
     //   this.selectedRows = []
     //   if (val) {
@@ -240,17 +243,31 @@ export default {
     columnwidth (col) {
       return 'width:' + col.width
     },
+    getSelectedRows () {
+      let rows = []
+      for (let index = 0; index < this.selectedRows.length; index++) {
+        rows.push({
+          row: this.rows[this.selectedRows[index]],
+          row_index: this.selectedRows[index]
+        })
+      }
+      this.selectedRows = []
+      return rows
+    },
     onAddRow () {
-      console.log('addRow')
-      this.$emit('onAddRow', this.selectedRows)
+      // console.log('addRow')
+      let rows = this.getSelectedRows()
+      this.$emit('onAddRow', rows)
     },
     onEditRow () {
-      console.log('EditRow')
-      this.$emit('onEditRow', this.selectedRows)
+      // console.log('EditRow')
+      let rows = this.getSelectedRows()
+      this.$emit('onEditRow', rows[0])
     },
     onDeleteRow () {
-      console.log('deleteRow')
-      this.$emit('onDeleteRow', this.selectedRows)
+      // console.log('deleteRow')
+      let rows = this.getSelectedRows()
+      this.$emit('onDeleteRow', rows)
     },
     onPreviousPage () {
       if (this.rowsPage > 1) {

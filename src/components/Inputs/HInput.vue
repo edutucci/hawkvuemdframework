@@ -41,7 +41,7 @@ export default {
   },
   props: {
     value: {
-      type: String
+      type: [String, Number]
     },
     floatLabel: {
       type: String

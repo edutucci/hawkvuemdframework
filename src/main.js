@@ -6,7 +6,7 @@ import store from './store'
 import './registerServiceWorker'
 import VueHighlightJS from 'vue-highlightjs'
 // import './components'
-import Parse from './parse'
+import Parse from 'parse'
 
 import fontawesome from '@fortawesome/fontawesome'
 import solid from '@fortawesome/fontawesome-free-solid'
@@ -25,6 +25,11 @@ Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 Vue.use(VueHighlightJS)
 Vue.config.productionTip = false
+
+Parse.initialize('br.com.balladapp')
+Parse.serverURL = 'http://localhost:1337/parse'
+
+Vue.prototype.$parse = Parse
 
 new Vue({
   Parse,

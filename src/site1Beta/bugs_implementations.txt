@@ -11,3 +11,9 @@ COMPONENTS
   - Add url link
   - Add router view
 
+- Buttons
+  - trocar a cor do texto para branco quando a cor de fundo for escura.
+
+- Select
+  - O text do input esta mostrando o valor de value ao inves do valor de label - fixed for single Select
+

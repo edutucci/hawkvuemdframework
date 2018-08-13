@@ -39,11 +39,17 @@ export default {
   },
   created () {
     this.setButtonSize()
+    // this.setButtonColor()
   },
   methods: {
     onClick () {
       this.$emit('click')
     },
+    // setButtonColor () {
+    //   if (this.bgcolor !== 'bg-white') {
+    //     this.textcolor = 'text-white'
+    //   }
+    // },
     setButtonSize () {
       if (this.minifloat) {
         this.btnSize.width = '26px'

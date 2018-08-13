@@ -5,7 +5,7 @@
         h-app-toolbar-navigation(:icon="['fas', 'bars']" @click="$refs.nav.open()")
         h-app-toolbar-title(title="Hawk Framework")
         h-app-toolbar-action
-          router-link(to="/login")
+          router-link(to="/site1Beta")
             h-fa-icon(:icon="['fas', 'globe']")
           a(href='https://github.com/edutucci/hawkframework' target="_blank")
             h-fa-icon(:icon="['fab', 'github']")
@@ -20,7 +20,6 @@
         </div>
 
         <div class="flex-1">
-          <h-collapsible>
 
             //- <h-collapsible-menu :icon="['fas', 'check-circle']" text="Guide">
             //-   <h-collapsible-item text="Introduction"/>
@@ -54,7 +53,6 @@
               <h-collapsible-item text="Toggle" @click="$router.push('/toggle'), $refs.nav.close()"/>
             </h-collapsible-menu>
 
-          </h-collapsible>
         </div>
 
         <div slot="footer" class="text-center  h-pa-md">

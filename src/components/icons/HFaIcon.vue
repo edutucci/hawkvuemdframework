@@ -3,6 +3,7 @@
     :icon="icon" :size="size"
     :spin="spin" :pulse="pulse"
     style="cursor:pointer;"
+    :class="[textcolor]"
   )
     slot
  </template>
@@ -14,21 +15,14 @@ import componentBase from '../componentBase.vue'
 
 export default {
   extends: componentBase,
-  // components: {
-  //   FontAwesomeIcon
-  // },
   props: {
     icon: {
       type: Array,
       default: () => ([])
     },
-    textwhite: {
-      type: Boolean,
-      default: false
-    },
     size: {
       type: String,
-      default: 'lg'
+      default: 'sm'
     },
     pulse: {
       type: Boolean,
@@ -46,11 +40,11 @@ export default {
     }
   },
   created () {
-    this.color = this.textcolor
-    this.bkgcolor = this.bgcolor
-    if (this.textwhite) {
-      this.color = 'text-white'
-    }
+    // this.color = this.textcolor
+    // this.bkgcolor = this.bgcolor
+    // if (this.textwhite) {
+    //   this.color = 'text-white'
+    // }
   },
   methods: {
     onClick () {
