@@ -28,13 +28,11 @@
 
 <script>
 
-import HFaIcon from '../icons/HFaIcon'
 import HAvatar from '../image/HAvatar'
 import { debounce } from 'lodash'
 
 export default {
   components: {
-    HFaIcon,
     HAvatar
   },
   props: {

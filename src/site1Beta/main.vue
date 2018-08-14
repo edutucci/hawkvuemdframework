@@ -63,7 +63,6 @@ import HAppToolbarNavigation from '../components/toolbar/HAppToolbarNavigation.v
 import HAppToolbarTitle from '../components/toolbar/HAppToolbarTitle.vue'
 import HAppToolbarAction from '../components/toolbar/HAppToolbarAction.vue'
 import HBtnFloat from '../components/buttons/HBtnFloat.vue'
-import HFaIcon from '../components/icons/HFaIcon'
 import HPage from '../components/page/HPage'
 
 export default {
@@ -84,7 +83,6 @@ export default {
     HAppToolbarTitle,
     HAppToolbarAction,
     HBtnFloat,
-    HFaIcon,
     HPage
   },
   created () {

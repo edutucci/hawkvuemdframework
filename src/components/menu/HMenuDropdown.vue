@@ -22,13 +22,13 @@
 <script>
 
 import HBtnFloat from '../buttons/HBtnFloat.vue'
-import HFaIcon from '../icons/HFaIcon.vue'
+// import HFaIcon from '../icons/HFaIcon.vue'
 import { mixin as clickaway } from 'vue-clickaway'
 
 export default {
   components: {
-    HBtnFloat,
-    HFaIcon
+    HBtnFloat
+    // HFaIcon
   },
   props: {
     icon: {

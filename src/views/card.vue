@@ -193,7 +193,6 @@ import HCardActions from '../components/card/HCardActions'
 import HCardButtons from '../components/card/HCardButtons'
 import HCardIcons from '../components/card/HCardIcons'
 import HBtn from '../components/buttons/HBtn'
-import HFaIcon from '../components/icons/HFaIcon'
 
 export default {
   components: {
@@ -205,8 +204,7 @@ export default {
     HCardActions,
     HCardButtons,
     HCardIcons,
-    HBtn,
-    HFaIcon
+    HBtn
   },
   data () {
     return {

@@ -20,12 +20,12 @@
 
 <script>
 
-import HFaIcon from '../icons/HFaIcon'
+// import HFaIcon from '../icons/HFaIcon'
 
 export default {
   name: 'HNavDrawer',
   components: {
-    HFaIcon
+    // HFaIcon
   },
   data () {
     return {

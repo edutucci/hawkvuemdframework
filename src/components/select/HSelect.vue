@@ -41,7 +41,6 @@
 
 <script>
 
-import HFaIcon from '../icons/HFaIcon.vue'
 import HAvatar from '../image/HAvatar.vue'
 import { mixin as clickaway } from 'vue-clickaway'
 import componentBase from '../componentBase.vue'
@@ -50,7 +49,6 @@ import HCheckbox from '../checkbox/HCheckbox.vue'
 export default {
   extends: componentBase,
   components: {
-    HFaIcon,
     HAvatar,
     HCheckbox
   },

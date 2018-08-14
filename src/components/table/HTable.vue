@@ -83,7 +83,6 @@
 <script>
 
 import HCheckbox from '../checkbox/HCheckbox.vue'
-import HFaIcon from '../icons/HFaIcon.vue'
 import HSelect from '../select/HSelect.vue'
 import HBtn from '../buttons/HBtn.vue'
 import HBtnFloat from '../buttons/HBtnFloat.vue'
@@ -91,7 +90,6 @@ import HBtnFloat from '../buttons/HBtnFloat.vue'
 export default {
   components: {
     HCheckbox,
-    HFaIcon,
     HSelect,
     HBtn,
     HBtnFloat

@@ -47,7 +47,7 @@
 </template>
 
 <script>
-import HFaIcon from '../icons/HFaIcon.vue'
+// import HFaIcon from '../icons/HFaIcon.vue'
 import HBtnFloat from '../buttons/HBtnFloat.vue'
 import FontAwesomeIcon from '@fortawesome/vue-fontawesome'
 import HSlideMenuItem from './HSlideMenuItem.vue'
@@ -64,7 +64,7 @@ export default {
     }
   },
   components: {
-    HFaIcon,
+    // HFaIcon,
     HBtnFloat,
     FontAwesomeIcon,
     HSlideMenuItem

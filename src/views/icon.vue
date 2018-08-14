@@ -50,12 +50,10 @@
 </template>
 
 <script>
-import HFaIcon from '../components/icons/HFaIcon.vue'
 import HBtn from '../components/buttons/HBtn.vue'
 
 export default {
   components: {
-    HFaIcon,
     HBtn
   },
   data () {

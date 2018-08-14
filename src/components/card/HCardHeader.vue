@@ -12,12 +12,12 @@
 
 <script>
 
-import HFaIcon from '../icons/HFaIcon.vue'
+// import HFaIcon from '../icons/HFaIcon.vue'
 import HAvatar from '../image/HAvatar.vue'
 
 export default {
   components: {
-    HFaIcon,
+    // HFaIcon,
     HAvatar
   },
   props: {

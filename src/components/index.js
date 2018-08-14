@@ -1,12 +1,12 @@
-// import Vue from 'vue'
-// import Banner from './Banner.vue'
+import Vue from 'vue'
+import HFaIcon from './icons/FaIcon.vue'
 
-// const Components = {
-//   Banner
-// }
+const Components = {
+  HFaIcon
+}
 
-// Object.keys(Components).forEach(name => {
-//   Vue.component(name, Components[name])
-// })
+Object.keys(Components).forEach(name => {
+  Vue.component(name, Components[name])
+})
 
-// export default Components
+export default Components

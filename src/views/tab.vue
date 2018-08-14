@@ -4,10 +4,10 @@
 
     <h1>Horizontal Tab</h1>
     <h-tabs v-model="tabModel" @tabChange="tabChange" bgcolor="bg-secondary" textcolor="text-white" class="h-mt-md">
-    <h-tab name="First tab">
+    <h-tab name="First tab" :icon="['fas', 'home']">
         This is the content of the first tab
     </h-tab>
-    <h-tab name="Second tab">
+    <h-tab name="Second tab" :icon="['fas', 'globe']">
         This is the content of the second tab
     </h-tab>
     <h-tab name="Disabled tab" :is-disabled="true">

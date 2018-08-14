@@ -44,7 +44,6 @@ import HCheckbox from '../components/checkbox/HCheckbox'
 import HTable from '../components/table/HTable'
 import HBtnFloat from '../components/buttons/HBtnFloat'
 import HBtn from '../components/buttons/HBtn'
-import HFaIcon from '../components/icons/HFaIcon.vue'
 
 export default {
   components: {
@@ -53,8 +52,7 @@ export default {
     HCheckbox,
     HTable,
     HBtnFloat,
-    HBtn,
-    HFaIcon
+    HBtn
   },
   data () {
     return {

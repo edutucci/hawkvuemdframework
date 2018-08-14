@@ -33,11 +33,8 @@
 
 <script>
 
-import HFaIcon from '../icons/HFaIcon.vue'
-
 export default {
   components: {
-    HFaIcon
   },
   props: {
     value: {

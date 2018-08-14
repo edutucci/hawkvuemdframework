@@ -10,6 +10,10 @@ export default {
     name: {
       type: String,
       default: ''
+    },
+    icon: {
+      type: Array,
+      default: () => ([])
     }
   },
   data () {
@@ -17,7 +21,12 @@ export default {
       isVisible: false
     }
   },
+  computed: {
+  },
   methods: {
+    tabIcon () {
+      return this.icon
+    },
     tabName () {
       return this.name
     },

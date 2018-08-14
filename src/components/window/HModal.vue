@@ -12,12 +12,9 @@
 
 <script>
 
-import HFaIcon from '../icons/HFaIcon'
-
 export default {
   name: 'HNavDrawer',
   components: {
-    HFaIcon
   },
   props: {
     value: {

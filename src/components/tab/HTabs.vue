@@ -9,7 +9,14 @@
                 @click="selectTab(tab, index)"
                 :style="bordercolor[index]"
               >
-                <strong>  {{tab.tabName()}} </strong>
+                <div class="flex flex-column">
+                  <div class="flex  flex-justify-center">
+                    <h-fa-icon :textcolor="textcolor" :icon="tab.tabIcon()" size="lg" />
+                  </div>
+                  <div>
+                    <strong>  {{tab.tabName()}} </strong>
+                  </div>
+                </div>
             </div>
         </div>
         <div>
@@ -26,7 +33,14 @@
               @click="selectTab(tab, index)"
               :style="bordercolor[index]"
             >
-              <strong>  {{tab.tabName()}} </strong>
+              <!-- <div class="flex flex-column">
+                <div>
+                  <h-fa-icon :textcolor="textcolor" :icon="tab.tabIcon()"/>
+                </div>
+                <div>
+                  <strong>  {{tab.tabName()}} </strong>
+                </div>
+              </div> -->
           </div>
         </div>
         <div class="flex-1">

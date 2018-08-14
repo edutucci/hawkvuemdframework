@@ -6,12 +6,12 @@
 
 <script>
 import HBtnFloat from '../buttons/HBtnFloat.vue'
-import HFaIcon from '../icons/HFaIcon'
+// import HFaIcon from '../icons/HFaIcon'
 
 export default {
   components: {
-    HBtnFloat,
-    HFaIcon
+    HBtnFloat
+    // HFaIcon
   },
   data () {
     return {

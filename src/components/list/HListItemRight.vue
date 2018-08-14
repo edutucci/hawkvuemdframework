@@ -9,8 +9,6 @@
 
 <script>
 
-import HFaIcon from '../icons/HFaIcon.vue'
-
 export default {
   props: {
     icon: {
@@ -23,7 +21,6 @@ export default {
     }
   },
   components: {
-    HFaIcon
   }
 }
 </script>

@@ -5,7 +5,7 @@ import router from './router'
 import store from './store'
 import './registerServiceWorker'
 import VueHighlightJS from 'vue-highlightjs'
-// import './components'
+import './components'
 import Parse from 'parse'
 
 import fontawesome from '@fortawesome/fontawesome'

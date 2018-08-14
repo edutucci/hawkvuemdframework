@@ -4,11 +4,9 @@
 </template>
 
 <script>
-import HFaIcon from '../icons/HFaIcon'
 
 export default {
   components: {
-    HFaIcon
   },
   props: {
     icon: {

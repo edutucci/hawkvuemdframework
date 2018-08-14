@@ -13,7 +13,6 @@
 <script>
 
 import componentBase from '../componentBase.vue'
-import HFaIcon from '../icons/HFaIcon.vue'
 
 export default {
   extends: componentBase,
@@ -27,7 +26,6 @@ export default {
     }
   },
   components: {
-    HFaIcon
   },
   data () {
     return {

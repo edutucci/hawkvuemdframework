@@ -48,7 +48,7 @@
 
 <script>
 import HDate from './HDate'
-import HFaIcon from '../icons/HFaIcon'
+// import HFaIcon from '../icons/HFaIcon'
 import HBtn from '../buttons/HBtn'
 
 export default {
@@ -68,7 +68,7 @@ export default {
     }
   },
   components: {
-    HFaIcon,
+    // HFaIcon,
     HBtn
   },
   data () {

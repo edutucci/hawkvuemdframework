@@ -65,7 +65,6 @@
 <script>
 
 import HPage from '../components/page/HPage.vue'
-import HFaIcon from '../components/icons/HFaIcon.vue'
 import HMenuDropdown from '../components/menu/HMenuDropdown.vue'
 import HMenuDropdownItem from '../components/menu/HMenuDropdownItem.vue'
 import HAppToolbar from '../components/toolbar/HAppToolbar.vue'
@@ -87,7 +86,6 @@ export default {
     HAppToolbarAction,
     HAppToolbarMenu,
     HAppToolbarFab,
-    HFaIcon,
     HMenuDropdown,
     HMenuDropdownItem,
     HBtnFloat

@@ -21,7 +21,7 @@
 
 <script>
 
-import HFaIcon from '../icons/HFaIcon'
+// import HFaIcon from '../icons/HFaIcon'
 import HBtn from '../buttons/HBtn'
 import HInput from '../Inputs/HInput.vue'
 import DatePanel from './DatePanel'
@@ -38,7 +38,7 @@ export default {
     }
   },
   components: {
-    HFaIcon,
+    // HFaIcon,
     HBtn,
     HInput,
     DatePanel

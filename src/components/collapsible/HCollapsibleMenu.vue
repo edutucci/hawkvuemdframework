@@ -23,8 +23,6 @@
 
 <script>
 
-import HFaIcon from '../icons/HFaIcon'
-
 export default {
   props: {
     text: {
@@ -36,7 +34,6 @@ export default {
     }
   },
   components: {
-    HFaIcon
   },
   data () {
     return {

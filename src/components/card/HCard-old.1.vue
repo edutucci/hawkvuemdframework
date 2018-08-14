@@ -43,7 +43,7 @@
 
 <script>
 import HBtnFloat from '../buttons/HBtnFloat.vue'
-import HFaIcon from '../icons/HFaIcon'
+import HFaIcon from '../icons/FaIcon'
 
 export default {
   components: {
