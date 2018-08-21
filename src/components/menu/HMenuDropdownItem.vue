@@ -1,5 +1,5 @@
 <template  lang="pug">
-  .flex.menu-item(
+  .flex.menu-item.h-pa-md(
     :class="[bgcolor]"
     @click="onClick"
   )

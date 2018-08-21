@@ -15,7 +15,7 @@
         :key="option.title"
       )
         .icon-left
-          h-fa-icon(v-if="option.icon && option.icon.length" :icon="option.icon" style="color: gray")
+          h-fa-icon(v-if="option.icon && option.icon.length" :icon="option.icon" size="2x" style="color: gray")
           h-avatar(v-else-if="option.avatar && option.avatar.length > 0" :src="option.avatar")
           img(v-else-if="option.img && option.img.length > 0" :src="option.img" style="width:32px; height:32px;")
         .flex-1.flex-column.overflow-hidden

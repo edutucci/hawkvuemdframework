@@ -4,12 +4,11 @@
   )
     div
       h-fa-icon(
-        :textwhite="textwhite"
         @click="showdropdown = !showdropdown"
         :icon="icon"
       )
 
-    div.dropdown-menu.boxshadow(
+    div.dropdown-menu.boxshadow.div-rounded(
       v-show="showdropdown"
       @click="showdropdown = !showdropdown"
       style="color:black; background-color: white"
@@ -22,22 +21,16 @@
 <script>
 
 import HBtnFloat from '../buttons/HBtnFloat.vue'
-// import HFaIcon from '../icons/HFaIcon.vue'
 import { mixin as clickaway } from 'vue-clickaway'
 
 export default {
   components: {
     HBtnFloat
-    // HFaIcon
   },
   props: {
     icon: {
       type: Array,
       default: () => ([])
-    },
-    textwhite: {
-      type: Boolean,
-      default: false
     },
     rtl: {
       type: Boolean,
