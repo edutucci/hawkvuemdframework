@@ -11,10 +11,10 @@
               >
                 <div class="flex flex-column">
                   <div class="flex  flex-justify-center">
-                    <h-fa-icon :textcolor="textcolor" :icon="tab.tabIcon()" size="lg" />
+                    <h-fa-icon :textcolor="textcolor" :icon="tab.icon" size="lg" />
                   </div>
                   <div>
-                    <strong>  {{tab.tabName()}} </strong>
+                    <span>{{tab.name}}</span>
                   </div>
                 </div>
             </div>
@@ -33,14 +33,14 @@
               @click="selectTab(tab, index)"
               :style="bordercolor[index]"
             >
-              <!-- <div class="flex flex-column">
+              <div class="flex flex-column">
                 <div>
-                  <h-fa-icon :textcolor="textcolor" :icon="tab.tabIcon()"/>
+                  <h-fa-icon :textcolor="textcolor" :icon="tab.icon"/>
                 </div>
                 <div>
-                  <strong>  {{tab.tabName()}} </strong>
+                  <span>  {{tab.name}} </span>
                 </div>
-              </div> -->
+              </div>
           </div>
         </div>
         <div class="flex-1">
@@ -75,40 +75,41 @@ export default {
       bordercolor: []
     }
   },
-  created () {
-    this.tabs = this.$children
-  },
-  mounted () {
-  },
   methods: {
-    isActive (tabIndex) {
-      return this.selectedIndex === tabIndex
-    },
-    selectTab (tab, index) {
-      this.$set(this.bordercolor, this.selectedIndex, '')
-      if (this.currentTab) {
-        this.currentTab.setVisible(false)
-      }
-      this.currentTab = tab
-      this.currentTab.setVisible(true)
-      this.selectedIndex = index
-
-      if (this.isActive(index)) {
-        this.$set(this.bordercolor, index, this.tabBorderColor())
-      }
-
-      this.$emit('input', tab.tabName())
-      this.$emit('tabChange', tab.tabName())
-    },
-    tabBorderColor () {
-      let border = ''
-      if (!this.vertical) {
-        border = (this.bgcolor === 'bg-white') ? 'active-border-bottom-black' : 'active-border-bottom-white'
-      } else {
-        border = (this.bgcolor === 'bg-white') ? 'active-border-right-black' : 'active-border-right-white'
-      }
-      return border
+    addTab: function (tab) {
+      this.tabs.push(tab)
+      // if (tab.active === true) {
+      //   this.current = tab
+      // }
     }
+    // isActive (tabIndex) {
+    //   return this.selectedIndex === tabIndex
+    // },
+    // selectTab (tab, index) {
+    //   this.$set(this.bordercolor, this.selectedIndex, '')
+    //   if (this.currentTab) {
+    //     this.currentTab.setVisible(false)
+    //   }
+    //   this.currentTab = tab
+    //   this.currentTab.setVisible(true)
+    //   this.selectedIndex = index
+
+    //   if (this.isActive(index)) {
+    //     this.$set(this.bordercolor, index, this.tabBorderColor())
+    //   }
+
+    //   this.$emit('input', tab.tabName())
+    //   this.$emit('tabChange', tab.tabName())
+    // },
+    // tabBorderColor () {
+    //   let border = ''
+    //   if (!this.vertical) {
+    //     border = (this.bgcolor === 'bg-white') ? 'active-border-bottom-black' : 'active-border-bottom-white'
+    //   } else {
+    //     border = (this.bgcolor === 'bg-white') ? 'active-border-right-black' : 'active-border-right-white'
+    //   }
+    //   return border
+    // }
   }
 }
 </script>

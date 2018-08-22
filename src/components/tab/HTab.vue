@@ -21,18 +21,19 @@ export default {
       isVisible: false
     }
   },
-  computed: {
+  mounted: function () {
+    this.$parent.addTab(this)
   },
   methods: {
-    tabIcon () {
-      return this.icon
-    },
-    tabName () {
-      return this.name
-    },
-    setVisible (value) {
-      this.isVisible = value
-    }
+    // tabIcon () {
+    //   return this.icon
+    // },
+    // tabName () {
+    //   return this.name
+    // },
+    // setVisible (value) {
+    //   this.isVisible = value
+    // }
   }
 }
 </script>
