@@ -32,13 +32,9 @@
 </template>
 
 <script>
-import HTable from '../components/table/HTable.vue'
-import HCheckbox from '../components/checkbox/HCheckbox.vue'
 
 export default {
   components: {
-    HTable,
-    HCheckbox
   },
   data () {
     return {

@@ -58,13 +58,8 @@
 
 <script>
 
-import HSelect from '../components/select/HSelect.vue'
-import HAvatar from '../components/image/HAvatar.vue'
-
 export default {
   components: {
-    HSelect,
-    HAvatar
   },
   data () {
     return {

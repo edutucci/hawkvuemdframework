@@ -64,31 +64,8 @@
 
 <script>
 
-import HPage from '../components/page/HPage.vue'
-import HMenuDropdown from '../components/menu/HMenuDropdown.vue'
-import HMenuDropdownItem from '../components/menu/HMenuDropdownItem.vue'
-import HAppToolbar from '../components/toolbar/HAppToolbar.vue'
-import HAppToolbarContainer from '../components/toolbar/HAppToolbarContainer.vue'
-import HAppToolbarNavigation from '../components/toolbar/HAppToolbarNavigation.vue'
-import HAppToolbarTitle from '../components/toolbar/HAppToolbarTitle.vue'
-import HAppToolbarAction from '../components/toolbar/HAppToolbarAction.vue'
-import HAppToolbarMenu from '../components/toolbar/HAppToolbarMenu.vue'
-import HAppToolbarFab from '../components/toolbar/HAppToolbarFab.vue'
-import HBtnFloat from '../components/buttons/HBtnFloat.vue'
-
 export default {
   components: {
-    HPage,
-    HAppToolbar,
-    HAppToolbarContainer,
-    HAppToolbarNavigation,
-    HAppToolbarTitle,
-    HAppToolbarAction,
-    HAppToolbarMenu,
-    HAppToolbarFab,
-    HMenuDropdown,
-    HMenuDropdownItem,
-    HBtnFloat
   },
   data () {
     return {

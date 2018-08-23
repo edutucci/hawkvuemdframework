@@ -43,15 +43,8 @@
 
 <script>
 
-import HRadio from '../components/radio/HRadio.vue'
-import HCard from '../components/card/HCard'
-import HCardText from '../components/card/HCardText'
-
 export default {
   components: {
-    HRadio,
-    HCard,
-    HCardText
   },
   data () {
     return {

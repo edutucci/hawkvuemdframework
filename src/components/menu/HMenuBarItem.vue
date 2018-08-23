@@ -7,8 +7,6 @@
 
 <script>
 
-import FontAwesomeIcon from '@fortawesome/vue-fontawesome'
-
 export default {
   props: {
     label: {
@@ -21,7 +19,6 @@ export default {
     }
   },
   components: {
-    FontAwesomeIcon
   }
 }
 </script>

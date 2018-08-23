@@ -68,10 +68,9 @@
 
 <script>
 
-import HBtn from '@/components/buttons/HBtn.vue'
-import HBtnFloat from '@/components/buttons/HBtnFloat.vue'
-
 export default {
+  components: {
+  },
   data () {
     return {
       containedButtons: `
@@ -118,10 +117,6 @@ export default {
 </div>      
       `
     }
-  },
-  components: {
-    HBtn,
-    HBtnFloat
   },
   methods: {
   }

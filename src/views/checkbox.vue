@@ -70,15 +70,9 @@
 </template>
 
 <script>
-import HCheckbox from '../components/checkbox/HCheckbox.vue'
-import HCard from '../components/card/HCard'
-import HCardText from '../components/card/HCardText'
 
 export default {
   components: {
-    HCheckbox,
-    HCard,
-    HCardText
   },
   data () {
     return {

@@ -26,11 +26,9 @@
 </template>
 
 <script>
-import HInput from '../components/Inputs/HInput.vue'
 
 export default {
   components: {
-    HInput
   },
   data () {
     return {

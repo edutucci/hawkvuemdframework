@@ -7,11 +7,8 @@
 
 <script>
 
-import HSearch from '../components/Inputs/HSearch'
-
 export default {
   components: {
-    HSearch
   },
   data () {
     return {

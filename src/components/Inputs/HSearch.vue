@@ -27,13 +27,10 @@
 </template>
 
 <script>
-
-import HAvatar from '../image/HAvatar'
 import { debounce } from 'lodash'
 
 export default {
   components: {
-    HAvatar
   },
   props: {
     value: {

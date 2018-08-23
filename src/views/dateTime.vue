@@ -55,17 +55,8 @@
 
 <script>
 
-import HDatePicker from '../components/date/HDatePicker.vue'
-import HDateInput from '../components/date/HDateInput.vue'
-import HTimePicker from '../components/date/HTimePicker.vue'
-import HTimeInput from '../components/date/HTimeInput.vue'
-
 export default {
   components: {
-    HDatePicker,
-    HDateInput,
-    HTimePicker,
-    HTimeInput
   },
   data () {
     return {

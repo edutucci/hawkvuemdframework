@@ -47,10 +47,6 @@
 </template>
 
 <script>
-// import HFaIcon from '../icons/HFaIcon.vue'
-import HBtnFloat from '../buttons/HBtnFloat.vue'
-import FontAwesomeIcon from '@fortawesome/vue-fontawesome'
-import HSlideMenuItem from './HSlideMenuItem.vue'
 
 export default {
   props: {
@@ -64,10 +60,6 @@ export default {
     }
   },
   components: {
-    // HFaIcon,
-    HBtnFloat,
-    FontAwesomeIcon,
-    HSlideMenuItem
   },
   data () {
     return {

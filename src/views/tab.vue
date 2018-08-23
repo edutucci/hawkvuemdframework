@@ -70,13 +70,9 @@
 </template>
 
 <script>
-import HTab from '../components/tab/HTab.vue'
-import HTabs from '../components/tab/HTabs.vue'
 
 export default {
   components: {
-    HTab,
-    HTabs
   },
   data () {
     return {

@@ -20,12 +20,10 @@
 
 <script>
 
-import HBtnFloat from '../buttons/HBtnFloat.vue'
 import { mixin as clickaway } from 'vue-clickaway'
 
 export default {
   components: {
-    HBtnFloat
   },
   props: {
     icon: {

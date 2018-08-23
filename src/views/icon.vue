@@ -50,11 +50,9 @@
 </template>
 
 <script>
-import HBtn from '../components/buttons/HBtn.vue'
 
 export default {
   components: {
-    HBtn
   },
   data () {
     return {

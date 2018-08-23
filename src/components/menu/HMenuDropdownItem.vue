@@ -15,13 +15,11 @@
 
 <script>
 
-// import HFaIcon from '../icons/HFaIcon.vue'
 import componentBase from '../componentBase.vue'
 
 export default {
   extends: componentBase,
   components: {
-    // HFaIcon
   },
   props: {
     icon: {

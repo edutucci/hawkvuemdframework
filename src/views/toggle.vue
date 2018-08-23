@@ -68,15 +68,8 @@
 
 <script>
 
-import HToggle from '../components/checkbox/HToggle'
-import HCard from '../components/card/HCard'
-import HCardText from '../components/card/HCardText'
-
 export default {
   components: {
-    HToggle,
-    HCard,
-    HCardText
   },
   data () {
     return {

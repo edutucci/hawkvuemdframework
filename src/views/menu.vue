@@ -23,7 +23,7 @@
         .row.flex.flex-justify-end
           h1 Menu Right
         .row.flex.flex-justify-end
-          <h-menu-dropdown :icon="['fas', 'bars']" rtl="true">
+          <h-menu-dropdown :icon="['fas', 'bars']" rtl>
             <h-menu-dropdown-item :icon="['fas', 'check-circle']" text="You are correct." @click="showModal('U clicked in circle')"/>
             <h-menu-dropdown-item :icon="['fas', 'handshake']" text="You are in good hands" @click="showModal('U clicked in hands')"/>
           </h-menu-dropdown>
@@ -85,21 +85,9 @@
 </template>
 
 <script>
-import HMenuBar from '../components/menu/HMenuBar.vue'
-import HMenuBarItem from '../components/menu/HMenuBarItem.vue'
-import HMenuDropdown from '../components/menu/HMenuDropdown.vue'
-import HMenuDropdownItem from '../components/menu/HMenuDropdownItem.vue'
-import HSlideMenu from '../components/menu/HSlideMenu.vue'
-import HBtnFloat from '../components/buttons/HBtnFloat.vue'
 
 export default {
   components: {
-    HMenuBar,
-    HMenuBarItem,
-    HMenuDropdown,
-    HMenuDropdownItem,
-    HSlideMenu,
-    HBtnFloat
   },
   data () {
     return {

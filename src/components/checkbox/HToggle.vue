@@ -13,6 +13,7 @@
 <script>
 import HCheckbox from './HCheckbox'
 export default {
+  extends: HCheckbox,
   model: {
     prop: 'model',
     event: 'change'
@@ -31,7 +32,6 @@ export default {
     //   type: [String, Number]
     // }
   },
-  extends: HCheckbox,
   data () {
     return {}
   }

@@ -12,13 +12,8 @@
 
 <script>
 
-import HModal from '../components/window/HModal'
-import HBtn from '../components/buttons/HBtn'
-
 export default {
   components: {
-    HModal,
-    HBtn
   },
   data () {
     return {

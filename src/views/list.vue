@@ -74,10 +74,10 @@
         </h-app-toolbar>
         <h-list-header text="Today is my birthday"/>
         <h-list-item>
-          <h-list-item-left separator avatar="/static/avatar/turtle.png" text="Hi rambo" desc="You there?" />
+          <h-list-item-left separator avatar="/avatar/turtle.png" text="Hi rambo" desc="You there?" />
         </h-list-item>
         <h-list-item>
-          <h-list-item-left separator avatar="/static/avatar/rambo.jpg" text="I am searching something to eat" desc="I think I am going to eat you."/>
+          <h-list-item-left separator avatar="/avatar/rambo.jpg" text="I am searching something to eat" desc="I think I am going to eat you."/>
         </h-list-item>
       </h-list>
 
@@ -95,10 +95,10 @@
         </h-app-toolbar>
         <h-list-header middletext="Folders"/>
         <h-list-item>
-          <h-list-item-left img="/static/avatar/folder_open.jpeg" text="Photos" desc="Dez 12, 2017"/>
+          <h-list-item-left img="/avatar/folder_open.jpeg" text="Photos" desc="Dez 12, 2017"/>
         </h-list-item>
         <h-list-item>
-          <h-list-item-left img="/static/avatar/folder_open.jpeg" text="Images" desc="Events"/>
+          <h-list-item-left img="/avatar/folder_open.jpeg" text="Images" desc="Events"/>
         </h-list-item>
       </h-list>
     <pre v-highlightjs="list4">
@@ -109,19 +109,19 @@
       <h-list class="col-6">
         <h-list-header text="4 items in your cart" />
         <h-list-item separator>
-          <h-list-item-left img="/static/img/pencil.png" text="Pencil" desc="in stock" />
+          <h-list-item-left img="/img/pencil.png" text="Pencil" desc="in stock" />
           <h-list-item-right text="2.00"/>
         </h-list-item>
         <h-list-item separator>
-          <h-list-item-left img="/static/img/rubberbands.png" text="Hubberbands" desc="in stock" />
+          <h-list-item-left img="/img/rubberbands.png" text="Hubberbands" desc="in stock" />
           <h-list-item-right text="4.00"/>
         </h-list-item>
         <h-list-item separator>
-          <h-list-item-left img="/static/img/rulers.png" text="Rulers" desc="only 1 left in stock. Next month we have to sell." />
+          <h-list-item-left img="/img/rulers.png" text="Rulers" desc="only 1 left in stock. Next month we have to sell." />
           <h-list-item-right text="6.00"/>
         </h-list-item>
         <h-list-item separator>
-          <h-list-item-left img="/static/img/clock.png" text="Clock" desc="in stock" />
+          <h-list-item-left img="/img/clock.png" text="Clock" desc="in stock" />
           <h-list-item-right text="8.00"/>
         </h-list-item>
       </h-list>
@@ -135,33 +135,9 @@
 </template>
 
 <script>
-import HList from '../components/list/HList.vue'
-import HListItem from '../components/list/HListItem.vue'
-import HListHeader from '../components/list/HListHeader.vue'
-import HListBody from '../components/list/HListBody.vue'
-import HListItemLeft from '../components/list/HListItemLeft.vue'
-import HListItemRight from '../components/list/HListItemRight.vue'
-import HAppToolbar from '../components/toolbar/HAppToolbar.vue'
-import HAppToolbarContainer from '../components/toolbar/HAppToolbarContainer.vue'
-import HAppToolbarNavigation from '../components/toolbar/HAppToolbarNavigation.vue'
-import HAppToolbarTitle from '../components/toolbar/HAppToolbarTitle.vue'
-import HAppToolbarAction from '../components/toolbar/HAppToolbarAction.vue'
-import HAppToolbarMenu from '../components/toolbar/HAppToolbarMenu.vue'
 
 export default {
   components: {
-    HList,
-    HListItem,
-    HListHeader,
-    HListItemLeft,
-    HListItemRight,
-    HListBody,
-    HAppToolbar,
-    HAppToolbarNavigation,
-    HAppToolbarContainer,
-    HAppToolbarTitle,
-    HAppToolbarAction,
-    HAppToolbarMenu
   },
   data () {
     return {
@@ -232,10 +208,10 @@ export default {
   </h-app-toolbar>
   <h-list-header text="Today is my birthday"/>
   <h-list-item>
-    <h-list-item-left separator avatar="/static/avatar/turtle.png" text="Hi rambo" desc="You there?" />
+    <h-list-item-left separator avatar="/avatar/turtle.png" text="Hi rambo" desc="You there?" />
   </h-list-item>
   <h-list-item>
-    <h-list-item-left separator avatar="/static/avatar/rambo.jpg" text="I am searching something to eat" desc="I think I am going to eat you."/>
+    <h-list-item-left separator avatar="/avatar/rambo.jpg" text="I am searching something to eat" desc="I think I am going to eat you."/>
   </h-list-item>          
 </h-list>
       `,
@@ -249,10 +225,10 @@ export default {
         </h-app-toolbar>        
         <h-list-header middletext="Folders"/>
         <h-list-item>
-          <h-list-item-left img="/static/avatar/folder_open.jpeg" text="Photos" desc="Dez 12, 2017"/>
+          <h-list-item-left img="/avatar/folder_open.jpeg" text="Photos" desc="Dez 12, 2017"/>
         </h-list-item>
         <h-list-item>
-          <h-list-item-left img="/static/avatar/folder_open.jpeg" text="Images" desc="Events"/>
+          <h-list-item-left img="/avatar/folder_open.jpeg" text="Images" desc="Events"/>
         </h-list-item>
       </h-list>
       `,
@@ -260,19 +236,19 @@ export default {
 <h-list class="col-6">
   <h-list-header text="4 items in your cart" />
   <h-list-item separator>
-    <h-list-item-left img="/static/img/pencil.png" text="Pencil" desc="in stock" />
+    <h-list-item-left img="/img/pencil.png" text="Pencil" desc="in stock" />
     <h-list-item-right text="2.00"/>
   </h-list-item>
   <h-list-item separator>
-    <h-list-item-left img="/static/img/rubberbands.png" text="Hubberbands" desc="in stock" />
+    <h-list-item-left img="/img/rubberbands.png" text="Hubberbands" desc="in stock" />
     <h-list-item-right text="4.00"/>
   </h-list-item>
   <h-list-item separator>
-    <h-list-item-left img="/static/img/rulers.png" text="Rulers" desc="only 1 left in stock. Next month we have to sell." />
+    <h-list-item-left img="/img/rulers.png" text="Rulers" desc="only 1 left in stock. Next month we have to sell." />
     <h-list-item-right text="6.00"/>
   </h-list-item>
   <h-list-item separator>
-    <h-list-item-left img="/static/img/clock.png" text="Clock" desc="in stock" />
+    <h-list-item-left img="/img/clock.png" text="Clock" desc="in stock" />
     <h-list-item-right text="8.00"/>
   </h-list-item>
 </h-list>
