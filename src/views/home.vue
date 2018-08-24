@@ -51,6 +51,7 @@
               <h-collapsible-item text="Modal" @click="$router.push('/modal'), $refs.nav.close()"/>
               <h-collapsible-item text="DateTime" @click="$router.push('/datetime'), $refs.nav.close()"/>
               <h-collapsible-item text="Toggle" @click="$router.push('/toggle'), $refs.nav.close()"/>
+              <h-collapsible-item text="Toast" @click="$router.push('/toast'), $refs.nav.close()"/>
             </h-collapsible-menu>
 
         </div>

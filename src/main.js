@@ -6,6 +6,7 @@ import store from './store'
 import './registerServiceWorker'
 import VueHighlightJS from 'vue-highlightjs'
 import './components'
+import './plugins'
 import Parse from 'parse'
 
 import fontawesome from '@fortawesome/fontawesome'
