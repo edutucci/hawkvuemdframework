@@ -1,33 +1,76 @@
 <template lang="pug">
-  .input-container(v-bind:class="[inputClass]")
-    input(
-      :value="value"
-      :type="inputtype"
-      class="h-input" :class="[rticon]"
-      :readonly="readonly"
-      :placeholder="placeholder"
-      @focus="onInputFocus()"
-      @blur="onInputBlur()"
-      @input="onChange($event.target.value)"
-      @click="onClick"
-    )
-    label(class="control-label" v-if="floatLabel")
-      | {{floatLabel}}
-
-    //- h-fa-icon(
-    //-   v-if="inputtype === 'text' && cleartext === true"
-    //-   :icon="['fas', 'times-circle']" class="input-icon" @click="onClear"
-    //- )
-    //- h-fa-icon(
-    //-   v-if="inputtype === 'password' && showpassword === false"
-    //-   :icon="['fas', 'eye-slash']"
-    //-   class="input-icon"
-    //-   @click="showPassword"
-    //- )
-    //- h-fa-icon(
-    //-   v-if="inputtype === 'text' && showpassword === true"
-    //-   :icon="['fas', 'eye']" class="input-icon" @click="showPassword"
-    //- )
+  .textfield-container.flex
+    .flex.h-pt-sm
+      h-fa-icon.h-icon(
+        v-if="leftIcon && leftIcon.length"
+        textcolor="text-gray"
+        :icon="leftIcon"
+        size="lg"
+      )
+    .flex.flex-column.full-width
+      .full-width.input-container(
+        :class="{primary: primary, nofocus: nofocus, outline: outlined}"
+      )
+        div.static-label(
+          :class="{primary: primary, nofocus: nofocus}"
+          :style="[staticLabelStyle]"
+          style="height: 15px;"
+        )
+          div.h-pl-sm(v-if="staticLabel")
+            | {{staticLabel}}
+        .flex-1
+          .flex.full-width
+            .flex-1.h-pl-sm
+              input(
+                class="h-input"
+                :value="value"
+                :type="inputtype"
+                :readonly="readonly"
+                :placeholder="placeholder"
+                :maxlength="maxlength"
+                @focus="onInputFocus()"
+                @blur="onInputBlur()"
+                @input="onChange($event.target.value)"
+                @click="onClick"
+              )
+              label(
+                v-if="floatLabel"
+                class="control-label"
+                :class="{primary: primary, nofocus: nofocus}"
+                :style="[floatLabelStyle]"
+              )
+                | {{floatLabel}}
+            div.h-pr-sm.h-pl-sm
+              h-fa-icon(
+                v-if="type === 'password'"
+                textcolor="text-gray"
+                :icon="['fas', 'eye']"
+                size="lg"
+                @click="onInputIconClick"
+              )
+              h-fa-icon(
+                v-if="cleartext"
+                textcolor="text-gray"
+                :icon="['fas', 'times-circle']"
+                size="lg"
+                @click="onInputIconClick"
+              )
+      .full-width
+        .flex.flex-column
+          .flex.full-width.helper-text
+            .flex-1(
+              v-if="helperText"
+            )
+              | {{helperText}}
+            .flex(
+              v-if="textCounter"
+            )
+              | {{inputCounter}}
+        .flex.flex-column
+          .flex.full-with.error-label(
+            v-if="errorLabel"
+          )
+            | {{errorLabel}}
 
 </template>
 
@@ -43,6 +86,31 @@ export default {
     floatLabel: {
       type: String
     },
+    staticLabel: {
+      type: String
+    },
+    errorLabel: {
+      type: String
+    },
+    helperText: {
+      type: String
+    },
+    textCounter: {
+      type: Number,
+      default: 0
+    },
+    leftIcon: {
+      type: Array,
+      default: () => ([])
+    },
+    maxlength: {
+      type: Number,
+      default: 9999
+    },
+    outlined: {
+      type: Boolean,
+      default: false
+    },
     type: {
       type: String,
       default: 'text'
@@ -54,45 +122,79 @@ export default {
     placeholder: {
       type: String,
       default: ''
+    },
+    cleartext: {
+      type: Boolean,
+      default: false
     }
-    // cleartext: {
-    //   type: Boolean,
-    //   default: false
-    // }
   },
   data () {
     return {
-      inputClass: '',
-      rticon: '',
       inputtype: 'text',
-      showcleartext: true,
-      showpassword: false
+      primary: false,
+      nofocus: true,
+      staticLabelStyle: {
+        fontSize: '12px'
+      },
+      floatLabelStyle: {
+        position: 'absolute',
+        top: '2px',
+        left: '9px',
+        fontSize: '12px',
+        zIndex: '-1'
+      }
     }
   },
-  created () {
+  mounted () {
+    this.inputtype = this.type
     this.onChange()
     this.onInputBlur()
-
-    if (this.cleartext) {
-      this.rticon = 'h-input-icon'
+  },
+  watch: {
+    value: function (value) {
+      this.changeFloatLabelStyle()
     }
-
-    this.inputtype = this.type
-    // if (this.inputtype === 'password') {
-    //   this.showcleartext = false
-    // }
+  },
+  computed: {
+    inputCounter () {
+      let valueLength = (this.value) ? this.value.length : 0
+      return '' + valueLength + ' / ' + this.textCounter
+    }
   },
   methods: {
+    inputMaxlength (value) {
+      let text = value
+      if (value) {
+        text = value.substr(0, this.maxlength)
+      }
+      return text
+    },
     onInputFocus () {
-      this.inputClass = 'has-focus'
+      this.floatLabelStyle.top = '2px'
+      this.floatLabelStyle.left = '9px'
+      this.floatLabelStyle.fontSize = '12px'
+
+      this.primary = true
+      this.nofocus = false
     },
     onInputBlur () {
-      // change float label position
+      this.primary = false
+      this.nofocus = true
+      this.changeFloatLabelStyle()
+    },
+    changeFloatLabelStyle () {
+      // top: '20px', left: '1px'
       if (this.floatLabel && (this.value || this.placeholder)) {
-        this.inputClass = 'has-focus'
+        this.floatLabelStyle.top = '2px'
+        this.floatLabelStyle.left = '9px'
+        this.floatLabelStyle.fontSize = '12px'
       } else {
-        this.inputClass = ''
+        this.floatLabelStyle.top = '20px'
+        this.floatLabelStyle.left = '9px'
+        this.floatLabelStyle.fontSize = '16px'
       }
+
+      // console.log('this.floatLabelStyle: ' + JSON.stringify(this.floatLabelStyle))
     },
     onChange (value) {
       let txtValue = ''
@@ -101,30 +203,40 @@ export default {
       } else {
         txtValue = value
       }
-
+      txtValue = this.inputMaxlength(txtValue)
       this.$emit('input', txtValue)
     },
     onClick () {
       this.$emit('click')
     },
-    onClear () {
-      this.$emit('input', '')
-    },
-    showPassword () {
-      this.showpassword = !this.showpassword
-      this.inputtype = (this.inputtype === 'text') ? 'password' : 'text'
+    onInputIconClick () {
+      if (this.type === 'password') {
+        this.inputtype = (this.inputtype === 'password') ? 'text' : 'password'
+      } else if (this.cleartext) {
+        this.onChange('')
+      }
     }
   }
 }
 </script>
 
-<style lang="stylus" scoped>
-@import '../../css/variables.styl'
+<style scoped>
+.textfield-container {
+  position:relative;
+  padding: 8px;
+}
 
 .input-container {
   position:relative;
-  height:65px;
-  background-color: white;
+  padding-top: 2px;
+  padding-bottom:2px;
+}
+
+.input-container.outline {
+  border-color: gray;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 5px;
 }
 
 .h-input {
@@ -134,58 +246,12 @@ export default {
   border-style:none;
   outline: none;
   z-index:0;
-  background:white;
+  padding-top: 2px;
+  background:none;
 }
 
-// .h-input-icon {
-//   padding-right: 30px;
-// }
-
-.control-label{
-  color: black;
-  font-size:16px;
-  font-weight: bold;
-}
-
-.input-container input {
-    position:absolute;
-    top:36px;
-}
-
-.input-container .control-label {
-    position: absolute;
-    top:40px;
-}
-
-input:focus.h-input {
-  border-bottom: 4px solid $primary
-}
-
-.input-container.has-focus label {
-  top:0px;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  color $primary
-}
-
-input:not(:focus).h-input + .control-label {
-  color: black;
-}
-
-input:not(:focus).h-input {
-  border-bottom: 4px solid lightgray
-}
-
-.input-icon {
-  position: absolute;
-  background-color: white;
-  padding-right: 4px;
-  padding-left: 16px;
-  padding-bottom: 4px;
-  color:black;
-  right: 0px;
-  z-index: 0px;
-  top: 36px;
+.h-icon {
+  padding: 8px;
 }
 
 </style>

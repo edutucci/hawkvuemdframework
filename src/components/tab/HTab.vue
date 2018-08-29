@@ -1,6 +1,8 @@
 <template>
-  <div v-if="isVisible" class="tab full-width  full-height">
-    <slot></slot>
+  <div v-if="isVisible" class="tab full-width  full-height scroll">
+    <div class="h-pa-sm">
+      <slot></slot>
+    </div>
   </div>
 </template>
 
@@ -11,9 +13,17 @@ export default {
       type: String,
       default: ''
     },
-    icon: {
+    lefticon: {
       type: Array,
       default: () => ([])
+    },
+    topicon: {
+      type: Array,
+      default: () => ([])
+    },
+    default: {
+      type: Boolean,
+      default: false
     }
   },
   data () {
@@ -23,6 +33,9 @@ export default {
   },
   mounted: function () {
     this.$parent.addTab(this)
+    if (this.default) {
+      this.setVisible(true)
+    }
   },
   methods: {
     // tabIcon () {
@@ -31,9 +44,9 @@ export default {
     // tabName () {
     //   return this.name
     // },
-    // setVisible (value) {
-    //   this.isVisible = value
-    // }
+    setVisible (value) {
+      this.isVisible = value
+    }
   }
 }
 </script>

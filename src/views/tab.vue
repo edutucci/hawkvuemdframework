@@ -4,26 +4,26 @@
 
     <h1>Horizontal Tab</h1>
     <h-tabs v-model="tabModel" @tabChange="tabChange" bgcolor="bg-secondary" textcolor="text-white" class="h-mt-md">
-    <h-tab name="First tab" :icon="['fas', 'home']">
-        This is the content of the first tab
-    </h-tab>
-    <h-tab name="Second tab" :icon="['fas', 'globe']">
-        This is the content of the second tab
-    </h-tab>
-    <h-tab name="Disabled tab" :is-disabled="true">
-        This content will be unavailable while :is-disabled prop set to true
-    </h-tab>
-    <h-tab name="Custom fragment">
-        The fragment that is appended to the url can be customized
-    </h-tab>
-    <h-tab prefix="<span class='glyphicon glyphicon-star'></span>"
-      name="Prefix and suffix"
-      suffix=" <span class='badge'>4</span>">
-        A prefix and a suffix can be added
-    </h-tab>
-    <h-tab name="Gift">
-        Anyone is waiting a gift from you
-    </h-tab>
+      <h-tab name="TAB 1" :lefticon="['fas', 'home']">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit minima.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit minima.
+        </p>
+      </h-tab>
+      <h-tab name="TAB 2" :lefticon="['fas', 'globe']" :topicon="['fas', 'globe']" default>
+          This is the content of the second tab
+      </h-tab>
+      <h-tab name="TAB 3">
+          This is the content of the tab 3
+      </h-tab>
+      <h-tab name="TAB 4">
+          This is the content of the tab 4
+      </h-tab>
+      <h-tab name="TAB 5">
+        This is the content of the tab 5
+      </h-tab>
     </h-tabs>
 
     <h3>TabModel: {{tabModel}}</h3>
@@ -36,26 +36,38 @@
     <h1>Vertical Tab</h1>
 
     <h-tabs bgcolor="bg-primary" textcolor="text-white"  vertical class="h-mt-md">
-    <h-tab name="First tab">
-        This is the content of the first tab
-    </h-tab>
-    <h-tab name="Second tab">
-        This is the content of the second tab
-    </h-tab>
-    <h-tab name="Disabled tab" :is-disabled="true">
-        This content will be unavailable while :is-disabled prop set to true
-    </h-tab>
-    <h-tab name="Custom fragment">
-        The fragment that is appended to the url can be customized
-    </h-tab>
-    <h-tab prefix="<span class='glyphicon glyphicon-star'></span> "
-      name="Prefix and suffix"
-      suffix=" <span class='badge'>4</span>">
-        A prefix and a suffix can be added
-    </h-tab>
-    <h-tab name="Gift">
-        Anyone is waiting a gift from you
-    </h-tab>
+      <h-tab name="First tab" :lefticon="['fas', 'globe']" :topicon="['fas', 'home']" default>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit minima.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit minima.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit minima.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit minima.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit minima.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit minima.
+        </p>
+      </h-tab>
+      <h-tab name="TAB 2" :lefticon="['fas', 'globe']" :topicon="['fas', 'globe']">
+          This is the content of the second tab
+      </h-tab>
+      <h-tab name="TAB 3">
+          This is the content of the tab 3
+      </h-tab>
+      <h-tab name="TAB 4">
+          This is the content of the tab 4
+      </h-tab>
+      <h-tab name="TAB 5">
+        This is the content of the tab 5
+      </h-tab>
     </h-tabs>
 
     <pre v-highlightjs="tabver">
@@ -79,53 +91,65 @@ export default {
       tabModel: '',
       tabhor: `
 <h-tabs v-model="tabModel" @tabChange="tabChange" bgcolor="bg-secondary" textcolor="text-white" class="h-mt-md">
-    <h-tab name="First tab">
-        This is the content of the first tab
-    </h-tab>
-    <h-tab name="Second tab">
-        This is the content of the second tab
-    </h-tab>
-    <h-tab name="Disabled tab" :is-disabled="true">
-        This content will be unavailable while :is-disabled prop set to true
-    </h-tab>
-    <h-tab name="Custom fragment">
-        The fragment that is appended to the url can be customized
-    </h-tab>
-    <h-tab prefix="<span class='glyphicon glyphicon-star'></span> " 
-            name="Prefix and suffix" 
-            suffix=" <span class='badge'>4</span>">
-        A prefix and a suffix can be added
-    </h-tab>
-    <h-tab name="Gift">
-        Anyone is waiting a gift from you
-    </h-tab>      
+  <h-tab name="TAB 1" :lefticon="['fas', 'home']">
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit minima.
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit minima.
+    </p>
+  </h-tab>
+  <h-tab name="TAB 2" :lefticon="['fas', 'globe']" :topicon="['fas', 'globe']" default>
+      This is the content of the second tab
+  </h-tab>
+  <h-tab name="TAB 3">
+      This is the content of the tab 3
+  </h-tab>
+  <h-tab name="TAB 4">
+      This is the content of the tab 4
+  </h-tab>
+  <h-tab name="TAB 5">
+    This is the content of the tab 5
+  </h-tab>
 </h-tabs>
 
 <h3>TabModel: {{tabModel}}</h3>      
       `,
       tabver: `
 <h-tabs bgcolor="bg-primary" textcolor="text-white"  vertical class="h-mt-md">
-    <h-tab name="First tab">
-        This is the content of the first tab
-    </h-tab>
-    <h-tab name="Second tab">
-        This is the content of the second tab
-    </h-tab>
-    <h-tab name="Disabled tab" :is-disabled="true">
-        This content will be unavailable while :is-disabled prop set to true
-    </h-tab>
-    <h-tab name="Custom fragment">
-        The fragment that is appended to the url can be customized
-    </h-tab>
-    <h-tab prefix="<span class='glyphicon glyphicon-star'></span> " 
-            name="Prefix and suffix" 
-            suffix=" <span class='badge'>4</span>">
-        A prefix and a suffix can be added
-    </h-tab>
-    <h-tab name="Gift">
-        Anyone is waiting a gift from you
-    </h-tab>      
-</h-tabs>      
+  <h-tab name="First tab" :lefticon="['fas', 'globe']" :topicon="['fas', 'home']" default>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit minima.
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit minima.
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit minima.
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit minima.
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit minima.
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit minima.
+    </p>
+  </h-tab>
+  <h-tab name="TAB 2" :lefticon="['fas', 'globe']" :topicon="['fas', 'globe']">
+      This is the content of the second tab
+  </h-tab>
+  <h-tab name="TAB 3">
+      This is the content of the tab 3
+  </h-tab>
+  <h-tab name="TAB 4">
+      This is the content of the tab 4
+  </h-tab>
+  <h-tab name="TAB 5">
+    This is the content of the tab 5
+  </h-tab>
+</h-tabs>
       `
     }
   },

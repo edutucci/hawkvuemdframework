@@ -2,7 +2,7 @@
   font-awesome-icon.faicon(v-if="icon && icon.length" @click="onClick"
     :icon="icon" :size="size"
     :spin="spin" :pulse="pulse"
-    style="cursor:pointer;"
+    style="cursor:pointer; font-size: 18px;"
     :class="[textcolor]"
   )
     slot
@@ -39,16 +39,8 @@ export default {
       bkgcolor: ''
     }
   },
-  created () {
-    // this.color = this.textcolor
-    // this.bkgcolor = this.bgcolor
-    // if (this.textwhite) {
-    //   this.color = 'text-white'
-    // }
-  },
   methods: {
     onClick () {
-      console.log('emting click')
       this.$emit('click')
     }
   }
