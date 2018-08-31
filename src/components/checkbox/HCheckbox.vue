@@ -2,8 +2,11 @@
   .flex.flex-items-center(style="height: 26px;")
     label.container
       | {{label}}
-      input(type="checkbox" @click="onChange(this)" :checked="checkboxState")
-      span.checkmark.blue
+      input(
+        type="checkbox" @click="onChange(this)"
+        :checked="checkboxState" :disabled="disabled"
+      )
+      span.checkmark.primary(:class="{disabled:disabled}")
 
 </template>
 
@@ -18,14 +21,18 @@ export default {
       type: [String, Number]
     },
     label: [String, Number],
-    checked: Boolean,
+    checked: {
+      type: Boolean,
+      default: false
+    },
+    disabled: {
+      type: Boolean,
+      default: false
+    },
     model: {
       type: [String, Array, Boolean],
       default: undefined
     }
-    // id: {
-    //   type: [String, Number]
-    // }
   },
   data () {
     return {
@@ -54,6 +61,7 @@ export default {
   methods: {
     onChange (checkbox) {
       let value = this.model
+
       if (Array.isArray(value)) {
         value = value.slice()
         const i = value.indexOf(this.value)
@@ -65,8 +73,6 @@ export default {
       } else {
         value = !this.checkboxState
       }
-
-      console.log('change value: ' + value)
       this.$emit('change', value)
     }
   }
@@ -107,25 +113,20 @@ export default {
     border-radius: 2px;
 }
 
+.checkmark.disabled {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 14px;
+    width: 14px;
+    background-color: white;
+    border: 2px solid lightgrey;
+    border-radius: 2px;
+}
+
 /* On mouse-over, add a grey background color */
 .container:hover input ~ .checkmark {
     background-color: none;
-}
-
-/* When the checkbox is checked, add a blue background */
-.container input:checked ~ .blue {
-    background-color: blue;
-    border-color: blue;
-}
-
-/* When the checkbox is checked, add a red background */
-.container input:checked ~ .red {
-    background-color: red;
-    border-color: red;
-}
-
-.container input:checked ~ .white {
-    background-color: black;
 }
 
 /* Create the checkmark/indicator (hidden when not checked) */
@@ -147,6 +148,19 @@ export default {
     width: 3px;
     height: 12px;
     border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark.disabled:after {
+    left: 4px;
+    top: -2px;
+    width: 3px;
+    height: 12px;
+    border: solid gray;
     border-width: 0 3px 3px 0;
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);

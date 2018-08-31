@@ -1,9 +1,9 @@
 import Vue from 'vue'
 
-import Toast from './toast/Toast'
+import SnackBar from './snackBar/SnackBar'
 
 const Plugins = {
-  Toast
+  SnackBar
 }
 
 Object.keys(Plugins).forEach(name => {

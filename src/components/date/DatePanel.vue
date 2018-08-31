@@ -35,8 +35,9 @@
             | {{day.monthDay}}
 
       .flex.flex-justify-end
-        h-btn(textbutton label="OK" @click="onOK")
-        h-btn(textbutton label="Close" @click="onClose")
+        //- <h-btn contained bgcolor="bg-warning" textcolor="text-white" label="warning"/>
+        h-btn(outlined label="OK" @click="onOK")
+        h-btn(outlined label="Close" @click="onClose")
     .flex-1.scroll(v-show="panelMode==='years'" style="max-height:280px")
       .flex.flex-justify-center.btn.bg-white(v-for="year in years" @click="onYearClick(year)")
         | {{year}}
@@ -78,10 +79,18 @@ export default {
     }
   },
   mounted () {
-    this.currentDate = this.date
-    this.getCalendar()
+    this.setPanelDate()
+  },
+  watch: {
+    date: function (value) {
+      this.setPanelDate()
+    }
   },
   methods: {
+    setPanelDate () {
+      this.currentDate = this.date
+      this.getCalendar()
+    },
     onOK () {
       this.$emit('ok', this.currentDate)
     },

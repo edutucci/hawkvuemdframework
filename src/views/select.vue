@@ -39,7 +39,11 @@
 
     <h1>Multi Select</h1>
     <div class="col-6">
-      <h-select :options="options" v-model="multiselect" multiselect/>
+      <h-select :options="options"
+       v-model="multiselect"
+       multiselect
+       @changeMultiselect="changeMultiselect"
+       />
       <span>multiselect: {{ multiselect }}</span>
     </div>
     <div class="boxshadow">
@@ -63,43 +67,43 @@ export default {
   },
   data () {
     return {
-      selectModel: '',
-      selectModel1: '',
-      multiselect: [],
+      selectModel: 'Bluetooth1',
+      selectModel1: 'chrome1',
+      multiselect: ['heart1', 'discord1'],
       options: [
         {
           'label': 'Address-book',
-          'value': 'address-book',
+          'value': 'address-book1',
           'icon': ['fas', 'address-book'],
           'avatar': 'https://i.pinimg.com/736x/a0/fc/b3/a0fcb3e4cf01dd5832577a0f2c70f5f9--create-your-own-avatar-avatar-maker.jpg'
         },
         {
           'label': 'Bluetooth',
-          'value': 'Bluetooth',
+          'value': 'Bluetooth1',
           'icon': ['fab', 'bluetooth'],
           'avatar': 'http://autokadabra.ru/system/uploads/users/18/18340/small.png?1318432918'
         },
         {
           'label': 'heart',
-          'value': 'heart',
+          'value': 'heart1',
           'icon': ['fas', 'heart'],
           'avatar': 'http://autokadabra.ru/system/uploads/users/20/20303/small.png?1319912650'
         },
         {
           'label': 'chrome',
-          'value': 'chrome',
+          'value': 'chrome1',
           'icon': ['fab', 'chrome'],
           'avatar': 'http://autokadabra.ru/system/uploads/users/19/19506/small.png?1318360757'
         },
         {
           'label': 'discord',
-          'value': 'discord',
+          'value': 'discord1',
           'icon': ['fab', 'discord'],
           'avatar': 'http://autokadabra.ru/system/uploads/users/20/20303/small.png?1319912650'
         },
         {
           'label': 'music',
-          'value': 'music',
+          'value': 'music1',
           'icon': ['fas', 'music'],
           'avatar': 'https://i.pinimg.com/736x/a0/fc/b3/a0fcb3e4cf01dd5832577a0f2c70f5f9--create-your-own-avatar-avatar-maker.jpg'
         }
@@ -173,6 +177,9 @@ options: [
   methods: {
     onInput (value) {
       console.log('input selecionado: ' + value)
+    },
+    changeMultiselect (value) {
+      console.log('changeMultiselect: ' + value)
     }
   }
 }

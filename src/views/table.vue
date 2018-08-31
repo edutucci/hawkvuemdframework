@@ -3,7 +3,12 @@
     <h1>Table</h1>
 
     <pre v-highlightjs="tbdata">
-      <code class="html">
+      <code class="javascript">
+      </code>
+    </pre>
+
+    <pre v-highlightjs="tbColumns">
+      <code class="javacript">
       </code>
     </pre>
 
@@ -13,6 +18,9 @@
         :columns="tableColumns"
         :rows="tableDatabase"
         lineheight="40px"
+        @addRows="addRows"
+        @editRow="editRow"
+        @deleteRows="deleteRows"
       >
         <template slot="numero" slot-scope="row">
           {{row.rowData.numero}}
@@ -24,7 +32,7 @@
     </div>
 
     <pre v-highlightjs="table">
-      <code class="html">
+      <code class="javacript">
       </code>
     </pre>
 
@@ -41,14 +49,15 @@ export default {
       tableColumns: [
         {
           name: 'numero',
-          alignment: 'right'
+          alignment: 'flex-justify-end'
         },
         {
           name: 'avatar',
-          alignment: 'center'
+          alignment: 'flex-justify-center'
         },
         {
-          name: 'country'
+          name: 'country',
+          alignment: 'flex-justify-center'
         },
         {
           name: 'city'
@@ -93,6 +102,25 @@ tableData: [
   { numero: 16, avatar: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Classic_smiley.svg/1200px-Classic_smiley.svg.png', country: 'USA', city: 'New York city' }
 ]      
       `,
+      tbColumns: `
+tableColumns: [
+  {
+    name: 'numero',
+    alignment: 'flex-justify-end'
+  },
+  {
+    name: 'avatar',
+    alignment: 'flex-justify-center'
+  },
+  {
+    name: 'country',
+    alignment: 'flex-justify-center'
+  },
+  {
+    name: 'city'
+  }
+]
+      `,
       table: `
 <div class="col-6" style="height: 450px;">
   <h-table      
@@ -126,6 +154,15 @@ tableData: [
           city: this.dataBase[index].city
         })
       }
+    },
+    addRows (rows) {
+      console.log('addRows: ' + JSON.stringify(rows))
+    },
+    editRow (row) {
+      console.log('editRow: ' + JSON.stringify(row))
+    },
+    deleteRows (rows) {
+      console.log('deleteRows: ' + JSON.stringify(rows))
     }
   }
 }

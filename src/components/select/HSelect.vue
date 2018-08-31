@@ -2,21 +2,21 @@
 <template lang="pug">
   .flex.flex-column.dropdown(v-on-clickaway="away")
     .flex.flex-row
-      input.select(
-        placeholder="Select an option"
+      h-input.full-width(
+        :showStaticLabel="showStaticLabel"
+        :placeholder="placeholder"
         @focus="magic_flag = true"
+        :readonly="true"
         :value="display"
-        readonly
-      )
-      h-fa-icon.dropdown-arrow(
-        :icon="['fas', 'angle-down']"
-        @click="magic_flag = true"
+        type='dropdown'
       )
 
-    div.full-width.dropdown-menu.boxshadow(v-if="!multiselect && magic_flag")
+    div.full-width.dropdown-menu.boxshadow.div-rounded(
+      v-if="!multiselect && magic_flag"
+      :style="{left: left, right: right, bottom: bottom}"
+    )
       div.flex.flex-items-center.flex-row.menu-item(
         :class="[bgcolor]"
-        :style="{bottom: bottom}"
         v-for="option in options"
         :key="option.value"
         @click="onChangeItem(option)"
@@ -27,15 +27,14 @@
           h-avatar(:src="option.avatar")
         div.flex-1  {{option.label}}
 
-    div.full-width.dropdown-menu.boxshadow(v-else-if="multiselect && magic_flag")
+    div.full-width.dropdown-menu.boxshadow.div-rounded(v-else-if="multiselect && magic_flag")
       div.flex.flex-row.menu-item(
         :class="[bgcolor]"
         v-for="option in options"
         :key="option.value"
+        :style="{left: left, right: right, bottom: bottom}"
       )
         h-checkbox.h-pl-md(v-model="multiselectItem" :label="option.label" :value="option.value" @change="changeMultiselect")
-
-  //-  <div v-if="!multiselect" class="dropdown-menu boxshadow" v-show="magic_flag" style="bottom:0;">
 
 </template>
 
@@ -46,8 +45,7 @@ import componentBase from '../componentBase.vue'
 
 export default {
   extends: componentBase,
-  components: {
-  },
+  mixins: [ clickaway ],
   props: {
     value: {
       type: [String, Number, Array]
@@ -62,11 +60,18 @@ export default {
     multiselect: {
       type: Boolean
     },
+    placeholder: {
+      type: String,
+      default: ''
+    },
+    showStaticLabel: {
+      type: Boolean,
+      default: true
+    },
     dtu: {
       type: Boolean
     }
   },
-  mixins: [ clickaway ],
   data: function () {
     return {
       display: '',
@@ -79,12 +84,38 @@ export default {
         backgroundColor: 'blue'
       },
       multiselectItem: [],
+      left: '0px',
+      right: '',
       bottom: ''
     }
   },
+  watch: {
+    multiselectItem: function (value) {
+      let arrDisp = []
+      value.forEach(item => {
+        let val = this.options.find(opt => opt.value === item)
+        if (val) {
+          arrDisp.push(val.label)
+        }
+      })
+      this.display = arrDisp.join()
+    }
+  },
+  mounted () {
+    if (this.dtu) {
+      this.bottom = '0px'
+    }
+    this.setDisplayValue()
+  },
   methods: {
+    setDisplayValue () {
+      if (!this.multiselect) {
+        this.display = this.value
+      } else {
+        this.multiselectItem = this.value
+      }
+    },
     onChangeItem (option) {
-      // console.log(value)
       this.display = option.label
       this.$emit('input', option.value)
       this.magic_flag = false
@@ -92,6 +123,7 @@ export default {
     changeMultiselect () {
       this.$emit('input', this.multiselectItem)
       this.magic_flag = true
+      this.$emit('changeMultiselect', this.multiselectItem)
     },
     away () {
       if (this.magic_flag) {

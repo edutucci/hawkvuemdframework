@@ -1,6 +1,6 @@
 <template>
   <div v-show="toasts.length">
-    <toast-vue
+    <snack-vue
       v-for="(t, index) in toasts"
       :key="index"
       :config="t"
@@ -10,12 +10,12 @@
 
 <script>
 
-import ToastVue from './ToastVue'
+import SnackVue from './SnackBarVue'
 
 export default {
-  name: 'ToastContainer',
+  name: 'SnackBarContainer',
   components: {
-    ToastVue
+    SnackVue
   },
   data () {
     return {
@@ -23,9 +23,8 @@ export default {
     }
   },
   methods: {
-    add (toast) {
-      console.log('adding toast')
-      this.toasts.push(toast)
+    add (snack) {
+      this.toasts.push(snack)
     }
   }
 }

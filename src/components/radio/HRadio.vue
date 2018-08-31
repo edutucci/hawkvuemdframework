@@ -1,12 +1,13 @@
 <template lang="pug">
-  label.container
+  label.container.primary
     | {{label}}
     input(type="radio"
       :name="value"
       :checked="checkboxState"
       @change="onChange"
+      :disabled="disabled"
     )
-    span.checkmark
+    span.checkmark.primary(:class="{disabled:disabled}")
 
 </template>
 
@@ -22,6 +23,10 @@ export default {
     },
     label: [String],
     checked: {
+      type: Boolean,
+      default: false
+    },
+    disabled: {
       type: Boolean,
       default: false
     },
@@ -81,9 +86,19 @@ export default {
     position: absolute;
     top: 0;
     left: 0;
-    height: 16px;
-    width: 16px;
+    height: 14px;
+    width: 14px;
     border: 2px solid gray;
+    border-radius: 50%;
+}
+
+.checkmark.disabled {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 14px;
+    width: 14px;
+    border: 2px solid lightgrey;
     border-radius: 50%;
 }
 
@@ -95,7 +110,6 @@ export default {
 /* When the radio button is checked, add a blue background */
 .container input:checked ~ .checkmark {
     background-color: white;
-    border-color:  #2196F3;
 }
 
 /* Create the indicator (the dot/circle - hidden when not checked) */
@@ -111,13 +125,12 @@ export default {
 }
 
 /* Style the indicator (dot/circle) */
-.container .checkmark:after {
+.container.primary .checkmark:after {
   top: 3px;
   left: 3px;
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
-  background: #2196F3;
 }
 
 </style>

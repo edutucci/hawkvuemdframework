@@ -7,9 +7,9 @@
         .row.text-center
           h2  Hawk App
         .row
-          h-input(placeholder="login" v-model="form.username")
+          h-input(placeholder="login" v-model="form.username" cleartext)
         .row
-          h-input(placeholder="password" v-model="form.password")
+          h-input(placeholder="password" type="password" v-model="form.password")
         .row.flex.flex-justify-center
           h-btn(contained label="Entrar" @click="login")
 </template>

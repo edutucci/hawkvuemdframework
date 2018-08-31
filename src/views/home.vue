@@ -2,13 +2,13 @@
   div.window-height
     h-app-toolbar.top-left-fixed
       h-app-toolbar-container(bgcolor="bg-primary" textcolor="text-white")
-        h-app-toolbar-navigation(:icon="['fas', 'bars']" @click="$refs.nav.open()")
+        h-app-toolbar-navigation(:icon="['fas', 'bars']" textcolor="text-white" @click="$refs.nav.open()")
         h-app-toolbar-title(title="Hawk Framework")
         h-app-toolbar-action
           router-link(to="/site1Beta")
-            h-fa-icon(:icon="['fas', 'globe']")
+            h-fa-icon(:icon="['fas', 'globe']" textcolor="text-white")
           a(href='https://github.com/edutucci/hawkframework' target="_blank")
-            h-fa-icon(:icon="['fab', 'github']")
+            h-fa-icon(:icon="['fab', 'github']" textcolor="text-white")
 
     <h-nav-drawer ref="nav">
       <div class="flex flex-column bg-white full-size" style="display: inline-flex;">
@@ -51,7 +51,7 @@
               <h-collapsible-item text="Modal" @click="$router.push('/modal'), $refs.nav.close()"/>
               <h-collapsible-item text="DateTime" @click="$router.push('/datetime'), $refs.nav.close()"/>
               <h-collapsible-item text="Toggle" @click="$router.push('/toggle'), $refs.nav.close()"/>
-              <h-collapsible-item text="Toast" @click="$router.push('/toast'), $refs.nav.close()"/>
+              <h-collapsible-item text="SnackBar" @click="$router.push('/snack'), $refs.nav.close()"/>
             </h-collapsible-menu>
 
         </div>

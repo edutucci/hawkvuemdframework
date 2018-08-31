@@ -5,10 +5,10 @@
     :class="[bgcolor]"
   >
     <div class="flex flex-items-center">
-      <div v-if="config.icon"><h-fa-icon :class="[textcolor]" :icon="config.icon" size="lg"/></div>
+      <!-- <div v-if="config.icon"><h-fa-icon :class="[textcolor]" :icon="config.icon" size="lg"/></div> -->
       <div class="flex flex-column h-pl-sm">
         <div v-if="config.message" :class="[textcolor]">{{config.message}}</div>
-        <div v-if="config.description" :class="[textcolor]">{{config.description}}</div>
+        <!-- <div v-if="config.description" :class="[textcolor]">{{config.description}}</div> -->
       </div>
     </div>
   </div>
@@ -31,8 +31,8 @@ export default {
     }
   },
   mounted () {
-    console.log('mounted')
-    console.log('color: ' + this.config.textcolor)
+    // console.log('mounted')
+    // console.log('color: ' + this.config.textcolor)
     this.textcolor = this.config.textcolor
     this.bgcolor = this.config.bgcolor
     setTimeout(() => {

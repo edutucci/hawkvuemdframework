@@ -1,8 +1,11 @@
 <template lang="pug">
-  font-awesome-icon.faicon(v-if="icon && icon.length" @click="onClick"
-    :icon="icon" :size="size"
-    :spin="spin" :pulse="pulse"
-    style="cursor:pointer; font-size: 18px;"
+  font-awesome-icon.faicon(v-if="icon && icon.length"
+    @click="onClick"
+    :icon="icon"
+    :size="size"
+    :spin="spin"
+    :pulse="pulse"
+    style="cursor:pointer;"
     :class="[textcolor]"
   )
     slot

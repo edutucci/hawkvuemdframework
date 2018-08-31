@@ -12,6 +12,7 @@
         :class="{primary: primary, nofocus: nofocus, outline: outlined}"
       )
         div.static-label(
+          v-if="showStaticLabel"
           :class="{primary: primary, nofocus: nofocus}"
           :style="[staticLabelStyle]"
           style="height: 15px;"
@@ -22,6 +23,7 @@
           .flex.full-width
             .flex-1.h-pl-sm
               input(
+                v-focus="focused"
                 class="h-input"
                 :value="value"
                 :type="inputtype"
@@ -31,6 +33,9 @@
                 @focus="onInputFocus()"
                 @blur="onInputBlur()"
                 @input="onChange($event.target.value)"
+                @keydown.down="onKeyDown"
+                @keydown.tab="onTab"
+                @keyup.enter="onEnter"
                 @click="onClick"
               )
               label(
@@ -45,6 +50,13 @@
                 v-if="type === 'password'"
                 textcolor="text-gray"
                 :icon="['fas', 'eye']"
+                size="lg"
+                @click="onInputIconClick"
+              )
+              h-fa-icon(
+                v-else-if="type === 'dropdown'"
+                textcolor="text-gray"
+                :icon="['fas', 'angle-down']"
                 size="lg"
                 @click="onInputIconClick"
               )
@@ -75,10 +87,9 @@
 </template>
 
 <script>
-
+import { mixin as focusMixin } from 'vue-focus'
 export default {
-  components: {
-  },
+  mixins: [focusMixin],
   props: {
     value: {
       type: [String, Number]
@@ -98,6 +109,10 @@ export default {
     textCounter: {
       type: Number,
       default: 0
+    },
+    showStaticLabel: {
+      type: Boolean,
+      default: true
     },
     leftIcon: {
       type: Array,
@@ -130,6 +145,7 @@ export default {
   },
   data () {
     return {
+      focused: false,
       inputtype: 'text',
       primary: false,
       nofocus: true,
@@ -170,14 +186,18 @@ export default {
       return text
     },
     onInputFocus () {
+      this.focused = true
       this.floatLabelStyle.top = '2px'
       this.floatLabelStyle.left = '9px'
       this.floatLabelStyle.fontSize = '12px'
 
       this.primary = true
       this.nofocus = false
+
+      this.$emit('focus')
     },
     onInputBlur () {
+      this.focused = false
       this.primary = false
       this.nofocus = true
       this.changeFloatLabelStyle()
@@ -207,6 +227,7 @@ export default {
       this.$emit('input', txtValue)
     },
     onClick () {
+      this.focused = true
       this.$emit('click')
     },
     onInputIconClick () {
@@ -215,6 +236,18 @@ export default {
       } else if (this.cleartext) {
         this.onChange('')
       }
+    },
+    onKeyDown () {
+      this.$emit('onKeyDown')
+    },
+    onTab () {
+      this.$emit('onTab')
+    },
+    onEnter () {
+      this.$emit('onEnter')
+    },
+    focus () {
+      this.focused = true
     }
   }
 }

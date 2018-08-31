@@ -8,7 +8,7 @@
           :placeholder="placeholder"
           :readonly="true")
 
-      .flex.flex-justify-center.position-absolute.boxshadow.full-width(v-if="showTimePicker" style="top:67px;background-color: white;")
+      .flex.flex-justify-center.position-absolute.boxshadow.full-width(v-if="showTimePicker" style="top:67px;background-color: white;z-index: 2;")
         time-panel(
           :date="value"
           @ok="ok"
@@ -19,9 +19,6 @@
 
 <script>
 
-// import HFaIcon from '../icons/HFaIcon'
-import HBtn from '../buttons/HBtn'
-import HInput from '../Inputs/HInput.vue'
 import TimePanel from './TimePanel'
 
 export default {
@@ -36,9 +33,6 @@ export default {
     }
   },
   components: {
-    // HFaIcon,
-    HBtn,
-    HInput,
     TimePanel
   },
   data () {
@@ -50,11 +44,16 @@ export default {
   mounted () {
     this.setInputDate(this.value)
   },
+  watch: {
+    value: function (value) {
+      this.ok(value)
+    }
+  },
   methods: {
     ok (date) {
       this.setInputDate(date)
       this.hidePanel()
-      this.$emit('input ', this.currentDate)
+      this.$emit('input', date)
     },
     hidePanel () {
       this.showTimePicker = false

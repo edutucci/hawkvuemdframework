@@ -314,13 +314,21 @@ export default {
     }
   },
   mounted () {
-    this.currentDate = this.date
-    this.curHour = this.currentDate.getHours()
-    this.curMin = this.currentDate.getMinutes()
-    this.configTime(this.curHour, this.curMin)
-    this.updatePointers()
+    this.setTimePanel()
+  },
+  watch: {
+    date: function (value) {
+      this.setTimePanel()
+    }
   },
   methods: {
+    setTimePanel () {
+      this.currentDate = this.date
+      this.curHour = this.currentDate.getHours()
+      this.curMin = this.currentDate.getMinutes()
+      this.configTime(this.curHour, this.curMin)
+      this.updatePointers()
+    },
     onOK () {
       this.configTime(this.curHour, this.curMin)
       this.$emit('ok', this.currentDate)

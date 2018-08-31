@@ -1,5 +1,5 @@
 <template lang="pug">
-  div.tbfab.h-pl-lg.flex.flex-1.flex-wrap.flex-justify-center
+  div.tbfab.h-pl-lg.flex.flex-wrap
     slot
 </template>
 

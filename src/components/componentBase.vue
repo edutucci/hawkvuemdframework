@@ -20,7 +20,6 @@ export default {
   },
   data () {
     return {
-      themeColors: undefined
     }
   },
   created () {

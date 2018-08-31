@@ -1,15 +1,20 @@
 <template lang="pug">
   div
-    .flex.boxshadow.input-box(style="border-radius: 2px;")
-      .icon-left
-        h-fa-icon(:icon="['fas', 'search']")
-      .flex-1.input-container
-        input(
-          v-model="query"
-          placeholder="Search for something"
-          class="h-input"
-        )
-    .flex.flex-column.boxshadow
+    .flex(
+      v-on-clickaway="away"
+      style="border-radius: 2px;"
+    )
+      h-input.full-width(
+        ref="hawkSearch"
+        :leftIcon="['fas', 'search']"
+        v-model="query"
+        placeholder="Search for something"
+        @onKeyDown="onKeyDown"
+        @onTab="onTab"
+        @onEnter="onEnter"
+      )
+
+    .flex.flex-column.boxshadow(v-show="showdropdown")
       .flex.flex-items-center.menu-item.bg-white.item-padding(
         v-for="option in options"
         :key="option.title"
@@ -28,10 +33,10 @@
 
 <script>
 import { debounce } from 'lodash'
+import { mixin as clickaway } from 'vue-clickaway'
 
 export default {
-  components: {
-  },
+  mixins: [ clickaway ],
   props: {
     value: {
       type: String
@@ -46,6 +51,7 @@ export default {
   },
   data () {
     return {
+      showdropdown: false,
       query: '',
       delay: 200
     }
@@ -61,12 +67,32 @@ export default {
   },
   methods: {
     searchQuery: debounce(function (query) {
-      this.$emit('search', this.query)
-    }, 1000)
+      if (query && query.length > 0) {
+        this.showdropdown = true
+        this.$emit('search', this.query)
+      }
+    }, 1000),
+    away () {
+      if (this.showdropdown) {
+        this.showdropdown = false
+      }
+    },
+    onKeyDown () {
+      this.showdropdown = true
+      this.$emit('onKeyDown')
+    },
+    onTab () {
+      this.$emit('onTab')
+    },
+    onEnter () {
+      this.$emit('onEnter')
+    },
+    focus () {
+      this.$refs.hawkSearch.focus()
+    }
   }
 }
 </script>
-
 <style lang="stylus" scoped>
 @import '../../css/variables.styl'
 

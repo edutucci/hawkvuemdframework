@@ -1,5 +1,8 @@
 <template>
     <div class="boxshadow div-rounded flex flex-column full-height no-user-select">
+      <div>
+        rowsperpagevalue: {{rowsperpagevalue}}
+      </div>
       <div class="flex flex-column" style="min-height:60px;overflow:hidden; position:relative; z-index: 1">
         <div v-if="selectedRows.length > 0" class="flex flex-row flex-items-center full-height" style="padding-left:8px;padding-right:8px;">
           <div class="flex-1" style="color:royalblue;">
@@ -27,7 +30,7 @@
             <div class="flex flex-column ">
 
               <div class="flex flex-items-center flex-justify-center" :style="[rowlineheight]">
-                <h-checkbox v-model="selectedAllRows"  value="selectedAllRows" style="padding-top:0px; padding-left:8px;"/>
+                <!-- <h-checkbox v-model="selectedAllRows"  value="selectedAllRows" style="padding-top:0px; padding-left:8px;"/> -->
               </div>
               <div class="flex flex-items-center flex-justify-center" :style="[rowlineheight]" style="padding: 8px;"
                 v-for="(row, rowindex) in tableData.rows"
@@ -53,7 +56,7 @@
                 :class="[rowbackgroundColor[rowindex]]">
                 <div
                   @mouseover="onMouseOverRow(rowindex)"
-                  class="full-width flex flex-items-center" :class="getTextAlignment(col.alignment)" style="padding: 8px;" :style="[rowlineheight]">
+                  class="full-width flex flex-items-center" :class="col.alignment" style="padding: 8px;" :style="[rowlineheight]">
                   <slot :name="col.name" :rowData="row">{{row[col.name]}}</slot>
                 </div>
               </div>
@@ -66,14 +69,27 @@
           <div class="h-pr-sm subtitle">
             Rows per page:
           </div>
-          <div class="h-pr-sm">
-            <h-select :options="rowsperpage" v-model="rowsperpagevalue" style="width:40px;"/>
+          <div class="h-pr-sm flex flex-items-center">
+            <h-select
+              :showStaticLabel="false"
+              :options="rowsperpage"
+              v-model="rowsperpagevalue"
+              style="width:90px;"
+              dtu/>
           </div>
-          <div class="btn bg-white circle flex flex-justify-center flex-items-center" style="width:28px;height:28px;">
-            <h-fa-icon :icon="['fas', 'chevron-left']" @click="onPreviousPage"/>
+          <div class="btn bg-white circle
+            flex flex-justify-center flex-items-center"
+            style="width:28px;height:28px;"
+            @click="onPreviousPage"
+          >
+            <h-fa-icon :icon="['fas', 'chevron-left']"/>
           </div>
-          <div class="btn bg-white circle flex flex-justify-center flex-items-center" style="width:28px;height:28px;">
-            <h-fa-icon :icon="['fas', 'chevron-right']" @click="onNextPage"/>
+          <div class="btn bg-white circle
+            flex flex-justify-center flex-items-center"
+            style="width:28px;height:28px;"
+            @click="onNextPage"
+            >
+              <h-fa-icon :icon="['fas', 'chevron-right']" />
           </div>
         </div>
       </div>
@@ -129,7 +145,24 @@ export default {
       activeClass: 'rowcolor',
       selectedRows: [],
       selectedAllRows: false,
-      rowsperpage: [],
+      rowsperpage: [
+        {
+          label: 5,
+          value: 5
+        },
+        {
+          label: 10,
+          value: 10
+        },
+        {
+          label: 20,
+          value: 20
+        },
+        {
+          label: 50,
+          value: 50
+        }
+      ],
       rowsperpagevalue: 5,
       rowsPage: 1
     }
@@ -140,7 +173,6 @@ export default {
     this.rowlineheight.height = this.lineheight
     this.rowlineheight.maxHeight = this.lineheight
 
-    this.setRowsPerPage()
     this.setTableRows()
   },
   computed: {
@@ -171,43 +203,9 @@ export default {
     }
   },
   methods: {
-    getTextAlignment (alignment) {
-      let rowalignment = 'flex-justify-left'
-      if (alignment) {
-        if (alignment === 'right') {
-          rowalignment = 'flex-justify-end'
-        } else if (alignment === 'center') {
-          rowalignment = 'flex-justify-center'
-        }
-      }
-      return rowalignment
-    },
     setDefaultRowColor () {
       for (let r = 0; r < this.tableData.rows.length; r++) {
         this.rowbackgroundColor[r] = 'list-item-color'
-      }
-    },
-    setRowsPerPage () {
-      // console.log('rowsperpage: ' + this.rowsperpagevalue)
-      if (this.rowsperpage || this.rowsperpage.length === 0) {
-        this.rowsperpage = [
-          {
-            label: 5,
-            value: 5
-          },
-          {
-            label: 10,
-            value: 10
-          },
-          {
-            label: 20,
-            value: 20
-          },
-          {
-            label: 50,
-            value: 50
-          }
-        ]
       }
     },
     setTableRows () {
@@ -217,8 +215,8 @@ export default {
       if (max > this.rows.length) {
         max = this.rows.length
       }
-      console.log('min: ' + min)
-      console.log('max: ' + max)
+      // console.log('min: ' + min)
+      // console.log('max: ' + max)
 
       let rows = []
       for (let index = min; index < max; index++) {
@@ -255,19 +253,21 @@ export default {
     onAddRow () {
       // console.log('addRow')
       let rows = this.getSelectedRows()
-      this.$emit('onAddRow', rows)
+      this.$emit('addRows', rows)
     },
     onEditRow () {
       // console.log('EditRow')
       let rows = this.getSelectedRows()
-      this.$emit('onEditRow', rows[0])
+      this.$emit('editRow', rows[0])
     },
     onDeleteRow () {
       // console.log('deleteRow')
       let rows = this.getSelectedRows()
-      this.$emit('onDeleteRow', rows)
+      this.$emit('deleteRows', rows)
     },
     onPreviousPage () {
+      console.log('this.rowsPage: ' + this.rowsPage)
+      console.log('this.maxPage: ' + this.maxPage)
       if (this.rowsPage > 1) {
         this.rowsPage -= 1
         console.log('this.rowsPage:' + this.rowsPage)
@@ -275,6 +275,8 @@ export default {
       }
     },
     onNextPage () {
+      console.log('this.rowsPage: ' + this.rowsPage)
+      console.log('this.maxPage: ' + this.maxPage)
       if (this.rowsPage < this.maxPage) {
         this.rowsPage += 1
         console.log('this.rowsPage:' + this.rowsPage)

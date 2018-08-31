@@ -8,7 +8,7 @@
           :placeholder="placeholder"
           :readonly="true")
 
-      div.position-absolute.boxshadow.full-width(v-if="showDatePicker" style="top:67px;background-color: white;")
+      div.position-absolute.boxshadow.full-width(v-if="showDatePicker" style="top:67px;background-color: white;z-index: 2;")
         date-panel(
           :week_days="week_days"
           :months="months"
@@ -21,10 +21,7 @@
 
 <script>
 
-// import HFaIcon from '../icons/HFaIcon'
-import HBtn from '../buttons/HBtn'
-import HInput from '../Inputs/HInput.vue'
-import DatePanel from './DatePanel'
+import datePanel from './DatePanel'
 
 export default {
   props: {
@@ -34,14 +31,11 @@ export default {
     },
     value: {
       type: Date,
-      value: ' '
+      default: new Date()
     }
   },
   components: {
-    // HFaIcon,
-    HBtn,
-    HInput,
-    DatePanel
+    datePanel
   },
   data () {
     return {
@@ -67,11 +61,16 @@ export default {
   mounted () {
     this.setInputDate(this.value)
   },
+  watch: {
+    value: function (value) {
+      this.ok(value)
+    }
+  },
   methods: {
     ok (date) {
       this.setInputDate(date)
       this.hidePanel()
-      this.$emit('input ', this.currentDate)
+      this.$emit('input', date)
     },
     hidePanel () {
       this.showDatePicker = false

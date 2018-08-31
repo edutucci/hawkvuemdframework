@@ -44,9 +44,14 @@ export default {
   },
   mounted () {
   },
+  watch: {
+    value: function (value) {
+      this.ok(value)
+    }
+  },
   methods: {
     ok (date) {
-      this.$emit('input ', this.currentDate)
+      this.$emit('input', date)
     }
   }
 }

@@ -33,7 +33,7 @@ export default new Router({
         { path: '/modal', component: () => import('./views/modal') },
         { path: '/DateTime', component: () => import('./views/dateTime') },
         { path: '/toggle', component: () => import('./views/toggle') },
-        { path: '/toast', component: () => import('./views/toast') }
+        { path: '/snack', component: () => import('./views/snack') }
       ]
     },
     {

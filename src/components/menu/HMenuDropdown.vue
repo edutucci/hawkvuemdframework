@@ -6,6 +6,7 @@
       h-fa-icon(
         @click="showdropdown = !showdropdown"
         :icon="icon"
+        :textcolor="textcolor"
       )
 
     div.dropdown-menu.boxshadow.div-rounded(
@@ -21,10 +22,10 @@
 <script>
 
 import { mixin as clickaway } from 'vue-clickaway'
+import componentBase from '../componentBase.vue'
 
 export default {
-  components: {
-  },
+  extends: componentBase,
   props: {
     icon: {
       type: Array,

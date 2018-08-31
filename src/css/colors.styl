@@ -91,7 +91,7 @@
   color $warning
 
 .text-gray
-  color $whitehover
+  color gray
 
 /*
   TEXTFIELD
@@ -123,6 +123,37 @@
 .helper-text
   color $whitehover
   font-size 12px
+
+/*
+  RADIO BUTTON
+*/
+
+/* When the radio button is checked, add a blue background */
+.container input:checked ~ .checkmark.primary
+  border-color $primary
+
+.container input:checked ~ .checkmark.primary.disabled
+  border-color lightgrey
+
+/* Style the indicator (dot/circle) */
+.container.primary .checkmark:after
+  background $primary
+
+.container.primary .checkmark.disabled:after
+  background lightgrey
+
+/*
+  CHECKBOX
+*/
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .primary
+  background-color $primary
+  border-color $primary
+
+.container input:checked ~ .primary.disabled
+  background-color white
+  border-color $lightgrey
 
 /*
   ACTIVE ITEM

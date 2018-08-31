@@ -1,13 +1,14 @@
 <template lang="pug">
   div.flex(style="padding-right: 16px;" @click="onClick")
-    h-fa-icon(:icon="icon")
+    h-fa-icon(:icon="icon" :textcolor="textcolor")
 </template>
 
 <script>
 
+import componentBase from '../componentBase.vue'
+
 export default {
-  components: {
-  },
+  extends: componentBase,
   props: {
     icon: {
       type: Array,

@@ -6,6 +6,8 @@
       <h-card>
         <h-card-text desc="What type of movies do you like?"/>
         <div>
+          // h-radio(v-model="typeMovie" label="Comedy" value="Comedy" checked disabled)
+          // h-radio(v-model="typeMovie" label="Action" value="Action" disabled)
           h-radio(v-model="typeMovie" label="Comedy" value="Comedy")
           h-radio(v-model="typeMovie" label="Action" value="Action")
           h-radio(v-model="typeMovie" label="Science" value="Science")

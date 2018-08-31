@@ -25,6 +25,8 @@
       <h-card>
         <h-card-text desc="Select your favorite colors"/>
         <div>
+          // h-checkbox(v-model="colors" label="Red" value="Red" :checked="true" :disabled="true")
+          // h-checkbox(v-model="colors" label="Green" value="Green" disabled)
           h-checkbox(v-model="colors" label="Red" value="Red")
           h-checkbox(v-model="colors" label="Green" value="Green")
           h-checkbox(v-model="colors" label="Blue" value="Blue")

@@ -6,7 +6,7 @@
         <h-list>
           <h-app-toolbar>
             <h-app-toolbar-container bgcolor="bg-primary" textcolor="text-white">
-              <h-app-toolbar-navigation :icon="['fas', 'bars']"/>
+              <h-app-toolbar-navigation :icon="['fas', 'bars']" textcolor="text-white"/>
               <h-app-toolbar-title title="Topics"/>
             </h-app-toolbar-container>
           </h-app-toolbar>
@@ -39,7 +39,7 @@
         <h-list>
           <h-app-toolbar>
             <h-app-toolbar-container bgcolor="bg-primary" textcolor="text-white">
-              <h-app-toolbar-navigation :icon="['fas', 'bars']"/>
+              <h-app-toolbar-navigation :icon="['fas', 'bars']" textcolor="text-white"/>
               <h-app-toolbar-title title="Topics"/>
             </h-app-toolbar-container>
           </h-app-toolbar>
@@ -68,7 +68,7 @@
       <h-list class="col-6">
         <h-app-toolbar>
           <h-app-toolbar-container bgcolor="bg-primary" textcolor="text-white">
-            <h-app-toolbar-navigation :icon="['fas', 'bars']"/>
+            <h-app-toolbar-navigation :icon="['fas', 'bars']" textcolor="text-white"/>
             <h-app-toolbar-title title="Inbox"/>
           </h-app-toolbar-container>
         </h-app-toolbar>
@@ -89,7 +89,7 @@
       <h-list class="col-6">
         <h-app-toolbar>
           <h-app-toolbar-container bgcolor="bg-primary" textcolor="text-white">
-            <h-app-toolbar-navigation :icon="['fas', 'bars']"/>
+            <h-app-toolbar-navigation :icon="['fas', 'bars']" textcolor="text-white"/>
             <h-app-toolbar-title title="My files" style="padding-top: 40px;"/>
           </h-app-toolbar-container>
         </h-app-toolbar>
