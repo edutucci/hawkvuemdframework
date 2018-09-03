@@ -266,20 +266,20 @@ export default {
       this.$emit('deleteRows', rows)
     },
     onPreviousPage () {
-      console.log('this.rowsPage: ' + this.rowsPage)
-      console.log('this.maxPage: ' + this.maxPage)
+      // console.log('this.rowsPage: ' + this.rowsPage)
+      // console.log('this.maxPage: ' + this.maxPage)
       if (this.rowsPage > 1) {
         this.rowsPage -= 1
-        console.log('this.rowsPage:' + this.rowsPage)
+        // console.log('this.rowsPage:' + this.rowsPage)
         this.setTableRows()
       }
     },
     onNextPage () {
-      console.log('this.rowsPage: ' + this.rowsPage)
-      console.log('this.maxPage: ' + this.maxPage)
+      // console.log('this.rowsPage: ' + this.rowsPage)
+      // console.log('this.maxPage: ' + this.maxPage)
       if (this.rowsPage < this.maxPage) {
         this.rowsPage += 1
-        console.log('this.rowsPage:' + this.rowsPage)
+        // console.log('this.rowsPage:' + this.rowsPage)
         this.setTableRows()
       }
     }

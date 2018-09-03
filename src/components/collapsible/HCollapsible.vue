@@ -31,7 +31,7 @@ export default {
       // return this.currentHash === tab.tabName()
     },
     selectCollapsible (collapsible) {
-      console.log('active ' + this.active)
+      // console.log('active ' + this.active)
       this.active = !this.active
       if (this.currentCollapse) {
         this.currentCollapse.setVisible(false)

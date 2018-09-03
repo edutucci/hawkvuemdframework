@@ -31,11 +31,11 @@ export default {
   },
   methods: {
     open () {
-      console.log('open nav')
+      // console.log('open nav')
       this.activeWidth = '100%'
     },
     close () {
-      console.log('close nav')
+      // console.log('close nav')
       this.activeWidth = '0px'
     }
   }

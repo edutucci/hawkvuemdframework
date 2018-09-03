@@ -110,7 +110,7 @@ export default {
     editar (row) {
       this.limparForm()
       this.modoLista = false
-      console.log('row vale:' + JSON.stringify(row))
+      // console.log('row vale:' + JSON.stringify(row))
 
       this.form.objectId = row.row.objectId
       this.form.nome = row.row.nome
@@ -152,7 +152,7 @@ export default {
       // let self = this
       let Parse = this.$parse
       let query = new Parse.Query(Categoria)
-      console.log('listando ....' + query)
+      // console.log('listando ....' + query)
       query.ascending('nome')
       query.find().then((results) => {
         let data = results.map(object => object.toJSON())

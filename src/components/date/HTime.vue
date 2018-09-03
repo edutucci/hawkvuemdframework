@@ -11,7 +11,7 @@ export default {
   },
   methods: {
     configTime (hour, min) {
-      console.log('configtime:' + hour + ':' + min)
+      // console.log('configtime:' + hour + ':' + min)
       this.currentDate = new Date(0, 0, 0, hour, min, 0)
     }
   }

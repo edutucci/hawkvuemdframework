@@ -126,7 +126,7 @@ export default {
   },
   methods: {
     onChange (value) {
-      console.log('change selected: ' + value)
+      // console.log('change selected: ' + value)
     }
   }
 }

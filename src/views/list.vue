@@ -257,7 +257,7 @@ export default {
   },
   created () {
     this.$on('send', (item) => {
-      console.log('send ok')
+      // console.log('send ok')
       this.text = item
       // item.setActive(true)
     })

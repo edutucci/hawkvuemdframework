@@ -155,7 +155,7 @@ export default {
   },
   methods: {
     tabChange (value) {
-      console.log('tab change name: ' + value)
+      // console.log('tab change name: ' + value)
     }
   }
 }

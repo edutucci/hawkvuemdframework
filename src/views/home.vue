@@ -7,8 +7,8 @@
         h-app-toolbar-action
           router-link(to="/site1Beta")
             h-fa-icon(:icon="['fas', 'globe']" textcolor="text-white")
-          a(href='https://github.com/edutucci/hawkframework' target="_blank")
-            h-fa-icon(:icon="['fab', 'github']" textcolor="text-white")
+          //- a(href='https://github.com/edutucci/hawkframework' target="_blank")
+          //-   h-fa-icon(:icon="['fab', 'github']" textcolor="text-white")
 
     <h-nav-drawer ref="nav">
       <div class="flex flex-column bg-white full-size" style="display: inline-flex;">

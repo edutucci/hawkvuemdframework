@@ -165,7 +165,7 @@ export default {
       })
     },
     trocarAtivo (item, valor) {
-      console.log('item vale: ' + JSON.stringify(item))
+      // console.log('item vale: ' + JSON.stringify(item))
       let produto = Produto.createWithoutData(item.objectId)
       produto.set('ativo', Boolean(valor))
       produto.save().then(() => {

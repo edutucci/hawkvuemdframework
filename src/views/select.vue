@@ -176,10 +176,10 @@ options: [
   },
   methods: {
     onInput (value) {
-      console.log('input selecionado: ' + value)
+      // console.log('input selecionado: ' + value)
     },
     changeMultiselect (value) {
-      console.log('changeMultiselect: ' + value)
+      // console.log('changeMultiselect: ' + value)
     }
   }
 }

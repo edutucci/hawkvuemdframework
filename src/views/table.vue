@@ -156,13 +156,13 @@ tableColumns: [
       }
     },
     addRows (rows) {
-      console.log('addRows: ' + JSON.stringify(rows))
+      // console.log('addRows: ' + JSON.stringify(rows))
     },
     editRow (row) {
-      console.log('editRow: ' + JSON.stringify(row))
+      // console.log('editRow: ' + JSON.stringify(row))
     },
     deleteRows (rows) {
-      console.log('deleteRows: ' + JSON.stringify(rows))
+      // console.log('deleteRows: ' + JSON.stringify(rows))
     }
   }
 }

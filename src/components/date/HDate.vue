@@ -21,7 +21,7 @@ export default {
   methods: {
     updateMonth (value) {
       let currentMonth = this.currentDate.getMonth()
-      console.log('currentmonth vale: ' + currentMonth)
+      // console.log('currentmonth vale: ' + currentMonth)
       // console.log( 'value vale: ' + value)
 
       currentMonth += value
@@ -49,7 +49,7 @@ export default {
       this.getCalendar()
     },
     updateYear (year) {
-      console.log('up year:' + year)
+      // console.log('up year:' + year)
       this.currentDate = new Date(year,
         this.currentDate.getMonth(),
         this.currentDate.getDate()
@@ -66,7 +66,7 @@ export default {
       }
     },
     setMonth (monthNumber) {
-      console.log('up month:' + monthNumber)
+      // console.log('up month:' + monthNumber)
       this.currentDate = new Date(this.currentDate.getFullYear(),
         monthNumber,
         this.currentDate.getDate()
@@ -96,7 +96,7 @@ export default {
         for (let perDay = 0; perDay < 7; perDay++) {
           let weekday = {}
 
-          console.log(calendarDate.getDate())
+          // console.log(calendarDate.getDate())
           // if ( (perDay == calendarDate.getDay()) && (countDays < lastDay)  ){
           if (perDay === startDay && days <= lastDay) {
             weekday.monthDay = days // calendarDate.getDate(),

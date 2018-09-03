@@ -31,11 +31,11 @@ export default {
   },
   methods: {
     open () {
-      console.log('open nav')
+      // console.log('open nav')
     },
     close () {
       this.$emit('input', false)
-      console.log('close nav')
+      // console.log('close nav')
     }
   }
 }
