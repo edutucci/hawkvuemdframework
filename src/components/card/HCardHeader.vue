@@ -1,13 +1,13 @@
 <template lang="pug">
-  .flex.flex-1.flex-items-center(style="padding:8px;")
-    .div
-      h-fa-icon(v-if="icon !== undefined" :icon="icon" style="color: gray")
-      h-avatar(v-else-if="avatar && avatar.length > 0" :src="avatar")
+  .flex.flex-1.flex-items-center(style="padding-top:8px;padding-bottom:8px;")
+    .div(v-if="(icon && icon.length) || (avatar && avatar.length)" style="padding-left:16px;")
+      h-fa-icon(textcolor="text-gray")
+      h-avatar(:src="avatar")
     .flex-1.flex-column.overflow-hidden(style="padding-left:16px;")
       .title
         h2 {{text}}
       .subtitle.flex.flex-wrap
-        strong {{desc}}
+        | {{desc}}
 </template>
 
 <script>

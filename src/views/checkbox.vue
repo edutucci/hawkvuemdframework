@@ -65,6 +65,25 @@
 
     </div>
 
+    <div>
+      h1 List with objects
+      <h-card>
+        <h-card-text desc="Select yours favorite objects" />
+        <div v-for="(opt, index) in checkedObjectsOptions" :key="index">
+          <h-checkbox v-model="checkedObjects" :label="opt.name" :value="opt"/>
+        </div>
+        <div>
+          <span>Your objects {{ checkedObjects }}</span>
+        </div>
+      </h-card>
+    .boxshadow
+      <pre v-highlightjs="cklistobjects">
+        <code class="html">
+        </code>
+      </pre>
+
+    </div>
+
     //- <!-- Vue Events
     //- Vue Event Description
     //- @change(value) Triggered immediately when the user clicks on checkbox. -->
@@ -82,6 +101,12 @@ export default {
       colors: [],
       checkedNames2: ['Maça', 'Uva', 'Abacaxi'],
       checkedNumbers: [1, 3],
+      checkedObjects: [],
+      checkedObjectsOptions: [
+        {id: 1, name: 'html'},
+        {id: 2, name: 'css'},
+        {id: 3, name: 'vuejs'}
+      ],
       checked2: false,
       ckboolean: `
 <h-card>
@@ -121,7 +146,18 @@ export default {
     <span>Favorite numbers {{ checkedNumbers }}</span>
   </div>
 </h-card>
-      `
+      `,
+      cklistobjects: `
+<h-card>
+  <h-card-text desc="Select yours favorite objects" />
+  <div v-for="(opt, index) in checkedObjectsOptions" :key="index">
+    <h-checkbox v-model="checkedObjects" :label="opt.name" :value="opt"/>
+  </div>
+  <div>
+    <span>Your objects {{ checkedObjects }}</span>
+  </div>
+</h-card>
+    `
     }
   },
   methods: {

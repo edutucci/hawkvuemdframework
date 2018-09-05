@@ -1,29 +1,33 @@
 <template lang="pug">
-  div.flex.flex-column.full-width(style="background-color: blue")
-    .flex.flex-row.flex-items-center.collapsible-menu(
-       @click="setVisible()"
-    )
-      .flex-1
-        .flex.flex-row.flex-items-center
-          div(v-if="" style="padding-left:8px;padding-right:16px;")
-            h-fa-icon(:icon="icon")
-
-          .flex.flex-1.flex-justify-start
+  div.flex.flex-column.full-width
+    .div(v-if="separator" :class="[bgcolor]")
+      hr
+    .flex.full-with(@click="selectCollapse()" )
+      .flex.flex-items-center(v-if="icon && icon.length" :class="[bgcolor]" style="padding-left:16px;padding-right:8px;height:40px;")
+        h-fa-icon(:icon="icon" :textcolor="textcolor")
+      .flex-column.full-width()
+        .flex(style="height:40px;")
+          .flex.flex-1.flex-items-center(:class="[textcolor, bgcolor]" style="padding-left:16px;")
             | {{text}}
-
-      .arrow(style="padding-left:8px;padding-right:8px;")
-        h-fa-icon(
-          :class="{ 'arrow2': !isVisible, 'arrow': isVisible }"
-          :icon="['fas', 'angle-down']"
-        )
-    .collapsible-content(v-if="isVisible")
-      slot
+          .flex.flex-items-center.arrow(:class="[bgcolor]" style="padding-left:16px;padding-right:16px;")
+            h-fa-icon(
+              :textcolor="textcolor"
+              :class="{ 'arrow2': !isVisible, 'arrow': isVisible }"
+              :icon="['fas', 'angle-down']"
+            )
+        div(v-if="isVisible")
+          slot
+    div(v-if="separator" :class="[bgcolor]")
+      hr
 
 </template>
 
 <script>
 
+import componentBase from '../componentBase'
+
 export default {
+  extends: componentBase,
   props: {
     text: {
       type: String
@@ -33,69 +37,31 @@ export default {
       default: () => ([])
     }
   },
-  components: {
-  },
   data () {
     return {
-      isVisible: false
+      isVisible: false,
+      separator: false
     }
   },
+  mounted () {
+  },
   methods: {
-    setVisible () {
-      this.isVisible = !this.isVisible
+    selectCollapse () {
+      this.$parent.selectCollapse(this)
+    },
+    setVisible (value) {
+      this.isVisible = value
+    },
+    setSeparator (value) {
+      this.separator = value
+    },
+    toggle () {
+      this.setVisible(!this.isVisible)
+      this.setSeparator(!this.separator)
     }
-    // collapseName () {
-    //   return this.name
-    // }
   }
 }
 </script>
 
 <style scoped>
-.collapsible-menu {
-  background-color:midnightblue;
-  color: #ffffff;
-  text-align: center;
-  font-size: 16px;
-  padding: 8px;
-  cursor: pointer;
-  color: white;
-}
-
-.collapsible-content {
-  padding: 8px;
-  background-color: dodgerblue;
-  color: white;
-}
-
-.arrow {
-   transform: rotate(0deg);
-  -webkit-animation-name: example;
-  -webkit-animation-duration: 0.3s;
-  animation-name: example;
-  animation-duration: 0.3s;
-}
-
-.arrow2 {
-    transform: rotate(180deg);
-    -webkit-animation-name: example2;
-    -webkit-animation-duration: 0.3s;
-    animation-name: example2;
-    animation-duration: 0.3s;
-}
-
-/* Standard syntax */
-@keyframes example {
-  0% { transform: rotate(0deg); }/* Standard syntax */
-  50% { transform: rotate(90deg); }/* Standard syntax */
-  100% { transform: rotate(180deg); } /* Standard syntax */
-}
-
-/* Standard syntax */
- @keyframes example2 {
-  0% { transform: rotate(180deg); }
-  50% { transform: rotate(90deg); }
-  100% { transform: rotate(0deg); }
-}
-
 </style>

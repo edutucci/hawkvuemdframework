@@ -4,7 +4,7 @@
       <div class="flex">
         <div class="flex flex-column">
           <h1>Date Input</h1>
-          <h-date-input v-model="date"/>
+          <h-date-input v-model="date" locale="pt" display-format="L"/>
           <div>
             your date is: {{date}}
           </div>

@@ -1,6 +1,6 @@
 <template lang="pug">
   div.h-pl-lg.flex.flex-1.flex-wrap
-    strong.tbtitle {{title}}
+    .tbtitle {{title}}
 </template>
 
 <script>

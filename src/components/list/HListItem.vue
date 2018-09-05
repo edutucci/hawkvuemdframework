@@ -1,6 +1,6 @@
 <template>
-   <div class="full-width list-item-container" @click="onClick">
-    <div class="menu-item bg-white flex flex-row" :class="{active: active}">
+   <div class="full-width list-item-container" @click="itemClick">
+    <div class="menu-item bg-white flex flex-row flex-items-center" :class="{active: active}">
       <slot></slot>
     </div>
     <hr v-if="separator">
@@ -10,6 +10,9 @@
 <script>
 export default {
   props: {
+    selectValue: {
+      type: [String, Number, Object]
+    },
     separator: {
       type: Boolean,
       default: false
@@ -24,9 +27,8 @@ export default {
     }
   },
   methods: {
-    onClick () {
-      // console.log('item click')
-      this.$emit('click')
+    itemClick () {
+      this.$emit('itemClick', this.selectValue)
     }
   }
 }

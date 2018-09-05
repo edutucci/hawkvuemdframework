@@ -70,21 +70,12 @@ export default {
       }
     }
   },
-  created () {
-    // if (this.contained) {
-    //   console.log('passou aki')
-    //   this.setButtonColor()
-    // }
+  mounted () {
   },
   methods: {
     onClick () {
       this.$emit('click')
     }
-    // setButtonColor () {
-    //   if (this.bgcolor !== 'bg-white') {
-    //     this.textcolor = 'text-white'
-    //   }
-    // }
   }
 }
 </script>

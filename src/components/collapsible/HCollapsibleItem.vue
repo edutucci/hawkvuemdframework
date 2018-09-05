@@ -1,6 +1,7 @@
 <template lang="pug">
-  div.flex.flex-1.flex-wrap.collapsible-item(
+  div.flex.flex-1.flex-items-center.flex-wrap.collapsible-item(
     @click="onClick"
+    style="height:40px;"
   )
     | {{text}}
 
@@ -30,9 +31,7 @@ export default {
 .collapsible-item {
   font-size: 16px;
   max-width: 162px;
-  padding-left: 42px;
-  margin-top: 5px;
-  margin-bottom: 5px;
+  padding-left: 16px;
   cursor: pointer;
 }
 

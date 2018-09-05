@@ -1,6 +1,6 @@
 <template lang="pug">
-  .overflow-hidden.subtitle.flex.flex-wrap(style="padding:8px;")
-    strong {{desc}}
+  .overflow-hidden.subtitle.flex.flex-wrap(style="padding-left:16px;padding-right:16px;")
+    | {{desc}}
 </template>
 
 <script>

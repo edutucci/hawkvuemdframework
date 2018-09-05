@@ -1,5 +1,8 @@
 <template lang="pug">
-  div(style="width:350px; position:relative;")
+  div(
+    v-on-clickaway="hidePanel"
+    style="width:350px; position:relative;"
+  )
     .flex.flex-column.full-width
       .full-width
         h-input.full-width(
@@ -20,8 +23,10 @@
 <script>
 
 import TimePanel from './TimePanel'
+import { mixin as clickaway } from 'vue-clickaway'
 
 export default {
+  mixins: [clickaway],
   props: {
     placeholder: {
       type: String,

@@ -1,5 +1,8 @@
 <template lang="pug">
-  div(style="width:350px; position:relative;")
+  div(
+    v-on-clickaway="hidePanel"
+    style="width:350px; position:relative;"
+  )
     .flex.flex-column.full-width
       .full-width
         h-input.full-width(
@@ -8,7 +11,11 @@
           :placeholder="placeholder"
           :readonly="true")
 
-      div.position-absolute.boxshadow.full-width(v-if="showDatePicker" style="top:67px;background-color: white;z-index: 2;")
+      div.position-absolute.boxshadow.full-width(
+        v-if="showDatePicker"
+        style="top:67px;background-color: white;z-index: 2;"
+
+      )
         date-panel(
           :week_days="week_days"
           :months="months"
@@ -22,8 +29,11 @@
 <script>
 
 import datePanel from './DatePanel'
+import { mixin as clickaway } from 'vue-clickaway'
+import moment from 'moment'
 
 export default {
+  mixins: [ clickaway ],
   props: {
     placeholder: {
       type: String,
@@ -32,6 +42,14 @@ export default {
     value: {
       type: Date,
       default: new Date()
+    },
+    displayFormat: {
+      type: String,
+      default: 'L'
+    },
+    locale: {
+      type: String,
+      default: 'en'
     }
   },
   components: {
@@ -64,6 +82,12 @@ export default {
   watch: {
     value: function (value) {
       this.ok(value)
+    },
+    locale: function (locale) {
+      this.ok(this.value)
+    },
+    displayFormat: function (format) {
+      this.ok(this.value)
     }
   },
   methods: {
@@ -76,7 +100,9 @@ export default {
       this.showDatePicker = false
     },
     setInputDate (date) {
-      this.inputValue = ' ' + date.getDate() + ' de  ' + this.months[date.getMonth()] + ' de  ' + date.getFullYear()
+      // this.inputValue = ' ' + date.getDate() + ' de  ' + this.months[date.getMonth()] + ' de  ' + date.getFullYear()
+      moment.locale(this.locale)
+      this.inputValue = moment(date).format(this.displayFormat)
     }
 
   }

@@ -4,8 +4,8 @@
         .bg-primary.text-white.flex.h-pa-sm
           .flex-1
             h3  {{title}}
-          div.h-ml-sm
-            h-fa-icon(:icon="['fas', 'times']" @click="close")
+          div.h-ml-sm.h-mr-sm
+            h-fa-icon(:icon="['fas', 'times']" textcolor="text-white" @click="close")
         div.h-pa-sm
           slot
 </template>

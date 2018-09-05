@@ -1,54 +1,45 @@
 <template lang="pug">
-  div
+  .full-width
     slot
 </template>
 
 <script>
 
+import componentBase from '../componentBase'
+
 export default {
-  name: 'HCollapsible',
-  data () {
-    return {
-      active: false,
-      collapsibleItems: [],
-      currentHash: '',
-      currentCollapse: undefined,
-      arrow2: {
-        '-webkit-animation-name': 'example2', /* Safari 4.0 - 8.0 */
-        '-webkit-animation-duration': '4s', /* Safari 4.0 - 8.0 */
-        'animation-name': 'example2',
-        'animation-duration': '0.4s'
-      }
+  extends: componentBase,
+  name: 'Collapsible',
+  props: {
+    separator: {
+      type: Boolean,
+      default: false
     }
   },
-  created () {
-    this.collapsibleItems = this.$children
-  },
-  mounted () {
+  data () {
+    return {
+      currentCollapse: undefined
+    }
   },
   methods: {
-    isActive (collapsible) {
-      // return this.currentHash === tab.tabName()
-    },
-    selectCollapsible (collapsible) {
-      // console.log('active ' + this.active)
-      this.active = !this.active
+    selectCollapse (collapse) {
       if (this.currentCollapse) {
-        this.currentCollapse.setVisible(false)
+        if (this.currentCollapse.text === collapse.text) {
+          this.currentCollapse.toggle()
+          return
+        } else {
+          this.currentCollapse.setSeparator(false)
+          this.currentCollapse.setVisible(false)
+        }
       }
-      this.currentCollapse = collapsible
-      this.currentHash = this.currentCollapse.collapseName()
+
+      this.currentCollapse = collapse
+      this.currentCollapse.setSeparator(true)
       this.currentCollapse.setVisible(true)
-      // v-bind:class="{ 'arrow': active, 'arrow2': !active }"
     }
   }
 }
 </script>
 
 <style scoped>
-
-/* .collapsible {
-  background-color: blueviolet;
-} */
-
 </style>

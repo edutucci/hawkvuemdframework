@@ -11,6 +11,9 @@ import HCardActions from './card/HCardActions'
 import HCardButtons from './card/HCardButtons'
 import HCardIcons from './card/HCardIcons'
 import HCheckbox from './checkbox/HCheckbox.vue'
+import HCollapsible from '../components/collapsible/HCollapsible.vue'
+import HCollapsibleMenu from '../components/collapsible/HCollapsibleMenu.vue'
+import HCollapsibleItem from '../components/collapsible/HCollapsibleItem.vue'
 import HDatePicker from './date/HDatePicker.vue'
 import HDateInput from './date/HDateInput.vue'
 import HTimePicker from './date/HTimePicker.vue'
@@ -36,6 +39,7 @@ import HMenuDropdown from './menu/HMenuDropdown.vue'
 import HMenuDropdownItem from './menu/HMenuDropdownItem.vue'
 import HSlideMenu from './menu/HSlideMenu.vue'
 import HModal from './window/HModal'
+import HNavDrawer from '../components/window/HNavDrawer'
 import HRadio from './radio/HRadio.vue'
 import HSearch from './Inputs/HSearch'
 import HSelect from './select/HSelect.vue'
@@ -58,6 +62,9 @@ const Components = {
   HCardButtons,
   HCardIcons,
   HCheckbox,
+  HCollapsible,
+  HCollapsibleMenu,
+  HCollapsibleItem,
   HDatePicker,
   HDateInput,
   HTimePicker,
@@ -83,6 +90,7 @@ const Components = {
   HMenuDropdownItem,
   HSlideMenu,
   HModal,
+  HNavDrawer,
   HRadio,
   HSearch,
   HSelect,

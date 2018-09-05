@@ -2,18 +2,10 @@
   .full-width
     h1 Cards
 
-    //- div.flex.flex-wrap
-    //-   .col-xs-12.col-sm-6.col-lg-4(style="background-color: blue")
-    //-     | aaaaaaaaaaaaaa
-    //-   .col-xs-12.col-sm-6.col-lg-4(style="background-color: green")
-    //-     | bbbbbbbbbbbbbb
-    //-   .col-xs-12.col-sm-6.col-lg-4(style="background-color: red")
-    //-     | cccccccccccccc
-
     <div>
       <h-card>
         <h-card-media img="/img/Nallah_Sindh.jpg"/>
-        <h-card-header avatar="/avatar/Kostenlose.jpg"  text="River"  desc="Beautifull place" />
+        <h-card-header text="River"  desc="Beautifull place" />
         <h-card-text desc="A river in the Ganderbal district of Jammu and Kashmir state of India." />
       </h-card>
 
@@ -36,8 +28,8 @@
             <h-btn textbutton label="share"/>
           </h-card-buttons>
           <h-card-icons>
-            <h-btn textbutton> <h-fa-icon :icon="['fas','heart']" /> </h-btn>
-            <h-btn textbutton> <h-fa-icon :icon="['fas','share-alt']" /> </h-btn>
+            <h-btn textbutton> <h-fa-icon :icon="['fas','heart']"/> </h-btn>
+            <h-btn textbutton> <h-fa-icon :icon="['fas','share-alt']"/> </h-btn>
           </h-card-icons>
         </h-card-actions>
       </h-card>

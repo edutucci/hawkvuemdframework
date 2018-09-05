@@ -1,5 +1,6 @@
 <template lang="pug">
-  img.avatar(:src="src" alt="avatar" :style="[imgsize]")
+  div
+    img.avatar(:src="src" alt="avatar" :style="[imgsize]")
 </template>
 
 <script>
@@ -33,7 +34,6 @@ export default {
 <style scoped>
 /* Rounded avatar */
 .avatar {
-   margin: 4px;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     border-radius: 50%;
