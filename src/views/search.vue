@@ -1,33 +1,54 @@
 <template >
   <div>
     <h1>Search</h1>
-    <h-search @search="onSearch" ref="search" @onEnter="$refs.code.focus()" :options="options"/>
-    <h-input
-      class="full-width"
-      v-model="form.code"
-      float-label="Code"
-      ref="code"
-      @onKeyDown="onKeyDown"
-      @onEnter="$refs.name.focus()"
-    />
-    <h-input
-      class="full-width"
-      v-model="form.name"
-      float-label="Name"
-      ref="name"
-      @onKeyDown="onKeyDown"
-      @onTab="onKeyTab"
-      @onEnter="$refs.city.focus()"
-    />
-    <h-input
-      class="full-width"
-      v-model="form.city"
-      float-label="City"
-      ref="city"
-      @onKeyDown="onKeyDown"
-      @onTab="onKeyTab"
-      @onEnter="onEnter"
-    />
+    <h-search @search="onSearch" ref="search" :options="options"/>
+
+    <pre v-highlightjs="exsearch">
+      <code class="html">
+      </code>
+    </pre>
+
+    <h1>Example</h1>
+    <pre v-highlightjs="sample">
+      <code class="javascript">
+      </code>
+    </pre>
+
+    <h2 class="text-primary"> Vue Properties</h2>
+    <hr>
+
+    <div class="flex">
+      <div>
+        <h3>Name</h3>
+        <div>options</div>
+        <div>placeholder</div>
+      </div>
+      <div class="h-pl-md">
+        <h3>Type</h3>
+        <div>Array</div>
+        <div>String</div>
+      </div>
+      <div class="h-pl-md">
+        <h3 >Description</h3>
+        <div>Sets a array with popup menu for the search</div>
+        <div>Sets the placeholder for the input</div>
+      </div>
+    </div>
+
+    <h2 class="text-primary"> Vue Events</h2>
+    <hr>
+
+    <div class="flex">
+      <div>
+        <h3>Name</h3>
+        <div>@search(text)</div>
+      </div>
+      <div class="h-pl-md">
+        <h3>Description</h3>
+        <div>Triggered when the input changes after 1 second</div>
+      </div>
+    </div>
+
   </div>
 </template>
 
@@ -37,14 +58,26 @@ export default {
   },
   data () {
     return {
-      focused: false,
-      form: {
-        code: '',
-        name: '',
-        city: ''
-      },
-      query: '',
+      options: [],
+      exsearch: `
+<h-search @search="onSearch" ref="search" :options="options"/>
+      `,
+      sample: `
+export default {
+  data () {
+    return {
       options: []
+    }
+  },
+  methods: {
+    onSearch (query) {
+      this.options = []
+      this.options.push({avatar: '/avatar/turtle.png', text: 'Ninja Turtle', desc: 'I kill you'})
+      this.options.push({img: '/avatar/folder_open.jpeg', text: 'Photos', desc: 'Dez 12, 2017'})
+      this.options.push({icon: ['fas', 'volleyball-ball'], text: 'Attractions', desc: 'Lets go to the movie?'})
+    }
+  }
+      `
     }
   },
   methods: {
@@ -54,15 +87,6 @@ export default {
       this.options.push({avatar: '/avatar/turtle.png', text: 'Ninja Turtle', desc: 'I kill you'})
       this.options.push({img: '/avatar/folder_open.jpeg', text: 'Photos', desc: 'Dez 12, 2017'})
       this.options.push({icon: ['fas', 'volleyball-ball'], text: 'Attractions', desc: 'Lets go to the movie?'})
-    },
-    onKeyDown () {
-      // console.log('keydown')
-    },
-    onKeyTab () {
-      // console.log('tab')
-    },
-    onEnter () {
-      // console.log('enter')
     }
   }
 }

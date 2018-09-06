@@ -24,6 +24,7 @@ export default new Router({
         { path: '/card', component: () => import('./views/card') },
         { path: '/menu', component: () => import('./views/menu') },
         { path: '/list', component: () => import('./views/list') },
+        { path: '/collapsible', component: () => import('./views/collapsible') },
         { path: '/checkbox', component: () => import('./views/checkbox') },
         { path: '/radio', component: () => import('./views/radio') },
         { path: '/select', component: () => import('./views/select') },

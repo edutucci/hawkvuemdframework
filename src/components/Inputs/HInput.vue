@@ -183,6 +183,9 @@ export default {
       if (value) {
         text = value.substr(0, this.maxlength)
       }
+      if (text === undefined) {
+        text = ''
+      }
       return text
     },
     onInputFocus () {
@@ -225,6 +228,7 @@ export default {
       }
       txtValue = this.inputMaxlength(txtValue)
       this.$emit('input', txtValue)
+      this.$emit('change', txtValue)
     },
     onClick () {
       this.focused = true

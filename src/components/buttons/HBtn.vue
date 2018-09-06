@@ -6,31 +6,30 @@
       :class="[bgcolor, textcolor]"
       :style="[btnSize]"
     )
-      div(v-if="icon" class="flex-align-center")
-        h-fa-icon(:textcolor="textcolor" :icon="icon")
+      div(v-if="leftIcon" class="flex-align-center")
+        h-fa-icon(:textcolor="textcolor" :icon="leftIcon")
 
       div(class="flex flex-1 flex-align-center h-ml-sm h-mr-sm")
-        strong  {{label.toUpperCase()}}
+        strong  {{text.toUpperCase()}}
 
-      div(v-if="lefticon" class="flex-align-center")
-        h-fa-icon(:textcolor="textcolor" :icon="lefticon")
+      div(v-if="rightIcon" class="flex-align-center")
+        h-fa-icon(:textcolor="textcolor" :icon="rightIcon")
 
     div(v-else-if="textbutton"
       @click="onClick"
       class="btn flatbtn"
-      :class="[textcolor]"
+      :class="[textcolor, disabled]"
     )
       div(class="flex flex-1 flex-align-center")
-        strong(:class="[textcolor]")  {{label.toUpperCase()}}
+        strong(:class="[textcolor]")  {{text.toUpperCase()}}
         slot
 
     div(v-else-if="outlined"
       @click="onClick"
-      class="btn outlinedbtn"
-      :class="[textcolor]"
+      class="btn outlinedbtn flex flex-1 flex-align-center"
+      :class="[textcolor, { disabled: disabled}]"
     )
-      div(class="flex flex-1 flex-align-center")
-        strong(:class="[textcolor]")  {{label.toUpperCase()}}
+      strong {{text.toUpperCase()}}
 
 </template>
 
@@ -50,15 +49,18 @@ export default {
     outlined: {
       type: Boolean
     },
-    label: {
+    text: {
       type: String,
       default: ''
     },
-    icon: {
+    rightIcon: {
       type: Array
     },
-    lefticon: {
+    leftIcon: {
       type: Array
+    },
+    disabled: {
+      type: Boolean
     }
   },
   components: {
@@ -74,7 +76,9 @@ export default {
   },
   methods: {
     onClick () {
-      this.$emit('click')
+      if (!this.disabled) {
+        this.$emit('click')
+      }
     }
   }
 }

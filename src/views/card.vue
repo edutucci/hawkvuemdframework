@@ -24,8 +24,8 @@
         <h-card-text desc="A river in the Ganderbal district of Jammu and Kashmir state of India." />
         <h-card-actions>
           <h-card-buttons>
-            <h-btn textbutton label="explore"/>
-            <h-btn textbutton label="share"/>
+            <h-btn textbutton text="explore"/>
+            <h-btn textbutton text="share"/>
           </h-card-buttons>
           <h-card-icons>
             <h-btn textbutton> <h-fa-icon :icon="['fas','heart']"/> </h-btn>
@@ -196,8 +196,8 @@ export default {
   <h-card-text desc="A river in the Ganderbal district of Jammu and Kashmir state of India." />
   <h-card-actions>
     <h-card-buttons>
-      <h-btn textbutton label="explore"/>
-      <h-btn textbutton label="share"/>       
+      <h-btn textbutton text="explore"/>
+      <h-btn textbutton text="share"/>       
     </h-card-buttons>
     <h-card-icons>
       <h-btn textbutton> <h-fa-icon :icon="['fas','heart']" /> </h-btn>

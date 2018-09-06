@@ -11,7 +11,7 @@
         .row
           h-input(placeholder="password" type="password" v-model="form.password")
         .row.flex.flex-justify-center
-          h-btn(contained label="Entrar" @click="login")
+          h-btn(contained text="Entrar" @click="login")
 </template>
 
 <script>

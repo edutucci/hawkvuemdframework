@@ -12,7 +12,7 @@
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit minima.
         </p>
       </h-tab>
-      <h-tab name="TAB 2" :lefticon="['fas', 'globe']" :topicon="['fas', 'globe']" default>
+      <h-tab name="TAB 2" :topicon="['fas', 'globe']" default>
           This is the content of the second tab
       </h-tab>
       <h-tab name="TAB 3">
@@ -36,7 +36,7 @@
     <h1>Vertical Tab</h1>
 
     <h-tabs bgcolor="bg-primary" textcolor="text-white"  vertical class="h-mt-md">
-      <h-tab name="First tab" :lefticon="['fas', 'globe']" :topicon="['fas', 'home']" default>
+      <h-tab name="First tab" :lefticon="['fas', 'globe']" default>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit minima.
         </p>
@@ -56,7 +56,7 @@
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit minima.
         </p>
       </h-tab>
-      <h-tab name="TAB 2" :lefticon="['fas', 'globe']" :topicon="['fas', 'globe']">
+      <h-tab name="TAB 2" :topicon="['fas', 'globe']">
           This is the content of the second tab
       </h-tab>
       <h-tab name="TAB 3">
@@ -99,7 +99,7 @@ export default {
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit minima.
     </p>
   </h-tab>
-  <h-tab name="TAB 2" :lefticon="['fas', 'globe']" :topicon="['fas', 'globe']" default>
+  <h-tab name="TAB 2" :topicon="['fas', 'globe']" default>
       This is the content of the second tab
   </h-tab>
   <h-tab name="TAB 3">
@@ -117,7 +117,7 @@ export default {
       `,
       tabver: `
 <h-tabs bgcolor="bg-primary" textcolor="text-white"  vertical class="h-mt-md">
-  <h-tab name="First tab" :lefticon="['fas', 'globe']" :topicon="['fas', 'home']" default>
+  <h-tab name="First tab" :lefticon="['fas', 'globe']" default>
     <p>
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit minima.
     </p>
@@ -137,7 +137,7 @@ export default {
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit minima.
     </p>
   </h-tab>
-  <h-tab name="TAB 2" :lefticon="['fas', 'globe']" :topicon="['fas', 'globe']">
+  <h-tab name="TAB 2" :topicon="['fas', 'globe']">
       This is the content of the second tab
   </h-tab>
   <h-tab name="TAB 3">

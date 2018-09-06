@@ -18,8 +18,8 @@
         .row
           h-input(value="txtName" float-label="Nome" v-model="form.nome")
         .row.h-pt-md.flex.flex-justify-center
-          h-btn(contained label="Criar" @click="criarCategoria")
-          h-btn.h-pl-md(contained label="Close" @click="abrirModal=false")
+          h-btn(contained text="Criar" @click="criarCategoria")
+          h-btn.h-pl-md(contained text="Close" @click="abrirModal=false")
 
     h-btn-float.bottom-right-fixed(minifloat :icon="['fas', 'plus']" @click="abrirModal=true"
       bgcolor="bg-primary" text-color="text-white" style="right: 18px; bottom: 18px")

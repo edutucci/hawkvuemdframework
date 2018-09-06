@@ -38,6 +38,62 @@
       </div>
     </div>
 
+    <h2 class="text-primary"> Vue Properties</h2>
+    <hr>
+
+    <div class="flex">
+      <div>
+        <h3>Name</h3>
+        <div>floatLabel</div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div class="h-pl-md">
+        <h3>Type</h3>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div class="h-pl-md">
+        <h3 >Description</h3>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+
+    <h2 class="text-primary"> Vue Events</h2>
+    <hr>
+
+    <div class="flex">
+      <div>
+        <h3>Name</h3>
+        <div>@click</div>
+      </div>
+      <div class="h-pl-md">
+        <h3>Description</h3>
+        <div>Triggered on button click</div>
+      </div>
+    </div>
+
   </div>
 </template>
 

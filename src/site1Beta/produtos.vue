@@ -27,8 +27,8 @@
         h-select(v-model="form.categoriaId" :options="categorias" float-label="Cardapio")
         h-checkbox(v-model="form.ativo" label="Ativo")
       .row.h-pt-md.flex.flex-justify-center
-        h-btn(contained label="Criar" @click="salvar")
-        h-btn.h-pl-md(contained label="Cancelar" @click="cancelar")
+        h-btn(contained text="Criar" @click="salvar")
+        h-btn.h-pl-md(contained text="Cancelar" @click="cancelar")
 
     h-btn-float.bottom-right-fixed(v-if="modoLista" minifloat :icon="['fas', 'plus']" @click="novo"
       bgcolor="bg-primary" text-color="text-white" style="right: 18px; bottom: 18px")

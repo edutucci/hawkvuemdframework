@@ -36,12 +36,13 @@
                 <h-collapsible-item text="Others" @click="$router.push('/cssothers'), $refs.nav.close()"/>
               </h-collapsible-menu>
 
-              <h-collapsible-menu text="Components" bgcolor="bg-primary">
+              <h-collapsible-menu text="Components">
                 <h-collapsible-item text="Buttons" @click="$router.push('/buttons'), $refs.nav.close()"/>
                 <h-collapsible-item text="Icons" @click="$router.push('/icon'), $refs.nav.close()"/>
                 <h-collapsible-item text="Textfield" @click="$router.push('/textfield'), $refs.nav.close()"/>
                 <h-collapsible-item text="Search" @click="$router.push('/search'), $refs.nav.close()"/>
                 <h-collapsible-item text="Cards" @click="$router.push('/card'), $refs.nav.close()"/>
+                <h-collapsible-item text="Collapsible" @click="$router.push('/collapsible'), $refs.nav.close()"/>
                 <h-collapsible-item text="Menu" @click="$router.push('/menu'), $refs.nav.close()"/>
                 <h-collapsible-item text="List" @click="$router.push('/list'), $refs.nav.close()"/>
                 <h-collapsible-item text="Checkbox" @click="$router.push('/checkbox'), $refs.nav.close()"/>

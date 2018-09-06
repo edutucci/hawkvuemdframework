@@ -22,8 +22,8 @@
       </div>
     </div>
     <div class="flex flex-justify-end">
-      h-btn(textbutton label="OK" @click="onOK")
-      h-btn(textbutton label="Close" @click="onClose")
+      h-btn(textbutton text="OK" @click="onOK")
+      h-btn(textbutton text="Close" @click="onClose")
     </div>
   </div>
 

@@ -35,9 +35,8 @@
             | {{day.monthDay}}
 
       .flex.flex-justify-end
-        //- <h-btn contained bgcolor="bg-warning" textcolor="text-white" label="warning"/>
-        h-btn(outlined label="OK" @click="onOK")
-        h-btn(outlined label="Close" @click="onClose")
+        h-btn(outlined text="OK" @click="onOK")
+        h-btn(outlined text="Close" @click="onClose")
     .flex-1.scroll(v-show="panelMode==='years'" style="max-height:280px")
       .flex.flex-justify-center.btn.bg-white(v-for="year in years" @click="onYearClick(year)")
         | {{year}}
@@ -49,8 +48,6 @@
 
 <script>
 import HDate from './HDate'
-// import HFaIcon from '../icons/HFaIcon'
-import HBtn from '../buttons/HBtn'
 
 export default {
   extends: HDate,
@@ -67,10 +64,6 @@ export default {
       type: Array,
       default: () => { return [] }
     }
-  },
-  components: {
-    // HFaIcon,
-    HBtn
   },
   data () {
     return {

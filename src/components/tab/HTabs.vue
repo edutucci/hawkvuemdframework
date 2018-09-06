@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="scroll">
     <div v-if="!vertical" class="flex flex-column">
       <div class="flex flex-wrap" :class="bgcolor">
           <div v-for="(tab, index) in tabs" :key="index"
@@ -28,8 +28,8 @@
         <slot></slot>
       </div>
     </div>
-    <div v-if="vertical" class="flex" :style="tabStyle">
-      <div class="flex flex-column scroll" :class="bgcolor">
+    <div v-if="vertical" class="flex" :style="tabStyle2">
+      <div class="flex flex-column" :class="bgcolor">
         <div v-for="(tab, index) in tabs" :key="index"
         class="h-pl-sm h-pr-sm h-pt-md h-pb-md tab"
           :class="[bordercolor[index], bgcolor, textcolor]"
@@ -86,7 +86,7 @@ export default {
     }
   },
   mounted () {
-    this.tabStyle.maxHeight = '' + this.tabsHeight + 'px'
+    // this.tabStyle.maxHeight = '' + this.tabsHeight + 'px'
     this.checkForDefaultTab()
   },
   computed: {

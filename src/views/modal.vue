@@ -3,7 +3,7 @@
     <h1>Modal</h1>
 
     <div>
-      <h-btn contained label="Modal Content" @click="openModal=true"/>
+      <h-btn contained text="Modal Content" @click="openModal=true"/>
     </div>
 
     <h-modal v-model="openModal" title="Modal Content">
@@ -12,7 +12,7 @@
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         </div>
         <div class="flex flex-justify-center h-pa-md">
-          <h-btn contained label="Close" @click="openModal=false"/>
+          <h-btn contained text="Close" @click="openModal=false"/>
         </div>
       </div>
     </h-modal>
@@ -23,7 +23,7 @@
     </pre>
 
     <div>
-      <h-btn contained label="Prompt" @click="openModal2=true"/>
+      <h-btn contained text="Prompt" @click="openModal2=true"/>
     </div>
 
     <h-modal v-model="openModal2" title="Do you want do delete file">
@@ -35,8 +35,8 @@
           Are you sure you want to delele it?
          </div>
         <div class="flex flex-justify-center h-pa-md">
-          <h-btn contained label="OK" @click="openModal2=false"/>
-          <h-btn class="h-pl-sm" contained label="Cancel" @click="openModal2=false"/>
+          <h-btn contained text="OK" @click="openModal2=false"/>
+          <h-btn class="h-pl-sm" contained text="Cancel" @click="openModal2=false"/>
         </div>
       </div>
     </h-modal>
@@ -65,7 +65,7 @@ export default {
       Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
     </div>
     <div class="flex flex-justify-center h-pa-md">
-      <h-btn contained label="Close" @click="openModal=false"/>
+      <h-btn contained text="Close" @click="openModal=false"/>
     </div>
   </div>
 </h-modal>
@@ -80,8 +80,8 @@ export default {
       Are you sure you want to delele it?
       </div>
     <div class="flex flex-justify-center h-pa-md">
-      <h-btn contained label="OK" @click="openModal2=false"/>
-      <h-btn class="h-pl-sm" contained label="Cancel" @click="openModal2=false"/>
+      <h-btn contained text="OK" @click="openModal2=false"/>
+      <h-btn class="h-pl-sm" contained text="Cancel" @click="openModal2=false"/>
     </div>
   </div>
 </h-modal>
