@@ -1,6 +1,6 @@
 <template lang="pug">
   label.container.primary
-    | {{label}}
+    | {{text}}
     input(type="radio"
       :name="value"
       :checked="checkboxState"
@@ -21,7 +21,7 @@ export default {
     value: {
       type: [String, Number]
     },
-    label: [String],
+    text: [String, Number],
     checked: {
       type: Boolean,
       default: false

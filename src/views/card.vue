@@ -106,72 +106,74 @@
       </code>
     </pre>
 
-    //- <h1> Card </h1>
+    <h1 class="text-primary"> Card Header Help</h1>
+    <h2 class="text-primary"> Vue Properties</h2>
+    <hr>
 
-    //- <h-card>
-    //-   <h1 slot="header"> Title </h1>
+    <div class="flex">
+      <div>
+        <h3>Name</h3>
+        <div>icon</div>
+        <div>avatar</div>
+        <div>text</div>
+        <div>desc</div>
+      </div>
+      <div class="h-pl-md">
+        <h3>Type</h3>
+        <div>Array</div>
+        <div>String</div>
+        <div>String</div>
+        <div>String</div>
+      </div>
+      <div class="h-pl-md">
+        <h3 >Description</h3>
+        <div>Sets the icon for header</div>
+        <div>Sets the avatar for the header</div>
+        <div>Sets the text for header</div>
+        <div>Sets the description for the header</div>
+      </div>
+    </div>
 
-    //- <template slot="col-header">
-    //-   <h1> Title 1 </H1>
-    //- </template>
+    <h1 class="text-primary"> Card Media Help</h1>
+    <h2 class="text-primary"> Vue Properties</h2>
+    <hr>
 
-    //-   <div slot="media-title" class="full-width full-height flex flex-row flex-justify-center">
-    //-     <div style="margin:5px; color:white;">
-    //-       <h1>Title</h1>
-    //-       <h5>Subtitle</h5>
-    //-     </div>
-    //-   </div>
-    //-   <img slot="media-img" src="../assets/blonde.jpg"/>
-    //-     <h1 slot="body-title" class="title">Boat</h1>
-    //-     <strong slot="body-subtitle" class="subtitle"> Boat Irelands</strong>
-    //-   <div slot="actions">
-    //-     <h-btn flat> Share </h-btn> <h-btn flat> Explore </h-btn>
-    //-   </div>
-    //-   <div slot="expand-actions">
-    //-     <h-btn flat> Share </h-btn> <h-btn flat> Explore </h-btn>
-    //-   </div>
-    //-   <img class="full-width-height" slot="album" src="../assets/vert-img1.jpg"/>
-    //- </h-card>
+    <div class="flex">
+      <div>
+        <h3>Name</h3>
+        <div>img</div>
+      </div>
+      <div class="h-pl-md">
+        <h3>Type</h3>
+        <div>String</div>
+      </div>
+      <div class="h-pl-md">
+        <h3 >Description</h3>
+        <div>Sets the img for media</div>
+      </div>
+    </div>
 
-    //- <h-card>
-    //-   <h1 slot="header"> Title </h1>
-    //-   <div slot="media-title" class="full-width full-height flex flex-row flex-justify-center flex-items-center">
-    //-     <div style="margin:5px; color:white;">
-    //-       <h1>Title</h1>
-    //-       <h5>Subtitle</h5>
-    //-     </div>
-    //-   </div>
-    //-   <img slot="media-img" src="../assets/blonde2.jpg"/>
-    //-     <h1 slot="body-title">Boat</h1>
-    //-     <strong slot="body-subtitle"> Boat Irelands</strong>
-    //-   <div slot="actions">
-    //-     <h-btn flat> Share </h-btn> <h-btn flat> Explore </h-btn>
-    //-   </div>
-    //-   <div slot="expand-actions">
-    //-     <h-btn flat> Share </h-btn> <h-btn flat> Explore </h-btn>
-    //-   </div>
-    //-   <img class="full-width-height" slot="album" src="../assets/vert-img2.jpg"/>
-    //- </h-card>
+    <h1 class="text-primary"> Card Media Text Help</h1>
+    <h2 class="text-primary"> Vue Properties</h2>
+    <hr>
 
-    //- <h-card>
-    //-   <h1 slot="header"> Title </h1>
-    //-   <div slot="media-title" class="full-width full-height flex flex-row flex-justify-end flex-items-end">
-    //-     <div style="margin:5px; color:white;">
-    //-       <h1>Title</h1>
-    //-       <h1>Subtitle</h1>
-    //-     </div>
-    //-   </div>
-    //-   <img slot="media-img" src="../assets/navio.jpg"/>
-    //-     <h1 slot="body-title">Boat</h1>
-    //-     <strong slot="body-subtitle"> Boat Irelands</strong>
-    //-   <div slot="actions">
-    //-     <h-btn flat> Share </h-btn> <h-btn flat> Explore </h-btn>
-    //-   </div>
-    //-   <div slot="expand-actions">
-    //-     <h-btn flat> Share </h-btn> <h-btn flat> Explore </h-btn>
-    //-   </div>
-    //-   <img class="full-width-height" slot="album" src="../assets/vert-img3.jpg"/>
-    //- </h-card>
+    <div class="flex">
+      <div>
+        <h3>Name</h3>
+        <div>text</div>
+        <div>desc</div>
+      </div>
+      <div class="h-pl-md">
+        <h3>Type</h3>
+        <div>String</div>
+        <div>String</div>
+      </div>
+      <div class="h-pl-md">
+        <h3 >Description</h3>
+        <div>Sets the text for the image in <b>h-card-media</b></div>
+        <div>Sets the description for the image in <b>h-card-media</b></div>
+      </div>
+    </div>
 
 </template>
 

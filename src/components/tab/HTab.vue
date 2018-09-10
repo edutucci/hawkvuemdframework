@@ -1,5 +1,5 @@
 <template>
-  <div v-if="isVisible" class="tab full-width  full-height scroll">
+  <div v-if="isVisible" class="tab full-width  full-height">
     <div class="h-pa-sm">
       <slot></slot>
     </div>

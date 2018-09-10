@@ -207,6 +207,166 @@
       </code>
     </pre>
 
+    <h2 class="text-primary">List Header Help</h2>
+    <h2 class="text-primary"> Vue Properties</h2>
+    <hr>
+
+    <div class="flex">
+      <div>
+        <h3>Name</h3>
+        <div>text</div>
+        <div>middletext</div>
+      </div>
+      <div class="h-pl-md">
+        <h3>Type</h3>
+        <div>String</div>
+        <div>String</div>
+      </div>
+      <div class="h-pl-md">
+        <h3 >Description</h3>
+        <div>Text no padding for the list</div>
+        <div>Text with padding-left for the list</div>
+      </div>
+    </div>
+
+    <h2 class="text-primary"> List Item Help</h2>
+    <h2 class="text-primary"> Vue Properties</h2>
+    <hr>
+
+    <div class="flex">
+      <div>
+        <h3>Name</h3>
+        <div>select-value</div>
+        <div>separator</div>
+        <div>active</div>
+      </div>
+      <div class="h-pl-md">
+        <h3>Type</h3>
+        <div>String, Number, Object</div>
+        <div>Boolean</div>
+        <div>Boolean</div>
+      </div>
+      <div class="h-pl-md">
+        <h3 >Description</h3>
+        <div>The value for the selected item</div>
+        <div>Add a separator below the item</div>
+        <div>The item is active with other background color</div>
+      </div>
+    </div>
+
+    <h2 class="text-primary"> Vue Events</h2>
+    <hr>
+
+    <div class="flex">
+      <div>
+        <h3>Name</h3>
+        <div>@itemClick(value)</div>
+      </div>
+      <div class="h-pl-md">
+        <h3>Description</h3>
+        <div>Triggered on item click. The value of property select-value is sent.</div>
+      </div>
+    </div>
+
+    <h2 class="text-primary"> List Item Left Help</h2>
+    <h2 class="text-primary"> Vue Properties</h2>
+    <hr>
+
+    <div class="flex">
+      <div>
+        <h3>Name</h3>
+        <div>select-value</div>
+        <div>select-model</div>
+        <div>selectable</div>
+        <div>separator</div>
+        <div>icon</div>
+        <div>img</div>
+        <div>avatar</div>
+        <div>lefttext</div>
+        <div>text</div>
+        <div>desc</div>
+      </div>
+      <div class="h-pl-md">
+        <h3>Type</h3>
+        <div>String, Number, Object</div>
+        <div>Array</div>
+        <div>Boolean</div>
+        <div>Boolean</div>
+        <div>Array</div>
+        <div>String</div>
+        <div>String</div>
+        <div>String</div>
+      </div>
+      <div class="h-pl-md">
+        <h3 >Description</h3>
+        <div>The value for the selected item</div>
+        <div>Array to check if contains the select-value property. If true, the item checkbox is selected.</div>
+        <div>Add a checkbox for all items</div>
+        <div>Add a separator below the item</div>
+        <div>The item is active with other background color</div>
+        <div>Sets the image of the item</div>
+        <div>Sets the avatar of the item</div>
+        <div>Sets the text of the item without icon and avatar</div>
+        <div>Sets the text of the item to right side of the icon or avatar</div>
+        <div>Sets the desc of the item to right side of the icon or avatar</div>
+      </div>
+    </div>
+
+    <h2 class="text-primary"> Vue Events</h2>
+    <hr>
+
+    <div class="flex">
+      <div>
+        <h3>Name</h3>
+        <div>@selectedItem(value)</div>
+        <div>@removedItem(value)</div>
+      </div>
+      <div class="h-pl-md">
+        <h3>Description</h3>
+        <div>Triggered on checkbox item is checked. The value of property select-value is sent as Array.</div>
+        <div>Triggered on checkbox item is not checked. The value of property select-value is sent.</div>
+      </div>
+    </div>
+
+    <h2 class="text-primary"> List Item Right</h2>
+    <h2 class="text-primary"> Vue Properties</h2>
+    <hr>
+
+    <div class="flex">
+      <div>
+        <h3>Name</h3>
+        <div>select-value</div>
+        <div>icon</div>
+        <div>text</div>
+      </div>
+      <div class="h-pl-md">
+        <h3>Type</h3>
+        <div>String, Number, Object</div>
+        <div>Array</div>
+        <div>String</div>
+      </div>
+      <div class="h-pl-md">
+        <h3 >Description</h3>
+        <div>The value for the selected item</div>
+        <div>Sets the icon of the item</div>
+        <div>Sets the text of the icon</div>
+      </div>
+    </div>
+
+    <h2 class="text-primary"> Vue Events</h2>
+    <hr>
+
+    <div class="flex">
+      <div>
+        <h3>Name</h3>
+        <div>@rightIconClick(value)</div>
+      </div>
+      <div class="h-pl-md">
+        <h3>Description</h3>
+        <div>Triggered on icon click. The value of property select-value is sent.</div>
+      </div>
+    </div>
+
   </div>
 </template>
 

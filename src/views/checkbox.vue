@@ -7,7 +7,7 @@
       <h-card>
         <h-card-text desc="Do you agree to our terms and conditions?"/>
         <div>
-          <h-checkbox v-model="termAccepted" label="I agree"/>
+          <h-checkbox v-model="termAccepted" text="I agree"/>
         </div>
         <div>
           | Your option is: {{ termAccepted }}
@@ -25,11 +25,11 @@
       <h-card>
         <h-card-text desc="Select your favorite colors"/>
         <div>
-          // h-checkbox(v-model="colors" label="Red" value="Red" :checked="true" :disabled="true")
-          // h-checkbox(v-model="colors" label="Green" value="Green" disabled)
-          h-checkbox(v-model="colors" label="Red" value="Red")
-          h-checkbox(v-model="colors" label="Green" value="Green")
-          h-checkbox(v-model="colors" label="Blue" value="Blue")
+          // h-checkbox(v-model="colors" text="Red" value="Red" :checked="true" :disabled="true")
+          // h-checkbox(v-model="colors" text="Green" value="Green" disabled)
+          h-checkbox(v-model="colors" text="Red" value="Red")
+          h-checkbox(v-model="colors" text="Green" value="Green")
+          h-checkbox(v-model="colors" text="Blue" value="Blue")
         </div>
 
         <div>
@@ -48,10 +48,10 @@
       <h-card>
         <h-card-text desc="Select yours favorite numbers" />
         <div>
-          <h-checkbox v-model="checkedNumbers" label="1" :value="1"/>
-          <h-checkbox v-model="checkedNumbers" label="2" :value="2"/>
-          <h-checkbox v-model="checkedNumbers" label="3" :value="3"/>
-          <h-checkbox v-model="checkedNumbers" label="4" :value="4"/>
+          <h-checkbox v-model="checkedNumbers" text="1" :value="1"/>
+          <h-checkbox v-model="checkedNumbers" text="2" :value="2"/>
+          <h-checkbox v-model="checkedNumbers" text="3" :value="3"/>
+          <h-checkbox v-model="checkedNumbers" text="4" :value="4"/>
         </div>
         <div>
           <span>Favorite numbers {{ checkedNumbers }}</span>
@@ -70,7 +70,7 @@
       <h-card>
         <h-card-text desc="Select yours favorite objects" />
         <div v-for="(opt, index) in checkedObjectsOptions" :key="index">
-          <h-checkbox v-model="checkedObjects" :label="opt.name" :value="opt"/>
+          <h-checkbox v-model="checkedObjects" :text="opt.name" :value="opt"/>
         </div>
         <div>
           <span>Your objects {{ checkedObjects }}</span>
@@ -84,9 +84,46 @@
 
     </div>
 
-    //- <!-- Vue Events
-    //- Vue Event Description
-    //- @change(value) Triggered immediately when the user clicks on checkbox. -->
+    <h2 class="text-primary"> Vue Properties</h2>
+    <hr>
+
+    <div class="flex">
+      <div>
+        <h3>Name</h3>
+        <div>text</div>
+        <div>value</div>
+        <div>checked</div>
+        <div>disabled</div>
+      </div>
+      <div class="h-pl-md">
+        <h3>Type</h3>
+        <div>String, Number</div>
+        <div>String, Number, Object</div>
+        <div>Boolean</div>
+        <div>Boolean</div>
+      </div>
+      <div class="h-pl-md">
+        <h3 >Description</h3>
+        <div>Sets the text of the checkbox</div>
+        <div>Sets the value of the checkbox</div>
+        <div>If true the checkbox is checked</div>
+        <div>if true the checkbox is disabled</div>
+      </div>
+    </div>
+
+    <h2 class="text-primary"> Vue Events</h2>
+    <hr>
+
+    <div class="flex">
+      <div>
+        <h3>Name</h3>
+        <div>@change(value)</div>
+      </div>
+      <div class="h-pl-md">
+        <h3>Description</h3>
+        <div>Triggered immediately on model change</div>
+      </div>
+    </div>
 
 </template>
 
@@ -112,7 +149,7 @@ export default {
 <h-card>
   <h-card-text desc="Do you agree to our terms and conditions?"/>
   <div>
-    <h-checkbox v-model="termAccepted" label="I agree"/>
+    <h-checkbox v-model="termAccepted" text="I agree"/>
   </div>
   <div>
     | Your option is: {{ termAccepted }} 
@@ -123,9 +160,9 @@ export default {
 <h-card>
   <h-card-text desc="Select your favorite colors"/>
   <div>
-    h-checkbox(v-model="colors" label="Red" value="Red")
-    h-checkbox(v-model="colors" label="Green" value="Green")
-    h-checkbox(v-model="colors" label="Blue" value="Blue")        
+    h-checkbox(v-model="colors" text="Red" value="Red")
+    h-checkbox(v-model="colors" text="Green" value="Green")
+    h-checkbox(v-model="colors" text="Blue" value="Blue")        
   </div>
 
   <div>
@@ -137,10 +174,10 @@ export default {
 <h-card>
   <h-card-text desc="Select yours favorite numbers" />
   <div>
-    <h-checkbox v-model="checkedNumbers" label="1" :value="1"/>
-    <h-checkbox v-model="checkedNumbers" label="2" :value="2"/>
-    <h-checkbox v-model="checkedNumbers" label="3" :value="3"/>
-    <h-checkbox v-model="checkedNumbers" label="4" :value="4"/>        
+    <h-checkbox v-model="checkedNumbers" text="1" :value="1"/>
+    <h-checkbox v-model="checkedNumbers" text="2" :value="2"/>
+    <h-checkbox v-model="checkedNumbers" text="3" :value="3"/>
+    <h-checkbox v-model="checkedNumbers" text="4" :value="4"/>        
   </div>
   <div>
     <span>Favorite numbers {{ checkedNumbers }}</span>
@@ -151,7 +188,7 @@ export default {
 <h-card>
   <h-card-text desc="Select yours favorite objects" />
   <div v-for="(opt, index) in checkedObjectsOptions" :key="index">
-    <h-checkbox v-model="checkedObjects" :label="opt.name" :value="opt"/>
+    <h-checkbox v-model="checkedObjects" :text="opt.name" :value="opt"/>
   </div>
   <div>
     <span>Your objects {{ checkedObjects }}</span>

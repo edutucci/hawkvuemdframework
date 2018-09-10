@@ -75,8 +75,66 @@
     </code>
     </pre>
 
-    <!-- Vue Events
-    @tabChange(name) Triggered when the tab changes. -->
+    <h2 class="text-primary"> Tabs Help</h2>
+    <h2 class="text-primary"> Vue Properties</h2>
+    <hr>
+
+    <div class="flex">
+      <div>
+        <h3>Name</h3>
+        <div>vertical</div>
+      </div>
+      <div class="h-pl-md">
+        <h3>Type</h3>
+        <div>Boolean</div>
+      </div>
+      <div class="h-pl-md">
+        <h3 >Description</h3>
+        <div>If true tab is set to vertical mode</div>
+      </div>
+    </div>
+
+    <h2 class="text-primary"> Vue Events</h2>
+    <hr>
+
+    <div class="flex">
+      <div>
+        <h3>Name</h3>
+        <div>@tabChange(value)</div>
+      </div>
+      <div class="h-pl-md">
+        <h3>Description</h3>
+        <div>Triggered when tabs change. The tab name is sent.</div>
+      </div>
+    </div>
+
+    <h2 class="text-primary"> Tab Help</h2>
+    <h2 class="text-primary"> Vue Properties</h2>
+    <hr>
+
+    <div class="flex">
+      <div>
+        <h3>Name</h3>
+        <div>name</div>
+        <div>lefticon</div>
+        <div>topicon</div>
+        <div>default</div>
+      </div>
+      <div class="h-pl-md">
+        <h3>Type</h3>
+        <div>String</div>
+        <div>Array</div>
+        <div>Array</div>
+        <div>Boolean</div>
+      </div>
+      <div class="h-pl-md">
+        <h3 >Description</h3>
+        <div>Sets the tab name</div>
+        <div>Sets the icon before tab name</div>
+        <div>Sets the icon above tab name</div>
+        <div>Sets the default tab</div>
+      </div>
+    </div>
 
   </div>
 </template>
@@ -155,7 +213,7 @@ export default {
   },
   methods: {
     tabChange (value) {
-      // console.log('tab change name: ' + value)
+      console.log('tab change name: ' + value)
     }
   }
 }

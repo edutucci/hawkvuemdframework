@@ -1,7 +1,7 @@
 <template lang="pug">
   .flex.flex-items-center(style="height: 26px;")
     label.container
-      | {{label}}
+      | {{text}}
       input(
         type="checkbox" @click="onChange(this)"
         :checked="checkboxState" :disabled="disabled"
@@ -20,7 +20,7 @@ export default {
     value: {
       type: [String, Number, Object]
     },
-    label: [String, Number],
+    text: [String, Number],
     checked: {
       type: Boolean,
       default: false

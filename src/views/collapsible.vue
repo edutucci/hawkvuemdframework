@@ -63,6 +63,55 @@
       <code class="html">
       </code>
     </pre>
+
+    <h2 class="text-primary"> Collapsible Menu Help</h2>
+    <h2 class="text-primary"> Vue Properties</h2>
+    <hr>
+
+    <div class="flex">
+      <div>
+        <h3>Name</h3>
+        <div>bgcolor</div>
+        <div>textcolor</div>
+        <div>icon</div>
+        <div>text</div>
+      </div>
+      <div class="h-pl-md">
+        <h3>Type</h3>
+        <div>String</div>
+        <div>String</div>
+        <div>Array</div>
+        <div>String</div>
+      </div>
+      <div class="h-pl-md">
+        <h3 >Description</h3>
+        <div>Sets the background color of the menu</div>
+        <div>Sets the text color of the menu</div>
+        <div>Sets the icon of the menu</div>
+        <div>Sets the text of the menu</div>
+      </div>
+    </div>
+
+    <h2 class="text-primary"> Collapsible Menu Item Help</h2>
+    <h2 class="text-primary"> Vue Properties</h2>
+    <hr>
+
+    <div class="flex">
+      <div>
+        <h3>Name</h3>
+        <div>text</div>
+      </div>
+      <div class="h-pl-md">
+        <h3>Type</h3>
+        <div>String</div>
+      </div>
+      <div class="h-pl-md">
+        <h3 >Description</h3>
+        <div>Sets the text of the menu item</div>
+
+      </div>
+    </div>
+
   </div>
 </template>
 

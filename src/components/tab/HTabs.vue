@@ -28,7 +28,7 @@
         <slot></slot>
       </div>
     </div>
-    <div v-if="vertical" class="flex" :style="tabStyle2">
+    <div v-if="vertical" class="flex">
       <div class="flex flex-column" :class="bgcolor">
         <div v-for="(tab, index) in tabs" :key="index"
         class="h-pl-sm h-pr-sm h-pt-md h-pb-md tab"

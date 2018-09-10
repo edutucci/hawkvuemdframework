@@ -30,9 +30,6 @@ export default {
     selectValue: {
       type: [String, Number, Object]
     },
-    compareKey: {
-      type: [String, Number, Object]
-    },
     selectable: {
       type: Boolean,
       default: false

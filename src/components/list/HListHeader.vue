@@ -2,7 +2,7 @@
   div.list-title.flex
     .flex.flex-justify-start.title
       h3  {{text}}
-    .flex.flex-justify-start.title(style="padding-left: 56px;")
+    .flex.flex-justify-start.title(style="padding-left: 48px;")
       h3  {{middletext}}
     div
       slot

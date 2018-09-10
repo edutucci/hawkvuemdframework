@@ -11,7 +11,6 @@ export default {
   },
   data () {
     return {
-      numbers: [1, 2, 3]
     }
   },
   methods: {

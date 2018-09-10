@@ -53,9 +53,49 @@
       </pre>
     </div>
 
-    <!-- Vue Events
-    Vue Event Description
-    @input(value) Triggered when the user selects um item. -->
+    <h2 class="text-primary"> Vue Properties</h2>
+    <hr>
+
+    <div class="flex">
+      <div>
+        <h3>Name</h3>
+        <div>options</div>
+        <div>displayMode</div>
+        <div>multiselect</div>
+        <div>placeholder</div>
+        <div>dtu</div>
+      </div>
+      <div class="h-pl-md">
+        <h3>Type</h3>
+        <div>Array</div>
+        <div>String</div>
+        <div>Boolean</div>
+        <div>String</div>
+        <div>Boolean</div>
+      </div>
+      <div class="h-pl-md">
+        <h3 >Description</h3>
+        <div>Array with data for the dropdown menu</div>
+        <div>icon or avatar. One of the options will be appear before the menu item</div>
+        <div>Multiselect mode is enabled</div>
+        <div>Placeholder for the input</div>
+        <div>Shows the dropdown menu from bottom to top</div>
+      </div>
+    </div>
+
+    <h2 class="text-primary"> Vue Events</h2>
+    <hr>
+
+    <div class="flex">
+      <div>
+        <h3>Name</h3>
+        <div>@changeMultiselect(value)</div>
+      </div>
+      <div class="h-pl-md">
+        <h3>Description</h3>
+        <div>Triggered when user clicks on checkbox in multiselect mode. The model value is sent.</div>
+      </div>
+    </div>
 
   </div>
 </template>
