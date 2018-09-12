@@ -2,11 +2,11 @@
   <div class="flex flex-items-center switch-container">
     <div>
       <label class="switch">
-        <input type="checkbox"  @click="onChange(this)" :checked="checkboxState">
+        <input type="checkbox"  @click="onChange(this)" :checked="checkboxState" :disabled="disabled">
         <span class="slider round"></span>
       </label>
     </div>
-    <div class="h-pl-sm">{{label}}</div>
+    <div class="h-pl-sm">{{text}}</div>
   </div>
 </template>
 
@@ -19,15 +19,15 @@ export default {
     event: 'change'
   },
   props: {
-    value: {
-      type: [String, Number]
-    },
-    label: [String, Number],
-    checked: Boolean,
-    model: {
-      type: [String, Array, Boolean],
-      default: undefined
-    }
+    // value: {
+    //   type: [String, Number]
+    // },
+    // text: [String, Number],
+    // checked: Boolean,
+    // model: {
+    //   type: [String, Array, Boolean],
+    //   default: undefined
+    // }
     // id: {
     //   type: [String, Number]
     // }

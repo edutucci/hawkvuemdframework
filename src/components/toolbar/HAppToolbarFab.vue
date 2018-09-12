@@ -1,5 +1,5 @@
 <template lang="pug">
-  div.tbfab.h-pl-lg.flex.flex-wrap
+  div.tbfab.h-pl-lg.flex.flex-1.flex-wrap
     slot
 </template>
 
@@ -10,9 +10,14 @@ export default {
 </script>
 
 <style scoped>
+.tbfab {
+  position: relative;
+  padding: 4px;
+}
+
 .tbfab > .btnfab {
   position: absolute;
   z-index: 3;
-  top: -25px;
+  top: -50px;
 }
 </style>

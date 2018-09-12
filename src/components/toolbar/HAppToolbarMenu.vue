@@ -1,5 +1,5 @@
 <template lang="pug">
-  div(style="padding-left: 16px; padding-right: 16px;")
+  div(style="position:relative; padding-left: 16px; padding-right: 16px;")
     slot
 </template>
 

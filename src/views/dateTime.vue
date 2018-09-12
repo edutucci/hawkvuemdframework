@@ -4,7 +4,7 @@
       <div class="flex">
         <div class="flex flex-column">
           <h1>Date Input</h1>
-          <h-date-input v-model="date" locale="pt" display-format="L"/>
+          <h-date-input v-model="date"/>
           <div>
             your date is: {{date}}
           </div>
@@ -60,6 +60,28 @@
             </pre>
           </div>
         </div>
+      </div>
+    </div>
+
+    <h1 class="text-primary"> Date Input Help</h1>
+    <h2 class="text-primary"> Vue Properties</h2>
+    <hr>
+
+    <div class="flex">
+      <div>
+        <h3>Name</h3>
+        <div>locale</div>
+        <div> display-format</div>
+      </div>
+      <div class="h-pl-md">
+        <h3>Type</h3>
+        <div>String</div>
+        <div>String</div>
+      </div>
+      <div class="h-pl-md">
+        <h3 >Description</h3>
+        <div>Sets the locale for the date. Default <b>'en'</b></div>
+        <div>Sets how the date is displayed. Default <b>'L'</b>. See <a href="https://momentjs.com/docs/#/displaying/"> moment displat format</a>.</div>
       </div>
     </div>
 
