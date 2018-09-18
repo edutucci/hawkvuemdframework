@@ -58,6 +58,10 @@
 
     <h1 class="text-primary">Toolbar App Bottom</h1>
 
+    <div class="text-primary" style="background-color: lightgray">
+      <b>Note:</b> To add Toolbar App Bottom in the bottom of page the use the classes: <b>bottom-left-absolute</b> or <b>bottom-left-fixed</b>
+    </div>
+
     <h1> Centered Fab</h1>
     <h-app-toolbar>
       <h-app-toolbar-container bgcolor="bg-secondary" textcolor="text-white">

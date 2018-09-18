@@ -1,5 +1,5 @@
 <template lang="pug">
-  .flex.flex-1.flex-items-center.item-padding
+  .flex.flex-1.flex-items-center.item-padding.menu-item(:class="{active: checkCurrentItem}" @click="itemClick")
     div(v-if="selectable")
       h-checkbox.h-pl-md(v-model="arrayModel" :value="selectValue" @change="selectItem")
     div
@@ -65,7 +65,8 @@ export default {
   },
   data () {
     return {
-      arrayModel: []
+      arrayModel: [],
+      active: false
     }
   },
   mounted () {
@@ -76,7 +77,33 @@ export default {
       }
     }
   },
+  computed: {
+    checkCurrentItem () {
+      let result = false
+      if (this.lefttext && this.lefttext.length > 0) {
+        result = (this.$parent.getCurrentTextLeft() === this.lefttext)
+      }
+
+      if (this.text && this.text.length > 0) {
+        result = (this.$parent.getCurrentTextLeft() === this.text)
+      }
+      this.$parent.setActive(result)
+      return result
+    }
+  },
   methods: {
+    itemClick () {
+      console.log('item left click')
+      if (this.lefttext && this.lefttext.length > 0) {
+        console.log('text left > 0:' + this.lefttext)
+        this.$parent.setCurrentTextLeft(this.lefttext)
+      }
+
+      if (this.text && this.text.length > 0) {
+        console.log('text > 0:' + this.text)
+        this.$parent.setCurrentTextLeft(this.text)
+      }
+    },
     selectItem () {
       if (this.arrayModel.length) {
         this.$emit('selectedItem', this.arrayModel)

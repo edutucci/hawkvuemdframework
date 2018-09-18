@@ -16,17 +16,23 @@ export default {
     separator: {
       type: Boolean,
       default: false
-    },
-    active: {
-      type: Boolean,
-      default: false
     }
   },
   data () {
     return {
+      active: false
     }
   },
   methods: {
+    setActive (value) {
+      this.active = value
+    },
+    getCurrentTextLeft () {
+      return this.$parent.getCurrentTextLeft()
+    },
+    setCurrentTextLeft (text) {
+      this.$parent.setCurrentTextLeft(text)
+    },
     itemClick () {
       this.$emit('itemClick', this.selectValue)
     }

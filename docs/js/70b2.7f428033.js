@@ -1,2 +1,0 @@
-(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["70b2"],{"70b2":function(t,e,n){"use strict";n.r(e);var o=function(){var t=this,e=t.$createElement,n=t._self._c||e;return n("div")},r=[],a={data:function(){return{}},mounted:function(){this.$SnackBar.create({message:"Download Completed",textcolor:"text-white",bgcolor:"bg-primary"})}},c=a,l=n("2877"),u=Object(l["a"])(c,o,r,!1,null,null,null);e["default"]=u.exports}}]);
-//# sourceMappingURL=70b2.7f428033.js.map
