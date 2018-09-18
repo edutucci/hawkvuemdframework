@@ -50,7 +50,7 @@
       </h-card>
 
       <h-card style="width:256px">
-       <h-card-media img="/img/breakpoint.png"/>
+       <h-card-media img="img/breakpoint.png"/>
        <h-card-header text="Break point"  desc="5.12 MB"/>
       </h-card>
 

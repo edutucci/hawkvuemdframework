@@ -69,6 +69,11 @@
       />
     </div>
 
+    <pre v-highlightjs="txtkeys">
+      <code class="html">
+      </code>
+    </pre>
+
     <h2 class="text-primary"> Vue Properties</h2>
     <hr>
 
@@ -187,6 +192,38 @@ export default {
   float-label="Name" outlined cleartext
 />
 <span>Name: {{ txtName2 }}</span>
+      `,
+      txtkeys: `
+<div class="col-6">
+  <strong>Arrow Down, Tab or Enter. Enter works as tab</strong>
+  <h-input
+    class="full-width"
+    v-model="form.code"
+    float-label="Code"
+    ref="code"
+    @onKeyDown="onKeyDown"
+    @onEnter="$refs.name.focus()"
+  />
+  <h-input
+    class="full-width"
+    v-model="form.name"
+    float-label="Name"
+    ref="name"
+    @onKeyDown="onKeyDown"
+    @onTab="onKeyTab"
+    @onEnter="$refs.city.focus()"
+  />
+  <h-input
+    class="full-width"
+    v-model="form.city"
+    float-label="City"
+    ref="city"
+    @onKeyDown="onKeyDown"
+    @onTab="onKeyTab"
+    @onEnter="onEnter"
+    @change="onChange"
+  />
+</div>
       `
     }
   },
