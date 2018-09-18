@@ -2,6 +2,10 @@
   <div>
     <h1>Icons</h1>
 
+    <div class="text-primary" style="background-color: lightgray">
+      <b>Note:</b> This component has support for <b>Font Awesome Icons</b>
+    </div>
+
       <h1>Colors</h1>
       <h-fa-icon class="bg-primary h-pa-md" :icon="['fas', 'camera-retro']" textcolor="text-white" size="lg" @click="iconClick"/>
       <h-fa-icon class="h-pa-md" :icon="['fas', 'camera-retro']" textcolor="text-primary" size="lg"/>

@@ -14,7 +14,7 @@
       <div class="flex flex-column bg-white full-size" style="display: inline-flex;">
 
         <div slot="header" class="text-center h-pa-md">
-          <h-avatar src="/img/hawk.jpg" size="64px"/>
+          <h-avatar src="img/hawk.jpg" size="64px"/>
           <h3 class="no-padding no-margin">Hawk </h3>
           <h3 class="no-padding no-margin"> Framework</h3>
         </div>

@@ -134,10 +134,10 @@
         <h-list-header middletext="Folders"/>
         <h-list-body>
           <h-list-item>
-            <h-list-item-left img="/avatar/folder_open.jpeg" text="Photos" desc="Dez 12, 2017"/>
+            <h-list-item-left img="avatar/folder_open.jpeg" text="Photos" desc="Dez 12, 2017"/>
           </h-list-item>
           <h-list-item>
-            <h-list-item-left img="/avatar/folder_open.jpeg" text="Images" desc="Events"/>
+            <h-list-item-left img="avatar/folder_open.jpeg" text="Images" desc="Events"/>
           </h-list-item>
         </h-list-body>
       </h-list>
@@ -150,19 +150,19 @@
         <h-list-header text="4 items in your cart" />
         <h-list-body>
           <h-list-item separator>
-            <h-list-item-left img="/img/pencil.png" text="Pencil" desc="in stock" />
+            <h-list-item-left img="img/pencil.png" text="Pencil" desc="in stock" />
             <h-list-item-right text="2.00"/>
           </h-list-item>
           <h-list-item separator>
-            <h-list-item-left img="/img/rubberbands.png" text="Hubberbands" desc="in stock"/>
+            <h-list-item-left img="img/rubberbands.png" text="Hubberbands" desc="in stock"/>
             <h-list-item-right text="4.00"/>
           </h-list-item>
           <h-list-item separator>
-            <h-list-item-left img="/img/rulers.png" text="Rulers" desc="only 1 left in stock. Next month we will sell for you." />
+            <h-list-item-left img="img/rulers.png" text="Rulers" desc="only 1 left in stock. Next month we will sell for you." />
             <h-list-item-right text="6.00"/>
           </h-list-item>
           <h-list-item separator>
-            <h-list-item-left img="/img/clock.png" text="Clock" desc="in stock" />
+            <h-list-item-left img="img/clock.png" text="Clock" desc="in stock" />
             <h-list-item-right text="8.00"/>
           </h-list-item>
         </h-list-body>
@@ -519,10 +519,10 @@ export default {
   <h-list-header middletext="Folders"/>
   <h-list-body>
     <h-list-item>
-      <h-list-item-left img="/avatar/folder_open.jpeg" text="Photos" desc="Dez 12, 2017"/>
+      <h-list-item-left img="avatar/folder_open.jpeg" text="Photos" desc="Dez 12, 2017"/>
     </h-list-item>
     <h-list-item>
-      <h-list-item-left img="/avatar/folder_open.jpeg" text="Images" desc="Events"/>
+      <h-list-item-left img="avatar/folder_open.jpeg" text="Images" desc="Events"/>
     </h-list-item>
   </h-list-body>
 </h-list>
@@ -532,19 +532,19 @@ export default {
   <h-list-header text="4 items in your cart" />
   <h-list-body>
     <h-list-item separator>
-      <h-list-item-left img="/img/pencil.png" text="Pencil" desc="in stock" />
+      <h-list-item-left img="img/pencil.png" text="Pencil" desc="in stock" />
       <h-list-item-right text="2.00"/>
     </h-list-item>
     <h-list-item separator>
-      <h-list-item-left img="/img/rubberbands.png" text="Hubberbands" desc="in stock"/>
+      <h-list-item-left img="img/rubberbands.png" text="Hubberbands" desc="in stock"/>
       <h-list-item-right text="4.00"/>
     </h-list-item>
     <h-list-item separator>
-      <h-list-item-left img="/img/rulers.png" text="Rulers" desc="only 1 left in stock. Next month we will sell for you." />
+      <h-list-item-left img="img/rulers.png" text="Rulers" desc="only 1 left in stock. Next month we will sell for you." />
       <h-list-item-right text="6.00"/>
     </h-list-item>
     <h-list-item separator>
-      <h-list-item-left img="/img/clock.png" text="Clock" desc="in stock" />
+      <h-list-item-left img="img/clock.png" text="Clock" desc="in stock" />
       <h-list-item-right text="8.00"/>
     </h-list-item>
   </h-list-body>

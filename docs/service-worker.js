@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.4.1/workbox-sw.js");
 
 importScripts(
-  "/hawkframework/precache-manifest.13a0900589a1be1624a363fa32554093.js"
+  "/hawkframework/precache-manifest.103bbf77ffb0bbf0c29531a3f7becbcc.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "hawkframework"});
