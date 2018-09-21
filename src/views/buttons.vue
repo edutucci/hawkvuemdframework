@@ -196,6 +196,7 @@ export default {
       `,
       outlinedButtons: `
 <div>
+  <h-btn outlined text="disabled" disabled/>
   <h-btn outlined textcolor="text-black" label="black"/>
   <h-btn outlined textcolor="text-primary" label="primary"/>
   <h-btn outlined textcolor="text-secondary" label="secondary"/>  

@@ -22,6 +22,7 @@ export default new Router({
         { path: '/textfield', component: () => import('./views/textfield') },
         { path: '/search', component: () => import('./views/search') },
         { path: '/card', component: () => import('./views/card') },
+        { path: '/chip', component: () => import('./views/chips') },
         { path: '/menu', component: () => import('./views/menu') },
         { path: '/list', component: () => import('./views/list') },
         { path: '/collapsible', component: () => import('./views/collapsible') },

@@ -11,9 +11,11 @@ import HCardActions from './card/HCardActions'
 import HCardButtons from './card/HCardButtons'
 import HCardIcons from './card/HCardIcons'
 import HCheckbox from './checkbox/HCheckbox.vue'
-import HCollapsible from '../components/collapsible/HCollapsible.vue'
-import HCollapsibleMenu from '../components/collapsible/HCollapsibleMenu.vue'
-import HCollapsibleItem from '../components/collapsible/HCollapsibleItem.vue'
+import HCollapsible from './collapsible/HCollapsible.vue'
+import HCollapsibleMenu from './collapsible/HCollapsibleMenu.vue'
+import HCollapsibleItem from './collapsible/HCollapsibleItem.vue'
+import HChips from './chips/Chips.vue'
+import HInputChips from './chips/InputChips.vue'
 import HDatePicker from './date/HDatePicker.vue'
 import HDateInput from './date/HDateInput.vue'
 import HTimePicker from './date/HTimePicker.vue'
@@ -65,6 +67,8 @@ const Components = {
   HCollapsible,
   HCollapsibleMenu,
   HCollapsibleItem,
+  HChips,
+  HInputChips,
   HDatePicker,
   HDateInput,
   HTimePicker,
