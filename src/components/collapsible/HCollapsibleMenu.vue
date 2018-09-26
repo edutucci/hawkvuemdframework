@@ -4,7 +4,7 @@
       hr
     .flex.full-with(@click="selectCollapse()" )
       .flex.flex-items-center(v-if="icon && icon.length" :class="[bgcolor]" style="padding-left:16px;padding-right:8px;height:40px;")
-        h-fa-icon(:icon="icon" :textcolor="textcolor")
+        h-fa-icon(:icon="icon" :textcolor="textcolor" size="lg")
       .flex-column.full-width()
         .flex(style="height:40px;")
           .flex.flex-1.flex-items-center(:class="[textcolor, bgcolor]" style="padding-left:16px;")

@@ -1,7 +1,8 @@
 {
   "name": "hawkframework",
-  "version": "0.1.0",
-  "private": true,
+  "version": "0.0.1",
+  "description": "Free Material Framework with lightweight vue components.",
+  "private": false,
   "main": "./dist/hawkframework.common.js",
   "files": [
     "dist/*",
@@ -13,16 +14,14 @@
   "scripts": {
     "serve": "vue-cli-service serve --open",
     "build": "vue-cli-service build",
-    "build-lib": "vue-cli-service build --target lib --name hawklib ./src/components/index.js",
+    "build-lib": "vue-cli-service build --target lib --name hawkframework ./src/components/index.js",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "@fortawesome/fontawesome": "^1.1.8",
-    "@fortawesome/fontawesome-free-brands": "^5.0.13",
-    "@fortawesome/fontawesome-free-regular": "^5.0.13",
-    "@fortawesome/fontawesome-free-solid": "^5.0.13",
-    "@fortawesome/fontawesome-svg-core": "^1.2.2",
-    "@fortawesome/free-solid-svg-icons": "^5.2.0",
+    "@fortawesome/fontawesome-svg-core": "^1.2.4",
+    "@fortawesome/free-brands-svg-icons": "^5.3.1",
+    "@fortawesome/free-regular-svg-icons": "^5.3.1",
+    "@fortawesome/free-solid-svg-icons": "^5.3.1",
     "@fortawesome/vue-fontawesome": "^0.1.1",
     "lodash": "^4.17.10",
     "moment": "^2.22.2",

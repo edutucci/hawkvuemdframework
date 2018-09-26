@@ -12,6 +12,7 @@
       </code>
     </pre>
 
+    <h1>Table Sample</h1>
     <div class="col-6" style="height: 450px;">
       <h-table
         title="Users"
@@ -36,6 +37,30 @@
       </code>
     </pre>
 
+    <h1>Table Selectable</h1>
+    <div class="text-primary" style="background-color: lightgray">
+      <b>Note:</b> Just add <b>selectable</b> to tag table
+    </div>
+    <div class="col-6 h-pt-md" style="height: 450px;">
+      <h-table
+        selectable
+        title="Users"
+        :columns="tableColumns"
+        :rows="tableDatabase"
+        lineheight="40px"
+        @addRows="addRows"
+        @editRow="editRow"
+        @deleteRows="deleteRows"
+      >
+        <template slot="number" slot-scope="row">
+          {{row.rowData.number}}
+        </template>
+        <template slot="avatar" slot-scope="row">
+          <img :src="row.rowData.avatar" style="width:40px; height:40px;">
+        </template>
+      </h-table>
+    </div>
+
     <h2 class="text-primary"> Table Help</h2>
     <h2 class="text-primary"> Vue Properties</h2>
     <hr>
@@ -47,6 +72,7 @@
         <div>columns</div>
         <div>rows</div>
         <div>lineheight</div>
+        <div>selectable</div>
       </div>
       <div class="h-pl-md">
         <h3>Type</h3>
@@ -54,12 +80,15 @@
         <div>Array</div>
         <div>Array</div>
         <div>String</div>
+        <div>Booelan</div>
       </div>
       <div class="h-pl-md">
         <h3 >Description</h3>
         <div>Sets the table title</div>
         <div>Array of object for each column data</div>
         <div>Array of object with table rows data</div>
+        <div>Sets the line for each table row. Ex: lineheight="40px"</div>
+        <div>Add checkbox to each row</div>
       </div>
     </div>
 

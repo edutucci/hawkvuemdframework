@@ -3,7 +3,7 @@
     <h1>Icons</h1>
 
     <div class="text-primary" style="background-color: lightgray">
-      <b>Note:</b> This component has support for <b>Font Awesome Icons</b>
+      <b>Note:</b> This component has support for <b>Font Awesome Icons 5.0.0</b>
     </div>
 
       <h1>Colors</h1>

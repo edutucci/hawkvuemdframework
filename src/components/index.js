@@ -52,7 +52,10 @@ import HInput from './Inputs/HInput.vue'
 import HToggle from './checkbox/HToggle'
 import HPage from './page/HPage.vue'
 
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+
 const Components = {
+  FontAwesomeIcon,
   HBtn,
   HBtnFloat,
   HCard,

@@ -37,19 +37,6 @@ export default new Router({
         { path: '/toggle', component: () => import('./views/toggle') },
         { path: '/snack', component: () => import('./views/snack') }
       ]
-    },
-    {
-      path: '/site1Beta',
-      component: () => import('./site1Beta/login')
-    },
-    {
-      path: '/site1Beta/main',
-      component: () => import('./site1Beta/main'),
-      children: [
-        { path: '', component: () => import('./site1Beta/main') },
-        { path: 'categorias', component: () => import('./site1Beta/categorias') },
-        { path: 'produtos', component: () => import('./site1Beta/produtos') }
-      ]
     }
   ]
 })

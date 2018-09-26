@@ -1,8 +1,5 @@
 <template>
     <div class="boxshadow div-rounded flex flex-column full-height no-user-select">
-      <div>
-        rowsperpagevalue: {{rowsperpagevalue}}
-      </div>
       <div class="flex flex-column" style="min-height:60px;overflow:hidden; position:relative; z-index: 1">
         <div v-if="selectedRows.length > 0" class="flex flex-row flex-items-center full-height" style="padding-left:8px;padding-right:8px;">
           <div class="flex-1" style="color:royalblue;">
@@ -32,7 +29,7 @@
               <div class="flex flex-items-center flex-justify-center" :style="[rowlineheight]">
                 <!-- <h-checkbox v-model="selectedAllRows"  value="selectedAllRows" style="padding-top:0px; padding-left:8px;"/> -->
               </div>
-              <div class="flex flex-items-center flex-justify-center" :style="[rowlineheight]" style="padding: 8px;"
+              <div v-if="selectable" class="flex flex-items-center flex-justify-center" :style="[rowlineheight]" style="padding: 8px;"
                 v-for="(row, rowindex) in tableData.rows"
                 :key="rowindex"
                 :class="[rowbackgroundColor[rowindex]]"
@@ -128,6 +125,10 @@ export default {
     lineheight: {
       type: String,
       default: '40px'
+    },
+    selectable: {
+      type: Boolean,
+      default: false
     }
   },
   data () {
