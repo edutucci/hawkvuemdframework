@@ -43,7 +43,7 @@
 
     h1  Card Scannable
 
-    .flex.flex-wrap
+    <div class="flex flex-wrap">
       <h-card style="width:256px">
        <h-card-media img="img/90minute.png"/>
        <h-card-header  text="90th minute" desc="4.31 MB"/>
@@ -53,8 +53,8 @@
        <h-card-media img="img/breakpoint.png"/>
        <h-card-header text="Break point"  desc="5.12 MB"/>
       </h-card>
-
-    .flex.flex-wrap
+    </div>
+    <div class="flex flex-wrap">
       <h-card style="width:256px">
        <h-card-media img="img/matchday.png"/>
        <h-card-header text="Matchday"  desc="2.18 MB"/>
@@ -64,6 +64,7 @@
        <h-card-media img="img/bluerun.png"/>
        <h-card-header text="Blue run"  desc="3.33 MB"/>
       </h-card>
+    </div>
 
     <pre v-highlightjs="cardScannable">
       <code class="html">
@@ -72,7 +73,7 @@
 
     h1  Card Distinction
 
-    div.flex.flex-justify-center.boxshadow.h-ma-md(style="width:380px;")
+    <div class="flex flex-justify-center boxshadow h-ma-md" style="width:380px;">
       .flex.flex-column.flex-wrap
         div.h-ma-md(style="width:360px; height: 200px;")
           <h-card>
@@ -100,6 +101,7 @@
               <h-card-media-text class="flex-items-center flex-justify-center" text="Match day" desc="2.18 MB"/>
             </h-card-media>
           </h-card>
+    </div>
 
     <pre v-highlightjs="cardDistinction">
       <code class="html">
@@ -186,8 +188,8 @@ export default {
     return {
       card1: `
 <h-card>
-  <h-card-media img="/img/Nallah_Sindh.jpg"/>
-  <h-card-header avatar="/avatar/Kostenlose.jpg"  text="River"  desc="Beautifull place" />
+  <h-card-media img="img/Nallah_Sindh.jpg"/>
+  <h-card-header text="River"  desc="Beautifull place" />
   <h-card-text desc="A river in the Ganderbal district of Jammu and Kashmir state of India." />
 </h-card>
       `,
@@ -209,58 +211,59 @@ export default {
 </h-card>
       `,
       cardScannable: `
-  .flex.flex-wrap
-    <h-card style="width:256px">
-      <h-card-media img="/img/90minute.png"/>
-      <h-card-header  text="90th minute" desc="4.31 MB"/>
-    </h-card>
+<div class="flex flex-wrap">
+  <h-card style="width:256px">
+    <h-card-media img="img/90minute.png"/>
+    <h-card-header  text="90th minute" desc="4.31 MB"/>
+  </h-card>
 
-    <h-card style="width:256px">
-      <h-card-media img="/img/breakpoint.png"/>
-      <h-card-header text="Break point"  desc="5.12 MB"/>
-    </h-card>      
-    
+  <h-card style="width:256px">
+    <h-card-media img="img/breakpoint.png"/>
+    <h-card-header text="Break point"  desc="5.12 MB"/>
+  </h-card>
+</div>
+<div class="flex flex-wrap">
+  <h-card style="width:256px">
+    <h-card-media img="img/matchday.png"/>
+    <h-card-header text="Matchday"  desc="2.18 MB"/>
+  </h-card>
 
-  .flex.flex-wrap
-    <h-card style="width:256px">
-      <h-card-media img="/img/matchday.png"/>
-      <h-card-header text="Matchday"  desc="2.18 MB"/>
-    </h-card>
-
-    <h-card style="width:256px">
-      <h-card-media img="/img/bluerun.png"/>
-      <h-card-header text="Blue run"  desc="3.33 MB"/>
-    </h-card>
+  <h-card style="width:256px">
+    <h-card-media img="img/bluerun.png"/>
+    <h-card-header text="Blue run"  desc="3.33 MB"/>
+  </h-card>
+</div>
       `,
       cardDistinction: `
-    div.flex.flex-justify-center.boxshadow.h-ma-md(style="width:380px;")
-      .flex.flex-column.flex-wrap
-        div.h-ma-md(style="width:360px; height: 200px;")
-          <h-card>
-            <h-card-media style="width:360px; height: 200px;"  img="/img/90minute.png">
-              <h-card-media-text class="flex-items-end" text="90th minute" desc="4.31 MB"/>
-            </h-card-media>
-          </h-card>
+<div class="flex flex-justify-center boxshadow h-ma-md" style="width:380px;">
+  .flex.flex-column.flex-wrap
+    div.h-ma-md(style="width:360px; height: 200px;")
+      <h-card>
+        <h-card-media style="width:360px; height: 200px;"  img="img/90minute.png">
+          <h-card-media-text class="flex-items-end" text="90th minute" desc="4.31 MB"/>
+        </h-card-media>
+      </h-card>
 
-        div.h-ma-md.flex.flex-items-center(style="width:360px; height: 200px;")
-          <h-card>
-            <h-card-media style="width:170px; height: 128px;" img="/img/bluerun.png">
-              <h-card-media-text class="flex-items-end" text="Blue run" desc="3.33 MB"/>
-            </h-card-media>
-          </h-card>          
+    div.h-ma-md.flex.flex-items-center(style="width:360px; height: 200px;")
+      <h-card>
+        <h-card-media style="width:170px; height: 128px;" img="img/bluerun.png">
+          <h-card-media-text class="flex-items-end" text="Blue run" desc="3.33 MB"/>
+        </h-card-media>
+      </h-card>
 
-          <h-card>
-            <h-card-media style="width:160px; height: 192px;"  img="/img/breakpoint.png">
-              <h-card-media-text class="flex-items-center" text="Break point"  desc="5.12 MB"/>
-            </h-card-media>
-          </h-card>
+      <h-card>
+        <h-card-media style="width:160px; height: 192px;"  img="img/breakpoint.png">
+          <h-card-media-text class="flex-items-center" text="Break point"  desc="5.12 MB"/>
+        </h-card-media>
+      </h-card>
 
-        div.h-ma-md(style="width:360px; height: 200px;")
-          <h-card>
-            <h-card-media style="width:360px; height: 200px;" img="/img/matchday.png">
-              <h-card-media-text class="flex-items-center flex-justify-center" text="Match day" desc="2.18 MB"/>
-            </h-card-media>
-          </h-card>          
+    div.h-ma-md(style="width:360px; height: 200px;")
+      <h-card>
+        <h-card-media style="width:360px; height: 200px;" img="img/matchday.png">
+          <h-card-media-text class="flex-items-center flex-justify-center" text="Match day" desc="2.18 MB"/>
+        </h-card-media>
+      </h-card>
+</div>        
       `
     }
   }

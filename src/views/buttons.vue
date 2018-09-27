@@ -174,43 +174,43 @@ export default {
     return {
       containedButtons: `
 <div>
-  <h-btn contained bgcolor="bg-white" textcolor="text-black" label="white" :icon="['fas', 'envelope']"  :lefticon="['fas', 'envelope']"/>
-  <h-btn contained bgcolor="bg-primary" textcolor="text-white" label="primary" :icon="['fas', 'envelope']" :lefticon="['fas', 'plus']"/>
-  <h-btn contained bgcolor="bg-secondary" textcolor="text-white" label="secondary"/>  
-  <h-btn contained bgcolor="bg-positive" textcolor="text-white" label="positive" :icon="['fas', 'envelope']"/> 
-  <h-btn contained bgcolor="bg-negative" textcolor="text-white" label="negative"/> 
-  <h-btn contained bgcolor="bg-info" textcolor="text-white" label="info"/> 
-  <h-btn contained bgcolor="bg-warning" textcolor="text-white" label="warning"/>
+  <h-btn contained bgcolor="bg-white" textcolor="text-black" text="white" :left-icon="['fas', 'envelope']" @click="btnClick"/>
+  <h-btn contained bgcolor="bg-primary" textcolor="text-white" text="primary" :right-icon="['fas', 'envelope']"/>
+  <h-btn contained bgcolor="bg-secondary" textcolor="text-white" text="secondary"/>
+  <h-btn contained bgcolor="bg-positive" textcolor="text-white" text="positive" :right-icon="['fas', 'envelope']"/>
+  <h-btn contained bgcolor="bg-negative" textcolor="text-white" text="negative"/>
+  <h-btn contained bgcolor="bg-info" textcolor="text-white" text="info"/>
+  <h-btn contained bgcolor="bg-warning" textcolor="text-white" text="warning"/>
 </div>
       `,
       textbuttons: `
 <div>
-  <h-btn textbutton textcolor="text-black" label="black"/>
-  <h-btn textbutton textcolor="text-primary" label="primary"/>
-  <h-btn textbutton textcolor="text-secondary" label="secondary"/>  
-  <h-btn textbutton textcolor="text-positive" label="positive"/> 
-  <h-btn textbutton textcolor="text-negative" label="negative"/> 
-  <h-btn textbutton textcolor="text-info" label="info"/> 
-  <h-btn textbutton textcolor="text-warning" label="warning"/>      
+  <h-btn textbutton textcolor="text-black" text="black"/>
+  <h-btn textbutton textcolor="text-primary" text="primary"/>
+  <h-btn textbutton textcolor="text-secondary" text="secondary"/>
+  <h-btn textbutton textcolor="text-positive" text="positive"/>
+  <h-btn textbutton textcolor="text-negative" text="negative"/>
+  <h-btn textbutton textcolor="text-info" text="info"/>
+  <h-btn textbutton textcolor="text-warning" text="warning"/>     
 </div>
       `,
       outlinedButtons: `
 <div>
   <h-btn outlined text="disabled" disabled/>
-  <h-btn outlined textcolor="text-black" label="black"/>
-  <h-btn outlined textcolor="text-primary" label="primary"/>
-  <h-btn outlined textcolor="text-secondary" label="secondary"/>  
-  <h-btn outlined textcolor="text-positive" label="positive"/> 
-  <h-btn outlined textcolor="text-negative" label="negative"/> 
-  <h-btn outlined textcolor="text-info" label="info"/> 
-  <h-btn outlined textcolor="text-warning" label="warning"/>      
+  <h-btn outlined textcolor="text-black" text="black"/>
+  <h-btn outlined textcolor="text-primary" text="primary"/>
+  <h-btn outlined textcolor="text-secondary" text="secondary"/>
+  <h-btn outlined textcolor="text-positive" text="positive"/>
+  <h-btn outlined textcolor="text-negative" text="negative"/>
+  <h-btn outlined textcolor="text-info" text="info"/>
+  <h-btn outlined textcolor="text-warning" text="warning"/>    
 </div>
       `,
       floatActionButtons: `
 <div>
-  <h-btn-float bgcolor="bg-positive" textcolor="text-white" @click="$refs.nav.open()" :icon="['fas', 'envelope']"> </h-btn-float>
-  <h-btn-float bgcolor="bg-secondary" textcolor="text-white" @click="$refs.nav.close()" :icon="['fas', 'envelope']">  </h-btn-float>
-  <h-btn-float bgcolor="bg-negative" textcolor="text-white" @click="$refs.nav.open()" :icon="['fas', 'plus']"> </h-btn-float>
+  <h-btn-float bgcolor="bg-positive" textcolor="text-white" :icon="['fas', 'envelope']"> </h-btn-float>
+  <h-btn-float bgcolor="bg-secondary" textcolor="text-white" :icon="['fas', 'envelope']">  </h-btn-float>
+  <h-btn-float bgcolor="bg-negative" textcolor="text-white" :icon="['fas', 'plus']"> </h-btn-float>
   <h-btn-float bgcolor="bg-secondary" :icon="['fas', 'bars']"> </h-btn-float>
   <h-btn-float minifloat :icon="['fas', 'plus']"> </h-btn-float>
   <h-btn-float minifloat bgcolor="bg-warning" :icon="['fas', 'plus']"> </h-btn-float>      

@@ -1,9 +1,13 @@
 {
   "name": "hawkframework",
-  "version": "0.0.1",
+  "version": "0.0.6",
   "description": "Free Material Framework with lightweight vue components.",
+  "author": "Eduardo Tucci",
   "private": false,
   "main": "./dist/hawkframework.common.js",
+  "homepage": "https://github.com/edutucci/hawkframework",
+  "keywords": ["Vue", "Vue Material"],
+  "license": "MIT",
   "files": [
     "dist/*",
     "src/*",
@@ -14,7 +18,7 @@
   "scripts": {
     "serve": "vue-cli-service serve --open",
     "build": "vue-cli-service build",
-    "build-lib": "vue-cli-service build --target lib --name hawkframework ./src/components/index.js",
+    "build-lib": "vue-cli-service build --target lib --name hawkframework ./src/index.js",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
