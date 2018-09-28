@@ -5,7 +5,6 @@
         v-if="leftIcon && leftIcon.length"
         textcolor="text-gray"
         :icon="leftIcon"
-        size="lg"
       )
     .flex.flex-column.full-width
       .full-width.input-container(
@@ -50,21 +49,18 @@
                 v-if="type === 'password'"
                 textcolor="text-gray"
                 :icon="['fas', 'eye']"
-                size="lg"
                 @click="onInputIconClick"
               )
               h-fa-icon(
                 v-else-if="type === 'dropdown'"
                 textcolor="text-gray"
                 :icon="['fas', 'angle-down']"
-                size="lg"
                 @click="onInputIconClick"
               )
               h-fa-icon(
                 v-if="cleartext"
                 textcolor="text-gray"
                 :icon="['fas', 'times-circle']"
-                size="lg"
                 @click="onInputIconClick"
               )
       .full-width
@@ -88,6 +84,7 @@
 
 <script>
 import { mixin as focusMixin } from 'vue-focus'
+
 export default {
   mixins: [focusMixin],
   props: {
@@ -168,6 +165,12 @@ export default {
   },
   watch: {
     value: function (value) {
+      this.changeFloatLabelStyle()
+    },
+    placeholder: function (value) {
+      this.changeFloatLabelStyle()
+    },
+    floatLabel: function (value) {
       this.changeFloatLabelStyle()
     }
   },

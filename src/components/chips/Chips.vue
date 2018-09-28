@@ -6,7 +6,7 @@
       v-if="!outlined"
       :class="[bgcolor, {bgdefault: bgdefault, disabled: disabled}]"
     )
-      div.h-pl-xs(v-if="icon && icon.length > 0")
+      div.h-pl-sm.h-pr-xs(v-if="icon && icon.length > 0")
         h-fa-icon(:icon="icon" :textcolor="chiptextcolor")
         span.h-pl-sm(:class="[chiptextcolor]") {{text}}
         h-fa-icon.h-pl-sm(
@@ -15,7 +15,7 @@
           :textcolor="chiptextcolor"
           @click="onClose"
         )
-      div.h-pl-sm.h-pr-sm(v-else)
+      div.h-pl-sm.h-pr-xs(v-else)
         span(:class="[chiptextcolor]") {{text}}
         h-fa-icon.h-pl-sm(
           v-if="closable"
@@ -27,10 +27,10 @@
       v-else
       :class="{outline: outlined, disabled: disabled}"
     )
-      div.h-pl-xs(v-if="icon && icon.length > 0")
+      div.h-pl-xs.h-pr-xs(v-if="icon && icon.length > 0")
         h-fa-icon(:icon="icon" :textcolor="chiptextcolor")
         span.h-pl-sm(:class="[chiptextcolor]") {{text}}
-        h-fa-icon.h-pl-sm.h-pr-sm(
+        h-fa-icon.h-pl-sm(
           v-if="closable"
           :icon="['fas', 'times-circle']"
           :textcolor="chiptextcolor"
@@ -128,7 +128,6 @@ export default {
 <style scoped>
 .chip-container {
   display: inline-flex;
-  padding: 2px;
 }
 
 .chip-content.disabled > .chip-text,
@@ -138,6 +137,7 @@ export default {
 }
 .chip-content {
   border-radius: 50px;
+  padding: 3px;
 }
 
 .chip-content.bgdefault {

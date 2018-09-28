@@ -3,7 +3,7 @@
     .title
       strong  {{text}}
     .icon-right(v-if="icon && icon.length")
-      h-fa-icon(:icon="icon" size="lg" @click="rightIconClick")
+      h-fa-icon(:icon="icon" @click="rightIconClick")
 
 </template>
 

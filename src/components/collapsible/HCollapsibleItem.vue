@@ -9,7 +9,10 @@
 
 <script>
 
+import componentBase from '../componentBase.vue'
+
 export default {
+  extends: componentBase,
   props: {
     text: {
       type: String

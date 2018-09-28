@@ -7,13 +7,13 @@
     </div>
 
       <h1>Colors</h1>
-      <h-fa-icon class="bg-primary h-pa-md" :icon="['fas', 'camera-retro']" textcolor="text-white" size="lg" @click="iconClick"/>
-      <h-fa-icon class="h-pa-md" :icon="['fas', 'camera-retro']" textcolor="text-primary" size="lg"/>
-      <h-fa-icon class="h-pa-md" :icon="['fas', 'camera-retro']" textcolor="text-secondary" size="lg"/>
-      <h-fa-icon class="h-pa-md" :icon="['fas', 'camera-retro']" textcolor="text-positive" size="lg"/>
-      <h-fa-icon class="h-pa-md" :icon="['fas', 'camera-retro']" textcolor="text-negative" size="lg"/>
-      <h-fa-icon class="h-pa-md" :icon="['fas', 'camera-retro']" textcolor="text-info" size="lg"/>
-      <h-fa-icon class="h-pa-md" :icon="['fas', 'camera-retro']" textcolor="text-warning" size="lg"/>
+      <h-fa-icon class="bg-primary h-pa-md" :icon="['fas', 'camera-retro']" textcolor="text-white" @click="iconClick"/>
+      <h-fa-icon class="h-pa-md" :icon="['fas', 'camera-retro']" textcolor="text-primary"/>
+      <h-fa-icon class="h-pa-md" :icon="['fas', 'camera-retro']" textcolor="text-secondary"/>
+      <h-fa-icon class="h-pa-md" :icon="['fas', 'camera-retro']" textcolor="text-positive"/>
+      <h-fa-icon class="h-pa-md" :icon="['fas', 'camera-retro']" textcolor="text-negative"/>
+      <h-fa-icon class="h-pa-md" :icon="['fas', 'camera-retro']" textcolor="text-info"/>
+      <h-fa-icon class="h-pa-md" :icon="['fas', 'camera-retro']" textcolor="text-warning"/>
 
       <pre v-highlightjs="iconColors">
         <code class="html">
@@ -40,16 +40,16 @@
       <div class="flex">
         <div class="flex flex-column">
           <div class="flex flex-justify-center">
-            <h-fa-icon :icon="['fas', 'home']" size="lg"/>
+            <h-fa-icon :icon="['fas', 'home']"/>
           </div>
           <div class="flex flex-justify-center">
-            <h-fa-icon :icon="['fas', 'info']" size="lg"/>
+            <h-fa-icon :icon="['fas', 'info']" />
           </div>
           <div class="flex flex-justify-center">
-            <h-fa-icon :icon="['fas', 'spinner']" size="lg" pulse/>
+            <h-fa-icon :icon="['fas', 'spinner']" pulse/>
           </div>
           <div class="flex flex-justify-center">
-            <h-fa-icon :icon="['fas', 'sync']" size="lg" spin/>
+            <h-fa-icon :icon="['fas', 'sync']" spin/>
           </div>
         </div>
       </div>
@@ -131,13 +131,13 @@ export default {
   data () {
     return {
       iconColors: `
-<h-fa-icon class="bg-primary h-pa-md" :icon="['fas', 'camera-retro']" textcolor="text-white" size="lg"/>
-<h-fa-icon class="h-pa-md" :icon="['fas', 'camera-retro']" textcolor="text-primary" size="lg"/>
-<h-fa-icon class="h-pa-md" :icon="['fas', 'camera-retro']" textcolor="text-secondary" size="lg"/>
-<h-fa-icon class="h-pa-md" :icon="['fas', 'camera-retro']" textcolor="text-positive" size="lg"/>
-<h-fa-icon class="h-pa-md" :icon="['fas', 'camera-retro']" textcolor="text-negative" size="lg"/>
-<h-fa-icon class="h-pa-md" :icon="['fas', 'camera-retro']" textcolor="text-info" size="lg"/>
-<h-fa-icon class="h-pa-md" :icon="['fas', 'camera-retro']" textcolor="text-warning" size="lg"/>
+<h-fa-icon class="bg-primary h-pa-md" :icon="['fas', 'camera-retro']" textcolor="text-white"/>
+<h-fa-icon class="h-pa-md" :icon="['fas', 'camera-retro']" textcolor="text-primary"/>
+<h-fa-icon class="h-pa-md" :icon="['fas', 'camera-retro']" textcolor="text-secondary"/>
+<h-fa-icon class="h-pa-md" :icon="['fas', 'camera-retro']" textcolor="text-positive"/>
+<h-fa-icon class="h-pa-md" :icon="['fas', 'camera-retro']" textcolor="text-negative"/>
+<h-fa-icon class="h-pa-md" :icon="['fas', 'camera-retro']" textcolor="text-info"/>
+<h-fa-icon class="h-pa-md" :icon="['fas', 'camera-retro']" textcolor="text-warning"/>
       `,
       iconSizes: `
 <h-fa-icon :icon=['fas', 'camera-retro'] size="xs"/>
@@ -150,10 +150,10 @@ export default {
 <h-fa-icon :icon=['fas', 'camera-retro'] size="10x"/>  
       `,
       iconList: `
- <h-fa-icon :icon=['fas', 'home'] size="lg"/>
- <h-fa-icon :icon=['fas', 'info'] size="lg"/>
- <h-fa-icon :icon=['fas', 'spinner'] size="lg" pulse/>
- <h-fa-icon :icon=['fas', 'sync'] size="lg" spin/>
+ <h-fa-icon :icon=['fas', 'home']/>
+ <h-fa-icon :icon=['fas', 'info']/>
+ <h-fa-icon :icon=['fas', 'spinner'] pulse/>
+ <h-fa-icon :icon=['fas', 'sync'] spin/>
       `
     }
   },

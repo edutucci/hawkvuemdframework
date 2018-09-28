@@ -4,7 +4,7 @@
 
       <h1>Default Mode</h1>
       <div class="col-6">
-        <h-input static-label="Name" v-model="txtName" placeholder="" cleartext :readonly="true"/>
+        <h-input float-label="Name" v-model="txtName" placeholder="" cleartext/>
         <span>Name: {{ txtName }}</span>
       </div>
     <pre v-highlightjs="txttextcomp">
@@ -14,7 +14,7 @@
 
       <h1>  Password</h1>
       <div class="col-6">
-        <h-input type="password" float-label="Password" v-model="txtPassword" placeholder="type your password"/>
+        <h-input type="password" float-label="Password" v-model="txtPassword" placeholder="type your password" />
         <span>Password: {{ txtPassword }}</span>
       </div>
 
@@ -179,12 +179,12 @@ export default {
         city: ''
       },
       txttextcomp: `
-<h-input value="txtName" float-label="Name" v-model="txtName" placeholder="type your text"/>
+<h-input float-label="Name" v-model="txtName" placeholder="" cleartext/>
 <span>Name: {{ txtName }}</span>
       `,
       txtpasswordcomp: `
-<h-input value="txtPassword" type="password" float-label="Password" v-model="txtPassword" placeholder="type your password"/>
-<span>Password: {{ txtPassword }}</span>        
+<h-input type="password" float-label="Password" v-model="txtPassword" placeholder="type your password"/>
+<span>Password: {{ txtPassword }}</span>     
       `,
       txtoutlined: `
 <h-input error-label="error label" :left-icon="['fas', 'home']" helper-text="helper text"

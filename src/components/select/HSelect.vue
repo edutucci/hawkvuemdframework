@@ -23,9 +23,9 @@
       )
         div.icon-left.h-pl-md(v-if="displayMode ==='icon'")
           h-fa-icon(:icon="option.icon")
-        div.icon-left(v-if="displayMode ==='avatar'")
+        div.h-pl-sm.h-pr-sm(v-if="displayMode ==='avatar'")
           h-avatar(:src="option.avatar")
-        div.flex-1  {{option.label}}
+        div.flex-1  {{option.text}}
 
     div.full-width.dropdown-menu.boxshadow.div-rounded(v-else-if="multiselect && magic_flag")
       div.flex.flex-row.menu-item(
@@ -34,7 +34,7 @@
         :key="option.value"
         :style="{left: left, right: right, bottom: bottom}"
       )
-        h-checkbox.h-pl-md(v-model="multiselectItem" :label="option.label" :value="option.value" @change="changeMultiselect")
+        h-checkbox.h-pl-md(v-model="multiselectItem" :text="option.text" :value="option.value" @change="changeMultiselect")
 
 </template>
 
@@ -92,13 +92,16 @@ export default {
   watch: {
     multiselectItem: function (value) {
       let arrDisp = []
+      this.display = ''
       value.forEach(item => {
         let val = this.options.find(opt => opt.value === item)
         if (val) {
-          arrDisp.push(val.label)
+          arrDisp.push(val.text)
         }
       })
-      this.display = arrDisp.join()
+      if (arrDisp.length) {
+        this.display = arrDisp.join()
+      }
     }
   },
   mounted () {
@@ -116,7 +119,7 @@ export default {
       }
     },
     onChangeItem (option) {
-      this.display = option.label
+      this.display = option.text
       this.$emit('input', option.value)
       this.magic_flag = false
     },

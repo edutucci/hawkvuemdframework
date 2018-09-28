@@ -1,5 +1,5 @@
 <template lang="pug">
-  div.window-height
+  div.window-height.overflow-hidden
     h-app-toolbar.top-left-fixed
       h-app-toolbar-container(bgcolor="bg-primary" textcolor="text-white")
         h-app-toolbar-navigation(:icon="['fas', 'bars']" textcolor="text-white" @click="$refs.nav.open()")
@@ -28,6 +28,10 @@
 
             <h-collapsible>
 
+              <h-collapsible-menu :icon="['fas', 'question-circle']" text="Guide">
+                <h-collapsible-item text="Installation" @click="$router.push('/installation'), $refs.nav.close()"/>
+              </h-collapsible-menu>
+
               <h-collapsible-menu :icon="['fab', 'css3']" text="CSS">
                 <h-collapsible-item text="Spacing" @click="$router.push('/spacing'), $refs.nav.close()"/>
                 <h-collapsible-item text="Flexbox" @click="$router.push('/flexbox'), $refs.nav.close()"/>
@@ -42,6 +46,7 @@
                 <h-collapsible-item text="Textfield" @click="$router.push('/textfield'), $refs.nav.close()"/>
                 <h-collapsible-item text="Search" @click="$router.push('/search'), $refs.nav.close()"/>
                 <h-collapsible-item text="Cards" @click="$router.push('/card'), $refs.nav.close()"/>
+                <h-collapsible-item text="Collapsible" @click="$router.push('/collapsible'), $refs.nav.close()"/>
                 <h-collapsible-item text="Chips" @click="$router.push('/chip'), $refs.nav.close()"/>
                 <h-collapsible-item text="Menu" @click="$router.push('/menu'), $refs.nav.close()"/>
                 <h-collapsible-item text="List" @click="$router.push('/list'), $refs.nav.close()"/>
@@ -69,14 +74,9 @@
       </div>
     </h-nav-drawer>
 
-    <div class="flex full-width window-height" style="top: 60px; position:relative;">
+    <div class="full-width scroll" style="height:calc(100vh - 70px); top: 58px; position:relative;">
       router-view
     </div>
-    //- <div class="flex flex-row full-size">
-    //-   <div class="flex-1">
-    //-     <router-view/>
-    //-   </div>
-    //- </div>
 
 </template>
 

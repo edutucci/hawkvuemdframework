@@ -16,16 +16,16 @@
           h1 Menu Left
         .row
           <h-menu-dropdown :icon="['fas', 'bars']">
-            <h-menu-dropdown-item :icon="['fas', 'check-circle']" text="You are correct." @click="showModal('U clicked in circle')"/>
-            <h-menu-dropdown-item :icon="['fas', 'handshake']" text="You are in good hands" @click="showModal('U clicked in hands')"/>
+            <h-menu-dropdown-item :icon="['fas', 'check-circle']" text="You are correct." @click="showSnackBar('U clicked in circle')"/>
+            <h-menu-dropdown-item :icon="['fas', 'handshake']" text="You are in good hands" @click="showSnackBar('U clicked in hands')"/>
           </h-menu-dropdown>
       .col-3.flex.flex-column
         .row.flex.flex-justify-end
           h1 Menu Right
         .row.flex.flex-justify-end
           <h-menu-dropdown :icon="['fas', 'bars']" rtl>
-            <h-menu-dropdown-item :icon="['fas', 'check-circle']" text="You are correct." @click="showModal('U clicked in circle')"/>
-            <h-menu-dropdown-item :icon="['fas', 'handshake']" text="You are in good hands" @click="showModal('U clicked in hands')"/>
+            <h-menu-dropdown-item :icon="['fas', 'check-circle']" text="You are correct." @click="showSnackBar('U clicked in circle')"/>
+            <h-menu-dropdown-item :icon="['fas', 'handshake']" text="You are in good hands" @click="showSnackBar('U clicked in hands')"/>
           </h-menu-dropdown>
     </div>
 
@@ -41,16 +41,16 @@
           h1 Menu Left
         .row
           <h-menu-dropdown :icon="['fas', 'bars']" dtu>
-            <h-menu-dropdown-item :icon="['fas', 'check-circle']" text="You are correct." @click="showModal('U clicked in circle')"/>
-            <h-menu-dropdown-item :icon="['fas', 'handshake']" text="You are in good hands" @click="showModal('U clicked in hands')"/>
+            <h-menu-dropdown-item :icon="['fas', 'check-circle']" text="You are correct." @click="showSnackBar('U clicked in circle')"/>
+            <h-menu-dropdown-item :icon="['fas', 'handshake']" text="You are in good hands" @click="showSnackBar('U clicked in hands')"/>
           </h-menu-dropdown>
       .col-3.flex.flex-column
         .row.flex.flex-justify-end
           h1 Menu Right
         .row.flex.flex-justify-end
           <h-menu-dropdown :icon="['fas', 'bars']" rtl dtu>
-            <h-menu-dropdown-item :icon="['fas', 'check-circle']" text="You are correct." @click="showModal('U clicked in circle')"/>
-            <h-menu-dropdown-item :icon="['fas', 'handshake']" text="You are in good hands" @click="showModal('U clicked in hands')"/>
+            <h-menu-dropdown-item :icon="['fas', 'check-circle']" text="You are correct." @click="showSnackBar('U clicked in circle')"/>
+            <h-menu-dropdown-item :icon="['fas', 'handshake']" text="You are in good hands" @click="showSnackBar('U clicked in hands')"/>
           </h-menu-dropdown>
     </div>
 
@@ -79,8 +79,8 @@
       <div class="h-pl-md">
         <h3 >Description</h3>
         <div>Sets the icon for the menu</div>
+        <div>Draws the menu from right to left</div>
         <div>Draws the menu from bottom to top</div>
-        <div>Draws the menu from left to right</div>
       </div>
     </div>
 
@@ -181,16 +181,16 @@ export default {
       h1 Menu Left
     .row
       <h-menu-dropdown :icon="['fas', 'bars']">
-        <h-menu-dropdown-item :icon="['fas', 'check-circle']" text="You are correct." @click="showModal('U clicked in circle')"/>
-        <h-menu-dropdown-item :icon="['fas', 'handshake']" text="You are in good hands" @click="showModal('U clicked in hands')"/>
+        <h-menu-dropdown-item :icon="['fas', 'check-circle']" text="You are correct." @click="showSnackBar('U clicked in circle')"/>
+        <h-menu-dropdown-item :icon="['fas', 'handshake']" text="You are in good hands" @click="showSnackBar('U clicked in hands')"/>
       </h-menu-dropdown>
   .col-3.flex.flex-column
     .row.flex.flex-justify-end
       h1 Menu Right
     .row.flex.flex-justify-end
-      <h-menu-dropdown :icon="['fas', 'bars']" rtl="true">
-        <h-menu-dropdown-item :icon="['fas', 'check-circle']" text="You are correct." @click="showModal('U clicked in circle')"/>
-        <h-menu-dropdown-item :icon="['fas', 'handshake']" text="You are in good hands" @click="showModal('U clicked in hands')"/>
+      <h-menu-dropdown :icon="['fas', 'bars']" rtl>
+        <h-menu-dropdown-item :icon="['fas', 'check-circle']" text="You are correct." @click="showSnackBar('U clicked in circle')"/>
+        <h-menu-dropdown-item :icon="['fas', 'handshake']" text="You are in good hands" @click="showSnackBar('U clicked in hands')"/>
       </h-menu-dropdown>
 </div>
       `,
@@ -201,24 +201,28 @@ export default {
       h1 Menu Left
     .row
       <h-menu-dropdown :icon="['fas', 'bars']" dtu>
-        <h-menu-dropdown-item :icon="['fas', 'check-circle']" text="You are correct." @click="showModal('U clicked in circle')"/>
-        <h-menu-dropdown-item :icon="['fas', 'handshake']" text="You are in good hands" @click="showModal('U clicked in hands')"/>
+        <h-menu-dropdown-item :icon="['fas', 'check-circle']" text="You are correct." @click="showSnackBar('U clicked in circle')"/>
+        <h-menu-dropdown-item :icon="['fas', 'handshake']" text="You are in good hands" @click="showSnackBar('U clicked in hands')"/>
       </h-menu-dropdown>
   .col-3.flex.flex-column
     .row.flex.flex-justify-end
       h1 Menu Right
     .row.flex.flex-justify-end
       <h-menu-dropdown :icon="['fas', 'bars']" rtl dtu>
-        <h-menu-dropdown-item :icon="['fas', 'check-circle']" text="You are correct." @click="showModal('U clicked in circle')"/>
-        <h-menu-dropdown-item :icon="['fas', 'handshake']" text="You are in good hands" @click="showModal('U clicked in hands')"/>
+        <h-menu-dropdown-item :icon="['fas', 'check-circle']" text="You are correct." @click="showSnackBar('U clicked in circle')"/>
+        <h-menu-dropdown-item :icon="['fas', 'handshake']" text="You are in good hands" @click="showSnackBar('U clicked in hands')"/>
       </h-menu-dropdown>
 </div>
       `
     }
   },
   methods: {
-    showModal (msg) {
-      alert(msg)
+    showSnackBar (msg) {
+      this.$SnackBar.create({
+        message: msg,
+        bgcolor: 'bg-primary',
+        textcolor: 'text-white'
+      })
     }
   }
 }

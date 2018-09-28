@@ -5,7 +5,7 @@
     div
       div.icon-left(v-if="lefttext && lefttext.length > 0")
         | {{lefttext}}
-      h-fa-icon.icon-left(v-else-if="icon && icon.length" :icon="icon" size="lg" style="color: gray")
+      h-fa-icon.icon-left(v-else-if="icon && icon.length" :icon="icon" style="color: gray")
       h-avatar.icon-left(v-else-if="avatar && avatar.length > 0" :src="avatar")
       img.icon-left(v-else-if="img && img.length > 0" :src="img" style="width:32px; height:32px;")
     .flex-1.flex-column.overflow-hidden

@@ -1,5 +1,5 @@
 <template lang="pug">
-  div
+  div.position-relative
     h1  Flexbox (Flexible Box)
 
     .col-6

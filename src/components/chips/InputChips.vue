@@ -5,7 +5,6 @@
         v-if="leftIcon && leftIcon.length"
         textcolor="text-gray"
         :icon="leftIcon"
-        size="lg"
       )
 
     .flex.flex-column.full-width
@@ -37,7 +36,7 @@
                 input(
                   v-focus="focused"
                   class="h-input"
-                  v-model="txtValue"
+                  v-model.trim="txtValue"
                   type="text"
                   :readonly="readonly"
                   :placeholder="placeholder"
@@ -61,7 +60,6 @@
                   v-if="cleartext"
                   textcolor="text-gray"
                   :icon="['fas', 'times-circle']"
-                  size="lg"
                   @click="onInputIconClick"
                 )
       .full-width
@@ -155,14 +153,20 @@ export default {
     }
   },
   mounted () {
-    // console.log('this.chipsValue: ' + this.chipsValue)
     this.onChange(this.value)
     this.onInputBlur()
   },
   watch: {
     value: function (value) {
       this.chipsValue = _.clone(this.value)
-      // console.log('watch value changed: ' + value)
+      this.changeFloatLabelStyle()
+    },
+    floatLabel: function (value) {
+      this.chipsValue = _.clone(this.value)
+      this.changeFloatLabelStyle()
+    },
+    placeholder: function (value) {
+      this.chipsValue = _.clone(this.value)
       this.changeFloatLabelStyle()
     }
   },
@@ -188,11 +192,11 @@ export default {
       this.focused = false
       this.primary = false
       this.nofocus = true
+      this.txtValue = ''
       this.changeFloatLabelStyle()
     },
     changeFloatLabelStyle () {
-      // top: '20px', left: '1px'
-      if (this.floatLabel && (this.value || this.placeholder)) {
+      if (this.floatLabel && (!this.chipsValue || this.chipsValue.length > 0 || this.placeholder)) {
         this.floatLabelStyle.top = '2px'
         this.floatLabelStyle.left = '9px'
         this.floatLabelStyle.fontSize = '12px'
@@ -201,8 +205,6 @@ export default {
         this.floatLabelStyle.left = '9px'
         this.floatLabelStyle.fontSize = '16px'
       }
-
-      // console.log('this.floatLabelStyle: ' + JSON.stringify(this.floatLabelStyle))
     },
     onChange (value) {
       let arrValue = []
@@ -230,14 +232,16 @@ export default {
       this.$emit('onTab')
     },
     onEnter () {
-      if (this.value.length === 0) {
-        this.chipsValue = []
-        this.chipsValue.push(this.txtValue)
-      } else {
-        this.chipsValue = _.clone(this.value)
-        this.chipsValue.push(this.txtValue)
+      if (this.txtValue.length) {
+        if (this.value.length === 0) {
+          this.chipsValue = []
+          this.chipsValue.push(this.txtValue)
+        } else {
+          this.chipsValue = _.clone(this.value)
+          this.chipsValue.push(this.txtValue)
+        }
+        this.onChange(this.chipsValue)
       }
-      this.onChange(this.chipsValue)
     },
     onDelete () {
       if (this.txtValue.length === 0 && this.value && this.value.length) {

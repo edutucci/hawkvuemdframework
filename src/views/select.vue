@@ -112,37 +112,37 @@ export default {
       multiselect: ['heart1', 'discord1'],
       options: [
         {
-          'label': 'Address-book',
+          'text': 'Address-book',
           'value': 'address-book1',
           'icon': ['fas', 'address-book'],
           'avatar': 'https://i.pinimg.com/736x/a0/fc/b3/a0fcb3e4cf01dd5832577a0f2c70f5f9--create-your-own-avatar-avatar-maker.jpg'
         },
         {
-          'label': 'Bluetooth',
+          'text': 'Bluetooth',
           'value': 'Bluetooth1',
           'icon': ['fab', 'bluetooth'],
           'avatar': 'http://autokadabra.ru/system/uploads/users/18/18340/small.png?1318432918'
         },
         {
-          'label': 'heart',
+          'text': 'heart',
           'value': 'heart1',
           'icon': ['fas', 'heart'],
           'avatar': 'http://autokadabra.ru/system/uploads/users/20/20303/small.png?1319912650'
         },
         {
-          'label': 'chrome',
+          'text': 'chrome',
           'value': 'chrome1',
           'icon': ['fab', 'chrome'],
           'avatar': 'http://autokadabra.ru/system/uploads/users/19/19506/small.png?1318360757'
         },
         {
-          'label': 'discord',
+          'text': 'discord',
           'value': 'discord1',
           'icon': ['fab', 'discord'],
           'avatar': 'http://autokadabra.ru/system/uploads/users/20/20303/small.png?1319912650'
         },
         {
-          'label': 'music',
+          'text': 'music',
           'value': 'music1',
           'icon': ['fas', 'music'],
           'avatar': 'https://i.pinimg.com/736x/a0/fc/b3/a0fcb3e4cf01dd5832577a0f2c70f5f9--create-your-own-avatar-avatar-maker.jpg'
@@ -175,38 +175,38 @@ export default {
       selectOptions: `
 options: [
   {
-    'label': 'Address-book',
-    'value': 'address-book',
+    'text': 'Address-book',
+    'value': 'address-book1',
     'icon': ['fas', 'address-book'],
     'avatar': 'https://i.pinimg.com/736x/a0/fc/b3/a0fcb3e4cf01dd5832577a0f2c70f5f9--create-your-own-avatar-avatar-maker.jpg'
   },
   {
-    'label': 'Bluetooth',
-    'value': 'Bluetooth',
+    'text': 'Bluetooth',
+    'value': 'Bluetooth1',
     'icon': ['fab', 'bluetooth'],
     'avatar': 'http://autokadabra.ru/system/uploads/users/18/18340/small.png?1318432918'
   },
   {
-    'label': 'heart',
-    'value': 'heart',
+    'text': 'heart',
+    'value': 'heart1',
     'icon': ['fas', 'heart'],
     'avatar': 'http://autokadabra.ru/system/uploads/users/20/20303/small.png?1319912650'
   },
   {
-    'label': 'chrome',
-    'value': 'chrome',
+    'text': 'chrome',
+    'value': 'chrome1',
     'icon': ['fab', 'chrome'],
     'avatar': 'http://autokadabra.ru/system/uploads/users/19/19506/small.png?1318360757'
   },
   {
-    'label': 'discord',
-    'value': 'discord',
+    'text': 'discord',
+    'value': 'discord1',
     'icon': ['fab', 'discord'],
     'avatar': 'http://autokadabra.ru/system/uploads/users/20/20303/small.png?1319912650'
   },
   {
-    'label': 'music',
-    'value': 'music',
+    'text': 'music',
+    'value': 'music1',
     'icon': ['fas', 'music'],
     'avatar': 'https://i.pinimg.com/736x/a0/fc/b3/a0fcb3e4cf01dd5832577a0f2c70f5f9--create-your-own-avatar-avatar-maker.jpg'
   }

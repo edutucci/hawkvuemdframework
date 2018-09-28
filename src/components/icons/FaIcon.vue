@@ -25,7 +25,7 @@ export default {
     },
     size: {
       type: String,
-      default: 'sm'
+      default: 'lg'
     },
     pulse: {
       type: Boolean,

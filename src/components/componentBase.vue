@@ -10,10 +10,12 @@ export default {
       type: String
     },
     textcolor: {
-      type: String
+      type: String,
+      default: 'text-black'
     },
     bgcolor: {
-      type: String
+      type: String,
+      default: 'bg-white'
     }
   },
   data () {
