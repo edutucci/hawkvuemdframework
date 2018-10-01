@@ -1,5 +1,5 @@
 <template lang="pug">
-  div.scroll
+  div
     h1 Others css Helpers
 
     strong
@@ -39,6 +39,6 @@
 
 <script>
 export default {
-  name: 'others'
+  name: 'Others'
 }
 </script>

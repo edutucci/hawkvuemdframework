@@ -50,7 +50,10 @@ import HTabs from './tab/HTabs.vue'
 import HTable from './table/HTable.vue'
 import HInput from './Inputs/HInput.vue'
 import HToggle from './checkbox/HToggle'
-import HPage from './page/HPage.vue'
+import HPage from './page/Page.vue'
+import HPageContent from './page/PageContent.vue'
+import HPageHeader from './page/PageHeader.vue'
+import HPageFooter from './page/PageFooter.vue'
 
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
@@ -106,7 +109,10 @@ const Components = {
   HTable,
   HInput,
   HToggle,
-  HPage
+  HPage,
+  HPageContent,
+  HPageHeader,
+  HPageFooter
 }
 
 Object.keys(Components).forEach(name => {

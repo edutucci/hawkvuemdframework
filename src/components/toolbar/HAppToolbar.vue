@@ -1,5 +1,5 @@
 <template lang="pug">
-  div.full-width.flex.flex-row(style="z-index:12;")
+  div.full-width.flex.flex-row
     slot
 </template>
 

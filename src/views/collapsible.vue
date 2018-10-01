@@ -21,11 +21,11 @@
 
     <h-collapsible>
       <h-collapsible-menu :icon="['fas', 'film']" text="Attractions" bgcolor="bg-primary" textcolor="text-white">
-        <h-collapsible-item text="Shopping"></h-collapsible-item>
-        <h-collapsible-item text="Museum"></h-collapsible-item>
+        <h-collapsible-item text="Shopping" bgcolor="bg-primary" textcolor="text-white"></h-collapsible-item>
+        <h-collapsible-item text="Museum" bgcolor="bg-primary" textcolor="text-white"></h-collapsible-item>
       </h-collapsible-menu>
       <h-collapsible-menu :icon="['fas', 'utensils']" text="Dining" bgcolor="bg-primary" textcolor="text-white">
-        <h-collapsible-item text="Restaurants"></h-collapsible-item>
+        <h-collapsible-item text="Restaurants" bgcolor="bg-primary" textcolor="text-white"></h-collapsible-item>
       </h-collapsible-menu>
     </h-collapsible>
 
@@ -133,11 +133,11 @@ export default {
       ex2: `
 <h-collapsible>
   <h-collapsible-menu :icon="['fas', 'film']" text="Attractions" bgcolor="bg-primary" textcolor="text-white">
-    <h-collapsible-item text="Shopping"></h-collapsible-item>
-    <h-collapsible-item text="Museum"></h-collapsible-item>
+    <h-collapsible-item text="Shopping" bgcolor="bg-primary" textcolor="text-white"></h-collapsible-item>
+    <h-collapsible-item text="Museum" bgcolor="bg-primary" textcolor="text-white"></h-collapsible-item>
   </h-collapsible-menu>
   <h-collapsible-menu :icon="['fas', 'utensils']" text="Dining" bgcolor="bg-primary" textcolor="text-white">
-    <h-collapsible-item text="Restaurants"></h-collapsible-item>
+    <h-collapsible-item text="Restaurants" bgcolor="bg-primary" textcolor="text-white"></h-collapsible-item>
   </h-collapsible-menu>
 </h-collapsible>
       `,

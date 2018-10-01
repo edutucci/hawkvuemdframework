@@ -26,6 +26,6 @@
 
 <script>
 export default {
-  name: 'textalignment'
+  name: 'TextAlignment'
 }
 </script>

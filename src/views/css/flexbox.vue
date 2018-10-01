@@ -1,5 +1,5 @@
 <template lang="pug">
-  div.position-relative
+  div
     h1  Flexbox (Flexible Box)
 
     .col-6
@@ -622,7 +622,7 @@ import HTab from '../../components/tab/HTab'
 import HTabs from '../../components/tab/HTabs'
 
 export default {
-  name: 'flexbox',
+  name: 'Flexbox',
   components: {
     HTab,
     HTabs

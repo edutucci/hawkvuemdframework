@@ -1,14 +1,17 @@
 <template lang="pug">
-  div.window-height.overflow-hidden
-    h-app-toolbar.top-left-fixed
-      h-app-toolbar-container(bgcolor="bg-primary" textcolor="text-white")
-        h-app-toolbar-navigation(:icon="['fas', 'bars']" textcolor="text-white" @click="$refs.nav.open()")
-        h-app-toolbar-title(title="Hawk Framework")
-        h-app-toolbar-action
-          // router-link(to="/site1Beta")
-          //   h-fa-icon(:icon="['fas', 'globe']" textcolor="text-white")
-          //- a(href='https://github.com/edutucci/hawkframework' target="_blank")
-          //-   h-fa-icon(:icon="['fab', 'github']" textcolor="text-white")
+  h-page
+    //- Criar um header com posicao fixa e z-index
+    h-page-header
+      //- h-app-toolbar.top-left-fixed(style="z-index: 12")
+      h-app-toolbar
+        h-app-toolbar-container(bgcolor="bg-primary" textcolor="text-white")
+          h-app-toolbar-navigation(:icon="['fas', 'bars']" textcolor="text-white" @click="$refs.nav.open()")
+          h-app-toolbar-title(title="Hawk Framework")
+          h-app-toolbar-action
+            router-link(to="/yourpage")
+              h-fa-icon(:icon="['fas', 'globe']" textcolor="text-white")
+            a(href='https://github.com/edutucci/hawkframework' target="_blank")
+              h-fa-icon(:icon="['fab', 'github']" textcolor="text-white")
 
     <h-nav-drawer ref="nav">
       <div class="flex flex-column bg-white full-size" style="display: inline-flex;">
@@ -20,16 +23,11 @@
         </div>
 
         <div class="flex-1">
-
-            //- <h-collapsible-menu :icon="['fas', 'check-circle']" text="Guide">
-            //-   <h-collapsible-item text="Introduction"/>
-            //-   <h-collapsible-item text="Installation"/>
-            //- </h-collapsible-menu>
-
             <h-collapsible>
 
               <h-collapsible-menu :icon="['fas', 'question-circle']" text="Guide">
                 <h-collapsible-item text="Installation" @click="$router.push('/installation'), $refs.nav.close()"/>
+                <h-collapsible-item text="Layout" @click="$router.push('/layout'), $refs.nav.close()"/>
               </h-collapsible-menu>
 
               <h-collapsible-menu :icon="['fab', 'css3']" text="CSS">
@@ -74,9 +72,16 @@
       </div>
     </h-nav-drawer>
 
-    <div class="full-width scroll" style="height:calc(100vh - 70px); top: 58px; position:relative;">
+    // - Layout with flex box
+    //- h-page-container(style="height: calc(100vh - 70px);  padding-top: 50px;")
+    //-   router-view
+
+    h-page-content(style="padding-top: 50px;")
       router-view
-    </div>
+
+    h-page-footer
+      .flex.flex-justify-center.flex-items-center.bg-primary.text-white(style="height: 60px")
+        H3 HawkFramework Page Footer
 
 </template>
 
@@ -93,14 +98,5 @@ export default {
 </script>
 
 <style scoped>
-.page-container {
-  margin: 0;
-  padding: 0;
-  overflow-x: auto;
-  overflow-y: auto;
-}
-/* .page-container {
-  width: calc(100vw - 270px);
-  height: calc(100vh - 80px);
-} */
+
 </style>
