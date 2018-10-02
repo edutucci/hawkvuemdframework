@@ -1,7 +1,5 @@
 <template>
   <div>
-    <h1>Layout with Toolbar Fixed</h1>
-
     <pre v-highlightjs="msg1">
       <code class="html">
       </code>
@@ -14,8 +12,7 @@
       </code>
     </pre>
 
-    <h2>Example 1 - Flexbox layout</h2>
-
+    <h1>Layout with Header and Footer Fixed</h1>
     <pre v-highlightjs="temp2">
       <code class="html">
       </code>
@@ -34,18 +31,33 @@ export default {
 
 <template lang="pug">
   h-page
-    h-app-toolbar.top-left-fixed
-      h-app-toolbar-container(bgcolor="bg-primary" textcolor="text-white")
-        h-app-toolbar-navigation(:icon="['fas', 'bars']" textcolor="text-white" @click="$refs.nav.open()")
-        h-app-toolbar-title(title="Hawk Framework")
-        h-app-toolbar-action
-          router-link(to="/mypage")
-            h-fa-icon(:icon="['fas', 'globe']" textcolor="text-white")
-          a(href='https://github.com/edutucci/hawkframework' target="_blank")
-            h-fa-icon(:icon="['fab', 'github']" textcolor="text-white")
+    h-page-header
+      h-app-toolbar
+        h-app-toolbar-container(bgcolor="bg-primary" textcolor="text-white")
+          h-app-toolbar-navigation(:icon="['fas', 'bars']" textcolor="text-white" @click="$refs.nav.open()")
+          h-app-toolbar-title(title="Hawk Framework")
+          h-app-toolbar-action
+            router-link(to="/yourpage")
+              h-fa-icon(:icon="['fas', 'globe']" textcolor="text-white")
+            a(href='https://github.com/edutucci/hawkframework' target="_blank")
+              h-fa-icon(:icon="['fab', 'github']" textcolor="text-white")
 
-    h-page-container(style="padding-top: 50px;")
+    h-page-content
       router-view
+
+    h-page-footer
+      .flex.flex-justify-center.flex-items-center.bg-primary.text-white(style="height: 60px")
+        H3 HawkFramework Page Footer
+
+</template>
+
+YourPage.vue
+
+<template>
+  <div class="text-center">
+    <h1> Page Content</h1>
+    <img src='img/mountains.jpg' style="width: 650px; height: 350px;">
+  </div>
 
 </template>
       `,
@@ -53,31 +65,33 @@ export default {
 
 <template lang="pug">
   h-page
-    h-app-toolbar.top-left-fixed
-      h-app-toolbar-container(bgcolor="bg-primary" textcolor="text-white")
-        h-app-toolbar-navigation(:icon="['fas', 'bars']" textcolor="text-white" @click="$refs.nav.open()")
-        h-app-toolbar-title(title="Hawk Framework")
-        h-app-toolbar-action
-          router-link(to="/mypage")
-            h-fa-icon(:icon="['fas', 'globe']" textcolor="text-white")
-          a(href='https://github.com/edutucci/hawkframework' target="_blank")
-            h-fa-icon(:icon="['fab', 'github']" textcolor="text-white")
+    h-page-header(fixed)
+      h-app-toolbar
+        h-app-toolbar-container(bgcolor="bg-primary" textcolor="text-white")
+          h-app-toolbar-navigation(:icon="['fas', 'bars']" textcolor="text-white" @click="$refs.nav.open()")
+          h-app-toolbar-title(title="Hawk Framework")
+          h-app-toolbar-action
+            router-link(to="/yourpage")
+              h-fa-icon(:icon="['fas', 'globe']" textcolor="text-white")
+            a(href='https://github.com/edutucci/hawkframework' target="_blank")
+              h-fa-icon(:icon="['fab', 'github']" textcolor="text-white")
 
-    h-page-container(style="height: calc(100vh - 70px);  padding-top: 50px;")
+    h-page-content(style="margin-top: 52px")
       router-view
+
+    h-page-footer(fixed)
+      .flex.flex-justify-center.flex-items-center.bg-primary.text-white(style="height: 60px")
+        H3 HawkFramework Page Footer
 
 </template>
 
 YourPage.vue
 
-<template lang="pug">
-  .flex.flex-column.full-height
-    div
-      | Header
-    .flex-1
-      | Body
-    div
-      | Footer
+<template>
+  <div class="text-center">
+    <h1> Page Content</h1>
+    <img src='img/mountains.jpg' style="width: 650px; height: 350px;">
+  </div>
 
 </template>
       `

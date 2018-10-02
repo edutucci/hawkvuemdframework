@@ -1,8 +1,6 @@
 <template lang="pug">
   h-page
-    //- Criar um header com posicao fixa e z-index
-    h-page-header
-      //- h-app-toolbar.top-left-fixed(style="z-index: 12")
+    h-page-header(fixed)
       h-app-toolbar
         h-app-toolbar-container(bgcolor="bg-primary" textcolor="text-white")
           h-app-toolbar-navigation(:icon="['fas', 'bars']" textcolor="text-white" @click="$refs.nav.open()")
@@ -72,14 +70,10 @@
       </div>
     </h-nav-drawer>
 
-    // - Layout with flex box
-    //- h-page-container(style="height: calc(100vh - 70px);  padding-top: 50px;")
-    //-   router-view
-
-    h-page-content(style="padding-top: 50px;")
+    h-page-content(style="margin-top: 52px")
       router-view
 
-    h-page-footer
+    h-page-footer(fixed)
       .flex.flex-justify-center.flex-items-center.bg-primary.text-white(style="height: 60px")
         H3 HawkFramework Page Footer
 

@@ -1,8 +1,11 @@
 <template>
-    <div class="flex drawer"  :style="{ width: activeWidth }">
+    <div
+      class="flex drawer"
+      :style="{ width: activeWidth }"
+    >
       <div class="flex flex-column drawer_container">
-        <div class="topbar flex flex-justify-end h-pa-sm">
-          <h-fa-icon :icon="['fas', 'times']" @click="close"/>
+        <div class="flex flex-justify-end h-pa-sm bg-primary">
+          <h-fa-icon :icon="['fas', 'times']" textcolor="text-white" @click="close"/>
         </div>
         <header>
           <slot name="header"></slot>
@@ -46,20 +49,16 @@ export default {
 .drawer {
     height: 100%;
     position: fixed;
-    z-index: 13;
+    z-index: 1600;
     top: 0;
     left: 0;
     background-color: rgba(0, 0, 0, 0.32);
     transition: 0.3s;
 }
 
-.topbar {
-  background-color: rgb(222, 222, 222);
-}
-
 .drawer_container {
   position: relative;
-  z-index: 3;
+  z-index: 1610;
   overflow-x: hidden;
   overflow-y: auto;
 }
