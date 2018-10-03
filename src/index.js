@@ -1,4 +1,5 @@
 import './css/index.styl'
+import './css/fontawesome-free-5.3.1-web/css/all.css'
 import Components from './components'
 import Plugins from './plugins'
 

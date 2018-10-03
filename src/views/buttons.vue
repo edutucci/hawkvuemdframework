@@ -2,13 +2,19 @@
   <div class="full-size">
     <h1> Contained Buttons </h1>
     <div>
-      <h-btn contained bgcolor="bg-white" textcolor="text-black" text="white" :left-icon="['fas', 'envelope']" @click="btnClick"/>
-      <h-btn contained bgcolor="bg-primary" textcolor="text-white" text="primary" :right-icon="['fas', 'envelope']"/>
-      <h-btn contained bgcolor="bg-secondary" textcolor="text-white" text="secondary"/>
-      <h-btn contained bgcolor="bg-positive" textcolor="text-white" text="positive" :right-icon="['fas', 'envelope']"/>
-      <h-btn contained bgcolor="bg-negative" textcolor="text-white" text="negative"/>
-      <h-btn contained bgcolor="bg-info" textcolor="text-white" text="info"/>
-      <h-btn contained bgcolor="bg-warning" textcolor="text-white" text="warning"/>
+      <div>
+        <h-btn contained bgcolor="bg-white" textcolor="text-black" text="white" left-icon="fas fa-envelope" @click="btnClick"/>
+        <h-btn contained bgcolor="bg-primary" textcolor="text-white" text="primary" right-icon="fas fa-envelope"/>
+        <h-btn contained bgcolor="bg-secondary" textcolor="text-white" text="secondary"/>
+        <h-btn contained bgcolor="bg-positive" textcolor="text-white" text="positive"/>
+        <h-btn contained bgcolor="bg-negative" textcolor="text-white" text="negative"/>
+        <h-btn contained bgcolor="bg-info" textcolor="text-white" text="info"/>
+        <h-btn contained bgcolor="bg-warning" textcolor="text-white" text="warning"/>
+      </div>
+      <div class="col-6">
+        <h-btn contained class="full-width" bgcolor="bg-primary" textcolor="text-white" text="full width" right-icon="fas fa-envelope"/>
+        <h-btn contained class="full-width" bgcolor="bg-positive" textcolor="text-white" text="full width" left-icon="fas fa-envelope"/>
+      </div>
     </div>
 
       <pre v-highlightjs="containedButtons">
@@ -26,6 +32,10 @@
       <h-btn textbutton textcolor="text-info" text="info"/>
       <h-btn textbutton textcolor="text-warning" text="warning"/>
     </div>
+    <div class="col-6">
+      <h-btn class="full-width" textbutton textcolor="text-black" text="black"/>
+      <h-btn class="full-width" textbutton textcolor="text-primary" text="primary"/>
+    </div>
 
     <pre v-highlightjs="textbuttons">
       <code class="html">
@@ -42,6 +52,12 @@
       <h-btn outlined textcolor="text-negative" text="negative"/>
       <h-btn outlined textcolor="text-info" text="info"/>
       <h-btn outlined textcolor="text-warning" text="warning"/>
+    </div>
+
+    <div class="col-6">
+      <h-btn class="full-width" outlined text="disabled" disabled/>
+      <h-btn class="full-width" outlined textcolor="text-black" text="black"/>
+      <h-btn class="full-width" outlined textcolor="text-primary" text="primary"/>
     </div>
 
     <pre v-highlightjs="outlinedButtons">
