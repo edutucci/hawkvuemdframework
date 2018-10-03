@@ -9,16 +9,16 @@
     <h2>Example 1</h2>
     <h-app-toolbar>
       <h-app-toolbar-container bgcolor="bg-primary" textcolor="text-white">
-        <h-app-toolbar-navigation :icon="['fas', 'bars']" textcolor="text-white"/>
+        <h-app-toolbar-navigation icon="fas fa-bars" textcolor="text-white"/>
         <h-app-toolbar-title title="My big music collection to sing"/>
         <h-app-toolbar-action>
-          <h-fa-icon :icon="['fas', 'heart']" textcolor="text-white" @click="iconClick"/>
-          <h-fa-icon :icon="['fas', 'search']" textcolor="text-white"/>
+          <h-fa-icon icon="fas fa-heart" textcolor="text-white" @click="iconClick"/>
+          <h-fa-icon icon="fas fa-search" textcolor="text-white"/>
         </h-app-toolbar-action>
         <h-app-toolbar-menu>
-          <h-menu-dropdown rtl :icon="['fas', 'ellipsis-v']" textcolor="text-white">
-            <h-menu-dropdown-item :icon="['fas', 'check-circle']" text="You are correct." />
-            <h-menu-dropdown-item :icon="['fas', 'handshake']" text="You are in good hands"/>
+          <h-menu-dropdown rtl icon="fas fa-ellipsis-v" textcolor="text-white">
+            <h-menu-dropdown-item icon="fas fa-check-circle" text="You are correct." />
+            <h-menu-dropdown-item icon="fas fa-handshake" text="You are in good hands"/>
           </h-menu-dropdown>
         </h-app-toolbar-menu>
       </h-app-toolbar-container>
@@ -34,16 +34,16 @@
     <h2>Example 2</h2>
     <h-app-toolbar>
       <h-app-toolbar-container bgcolor="bg-secondary" textcolor="text-white">
-        <h-app-toolbar-navigation :icon="['fas', 'bars']" textcolor="text-white"/>
+        <h-app-toolbar-navigation icon="fas fa-bars" textcolor="text-white"/>
         <h-app-toolbar-title title="My big music collection to sing"  style="padding-top: 60px;"/>
         <h-app-toolbar-action>
-          <h-fa-icon :icon="['fas', 'heart']" textcolor="text-white"/>
-          <h-fa-icon :icon="['fas', 'search']" textcolor="text-white"/>
+          <h-fa-icon icon="fas fa-heart" textcolor="text-white" @click="iconClick"/>
+          <h-fa-icon icon="fas fa-search" textcolor="text-white"/>
         </h-app-toolbar-action>
         <h-app-toolbar-menu>
-          <h-menu-dropdown rtl :icon="['fas', 'ellipsis-v']" textcolor="text-white">
-            <h-menu-dropdown-item :icon="['fas', 'check-circle']" text="You are correct." />
-            <h-menu-dropdown-item :icon="['fas', 'handshake']" text="You are in good hands"/>
+          <h-menu-dropdown rtl icon="fas fa-ellipsis-v" textcolor="text-white">
+            <h-menu-dropdown-item icon="fas fa-check-circle" text="You are correct." />
+            <h-menu-dropdown-item icon="fas fa-handshake" text="You are in good hands"/>
           </h-menu-dropdown>
         </h-app-toolbar-menu>
       </h-app-toolbar-container>
@@ -65,21 +65,21 @@
     <h1> Centered Fab</h1>
     <h-app-toolbar>
       <h-app-toolbar-container bgcolor="bg-secondary" textcolor="text-white">
-        <h-app-toolbar-navigation :icon="['fas', 'bars']" textcolor="text-white"/>
+        <h-app-toolbar-navigation icon="fas fa-bars" textcolor="text-white"/>
         <h-app-toolbar-menu>
-          <h-menu-dropdown dtu :icon="['fas', 'ellipsis-v']" textcolor="text-white">
-            <h-menu-dropdown-item :icon="['fas', 'check-circle']" text="You are correct."/>
-            <h-menu-dropdown-item :icon="['fas', 'handshake']" text="You are in good hands"/>
+          <h-menu-dropdown dtu icon="fas fa-ellipsis-v" textcolor="text-white">
+            <h-menu-dropdown-item icon="fas fa-check-circle" text="You are correct." />
+            <h-menu-dropdown-item icon="fas fa-handshake" text="You are in good hands"/>
           </h-menu-dropdown>
          </h-app-toolbar-menu>
          <h-app-toolbar-fab class="flex-justify-center">
-           <h-btn-float bgcolor="bg-black" textcolor="text-white" :icon="['fas', 'plus']"/>
+           <h-btn-float bgcolor="bg-black" textcolor="text-white" icon="fas fa-plus"/>
          </h-app-toolbar-fab>
          <h-app-toolbar-action >
-           <h-fa-icon :icon="['fas', 'heart']" textcolor="text-white"/>
-           <h-fa-icon :icon="['fas', 'film']" textcolor="text-white"/>
-           <h-fa-icon :icon="['fas', 'music']" textcolor="text-white"/>
-           <h-fa-icon :icon="['fas', 'share-alt']" textcolor="text-white"/>
+           <h-fa-icon icon="fas fa-heart" textcolor="text-white"/>
+           <h-fa-icon icon="fas fa-film" textcolor="text-white"/>
+           <h-fa-icon icon="fas fa-music" textcolor="text-white"/>
+           <h-fa-icon icon="fas fa-share-alt" textcolor="text-white"/>
          </h-app-toolbar-action>
        </h-app-toolbar-container>
     </h-app-toolbar>
@@ -94,15 +94,15 @@
      <h1> End Fab</h1>
     <h-app-toolbar>
        <h-app-toolbar-container bgcolor="bg-secondary" textcolor="text-white">
-         <h-app-toolbar-navigation :icon="['fas', 'bars']" textcolor="text-white"/>
+         <h-app-toolbar-navigation icon="fas fa-bars" textcolor="text-white"/>
          <h-app-toolbar-action class="flex flex-1">
-           <h-fa-icon :icon="['fas', 'heart']" textcolor="text-white"/>
-           <h-fa-icon :icon="['fas', 'film']" textcolor="text-white"/>
-           <h-fa-icon :icon="['fas', 'music']" textcolor="text-white"/>
-           <h-fa-icon :icon="['fas', 'share-alt']" textcolor="text-white"/>
+           <h-fa-icon icon="fas fa-heart" textcolor="text-white"/>
+           <h-fa-icon icon="fas fa-film" textcolor="text-white"/>
+           <h-fa-icon icon="fas fa-music" textcolor="text-white"/>
+           <h-fa-icon icon="fas fa-share-alt" textcolor="text-white"/>
          </h-app-toolbar-action>
          <h-app-toolbar-fab class="flex-justify-end">
-           <h-btn-float bgcolor="bg-black" textcolor="text-white" :icon="['fas', 'plus']"/>
+           <h-btn-float bgcolor="bg-black" textcolor="text-white" icon="fas fa-plus"/>
          </h-app-toolbar-fab>
        </h-app-toolbar-container>
     </h-app-toolbar>
@@ -117,12 +117,12 @@
     <h1> No Fab</h1>
     <h-app-toolbar>
       <h-app-toolbar-container bgcolor="bg-secondary" textcolor="text-white">
-        <h-app-toolbar-navigation :icon="['fas', 'bars']" textcolor="text-white"/>
+        <h-app-toolbar-navigation icon="fas fa-bars" textcolor="text-white"/>
         <h-app-toolbar-action class="flex flex-1 flex-justify-end">
-          <h-fa-icon :icon="['fas', 'heart']" textcolor="text-white"/>
-          <h-fa-icon :icon="['fas', 'film']" textcolor="text-white"/>
-          <h-fa-icon :icon="['fas', 'music']" textcolor="text-white"/>
-          <h-fa-icon :icon="['fas', 'share-alt']" textcolor="text-white"/>
+           <h-fa-icon icon="fas fa-heart" textcolor="text-white"/>
+           <h-fa-icon icon="fas fa-film" textcolor="text-white"/>
+           <h-fa-icon icon="fas fa-music" textcolor="text-white"/>
+           <h-fa-icon icon="fas fa-share-alt" textcolor="text-white"/>
         </h-app-toolbar-action>
       </h-app-toolbar-container>
     </h-app-toolbar>

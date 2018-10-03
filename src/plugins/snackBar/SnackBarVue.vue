@@ -47,6 +47,7 @@ export default {
   left:0;
   bottom:0;
   position: fixed;
+  z-index: 1700;
   padding: 16px;
 }
 </style>

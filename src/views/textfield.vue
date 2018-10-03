@@ -25,7 +25,7 @@
 
     <h1>Outlined Mode</h1>
     <div class="col-6">
-      <h-input error-label="error label" :left-icon="['fas', 'home']" helper-text="helper text"
+      <h-input error-label="error label" left-icon="fas fa-home" helper-text="helper text"
         :maxlength="10" :text-counter="10"  v-model="txtName2"
         float-label="Name" outlined cleartext
       />
@@ -187,7 +187,7 @@ export default {
 <span>Password: {{ txtPassword }}</span>     
       `,
       txtoutlined: `
-<h-input error-label="error label" :left-icon="['fas', 'home']" helper-text="helper text"
+<h-input error-label="error label" left-icon="fas fa-home" helper-text="helper text"
   :maxlength="10" :text-counter="10"  v-model="txtName2"
   float-label="Name" outlined cleartext
 />

@@ -15,17 +15,17 @@
         .row
           h1 Menu Left
         .row
-          <h-menu-dropdown :icon="['fas', 'bars']">
-            <h-menu-dropdown-item :icon="['fas', 'check-circle']" text="You are correct." @click="showSnackBar('U clicked in circle')"/>
-            <h-menu-dropdown-item :icon="['fas', 'handshake']" text="You are in good hands" @click="showSnackBar('U clicked in hands')"/>
+          <h-menu-dropdown icon="fas fa-bars">
+            <h-menu-dropdown-item icon="fas fa-check-circle" text="You are correct." @click="showSnackBar('U clicked in circle')"/>
+            <h-menu-dropdown-item icon="fas fa-handshake" text="You are in good hands" @click="showSnackBar('U clicked in hands')"/>
           </h-menu-dropdown>
       .col-3.flex.flex-column
         .row.flex.flex-justify-end
           h1 Menu Right
         .row.flex.flex-justify-end
-          <h-menu-dropdown :icon="['fas', 'bars']" rtl>
-            <h-menu-dropdown-item :icon="['fas', 'check-circle']" text="You are correct." @click="showSnackBar('U clicked in circle')"/>
-            <h-menu-dropdown-item :icon="['fas', 'handshake']" text="You are in good hands" @click="showSnackBar('U clicked in hands')"/>
+          <h-menu-dropdown icon="fas fa-bars" rtl>
+            <h-menu-dropdown-item icon="fas fa-check-circle" text="You are correct." @click="showSnackBar('U clicked in circle')"/>
+            <h-menu-dropdown-item icon="fas fa-handshake" text="You are in good hands" @click="showSnackBar('U clicked in hands')"/>
           </h-menu-dropdown>
     </div>
 
@@ -40,17 +40,17 @@
         .row
           h1 Menu Left
         .row
-          <h-menu-dropdown :icon="['fas', 'bars']" dtu>
-            <h-menu-dropdown-item :icon="['fas', 'check-circle']" text="You are correct." @click="showSnackBar('U clicked in circle')"/>
-            <h-menu-dropdown-item :icon="['fas', 'handshake']" text="You are in good hands" @click="showSnackBar('U clicked in hands')"/>
+          <h-menu-dropdown icon="fas fa-bars" dtu>
+            <h-menu-dropdown-item icon="fas fa-check-circle" text="You are correct." @click="showSnackBar('U clicked in circle')"/>
+            <h-menu-dropdown-item icon="fas fa-handshake" text="You are in good hands" @click="showSnackBar('U clicked in hands')"/>
           </h-menu-dropdown>
       .col-3.flex.flex-column
         .row.flex.flex-justify-end
           h1 Menu Right
         .row.flex.flex-justify-end
-          <h-menu-dropdown :icon="['fas', 'bars']" rtl dtu>
-            <h-menu-dropdown-item :icon="['fas', 'check-circle']" text="You are correct." @click="showSnackBar('U clicked in circle')"/>
-            <h-menu-dropdown-item :icon="['fas', 'handshake']" text="You are in good hands" @click="showSnackBar('U clicked in hands')"/>
+          <h-menu-dropdown icon="fas fa-bars" rtl dtu>
+            <h-menu-dropdown-item icon="fas fa-check-circle" text="You are correct." @click="showSnackBar('U clicked in circle')"/>
+            <h-menu-dropdown-item icon="fas fa-handshake" text="You are in good hands" @click="showSnackBar('U clicked in hands')"/>
           </h-menu-dropdown>
     </div>
 
@@ -72,7 +72,7 @@
       </div>
       <div class="h-pl-md">
         <h3>Type</h3>
-        <div>Array</div>
+        <div>String</div>
         <div>Boolean</div>
         <div>Boolean</div>
       </div>
@@ -96,7 +96,7 @@
       </div>
       <div class="h-pl-md">
         <h3>Type</h3>
-        <div>Array</div>
+        <div>String</div>
         <div>String</div>
       </div>
       <div class="h-pl-md">

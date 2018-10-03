@@ -5,7 +5,7 @@
     >
       <div class="flex flex-column drawer_container">
         <div class="flex flex-justify-end h-pa-sm bg-primary">
-          <h-fa-icon :icon="['fas', 'times']" textcolor="text-white" @click="close"/>
+          <h-fa-icon icon="fas fa-times" textcolor="text-white" @click="close"/>
         </div>
         <header>
           <slot name="header"></slot>

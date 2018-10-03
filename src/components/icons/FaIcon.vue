@@ -1,12 +1,16 @@
 <template lang="pug">
-  font-awesome-icon.faicon(v-if="icon && icon.length"
-    @click="onClick"
-    :icon="icon"
-    :size="size"
-    :spin="spin"
-    :pulse="pulse"
+  // font-awesome-icon.faicon(v-if="icon && icon.length"
+  //   :icon="icon"
+  //   :size="size"
+  //   :spin="spin"
+  //   :pulse="pulse"
+  //   style="cursor:pointer;"
+  //   :class="[textcolor]"
+  // )
+  i.faicon(
+    :class="[icon, textcolor]"
     style="cursor:pointer;"
-    :class="[textcolor]"
+    @click="onClick"
   )
     slot
  </template>
@@ -20,8 +24,7 @@ export default {
   extends: componentBase,
   props: {
     icon: {
-      type: Array,
-      default: () => ([])
+      type: String
     },
     size: {
       type: String,

@@ -11,11 +11,11 @@
             >
               <div class="flex flex-items-center full-height">
                 <div class="h-pl-sm h-pr-sm">
-                  <h-fa-icon :textcolor="textcolor" :icon="tab.lefticon"/>
+                  <h-fa-icon :textcolor="textcolor" :icon="tab.leftIcon"/>
                 </div>
                 <div class="flex flex-column full-width">
-                  <div v-if="tab.topicon && tab.topicon.length" class="flex flex-justify-center">
-                    <h-fa-icon :textcolor="textcolor" :icon="tab.topicon"/>
+                  <div v-if="tab.topIcon && tab.topIcon.length" class="flex flex-justify-center">
+                    <h-fa-icon :textcolor="textcolor" :icon="tab.topIcon"/>
                   </div>
                   <div class="flex flex-justify-center">
                     <span>{{tab.name}}</span>
@@ -38,11 +38,11 @@
           >
             <div class="flex flex-items-center">
               <div>
-                <h-fa-icon :textcolor="textcolor" :icon="tab.lefticon"/>
+                <h-fa-icon :textcolor="textcolor" :icon="tab.leftIcon"/>
               </div>
               <div class="flex flex-column full-width">
-                <div v-if="tab.topicon && tab.topicon.length" class="flex flex-justify-center h-pa-xs">
-                  <h-fa-icon :textcolor="textcolor" :icon="tab.topicon"/>
+                <div v-if="tab.topIcon && tab.topIcon.length" class="flex flex-justify-center h-pa-xs">
+                  <h-fa-icon :textcolor="textcolor" :icon="tab.topIcon"/>
                 </div>
                 <div class="h-pl-sm flex flex-justify-center flex-items-center">
                   <span>{{tab.name}}</span>
@@ -86,6 +86,7 @@ export default {
     }
   },
   mounted () {
+    // https://surmon-china.github.io/vue-awesome-swiper/
     // this.tabStyle.maxHeight = '' + this.tabsHeight + 'px'
     this.checkForDefaultTab()
   },

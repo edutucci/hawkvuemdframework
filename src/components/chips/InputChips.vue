@@ -59,7 +59,7 @@
                 h-fa-icon(
                   v-if="cleartext"
                   textcolor="text-gray"
-                  :icon="['fas', 'times-circle']"
+                  icon="fas fa-times-circle"
                   @click="onInputIconClick"
                 )
       .full-width
@@ -113,8 +113,8 @@ export default {
       default: true
     },
     leftIcon: {
-      type: Array,
-      default: () => ([])
+      type: String,
+      default: ''
     },
     outlined: {
       type: Boolean,

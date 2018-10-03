@@ -8,14 +8,11 @@
     )
       div(class="full-width flex flex-justify-center")
         div(v-if="leftIcon && leftIcon.length > 0" class="flex-align-center")
-          <i :class="leftIcon"></i>
-          //- h-fa-icon(:textcolor="textcolor" :icon="leftIcon")
+          h-fa-icon(:textcolor="textcolor" :icon="leftIcon")
         div(v-if="text && text.length > 0" class="flex flex-align-center h-ml-sm h-mr-sm")
           strong  {{text.toUpperCase()}}
-
         div(v-if="rightIcon && rightIcon.length > 0" class="flex-align-center")
-          <i :class="rightIcon"></i>
-          //- h-fa-icon(:textcolor="textcolor" :icon="rightIcon")
+          h-fa-icon(:textcolor="textcolor" :icon="rightIcon")
     div(v-else-if="textbutton"
       @click="onClick"
       class="btn flatbtn full-width"

@@ -3,13 +3,13 @@
     h-page-header(fixed)
       h-app-toolbar
         h-app-toolbar-container(bgcolor="bg-primary" textcolor="text-white")
-          h-app-toolbar-navigation(:icon="['fas', 'bars']" textcolor="text-white" @click="$refs.nav.open()")
-          h-app-toolbar-title(title="Hawk Framework")
+          h-app-toolbar-navigation(icon="fas fa-bars" textcolor="text-white" @click="$refs.nav.open()")
+          h-app-toolbar-title(title="HawkFramework")
           h-app-toolbar-action
             router-link(to="/yourpage")
-              h-fa-icon(:icon="['fas', 'globe']" textcolor="text-white")
+              h-fa-icon(icon="fas fa-globe" textcolor="text-white")
             a(href='https://github.com/edutucci/hawkframework' target="_blank")
-              h-fa-icon(:icon="['fab', 'github']" textcolor="text-white")
+              h-fa-icon(icon="fab fa-github" textcolor="text-white")
 
     <h-nav-drawer ref="nav">
       <div class="flex flex-column bg-white full-size" style="display: inline-flex;">
@@ -23,12 +23,12 @@
         <div class="flex-1">
             <h-collapsible>
 
-              <h-collapsible-menu :icon="['fas', 'question-circle']" text="Guide">
+              <h-collapsible-menu icon="fas fa-question-circle" text="Guide">
                 <h-collapsible-item text="Installation" @click="$router.push('/installation'), $refs.nav.close()"/>
                 <h-collapsible-item text="Layout" @click="$router.push('/layout'), $refs.nav.close()"/>
               </h-collapsible-menu>
 
-              <h-collapsible-menu :icon="['fab', 'css3']" text="CSS">
+              <h-collapsible-menu icon="fab fa-css3" text="CSS">
                 <h-collapsible-item text="Spacing" @click="$router.push('/spacing'), $refs.nav.close()"/>
                 <h-collapsible-item text="Flexbox" @click="$router.push('/flexbox'), $refs.nav.close()"/>
                 <h-collapsible-item text="Text Alignment" @click="$router.push('/textalignment'), $refs.nav.close()"/>
@@ -36,14 +36,14 @@
                 <h-collapsible-item text="Others" @click="$router.push('/cssothers'), $refs.nav.close()"/>
               </h-collapsible-menu>
 
-              <h-collapsible-menu text="Components" :icon="['fas', 'hdd']">
+              <h-collapsible-menu text="Components" icon="fas fa-hdd">
                 <h-collapsible-item text="Buttons" @click="$router.push('/buttons'), $refs.nav.close()"/>
                 <h-collapsible-item text="Icons" @click="$router.push('/icon'), $refs.nav.close()"/>
                 <h-collapsible-item text="Textfield" @click="$router.push('/textfield'), $refs.nav.close()"/>
                 <h-collapsible-item text="Search" @click="$router.push('/search'), $refs.nav.close()"/>
                 <h-collapsible-item text="Cards" @click="$router.push('/card'), $refs.nav.close()"/>
                 <h-collapsible-item text="Collapsible" @click="$router.push('/collapsible'), $refs.nav.close()"/>
-                <h-collapsible-item text="Chips" @click="$router.push('/chip'), $refs.nav.close()"/>
+                <h-collapsible-item text="Chips/InputChips" @click="$router.push('/chip'), $refs.nav.close()"/>
                 <h-collapsible-item text="Menu" @click="$router.push('/menu'), $refs.nav.close()"/>
                 <h-collapsible-item text="List" @click="$router.push('/list'), $refs.nav.close()"/>
                 <h-collapsible-item text="Checkbox" @click="$router.push('/checkbox'), $refs.nav.close()"/>
@@ -70,7 +70,7 @@
       </div>
     </h-nav-drawer>
 
-    h-page-content(style="margin-top: 52px")
+    h-page-content(style="margin-top: 52px; margin-bottom: 62px")
       router-view
 
     h-page-footer(fixed)

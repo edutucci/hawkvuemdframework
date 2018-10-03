@@ -28,8 +28,8 @@
             <h-btn textbutton text="share"/>
           </h-card-buttons>
           <h-card-icons>
-            <h-btn textbutton> <h-fa-icon :icon="['fas','heart']"/> </h-btn>
-            <h-btn textbutton> <h-fa-icon :icon="['fas','share-alt']"/> </h-btn>
+            <h-btn textbutton> <h-fa-icon icon="fas fa-heart"/> </h-btn>
+            <h-btn textbutton> <h-fa-icon icon="fas fa-share-alt"/> </h-btn>
           </h-card-icons>
         </h-card-actions>
       </h-card>
@@ -122,7 +122,7 @@
       </div>
       <div class="h-pl-md">
         <h3>Type</h3>
-        <div>Array</div>
+        <div>String</div>
         <div>String</div>
         <div>String</div>
         <div>String</div>
@@ -204,8 +204,8 @@ export default {
       <h-btn textbutton text="share"/>       
     </h-card-buttons>
     <h-card-icons>
-      <h-btn textbutton> <h-fa-icon :icon="['fas','heart']" /> </h-btn>
-      <h-btn textbutton> <h-fa-icon :icon="['fas','share-alt']" /> </h-btn>           
+      <h-btn textbutton> <h-fa-icon icon="fas fa-heart"/> </h-btn>
+      <h-btn textbutton> <h-fa-icon icon="fas fa-share-alt"/> </h-btn>
     </h-card-icons>
   </h-card-actions>
 </h-card>

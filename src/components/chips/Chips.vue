@@ -11,7 +11,7 @@
         span.h-pl-sm(:class="[chiptextcolor]") {{text}}
         h-fa-icon.h-pl-sm(
           v-if="closable"
-          :icon="['fas', 'times-circle']"
+          icon="fas fa-times-circle"
           :textcolor="chiptextcolor"
           @click="onClose"
         )
@@ -19,7 +19,7 @@
         span(:class="[chiptextcolor]") {{text}}
         h-fa-icon.h-pl-sm(
           v-if="closable"
-          :icon="['fas', 'times-circle']"
+          icon="fas fa-times-circle"
           :textcolor="chiptextcolor"
           @click="onClose"
         )
@@ -32,7 +32,7 @@
         span.h-pl-sm(:class="[chiptextcolor]") {{text}}
         h-fa-icon.h-pl-sm(
           v-if="closable"
-          :icon="['fas', 'times-circle']"
+          icon="fas fa-times-circle"
           :textcolor="chiptextcolor"
           @click="onClose"
         )
@@ -40,7 +40,7 @@
         span(:class="[chiptextcolor]") {{text}}
         h-fa-icon.h-pl-sm(
           v-if="closable"
-          :icon="['fas', 'times-circle']"
+          icon="fas fa-times-circle"
           :textcolor="chiptextcolor"
           @click="onClose"
         )
@@ -59,8 +59,8 @@ export default {
       default: false
     },
     icon: {
-      type: Array,
-      default: () => ([])
+      type: String,
+      default: ''
     },
     img: {
       type: String,

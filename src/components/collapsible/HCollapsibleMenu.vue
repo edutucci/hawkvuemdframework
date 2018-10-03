@@ -13,7 +13,7 @@
           h-fa-icon(
             :textcolor="textcolor"
             :class="{ 'arrow2': !isVisible, 'arrow': isVisible }"
-            :icon="['fas', 'angle-down']"
+            icon="fas fa-angle-down"
           )
       .full-width(v-if="isVisible")
         slot
@@ -30,11 +30,12 @@ export default {
   extends: componentBase,
   props: {
     text: {
-      type: String
+      type: String,
+      default: ''
     },
     icon: {
-      type: Array,
-      default: () => ([])
+      type: String,
+      default: ''
     }
   },
   data () {

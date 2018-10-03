@@ -6,9 +6,9 @@
             <strong>{{selectedRows.length}} item selected</strong>
           </div>
           <div class="flex flex-justify-end" style="cursor:pointer;">
-            <h-fa-icon :icon="['fas', 'plus']" class="h-pr-md" @click="onAddRow"/>
-            <h-fa-icon v-if="selectedRows.length === 1" :icon="['fas', 'edit']" class="h-pr-md" @click="onEditRow"/>
-            <h-fa-icon :icon="['fas', 'trash-alt']" @click="onDeleteRow"/>
+            <h-fa-icon icon="fas fa-plus" class="h-pr-md" @click="onAddRow"/>
+            <h-fa-icon v-if="selectedRows.length === 1" icon="fas fa-edit" class="h-pr-md" @click="onEditRow"/>
+            <h-fa-icon icon="fas fa-trash-alt" @click="onDeleteRow"/>
           </div>
         </div>
         <div v-else class="flex flex-row">
@@ -79,14 +79,14 @@
             style="width:28px;height:28px;"
             @click="onPreviousPage"
           >
-            <h-fa-icon :icon="['fas', 'chevron-left']"/>
+            <h-fa-icon icon="fas fa-chevron-left"/>
           </div>
           <div class="btn bg-white circle
             flex flex-justify-center flex-items-center"
             style="width:28px;height:28px;"
             @click="onNextPage"
             >
-              <h-fa-icon :icon="['fas', 'chevron-right']" />
+              <h-fa-icon icon="fas fa-chevron-right" />
           </div>
         </div>
       </div>
@@ -95,18 +95,7 @@
 
 <script>
 
-import HCheckbox from '../checkbox/HCheckbox.vue'
-import HSelect from '../select/HSelect.vue'
-import HBtn from '../buttons/HBtn.vue'
-import HBtnFloat from '../buttons/HBtnFloat.vue'
-
 export default {
-  components: {
-    HCheckbox,
-    HSelect,
-    HBtn,
-    HBtnFloat
-  },
   props: {
     title: {
       type: String
@@ -148,19 +137,19 @@ export default {
       selectedAllRows: false,
       rowsperpage: [
         {
-          label: 5,
+          text: 5,
           value: 5
         },
         {
-          label: 10,
+          text: 10,
           value: 10
         },
         {
-          label: 20,
+          text: 20,
           value: 20
         },
         {
-          label: 50,
+          text: 50,
           value: 50
         }
       ],

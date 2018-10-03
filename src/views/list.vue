@@ -6,7 +6,7 @@
         <h-list>
           <h-app-toolbar>
             <h-app-toolbar-container bgcolor="bg-primary" textcolor="text-white">
-              <h-app-toolbar-navigation :icon="['fas', 'bars']" textcolor="text-white"/>
+              <h-app-toolbar-navigation icon="fas fa-bars" textcolor="text-white"/>
               <h-app-toolbar-title title="Topics"/>
             </h-app-toolbar-container>
           </h-app-toolbar>
@@ -45,19 +45,19 @@
           </h-app-toolbar>
           <h-list-body>
             <h-list-item>
-              <h-list-item-left :icon="['fas', 'film']" text="Attractions"/>
+              <h-list-item-left icon="fas fa-film" text="Attractions"/>
             </h-list-item>
             <h-list-item>
-              <h-list-item-left :icon="['fas', 'utensils']" text="Dining"/>
+              <h-list-item-left icon="fas fa-utensils" text="Dining"/>
             </h-list-item>
             <h-list-item>
-              <h-list-item-left :icon="['fas', 'heart']" text="Health"/>
+              <h-list-item-left icon="fas fa-heart" text="Health"/>
             </h-list-item>
             <h-list-item>
-              <h-list-item-left :icon="['fas', 'basketball-ball']" text="Sports"/>
+              <h-list-item-left icon="fas fa-basketball-ball" text="Sports"/>
             </h-list-item>
             <h-list-item>
-              <h-list-item-left :icon="['fas', 'plane']" text="Travel"/>
+              <h-list-item-left icon="fas fa-plane" text="Travel"/>
             </h-list-item>
           </h-list-body>
         </h-list>
@@ -76,7 +76,7 @@
             </h-app-toolbar-container>
           </h-app-toolbar>
           <h-collapsible separator>
-            <h-collapsible-menu :icon="['fas', 'film']" text="Attractions">
+            <h-collapsible-menu icon="fas fa-film" text="Attractions">
               <h-list-body>
                 <h-list-item>
                   <h-list-item-left text="Shopping"/>
@@ -86,7 +86,7 @@
                 </h-list-item>
               </h-list-body>
             </h-collapsible-menu>
-            <h-collapsible-menu :icon="['fas', 'utensils']" text="Dining">
+            <h-collapsible-menu icon="fas fa-utensils" text="Dining">
               <h-list-body>
                 <h-list-item>
                   <h-list-item-left text="Restaurants"/>
@@ -104,7 +104,7 @@
       <h-list class="col-6">
         <h-app-toolbar>
           <h-app-toolbar-container bgcolor="bg-primary" textcolor="text-white">
-            <h-app-toolbar-navigation :icon="['fas', 'bars']" textcolor="text-white"/>
+            <h-app-toolbar-navigation icon="fas fa-bars" textcolor="text-white"/>
             <h-app-toolbar-title title="Inbox"/>
           </h-app-toolbar-container>
         </h-app-toolbar>
@@ -127,7 +127,7 @@
       <h-list class="col-6">
         <h-app-toolbar>
           <h-app-toolbar-container bgcolor="bg-primary" textcolor="text-white">
-            <h-app-toolbar-navigation :icon="['fas', 'bars']" textcolor="text-white"/>
+            <h-app-toolbar-navigation icon="fas fa-bars" textcolor="text-white"/>
             <h-app-toolbar-title title="My files" style="padding-top: 40px;"/>
           </h-app-toolbar-container>
         </h-app-toolbar>
@@ -194,7 +194,7 @@
             @removedItem="removedItem"/>
           <h-list-item-right
             :text="prod.value"
-            :icon="['fas', 'edit']"
+            icon="fas fa-edit"
             :select-value="prod.text"
             @rightIconClick="rightIconClick"
           />
@@ -303,7 +303,7 @@
         <div>Array</div>
         <div>Boolean</div>
         <div>Boolean</div>
-        <div>Array</div>
+        <div>String</div>
         <div>String</div>
         <div>String</div>
         <div>String</div>
@@ -355,7 +355,7 @@
       <div class="h-pl-md">
         <h3>Type</h3>
         <div>String, Number, Object</div>
-        <div>Array</div>
+        <div>String</div>
         <div>String</div>
       </div>
       <div class="h-pl-md">

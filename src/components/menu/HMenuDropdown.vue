@@ -28,8 +28,8 @@ export default {
   extends: componentBase,
   props: {
     icon: {
-      type: Array,
-      default: () => ([])
+      type: String,
+      default: ''
     },
     rtl: {
       type: Boolean,

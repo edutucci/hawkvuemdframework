@@ -7,13 +7,13 @@
     </div>
 
       <h1>Colors</h1>
-      <h-fa-icon class="bg-primary h-pa-md" :icon="['fas', 'camera-retro']" textcolor="text-white" @click="iconClick"/>
-      <h-fa-icon class="h-pa-md" :icon="['fas', 'camera-retro']" textcolor="text-primary"/>
-      <h-fa-icon class="h-pa-md" :icon="['fas', 'camera-retro']" textcolor="text-secondary"/>
-      <h-fa-icon class="h-pa-md" :icon="['fas', 'camera-retro']" textcolor="text-positive"/>
-      <h-fa-icon class="h-pa-md" :icon="['fas', 'camera-retro']" textcolor="text-negative"/>
-      <h-fa-icon class="h-pa-md" :icon="['fas', 'camera-retro']" textcolor="text-info"/>
-      <h-fa-icon class="h-pa-md" :icon="['fas', 'camera-retro']" textcolor="text-warning"/>
+      <h-fa-icon class="bg-primary h-pa-md" icon="fas fa-camera-retro" textcolor="text-white" @click="iconClick"/>
+      <h-fa-icon class="h-pa-md" icon="fas fa-camera-retro" textcolor="text-primary"/>
+      <h-fa-icon class="h-pa-md" icon="fas fa-camera-retro" textcolor="text-secondary"/>
+      <h-fa-icon class="h-pa-md" icon="fas fa-camera-retro" textcolor="text-positive"/>
+      <h-fa-icon class="h-pa-md" icon="fas fa-camera-retro" textcolor="text-negative"/>
+      <h-fa-icon class="h-pa-md" icon="fas fa-camera-retro" textcolor="text-info"/>
+      <h-fa-icon class="h-pa-md" icon="fas fa-camera-retro" textcolor="text-warning"/>
 
       <pre v-highlightjs="iconColors">
         <code class="html">
@@ -21,14 +21,14 @@
       </pre>
 
       <h1>Sizes</h1>
-      <h-fa-icon :icon="['fas', 'camera-retro']" size="xs"/>
-      <h-fa-icon :icon="['fas', 'camera-retro']" size="sm"/>
-      <h-fa-icon :icon="['fas', 'camera-retro']" size="lg"/>
-      <h-fa-icon :icon="['fas', 'camera-retro']" size="2x"/>
-      <h-fa-icon :icon="['fas', 'camera-retro']" size="4x"/>
-      <h-fa-icon :icon="['fas', 'camera-retro']" size="6x"/>
-      <h-fa-icon :icon="['fas', 'camera-retro']" size="8x"/>
-      <h-fa-icon :icon="['fas', 'camera-retro']" size="10x"/>
+      <h-fa-icon icon="fas fa-camera-retro" size="xs"/>
+      <h-fa-icon icon="fas fa-camera-retro" size="sm"/>
+      <h-fa-icon icon="fas fa-camera-retro" size="lg"/>
+      <h-fa-icon icon="fas fa-camera-retro" size="2x"/>
+      <h-fa-icon icon="fas fa-camera-retro" size="4x"/>
+      <h-fa-icon icon="fas fa-camera-retro" size="6x"/>
+      <h-fa-icon icon="fas fa-camera-retro" size="8x"/>
+      <h-fa-icon icon="fas fa-camera-retro" size="10x"/>
 
       <pre v-highlightjs="iconSizes">
         <code class="html">
@@ -39,34 +39,21 @@
 
       <div class="flex">
         <div class="flex flex-column">
-          <div class="flex flex-justify-center">
-            <h-fa-icon :icon="['fas', 'home']"/>
+          <div class="flex">
+            <h-fa-icon icon="fas fa-home" class="h-pr-md"/>
+            <div>Home</div>
           </div>
-          <div class="flex flex-justify-center">
-            <h-fa-icon :icon="['fas', 'info']" />
+          <div class="flex">
+            <h-fa-icon icon="fas fa-info" class="h-pr-md"/>
+            <div>Info</div>
           </div>
-          <div class="flex flex-justify-center">
-            <h-fa-icon :icon="['fas', 'spinner']" pulse/>
+          <div class="flex">
+            <h-fa-icon icon="fas fa-spinner" class="h-pr-md" pulse />
+            <div> spinner</div>
           </div>
-          <div class="flex flex-justify-center">
-            <h-fa-icon :icon="['fas', 'sync']" spin/>
-          </div>
-        </div>
-      </div>
-
-      <div class="flex flex-column">
-        <div class="flex flex-column">
-          <div class="flex flex-justify-center">
-            | Home
-          </div>
-          <div class="flex flex-justify-center">
-            | Info
-          </div>
-          <div class="flex flex-justify-center">
-            | spinner
-          </div>
-          <div class="flex flex-justify-center">
-            | sync
+          <div class="flex">
+            <h-fa-icon icon="fas fa-sync" class="h-pr-md" spin/>
+            <div> sync</div>
           </div>
         </div>
       </div>
@@ -91,7 +78,7 @@
       <div class="h-pl-md">
         <h3>Type</h3>
         <div>String</div>
-        <div>Array</div>
+        <div>String</div>
         <div>String</div>
         <div>Boolean</div>
         <div>Boolean</div>
@@ -131,13 +118,13 @@ export default {
   data () {
     return {
       iconColors: `
-<h-fa-icon class="bg-primary h-pa-md" :icon="['fas', 'camera-retro']" textcolor="text-white"/>
-<h-fa-icon class="h-pa-md" :icon="['fas', 'camera-retro']" textcolor="text-primary"/>
-<h-fa-icon class="h-pa-md" :icon="['fas', 'camera-retro']" textcolor="text-secondary"/>
-<h-fa-icon class="h-pa-md" :icon="['fas', 'camera-retro']" textcolor="text-positive"/>
-<h-fa-icon class="h-pa-md" :icon="['fas', 'camera-retro']" textcolor="text-negative"/>
-<h-fa-icon class="h-pa-md" :icon="['fas', 'camera-retro']" textcolor="text-info"/>
-<h-fa-icon class="h-pa-md" :icon="['fas', 'camera-retro']" textcolor="text-warning"/>
+<h-fa-icon class="bg-primary h-pa-md" icon="fas fa-camera-retro" textcolor="text-white"/>
+<h-fa-icon class="h-pa-md" icon="fas fa-camera-retro" textcolor="text-primary"/>
+<h-fa-icon class="h-pa-md" icon="fas fa-camera-retro" textcolor="text-secondary"/>
+<h-fa-icon class="h-pa-md" icon="fas fa-camera-retro" textcolor="text-positive"/>
+<h-fa-icon class="h-pa-md" icon="fas fa-camera-retro" textcolor="text-negative"/>
+<h-fa-icon class="h-pa-md" icon="fas fa-camera-retro" textcolor="text-info"/>
+<h-fa-icon class="h-pa-md" icon="fas fa-camera-retro" textcolor="text-warning"/>
       `,
       iconSizes: `
 <h-fa-icon :icon=['fas', 'camera-retro'] size="xs"/>

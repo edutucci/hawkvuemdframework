@@ -6,7 +6,7 @@
     )
       h-input.full-width(
         ref="hawkSearch"
-        :leftIcon="['fas', 'search']"
+        leftIcon="fas fa-search"
         v-model="query"
         placeholder="Search for something"
         @onKeyDown="onKeyDown"

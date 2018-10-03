@@ -13,13 +13,13 @@ export default {
       type: String,
       default: ''
     },
-    lefticon: {
-      type: Array,
-      default: () => ([])
+    leftIcon: {
+      type: String,
+      default: ''
     },
-    topicon: {
-      type: Array,
-      default: () => ([])
+    topIcon: {
+      type: String,
+      default: ''
     },
     default: {
       type: Boolean,

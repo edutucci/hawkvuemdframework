@@ -48,19 +48,19 @@
               h-fa-icon(
                 v-if="type === 'password'"
                 textcolor="text-gray"
-                :icon="['fas', 'eye']"
+                icon="fas fa-eye"
                 @click="onInputIconClick"
               )
               h-fa-icon(
                 v-else-if="type === 'dropdown'"
                 textcolor="text-gray"
-                :icon="['fas', 'angle-down']"
+                icon="fas fa-angle-down"
                 @click="onInputIconClick"
               )
               h-fa-icon(
                 v-if="cleartext"
                 textcolor="text-gray"
-                :icon="['fas', 'times-circle']"
+                icon="fas fa-times-circle"
                 @click="onInputIconClick"
               )
       .full-width
@@ -112,8 +112,8 @@ export default {
       default: true
     },
     leftIcon: {
-      type: Array,
-      default: () => ([])
+      type: String,
+      default: ''
     },
     maxlength: {
       type: Number,

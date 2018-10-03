@@ -1,29 +1,16 @@
 <template>
   <div class="full-size">
     <h1>CHIPS</h1>
-    <div style="background: lightgray;">
-      <h-chips text="disabled" :icon="['fas', 'camera-retro']" closable disabled hide-on-close></h-chips>
+    <div>
+      <h-chips text="disabled" icon="fas fa-camera-retro" closable disabled hide-on-close></h-chips>
       <h-chips text="Eduardo" bgcolor="bg-secondary" closable hide-on-close></h-chips>
-      <h-chips text="Jhon" closable hide-on-close :icon="['fas', 'camera-retro']" bgcolor="bg-primary" textcolor="text-white"></h-chips>
+      <h-chips text="Jhon" closable hide-on-close icon="fas fa-camera-retro" bgcolor="bg-primary" textcolor="text-white"></h-chips>
       <h-chips text="Jhon" closable hide-on-close avatar="http://autokadabra.ru/system/uploads/users/18/18340/small.png?1318432918" bgcolor="bg-primary" textcolor="text-white"></h-chips>
 
-      <h-chips text="outlined disabled" :icon="['fas', 'camera-retro']" closable disabled hide-on-close outlined></h-chips>
+      <h-chips text="outlined disabled" icon="fas fa-camera-retro" closable disabled hide-on-close outlined></h-chips>
       <h-chips text="outlined disabled" closable disabled hide-on-close outlined></h-chips>
       <h-chips text="Outlined" closable hide-on-close outlined></h-chips>
     </div>
-
-    <div>
-      <h1>Input Chips</h1>
-      <h-input-chips v-model="chipsInput" float-label="Name"  :left-icon="['fas', 'camera-retro']" helper-text="Type your chips" cleartext></h-input-chips>
-    </div>
-    <div>
-      <span class="text-gray">InputchipsModel: {{ chipsInput }}</span>
-    </div>
-
-    <!-- <div>
-      <h-input static-label="Name" v-model="txtName" placeholder="" cleartext :left-icon="['fas', 'camera-retro']" :readonly="false"/>
-      <span>Name: {{ txtName }}</span>
-    </div> -->
 
     <h2 class="text-primary"> Vue Properties</h2>
     <hr>
@@ -42,7 +29,7 @@
       <div class="h-pl-md">
         <h3>Type</h3>
         <div>Boolean</div>
-        <div>Array</div>
+        <div>String</div>
         <div>String</div>
         <div>String</div>
         <div>Booelan</div>
@@ -73,6 +60,14 @@
         <h3>Description</h3>
         <div>Triggered on icon close click. This is available if hide-on-close is disabled.</div>
       </div>
+    </div>
+
+    <div>
+      <h1>Input Chips</h1>
+      <h-input-chips v-model="chipsInput" float-label="Name"  left-icon="fas fa-camera-retro" helper-text="Type your chips" cleartext></h-input-chips>
+    </div>
+    <div>
+      <span class="text-gray">InputchipsModel: {{ chipsInput }}</span>
     </div>
 
   </div>

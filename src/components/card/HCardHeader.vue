@@ -1,7 +1,7 @@
 <template lang="pug">
   .flex.flex-1.flex-items-center(style="padding-top:8px;padding-bottom:8px;")
     .div(v-if="(icon && icon.length) || (avatar && avatar.length)" style="padding-left:16px;")
-      h-fa-icon(textcolor="text-gray")
+      h-fa-icon(:icon="icon" textcolor="text-gray")
       h-avatar(:src="avatar")
     .flex-1.flex-column.overflow-hidden(style="padding-left:16px;")
       .title
@@ -17,7 +17,8 @@ export default {
   },
   props: {
     icon: {
-      type: Array
+      type: String,
+      default: ''
     },
     avatar: {
       type: String,

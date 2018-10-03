@@ -21,8 +21,7 @@ export default {
       type: Boolean
     },
     icon: {
-      type: Array,
-      default: () => ([])
+      type: String
     }
   },
   components: {

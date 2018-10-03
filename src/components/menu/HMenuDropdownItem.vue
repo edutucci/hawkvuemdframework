@@ -23,8 +23,8 @@ export default {
   },
   props: {
     icon: {
-      type: Array,
-      default: () => ([])
+      type: String,
+      default: ''
     },
     text: {
       type: String,

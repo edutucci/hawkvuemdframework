@@ -5,7 +5,7 @@
           .flex-1
             h3  {{title}}
           div.h-ml-sm.h-mr-sm
-            h-fa-icon(:icon="['fas', 'times']" textcolor="text-white" @click="close")
+            h-fa-icon(icon="fas fa-times" textcolor="text-white" @click="close")
         div.h-pa-sm
           slot
 </template>

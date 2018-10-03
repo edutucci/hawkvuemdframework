@@ -11,13 +11,12 @@ export default {
   extends: componentBase,
   props: {
     icon: {
-      type: Array,
-      default: () => ([])
+      type: String,
+      default: ''
     }
   },
   methods: {
     onClick () {
-      console.log('tb click')
       this.$emit('click')
     }
   }

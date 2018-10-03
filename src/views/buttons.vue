@@ -86,8 +86,8 @@
         <div>String</div>
         <div>String</div>
         <div>String</div>
-        <div>Array</div>
-        <div>Array</div>
+        <div>String</div>
+        <div>String</div>
         <div>Boolean</div>
         <div>Boolean</div>
         <div>Boolean</div>
@@ -124,12 +124,12 @@
     <div class="h-pt-lg"></div>
     <h1>Float Action</h1>
     <div>
-      <h-btn-float bgcolor="bg-positive" textcolor="text-white" @click="$refs.nav.open()" :icon="['fas', 'envelope']"> </h-btn-float>
-      <h-btn-float bgcolor="bg-secondary" textcolor="text-white" @click="$refs.nav.close()" :icon="['fas', 'envelope']">  </h-btn-float>
-      <h-btn-float bgcolor="bg-negative" textcolor="text-white" @click="$refs.nav.open()" :icon="['fas', 'plus']"> </h-btn-float>
-      <h-btn-float bgcolor="bg-secondary" :icon="['fas', 'bars']"> </h-btn-float>
-      <h-btn-float minifloat :icon="['fas', 'plus']"> </h-btn-float>
-      <h-btn-float minifloat bgcolor="bg-warning" :icon="['fas', 'plus']"> </h-btn-float>
+      <h-btn-float bgcolor="bg-positive" textcolor="text-white" @click="$refs.nav.open()" icon="fas fa-envelope"> </h-btn-float>
+      <h-btn-float bgcolor="bg-secondary" textcolor="text-white" @click="$refs.nav.close()" icon="fas fa-envelope">  </h-btn-float>
+      <h-btn-float bgcolor="bg-negative" textcolor="text-white" @click="$refs.nav.open()" icon="fas fa-plus"> </h-btn-float>
+      <h-btn-float bgcolor="bg-secondary" icon="fas fa-bars"> </h-btn-float>
+      <h-btn-float minifloat icon="fas fa-plus"> </h-btn-float>
+      <h-btn-float minifloat bgcolor="bg-warning" icon="fas fa-plus"> </h-btn-float>
     </div>
 
     <pre v-highlightjs="floatActionButtons">
@@ -152,7 +152,7 @@
         <h3>Type</h3>
         <div>String</div>
         <div>String</div>
-        <div>Array</div>
+        <div>String</div>
         <div>Boolean</div>
       </div>
       <div class="h-pl-md">

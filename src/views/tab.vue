@@ -4,7 +4,7 @@
 
     <h1>Horizontal Tab</h1>
     <h-tabs v-model="tabModel" @tabChange="tabChange" bgcolor="bg-secondary" textcolor="text-white" class="h-mt-md">
-      <h-tab name="TAB 1" :lefticon="['fas', 'home']">
+      <h-tab name="TAB 1" left-icon="fas fa-home">
         <p>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit minima.
         </p>
@@ -12,7 +12,7 @@
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit minima.
         </p>
       </h-tab>
-      <h-tab name="TAB 2" :topicon="['fas', 'globe']" default>
+      <h-tab name="TAB 2" top-icon="fas fa-globe" default>
           This is the content of the second tab
       </h-tab>
       <h-tab name="TAB 3">
@@ -36,7 +36,7 @@
     <h1>Vertical Tab</h1>
 
     <h-tabs bgcolor="bg-primary" textcolor="text-white"  vertical class="h-mt-md">
-      <h-tab name="First tab" :lefticon="['fas', 'globe']" default>
+      <h-tab name="First tab" left-icon="fas fa-globe" default>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit minima.
         </p>
@@ -56,7 +56,7 @@
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit minima.
         </p>
       </h-tab>
-      <h-tab name="TAB 2" :topicon="['fas', 'globe']">
+      <h-tab name="TAB 2" top-icon="fas fa-globe">
           This is the content of the second tab
       </h-tab>
       <h-tab name="TAB 3">
@@ -116,15 +116,15 @@
       <div>
         <h3>Name</h3>
         <div>name</div>
-        <div>lefticon</div>
-        <div>topicon</div>
+        <div>left-icon</div>
+        <div>top-icon</div>
         <div>default</div>
       </div>
       <div class="h-pl-md">
         <h3>Type</h3>
         <div>String</div>
-        <div>Array</div>
-        <div>Array</div>
+        <div>String</div>
+        <div>String</div>
         <div>Boolean</div>
       </div>
       <div class="h-pl-md">
@@ -149,7 +149,7 @@ export default {
       tabModel: '',
       tabhor: `
 <h-tabs v-model="tabModel" @tabChange="tabChange" bgcolor="bg-secondary" textcolor="text-white" class="h-mt-md">
-  <h-tab name="TAB 1" :lefticon="['fas', 'home']">
+  <h-tab name="TAB 1" lefticon="fas fa-home">
     <p>
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit minima.
     </p>
@@ -157,7 +157,7 @@ export default {
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit minima.
     </p>
   </h-tab>
-  <h-tab name="TAB 2" :topicon="['fas', 'globe']" default>
+  <h-tab name="TAB 2" topicon="icon="fas fa-globe"" default>
       This is the content of the second tab
   </h-tab>
   <h-tab name="TAB 3">
@@ -175,7 +175,7 @@ export default {
       `,
       tabver: `
 <h-tabs bgcolor="bg-primary" textcolor="text-white"  vertical class="h-mt-md">
-  <h-tab name="First tab" :lefticon="['fas', 'globe']" default>
+  <h-tab name="First tab" lefticon="icon="fas fa-globe"" default>
     <p>
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit minima.
     </p>
@@ -195,7 +195,7 @@ export default {
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit minima.
     </p>
   </h-tab>
-  <h-tab name="TAB 2" :topicon="['fas', 'globe']">
+  <h-tab name="TAB 2" topicon="icon="fas fa-globe"">
       This is the content of the second tab
   </h-tab>
   <h-tab name="TAB 3">
