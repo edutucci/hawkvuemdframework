@@ -4,7 +4,7 @@
 
       <h1>Default Mode</h1>
       <div class="col-6">
-        <h-input float-label="Name" v-model="txtName" placeholder="" cleartext/>
+        <h-input float-label="Name" v-model="txtName" placeholder="" left-icon="fas fa-phone" cleartext/>
         <span>Name: {{ txtName }}</span>
       </div>
     <pre v-highlightjs="txttextcomp">
@@ -97,7 +97,7 @@
         <h3>Type</h3>
         <div>String</div>
         <div>String</div>
-        <div>Array</div>
+        <div>String</div>
         <div>String</div>
         <div>String</div>
         <div>String</div>

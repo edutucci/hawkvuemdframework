@@ -177,40 +177,40 @@ options: [
   {
     'text': 'Address-book',
     'value': 'address-book1',
-    'icon': ['fas', 'address-book'],
+    'icon': 'fas fa-address-book',
     'avatar': 'https://i.pinimg.com/736x/a0/fc/b3/a0fcb3e4cf01dd5832577a0f2c70f5f9--create-your-own-avatar-avatar-maker.jpg'
   },
   {
     'text': 'Bluetooth',
     'value': 'Bluetooth1',
-    'icon': ['fab', 'bluetooth'],
+    'icon': 'fab fa-bluetooth',
     'avatar': 'http://autokadabra.ru/system/uploads/users/18/18340/small.png?1318432918'
   },
   {
     'text': 'heart',
     'value': 'heart1',
-    'icon': ['fas', 'heart'],
+    'icon': 'fas fa-heart',
     'avatar': 'http://autokadabra.ru/system/uploads/users/20/20303/small.png?1319912650'
   },
   {
     'text': 'chrome',
     'value': 'chrome1',
-    'icon': ['fab', 'chrome'],
+    'icon': 'fab fa-chrome',
     'avatar': 'http://autokadabra.ru/system/uploads/users/19/19506/small.png?1318360757'
   },
   {
     'text': 'discord',
     'value': 'discord1',
-    'icon': ['fab', 'discord'],
+    'icon': 'fab fa-discord',
     'avatar': 'http://autokadabra.ru/system/uploads/users/20/20303/small.png?1319912650'
   },
   {
     'text': 'music',
     'value': 'music1',
-    'icon': ['fas', 'music'],
+    'icon': 'fas fa-music',
     'avatar': 'https://i.pinimg.com/736x/a0/fc/b3/a0fcb3e4cf01dd5832577a0f2c70f5f9--create-your-own-avatar-avatar-maker.jpg'
   }
-]      
+]
       `
     }
   },

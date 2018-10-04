@@ -5,6 +5,7 @@
         v-if="leftIcon && leftIcon.length"
         textcolor="text-gray"
         :icon="leftIcon"
+        size="18px"
       )
     .flex.flex-column.full-width
       .full-width.input-container(

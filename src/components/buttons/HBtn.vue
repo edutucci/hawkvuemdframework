@@ -4,32 +4,36 @@
       @click="onClick"
       class="btn flex flex-items-center boxshadow"
       :class="[bgcolor, textcolor]"
+      style="position: relative;"
       :style="[btnSize]"
     )
-      div(class="full-width flex flex-justify-center")
+      div(class="btn-content full-width flex flex-justify-center")
         div(v-if="leftIcon && leftIcon.length > 0" class="flex-align-center")
           h-fa-icon(:textcolor="textcolor" :icon="leftIcon")
         div(v-if="text && text.length > 0" class="flex flex-align-center h-ml-sm h-mr-sm")
-          strong  {{text.toUpperCase()}}
+          | {{text.toUpperCase()}}
         div(v-if="rightIcon && rightIcon.length > 0" class="flex-align-center")
           h-fa-icon(:textcolor="textcolor" :icon="rightIcon")
+        slot
     div(v-else-if="textbutton"
       @click="onClick"
       class="btn flatbtn full-width"
       :class="[textcolor, disabled]"
+      style="position: relative;"
     )
-      div(class="full-width flex flex-justify-center")
-        div(class="flex flex-align-center")
-          strong(:class="[textcolor]")  {{text.toUpperCase()}}
-          slot
-
+      div(class="btn-content full-width flex flex-justify-center")
+        div(class="flex flex-align-center" :class="[textcolor]")
+          | {{text.toUpperCase()}}
+        slot
     div(v-else-if="outlined"
       @click="onClick"
       class="btn outlinedbtn flex flex-align-center"
       :class="[textcolor, { disabled: disabled}]"
+      style="position: relative;"
     )
-      div(class="full-width flex flex-justify-center")
-        strong {{text.toUpperCase()}}
+      div(class="btn-content full-width flex flex-justify-center")
+        | {{text.toUpperCase()}}
+        slot
 
 </template>
 
@@ -76,7 +80,6 @@ export default {
   },
   methods: {
     onClick () {
-      console.log('clicked in ' + this.text)
       if (!this.disabled) {
         this.$emit('click')
       }

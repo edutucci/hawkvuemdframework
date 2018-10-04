@@ -1,15 +1,8 @@
 <template lang="pug">
-  // font-awesome-icon.faicon(v-if="icon && icon.length"
-  //   :icon="icon"
-  //   :size="size"
-  //   :spin="spin"
-  //   :pulse="pulse"
-  //   style="cursor:pointer;"
-  //   :class="[textcolor]"
-  // )
   i.faicon(
-    :class="[icon, textcolor]"
+    :class="[icon, textcolor, {'fa-pulse': pulse, 'fa-spin': spin}]"
     style="cursor:pointer;"
+    :style="styleObject"
     @click="onClick"
   )
     slot
@@ -28,7 +21,7 @@ export default {
     },
     size: {
       type: String,
-      default: 'lg'
+      default: '16px'
     },
     pulse: {
       type: Boolean,
@@ -39,10 +32,22 @@ export default {
       default: false
     }
   },
+  watch: {
+    size: function (value) {
+      console.log('value: ' + value)
+      this.styleObject.fontSize = value
+    }
+  },
+  mounted () {
+    this.styleObject.fontSize = this.size
+  },
   data () {
     return {
       color: '',
-      bkgcolor: ''
+      bkgcolor: '',
+      styleObject: {
+        fontSize: '24px'
+      }
     }
   },
   methods: {
@@ -52,3 +57,9 @@ export default {
   }
 }
 </script>
+
+<style>
+.faicon {
+  position: relative;
+}
+</style>

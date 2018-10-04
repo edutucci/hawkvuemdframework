@@ -16,6 +16,7 @@ import HCollapsibleMenu from './collapsible/HCollapsibleMenu.vue'
 import HCollapsibleItem from './collapsible/HCollapsibleItem.vue'
 import HChips from './chips/Chips.vue'
 import HInputChips from './chips/InputChips.vue'
+import HCounter from './chips/Counter.vue'
 import HDatePicker from './date/HDatePicker.vue'
 import HDateInput from './date/HDateInput.vue'
 import HTimePicker from './date/HTimePicker.vue'
@@ -75,6 +76,7 @@ const Components = {
   HCollapsibleItem,
   HChips,
   HInputChips,
+  HCounter,
   HDatePicker,
   HDateInput,
   HTimePicker,

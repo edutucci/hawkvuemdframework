@@ -1,9 +1,11 @@
 import Vue from 'vue'
 
 import SnackBar from './snackBar/SnackBar'
+import Loading from './loading/Loading'
 
 const Plugins = {
-  SnackBar
+  SnackBar,
+  Loading
 }
 
 Object.keys(Plugins).forEach(name => {

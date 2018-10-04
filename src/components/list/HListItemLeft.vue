@@ -39,8 +39,8 @@ export default {
       default: false
     },
     icon: {
-      type: Array,
-      default: () => ([])
+      type: String,
+      default: ''
     },
     img: {
       type: String,

@@ -24,7 +24,7 @@
 
     <h1>Text Buttons</h1>
     <div>
-      <h-btn textbutton textcolor="text-black" text="black"/>
+      <h-btn textbutton textcolor="text-black" text="black" @click="btnClick"/>
       <h-btn textbutton textcolor="text-primary" text="primary"/>
       <h-btn textbutton textcolor="text-secondary" text="secondary"/>
       <h-btn textbutton textcolor="text-positive" text="positive"/>
@@ -45,7 +45,7 @@
     <h1>Outlined Buttons</h1>
     <div>
       <h-btn outlined text="disabled" disabled/>
-      <h-btn outlined textcolor="text-black" text="black"/>
+      <h-btn outlined textcolor="text-black" text="black" @click="btnClick"/>
       <h-btn outlined textcolor="text-primary" text="primary"/>
       <h-btn outlined textcolor="text-secondary" text="secondary"/>
       <h-btn outlined textcolor="text-positive" text="positive"/>
@@ -61,6 +61,22 @@
     </div>
 
     <pre v-highlightjs="outlinedButtons">
+      <code class="html">
+      </code>
+    </pre>
+
+    <h1>Counters</h1>
+    <h-btn contained bgcolor="bg-primary" textcolor="text-white" text="warning">
+      <h-counter bgcolor="bg-negative" textcolor="text-white">123</h-counter>
+    </h-btn>
+    <h-btn textbutton textcolor="text-primary" text="primary">
+      <h-counter bgcolor="bg-negative" textcolor="text-white">12</h-counter>
+    </h-btn>
+    <h-btn class="h-pl-md" outlined textcolor="text-primary" text="primary">
+      <h-counter bgcolor="bg-negative" textcolor="text-white">12</h-counter>
+    </h-btn>
+
+    <pre v-highlightjs="btnCounters">
       <code class="html">
       </code>
     </pre>
@@ -124,9 +140,9 @@
     <div class="h-pt-lg"></div>
     <h1>Float Action</h1>
     <div>
-      <h-btn-float bgcolor="bg-positive" textcolor="text-white" @click="$refs.nav.open()" icon="fas fa-envelope"> </h-btn-float>
-      <h-btn-float bgcolor="bg-secondary" textcolor="text-white" @click="$refs.nav.close()" icon="fas fa-envelope">  </h-btn-float>
-      <h-btn-float bgcolor="bg-negative" textcolor="text-white" @click="$refs.nav.open()" icon="fas fa-plus"> </h-btn-float>
+      <h-btn-float bgcolor="bg-positive" textcolor="text-white" @click="btnClick" icon="fas fa-envelope"> </h-btn-float>
+      <h-btn-float bgcolor="bg-secondary" textcolor="text-white" icon="fas fa-envelope">  </h-btn-float>
+      <h-btn-float bgcolor="bg-negative" textcolor="text-white"  icon="fas fa-plus"> </h-btn-float>
       <h-btn-float bgcolor="bg-secondary" icon="fas fa-bars"> </h-btn-float>
       <h-btn-float minifloat icon="fas fa-plus"> </h-btn-float>
       <h-btn-float minifloat bgcolor="bg-warning" icon="fas fa-plus"> </h-btn-float>
@@ -190,13 +206,19 @@ export default {
     return {
       containedButtons: `
 <div>
-  <h-btn contained bgcolor="bg-white" textcolor="text-black" text="white" :left-icon="['fas', 'envelope']" @click="btnClick"/>
-  <h-btn contained bgcolor="bg-primary" textcolor="text-white" text="primary" :right-icon="['fas', 'envelope']"/>
-  <h-btn contained bgcolor="bg-secondary" textcolor="text-white" text="secondary"/>
-  <h-btn contained bgcolor="bg-positive" textcolor="text-white" text="positive" :right-icon="['fas', 'envelope']"/>
-  <h-btn contained bgcolor="bg-negative" textcolor="text-white" text="negative"/>
-  <h-btn contained bgcolor="bg-info" textcolor="text-white" text="info"/>
-  <h-btn contained bgcolor="bg-warning" textcolor="text-white" text="warning"/>
+  <div>
+    <h-btn contained bgcolor="bg-white" textcolor="text-black" text="white" left-icon="fas fa-envelope" @click="btnClick"/>
+    <h-btn contained bgcolor="bg-primary" textcolor="text-white" text="primary" right-icon="fas fa-envelope"/>
+    <h-btn contained bgcolor="bg-secondary" textcolor="text-white" text="secondary"/>
+    <h-btn contained bgcolor="bg-positive" textcolor="text-white" text="positive"/>
+    <h-btn contained bgcolor="bg-negative" textcolor="text-white" text="negative"/>
+    <h-btn contained bgcolor="bg-info" textcolor="text-white" text="info"/>
+    <h-btn contained bgcolor="bg-warning" textcolor="text-white" text="warning"/>
+  </div>
+  <div class="col-6">
+    <h-btn contained class="full-width" bgcolor="bg-primary" textcolor="text-white" text="full width" right-icon="fas fa-envelope"/>
+    <h-btn contained class="full-width" bgcolor="bg-positive" textcolor="text-white" text="full width" left-icon="fas fa-envelope"/>
+  </div>
 </div>
       `,
       textbuttons: `
@@ -207,7 +229,11 @@ export default {
   <h-btn textbutton textcolor="text-positive" text="positive"/>
   <h-btn textbutton textcolor="text-negative" text="negative"/>
   <h-btn textbutton textcolor="text-info" text="info"/>
-  <h-btn textbutton textcolor="text-warning" text="warning"/>     
+  <h-btn textbutton textcolor="text-warning" text="warning"/>
+</div>
+<div class="col-6">
+  <h-btn class="full-width" textbutton textcolor="text-black" text="black"/>
+  <h-btn class="full-width" textbutton textcolor="text-primary" text="primary"/>
 </div>
       `,
       outlinedButtons: `
@@ -219,18 +245,34 @@ export default {
   <h-btn outlined textcolor="text-positive" text="positive"/>
   <h-btn outlined textcolor="text-negative" text="negative"/>
   <h-btn outlined textcolor="text-info" text="info"/>
-  <h-btn outlined textcolor="text-warning" text="warning"/>    
+  <h-btn outlined textcolor="text-warning" text="warning"/>
 </div>
+<div class="col-6">
+  <h-btn class="full-width" outlined text="disabled" disabled/>
+  <h-btn class="full-width" outlined textcolor="text-black" text="black"/>
+  <h-btn class="full-width" outlined textcolor="text-primary" text="primary"/>
+</div>
+      `,
+      btnCounters: `
+<h-btn contained bgcolor="bg-primary" textcolor="text-white" text="warning">
+  <h-counter bgcolor="bg-negative" textcolor="text-white">123</h-counter>
+</h-btn>
+<h-btn textbutton textcolor="text-primary" text="primary">
+  <h-counter bgcolor="bg-negative" textcolor="text-white">12</h-counter>
+</h-btn>
+<h-btn class="h-pl-md" outlined textcolor="text-primary" text="primary">
+  <h-counter bgcolor="bg-negative" textcolor="text-white">12</h-counter>
+</h-btn>
       `,
       floatActionButtons: `
 <div>
-  <h-btn-float bgcolor="bg-positive" textcolor="text-white" :icon="['fas', 'envelope']"> </h-btn-float>
-  <h-btn-float bgcolor="bg-secondary" textcolor="text-white" :icon="['fas', 'envelope']">  </h-btn-float>
-  <h-btn-float bgcolor="bg-negative" textcolor="text-white" :icon="['fas', 'plus']"> </h-btn-float>
-  <h-btn-float bgcolor="bg-secondary" :icon="['fas', 'bars']"> </h-btn-float>
-  <h-btn-float minifloat :icon="['fas', 'plus']"> </h-btn-float>
-  <h-btn-float minifloat bgcolor="bg-warning" :icon="['fas', 'plus']"> </h-btn-float>      
-</div>      
+  <h-btn-float bgcolor="bg-positive" textcolor="text-white" @click="btnClick" icon="fas fa-envelope"> </h-btn-float>
+  <h-btn-float bgcolor="bg-secondary" textcolor="text-white" icon="fas fa-envelope">  </h-btn-float>
+  <h-btn-float bgcolor="bg-negative" textcolor="text-white"  icon="fas fa-plus"> </h-btn-float>
+  <h-btn-float bgcolor="bg-secondary" icon="fas fa-bars"> </h-btn-float>
+  <h-btn-float minifloat icon="fas fa-plus"> </h-btn-float>
+  <h-btn-float minifloat bgcolor="bg-warning" icon="fas fa-plus"> </h-btn-float>
+</div>
       `
     }
   },
@@ -243,9 +285,9 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-@import '../css/variables.styl'
+// @import '../css/variables.styl'
 
-.teststylus
-  background-color $negative
+// .teststylus
+//   background-color $negative
 
 </style>

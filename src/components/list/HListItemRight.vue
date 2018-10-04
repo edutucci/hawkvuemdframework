@@ -15,8 +15,8 @@ export default {
       type: [String, Number, Object]
     },
     icon: {
-      type: Array,
-      default: () => ([])
+      type: String,
+      default: ''
     },
     text: {
       type: String,

@@ -3,7 +3,7 @@
     <h1>Icons</h1>
 
     <div class="text-primary" style="background-color: lightgray">
-      <b>Note:</b> This component has support for <b>Font Awesome Icons 5.0.0</b>
+      <b>Note:</b> This component has support for <b>Font Awesome Icons 5.x</b>
     </div>
 
       <h1>Colors</h1>
@@ -21,44 +21,39 @@
       </pre>
 
       <h1>Sizes</h1>
-      <h-fa-icon icon="fas fa-camera-retro" size="xs"/>
-      <h-fa-icon icon="fas fa-camera-retro" size="sm"/>
-      <h-fa-icon icon="fas fa-camera-retro" size="lg"/>
-      <h-fa-icon icon="fas fa-camera-retro" size="2x"/>
-      <h-fa-icon icon="fas fa-camera-retro" size="4x"/>
-      <h-fa-icon icon="fas fa-camera-retro" size="6x"/>
-      <h-fa-icon icon="fas fa-camera-retro" size="8x"/>
-      <h-fa-icon icon="fas fa-camera-retro" size="10x"/>
+      <h-fa-icon icon="fas fa-camera-retro" size="12px"/>
+      <h-fa-icon class="h-pa-xs" icon="fas fa-camera-retro" size="18px"/>
+      <h-fa-icon class="h-pa-xs" icon="fas fa-camera-retro" size="24px"/>
+      <h-fa-icon class="h-pa-xs" icon="fas fa-camera-retro" size="36px"/>
+      <h-fa-icon class="h-pa-xs" icon="fas fa-camera-retro" size="48px"/>
 
       <pre v-highlightjs="iconSizes">
         <code class="html">
         </code>
       </pre>
 
-      <h1>List</h1>
+      <h1>Animating Icons</h1>
+      <h-fa-icon class="h-pa-xs" icon="fas fa-spinner" spin/>
+      <h-fa-icon class="h-pa-xs" icon="fas fa-circle-notch" spin/>
+      <h-fa-icon class="h-pa-xs" icon="fas fa-sync" spin/>
+      <h-fa-icon class="h-pa-xs" icon="fas fa-cog" spin/>
+      <h-fa-icon class="h-pa-xs" icon="fas fa-spinner" pulse/>
+      <h-fa-icon class="h-pa-xs" icon="fas fa-stroopwafel" spin/>
 
-      <div class="flex">
-        <div class="flex flex-column">
-          <div class="flex">
-            <h-fa-icon icon="fas fa-home" class="h-pr-md"/>
-            <div>Home</div>
-          </div>
-          <div class="flex">
-            <h-fa-icon icon="fas fa-info" class="h-pr-md"/>
-            <div>Info</div>
-          </div>
-          <div class="flex">
-            <h-fa-icon icon="fas fa-spinner" class="h-pr-md" pulse />
-            <div> spinner</div>
-          </div>
-          <div class="flex">
-            <h-fa-icon icon="fas fa-sync" class="h-pr-md" spin/>
-            <div> sync</div>
-          </div>
-        </div>
-      </div>
+      <pre v-highlightjs="iconAnimate">
+        <code class="html">
+        </code>
+      </pre>
 
-      <pre v-highlightjs="iconList">
+      <h1>Counters</h1>
+      <h-fa-icon class="h-pa-xs" icon="fas fa-stroopwafel" size="24px" textcolor="text-primary">
+        <h-counter bgcolor="bg-negative" textcolor="text-white">1</h-counter>
+      </h-fa-icon>
+      <h-fa-icon class="h-pa-xs" icon="fas fa-stroopwafel" size="36px">
+        <h-counter bgcolor="bg-negative" textcolor="text-white">12</h-counter>
+      </h-fa-icon>
+
+      <pre v-highlightjs="iconCounter">
         <code class="html">
         </code>
       </pre>
@@ -87,7 +82,7 @@
         <h3 >Description</h3>
         <div>Sets the color of the icon</div>
         <div>Sets the icon</div>
-        <div>Sets the icon size</div>
+        <div>Sets the icon size. Default: '16px'. Example: '24px'</div>
         <div>Sets to pulse mode</div>
         <div>Sets to spin mode</div>
       </div>
@@ -118,7 +113,7 @@ export default {
   data () {
     return {
       iconColors: `
-<h-fa-icon class="bg-primary h-pa-md" icon="fas fa-camera-retro" textcolor="text-white"/>
+<h-fa-icon class="bg-primary h-pa-md" icon="fas fa-camera-retro" textcolor="text-white" @click="iconClick"/>
 <h-fa-icon class="h-pa-md" icon="fas fa-camera-retro" textcolor="text-primary"/>
 <h-fa-icon class="h-pa-md" icon="fas fa-camera-retro" textcolor="text-secondary"/>
 <h-fa-icon class="h-pa-md" icon="fas fa-camera-retro" textcolor="text-positive"/>
@@ -127,20 +122,27 @@ export default {
 <h-fa-icon class="h-pa-md" icon="fas fa-camera-retro" textcolor="text-warning"/>
       `,
       iconSizes: `
-<h-fa-icon :icon=['fas', 'camera-retro'] size="xs"/>
-<h-fa-icon :icon=['fas', 'camera-retro'] size="sm"/>
-<h-fa-icon :icon=['fas', 'camera-retro'] size="lg"/>
-<h-fa-icon :icon=['fas', 'camera-retro'] size="2x"/>
-<h-fa-icon :icon=['fas', 'camera-retro'] size="4x"/>
-<h-fa-icon :icon=['fas', 'camera-retro'] size="6x"/>
-<h-fa-icon :icon=['fas', 'camera-retro'] size="8x"/>
-<h-fa-icon :icon=['fas', 'camera-retro'] size="10x"/>  
+<h-fa-icon icon="fas fa-camera-retro" size="12px"/>
+<h-fa-icon class="h-pa-xs" icon="fas fa-camera-retro" size="18px"/>
+<h-fa-icon class="h-pa-xs" icon="fas fa-camera-retro" size="24px"/>
+<h-fa-icon class="h-pa-xs" icon="fas fa-camera-retro" size="36px"/>
+<h-fa-icon class="h-pa-xs" icon="fas fa-camera-retro" size="48px"/>
       `,
-      iconList: `
- <h-fa-icon :icon=['fas', 'home']/>
- <h-fa-icon :icon=['fas', 'info']/>
- <h-fa-icon :icon=['fas', 'spinner'] pulse/>
- <h-fa-icon :icon=['fas', 'sync'] spin/>
+      iconAnimate: `
+<h-fa-icon class="h-pa-xs" icon="fas fa-spinner" spin/>
+<h-fa-icon class="h-pa-xs" icon="fas fa-circle-notch" spin/>
+<h-fa-icon class="h-pa-xs" icon="fas fa-sync" spin/>
+<h-fa-icon class="h-pa-xs" icon="fas fa-cog" spin/>
+<h-fa-icon class="h-pa-xs" icon="fas fa-spinner" pulse/>
+<h-fa-icon class="h-pa-xs" icon="fas fa-stroopwafel" spin/>
+      `,
+      iconCounter: `
+<h-fa-icon class="h-pa-xs" icon="fas fa-stroopwafel" size="24px">
+  <h-counter bgcolor="bg-negative" textcolor="text-white">12</h-counter>
+</h-fa-icon>
+<h-fa-icon class="h-pa-xs" icon="fas fa-stroopwafel" size="36px">
+  <h-counter bgcolor="bg-negative" textcolor="text-white">12</h-counter>
+</h-fa-icon>
       `
     }
   },
