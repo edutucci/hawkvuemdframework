@@ -8,12 +8,8 @@ const loadPlugin = {
     document.querySelector('body').appendChild(vm.$el)
 
     Vue.prototype.$Loading = {
-      show (msg) {
-        let message = ''
-        if (msg) {
-          message = msg
-        }
-        loadContainer.show(message)
+      show (config) {
+        loadContainer.show(config)
       },
       hide () {
         loadContainer.hide()

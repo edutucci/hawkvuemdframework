@@ -1,9 +1,14 @@
 <template>
   <div>
     <h1>Loading</h1>
-    <div>
-      <h-btn contained text="Show Loading" @click="showLoading"/>
-    </div>
+    <h-btn contained text="Default Loading" @click="showDefaultLoading"/>
+    <h-btn class="h-pl-md" textbutton text="Custom Loading" @click="showCustomLoading"/>
+
+    <pre v-highlightjs="loading">
+      <code class="html">
+      </code>
+    </pre>
+
   </div>
 </template>
 
@@ -11,11 +16,42 @@
 export default {
   data () {
     return {
+      loading: `
+<h-btn contained text="Default Loading" @click="showDefaultLoading"/>
+<h-btn class="h-pl-md" contained text="Custom Loading" @click="showCustomLoading"/>
+
+methods: {
+  showDefaultLoading () {
+    this.$Loading.show()
+    setTimeout(() => {
+      this.$Loading.hide()
+    }, 5000)
+  },
+  showCustomLoading () {
+    this.$Loading.show({
+      message: 'loading something',
+      icon: 'fas fa-spinner'
+    })
+    setTimeout(() => {
+      this.$Loading.hide()
+    }, 5000)
+  }
+}
+      `
     }
   },
   methods: {
-    showLoading () {
-      this.$Loading.show('teste loading')
+    showDefaultLoading () {
+      this.$Loading.show()
+      setTimeout(() => {
+        this.$Loading.hide()
+      }, 5000)
+    },
+    showCustomLoading () {
+      this.$Loading.show({
+        message: 'loading something',
+        icon: 'fas fa-spinner'
+      })
       setTimeout(() => {
         this.$Loading.hide()
       }, 5000)

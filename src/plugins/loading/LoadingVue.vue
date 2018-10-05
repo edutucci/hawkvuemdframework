@@ -6,10 +6,10 @@
     <div class="full-width flex flex-justify-center">
       <div class="flex flex-column">
         <div class="text-center">
-            <h-fa-icon icon="fas fa-sync" textcolor="text-white" size="72px" spin/>
+            <h-fa-icon :icon="cfg.icon" textcolor="text-white" size="72px" spin/>
         </div>
-        <div v-if="message" :class="[textcolor]">
-          <h2>{{message}}</h2>
+        <div v-if="cfg.message" :class="[textcolor]">
+          <h2>{{cfg.message}}</h2>
         </div>
       </div>
     </div>
@@ -20,9 +20,14 @@
 
 export default {
   props: {
-    message: {
-      type: String,
-      default: ''
+    cfg: {
+      type: Object,
+      default: () => {
+        return {
+          message: '',
+          icon: 'fas fa-sync'
+        }
+      }
     },
     show: {
       type: Boolean,

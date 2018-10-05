@@ -1,0 +1,458 @@
+/*
+  COLORS
+*/
+
+/*
+  BACKGROUND COLOR
+*/
+
+.bg-transparent
+  background-color transparent
+
+.bg-white
+  background-color $white
+
+.bg-black
+  background-color $black
+
+.bg-primary
+  background-color $primary
+
+.bg-secondary
+  background-color $secondary
+
+.bg-positive
+  background-color $positive
+
+.bg-negative
+  background-color $negative
+
+.bg-info
+  background-color $info
+
+.bg-warning
+  background-color $warning
+
+.bg-gray
+  background-color gray
+
+
+/*
+  MODAL
+*/
+.drawer {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  z-index: 1600;
+  top: 0;
+  left: 0;
+}
+
+.drawer-animation {
+  transition: 0.3s;
+}
+
+.drawer_container {
+  z-index: 1610;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.drawer.bg-modal
+  background-color rgba(0, 0, 0, 0.32)
+
+/*
+  BACKGROUND COLOR HOVER
+*/
+
+.bg-white:hover.btn, .bg-black:hover.btn,
+.bg-white:hover.tab, .bg-black:hover.tab,
+.bg-white:hover.menu-item, .bg-black:hover.menu-item,
+.bg-white:hover.collapsible-item
+  background-color $whitehover
+
+.bg-primary:hover.btn, .bg-primary:hover.tab,
+.bg-primary:hover.menu-item
+.bg-primary:hover.collapsible-item
+  background-color $primaryhover
+
+.bg-secondary:hover.btn, .bg-secondary:hover.tab,
+.bg-secondary:hover.menu-item,
+.bg-secondary:hover.collapsible-item
+  background-color $secondaryhover
+
+.bg-positive:hover.btn, .bg-positive:hover.tab,
+.bg-positive:hover.menu-item
+.bg-positive:hover.collapsible-item
+  background-color $positivehover
+
+.bg-negative:hover.btn, .bg-negative:hover.tab,
+.bg-negative:hover.menu-item
+.bg-negative:hover.collapsible-item
+  background-color: $negativehover
+
+.bg-info:hover.btn, .bg-info:hover.tab,
+.bg-info:hover.menu-item
+.bg-info:hover.collapsible-item
+  background-color $infohover
+
+.bg-warning:hover.btn, .bg-info:hover.tab,
+.bg-warning:hover.menu-item
+.bg-warning:hover.collapsible-item
+  background-color $warninghover
+
+/*
+  TEXT COLOR
+*/
+
+.text-white
+  color $white
+
+.text-black
+  color $black
+
+.text-primary
+  color $primary
+
+.text-secondary
+  color $secondary
+
+.text-positive
+  color $positive
+
+.text-negative
+  color $negative
+
+.text-info
+  color $info
+
+.text-warning
+  color $warning
+
+.text-gray
+  color gray
+
+
+/*
+  COMPONENTES
+*/
+
+@font-face {
+  font-family: HawkFrameworkFont;
+  src: url(../fonts/rubrik-regular.ttf);
+}
+
+* {
+  font-family: HawkFrameworkFont;
+}
+
+/*
+  BUTTONS
+*/
+
+.btn {
+  padding: 8px;
+  font-size: 16px;
+  outline: none;
+  white-space: nowrap;
+  display: inline-flex;
+  cursor: pointer;
+}
+
+.btnfab {
+  padding: 8px;
+  font-size: 16px;
+  outline: none;
+  white-space: nowrap;
+  display: inline-flex;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.btn.outlinedbtn.disabled {
+  color: gray;
+  background-color  white
+  border: 2px solid gray
+}
+
+.circle {
+  border-radius: 50%;
+}
+
+.chip {
+  border-radius: 50px;
+}
+
+.boxshadow {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.bottom_shadow
+  box-shadow: 0px 2px rgba(0,0,0,0.2);
+
+.div-rounded {
+  border: 2px solid lightgray;
+  border-radius: 5px;
+}
+.tab {
+  display:inline-block;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  border-radius: 2px;
+}
+
+.title {
+  color: black;
+}
+
+.title-media {
+  color: white;
+}
+
+.subtitle {
+  color: gray;
+}
+
+.subtitle-media {
+  color: white;
+}
+
+.item-padding {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.icon-left {
+  padding-right: 16px;
+}
+
+.menu-icon-left {
+  padding-left: 16px;
+  padding-right: 16px;
+  width: 36px;
+}
+
+.menu-item {
+  padding-top:8px;
+  padding-bottom: 8px;
+}
+
+.menu-title {
+  height: 40px;
+}
+
+.list-item-hover {
+  background-color: #EEEEEE;
+}
+
+.list-item-color {
+  background-color: white;
+}
+
+hr {
+  background-color:lightgray;
+  height:1px;
+  border: none;
+}
+
+.toolbar-top {
+  position: absolute;
+  z-index: 12;
+  top: 0px;
+  left: 0px;
+}
+
+.toolbar-top-fixed {
+  position: fixed;
+  z-index: 12;
+  top: 0px;
+  left: 0px;
+}
+
+.toolbar-bottom {
+  position: absolute;
+  z-index: 12;
+  bottom: 0px;
+  left: 0px;
+}
+
+.toolbar-bottom-fixed {
+  position: fixed;
+  z-index: 12;
+  bottom: 0px;
+  left: 0px;
+}
+
+.input-box {
+  padding: 8px;
+}
+
+/*
+  COLLAPSIBLE
+*/
+.collapsible-menu {
+  text-align: center;
+  font-size: 16px;
+  padding: 8px;
+  cursor: pointer;
+  color: white;
+}
+
+.arrow {
+   transform: rotate(0deg);
+  /* -webkit-animation-name: example;
+  -webkit-animation-duration: 0.3s;
+  animation-name: example;
+  animation-duration: 0.3s; */
+}
+
+.arrow2 {
+    transform: rotate(180deg);
+    /* -webkit-animation-name: example2;
+    -webkit-animation-duration: 0.3s;
+    animation-name: example2;
+    animation-duration: 0.3s; */
+}
+
+/* Standard syntax */
+/* @keyframes example {
+  0% { transform: rotate(0deg); }
+  50% { transform: rotate(90deg); }
+  100% { transform: rotate(180deg); }
+} */
+
+/* Standard syntax */
+ /* @keyframes example2 {
+  0% { transform: rotate(180deg); }
+  50% { transform: rotate(90deg); }
+  100% { transform: rotate(0deg); }
+} */
+
+/*
+  TEXTFIELD
+*/
+
+$edit-controls-nofocus = gray
+
+.input-container.primary
+  border-bottom 2px solid $primary
+
+.input-container.nofocus
+  border-bottom 2px solid $edit-controls-nofocus
+
+.control-label.primary
+  color $primary
+
+.control-label.nofocus
+  color $edit-controls-nofocus
+
+.static-label.nofocus
+  color: #616161
+
+.static-label.primary
+  color black
+
+.error-label
+  color $negative
+  font-size 12px
+  font-weight bold
+
+.helper-text
+  color $edit-controls-nofocus
+  font-size 12px
+
+/*
+  RADIO BUTTON
+*/
+
+/* When the radio button is checked, add a blue background */
+.container input:checked ~ .checkmark.primary
+  border-color $primary
+
+.container input:checked ~ .checkmark.primary.disabled
+  border-color lightgrey
+
+/* Style the indicator (dot/circle) */
+.container.primary .checkmark:after
+  background $primary
+
+.container.primary .checkmark.disabled:after
+  background lightgrey
+
+/*
+  CHECKBOX
+*/
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .primary
+  background-color $primary
+  border-color $primary
+
+.container input:checked ~ .primary.disabled
+  background-color white
+  border-color $lightgrey
+
+/*
+  ACTIVE ITEM
+*/
+
+.bg-white.menu-item.active, .menu-item.active
+    background-color $whitehover
+
+.bg-modal
+  background-color:  #F2F2F2
+
+
+/*
+  TEXT BUTTON COLOR
+*/
+
+.flatbtn
+  background-color: none;
+
+.flatbtn:hover
+  background-color  $textbtnhover
+
+.outlinedbtn
+  background-color: none;
+  border: 2px solid $textbtnhover
+
+.outlinedbtn:hover
+  background-color  $whitehover
+  border: 2px solid $textbtnhover
+
+/*
+  ACTIVE TAB BORDER COLOR
+*/
+
+$activebordersize = 6px
+$activeborderflatsize = 2px
+
+.active-border-bottom-white
+  border-bottom $activebordersize solid $white
+
+.active-border-bottom-black
+  border-bottom $activebordersize solid $black
+
+.active-border-right-white
+  border-right  $activebordersize solid $white
+
+.active-border-right-black
+  border-right  $activebordersize solid $black
+
+
+/* Date Picker */
+.btn.circle.activeday, .btn.circle.activehour,
+.btn.circle.activemin
+  background-color: $primary
+  color: white
+
+/*
+COUNTER
+*/
+
+.btn > .btn-content > .counter
+  right: 5px;
+
+.faicon > .counter
+  right: 2px;

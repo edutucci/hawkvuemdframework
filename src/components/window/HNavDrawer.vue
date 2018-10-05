@@ -1,6 +1,6 @@
 <template>
     <div
-      class="flex drawer"
+      class="flex drawer drawer-animation bg-modal"
       :style="{ width: activeWidth }"
     >
       <div class="flex flex-column drawer_container">
@@ -23,8 +23,11 @@
 
 <script>
 
+import { mixin as clickaway } from 'vue-clickaway'
+
 export default {
-  name: 'HNavDrawer',
+  name: 'Drawer',
+  mixins: [ clickaway ],
   components: {
   },
   data () {
@@ -46,20 +49,5 @@ export default {
 </script>
 
 <style scoped>
-.drawer {
-    height: 100%;
-    position: fixed;
-    z-index: 1600;
-    top: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.32);
-    transition: 0.3s;
-}
 
-.drawer_container {
-  position: relative;
-  z-index: 1610;
-  overflow-x: hidden;
-  overflow-y: auto;
-}
 </style>

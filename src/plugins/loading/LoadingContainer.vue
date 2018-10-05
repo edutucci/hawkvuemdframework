@@ -1,8 +1,8 @@
 <template>
   <div>
     <loading-vue
-      :message="message"
-      :show="showMessage"
+      :cfg="cfg"
+      :show="open"
     />
   </div>
 </template>
@@ -18,24 +18,36 @@ export default {
   },
   data () {
     return {
-      message: ''
-    }
-  },
-  computed: {
-    showMessage () {
-      let value = false
-      if (this.message !== undefined && this.message.length > 0) {
-        value = true
-      }
-      return value
+      cfg: {
+        message: '',
+        icon: 'fas fa-sync'
+      },
+      open: false
     }
   },
   methods: {
-    show (message) {
-      this.message = message
+    limparCfg () {
+      this.cfg.message = ''
+      this.cfg.icon = 'fas fa-sync'
+    },
+    show (cfg) {
+      this.limparCfg()
+      console.log('veio cfg:' + JSON.stringify(cfg))
+      if (cfg) {
+        if (cfg.message) {
+          this.cfg.message = cfg.message
+        }
+
+        if (cfg.icon) {
+          console.log('veio icon: ' + cfg.icon)
+          this.cfg.icon = cfg.icon
+        }
+      }
+      this.open = true
     },
     hide () {
-      this.message = ''
+      this.limparCfg()
+      this.open = false
     }
   }
 }

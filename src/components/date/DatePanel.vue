@@ -3,8 +3,8 @@
     .flex.full-width
       .full-width.flex.flex-justify-center.flex-items-center.bg-primary.h-pa-md
         div
-          .btn.bg-primary.text-white
-            h-fa-icon(:icon="['fas', 'chevron-left']" @click="onPrevNextMonth(-1)")
+          .btn.bg-primary
+            h-fa-icon(textcolor="text-white" icon="fas fa-chevron-left" size="24px" @click="onPrevNextMonth(-1)")
 
         .flex-1
           .flex.flex-column
@@ -17,8 +17,8 @@
                 h2  {{week_days[currentDate.getDay()]}}, {{months[currentDate.getMonth()]}} {{currentDate.getDate()}}
 
         div
-          .btn.bg-primary.text-white
-            h-fa-icon(:icon="['fas', 'chevron-right']" @click="onPrevNextMonth(1)")
+          .btn.bg-primary
+            h-fa-icon(textcolor="text-white" icon="fas fa-chevron-right" size="24px" @click="onPrevNextMonth(1)")
 
     .flex-1.h-pt-md(v-show="panelMode==='days'" style="height:280px")
       .flex

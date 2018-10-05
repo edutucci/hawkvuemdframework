@@ -6,7 +6,7 @@
     )
       h-input.full-width(
         ref="hawkSearch"
-        leftIcon="fas fa-search"
+        :leftIcon="icon"
         v-model="query"
         placeholder="Search for something"
         @onKeyDown="onKeyDown"
@@ -47,6 +47,10 @@ export default {
     options: {
       type: Array,
       default: () => ([])
+    },
+    icon: {
+      type: String,
+      default: 'fas fa-search'
     }
   },
   data () {

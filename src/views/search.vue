@@ -22,16 +22,19 @@
         <h3>Name</h3>
         <div>options</div>
         <div>placeholder</div>
+        <div>icon</div>
       </div>
       <div class="h-pl-md">
         <h3>Type</h3>
         <div>Array</div>
+        <div>String</div>
         <div>String</div>
       </div>
       <div class="h-pl-md">
         <h3 >Description</h3>
         <div>Sets a array with popup menu for the search</div>
         <div>Sets the placeholder for the input</div>
+        <div>Replaces the icon</div>
       </div>
     </div>
 

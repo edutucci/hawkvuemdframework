@@ -1,5 +1,5 @@
 <template lang="pug">
-    .flex.flex-justify-center.flex-items-center.drawer(v-if="value" )
+    .flex.flex-justify-center.flex-items-center.drawer.bg-modal(v-if="value" )
       .boxshadow.no-user-select.bg-white
         .bg-primary.text-white.flex.h-pa-sm
           .flex-1
@@ -13,7 +13,7 @@
 <script>
 
 export default {
-  name: 'HNavDrawer',
+  name: 'Modal',
   components: {
   },
   props: {
@@ -42,15 +42,6 @@ export default {
 </script>
 
 <style scoped>
-.drawer {
-    height: 100%;
-    width: 100%;
-    position: fixed;
-    z-index: 13;
-    top: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.32);
-}
 
 h3 {
   margin: 0;

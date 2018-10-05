@@ -3,6 +3,7 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import './registerServiceWorker'
+import './theme/index.styl'
 import './index.js'
 import VueHighlightJS from 'vue-highlightjs'
 

@@ -9,7 +9,7 @@
 
     .flex.flex-column.full-width
       .full-width.input-container(
-        :class="{primary: primary, nofocus: nofocus, outline: outlined}"
+        :class="{primary: primary, nofocus: nofocus}"
       )
         .static-label(
           v-if="showStaticLabel"
@@ -42,7 +42,6 @@
                   :placeholder="placeholder"
                   @focus="onInputFocus()"
                   @blur="onInputBlur()"
-                  @keydown.down="onKeyDown"
                   @keydown.tab="onTab"
                   @keyup.enter="onEnter"
                   @keyup.delete="onDelete"
@@ -69,10 +68,10 @@
               v-if="helperText"
             )
               | {{helperText}}
-            .flex(
-              v-if="textCounter"
-            )
-              | {{inputCounter}}
+            // .flex(
+            //   v-if="textCounter"
+            // )
+            //   | {{inputCounter}}
         .flex.flex-column
           .flex.full-with.error-label(
             v-if="errorLabel"
@@ -104,10 +103,10 @@ export default {
     helperText: {
       type: String
     },
-    textCounter: {
-      type: Number,
-      default: 0
-    },
+    // textCounter: {
+    //   type: Number,
+    //   default: 0
+    // },
     showStaticLabel: {
       type: Boolean,
       default: true
@@ -116,10 +115,10 @@ export default {
       type: String,
       default: ''
     },
-    outlined: {
-      type: Boolean,
-      default: false
-    },
+    // outlined: {
+    //   type: Boolean,
+    //   default: false
+    // },
     readonly: {
       type: Boolean,
       default: false
@@ -217,16 +216,12 @@ export default {
     },
     onClick () {
       this.focused = true
-      this.$emit('click')
     },
     onInputIconClick () {
       if (this.cleartext) {
         this.onChange([])
         this.onInputFocus()
       }
-    },
-    onKeyDown () {
-      this.$emit('onKeyDown')
     },
     onTab () {
       this.$emit('onTab')
@@ -253,6 +248,7 @@ export default {
     },
     closeChip (index) {
       this.chipsValue = _.clone(this.value)
+      this.$emit('onDelete', this.chipsValue[index])
       this.$delete(this.chipsValue, index)
       this.$emit('input', this.chipsValue)
     }
