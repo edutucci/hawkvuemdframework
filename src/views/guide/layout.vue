@@ -34,13 +34,13 @@ export default {
     h-page-header
       h-app-toolbar
         h-app-toolbar-container(bgcolor="bg-primary" textcolor="text-white")
-          h-app-toolbar-navigation(:icon="['fas', 'bars']" textcolor="text-white" @click="$refs.nav.open()")
-          h-app-toolbar-title(title="Hawk Framework")
+          h-app-toolbar-navigation(icon="fas fa-bars" textcolor="text-white" @click="$refs.nav.open()")
+          h-app-toolbar-title(title="HawkFramework")
           h-app-toolbar-action
             router-link(to="/yourpage")
-              h-fa-icon(:icon="['fas', 'globe']" textcolor="text-white")
+              h-fa-icon(icon="fas fa-globe" textcolor="text-white")
             a(href='https://github.com/edutucci/hawkframework' target="_blank")
-              h-fa-icon(:icon="['fab', 'github']" textcolor="text-white")
+              h-fa-icon(icon="fab fa-github" textcolor="text-white")
 
     h-page-content
       router-view
@@ -68,15 +68,15 @@ YourPage.vue
     h-page-header(fixed)
       h-app-toolbar
         h-app-toolbar-container(bgcolor="bg-primary" textcolor="text-white")
-          h-app-toolbar-navigation(:icon="['fas', 'bars']" textcolor="text-white" @click="$refs.nav.open()")
-          h-app-toolbar-title(title="Hawk Framework")
+          h-app-toolbar-navigation(icon="fas fa-bars" textcolor="text-white" @click="$refs.nav.open()")
+          h-app-toolbar-title(title="HawkFramework")
           h-app-toolbar-action
             router-link(to="/yourpage")
-              h-fa-icon(:icon="['fas', 'globe']" textcolor="text-white")
+              h-fa-icon(icon="fas fa-globe" textcolor="text-white")
             a(href='https://github.com/edutucci/hawkframework' target="_blank")
-              h-fa-icon(:icon="['fab', 'github']" textcolor="text-white")
+              h-fa-icon(icon="fab fa-github" textcolor="text-white")
 
-    h-page-content(style="margin-top: 52px; margin-bottom: 92px")
+    h-page-content(style="margin-top: 64px; margin-bottom: 74px;")
       router-view
 
     h-page-footer(fixed)
