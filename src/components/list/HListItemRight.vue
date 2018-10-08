@@ -25,6 +25,7 @@ export default {
   },
   methods: {
     rightIconClick () {
+      console.log('rightIconClick')
       this.$emit('rightIconClick', this.selectValue)
     }
   }

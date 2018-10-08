@@ -23,12 +23,6 @@
         @editRow="editRow"
         @deleteRows="deleteRows"
       >
-        <template slot="number" slot-scope="row">
-          {{row.rowData.number}}
-        </template>
-        <template slot="avatar" slot-scope="row">
-          <img :src="row.rowData.avatar" style="width:40px; height:40px;">
-        </template>
       </h-table>
     </div>
 
@@ -37,7 +31,7 @@
       </code>
     </pre>
 
-    <h1>Table Selectable</h1>
+    <h1>Table Selectable with custom columns</h1>
     <div class="text-primary" style="background-color: lightgray">
       <b>Note:</b> Just add <b>selectable</b> to tag table
     </div>
@@ -45,7 +39,7 @@
       <h-table
         selectable
         title="Users"
-        :columns="tableColumns"
+        :columns="tableColumns2"
         :rows="tableDatabase"
         lineheight="40px"
         @addRows="addRows"
@@ -58,8 +52,17 @@
         <template slot="avatar" slot-scope="row">
           <img :src="row.rowData.avatar" style="width:40px; height:40px;">
         </template>
+        <template slot="actions" slot-scope="row">
+          <h-fa-icon icon="fas fa-edit" @click="editRow(row)"/>
+          <h-fa-icon class="h-pl-md" icon="fas fa-times-circle" @click="deleteRows(row)"/>
+        </template>
       </h-table>
     </div>
+
+    <pre v-highlightjs="table2">
+      <code class="javacript">
+      </code>
+    </pre>
 
     <h2 class="text-primary"> Table Help</h2>
     <h2 class="text-primary"> Vue Properties</h2>
@@ -126,6 +129,19 @@ export default {
           alignment: 'flex-justify-end'
         },
         {
+          name: 'country',
+          alignment: 'flex-justify-center'
+        },
+        {
+          name: 'city'
+        }
+      ],
+      tableColumns2: [
+        {
+          name: 'number',
+          alignment: 'flex-justify-end'
+        },
+        {
           name: 'avatar',
           alignment: 'flex-justify-center'
         },
@@ -135,6 +151,10 @@ export default {
         },
         {
           name: 'city'
+        },
+        {
+          name: 'actions',
+          alignment: 'flex-justify-center'
         }
       ],
       tableData: [],
@@ -183,6 +203,19 @@ tableColumns: [
     alignment: 'flex-justify-end'
   },
   {
+    name: 'country',
+    alignment: 'flex-justify-center'
+  },
+  {
+    name: 'city'
+  }
+],
+tableColumns2: [
+  {
+    name: 'number',
+    alignment: 'flex-justify-end'
+  },
+  {
     name: 'avatar',
     alignment: 'flex-justify-center'
   },
@@ -192,6 +225,9 @@ tableColumns: [
   },
   {
     name: 'city'
+  },
+  {
+    name: 'actions'
   }
 ]
       `,
@@ -203,14 +239,56 @@ tableColumns: [
     :rows="tableData"
     lineheight="40px"
   >
+  </h-table>
+</div>      
+      `,
+      table2: `
+<div class="col-6 h-pt-md" style="height: 450px;">
+  <h-table
+    selectable
+    title="Users"
+    :columns="tableColumns2"
+    :rows="tableDatabase"
+    lineheight="40px"
+    @addRows="addRows"
+    @editRow="editRow"
+    @deleteRows="deleteRows"
+  >
     <template slot="number" slot-scope="row">
       {{row.rowData.number}}
     </template>
     <template slot="avatar" slot-scope="row">
       <img :src="row.rowData.avatar" style="width:40px; height:40px;">
     </template>
+    <template slot="actions" slot-scope="row">
+      <h-fa-icon icon="fas fa-edit" @click="editRow(row)"/>
+      <h-fa-icon class="h-pl-md" icon="fas fa-times-circle" @click="deleteRows(row)"/>
+    </template>
   </h-table>
-</div>      
+</div>
+
+methods: {
+  addTableRows () {
+    this.tableDatabase = []
+    for (let index = 0; index < this.dataBase.length; index++) {
+      this.tableDatabase.push({
+        number: this.dataBase[index].number,
+        avatar: this.dataBase[index].avatar,
+        country: this.dataBase[index].country,
+        city: this.dataBase[index].city
+      })
+    }
+  },
+  addRows (rows) {
+    console.log('addRows: ' + JSON.stringify(rows))
+  },
+  editRow (row) {
+    console.log('editRow: ' + JSON.stringify(row))
+  },
+  deleteRows (rows) {
+    console.log('deleteRows: ' + JSON.stringify(rows))
+  }
+}
       `
     }
   },
@@ -230,13 +308,13 @@ tableColumns: [
       }
     },
     addRows (rows) {
-      // console.log('addRows: ' + JSON.stringify(rows))
+      console.log('addRows: ' + JSON.stringify(rows))
     },
     editRow (row) {
-      // console.log('editRow: ' + JSON.stringify(row))
+      console.log('editRow: ' + JSON.stringify(row))
     },
     deleteRows (rows) {
-      // console.log('deleteRows: ' + JSON.stringify(rows))
+      console.log('deleteRows: ' + JSON.stringify(rows))
     }
   }
 }

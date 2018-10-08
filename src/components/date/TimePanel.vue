@@ -44,7 +44,7 @@ export default {
     pickerMode: {
       type: Boolean,
       default: true
-    }    
+    }
   },
   components: {
     HBtn

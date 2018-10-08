@@ -98,7 +98,7 @@ export default {
 }
 </script>
 <style lang="stylus" scoped>
-@import '../../css/variables.styl'
+// @import '../../css/variables.styl'
 
 .input-container {
   position:relative;

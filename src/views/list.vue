@@ -180,8 +180,6 @@
           separator
           v-for="(prod, index) in products"
           :key="index"
-          :select-value="prod.text"
-          @itemClick="itemClick"
         >
           <h-list-item-left
             selectable
@@ -190,6 +188,7 @@
             :desc="prod.desc"
             :select-model="cart"
             :select-value="prod.text"
+            @itemLeftClick="itemClick"
             @selectedItem="selectValue"
             @removedItem="removedItem"/>
           <h-list-item-right
@@ -209,7 +208,7 @@
       product to edit: {{selectedProduct}}
     </div>
     <div>
-      item click: {{itemclicked}}
+      item Left clicked: {{itemclicked}}
     </div>
 
     <pre v-highlightjs="list6">
@@ -250,36 +249,20 @@
     <div class="flex">
       <div>
         <h3>Name</h3>
-        <div>select-value</div>
         <div>separator</div>
       </div>
       <div class="h-pl-md">
         <h3>Type</h3>
-        <div>String, Number, Object</div>
         <div>Boolean</div>
       </div>
       <div class="h-pl-md">
         <h3 >Description</h3>
-        <div>The value for the selected item</div>
         <div>Add a separator below the item</div>
       </div>
     </div>
 
-    <h2 class="text-primary"> Vue Events</h2>
-    <hr>
-
-    <div class="flex">
-      <div>
-        <h3>Name</h3>
-        <div>@itemClick(value)</div>
-      </div>
-      <div class="h-pl-md">
-        <h3>Description</h3>
-        <div>Triggered on item click. The value of property select-value is sent.</div>
-      </div>
-    </div>
-
     <h2 class="text-primary"> List Item Left Help</h2>
+
     <h2 class="text-primary"> Vue Properties</h2>
     <hr>
 
@@ -333,11 +316,13 @@
     <div class="flex">
       <div>
         <h3>Name</h3>
+        <div>@itemLeftClick(value)</div>
         <div>@selectedItem(value)</div>
         <div>@removedItem(value)</div>
       </div>
       <div class="h-pl-md">
         <h3>Description</h3>
+        <div>Triggered on item click. The value of property select-value is sent.</div>
         <div>Triggered on checkbox item is checked. The value of property select-value is sent as Array.</div>
         <div>Triggered on checkbox item is not checked. The value of property select-value is sent.</div>
       </div>
@@ -378,7 +363,7 @@
       </div>
       <div class="h-pl-md">
         <h3>Description</h3>
-        <div>Triggered on icon click. The value of property select-value is sent.</div>
+        <div>Triggered on icon click.The event @itemClick is fired too. The value of property select-value is sent.</div>
       </div>
     </div>
 
@@ -393,10 +378,10 @@ export default {
   data () {
     return {
       products: [
-        {img: '/img/pencil.png', text: 'Pencil', desc: 'in stock', value: '2.00'},
-        {img: '/img/rubberbands.png', text: 'Hubberbands', desc: 'in stock', value: '4.00'},
-        {img: '/img/rulers.png', text: 'Rulers', desc: 'only 1 left in stock. Next month we will sell for you.', value: '6.00'},
-        {img: '/img/clock.png', text: 'Clock', desc: 'in stock', value: '8.00'}
+        { img: '/img/pencil.png', text: 'Pencil', desc: 'in stock', value: '2.00' },
+        { img: '/img/rubberbands.png', text: 'Hubberbands', desc: 'in stock', value: '4.00' },
+        { img: '/img/rulers.png', text: 'Rulers', desc: 'only 1 left in stock. Next month we will sell for you.', value: '6.00' },
+        { img: '/img/clock.png', text: 'Clock', desc: 'in stock', value: '8.00' }
       ],
       cart: ['Clock', 'Pencil'],
       selectedProduct: undefined,
@@ -560,8 +545,6 @@ export default {
       separator
       v-for="(prod, index) in products"
       :key="index"
-      :select-value="prod.text"
-      @itemClick="itemClick"
     >
       <h-list-item-left
         selectable
@@ -570,6 +553,7 @@ export default {
         :desc="prod.desc"
         :select-model="cart"
         :select-value="prod.text"
+        @itemLeftClick="itemClick"
         @selectedItem="selectValue"
         @removedItem="removedItem"/>
       <h-list-item-right

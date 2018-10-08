@@ -135,17 +135,8 @@
 
 
 /*
-  COMPONENTES
+  COMPONENTS
 */
-
-@font-face {
-  font-family: HawkFrameworkFont;
-  src: url(../fonts/rubrik-regular.ttf);
-}
-
-* {
-  font-family: HawkFrameworkFont;
-}
 
 /*
   BUTTONS
@@ -456,3 +447,18 @@ COUNTER
 
 .faicon > .counter
   right: 2px;
+
+/*
+TOGGLE
+*/
+
+input:checked + .slider {
+  background-color: $primaryhover
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(20px)
+  -ms-transform: translateX(20px)
+  transform: translateX(20px)
+  background-color: $primary
+}

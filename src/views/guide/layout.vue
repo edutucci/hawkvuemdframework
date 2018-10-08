@@ -76,7 +76,7 @@ YourPage.vue
             a(href='https://github.com/edutucci/hawkframework' target="_blank")
               h-fa-icon(:icon="['fab', 'github']" textcolor="text-white")
 
-    h-page-content(style="margin-top: 52px")
+    h-page-content(style="margin-top: 52px; margin-bottom: 92px")
       router-view
 
     h-page-footer(fixed)

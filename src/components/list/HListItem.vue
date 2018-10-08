@@ -1,5 +1,5 @@
 <template>
-   <div class="full-width list-item-container" @click="itemClick">
+   <div class="full-width list-item-container">
     <div class="menu-item bg-white flex flex-row flex-items-center" :class="{active: active}">
       <slot></slot>
     </div>
@@ -10,9 +10,6 @@
 <script>
 export default {
   props: {
-    selectValue: {
-      type: [String, Number, Object]
-    },
     separator: {
       type: Boolean,
       default: false
@@ -32,9 +29,6 @@ export default {
     },
     setCurrentTextLeft (text) {
       this.$parent.setCurrentTextLeft(text)
-    },
-    itemClick () {
-      this.$emit('itemClick', this.selectValue)
     }
   }
 }

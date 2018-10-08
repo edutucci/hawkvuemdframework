@@ -76,7 +76,7 @@
       </div>
     </h-nav-drawer>
 
-    h-page-content(style="margin-top: 52px; margin-bottom: 62px")
+    h-page-content(style="margin-top: 52px; margin-bottom: 112px")
       router-view
 
     h-page-footer(fixed)

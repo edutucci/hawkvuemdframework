@@ -82,20 +82,9 @@ export default {
   left: 40px;
 }
 
-input:checked + .slider {
-  background-color: #2196F3;
-}
-
 /* input:focus + .slider {
   box-shadow: 0 0 1px #2196F3;
 } */
-
-input:checked + .slider:before {
-  -webkit-transform: translateX(20px);
-  -ms-transform: translateX(20px);
-  transform: translateX(20px);
-  background-color: rgb(33, 100, 243);
-}
 
 /* Rounded sliders */
 .slider.round {

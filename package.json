@@ -1,6 +1,6 @@
 {
   "name": "hawkframework",
-  "version": "0.0.7",
+  "version": "0.0.10",
   "description": "Free Material Framework with lightweight vue components.",
   "author": "Eduardo Tucci",
   "private": false,
@@ -19,7 +19,11 @@
     "serve": "vue-cli-service serve --open",
     "build": "vue-cli-service build",
     "build-lib": "vue-cli-service build --target lib --name hawkframework ./src/index.js",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "copy-unix": "cp ./src/theme/components.styl ./dist/",
+    "copy-win": "copy src/theme/components.styl dist/",
+    "build-lib-unix": "yarn build-lib && yarn copy-unix",
+    "build-lib-win:": "yarn build-lib && yarn copy-win"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.4",

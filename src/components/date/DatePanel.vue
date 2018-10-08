@@ -103,14 +103,14 @@ export default {
       this.setMonth(month)
       if (this.pickerMode) {
         this.onOK()
-      }      
+      }
     },
     onYearClick (year) {
       this.panelMode = 'days'
       this.updateYear(year)
       if (this.pickerMode) {
         this.onOK()
-      }      
+      }
     }
   }
 }

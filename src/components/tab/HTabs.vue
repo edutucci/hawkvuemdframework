@@ -151,7 +151,6 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-@import '../../css/variables.styl'
 
 .tab {
   font-size: 18px;
