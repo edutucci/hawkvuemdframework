@@ -98,7 +98,7 @@ export default {
       return '' + this.time.getHours() + ':' + this.time.getMinutes() + ':' + this.time.getSeconds()
     },
     myDate () {
-      return '' + this.date.getFullYear() + '/' + this.date.getMonth() + '/' + this.date.getDate()
+      return '' + this.date.getFullYear() + '/' + (this.date.getMonth() + 1) + '/' + this.date.getDate()
     }
   },
   data () {

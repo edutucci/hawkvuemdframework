@@ -1,11 +1,10 @@
 <template>
   <div class="text-center">
     <h1> Page Content</h1>
-    <img src='img/mountains.jpg' style="width: 650px; height: 350px;">
-    <img src='img/mountains.jpg' style="width: 650px; height: 350px;">
-    <img src='img/mountains.jpg' style="width: 650px; height: 350px;">
+    <div> <img src='img/mountains.jpg' style="width: 650px; height: 350px;"></div>
+    <div> <img src='img/mountains.jpg' style="width: 650px; height: 350px;"></div>
+    <div> <img src='img/mountains.jpg' style="width: 650px; height: 350px;"></div>
   </div>
-
 </template>
 
 <script>

@@ -1,5 +1,5 @@
 <template lang="pug">
-  .flex.flex-column
+  .flex.flex-column.boxshadow
     .flex.full-width
       .full-width.flex.flex-justify-center.flex-items-center.bg-primary.h-pa-md
         div
@@ -34,9 +34,9 @@
           )
             | {{day.monthDay}}
 
-      .flex.flex-justify-end
-        h-btn(outlined text="OK" @click="onOK")
-        h-btn(outlined text="Close" @click="onClose")
+      .flex.flex-justify-end.h-mb-sm
+        h-btn(outlined text="OK" textcolor="text-primary" class="h-pr-md" @click="onOK")
+        h-btn(v-if="!pickerMode" outlined text="Close" textcolor="text-primary" class="h-pr-md" @click="onClose")
     .flex-1.scroll(v-show="panelMode==='years'" style="max-height:280px")
       .flex.flex-justify-center.btn.bg-white(v-for="year in years" @click="onYearClick(year)")
         | {{year}}
@@ -63,6 +63,10 @@ export default {
     week_days: {
       type: Array,
       default: () => { return [] }
+    },
+    pickerMode: {
+      type: Boolean,
+      default: true
     }
   },
   data () {
@@ -97,10 +101,16 @@ export default {
     onMonthClick (month) {
       this.panelMode = 'days'
       this.setMonth(month)
+      if (this.pickerMode) {
+        this.onOK()
+      }      
     },
     onYearClick (year) {
       this.panelMode = 'days'
       this.updateYear(year)
+      if (this.pickerMode) {
+        this.onOK()
+      }      
     }
   }
 }

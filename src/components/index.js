@@ -55,6 +55,7 @@ import HPage from './page/Page.vue'
 import HPageContent from './page/PageContent.vue'
 import HPageHeader from './page/PageHeader.vue'
 import HPageFooter from './page/PageFooter.vue'
+import HYoutubeVideo from './video/YoutubeVideo.vue'
 
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
@@ -114,7 +115,8 @@ const Components = {
   HPage,
   HPageContent,
   HPageHeader,
-  HPageFooter
+  HPageFooter,
+  HYoutubeVideo
 }
 
 Object.keys(Components).forEach(name => {

@@ -16,6 +16,7 @@
           :date="value"
           @ok="ok"
           @cancel="hidePanel"
+          :pickerMode="false"
         )
 
 </template>

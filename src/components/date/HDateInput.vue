@@ -19,7 +19,8 @@
         date-panel(
           :week_days="week_days"
           :months="months"
-          :date="value"
+          :date="value",
+          :pickerMode="false"
           @ok="ok"
           @cancel="hidePanel"
         )

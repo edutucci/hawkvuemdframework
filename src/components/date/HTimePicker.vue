@@ -29,7 +29,8 @@ export default {
   },
   methods: {
     ok (date) {
-      this.$emit('input ', this.currentDate)
+      console.log('date: ' + date)
+      this.$emit('input', date)
     }
   }
 }

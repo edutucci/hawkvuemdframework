@@ -35,8 +35,10 @@ export default new Router({
         { path: '/table', component: () => import('./views/table') },
         { path: '/toolbar', component: () => import('./views/toolbar') },
         { path: '/modal', component: () => import('./views/modal') },
-        { path: '/DateTime', component: () => import('./views/dateTime') },
+        { path: '/date', component: () => import('./views/date') },
+        { path: '/time', component: () => import('./views/time') },
         { path: '/toggle', component: () => import('./views/toggle') },
+        { path: '/video', component: () => import('./views/video') },
         { path: '/snack', component: () => import('./views/plugins/snack') },
         { path: '/loading', component: () => import('./views/plugins/loading') }
       ]

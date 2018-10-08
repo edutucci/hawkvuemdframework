@@ -42,7 +42,8 @@
                 <h-collapsible-item text="Checkbox" @click="$router.push('/checkbox'), $refs.nav.close()"/>
                 <h-collapsible-item text="Chips/InputChips" @click="$router.push('/chip'), $refs.nav.close()"/>
                 <h-collapsible-item text="Collapsible" @click="$router.push('/collapsible'), $refs.nav.close()"/>
-                <h-collapsible-item text="DateTime" @click="$router.push('/datetime'), $refs.nav.close()"/>
+                <h-collapsible-item text="Date" @click="$router.push('/date'), $refs.nav.close()"/>
+                <h-collapsible-item text="Time" @click="$router.push('/time'), $refs.nav.close()"/>
                 <h-collapsible-item text="Icons" @click="$router.push('/icon'), $refs.nav.close()"/>
                 <h-collapsible-item text="List" @click="$router.push('/list'), $refs.nav.close()"/>
                 <h-collapsible-item text="Menu" @click="$router.push('/menu'), $refs.nav.close()"/>
@@ -55,6 +56,7 @@
                 <h-collapsible-item text="Textfield" @click="$router.push('/textfield'), $refs.nav.close()"/>
                 <h-collapsible-item text="Toolbar" @click="$router.push('/toolbar'), $refs.nav.close()"/>
                 <h-collapsible-item text="Toggle" @click="$router.push('/toggle'), $refs.nav.close()"/>
+                <h-collapsible-item text="Video" @click="$router.push('/video'), $refs.nav.close()"/>
               </h-collapsible-menu>
 
               <h-collapsible-menu icon="fas fa-plug" text="Plugins">

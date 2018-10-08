@@ -1,5 +1,5 @@
 <template lang="pug">
-  <div class="full-width" style="background-color:white">
+  <div class="full-width boxshadow" style="background-color:white">
     <div class=" flex flex-justify-center flex-items-center text-white bg-primary h-pa-md">
       <div class="btn bg-primary" @click="panelMode= (panelMode === '12h' || panelMode === 'min') ? '24h' : '12h'"><h1>{{curHour}}</h1></div>
       <div class="h-pl-sm h-pr-sm"><h1>:</h1></div>
@@ -22,8 +22,8 @@
       </div>
     </div>
     <div class="flex flex-justify-end">
-      h-btn(textbutton text="OK" @click="onOK")
-      h-btn(textbutton text="Close" @click="onClose")
+      h-btn(textbutton text="OK" textcolor="text-primary" class="h-pr-md" @click="onOK")
+      h-btn(v-if="!pickerMode" textbutton text="Close" textcolor="text-primary" class="h-pr-md" @click="onClose")
     </div>
   </div>
 
@@ -40,7 +40,11 @@ export default {
     date: {
       type: Date,
       default: new Date()
-    }
+    },
+    pickerMode: {
+      type: Boolean,
+      default: true
+    }    
   },
   components: {
     HBtn
@@ -331,6 +335,7 @@ export default {
     },
     onOK () {
       this.configTime(this.curHour, this.curMin)
+      console.log('this curdate: ' + this.currentDate)
       this.$emit('ok', this.currentDate)
     },
     onClose () {
