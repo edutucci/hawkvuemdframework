@@ -2,14 +2,14 @@
   h-page
     h-page-header(fixed)
       h-app-toolbar
-        h-app-toolbar-container(bgcolor="bg-primary" textcolor="text-white")
+        h-app-toolbar-container(bgcolor="bg-secondary" textcolor="text-white")
           h-app-toolbar-navigation(icon="fas fa-bars" textcolor="text-white" @click="$refs.nav.open()")
           h-app-toolbar-title(title="HawkFramework")
           h-app-toolbar-action
-            router-link(to="/yourpage")
-              h-fa-icon(icon="fas fa-globe" textcolor="text-white")
-            a(href='https://github.com/edutucci/hawkframework' target="_blank")
-              h-fa-icon(icon="fab fa-github" textcolor="text-white")
+            h-btn(contained left-icon="fas fa-globe" textcolor="text-white" transparent)
+              html-link(router-link="/yourpage")
+            h-btn(contained left-icon="fab fa-github" textcolor="text-white" transparent)
+              html-link(url="https://github.com/edutucci/hawkframework")
 
     <h-nav-drawer ref="nav">
       <div class="flex flex-column bg-white full-size" style="display: inline-flex;">
@@ -33,6 +33,7 @@
                 <h-collapsible-item text="Flexbox" @click="$router.push('/flexbox'), $refs.nav.close()"/>
                 <h-collapsible-item text="Text Alignment" @click="$router.push('/textalignment'), $refs.nav.close()"/>
                 <h-collapsible-item text="Positioning" @click="$router.push('/positioning'), $refs.nav.close()"/>
+                <h-collapsible-item text="Visibility" @click="$router.push('/visibility'), $refs.nav.close()"/>
                 <h-collapsible-item text="Others" @click="$router.push('/cssothers'), $refs.nav.close()"/>
               </h-collapsible-menu>
 
@@ -43,6 +44,7 @@
                 <h-collapsible-item text="Chips/InputChips" @click="$router.push('/chip'), $refs.nav.close()"/>
                 <h-collapsible-item text="Collapsible" @click="$router.push('/collapsible'), $refs.nav.close()"/>
                 <h-collapsible-item text="Date" @click="$router.push('/date'), $refs.nav.close()"/>
+                <h-collapsible-item text="Drawer" @click="$router.push('/drawer'), $refs.nav.close()"/>
                 <h-collapsible-item text="Time" @click="$router.push('/time'), $refs.nav.close()"/>
                 <h-collapsible-item text="Icons" @click="$router.push('/icon'), $refs.nav.close()"/>
                 <h-collapsible-item text="List" @click="$router.push('/list'), $refs.nav.close()"/>
@@ -76,7 +78,7 @@
       </div>
     </h-nav-drawer>
 
-    h-page-content(style="margin-top: 52px; margin-bottom: 112px")
+    h-page-content(style="margin-top: 62px; margin-bottom: 62px")
       router-view
 
     h-page-footer(fixed)

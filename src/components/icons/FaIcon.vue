@@ -5,12 +5,10 @@
     :style="styleObject"
     @click="onClick"
   )
-    slot
  </template>
 
 <script>
 
-// import FontAwesomeIcon from '@fortawesome/vue-fontawesome'
 import componentBase from '../componentBase.vue'
 
 export default {

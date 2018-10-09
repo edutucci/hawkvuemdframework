@@ -2,10 +2,10 @@
   div(style="display:inline-block;")
     div(v-if="contained"
       @click="onClick"
-      class="btn flex flex-items-center boxshadow"
-      :class="[bgcolor, textcolor]"
+      class="btn flex flex-items-center"
+      :class="[bgcolor, textcolor, {'boxshadow': !transparent}]"
       style="position: relative;"
-      :style="[btnSize]"
+      :style="[btnObject]"
     )
       div(class="btn-content full-width flex flex-justify-center")
         div(v-if="leftIcon && leftIcon.length > 0" class="flex-align-center")
@@ -22,8 +22,7 @@
       style="position: relative;"
     )
       div(class="btn-content full-width flex flex-justify-center")
-        div(class="flex flex-align-center" :class="[textcolor]")
-          | {{text.toUpperCase()}}
+        | {{text.toUpperCase()}}
         slot
     div(v-else-if="outlined"
       @click="onClick"
@@ -65,20 +64,34 @@ export default {
     },
     disabled: {
       type: Boolean
+    },
+    transparent: {
+      type: Boolean,
+      default: false
     }
   },
   components: {
   },
   data () {
     return {
-      btnSize: {
-        height: '20px'
+      btnObject: {
+        height: '20px',
+        background: ''
       }
     }
   },
   mounted () {
+    this.checkTransparent()
+  },
+  watch: {
+    transparent: function (value) {
+      this.checkTransparent()
+    }
   },
   methods: {
+    checkTransparent () {
+      this.btnObject.background = (this.transparent) ? 'none' : ''
+    },
     onClick () {
       if (!this.disabled) {
         this.$emit('click')

@@ -18,11 +18,13 @@ export default new Router({
         { path: '/flexbox', component: () => import('./views/css/flexbox') },
         { path: '/textalignment', component: () => import('./views/css/textalignment') },
         { path: '/positioning', component: () => import('./views/css/positioning') },
+        { path: '/visibility', component: () => import('./views/css/visibility') },
         { path: '/cssothers', component: () => import('./views/css/others') },
         { path: '/buttons', component: () => import('./views/buttons') },
         { path: '/icon', component: () => import('./views/icon') },
         { path: '/textfield', component: () => import('./views/textfield') },
         { path: '/search', component: () => import('./views/search') },
+        { path: '/drawer', component: () => import('./views/drawer') },
         { path: '/card', component: () => import('./views/card') },
         { path: '/chip', component: () => import('./views/chips') },
         { path: '/menu', component: () => import('./views/menu') },
@@ -40,7 +42,8 @@ export default new Router({
         { path: '/toggle', component: () => import('./views/toggle') },
         { path: '/video', component: () => import('./views/video') },
         { path: '/snack', component: () => import('./views/plugins/snack') },
-        { path: '/loading', component: () => import('./views/plugins/loading') }
+        { path: '/loading', component: () => import('./views/plugins/loading') },
+        { path: '/test', component: () => import('./views/test') }
       ]
     }
   ]

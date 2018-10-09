@@ -1,5 +1,5 @@
 <template>
-  <div class="full-size">
+  <div>
     <h1> Contained Buttons </h1>
     <div>
       <div>
@@ -65,6 +65,42 @@
       </code>
     </pre>
 
+    <h1>Links</h1>
+    <h-btn contained bgcolor="bg-primary" left-icon="fas fa-envelope" textcolor="text-white">
+      <html-link text="github" url="https://github.com/edutucci/hawkframework" textcolor="text-white"/>
+    </h-btn>
+
+    <h-btn textbutton>
+      <html-link text="github" url="https://github.com/edutucci/hawkframework"/>
+    </h-btn>
+
+    <h-btn outlined>
+      <html-link text="github new window" url="https://github.com/edutucci/hawkframework" new-window/>
+    </h-btn>
+
+    <pre v-highlightjs="linksButtons">
+      <code class="html">
+      </code>
+    </pre>
+
+    <h1>Router</h1>
+    <h-btn contained bgcolor="bg-primary" left-icon="fas fa-envelope" textcolor="text-white">
+      <html-link text="github" router-link="/buttons" textcolor="text-white"/>
+    </h-btn>
+
+    <h-btn textbutton>
+      <html-link text="github" router-link="/buttons"/>
+    </h-btn>
+
+    <h-btn outlined>
+      <html-link text="github" router-link="/buttons"/>
+    </h-btn>
+
+    <pre v-highlightjs="routerButtons">
+      <code class="html">
+      </code>
+    </pre>
+
     <h1>Counters</h1>
     <h-btn contained bgcolor="bg-primary" textcolor="text-white" text="warning">
       <h-counter bgcolor="bg-negative" textcolor="text-white">123</h-counter>
@@ -96,6 +132,7 @@
         <div>textbutton</div>
         <div>outlined</div>
         <div>disabled</div>
+        <div>transparent</div>
       </div>
       <div class="h-pl-md">
         <h3>Type</h3>
@@ -104,6 +141,7 @@
         <div>String</div>
         <div>String</div>
         <div>String</div>
+        <div>Boolean</div>
         <div>Boolean</div>
         <div>Boolean</div>
         <div>Boolean</div>
@@ -120,6 +158,7 @@
         <div>Sets to button to textbutton mode</div>
         <div>Sets to button to outlined mode</div>
         <div>Button is disabled</div>
+        <div>Useful for toolbar icons. Removes background and shadow.</div>
       </div>
     </div>
 
@@ -273,6 +312,32 @@ export default {
   <h-btn-float minifloat icon="fas fa-plus"> </h-btn-float>
   <h-btn-float minifloat bgcolor="bg-warning" icon="fas fa-plus"> </h-btn-float>
 </div>
+      `,
+      linksButtons: `
+<h-btn contained bgcolor="bg-primary" left-icon="fas fa-envelope" textcolor="text-white">
+  <html-link text="github" url="https://github.com/edutucci/hawkframework" textcolor="text-white"/>
+</h-btn>
+
+<h-btn textbutton>
+  <html-link text="github" url="https://github.com/edutucci/hawkframework"/>
+</h-btn>
+
+<h-btn outlined>
+  <html-link text="github new window" url="https://github.com/edutucci/hawkframework" new-window/>
+</h-btn>
+      `,
+      routerButtons: `
+<h-btn contained bgcolor="bg-primary" left-icon="fas fa-envelope" textcolor="text-white">
+  <html-link text="github" router-link="/buttons" textcolor="text-white"/>
+</h-btn>
+
+<h-btn textbutton>
+  <html-link text="github" router-link="/buttons"/>
+</h-btn>
+
+<h-btn outlined>
+  <html-link text="github" router-link="/buttons"/>
+</h-btn>
       `
     }
   },

@@ -2,6 +2,7 @@ import Vue from 'vue'
 
 import HBtn from './buttons/HBtn.vue'
 import HBtnFloat from './buttons/HBtnFloat.vue'
+import HtmlLink from './text/HtmlLink.vue'
 import HCard from './card/HCard.vue'
 import HCardHeader from './card/HCardHeader'
 import HCardMedia from './card/HCardMedia'
@@ -63,6 +64,7 @@ const Components = {
   FontAwesomeIcon,
   HBtn,
   HBtnFloat,
+  HtmlLink,
   HCard,
   HCardHeader,
   HCardMedia,

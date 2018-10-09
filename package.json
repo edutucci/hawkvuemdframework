@@ -21,7 +21,7 @@
     "build-lib": "vue-cli-service build --target lib --name hawkframework ./src/index.js",
     "lint": "vue-cli-service lint",
     "copy-unix": "cp ./src/theme/components.styl ./dist/",
-    "copy-win": "copy src/theme/components.styl dist/",
+    "copy-win": "copy src\\theme\\components.styl dist/",
     "build-lib-unix": "yarn build-lib && yarn copy-unix",
     "build-lib-win:": "yarn build-lib && yarn copy-win"
   },
