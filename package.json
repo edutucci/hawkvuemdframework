@@ -21,16 +21,11 @@
     "build-lib": "vue-cli-service build --target lib --name hawkframework ./src/index.js",
     "lint": "vue-cli-service lint",
     "copy-unix": "cp ./src/theme/components.styl ./dist/",
-    "copy-win": "copy src\\theme\\components.styl dist/",
+    "copy-win": "copy src\\theme\\components.styl dist",
     "build-lib-unix": "yarn build-lib && yarn copy-unix",
     "build-lib-win:": "yarn build-lib && yarn copy-win"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.4",
-    "@fortawesome/free-brands-svg-icons": "^5.3.1",
-    "@fortawesome/free-regular-svg-icons": "^5.3.1",
-    "@fortawesome/free-solid-svg-icons": "^5.3.1",
-    "@fortawesome/vue-fontawesome": "^0.1.1",
     "lodash": "^4.17.10",
     "moment": "^2.22.2",
     "parse": "^2.0.0",

@@ -29,7 +29,7 @@ export default {
   },
   methods: {
     ok (date) {
-      console.log('date: ' + date)
+      // console.log('date: ' + date)
       this.$emit('input', date)
     }
   }

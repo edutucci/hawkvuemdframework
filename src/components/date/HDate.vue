@@ -77,7 +77,7 @@ export default {
       let self = this
       let year = this.currentDate.getFullYear()
       let monnth = this.currentDate.getMonth()
-      console.log('month vale: ' + monnth)
+      // console.log('month vale: ' + monnth)
 
       let calendarDate = new Date(year, monnth, 1)
       calendarDate.setDate(1)

@@ -1,5 +1,5 @@
 <template lang="pug">
-  div.full-width.flex.flex-row
+  .toolbar.full-width.flex.flex-row
     slot
 </template>
 

@@ -24,10 +24,21 @@ export default {
       }
     }
   },
-  created () {
-    this.imgsize.width = this.size
-    this.imgsize.height = this.size
+  mounted () {
+    this.defineSize()
+  },
+  watch: {
+    size: function (value) {
+      this.defineSize()
+    }
+  },
+  methods: {
+    defineSize () {
+      this.imgsize.width = this.size
+      this.imgsize.height = this.size
+    }
   }
+
 }
 </script>
 

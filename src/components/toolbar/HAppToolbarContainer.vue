@@ -1,7 +1,7 @@
 <template lang="pug">
   div.full-width.flex.flex-wrap.flex-items-center(
     :class="[bgcolor, textcolor]"
-    style="padding:16px;"
+    style="padding-left: 16px;"
   )
     slot
 </template>

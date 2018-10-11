@@ -1,65 +1,48 @@
 <template>
-  <div style="position:relative;">
-    <div class="flex flex-row">
-
-      <div class="menulist menu-icon-left menu-item">
-        <div class="flex flex-column " style="color:white;cursor:pointer;height:40px;"
-          v-for="(icon, index) in icons" :key="index"
-          @click="selectMenu(index, icon)"
-        >
-          <h-fa-icon :icon="icon.icon" />
-        </div>
-      </div>
-      <div
-      :style="{ width: activeWidth }"
-      style="position:absolute; z-index: 3; left:68px;"
-      v-if="currentMenu.menuItems.length > 0"
+  <div class="slide-menu" style="background: violet">
+    <div
+      class="full-height"
+      :class="bgcolor"
+    >
+      <div class="slide-menu-image flex" style="color:white;cursor:pointer;"
+        @click="selectMenu(item)"
       >
-        <div class="flex flex-column full-width boxshadow">
-          <div class="flex flex-row" style="background-color: #a6acaf;">
-            <div class="flex flex-row flex-justify-center flex-items-center flex-1">
-              <div style="margin-right: 4px;">
-                <font-awesome-icon :icon="currentMenu.menuIcon"/>
-              </div>
-              <div class="menu-title flex flex-items-center">
-                <h3>{{currentMenu.menuTitle}} </h3>
-              </div>
-            </div>
-            <div @click="closeMenu" class="close flex flex-justify-end flex-items-center">
-              <font-awesome-icon :icon="['fas', 'times-circle']"/>
-            </div>
-         </div>
-          <div class="flex flex-column" >
-            <div
-              class="flex flex-justify-center"
-              style="cursor:pointer;"
-              v-for="(item, index) in currentMenu.menuItems" :key="index"
-            >
-              <h-slide-menu-item :label="item.label" />
-            </div>
-          </div>
-        </div>
+        <h-fa-icon
+          v-if="icon"
+          :icon="icon"
+          size="24px"
+          :class="textcolor"
+        />
+        <h-avatar
+        v-else-if="avatar"
+        :src="avatar"
+        size="32px"
+        />
       </div>
-
     </div>
-
+    <div class="slide-menu-item">
+      <slot></slot>
+    </div>
   </div>
 </template>
 
 <script>
 
+import { mixin as clickaway } from 'vue-clickaway'
+import componentBase from '../componentBase.vue'
+
 export default {
+  mixins: [ clickaway ],
+  extends: componentBase,
   props: {
-    icons: {
-      type: Array,
-      default: () => ([])
+    icon: {
+      type: String,
+      default: ''
     },
-    menu: {
-      type: Array,
-      default: () => { return '' }
+    avatar: {
+      type: String,
+      default: ''
     }
-  },
-  components: {
   },
   data () {
     return {
@@ -71,7 +54,9 @@ export default {
         menuTitle: '',
         menuItems: []
       },
-      itembackgroundColor: 'list-item-color'
+      itembackgroundColor: 'list-item-color',
+      menus: [],
+      isVisible: false
     }
   },
   created () {
@@ -79,47 +64,27 @@ export default {
   mounted () {
   },
   methods: {
-    selectMenu (index, icon) {
-      this.activeWidth = '200px'
-      this.currentMenu.menuTitle = icon.label
-      this.currentMenu.menuIcon = icon.icon
-      this.currentMenu.menuItems = this.menu[index]
-    },
-    closeMenu () {
-      this.activeWidth = '0px'
-      this.currentMenu = {
-        menuIcon: [],
-        menuTitle: '',
-        menuItems: []
-      }
-    },
-    onMouseOverItem (color) {
-      this.itembackgroundColor = color
+    setVisible (value) {
+      this.isVisible = value
     }
   }
 }
 </script>
 
 <style scoped>
-.menulist {
-  background-color: DodgerBlue;
+.slide-menu {
+  position:relative;
+  font-size: 16px;
 }
 
-.slidemenu {
-  background-color: gray;
-  display: inline-block;
-  padding: 16px;
-  font-size: 16px;
-  line-height: 30px;
+.slide-menu-item {
+  position:absolute;
+  top:0px;
+  z-index: 1600;
+  left:44px;
+  padding: 8px;
   overflow-x: hidden;
   overflow-y: auto;
-  opacity: 0.3;
-  z-index: 2;
+  line-height: 30px;
 }
-
-.close {
-  margin: 4px;
-  cursor:pointer;
-}
-
 </style>

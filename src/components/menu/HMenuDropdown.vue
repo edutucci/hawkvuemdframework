@@ -26,6 +26,7 @@ import componentBase from '../componentBase.vue'
 
 export default {
   extends: componentBase,
+  mixins: [ clickaway ],
   props: {
     icon: {
       type: String,
@@ -40,7 +41,6 @@ export default {
       default: false
     }
   },
-  mixins: [ clickaway ],
   data () {
     return {
       showdropdown: false,

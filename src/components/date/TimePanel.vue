@@ -335,7 +335,7 @@ export default {
     },
     onOK () {
       this.configTime(this.curHour, this.curMin)
-      console.log('this curdate: ' + this.currentDate)
+      // console.log('this curdate: ' + this.currentDate)
       this.$emit('ok', this.currentDate)
     },
     onClose () {

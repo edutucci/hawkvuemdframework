@@ -2,7 +2,7 @@
   h-page
     h-page-header(fixed)
       h-app-toolbar
-        h-app-toolbar-container(bgcolor="bg-secondary" textcolor="text-white")
+        h-app-toolbar-container(bgcolor="bg-primary" textcolor="text-white")
           h-app-toolbar-navigation(icon="fas fa-bars" textcolor="text-white" @click="$refs.nav.open()")
           h-app-toolbar-title(title="HawkFramework")
           h-app-toolbar-action
@@ -49,6 +49,7 @@
                 <h-collapsible-item text="Icons" @click="$router.push('/icon'), $refs.nav.close()"/>
                 <h-collapsible-item text="List" @click="$router.push('/list'), $refs.nav.close()"/>
                 <h-collapsible-item text="Menu" @click="$router.push('/menu'), $refs.nav.close()"/>
+                <h-collapsible-item text="MenuSlider" @click="$router.push('/menuSlider'), $refs.nav.close()"/>
                 <h-collapsible-item text="Modal" @click="$router.push('/modal'), $refs.nav.close()"/>
                 <h-collapsible-item text="Radio" @click="$router.push('/radio'), $refs.nav.close()"/>
                 <h-collapsible-item text="Search" @click="$router.push('/search'), $refs.nav.close()"/>
@@ -78,7 +79,7 @@
       </div>
     </h-nav-drawer>
 
-    h-page-content(style="margin-top: 62px; margin-bottom: 62px")
+    h-page-content(style="margin-top: 62px; margin-bottom: 65px")
       router-view
 
     h-page-footer(fixed)

@@ -41,7 +41,9 @@ import HMenuBar from './menu/HMenuBar.vue'
 import HMenuBarItem from './menu/HMenuBarItem.vue'
 import HMenuDropdown from './menu/HMenuDropdown.vue'
 import HMenuDropdownItem from './menu/HMenuDropdownItem.vue'
+import HSlideMenuList from './menu/SlideMenuList.vue'
 import HSlideMenu from './menu/HSlideMenu.vue'
+import HSlideMenuItem from './menu/HSlideMenuItem.vue'
 import HModal from './window/HModal'
 import HNavDrawer from '../components/window/HNavDrawer'
 import HRadio from './radio/HRadio.vue'
@@ -58,10 +60,7 @@ import HPageHeader from './page/PageHeader.vue'
 import HPageFooter from './page/PageFooter.vue'
 import HYoutubeVideo from './video/YoutubeVideo.vue'
 
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-
 const Components = {
-  FontAwesomeIcon,
   HBtn,
   HBtnFloat,
   HtmlLink,
@@ -103,7 +102,9 @@ const Components = {
   HMenuBarItem,
   HMenuDropdown,
   HMenuDropdownItem,
+  HSlideMenuList,
   HSlideMenu,
+  HSlideMenuItem,
   HModal,
   HNavDrawer,
   HRadio,

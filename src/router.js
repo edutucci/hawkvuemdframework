@@ -28,6 +28,7 @@ export default new Router({
         { path: '/card', component: () => import('./views/card') },
         { path: '/chip', component: () => import('./views/chips') },
         { path: '/menu', component: () => import('./views/menu') },
+        { path: '/menuSlider', component: () => import('./views/menuSlider') },
         { path: '/list', component: () => import('./views/list') },
         { path: '/collapsible', component: () => import('./views/collapsible') },
         { path: '/checkbox', component: () => import('./views/checkbox') },

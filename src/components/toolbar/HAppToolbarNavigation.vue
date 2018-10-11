@@ -1,5 +1,5 @@
 <template lang="pug">
-  div.flex(style="padding-right: 16px;" @click="onClick")
+  div.flex(style="" @click="onClick")
     h-fa-icon(:icon="icon" :textcolor="textcolor")
 </template>
 

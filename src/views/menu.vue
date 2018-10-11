@@ -120,28 +120,6 @@
       </div>
     </div>
 
-    //- <p>Slide Menu</p>
-    //- <div class="flex flex-row">
-    //-   <div class="flex flex-justify-start">
-
-    //-     <h-slide-menu :icons="slideMenuIcons" :menu="slideMenuList">
-    //-         <h-slide-menu-item name="home" :icon="['fas', 'user']" />
-    //-         <h-slide-menu-item name="download" :icon="['fas', 'envelope']"/>
-    //-       </h-slide-menu-list>
-    //-       <h-slide-menu-list>
-    //-         <h-slide-menu-item name="home" :icon="['fas', 'user']" />
-    //-         <h-slide-menu-item name="download" :icon="['fas', 'user']"/>
-    //-       </h-slide-menu-list>
-    //-     </h-slide-menu>
-
-    //-     <p>Fa Icon</p>
-    //-     <h-fa-icon :icon="['fas', 'user']"/>
-    //-     <h-fa-icon :icon="['fas', 'user']"/>
-    //-   </div>
-    //-   <div class="flex flex-1">
-    //-   </div>
-    //- </div>
-
   </div>
 </template>
 
@@ -152,28 +130,6 @@ export default {
   },
   data () {
     return {
-      slideMenuIcons: [
-        { 'label': 'Usuario', 'icon': ['fas', 'user'] },
-        { 'label': 'Messages', 'icon': ['fas', 'envelope'] },
-        { 'label': 'Usuario', 'icon': ['fas', 'user'] },
-        { 'label': 'Messages', 'icon': ['fas', 'envelope'] }
-      ],
-      slideMenuList: [
-        [
-          { 'label': 'item 1', 'url': 'https://www.terra.com.br/' },
-          { 'label': 'item 1', 'url': 'https://www.terra.com.br/' },
-          { 'label': 'item 1', 'url': 'https://www.terra.com.br/' },
-          { 'label': 'item 1', 'url': 'https://www.terra.com.br/' },
-          { 'label': 'item 1', 'url': 'https://www.terra.com.br/' }
-        ],
-        [
-          { 'label': 'item 2', 'url': 'https://www.terra.com.br/' },
-          { 'label': 'item 2', 'url': 'https://www.terra.com.br/' },
-          { 'label': 'item 2', 'url': 'https://www.terra.com.br/' },
-          { 'label': 'item 2', 'url': 'https://www.terra.com.br/' },
-          { 'label': 'item 2', 'url': 'https://www.terra.com.br/' }
-        ]
-      ],
       menutop: `
 <div class="flex h-ma-lg">
   .col-3.flex-1
