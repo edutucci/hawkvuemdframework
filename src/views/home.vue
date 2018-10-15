@@ -6,10 +6,10 @@
           h-app-toolbar-navigation(icon="fas fa-bars" textcolor="text-white" @click="$refs.nav.open()")
           h-app-toolbar-title(title="HawkFramework")
           h-app-toolbar-action
-            h-btn(contained left-icon="fas fa-globe" textcolor="text-white" transparent)
-              html-link(router-link="/yourpage")
-            h-btn(contained left-icon="fab fa-github" textcolor="text-white" transparent)
-              html-link(url="https://github.com/edutucci/hawkframework")
+            h-btn(contained transparent)
+              html-link(url="/" icon="fas fa-globe" textcolor="text-white")
+            h-btn(contained transparent)
+              html-link(url="https://github.com/edutucci/hawkframework" icon="fab fa-github" textcolor="text-white" new-window)
 
     <h-nav-drawer ref="nav">
       <div class="flex flex-column bg-white full-size" style="display: inline-flex;">

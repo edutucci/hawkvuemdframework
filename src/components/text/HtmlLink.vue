@@ -1,23 +1,20 @@
 <template lang="pug">
-  router-link.h-pl-xs(
-    v-if="routerLink && routerLink.length > 0"
-    :class="textcolor"
-    :to="routerLink"
-  )
-    | {{text}}
-  a.h-pl-xs(
-    v-else-if="!newWindow"
+  a(
+    v-if="url && url.length > 0 && !newWindow"
     :class="textcolor"
     :href="url"
   )
-    | {{text}}
-  a.h-pl-xs(
-    v-else-if="newWindow"
+    h-fa-icon(v-if="icon && icon.length > 0" :textcolor="textcolor" :icon="icon" size="16px")
+    span(v-if="text && text.length > 0").h-pl-xs {{text}}
+  a(
+    v-else-if="url && url.length > 0 && newWindow"
     :class="textcolor"
     :href="url"
     target="_blank"
   )
-    | {{text}}
+    h-fa-icon(v-if="icon && icon.length > 0" :textcolor="textcolor" :icon="icon" size="16px")
+    span(v-if="text && text.length > 0").h-pl-xs {{text}}
+  span(v-else) {{text}}
 </template>
 
 <script>
@@ -31,7 +28,7 @@ export default {
       type: String,
       default: ''
     },
-    routerLink: {
+    icon: {
       type: String,
       default: ''
     },

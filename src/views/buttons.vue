@@ -66,8 +66,8 @@
     </pre>
 
     <h1>Links</h1>
-    <h-btn contained bgcolor="bg-primary" left-icon="fas fa-envelope" textcolor="text-white">
-      <html-link text="github" url="https://github.com/edutucci/hawkframework" textcolor="text-white"/>
+    <h-btn contained bgcolor="bg-primary">
+      <html-link icon="fab fa-github" text="github" url="https://github.com/edutucci/hawkframework" textcolor="text-white"/>
     </h-btn>
 
     <h-btn textbutton>
@@ -75,7 +75,7 @@
     </h-btn>
 
     <h-btn outlined>
-      <html-link text="github new window" url="https://github.com/edutucci/hawkframework" new-window/>
+      <html-link icon="fab fa-github" text="github new window" url="https://github.com/edutucci/hawkframework" new-window/>
     </h-btn>
 
     <pre v-highlightjs="linksButtons">
@@ -84,16 +84,16 @@
     </pre>
 
     <h1>Router</h1>
-    <h-btn contained bgcolor="bg-primary" left-icon="fas fa-envelope" textcolor="text-white">
-      <html-link text="github" router-link="/buttons" textcolor="text-white"/>
+    <h-btn contained bgcolor="bg-primary">
+      <html-link text="to this page" url="/main" textcolor="text-white"/>
     </h-btn>
 
     <h-btn textbutton>
-      <html-link text="github" router-link="/buttons"/>
+      <html-link text="to this page" url="/buttons"/>
     </h-btn>
 
     <h-btn outlined>
-      <html-link text="github" router-link="/buttons"/>
+      <html-link text="to this page" url="/buttons"/>
     </h-btn>
 
     <pre v-highlightjs="routerButtons">
@@ -314,8 +314,8 @@ export default {
 </div>
       `,
       linksButtons: `
-<h-btn contained bgcolor="bg-primary" left-icon="fas fa-envelope" textcolor="text-white">
-  <html-link text="github" url="https://github.com/edutucci/hawkframework" textcolor="text-white"/>
+<h-btn contained bgcolor="bg-primary">
+  <html-link icon="fab fa-github" text="github" url="https://github.com/edutucci/hawkframework" textcolor="text-white"/>
 </h-btn>
 
 <h-btn textbutton>
@@ -323,20 +323,20 @@ export default {
 </h-btn>
 
 <h-btn outlined>
-  <html-link text="github new window" url="https://github.com/edutucci/hawkframework" new-window/>
+  <html-link icon="fab fa-github" text="github new window" url="https://github.com/edutucci/hawkframework" new-window/>
 </h-btn>
       `,
       routerButtons: `
-<h-btn contained bgcolor="bg-primary" left-icon="fas fa-envelope" textcolor="text-white">
-  <html-link text="github" router-link="/buttons" textcolor="text-white"/>
+<h-btn contained bgcolor="bg-primary">
+  <html-link text="to this page" url="/buttons" textcolor="text-white"/>
 </h-btn>
 
 <h-btn textbutton>
-  <html-link text="github" router-link="/buttons"/>
+  <html-link text="to this page" url="/buttons"/>
 </h-btn>
 
 <h-btn outlined>
-  <html-link text="github" router-link="/buttons"/>
+  <html-link text="to this page" url="/buttons"/>
 </h-btn>
       `
     }

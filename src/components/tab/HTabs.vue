@@ -1,7 +1,7 @@
 <template>
   <div class="scroll">
     <div v-if="!vertical" class="flex flex-column">
-      <div class="flex flex-wrap" :class="bgcolor">
+      <div class="flex scroll" :class="bgcolor">
           <div v-for="(tab, index) in tabs" :key="index"
           class="h-pa-sm tab"
             :class="[bordercolor[index], bgcolor, textcolor]"

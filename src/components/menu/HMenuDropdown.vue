@@ -80,7 +80,7 @@ export default {
   min-width: 250px;
   max-height: 150px;
   overflow-y: auto;
-  z-index: 1;
+  z-index: 1650;
   cursor: pointer;
 }
 </style>

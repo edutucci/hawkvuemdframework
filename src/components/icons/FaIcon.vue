@@ -19,7 +19,7 @@ export default {
     },
     size: {
       type: String,
-      default: '16px'
+      default: '20px'
     },
     pulse: {
       type: Boolean,

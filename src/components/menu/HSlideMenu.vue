@@ -1,26 +1,6 @@
 <template>
-  <div class="slide-menu" style="background: violet">
-    <div
-      class="full-height"
-      :class="bgcolor"
-    >
-      <div class="slide-menu-image flex" style="color:white;cursor:pointer;"
-        @click="selectMenu(item)"
-      >
-        <h-fa-icon
-          v-if="icon"
-          :icon="icon"
-          size="24px"
-          :class="textcolor"
-        />
-        <h-avatar
-        v-else-if="avatar"
-        :src="avatar"
-        size="32px"
-        />
-      </div>
-    </div>
-    <div class="slide-menu-item">
+  <div>
+    <div>
       <slot></slot>
     </div>
   </div>
@@ -42,6 +22,10 @@ export default {
     avatar: {
       type: String,
       default: ''
+    },
+    text: {
+      type: String,
+      default: ''
     }
   },
   data () {
@@ -55,26 +39,55 @@ export default {
         menuItems: []
       },
       itembackgroundColor: 'list-item-color',
-      menus: [],
+      menuList: [],
       isVisible: false
     }
   },
   created () {
   },
   mounted () {
+    this.$parent.addSlideMenuList({
+      text: this.text,
+      icon: this.icon,
+      avatar: this.avatar,
+      menuList: this.menuList
+    })
+  },
+  watch: {
+    text: function (valueNew, valueOld) {
+      this.updateSlideMenuList(valueOld)
+    }
   },
   methods: {
     setVisible (value) {
       this.isVisible = value
+    },
+    addSlideMenuItem (menuItem) {
+      this.menuList.push(menuItem)
+    },
+    updateSlideMenuItem (textNew, textOld) {
+      let index = this.menuList.findIndex(item => item.text === textOld)
+      if (index !== -1) {
+        this.$set(this.menuList, index, textNew)
+        this.updateSlideMenuList(this.text)
+      }
+    },
+    updateSlideMenuList (valueOld) {
+      this.$parent.updateSlideMenuList({
+        textOld: valueOld,
+        text: this.text,
+        icon: this.icon,
+        avatar: this.avatar,
+        menuList: this.menuList
+      })
     }
   }
 }
 </script>
 
 <style scoped>
-.slide-menu {
-  position:relative;
-  font-size: 16px;
+/* .slide-menu-container {
+  display: inline-block;
 }
 
 .slide-menu-item {
@@ -86,5 +99,5 @@ export default {
   overflow-x: hidden;
   overflow-y: auto;
   line-height: 30px;
-}
+} */
 </style>
