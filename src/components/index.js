@@ -20,6 +20,7 @@ import HInputChips from './chips/InputChips.vue'
 import HCounter from './chips/Counter.vue'
 import HDatePicker from './date/HDatePicker.vue'
 import HDateInput from './date/HDateInput.vue'
+import HDateTimeInput from './date/DateTimeInput.vue'
 import HTimePicker from './date/HTimePicker.vue'
 import HTimeInput from './date/HTimeInput.vue'
 import HFaIcon from './icons/FaIcon.vue'
@@ -81,6 +82,7 @@ const Components = {
   HCounter,
   HDatePicker,
   HDateInput,
+  HDateTimeInput,
   HTimePicker,
   HTimeInput,
   HFaIcon,

@@ -22,8 +22,8 @@
       </div>
     </div>
     <div class="flex flex-justify-end">
-      h-btn(textbutton text="OK" textcolor="text-primary" class="h-pr-md" @click="onOK")
-      h-btn(v-if="!pickerMode" textbutton text="Close" textcolor="text-primary" class="h-pr-md" @click="onClose")
+      h-btn(outlined text="OK" textcolor="text-primary" class="h-pr-md" @click="onOK")
+      h-btn(v-if="!pickerMode" outlined text="Close" textcolor="text-primary" class="h-pr-md" @click="onClose")
     </div>
   </div>
 

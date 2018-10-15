@@ -11,7 +11,10 @@
           :placeholder="placeholder"
           :readonly="true")
 
-      .flex.flex-justify-center.position-absolute.boxshadow.full-width(v-if="showTimePicker" style="top:67px;background-color: white;z-index: 2;")
+      .flex.flex-justify-center.position-absolute.boxshadow.full-width(
+        v-if="showTimePicker"
+        style="top:67px;background-color: white;z-index: 2;"
+      )
         time-panel(
           :date="value"
           @ok="ok"

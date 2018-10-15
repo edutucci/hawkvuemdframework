@@ -30,19 +30,28 @@ export default {
         this.currentDate = new Date(
           this.currentDate.getFullYear(),
           currentMonth,
-          this.currentDate.getDate()
+          this.currentDate.getDate(),
+          this.currentDate.getHours(),
+          this.currentDate.getMinutes(),
+          this.currentDate.getSeconds()
         )
       } else if (currentMonth === 0) {
         this.currentDate = new Date(
           this.currentDate.getFullYear() - 1,
           this.currentDate.getMonth(),
-          this.currentDate.getDate()
+          this.currentDate.getDate(),
+          this.currentDate.getHours(),
+          this.currentDate.getMinutes(),
+          this.currentDate.getSeconds()
         )
       } else if (currentMonth === 11) {
         this.currentDate = new Date(
           this.currentDate.getFullYear() + 1,
           this.currentDate.getMonth(),
-          this.currentDate.getDate()
+          this.currentDate.getDate(),
+          this.currentDate.getHours(),
+          this.currentDate.getMinutes(),
+          this.currentDate.getSeconds()
         )
       }
 
@@ -52,7 +61,10 @@ export default {
       // console.log('up year:' + year)
       this.currentDate = new Date(year,
         this.currentDate.getMonth(),
-        this.currentDate.getDate()
+        this.currentDate.getDate(),
+        this.currentDate.getHours(),
+        this.currentDate.getMinutes(),
+        this.currentDate.getSeconds()
       )
       this.getCalendar()
     },
@@ -69,7 +81,10 @@ export default {
       // console.log('up month:' + monthNumber)
       this.currentDate = new Date(this.currentDate.getFullYear(),
         monthNumber,
-        this.currentDate.getDate()
+        this.currentDate.getDate(),
+        this.currentDate.getHours(),
+        this.currentDate.getMinutes(),
+        this.currentDate.getSeconds()
       )
       this.getCalendar()
     },
@@ -77,7 +92,10 @@ export default {
       let self = this
       let year = this.currentDate.getFullYear()
       let monnth = this.currentDate.getMonth()
-      // console.log('month vale: ' + monnth)
+
+      let hour = this.currentDate.getHours()
+      let min = this.currentDate.getMinutes()
+      let sec = this.currentDate.getSeconds()
 
       let calendarDate = new Date(year, monnth, 1)
       calendarDate.setDate(1)
@@ -102,7 +120,7 @@ export default {
           if (perDay === startDay && days <= lastDay) {
             weekday.monthDay = days // calendarDate.getDate(),
             weekday.weekDay = perDay
-            weekday.date = new Date(year, monnth, days)
+            weekday.date = new Date(year, monnth, days, hour, min, sec, 0)
             days++ // calendarDate.setDate( calendarDate.getDate() + 1 )
             startDay++
           } else {

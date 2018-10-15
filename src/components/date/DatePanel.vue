@@ -19,7 +19,11 @@
         div
           .btn.bg-primary
             h-fa-icon(textcolor="text-white" icon="fas fa-chevron-right" size="24px" @click="onPrevNextMonth(1)")
-
+    .flex.full-width.flex-items-center.bg-primary(v-if="showTime")
+      .full-width.flex.flex-justify-center.h-pa-md.text-white
+        h2  {{datetime}}
+      div.btn.bg-primary
+        h-fa-icon(icon="fas fa-clock" textcolor="text-white" @click="onShowTime")
     .flex-1.h-pt-md(v-show="panelMode==='days'" style="height:280px")
       .flex
         .flex-1.text-center(v-for="day in 7" :key="day")
@@ -29,7 +33,7 @@
         .flex-1.flex.flex-justify-center(v-for="day in week" :key="day.monthDay")
           .btn.bg-white.circle.flex.flex-justify-center.flex-items-center(v-if="day.monthDay > 0"
             :class="{activeday: day.monthDay === currentDate.getDate()}"
-            @click="updateDate(day.date)"
+            @click="applyDay(day.date)"
             style="width:26px; height:26px;"
           )
             | {{day.monthDay}}
@@ -38,16 +42,17 @@
         h-btn(outlined text="OK" textcolor="text-primary" class="h-pr-md" @click="onOK")
         h-btn(v-if="!pickerMode" outlined text="Close" textcolor="text-primary" class="h-pr-md" @click="onClose")
     .flex-1.scroll(v-show="panelMode==='years'" style="max-height:280px")
-      .flex.flex-justify-center.btn.bg-white(v-for="year in years" @click="onYearClick(year)")
+      .flex.flex-justify-center.btn.bg-white(v-for="year in years" @click="applyYear(year)")
         | {{year}}
     .flex-1.scroll(v-show="panelMode==='months'" style="max-height:280px")
-      .flex.flex-justify-center.btn.bg-white(v-for="(month, index) in months" @click="onMonthClick(index)")
+      .flex.flex-justify-center.btn.bg-white(v-for="(month, index) in months" @click="applyMonth(index)")
         | {{month}}
 
 </template>
 
 <script>
 import HDate from './HDate'
+import moment from 'moment'
 
 export default {
   extends: HDate,
@@ -67,6 +72,10 @@ export default {
     pickerMode: {
       type: Boolean,
       default: true
+    },
+    showTime: {
+      type: Boolean,
+      default: false
     }
   },
   data () {
@@ -76,11 +85,18 @@ export default {
     }
   },
   mounted () {
+    console.log('mounted panel: ' + this.date)
     this.setPanelDate()
   },
   watch: {
     date: function (value) {
+      console.log('watvched panel: ' + this.date)
       this.setPanelDate()
+    }
+  },
+  computed: {
+    datetime () {
+      return moment(this.currentDate).format('H:mm:ss')
     }
   },
   methods: {
@@ -89,6 +105,7 @@ export default {
       this.getCalendar()
     },
     onOK () {
+      console.log('currentDate vale: ' + this.currentDate)
       this.$emit('ok', this.currentDate)
     },
     onClose () {
@@ -105,12 +122,27 @@ export default {
         this.onOK()
       }
     },
+    applyDay (date) {
+      this.updateDate(date)
+      this.$emit('dateChanged', this.currentDate)
+    },
+    applyYear (year) {
+      this.onYearClick(year)
+      this.$emit('dateChanged', this.currentDate)
+    },
+    applyMonth (index) {
+      this.onMonthClick(index)
+      this.$emit('dateChanged', this.currentDate)
+    },
     onYearClick (year) {
       this.panelMode = 'days'
       this.updateYear(year)
       if (this.pickerMode) {
         this.onOK()
       }
+    },
+    onShowTime () {
+      this.$emit('onShowTime')
     }
   }
 }

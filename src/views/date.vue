@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="flex flex-column">
+    <!-- <div class="flex flex-column">
       <div class="flex">
         <div class="flex flex-column">
           <h1>Date Input</h1>
@@ -16,9 +16,27 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <div class="flex flex-column">
+      <div class="flex">
+        <div class="flex flex-column">
+          <h1>DateTime Input</h1>
+          <h-date-time-input v-model="datetime" @input="change" display-format="MM/DD/YYYY HH:mm:ss"/>
+          <div>
+            your datetime is: {{datetime}}
+          </div>
+          <div class="boxshadow">
+            <pre v-highlightjs="dateinput">
+              <code class="html">
+              </code>
+            </pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="flex flex-column">
       <div class="flex">
         <div>
           <h1>Date Picker</h1>
@@ -34,7 +52,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <h1 class="text-primary"> Date Input Help</h1>
     <h2 class="text-primary"> Vue Properties</h2>
@@ -89,6 +107,7 @@ export default {
   data () {
     return {
       date: new Date(),
+      datetime: new Date(),
       dateinput: `<h-date-input v-model="date"/>`,
       datepicker: `<h-date-picker v-model="date"/>`
     }
