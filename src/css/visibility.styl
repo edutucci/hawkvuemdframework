@@ -1,6 +1,43 @@
 
 .row {width: 100%;}
 
+/*
+  VISIBILITY BY SIZES
+*/
+// hide an element when width reaches 601 pixel
+@media (min-width: 601px) {
+	.xs-only {display: none;}
+}
+
+// shows an element when width reaches 601 pixel
+@media (max-width: 600px) {
+	.hidden-xs {display: none;}
+}
+
+@media (min-width: 1201px) {
+	.sm-only {display: none;}
+}
+
+@media (max-width: 1200px) {
+	.hidden-sm {display: none;}
+}
+
+@media (min-width: 1601px) {
+	.md-only {display: none;}
+}
+
+@media (max-width: 1600px) {
+	.hidden-md {display: none;}
+}
+
+@media (min-width: 1921px) {
+	.lg-only {display: none;}
+}
+
+@media (max-width: 1920px) {
+	.hidden-lg {display: none;}
+}
+
 /* XS */
 @media (max-width: 600px) {
   .col-xs-1 {width: 8.33%;}

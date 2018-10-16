@@ -13,7 +13,7 @@
 
       div.position-absolute.boxshadow.full-width(
         v-if="showDatePicker"
-        style="top:67px;background-color: white;z-index: 2;"
+        style="top:67px;background-color: white;z-index: 1600;"
 
       )
         date-panel(
