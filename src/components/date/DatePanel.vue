@@ -85,18 +85,16 @@ export default {
     }
   },
   mounted () {
-    console.log('mounted panel: ' + this.date)
     this.setPanelDate()
   },
   watch: {
     date: function (value) {
-      console.log('watvched panel: ' + this.date)
       this.setPanelDate()
     }
   },
   computed: {
     datetime () {
-      return moment(this.currentDate).format('H:mm:ss')
+      return moment(this.currentDate).format('HH:mm A')
     }
   },
   methods: {
@@ -105,7 +103,6 @@ export default {
       this.getCalendar()
     },
     onOK () {
-      console.log('currentDate vale: ' + this.currentDate)
       this.$emit('ok', this.currentDate)
     },
     onClose () {

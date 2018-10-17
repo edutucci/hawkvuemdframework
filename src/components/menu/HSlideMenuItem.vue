@@ -5,23 +5,21 @@
 <script>
 
 import { mixin as clickaway } from 'vue-clickaway'
-import componentBase from '../componentBase.vue'
 
 export default {
   mixins: [ clickaway ],
-  extends: componentBase,
   props: {
     text: {
-      type: String,
-      default: ''
-    },
-    routerLink: {
       type: String,
       default: ''
     },
     url: {
       type: String,
       default: ''
+    },
+    newWindow: {
+      type: Boolean,
+      default: false
     }
   },
   data () {
@@ -32,12 +30,18 @@ export default {
     this.$parent.addSlideMenuItem({
       text: this.text,
       url: this.url,
-      routerLink: this.routerLink
+      newWindow: this.newWindow
     })
   },
   watch: {
     text: function (valueNew, valueOld) {
-      this.$parent.updateSlideMenuItem(valueNew, valueOld)
+      console.log('valueNew: ' + valueNew)
+      console.log('valueOld: ' + valueOld)
+      this.$parent.updateSlideMenuItem(valueNew, valueOld, this.newWindow)
+    },
+    newWindow: function (valueNew) {
+      console.log('newWindow valueNew: ' + valueNew)
+      this.$parent.updateSlideMenuItem(this.text, this.text, this.newWindow)
     }
   },
   methods: {

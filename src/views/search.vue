@@ -8,6 +8,14 @@
       </code>
     </pre>
 
+    <h1>Drawing menu from bottom to top</h1>
+    <h-search @search="onSearch" ref="search2" :options="options" dtu/>
+
+    <pre v-highlightjs="exsearch2">
+      <code class="html">
+      </code>
+    </pre>
+
     <h1>Example</h1>
     <pre v-highlightjs="sample">
       <code class="javascript">
@@ -23,18 +31,21 @@
         <div>options</div>
         <div>placeholder</div>
         <div>icon</div>
+        <div>dtu</div>
       </div>
       <div class="h-pl-md">
         <h3>Type</h3>
         <div>Array</div>
         <div>String</div>
         <div>String</div>
+        <div>Boolean</div>
       </div>
       <div class="h-pl-md">
         <h3 >Description</h3>
         <div>Sets a array with popup menu for the search</div>
         <div>Sets the placeholder for the input</div>
         <div>Replaces the icon</div>
+        <div>Draws the menu from bottom to top</div>
       </div>
     </div>
 
@@ -65,6 +76,8 @@ export default {
       exsearch: `
 <h-search @search="onSearch" ref="search" :options="options"/>
       `,
+      exsearch2: `
+<h-search @search="onSearch" ref="search2" :options="options" dtu/>      `,
       sample: `
 export default {
   data () {

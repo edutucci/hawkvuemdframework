@@ -3,12 +3,6 @@
     v-on-clickaway="hidePanel"
     style="width:350px; position:relative;"
   )
-    div
-      | panelType: {{panelType}}
-    div
-      | currentDateTime {{currentDateTime}}
-    div
-      | value {{value}}
     .flex.flex-column.full-width
       .full-width
         h-input.full-width(
@@ -64,7 +58,7 @@ export default {
     },
     displayFormat: {
       type: String,
-      default: 'L'
+      default: 'L LT'
     },
     locale: {
       type: String,
@@ -99,15 +93,15 @@ export default {
     }
   },
   mounted () {
-    console.log('mounted: ' + this.value)
+    // console.log('mounted: ' + this.value)
     this.currentDateTime = this.value
     this.setInputDate(this.currentDateTime)
   },
   watch: {
     value: function (value) {
-      console.log('watched: ' + this.value)
+      // console.log('watched: ' + this.value)
       this.currentDateTime = value
-      this.ok(this.currentDateTime)
+      this.updateData(this.currentDateTime)
     },
     locale: function (locale) {
       this.ok(this.value)
@@ -122,9 +116,12 @@ export default {
       this.currentDateTime = date
       // console.log('DateTime: ' + this.currentDateTime)
     },
-    ok (date) {
+    updateData (date) {
       this.setInputDate(date)
       this.hidePanel()
+    },
+    ok (date) {
+      this.updateData(date)
       this.$emit('input', date)
       this.currentDateTime = new Date()
     },
@@ -153,57 +150,6 @@ export default {
       this.panelType = 'date'
     }
   }
-  // mounted () {
-  //   this.time = this.value
-  //   this.setInputDate(this.value)
-  // },
-  // watch: {
-  //   value: function (value) {
-  //     console.log('watch changed: ' + value)
-  //     // this.time = value
-  //     // this.updateDateTime(value, this.time)
-  //   },
-  //   locale: function (locale) {
-  //     this.ok(this.value)
-  //   },
-  //   displayFormat: function (format) {
-  //     this.ok(this.value)
-  //   }
-  // },
-  // methods: {
-  //   ok (date) {
-  //     this.updateDateTime(date, this.time)
-  //   },
-  //   hidePanel () {
-  //     this.showDatePicker = false
-  //   },
-  //   setInputDate (date) {
-  //     // this.inputValue = ' ' + date.getDate() + ' de  ' + this.months[date.getMonth()] + ' de  ' + date.getFullYear()
-  //     moment.locale(this.locale)
-  //     this.inputValue = moment(date).format(this.displayFormat)
-  //   },
-  //   setTime (time) {
-  //     this.time = time
-  //     this.panelType = 'date'
-  //     this.updateDateTime(this.value, this.time)
-  //   },
-  //   updateData (date) {
-  //     this.setInputDate(date)
-  //     this.hidePanel()
-  //     this.$emit('input', date)
-  //   },
-  //   updateDateTime (date, time) {
-  //     let year = this.value.getFullYear()
-  //     let month = this.value.getMonth()
-  //     let day = this.value.getDate()
-
-  //     let hour = time.getHours()
-  //     let min = time.getMinutes()
-
-  //     let newdate = new Date(year, month, day, hour, min, 0, 0)
-  //     this.updateData(newdate)
-  //   }
-  // }
 }
 </script>
 

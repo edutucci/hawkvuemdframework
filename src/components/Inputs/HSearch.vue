@@ -1,5 +1,5 @@
 <template lang="pug">
-  div
+  .dropdown
     .flex(
       v-on-clickaway="away"
       style="border-radius: 2px;"
@@ -14,7 +14,10 @@
         @onEnter="onEnter"
       )
 
-    .flex.flex-column.boxshadow(v-show="showdropdown")
+    .dropdown-menu.boxshadow.div-rounded.full-width(
+      v-show="showdropdown"
+      :style="{left: left, right: right, bottom: bottom}"
+    )
       .flex.flex-items-center.menu-item.bg-white.item-padding(
         v-for="option in options"
         :key="option.title"
@@ -51,11 +54,18 @@ export default {
     icon: {
       type: String,
       default: 'fas fa-search'
+    },
+    dtu: {
+      type: Boolean,
+      default: false
     }
   },
   data () {
     return {
       showdropdown: false,
+      left: '0px',
+      right: '',
+      bottom: '',
       query: '',
       delay: 200
     }
@@ -63,13 +73,23 @@ export default {
   created () {
     // this.onChange()
     // this.onInputBlur()
+    this.changeDtu()
   },
   watch: {
     query (query) {
       this.searchQuery(query)
+    },
+    dtu: function (value) {
+      this.changeDtu()
     }
   },
   methods: {
+    changeDtu () {
+      this.bottom = ''
+      if (this.dtu) {
+        this.bottom = '0px'
+      }
+    },
     searchQuery: debounce(function (query) {
       if (query && query.length > 0) {
         this.showdropdown = true
@@ -114,6 +134,20 @@ export default {
   z-index:0;
   background:white;
   text-align: center;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
+  background-color: white;
+  min-width: 250px;
+  max-height: 450px;
+  overflow-y: auto;
+  z-index: 1650;
+  cursor: pointer;
 }
 
 </style>

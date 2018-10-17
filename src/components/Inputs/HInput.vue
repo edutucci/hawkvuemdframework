@@ -224,7 +224,7 @@ export default {
       // console.log('this.floatLabelStyle: ' + JSON.stringify(this.floatLabelStyle))
     },
     onChange (value) {
-      console.log('onchange: ' + value)
+      // console.log('onchange: ' + value)
       let txtValue = ''
       if (value === undefined && this.value) {
         txtValue = this.value

@@ -1,7 +1,7 @@
 <template lang="pug">
     div.btncontainer(style="display:inline-flex;"
       @click="onClick"
-      class="btnfab flat circle flex boxshadow flex-justify-center flex-items-center"
+      class="btnfab ripple flat circle flex boxshadow flex-justify-center flex-items-center"
       :class="[bgcolor, textcolor]"
       :style="[btnSize]"
     )

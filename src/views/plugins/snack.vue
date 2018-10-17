@@ -46,7 +46,7 @@ export default {
 this.$SnackBar.create({
   message: 'Download Completed',
   textcolor: 'text-white',
-  bgcolor: 'bg-primary'
+  bgcolor: 'bg-positive'
 })
       `
     }
@@ -58,7 +58,7 @@ this.$SnackBar.create({
       this.$SnackBar.create({
         message: 'Download Completed',
         textcolor: 'text-white',
-        bgcolor: 'bg-primary'
+        bgcolor: 'bg-positive'
       })
     }
   }

@@ -1,48 +1,88 @@
 <template>
-  <div style="min-height: calc(100vh - 97px)">
+  <div style="min-height: calc(100vh - 97px);">
     <h1>Slide Menu Icons</h1>
 
-    <!-- <div style="height: 200px;">
-      <h-slide-menu class="full-height" :menu="slideMenuIcons" textcolor="text-white" bgcolor="bg-primary">
+    <h-slide-menu-list bgcolor="bg-primary" textcolor="text-white">
+      <h-slide-menu text="Menu Slider" icon='fas fa-user'>
+        <h-slide-menu-item text="this page" url="/menuSlider"/>
+        <h-slide-menu-item text="this page" url="/menuSlider"/>
       </h-slide-menu>
-    </div>
+      <h-slide-menu text="Github" icon='fab fa-github'>
+        <h-slide-menu-item text="Hawk Framework" @itemClick="itemClick" url="https://github.com/edutucci/hawkframework" new-window/>
+        <h-slide-menu-item text="Starter Kit" @itemClick="itemClick" url="https://github.com/edutucci/hawkframework-starter-kit" new-window/>
+      </h-slide-menu>
+    </h-slide-menu-list>
 
-    <pre v-highlightjs="menuicons">
+    <pre v-highlightjs="menu">
       <code class="html">
       </code>
     </pre>
 
-    <h1>Slide Menu Avatar</h1>
-    <div style="height: 200px;">
-        <h-slide-menu class="full-height" :menu="slideMenuAvatar" textcolor="text-white" bgcolor="bg-primary">
-        </h-slide-menu>
+    <h2 class="text-primary"> Slide Menu List Help</h2>
+    <h2 class="text-primary"> Vue Properties</h2>
+    <hr>
+
+    <div class="flex">
+      <div>
+        <h3>Name</h3>
+        <div>bgcolor</div>
+        <div>textcolor</div>
+      </div>
+      <div class="h-pl-md">
+        <h3>Type</h3>
+        <div>String</div>
+        <div>String</div>
+      </div>
+      <div class="h-pl-md">
+        <h3 >Description</h3>
+        <div>Background color of the menu and title bar menu</div>
+        <div>Text color of the icon and title bar text</div>
+      </div>
     </div>
 
-    <pre v-highlightjs="menuavatar">
-      <code class="html">
-      </code>
-    </pre> -->
+    <h2 class="text-primary"> Slide Menu Help</h2>
+    <h2 class="text-primary"> Vue Properties</h2>
+    <hr>
 
-    <!-- <h-slide-menu-list bgcolor="bg-primary">
-      <h-slide-menu text="Usuarios" icon='fas fa-user' bgcolor="bg-primary" textcolor="text-white">
-        <h-slide-menu-item text="New User Settings and User List" visible/>
-      </h-slide-menu>
-      <h-slide-menu text="Mail" icon='fas fa-envelope'>
-        <h-slide-menu-item text="New email"/>
-      </h-slide-menu>
-      <h-slide-menu text="item 3" icon='fas fa-heart'/>
-      <h-slide-menu text="item 3" icon='fas fa-cog'/>
-    </h-slide-menu-list> -->
-    <h-slide-menu-list bgcolor="bg-primary" textcolor="text-white">
-      <h-slide-menu text="Usuarios" icon='fas fa-user' textcolor="text-white">
-        <h-slide-menu-item text="New User"/>
-        <h-slide-menu-item text="Users List"/>
-      </h-slide-menu>
-      <h-slide-menu text="Mail" icon='fas fa-envelope' textcolor="text-white">
-        <h-slide-menu-item text="New Account" @itemClick="itemClick" url="https://github.com/edutucci/hawkframework"/>
-        <h-slide-menu-item text="Account List" @itemClick="itemClick"/>
-      </h-slide-menu>
-    </h-slide-menu-list>
+    <div class="flex">
+      <div>
+        <h3>Name</h3>
+        <div>icon</div>
+      </div>
+      <div class="h-pl-md">
+        <h3>Type</h3>
+        <div>String</div>
+      </div>
+      <div class="h-pl-md">
+        <h3 >Description</h3>
+        <div>Sets the icon for the menu and title bar menu</div>
+      </div>
+    </div>
+
+    <h2 class="text-primary"> Slide Menu Item Help</h2>
+    <h2 class="text-primary"> Vue Properties</h2>
+    <hr>
+
+    <div class="flex">
+      <div>
+        <h3>Name</h3>
+        <div>text</div>
+        <div>url</div>
+        <div>new-window</div>
+      </div>
+      <div class="h-pl-md">
+        <h3>Type</h3>
+        <div>String</div>
+        <div>String</div>
+        <div>Boolean</div>
+      </div>
+      <div class="h-pl-md">
+        <h3 >Description</h3>
+        <div>text of the menu item</div>
+        <div>url or router-link</div>
+        <div>if true will open url in new window. Default is <b>false</b></div>
+      </div>
+    </div>
 
   </div>
 </template>
@@ -52,117 +92,22 @@ export default {
   name: 'PageSliderMenu',
   data () {
     return {
-      slideMenuIcons: [
-        {
-          'label': 'Usuario',
-          'icon': 'fas fa-user',
-          'menuList': [
-            { 'label': 'item 1', 'url': 'https://www.terra.com.br/' },
-            { 'label': 'item 1', 'url': 'https://www.terra.com.br/' },
-            { 'label': 'item 1', 'url': 'https://www.terra.com.br/' },
-            { 'label': 'item 1', 'url': 'https://www.terra.com.br/' },
-            { 'label': 'item 1', 'url': 'https://www.terra.com.br/' }
-          ]
-        },
-        {
-          'label': 'Configuracoes',
-          'icon': 'fas fa-envelope',
-          'menuList': [
-            { 'label': 'item 1', 'url': 'https://www.terra.com.br/' },
-            { 'label': 'item 1', 'url': 'https://www.terra.com.br/' },
-            { 'label': 'item 1', 'url': 'https://www.terra.com.br/' },
-            { 'label': 'item 1', 'url': 'https://www.terra.com.br/' },
-            { 'label': 'item 1', 'url': 'https://www.terra.com.br/' }
-          ]
-        }
-      ],
-      slideMenuAvatar: [
-        {
-          'label': 'Usuario',
-          'avatar': '/avatar/Kostenlose.jpg',
-          'menuList': [
-            { 'label': 'item 1', 'url': 'https://www.terra.com.br/' },
-            { 'label': 'item 1', 'url': 'https://www.terra.com.br/' },
-            { 'label': 'item 1', 'url': 'https://www.terra.com.br/' },
-            { 'label': 'item 1', 'url': 'https://www.terra.com.br/' },
-            { 'label': 'item 1', 'url': 'https://www.terra.com.br/' }
-          ]
-        },
-        {
-          'label': 'Messages',
-          'avatar': '/avatar/rambo.jpg',
-          'menuList': [
-            { 'label': 'item 2', 'url': 'https://www.terra.com.br/' },
-            { 'label': 'item 2', 'url': 'https://www.terra.com.br/' },
-            { 'label': 'item 2', 'url': 'https://www.terra.com.br/' },
-            { 'label': 'item 2', 'url': 'https://www.terra.com.br/' },
-            { 'label': 'item 2', 'url': 'https://www.terra.com.br/' }
-          ]
-        }
-      ],
-      menuicons: `
-slideMenuIcons: [
-  {
-    'label': 'Usuario',
-    'icon': 'fas fa-user',
-    'menuList': [
-      { 'label': 'item 1', 'url': 'https://www.terra.com.br/' },
-      { 'label': 'item 1', 'url': 'https://www.terra.com.br/' },
-      { 'label': 'item 1', 'url': 'https://www.terra.com.br/' },
-      { 'label': 'item 1', 'url': 'https://www.terra.com.br/' },
-      { 'label': 'item 1', 'url': 'https://www.terra.com.br/' }
-    ]
-  },
-  {
-    'label': 'Configuracoes',
-    'icon': 'fas fa-envelope',
-    'menuList': [
-      { 'label': 'item 1', 'url': 'https://www.terra.com.br/' },
-      { 'label': 'item 1', 'url': 'https://www.terra.com.br/' },
-      { 'label': 'item 1', 'url': 'https://www.terra.com.br/' },
-      { 'label': 'item 1', 'url': 'https://www.terra.com.br/' },
-      { 'label': 'item 1', 'url': 'https://www.terra.com.br/' }
-    ]
-  }
-]
-      `,
-      menuavatar: `
-slideMenuAvatar: [
-  {
-    'label': 'Usuario',
-    'avatar': '/avatar/Kostenlose.jpg',
-    'menuList': [
-      { 'label': 'item 1', 'url': 'https://www.terra.com.br/' },
-      { 'label': 'item 1', 'url': 'https://www.terra.com.br/' },
-      { 'label': 'item 1', 'url': 'https://www.terra.com.br/' },
-      { 'label': 'item 1', 'url': 'https://www.terra.com.br/' },
-      { 'label': 'item 1', 'url': 'https://www.terra.com.br/' }
-    ]
-  },
-  {
-    'label': 'Messages',
-    'avatar': '/avatar/rambo.jpg',
-    'menuList': [
-      { 'label': 'item 2', 'url': 'https://www.terra.com.br/' },
-      { 'label': 'item 2', 'url': 'https://www.terra.com.br/' },
-      { 'label': 'item 2', 'url': 'https://www.terra.com.br/' },
-      { 'label': 'item 2', 'url': 'https://www.terra.com.br/' },
-      { 'label': 'item 2', 'url': 'https://www.terra.com.br/' }
-    ]
-  }
-]
+
+      menu: `
+<h-slide-menu-list bgcolor="bg-primary" textcolor="text-white">
+  <h-slide-menu text="Menu Slider" icon='fas fa-user'>
+    <h-slide-menu-item text="this page" url="/menuSlider"/>
+    <h-slide-menu-item text="this page" url="/menuSlider"/>
+  </h-slide-menu>
+  <h-slide-menu text="Github" icon='fab fa-github'>
+    <h-slide-menu-item text="Hawk Framework" @itemClick="itemClick" url="https://github.com/edutucci/hawkframework" new-window/>
+    <h-slide-menu-item text="Starter Kit" @itemClick="itemClick" url="https://github.com/edutucci/hawkframework-starter-kit" new-window/>
+  </h-slide-menu>
+</h-slide-menu-list>
       `
     }
   },
   methods: {
-    itemClick (value) {
-      console.log('')
-      this.$SnackBar.create({
-        message: 'Download Completed',
-        bgcolor: 'bg-white',
-        textcolor: 'text-black'
-      })
-    }
   }
 }
 </script>

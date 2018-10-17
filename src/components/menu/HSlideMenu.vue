@@ -9,11 +9,9 @@
 <script>
 
 import { mixin as clickaway } from 'vue-clickaway'
-import componentBase from '../componentBase.vue'
 
 export default {
   mixins: [ clickaway ],
-  extends: componentBase,
   props: {
     icon: {
       type: String,
@@ -56,6 +54,9 @@ export default {
   watch: {
     text: function (valueNew, valueOld) {
       this.updateSlideMenuList(valueOld)
+    },
+    icon: function (value) {
+      this.updateSlideMenuList(this.text)
     }
   },
   methods: {
@@ -65,10 +66,14 @@ export default {
     addSlideMenuItem (menuItem) {
       this.menuList.push(menuItem)
     },
-    updateSlideMenuItem (textNew, textOld) {
+    updateSlideMenuItem (textNew, textOld, newWindow) {
       let index = this.menuList.findIndex(item => item.text === textOld)
+      console.log('index:' + index)
       if (index !== -1) {
-        this.$set(this.menuList, index, textNew)
+        console.log('this.menuList: ' + JSON.stringify(this.menuList))
+        this.menuList[index].text = textNew
+        this.menuList[index].newWindow = newWindow
+        console.log('this.menuList: ' + JSON.stringify(this.menuList))
         this.updateSlideMenuList(this.text)
       }
     },

@@ -1,6 +1,6 @@
 {
   "name": "hawkframework",
-  "version": "0.0.10",
+  "version": "1.0.11",
   "description": "Free Material Framework with lightweight vue components.",
   "author": "Eduardo Tucci",
   "private": false,
@@ -8,6 +8,8 @@
   "homepage": "https://github.com/edutucci/hawkframework",
   "keywords": [
     "Vue",
+    "Vue Components",
+    "Material Design",
     "Vue Material"
   ],
   "license": "MIT",

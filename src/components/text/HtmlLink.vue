@@ -4,7 +4,7 @@
     :class="textcolor"
     :href="url"
   )
-    h-fa-icon(v-if="icon && icon.length > 0" :textcolor="textcolor" :icon="icon" size="16px")
+    h-fa-icon(v-if="icon && icon.length > 0" :textcolor="textcolor" :icon="icon" :size="iconSize")
     span(v-if="text && text.length > 0").h-pl-xs {{text}}
   a(
     v-else-if="url && url.length > 0 && newWindow"
@@ -12,7 +12,7 @@
     :href="url"
     target="_blank"
   )
-    h-fa-icon(v-if="icon && icon.length > 0" :textcolor="textcolor" :icon="icon" size="16px")
+    h-fa-icon(v-if="icon && icon.length > 0" :textcolor="textcolor" :icon="icon" :size="iconSize")
     span(v-if="text && text.length > 0").h-pl-xs {{text}}
   span(v-else) {{text}}
 </template>
@@ -31,6 +31,10 @@ export default {
     icon: {
       type: String,
       default: ''
+    },
+    iconSize: {
+      type: String,
+      default: '16px'
     },
     url: {
       type: String,

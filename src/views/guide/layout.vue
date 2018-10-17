@@ -1,10 +1,5 @@
 <template>
   <div>
-    <pre v-highlightjs="msg1">
-      <code class="html">
-      </code>
-    </pre>
-
     <h2>Example 1 - Default layout</h2>
 
     <pre v-highlightjs="temp1">
@@ -27,7 +22,7 @@ export default {
   data () {
     return {
       msg1: `For this example we will use a project created with vue cli 3.`,
-      temp1: `Home.vue
+      temp1: `YourMainPage.vue
 
 <template lang="pug">
   h-page
@@ -61,7 +56,7 @@ YourPage.vue
 
 </template>
       `,
-      temp2: `Home.vue
+      temp2: `YourMainPage.vue
 
 <template lang="pug">
   h-page
@@ -76,7 +71,7 @@ YourPage.vue
             h-btn(contained transparent)
               html-link(url="https://github.com/edutucci/hawkframework" icon="fab fa-github" textcolor="text-white" new-window)
 
-    h-page-content(style="margin-top: 64px; margin-bottom: 74px;")
+    h-page-content(style="margin-top: 62px; margin-bottom: 115px")
       router-view
 
     h-page-footer(fixed)

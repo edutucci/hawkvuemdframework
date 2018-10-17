@@ -57,7 +57,7 @@
             <h-btn contained
               class="full-width"
             >
-              <html-link text="github" :url="item.url" new-window/>
+              <html-link :text="item.text" :url="item.url" :new-window="item.newWindow"/>
             </h-btn>
           </div>
         </div>
@@ -122,7 +122,7 @@ export default {
 <style scoped>
 .slide-menu-list {
   position: relative;
-  display: inline-flex;
+  display: inline-block;
 }
 
 .slide-menu-container {

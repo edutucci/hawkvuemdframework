@@ -1,6 +1,6 @@
 <template>
   <div>
-    <!-- <div class="flex flex-column">
+    <div class="flex flex-column">
       <div class="flex">
         <div class="flex flex-column">
           <h1>Date Input</h1>
@@ -16,7 +16,7 @@
           </div>
         </div>
       </div>
-    </div> -->
+    </div>
 
     <div class="flex flex-column">
       <div class="flex">
@@ -27,7 +27,7 @@
             your datetime is: {{datetime}}
           </div>
           <div class="boxshadow">
-            <pre v-highlightjs="dateinput">
+            <pre v-highlightjs="datetimeinput">
               <code class="html">
               </code>
             </pre>
@@ -36,7 +36,7 @@
       </div>
     </div>
 
-    <!-- <div class="flex flex-column">
+    <div class="flex flex-column">
       <div class="flex">
         <div>
           <h1>Date Picker</h1>
@@ -52,7 +52,7 @@
           </div>
         </div>
       </div>
-    </div> -->
+    </div>
 
     <h1 class="text-primary"> Date Input Help</h1>
     <h2 class="text-primary"> Vue Properties</h2>
@@ -72,11 +72,32 @@
       <div class="h-pl-md">
         <h3 >Description</h3>
         <div>Sets the locale for the date. Default <b>'en'</b></div>
-        <div>Sets how the date is displayed. Default <b>'L'</b>. See <a href="https://momentjs.com/docs/#/displaying/"> moment display format</a>.</div>
+        <div>Sets how the date is displayed. Default <b>'L'</b>. See <a href="https://momentjs.com/docs/#/displaying/" target="_blank"> moment display format</a>.</div>
       </div>
     </div>
 
-    <h1 class="text-primary"> Date Picker and Date Input Help</h1>
+    <h1 class="text-primary"> Datetime Input Help</h1>
+    <h2 class="text-primary"> Vue Properties</h2>
+    <hr>
+
+    <div class="flex">
+      <div>
+        <h3>Name</h3>
+        <div>locale</div>
+        <div> display-format</div>
+      </div>
+      <div class="h-pl-md">
+        <h3>Type</h3>
+        <div>String</div>
+        <div>String</div>
+      </div>
+      <div class="h-pl-md">
+        <h3 >Description</h3>
+        <div>Sets the locale for the date. Default <b>'en'</b></div>
+        <div>Sets how the date is displayed. Default <b>'L LT'</b>. See <a href="https://momentjs.com/docs/#/displaying/" target="_blank"> moment display format</a>.</div>
+      </div>
+    </div>
+
     <h2 class="text-primary"> Vue Events</h2>
     <hr>
 
@@ -109,6 +130,7 @@ export default {
       date: new Date(),
       datetime: new Date(),
       dateinput: `<h-date-input v-model="date"/>`,
+      datetimeinput: `<h-date-time-input v-model="datetime" @input="change" display-format="MM/DD/YYYY HH:mm:ss"/>`,
       datepicker: `<h-date-picker v-model="date"/>`
     }
   },

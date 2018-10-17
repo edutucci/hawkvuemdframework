@@ -1,6 +1,6 @@
 {
-  "name": "hawkweb",
-  "short_name": "hawkweb",
+  "name": "hawkframework",
+  "short_name": "hawkframework",
   "icons": [
     {
       "src": "/img/icons/android-chrome-192x192.png",

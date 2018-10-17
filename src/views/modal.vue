@@ -6,7 +6,7 @@
       <h-btn contained text="Modal Content" @click="openModal=true"/>
     </div>
 
-    <h-modal v-model="openModal" title="Modal Content">
+    <h-modal v-model="openModal" title="Modal Content" show-title-bar>
       <div class="flex flex-column flex-justify-center" style="width: 400px;">
         <div>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
@@ -26,7 +26,7 @@
       <h-btn contained text="Prompt" @click="openModal2=true"/>
     </div>
 
-    <h-modal v-model="openModal2" title="Do you want do delete file">
+    <h-modal v-model="openModal2" title="Do you want do delete file" show-title-bar>
       <div class="flex flex-column flex-justify-center h-pa-md">
         <div class="flex flex-justify-center">
           If you delete this file. It will not be possible to undo this action.
@@ -53,14 +53,17 @@
       <div>
         <h3>Name</h3>
         <div>title</div>
+        <div>show-title-bar</div>
       </div>
       <div class="h-pl-md">
         <h3>Type</h3>
         <div>String</div>
+        <div>Boolean</div>
       </div>
       <div class="h-pl-md">
         <h3 >Description</h3>
         <div>Sets modal title</div>
+        <div>Shows title bar with close button</div>
       </div>
     </div>
 
@@ -77,7 +80,7 @@ export default {
       openModal: false,
       openModal2: false,
       modalContent: `
-<h-modal v-model="openModal" title="Modal Content">
+<h-modal v-model="openModal" title="Modal Content" show-title-bar>
   <div class="flex flex-column flex-justify-center" style="width: 400px;">
     <div>
       Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
@@ -89,7 +92,7 @@ export default {
 </h-modal>
       `,
       modalPrompt: `
-<h-modal v-model="openModal2" title="Do you want do delete file">
+<h-modal v-model="openModal2" title="Do you want do delete file" show-title-bar>
   <div class="flex flex-column flex-justify-center h-pa-md">
     <div class="flex flex-justify-center">
       If you delete this file. It will not be possible to undo this action.

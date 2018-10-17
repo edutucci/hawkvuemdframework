@@ -1,9 +1,9 @@
 <template lang="pug">
   <div class="full-width boxshadow" style="background-color:white">
     <div class=" flex flex-justify-center flex-items-center text-white bg-primary h-pa-md">
-      <div class="btn bg-primary" @click="panelMode= (panelMode === '12h' || panelMode === 'min') ? '24h' : '12h'"><h1>{{curHour}}</h1></div>
+      <div class="btn bg-primary" @click="panelMode= (panelMode === '12h' || panelMode === 'min') ? '24h' : '12h'"><h1>{{hour}}</h1></div>
       <div class="h-pl-sm h-pr-sm"><h1>:</h1></div>
-      <div class="btn bg-primary" @click="panelMode= (panelMode !== 'min') ? 'min' : '12h'"><h1>{{curMin}}</h1></div>
+      <div class="btn bg-primary" @click="panelMode= (panelMode !== 'min') ? 'min' : '12h'"><h1>{{min}}</h1></div>
     </div>
     <div class="flex flex-justify-center h-pa-lg">
       <div class="clock">
@@ -33,6 +33,7 @@
 
 import HBtn from '../buttons/HBtn'
 import HTime from './HTime'
+import moment from 'moment'
 
 export default {
   extends: HTime,
@@ -320,6 +321,14 @@ export default {
   mounted () {
     this.setTimePanel()
   },
+  computed: {
+    hour () {
+      return moment(this.currentDate).hour(this.curHour).format('HH')
+    },
+    min () {
+      return moment(this.currentDate).minute(this.curMin).format('mm')
+    }
+  },
   watch: {
     date: function (value) {
       this.setTimePanel()
@@ -335,7 +344,7 @@ export default {
     },
     onOK () {
       this.configTime(this.curHour, this.curMin)
-      // console.log('this curdate: ' + this.currentDate)
+      console.log('this curdate: ' + this.currentDate)
       this.$emit('ok', this.currentDate)
     },
     onClose () {

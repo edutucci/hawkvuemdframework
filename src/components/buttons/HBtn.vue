@@ -2,7 +2,7 @@
   div(style="display:inline-block;")
     div(v-if="contained"
       @click="onClick"
-      class="btn flex flex-items-center"
+      class="btn flex flex-items-center ripple"
       :class="[bgcolor, textcolor, {'boxshadow': !transparent}]"
       style="position: relative;"
       :style="[btnObject]"

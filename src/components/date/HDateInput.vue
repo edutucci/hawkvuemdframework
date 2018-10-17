@@ -82,7 +82,7 @@ export default {
   },
   watch: {
     value: function (value) {
-      this.ok(value)
+      this.updateData(value)
     },
     locale: function (locale) {
       this.ok(this.value)
@@ -92,9 +92,12 @@ export default {
     }
   },
   methods: {
-    ok (date) {
+    updateData (date) {
       this.setInputDate(date)
       this.hidePanel()
+    },
+    ok (date) {
+      this.updateData(date)
       this.$emit('input', date)
     },
     hidePanel () {

@@ -180,7 +180,7 @@
     <h1>Float Action</h1>
     <div>
       <h-btn-float bgcolor="bg-positive" textcolor="text-white" @click="btnClick" icon="fas fa-envelope"> </h-btn-float>
-      <h-btn-float bgcolor="bg-secondary" textcolor="text-white" icon="fas fa-envelope">  </h-btn-float>
+      <h-btn-float bgcolor="bg-primary" textcolor="text-white" icon="fas fa-envelope">  </h-btn-float>
       <h-btn-float bgcolor="bg-negative" textcolor="text-white"  icon="fas fa-plus"> </h-btn-float>
       <h-btn-float bgcolor="bg-secondary" icon="fas fa-bars"> </h-btn-float>
       <h-btn-float minifloat icon="fas fa-plus"> </h-btn-float>
