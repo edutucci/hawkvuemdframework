@@ -1,6 +1,6 @@
 <p align="center">
     <a href="https://vuejs.org/" target="_blank"><img width="100" height="100" src="https://vuejs.org/images/logo.png"/></a>
-    <img width="100" height="100" src="img/hawk.png"/>
+    <img width="100" height="100" src="/img/hawk.png"/>
 </p>
 
 # Hawk Framework 1.0.11
