@@ -1,5 +1,5 @@
 <template lang="pug">
-  .boxshadow.no-user-select.overflow-hidden(style="display:inline-block;")
+  .boxshadow.no-user-select(style="display:inline-block;")
     .flex.flex-column
       slot
 </template>

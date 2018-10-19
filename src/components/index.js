@@ -5,6 +5,8 @@ import HBtnFloat from './buttons/HBtnFloat.vue'
 import HtmlLink from './text/HtmlLink.vue'
 import HCard from './card/HCard.vue'
 import HCardHeader from './card/HCardHeader'
+import HCardHeaderText from './card/CardHeaderText.vue'
+import HCardHeaderMenu from './card/CardHeaderMenu.vue'
 import HCardMedia from './card/HCardMedia'
 import HCardMediaText from './card/HCardMediaText'
 import HCardText from './card/HCardText'
@@ -67,6 +69,8 @@ const Components = {
   HtmlLink,
   HCard,
   HCardHeader,
+  HCardHeaderText,
+  HCardHeaderMenu,
   HCardMedia,
   HCardMediaText,
   HCardText,

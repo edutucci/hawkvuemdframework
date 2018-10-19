@@ -3,11 +3,12 @@
     .div(v-if="(icon && icon.length) || (avatar && avatar.length)" style="padding-left:16px;")
       h-fa-icon(:icon="icon" textcolor="text-gray")
       h-avatar(:src="avatar")
-    .flex-1.flex-column.overflow-hidden(style="padding-left:16px;")
-      .title
-        h2 {{text}}
-      .subtitle.flex.flex-wrap
-        | {{desc}}
+    .flex.flex-1(style="padding-left:16px; padding-right:16px;")
+      slot
+      // .flex-1(style="background:green;")
+      //   | pp
+      // div(style="background:gray;")
+      //   | menu
 </template>
 
 <script>
@@ -23,23 +24,11 @@ export default {
     avatar: {
       type: String,
       default: ''
-    },
-    text: {
-      type: String,
-      default: ''
-    },
-    desc: {
-      type: String,
-      default: ''
     }
   }
 }
 </script>
 
 <style scoped>
-H1,H2,H3,H4,H5,H6,P {
-  padding: 0px;
-  margin: 0px;
-}
 
 </style>

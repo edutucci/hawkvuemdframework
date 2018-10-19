@@ -2,14 +2,19 @@
   .full-width
     h1 Cards
 
-    <div>
-      <h-card>
-        <h-card-media img="img/Nallah_Sindh.jpg"/>
-        <h-card-header text="River"  desc="Beautifull place" />
-        <h-card-text desc="A river in the Ganderbal district of Jammu and Kashmir state of India." />
-      </h-card>
-
-    </div>
+    <h-card>
+      <h-card-header>
+        <h-card-header-text text="River" desc="Beautifull place A river in the Ganderbal district" />
+        <h-card-header-menu>
+          <h-menu-dropdown rtl icon="fas fa-ellipsis-v" textcolor="text-black">
+            <h-menu-dropdown-item icon="fas fa-check-circle" text="You are correct." />
+            <h-menu-dropdown-item icon="fas fa-handshake" text="You are in good hands"/>
+          </h-menu-dropdown>
+        </h-card-header-menu>
+      </h-card-header>
+      <h-card-media img="img/Nallah_Sindh.jpg"/>
+      <h-card-text desc="A river in the Ganderbal district of Jammu and Kashmir state of India." />
+    </h-card>
 
     .boxshadow
       <pre v-highlightjs="card1">
@@ -17,23 +22,23 @@
         </code>
       </pre>
 
-    <div>
-      <h-card>
-        <h-card-media img="img/Nallah_Sindh.jpg"/>
-        <h-card-header avatar="/avatar/Kostenlose.jpg"  text="River"  desc="Beautifull place" />
-        <h-card-text desc="A river in the Ganderbal district of Jammu and Kashmir state of India." />
-        <h-card-actions>
-          <h-card-buttons>
-            <h-btn textbutton text="explore"/>
-            <h-btn textbutton text="share"/>
-          </h-card-buttons>
-          <h-card-icons>
-            <h-btn textbutton> <h-fa-icon icon="fas fa-heart"/> </h-btn>
-            <h-btn textbutton> <h-fa-icon icon="fas fa-share-alt"/> </h-btn>
-          </h-card-icons>
-        </h-card-actions>
-      </h-card>
-    </div>
+    <h-card>
+      <h-card-media img="img/Nallah_Sindh.jpg"/>
+      <h-card-header avatar="/avatar/Kostenlose.jpg">
+        <h-card-header-text text="River"  desc="Beautifull place" />
+      </h-card-header>
+      <h-card-text desc="A river in the Ganderbal district of Jammu and Kashmir state of India." />
+      <h-card-actions>
+        <h-card-buttons>
+          <h-btn textbutton text="explore"/>
+          <h-btn textbutton text="share"/>
+        </h-card-buttons>
+        <h-card-icons>
+          <h-btn textbutton> <h-fa-icon icon="fas fa-heart"/> </h-btn>
+          <h-btn textbutton> <h-fa-icon icon="fas fa-share-alt"/> </h-btn>
+        </h-card-icons>
+      </h-card-actions>
+    </h-card>
 
     .boxshadow
       <pre v-highlightjs="card2">
@@ -46,23 +51,31 @@
     <div class="flex flex-wrap">
       <h-card style="width:256px">
        <h-card-media img="img/90minute.png"/>
-       <h-card-header  text="90th minute" desc="4.31 MB"/>
+       <h-card-header>
+        <h-card-header-text text="90th minute" desc="4.31 MB"/>
+       </h-card-header>
       </h-card>
 
       <h-card style="width:256px">
        <h-card-media img="img/breakpoint.png"/>
-       <h-card-header text="Break point"  desc="5.12 MB"/>
+       <h-card-header>
+        <h-card-header-text text="Break point"  desc="5.12 MB"/>
+       </h-card-header>
       </h-card>
     </div>
     <div class="flex flex-wrap">
       <h-card style="width:256px">
        <h-card-media img="img/matchday.png"/>
-       <h-card-header text="Matchday"  desc="2.18 MB"/>
+       <h-card-header>
+        <h-card-header-text text="Matchday"  desc="2.18 MB"/>
+       </h-card-header>
       </h-card>
 
       <h-card style="width:256px">
        <h-card-media img="img/bluerun.png"/>
-       <h-card-header text="Blue run"  desc="3.33 MB"/>
+       <h-card-header>
+        <h-card-header-text text="Blue run"  desc="3.33 MB"/>
+       </h-card-header>
       </h-card>
     </div>
 
@@ -117,13 +130,9 @@
         <h3>Name</h3>
         <div>icon</div>
         <div>avatar</div>
-        <div>text</div>
-        <div>desc</div>
       </div>
       <div class="h-pl-md">
         <h3>Type</h3>
-        <div>String</div>
-        <div>String</div>
         <div>String</div>
         <div>String</div>
       </div>
@@ -131,6 +140,26 @@
         <h3 >Description</h3>
         <div>Sets the icon for header</div>
         <div>Sets the avatar for the header</div>
+      </div>
+    </div>
+
+    <h1 class="text-primary"> Card Header Text Help</h1>
+    <h2 class="text-primary"> Vue Properties</h2>
+    <hr>
+
+    <div class="flex">
+      <div>
+        <h3>Name</h3>
+        <div>text</div>
+        <div>desc</div>
+      </div>
+      <div class="h-pl-md">
+        <h3>Type</h3>
+        <div>String</div>
+        <div>String</div>
+      </div>
+      <div class="h-pl-md">
+        <h3 >Description</h3>
         <div>Sets the text for header</div>
         <div>Sets the description for the header</div>
       </div>
@@ -188,20 +217,30 @@ export default {
     return {
       card1: `
 <h-card>
+  <h-card-header>
+    <h-card-header-text text="River" desc="Beautifull place A river in the Ganderbal district" />
+    <h-card-header-menu>
+      <h-menu-dropdown rtl icon="fas fa-ellipsis-v" textcolor="text-black">
+        <h-menu-dropdown-item icon="fas fa-check-circle" text="You are correct." />
+        <h-menu-dropdown-item icon="fas fa-handshake" text="You are in good hands"/>
+      </h-menu-dropdown>
+    </h-card-header-menu>
+  </h-card-header>
   <h-card-media img="img/Nallah_Sindh.jpg"/>
-  <h-card-header text="River"  desc="Beautifull place" />
   <h-card-text desc="A river in the Ganderbal district of Jammu and Kashmir state of India." />
 </h-card>
       `,
       card2: `
 <h-card>
-  <h-card-media img="/img/Nallah_Sindh.jpg"/>
-  <h-card-header avatar="/avatar/Kostenlose.jpg"  text="River"  desc="Beautifull place" />
+  <h-card-media img="img/Nallah_Sindh.jpg"/>
+  <h-card-header avatar="/avatar/Kostenlose.jpg">
+    <h-card-header-text text="River"  desc="Beautifull place" />
+  </h-card-header>
   <h-card-text desc="A river in the Ganderbal district of Jammu and Kashmir state of India." />
   <h-card-actions>
     <h-card-buttons>
       <h-btn textbutton text="explore"/>
-      <h-btn textbutton text="share"/>       
+      <h-btn textbutton text="share"/>
     </h-card-buttons>
     <h-card-icons>
       <h-btn textbutton> <h-fa-icon icon="fas fa-heart"/> </h-btn>
@@ -214,23 +253,31 @@ export default {
 <div class="flex flex-wrap">
   <h-card style="width:256px">
     <h-card-media img="img/90minute.png"/>
-    <h-card-header  text="90th minute" desc="4.31 MB"/>
+    <h-card-header>
+      <h-card-header-text text="90th minute" desc="4.31 MB"/>
+    </h-card-header>
   </h-card>
 
   <h-card style="width:256px">
     <h-card-media img="img/breakpoint.png"/>
-    <h-card-header text="Break point"  desc="5.12 MB"/>
+    <h-card-header>
+      <h-card-header-text text="Break point"  desc="5.12 MB"/>
+    </h-card-header>
   </h-card>
 </div>
 <div class="flex flex-wrap">
   <h-card style="width:256px">
     <h-card-media img="img/matchday.png"/>
-    <h-card-header text="Matchday"  desc="2.18 MB"/>
+    <h-card-header>
+      <h-card-header-text text="Matchday"  desc="2.18 MB"/>
+    </h-card-header>
   </h-card>
 
   <h-card style="width:256px">
     <h-card-media img="img/bluerun.png"/>
-    <h-card-header text="Blue run"  desc="3.33 MB"/>
+    <h-card-header>
+      <h-card-header-text text="Blue run"  desc="3.33 MB"/>
+    </h-card-header>
   </h-card>
 </div>
       `,
