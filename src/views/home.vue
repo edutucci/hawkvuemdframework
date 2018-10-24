@@ -4,7 +4,7 @@
       h-app-toolbar
         h-app-toolbar-container(bgcolor="bg-primary" textcolor="text-white")
           h-app-toolbar-navigation(icon="fas fa-bars" textcolor="text-white" @click="$refs.nav.open()")
-          h-app-toolbar-title(title="HawkFramework")
+          h-app-toolbar-title(title="HawkFramework 1.0.12")
           h-app-toolbar-action
             h-btn(contained transparent)
               html-link(url="/" icon="fas fa-globe" textcolor="text-white")

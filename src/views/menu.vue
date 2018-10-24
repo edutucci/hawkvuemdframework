@@ -11,21 +11,27 @@
 
     <h1> Menu Dropdown Top of screen</h1>
     <div class="flex h-ma-lg">
-      .col-3(style="background: violet;")
+      .col-3
         .row
           h1 Menu Left
         .row
           <h-menu-dropdown icon="fas fa-bars">
             <h-menu-dropdown-item icon="fas fa-check-circle" text="You are correct." @click="showSnackBar('U clicked in circle')"/>
-            <h-menu-dropdown-item icon="fas fa-handshake" text="You are in good hands You are in good hands You are in good hands" @click="showSnackBar('U clicked in hands')"/>
+            <h-menu-dropdown-item icon="fas fa-handshake" text="You are in good hands" @click="showSnackBar('U clicked in hands')"/>
+            <h-menu-dropdown-item icon="fas fa-check-circle" text="You are correct." @click="showSnackBar('U clicked in circle')"/>
+            <h-menu-dropdown-item icon="fas fa-handshake" text="You are in good hands" @click="showSnackBar('U clicked in hands')"/>
+            <h-menu-dropdown-item icon="fas fa-check-circle" text="You are correct." @click="showSnackBar('U clicked in circle')"/>
+            <h-menu-dropdown-item icon="fas fa-handshake" text="You are in good hands" @click="showSnackBar('U clicked in hands')"/>
+            <h-menu-dropdown-item icon="fas fa-check-circle" text="You are correct." @click="showSnackBar('U clicked in circle')"/>
+            <h-menu-dropdown-item icon="fas fa-handshake" text="You are in good hands" @click="showSnackBar('U clicked in hands')"/>
           </h-menu-dropdown>
-      .col-3.flex.flex-column(style="background: coral;")
+      .col-3.flex.flex-column
         .row.flex.flex-justify-end
           h1 Menu Right
         .row.flex.flex-justify-end
           <h-menu-dropdown icon="fas fa-bars" rtl>
             <h-menu-dropdown-item icon="fas fa-check-circle" text="You are correct." @click="showSnackBar('U clicked in circle')"/>
-            <h-menu-dropdown-item icon="fas fa-handshake" text="You are in good hands You are in good hands" @click="showSnackBar('U clicked in hands')"/>
+            <h-menu-dropdown-item icon="fas fa-handshake" text="You are in good hands" @click="showSnackBar('U clicked in hands')"/>
           </h-menu-dropdown>
     </div>
 

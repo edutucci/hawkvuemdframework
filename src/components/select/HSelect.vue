@@ -17,8 +17,8 @@
     )
       div.flex.flex-items-center.flex-row.menu-item(
         :class="[bgcolor]"
-        v-for="option in options"
-        :key="option.value"
+        v-for="(option, index) in options"
+        :key="index"
         @click="onChangeItem(option)"
       )
         div.icon-left.h-pl-md(v-if="displayMode ==='icon'")
@@ -139,21 +139,6 @@ export default {
 </script>
 
 <style scoped>
-.dropdown {
-  position: relative;
-  /* width: 250px; */
-}
-
-.dropdown-menu {
-  position: absolute;
-  background-color: white;
-  /* min-width: 250px; */
-  max-height: 250px;
-  overflow-y: scroll;
-  z-index: 2;
-  cursor: pointer;
-}
-
 input.select {
    font-size: 18px;
    /* padding-right: 25px;

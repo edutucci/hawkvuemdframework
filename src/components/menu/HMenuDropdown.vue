@@ -70,17 +70,4 @@ export default {
 </script>
 
 <style scoped>
-.dropdown {
-  position: relative;
-}
-
-.dropdown-menu {
-  position: absolute;
-  background-color: white;
-  min-width: 250px;
-  max-height: 150px;
-  overflow-y: auto;
-  z-index: 1650;
-  cursor: pointer;
-}
 </style>

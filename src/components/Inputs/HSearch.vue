@@ -19,8 +19,8 @@
       :style="{left: left, right: right, bottom: bottom}"
     )
       .flex.flex-items-center.menu-item.bg-white.item-padding(
-        v-for="option in options"
-        :key="option.title"
+        v-for="(option, index) in options"
+        :key="index"
       )
         .icon-left
           h-fa-icon(v-if="option.icon && option.icon.length" :icon="option.icon" size="2x" style="color: gray")
@@ -134,20 +134,6 @@ export default {
   z-index:0;
   background:white;
   text-align: center;
-}
-
-.dropdown {
-  position: relative;
-}
-
-.dropdown-menu {
-  position: absolute;
-  background-color: white;
-  min-width: 250px;
-  max-height: 450px;
-  overflow-y: auto;
-  z-index: 1650;
-  cursor: pointer;
 }
 
 </style>

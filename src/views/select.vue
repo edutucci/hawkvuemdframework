@@ -146,6 +146,12 @@ export default {
           'value': 'music1',
           'icon': 'fas fa-music',
           'avatar': 'https://i.pinimg.com/736x/a0/fc/b3/a0fcb3e4cf01dd5832577a0f2c70f5f9--create-your-own-avatar-avatar-maker.jpg'
+        },
+        {
+          'text': 'music',
+          'value': 'music1',
+          'icon': 'fas fa-music',
+          'avatar': 'https://i.pinimg.com/736x/a0/fc/b3/a0fcb3e4cf01dd5832577a0f2c70f5f9--create-your-own-avatar-avatar-maker.jpg'
         }
       ],
       selectIcon: `
