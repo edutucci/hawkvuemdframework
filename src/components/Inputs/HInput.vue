@@ -266,7 +266,8 @@ export default {
 <style scoped>
 .textfield-container {
   position:relative;
-  padding: 8px;
+  padding-top: 6px;
+  padding-bottom: 6px;
 }
 
 .input-container {

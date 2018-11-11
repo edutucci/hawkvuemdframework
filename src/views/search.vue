@@ -2,7 +2,9 @@
   <div>
     <h1>Search</h1>
     <h-search @search="onSearch" ref="search" :options="options"/>
-
+    <div>
+      <h-btn contained bgcolor="bg-secondary" textcolor="text-white" text="secondary"/>
+    </div>
     <pre v-highlightjs="exsearch">
       <code class="html">
       </code>
