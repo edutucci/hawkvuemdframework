@@ -73,8 +73,10 @@
       <h-input-chips
         v-model="chipsInput"
         float-label="Name"
-        left-icon="fas fa-camera-retro"
+        static-label="My chips list"
+        left-icon=""
         helper-text="Type your chips"
+        error-label="Write 1 chips please"
         cleartext
         @change="onchange"
         @onTab="ontab"
@@ -99,7 +101,6 @@
       <div>
         <h3>Name</h3>
         <div>left-icon</div>
-        <div>float-label</div>
         <div>static-label</div>
         <div>error-label</div>
         <div>helper-text</div>
@@ -112,14 +113,12 @@
         <div>String</div>
         <div>String</div>
         <div>String</div>
-        <div>String</div>
         <div>Boolean</div>
         <div>Boolean</div>
       </div>
       <div class="h-pl-md">
         <h3 >Description</h3>
         <div>Sets the icon to left of the input</div>
-        <div>Sets the float label for the input</div>
         <div>Sets the static label for the input</div>
         <div>Sets the error label for the input</div>
         <div>Sets the helper text for the input</div>

@@ -1,7 +1,7 @@
 <template lang="pug">
   div.flex.flex-column.full-width
     .div(v-if="separator" :class="[bgcolor]")
-      hr
+      html-separator
     .flex.flex-column.full-with(@click="selectCollapse()" )
       .flex.full-width(style="height:40px;")
         .flex.flex-items-center(v-if="icon && icon.length" :class="[bgcolor]" style="padding-left:16px;padding-right:8px;height:40px;")
@@ -18,7 +18,7 @@
       .full-width(v-if="isVisible")
         slot
     div(v-if="separator" :class="[bgcolor]")
-      hr
+      html-separator
 
 </template>
 

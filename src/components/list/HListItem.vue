@@ -3,7 +3,7 @@
     <div class="menu-item bg-white flex flex-row flex-items-center" :class="{active: active}">
       <slot></slot>
     </div>
-    <hr v-if="separator">
+    <html-separator v-if="separator"/>
   </div>
 </template>
 

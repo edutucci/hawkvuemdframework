@@ -1,0 +1,26 @@
+------------------------------------------------
+HELP
+------------------------------------------------
+Adicionar evento click no h-collapsible-item
+
+------------------------------------------------
+Componentes
+------------------------------------------------
+
+SELECT
+Adicionar float-label e static-label para select OK
+Erro value.substr is not a function. Acontece quando v-model esta indefinido ou string vazia
+
+TEXTFIELD
+Implementar evento @blur para textfield OK
+
+INPUT CHIPS
+1. float-label remover ok
+2. implementar static-label ok
+2. dar espacamento de margin top aos input chips para nao ficar juntos em varias linhas OK
+
+CHECKBOX, RADIOBUTTON
+Remover Negrito do texto OK
+
+SEPARATOR
+criar esse componente e adicionar a tag hr OK

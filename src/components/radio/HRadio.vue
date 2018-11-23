@@ -67,7 +67,6 @@ export default {
     margin-bottom: 12px;
     cursor: pointer;
     font-size: 16px;
-    font-weight: bold;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;

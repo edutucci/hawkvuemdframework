@@ -87,7 +87,6 @@ export default {
     padding-left: 30px;
     cursor: pointer;
     font-size: 16px;
-    font-weight: bold;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;

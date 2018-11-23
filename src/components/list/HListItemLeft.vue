@@ -14,7 +14,7 @@
       .subtitle.flex.flex-wrap
         | {{desc}}
       div.full-with(v-if="separator")
-        hr
+        html-separator
 </template>
 
 <script>

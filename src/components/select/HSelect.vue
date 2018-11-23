@@ -3,7 +3,8 @@
   .flex.flex-column.dropdown(v-on-clickaway="away")
     .flex.flex-row
       h-input.full-width(
-        :showStaticLabel="showStaticLabel"
+        :float-label="floatLabel"
+        :static-label="staticLabel"
         :placeholder="placeholder"
         @focus="magic_flag = true"
         :readonly="true"
@@ -53,6 +54,12 @@ export default {
     options: {
       type: Array,
       default: () => ([])
+    },
+    floatLabel: {
+      type: String
+    },
+    staticLabel: {
+      type: String
     },
     displayMode: {
       type: String

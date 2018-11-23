@@ -12,7 +12,7 @@
       </code>
     </pre>
 
-      <h1>  Password</h1>
+      <h1> Password</h1>
       <div class="col-6">
         <h-input type="password" float-label="Password" v-model="txtPassword" placeholder="type your password" />
         <span>Password: {{ txtPassword }}</span>
@@ -66,6 +66,7 @@
         @onTab="onKeyTab"
         @onEnter="onEnter"
         @change="onChange"
+        @blur="onBlur"
       />
     </div>
 
@@ -259,6 +260,9 @@ export default {
         textcolor: 'text-white',
         bgcolor: 'bg-primary'
       })
+    },
+    onBlur () {
+      console.log('blur event')
     }
   }
 }

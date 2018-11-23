@@ -14,6 +14,7 @@
     <div class="col-6">
       <h-select :options="options"
         v-model="selectModel"
+        static-label="Select with icons"
         @input="onInput"
         display-mode="icon"/>
       <span>selectModel: {{ selectModel }}</span>

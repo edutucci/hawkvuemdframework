@@ -12,22 +12,24 @@
         :class="{primary: primary, nofocus: nofocus, outline: outlined}"
       )
         div.static-label(
-          v-if="showStaticLabel"
+          v-if="(staticLabel && staticLabel.length) || (floatLabel && floatLabel.length)"
           :class="{primary: primary, nofocus: nofocus}"
           :style="[staticLabelStyle]"
           style="height: 15px;"
         )
-          div.h-pl-sm(v-if="staticLabel")
+          div.h-pl-sm(v-if="staticLabel && staticLabel.length")
             | {{staticLabel}}
         .flex-1
           .flex.full-width
-            .flex-1.h-pl-sm
+            .flex-1
               input(
                 v-focus="focused"
                 class="h-input"
                 :value="value"
                 :type="inputtype"
                 :readonly="readonly"
+                :float-label="floatLabel"
+                :static-label="staticLabel"
                 :placeholder="placeholder"
                 :maxlength="maxlength"
                 @focus="onInputFocus()"
@@ -107,10 +109,6 @@ export default {
     textCounter: {
       type: Number,
       default: 0
-    },
-    showStaticLabel: {
-      type: Boolean,
-      default: true
     },
     leftIcon: {
       type: String,
@@ -208,6 +206,7 @@ export default {
       this.primary = false
       this.nofocus = true
       this.changeFloatLabelStyle()
+      this.$emit('blur')
     },
     changeFloatLabelStyle () {
       // top: '20px', left: '1px'
@@ -266,13 +265,13 @@ export default {
 <style scoped>
 .textfield-container {
   position:relative;
-  padding-top: 6px;
-  padding-bottom: 6px;
+  padding-top: 4px;
+  padding-bottom: 4px;
 }
 
 .input-container {
   position:relative;
-  padding-top: 2px;
+  padding-top: 0px;
   padding-bottom:2px;
 }
 

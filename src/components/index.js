@@ -2,7 +2,8 @@ import Vue from 'vue'
 
 import HBtn from './buttons/HBtn.vue'
 import HBtnFloat from './buttons/HBtnFloat.vue'
-import HtmlLink from './text/HtmlLink.vue'
+import HtmlLink from './html/HtmlLink.vue'
+import HtmlSeparator from './html/HtmlSeparator.vue'
 import HCard from './card/HCard.vue'
 import HCardHeader from './card/HCardHeader'
 import HCardHeaderText from './card/CardHeaderText.vue'
@@ -116,6 +117,7 @@ const Components = {
   HRadio,
   HSearch,
   HSelect,
+  HtmlSeparator,
   HTab,
   HTabs,
   HTable,
