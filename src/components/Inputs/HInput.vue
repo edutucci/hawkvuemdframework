@@ -25,7 +25,7 @@
               input(
                 v-focus="focused"
                 class="h-input"
-                :value="value"
+                v-model="inputDisplay"
                 :type="inputtype"
                 :readonly="readonly"
                 :float-label="floatLabel"
@@ -92,7 +92,7 @@ export default {
   mixins: [focusMixin],
   props: {
     value: {
-      type: [String, Number]
+      type: String
     },
     floatLabel: {
       type: String
@@ -154,7 +154,8 @@ export default {
         left: '9px',
         fontSize: '12px',
         zIndex: '-1'
-      }
+      },
+      inputDisplay: ''
     }
   },
   mounted () {
@@ -163,7 +164,11 @@ export default {
     this.onInputBlur()
   },
   watch: {
+    inputDisplay: function (newValue) {
+      this.$emit('input', newValue)
+    },
     value: function (value) {
+      this.inputDisplay = value
       this.changeFloatLabelStyle()
     },
     placeholder: function (value) {
@@ -209,7 +214,6 @@ export default {
       this.$emit('blur')
     },
     changeFloatLabelStyle () {
-      // top: '20px', left: '1px'
       if (this.floatLabel && (this.value || this.placeholder)) {
         this.floatLabelStyle.top = '2px'
         this.floatLabelStyle.left = '9px'
@@ -219,19 +223,14 @@ export default {
         this.floatLabelStyle.left = '9px'
         this.floatLabelStyle.fontSize = '16px'
       }
-
-      // console.log('this.floatLabelStyle: ' + JSON.stringify(this.floatLabelStyle))
     },
     onChange (value) {
-      // console.log('onchange: ' + value)
       let txtValue = ''
       if (value === undefined && this.value) {
         txtValue = this.value
       } else {
         txtValue = value
       }
-      txtValue = this.inputMaxlength(txtValue)
-      this.$emit('input', txtValue)
       this.$emit('change', txtValue)
     },
     onClick () {
@@ -242,7 +241,7 @@ export default {
       if (this.type === 'password') {
         this.inputtype = (this.inputtype === 'password') ? 'text' : 'password'
       } else if (this.cleartext) {
-        this.onChange('')
+        this.inputDisplay = ''
         this.onInputFocus()
       }
     },
