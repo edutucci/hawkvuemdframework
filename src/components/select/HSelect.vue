@@ -12,7 +12,7 @@
         type='dropdown'
       )
 
-    div.full-width.dropdown-menu.boxshadow.div-rounded(
+    div.full-width.dropdown-menu.boxshadow.border-corner-rounded(
       v-if="!multiselect && magic_flag"
       :style="{left: left, right: right, bottom: bottom}"
     )
@@ -28,7 +28,7 @@
           h-avatar(:src="option.avatar")
         div.flex-1  {{option.text}}
 
-    div.full-width.dropdown-menu.boxshadow.div-rounded(v-else-if="multiselect && magic_flag")
+    div.full-width.dropdown-menu.boxshadow.border-corner-rounded(v-else-if="multiselect && magic_flag")
       div.flex.flex-row.menu-item(
         :class="[bgcolor]"
         v-for="option in options"

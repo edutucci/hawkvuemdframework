@@ -1,19 +1,18 @@
 import Vue from 'vue'
 
-import HBtn from './buttons/HBtn.vue'
-import HBtnFloat from './buttons/HBtnFloat.vue'
-import HtmlLink from './html/HtmlLink.vue'
-import HtmlSeparator from './html/HtmlSeparator.vue'
-import HCard from './card/HCard.vue'
-import HCardHeader from './card/HCardHeader'
+import HBtn from './buttons/Btn.vue'
+import HBtnFloat from './buttons/BtnFloat.vue'
+import HBtnGroup from './buttons/BtnGroup.vue'
+import HBtnGroupItem from './buttons/BtnGroupItem.vue'
+import HCard from './card/Card.vue'
+import HCardHeader from './card/CardHeader'
 import HCardHeaderText from './card/CardHeaderText.vue'
 import HCardHeaderMenu from './card/CardHeaderMenu.vue'
-import HCardMedia from './card/HCardMedia'
-import HCardMediaText from './card/HCardMediaText'
-import HCardText from './card/HCardText'
-import HCardActions from './card/HCardActions'
-import HCardButtons from './card/HCardButtons'
-import HCardIcons from './card/HCardIcons'
+import HCardMedia from './card/CardMedia'
+import HCardText from './card/CardText'
+import HCardActions from './card/CardActions'
+import HCardButtons from './card/CardButtons'
+import HCardIcons from './card/CardIcons'
 import HCheckbox from './checkbox/HCheckbox.vue'
 import HCollapsible from './collapsible/HCollapsible.vue'
 import HCollapsibleMenu from './collapsible/HCollapsibleMenu.vue'
@@ -21,6 +20,8 @@ import HCollapsibleItem from './collapsible/HCollapsibleItem.vue'
 import HChips from './chips/Chips.vue'
 import HInputChips from './chips/InputChips.vue'
 import HCounter from './chips/Counter.vue'
+import HCarousel from './carousel/Carousel.vue'
+import HCarouselSlider from './carousel/CarouselSlider.vue'
 import HDatePicker from './date/HDatePicker.vue'
 import HDateInput from './date/HDateInput.vue'
 import HDateTimeInput from './date/DateTimeInput.vue'
@@ -34,6 +35,8 @@ import HListHeader from './list/HListHeader.vue'
 import HListBody from './list/HListBody.vue'
 import HListItemLeft from './list/HListItemLeft.vue'
 import HListItemRight from './list/HListItemRight.vue'
+import HMediaImg from './common/MediaImg.vue'
+import HMediaText from './common/MediaText'
 import HAppToolbar from './toolbar/HAppToolbar.vue'
 import HAppToolbarContainer from './toolbar/HAppToolbarContainer.vue'
 import HAppToolbarNavigation from './toolbar/HAppToolbarNavigation.vue'
@@ -51,29 +54,37 @@ import HSlideMenuItem from './menu/HSlideMenuItem.vue'
 import HModal from './window/HModal'
 import HNavDrawer from '../components/window/HNavDrawer'
 import HRadio from './radio/HRadio.vue'
+import HRating from './rating/Rating.vue'
 import HSearch from './Inputs/HSearch'
 import HSelect from './select/HSelect.vue'
 import HTab from './tab/HTab.vue'
 import HTabs from './tab/HTabs.vue'
 import HTable from './table/HTable.vue'
 import HInput from './Inputs/HInput.vue'
+import HInputPlusMinus from './Inputs/InputPlusMinus.vue'
 import HToggle from './checkbox/HToggle'
 import HPage from './page/Page.vue'
 import HPageContent from './page/PageContent.vue'
 import HPageHeader from './page/PageHeader.vue'
 import HPageFooter from './page/PageFooter.vue'
 import HYoutubeVideo from './video/YoutubeVideo.vue'
+import HtmlLink from './html/HtmlLink.vue'
+import HtmlSeparator from './html/HtmlSeparator.vue'
+import HtmlArticle from './html/HtmlArticle.vue'
+import HSliderButton from './common/SliderButton.vue'
 
 const Components = {
   HBtn,
   HBtnFloat,
-  HtmlLink,
+  HBtnGroup,
+  HBtnGroupItem,
   HCard,
   HCardHeader,
   HCardHeaderText,
   HCardHeaderMenu,
   HCardMedia,
-  HCardMediaText,
+  HMediaImg,
+  HMediaText,
   HCardText,
   HCardActions,
   HCardButtons,
@@ -83,6 +94,8 @@ const Components = {
   HCollapsibleMenu,
   HCollapsibleItem,
   HChips,
+  HCarousel,
+  HCarouselSlider,
   HInputChips,
   HCounter,
   HDatePicker,
@@ -115,19 +128,24 @@ const Components = {
   HModal,
   HNavDrawer,
   HRadio,
+  HRating,
   HSearch,
   HSelect,
-  HtmlSeparator,
   HTab,
   HTabs,
   HTable,
   HInput,
+  HInputPlusMinus,
   HToggle,
   HPage,
   HPageContent,
   HPageHeader,
   HPageFooter,
-  HYoutubeVideo
+  HYoutubeVideo,
+  HtmlLink,
+  HtmlArticle,
+  HtmlSeparator,
+  HSliderButton
 }
 
 Object.keys(Components).forEach(name => {

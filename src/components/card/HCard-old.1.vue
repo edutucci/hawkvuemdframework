@@ -166,14 +166,8 @@
 </template>
 
 <script>
-import HBtnFloat from '../buttons/HBtnFloat.vue'
-import HFaIcon from '../icons/FaIcon'
 
 export default {
-  components: {
-    HBtnFloat,
-    HFaIcon
-  }
 }
 </script>
 

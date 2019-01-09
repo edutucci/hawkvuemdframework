@@ -18,7 +18,7 @@
         @click="selectMenu(item)"
       />
     </div>
-    <div  v-if="menuContent && menuContent.items.length" class="slide-menu-container div-rounded">
+    <div  v-if="menuContent && menuContent.items.length" class="slide-menu-container border-corner-rounded">
       <div class="flex flex-column full-width">
         <div class="flex flex-row" :class="[bgcolor,textcolor]">
           <div class="flex flex-row flex-items-center flex-1">

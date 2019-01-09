@@ -21,6 +21,7 @@ export default new Router({
         { path: '/visibility', component: () => import('./views/css/visibility') },
         { path: '/cssothers', component: () => import('./views/css/others') },
         { path: '/buttons', component: () => import('./views/buttons') },
+        { path: '/buttongroup', component: () => import('./views/buttonGroup') },
         { path: '/icon', component: () => import('./views/icon') },
         { path: '/textfield', component: () => import('./views/textfield') },
         { path: '/search', component: () => import('./views/search') },

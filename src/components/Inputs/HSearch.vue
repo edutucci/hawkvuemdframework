@@ -14,7 +14,7 @@
         @onEnter="onEnter"
       )
 
-    .dropdown-menu.boxshadow.div-rounded.full-width(
+    .dropdown-menu.boxshadow.border-corner-rounded.full-width(
       v-show="showdropdown"
       :style="{left: left, right: right, bottom: bottom}"
     )
@@ -133,7 +133,6 @@ export default {
   outline: none;
   z-index:0;
   background:white;
-  text-align: center;
 }
 
 </style>

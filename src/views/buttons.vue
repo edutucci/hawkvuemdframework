@@ -108,7 +108,7 @@
     <h-btn textbutton textcolor="text-primary" text="primary">
       <h-counter bgcolor="bg-negative" textcolor="text-white">12</h-counter>
     </h-btn>
-    <h-btn class="h-pl-md" outlined textcolor="text-primary" text="primary">
+    <h-btn outlined textcolor="text-primary" text="primary">
       <h-counter bgcolor="bg-negative" textcolor="text-white">12</h-counter>
     </h-btn>
 

@@ -31,7 +31,6 @@
 
 <script>
 
-import HBtn from '../buttons/HBtn'
 import HTime from './HTime'
 import moment from 'moment'
 
@@ -46,9 +45,6 @@ export default {
       type: Boolean,
       default: true
     }
-  },
-  components: {
-    HBtn
   },
   data () {
     return {

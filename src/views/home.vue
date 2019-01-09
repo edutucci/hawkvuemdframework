@@ -39,6 +39,7 @@
 
               <h-collapsible-menu text="Components" icon="fas fa-hdd">
                 <h-collapsible-item text="Buttons" @click="$router.push('/buttons'), $refs.nav.close()"/>
+                <h-collapsible-item text="Button Group" @click="$router.push('/buttongroup'), $refs.nav.close()"/>
                 <h-collapsible-item text="Cards" @click="$router.push('/card'), $refs.nav.close()"/>
                 <h-collapsible-item text="Checkbox" @click="$router.push('/checkbox'), $refs.nav.close()"/>
                 <h-collapsible-item text="Chips/InputChips" @click="$router.push('/chip'), $refs.nav.close()"/>

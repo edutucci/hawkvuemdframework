@@ -17,7 +17,7 @@ export default {
       return this.currentTextLeft
     },
     setCurrentTextLeft (text) {
-      console.log('text: ' + text)
+      // console.log('text: ' + text)
       this.currentTextLeft = text
     }
   }

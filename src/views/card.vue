@@ -2,7 +2,7 @@
   .full-width
     h1 Cards
 
-    <h-card>
+    <h-card style="width:340px;">
       <h-card-header>
         <h-card-header-text text="River" desc="Beautifull place A river in the Ganderbal district" />
         <h-card-header-menu>
@@ -12,8 +12,12 @@
           </h-menu-dropdown>
         </h-card-header-menu>
       </h-card-header>
-      <h-card-media img="img/Nallah_Sindh.jpg"/>
-      <h-card-text desc="A river in the Ganderbal district of Jammu and Kashmir state of India." />
+      <h-card-media>
+        <h-media-img img="img/Nallah_Sindh.jpg"/>
+      </h-card-media>
+      <h-card-text>
+        span A river in the Ganderbal district of Jammu and Kashmir state of India.
+      </h-card-text>
     </h-card>
 
     .boxshadow
@@ -23,11 +27,36 @@
       </pre>
 
     <h-card>
-      <h-card-media img="img/Nallah_Sindh.jpg"/>
-      <h-card-header avatar="/avatar/Kostenlose.jpg">
+      <h-card-header>
+        <h-card-header-text text="Vue CLI 3" desc="Usage Plugins GUI" />
+        <h-card-header-menu>
+          <h-menu-dropdown rtl icon="fas fa-ellipsis-v" textcolor="text-black">
+            <h-menu-dropdown-item icon="fas fa-check-circle" text="You are correct." />
+            <h-menu-dropdown-item icon="fas fa-handshake" text="You are in good hands"/>
+          </h-menu-dropdown>
+        </h-card-header-menu>
+      </h-card-header>
+      <h-card-media>
+        <h-youtube-video :width="340" :height="220" src="https://www.youtube.com/embed/nSmMkeNjjPg"/>
+      </h-card-media>
+    </h-card>
+
+    .boxshadow
+      <pre v-highlightjs="cardvideo1">
+        <code class="html">
+        </code>
+      </pre>
+
+    <h-card style="width:340px;">
+      <h-card-media>
+        <h-media-img img="img/Nallah_Sindh.jpg"/>
+      </h-card-media>
+      <h-card-header avatar="avatar/Kostenlose.jpg">
         <h-card-header-text text="River"  desc="Beautifull place" />
       </h-card-header>
-      <h-card-text desc="A river in the Ganderbal district of Jammu and Kashmir state of India." />
+      <h-card-text>
+        span A river in the Ganderbal district of Jammu and Kashmir state of India.
+      </h-card-text>
       <h-card-actions>
         <h-card-buttons>
           <h-btn textbutton text="explore"/>
@@ -50,14 +79,18 @@
 
     <div class="flex flex-wrap">
       <h-card style="width:256px">
-       <h-card-media img="img/90minute.png"/>
+       <h-card-media>
+        <h-media-img img="img/90minute.png"/>
+       </h-card-media>
        <h-card-header>
         <h-card-header-text text="90th minute" desc="4.31 MB"/>
        </h-card-header>
       </h-card>
 
       <h-card style="width:256px">
-       <h-card-media img="img/breakpoint.png"/>
+       <h-card-media>
+        <h-media-img img="img/breakpoint.png"/>
+       </h-card-media>
        <h-card-header>
         <h-card-header-text text="Break point"  desc="5.12 MB"/>
        </h-card-header>
@@ -65,14 +98,18 @@
     </div>
     <div class="flex flex-wrap">
       <h-card style="width:256px">
-       <h-card-media img="img/matchday.png"/>
+       <h-card-media>
+        <h-media-img img="img/matchday.png"/>
+       </h-card-media>
        <h-card-header>
         <h-card-header-text text="Matchday"  desc="2.18 MB"/>
        </h-card-header>
       </h-card>
 
       <h-card style="width:256px">
-       <h-card-media img="img/bluerun.png"/>
+       <h-card-media>
+        <h-media-img img="img/bluerun.png"/>
+       </h-card-media>
        <h-card-header>
         <h-card-header-text text="Blue run"  desc="3.33 MB"/>
        </h-card-header>
@@ -90,28 +127,36 @@
       .flex.flex-column.flex-wrap
         div.h-ma-md(style="width:360px; height: 200px;")
           <h-card>
-            <h-card-media style="width:360px; height: 200px;"  img="img/90minute.png">
-              <h-card-media-text class="flex-items-end" text="90th minute" desc="4.31 MB"/>
+            <h-card-media>
+              <h-media-img style="width:360px; height: 200px;"  img="img/90minute.png">
+                <h-media-text class="flex-items-end" text="90th minute" desc="4.31 MB"/>
+              </h-media-img>
             </h-card-media>
           </h-card>
 
         div.h-ma-md.flex.flex-items-center(style="width:360px; height: 200px;")
           <h-card>
-            <h-card-media style="width:170px; height: 128px;" img="img/bluerun.png">
-              <h-card-media-text class="flex-items-end" text="Blue run" desc="3.33 MB"/>
+            <h-card-media>
+              <h-media-img style="width:170px; height: 128px;" img="img/bluerun.png">
+                <h-media-text class="flex-items-end" text="Blue run" desc="3.33 MB"/>
+              </h-media-img>
             </h-card-media>
           </h-card>
 
           <h-card>
-            <h-card-media style="width:160px; height: 192px;"  img="img/breakpoint.png">
-              <h-card-media-text class="flex-items-center" text="Break point"  desc="5.12 MB"/>
+            <h-card-media>
+              <h-media-img style="width:170px; height: 192px;"  img="img/breakpoint.png">
+                <h-media-text class="flex-items-center" text="Break point"  desc="5.12 MB"/>
+              </h-media-img>
             </h-card-media>
           </h-card>
 
         div.h-ma-md(style="width:360px; height: 200px;")
           <h-card>
-            <h-card-media style="width:360px; height: 200px;" img="img/matchday.png">
-              <h-card-media-text class="flex-items-center flex-justify-center" text="Match day" desc="2.18 MB"/>
+            <h-card-media>
+              <h-media-img style="width:360px; height: 200px;" img="img/matchday.png">
+                <h-media-text class="flex-items-center flex-justify-center" text="Match day" desc="2.18 MB"/>
+              </h-media-img>
             </h-card-media>
           </h-card>
     </div>
@@ -165,7 +210,7 @@
       </div>
     </div>
 
-    <h1 class="text-primary"> Card Media Help</h1>
+    <h1 class="text-primary"> Card Media Img Help</h1>
     <h2 class="text-primary"> Vue Properties</h2>
     <hr>
 
@@ -183,7 +228,6 @@
         <div>Sets the img for media</div>
       </div>
     </div>
-
     <h1 class="text-primary"> Card Media Text Help</h1>
     <h2 class="text-primary"> Vue Properties</h2>
     <hr>
@@ -201,8 +245,8 @@
       </div>
       <div class="h-pl-md">
         <h3 >Description</h3>
-        <div>Sets the text for the image in <b>h-card-media</b></div>
-        <div>Sets the description for the image in <b>h-card-media</b></div>
+        <div>Sets the text for the image in <b>h-media-img</b></div>
+        <div>Sets the description for the image in <b>h-media-img</b></div>
       </div>
     </div>
 
@@ -216,7 +260,7 @@ export default {
   data () {
     return {
       card1: `
-<h-card>
+<h-card style="width:340px;">
   <h-card-header>
     <h-card-header-text text="River" desc="Beautifull place A river in the Ganderbal district" />
     <h-card-header-menu>
@@ -226,17 +270,41 @@ export default {
       </h-menu-dropdown>
     </h-card-header-menu>
   </h-card-header>
-  <h-card-media img="img/Nallah_Sindh.jpg"/>
-  <h-card-text desc="A river in the Ganderbal district of Jammu and Kashmir state of India." />
+  <h-card-media>
+    <h-media-img img="img/Nallah_Sindh.jpg"/>
+  </h-card-media>
+  <h-card-text>
+    span A river in the Ganderbal district of Jammu and Kashmir state of India.
+  </h-card-text>
+</h-card>
+      `,
+      cardvideo1: `
+<h-card>
+  <h-card-header>
+    <h-card-header-text text="Vue CLI 3" desc="Usage Plugins GUI" />
+    <h-card-header-menu>
+      <h-menu-dropdown rtl icon="fas fa-ellipsis-v" textcolor="text-black">
+        <h-menu-dropdown-item icon="fas fa-check-circle" text="You are correct." />
+        <h-menu-dropdown-item icon="fas fa-handshake" text="You are in good hands"/>
+      </h-menu-dropdown>
+    </h-card-header-menu>
+  </h-card-header>
+  <h-card-media>
+    <h-youtube-video :width="340" :height="220" src="https://www.youtube.com/embed/nSmMkeNjjPg"/>
+  </h-card-media>
 </h-card>
       `,
       card2: `
-<h-card>
-  <h-card-media img="img/Nallah_Sindh.jpg"/>
-  <h-card-header avatar="/avatar/Kostenlose.jpg">
+<h-card style="width:340px;">
+  <h-card-media>
+    <h-media-img img="img/Nallah_Sindh.jpg"/>
+  </h-card-media>
+  <h-card-header avatar="avatar/Kostenlose.jpg">
     <h-card-header-text text="River"  desc="Beautifull place" />
   </h-card-header>
-  <h-card-text desc="A river in the Ganderbal district of Jammu and Kashmir state of India." />
+  <h-card-text>
+    span A river in the Ganderbal district of Jammu and Kashmir state of India.
+  </h-card-text>
   <h-card-actions>
     <h-card-buttons>
       <h-btn textbutton text="explore"/>
@@ -252,14 +320,18 @@ export default {
       cardScannable: `
 <div class="flex flex-wrap">
   <h-card style="width:256px">
-    <h-card-media img="img/90minute.png"/>
+    <h-card-media>
+      <h-media-img img="img/90minute.png"/>
+    </h-card-media>
     <h-card-header>
       <h-card-header-text text="90th minute" desc="4.31 MB"/>
     </h-card-header>
   </h-card>
 
   <h-card style="width:256px">
-    <h-card-media img="img/breakpoint.png"/>
+    <h-card-media>
+      <h-media-img img="img/breakpoint.png"/>
+    </h-card-media>
     <h-card-header>
       <h-card-header-text text="Break point"  desc="5.12 MB"/>
     </h-card-header>
@@ -267,14 +339,18 @@ export default {
 </div>
 <div class="flex flex-wrap">
   <h-card style="width:256px">
-    <h-card-media img="img/matchday.png"/>
+    <h-card-media>
+      <h-media-img img="img/matchday.png"/>
+    </h-card-media>
     <h-card-header>
       <h-card-header-text text="Matchday"  desc="2.18 MB"/>
     </h-card-header>
   </h-card>
 
   <h-card style="width:256px">
-    <h-card-media img="img/bluerun.png"/>
+    <h-card-media>
+      <h-media-img img="img/bluerun.png"/>
+    </h-card-media>
     <h-card-header>
       <h-card-header-text text="Blue run"  desc="3.33 MB"/>
     </h-card-header>
@@ -286,31 +362,39 @@ export default {
   .flex.flex-column.flex-wrap
     div.h-ma-md(style="width:360px; height: 200px;")
       <h-card>
-        <h-card-media style="width:360px; height: 200px;"  img="img/90minute.png">
-          <h-card-media-text class="flex-items-end" text="90th minute" desc="4.31 MB"/>
+        <h-card-media>
+          <h-media-img style="width:360px; height: 200px;"  img="img/90minute.png">
+            <h-media-text class="flex-items-end" text="90th minute" desc="4.31 MB"/>
+          </h-media-img>
         </h-card-media>
       </h-card>
 
     div.h-ma-md.flex.flex-items-center(style="width:360px; height: 200px;")
       <h-card>
-        <h-card-media style="width:170px; height: 128px;" img="img/bluerun.png">
-          <h-card-media-text class="flex-items-end" text="Blue run" desc="3.33 MB"/>
+        <h-card-media>
+          <h-media-img style="width:170px; height: 128px;" img="img/bluerun.png">
+            <h-media-text class="flex-items-end" text="Blue run" desc="3.33 MB"/>
+          </h-media-img>
         </h-card-media>
       </h-card>
 
       <h-card>
-        <h-card-media style="width:160px; height: 192px;"  img="img/breakpoint.png">
-          <h-card-media-text class="flex-items-center" text="Break point"  desc="5.12 MB"/>
+        <h-card-media>
+          <h-media-img style="width:170px; height: 192px;"  img="img/breakpoint.png">
+            <h-media-text class="flex-items-center" text="Break point"  desc="5.12 MB"/>
+          </h-media-img>
         </h-card-media>
       </h-card>
 
     div.h-ma-md(style="width:360px; height: 200px;")
       <h-card>
-        <h-card-media style="width:360px; height: 200px;" img="img/matchday.png">
-          <h-card-media-text class="flex-items-center flex-justify-center" text="Match day" desc="2.18 MB"/>
+        <h-card-media>
+          <h-media-img style="width:360px; height: 200px;" img="img/matchday.png">
+            <h-media-text class="flex-items-center flex-justify-center" text="Match day" desc="2.18 MB"/>
+          </h-media-img>
         </h-card-media>
       </h-card>
-</div>        
+</div>      
       `
     }
   }

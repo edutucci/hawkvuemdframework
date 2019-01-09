@@ -10,6 +10,7 @@
 
 <script>
 export default {
+  name: 'HListHeader',
   props: {
     text: {
       type: String,

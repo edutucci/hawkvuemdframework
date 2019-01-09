@@ -32,7 +32,6 @@ export default {
   },
   watch: {
     size: function (value) {
-      console.log('value: ' + value)
       this.styleObject.fontSize = value
     }
   },

@@ -1,14 +1,15 @@
 <template lang="pug">
-  .flex-1.card-header-text-padding
-    .title
-      h3 {{text}}
-    .subtitle
-      | {{desc}}
+  .full-size
+    div(style="padding:16px")
+      .title-media
+        h2 {{text}}
+      .subtitle-media.flex.flex-wrap
+        strong {{desc}}
 </template>
 
 <script>
 export default {
-  name: 'HCardHeaderText',
+  name: 'HMediaText',
   props: {
     text: {
       type: String,

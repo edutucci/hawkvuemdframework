@@ -9,7 +9,7 @@
         :textcolor="textcolor"
       )
 
-    div.dropdown-menu.boxshadow.div-rounded(
+    div.dropdown-menu.boxshadow.border-corner-rounded(
       v-show="showdropdown"
       @click="showdropdown = !showdropdown"
       style="color:black; background-color: white"

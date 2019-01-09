@@ -25,6 +25,7 @@
               input(
                 v-focus="focused"
                 class="h-input"
+                :class="{ 'text-center': textCenter }"
                 v-model="inputDisplay"
                 :type="inputtype"
                 :readonly="readonly"
@@ -47,7 +48,9 @@
                 :style="[floatLabelStyle]"
               )
                 | {{floatLabel}}
-            div.h-pr-sm.h-pl-sm
+            div.h-pr-sm.h-pl-sm(
+              v-if="type === 'password' || type === 'dropdown' || cleartext"
+            )
               h-fa-icon(
                 v-if="type === 'password'"
                 textcolor="text-gray"
@@ -92,7 +95,8 @@ export default {
   mixins: [focusMixin],
   props: {
     value: {
-      type: String
+      type: [String, Number],
+      default: ''
     },
     floatLabel: {
       type: String
@@ -109,6 +113,10 @@ export default {
     textCounter: {
       type: Number,
       default: 0
+    },
+    textCenter: {
+      type: Boolean,
+      default: false
     },
     leftIcon: {
       type: String,

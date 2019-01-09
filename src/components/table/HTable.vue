@@ -1,5 +1,5 @@
 <template>
-    <div class="boxshadow div-rounded flex flex-column full-height no-user-select">
+    <div class="boxshadow border-corner-rounded flex flex-column full-height no-user-select">
       <div class="flex flex-column" style="min-height:60px;overflow:hidden; position:relative; z-index: 1">
         <div v-if="selectedRows.length > 0" class="flex flex-row flex-items-center full-height" style="padding-left:8px;padding-right:8px;">
           <div class="flex-1" style="color:royalblue;">
@@ -24,12 +24,11 @@
       <div class="flex-1  table-container" @mouseleave="onMouseOverRow(-1)" style="">
         <div class="flex flex-row table-row-container">
           <div>
-            <div class="flex flex-column ">
-
+            <div v-if="selectable" class="flex flex-column ">
               <div class="flex flex-items-center flex-justify-center" :style="[rowlineheight]">
-                <!-- <h-checkbox v-model="selectedAllRows"  value="selectedAllRows" style="padding-top:0px; padding-left:8px;"/> -->
+                <h-checkbox v-model="selectedAllRows" @change="selectAllTableRows" style="padding-top:0px; padding-left:8px;"/>
               </div>
-              <div v-if="selectable" class="flex flex-items-center flex-justify-center" :style="[rowlineheight]" style="padding: 8px;"
+              <div class="flex flex-items-center flex-justify-center" :style="[rowlineheight]" style="padding: 8px;"
                 v-for="(row, rowindex) in tableData.rows"
                 :key="rowindex"
                 :class="[rowbackgroundColor[rowindex]]"
@@ -179,14 +178,9 @@ export default {
     rows: function (val) {
       this.setTableRows()
     },
-    // selectedAllRows: function (val) {
-    //   this.selectedRows = []
-    //   if (val) {
-    //     for (let rowindex = 0; rowindex < this.tableData.rows.length; rowindex++) {
-    //       this.selectedRows.push(rowindex)
-    //     }
-    //   }
-    // }
+    selectedRows: function (value) {
+      this.selectedAllRows = this.tableData.rows.length === this.selectedRows.length
+    },
     rowsperpagevalue: function (val) {
       this.rowsPage = 1
       this.setTableRows()
@@ -229,6 +223,14 @@ export default {
     columnwidth (col) {
       return 'width:' + col.width
     },
+    selectAllTableRows (val) {
+      this.selectedRows = []
+      if (val) {
+        for (let rowindex = 0; rowindex < this.tableData.rows.length; rowindex++) {
+          this.selectedRows.push(rowindex)
+        }
+      }
+    },
     getSelectedRows () {
       let rows = []
       for (let index = 0; index < this.selectedRows.length; index++) {
@@ -258,6 +260,7 @@ export default {
     onPreviousPage () {
       // console.log('this.rowsPage: ' + this.rowsPage)
       // console.log('this.maxPage: ' + this.maxPage)
+      this.selectedRows = []
       if (this.rowsPage > 1) {
         this.rowsPage -= 1
         // console.log('this.rowsPage:' + this.rowsPage)
@@ -267,6 +270,7 @@ export default {
     onNextPage () {
       // console.log('this.rowsPage: ' + this.rowsPage)
       // console.log('this.maxPage: ' + this.maxPage)
+      this.selectedRows = []
       if (this.rowsPage < this.maxPage) {
         this.rowsPage += 1
         // console.log('this.rowsPage:' + this.rowsPage)

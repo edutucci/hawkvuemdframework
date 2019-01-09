@@ -9,6 +9,7 @@
 
 <script>
 export default {
+  name: 'HListItem',
   props: {
     separator: {
       type: Boolean,

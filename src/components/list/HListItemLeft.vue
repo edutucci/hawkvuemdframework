@@ -93,14 +93,14 @@ export default {
   },
   methods: {
     itemLeftClick () {
-      console.log('item left click')
+      // console.log('item left click')
       if (this.lefttext && this.lefttext.length > 0) {
-        console.log('text left > 0:' + this.lefttext)
+        // console.log('text left > 0:' + this.lefttext)
         this.$parent.setCurrentTextLeft(this.lefttext)
       }
 
       if (this.text && this.text.length > 0) {
-        console.log('text > 0:' + this.text)
+        // console.log('text > 0:' + this.text)
         this.$parent.setCurrentTextLeft(this.text)
       }
       this.$emit('itemLeftClick', this.selectValue)
