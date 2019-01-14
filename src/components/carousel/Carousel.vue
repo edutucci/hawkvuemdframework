@@ -10,27 +10,36 @@
     )
     .flex-1
       slot
-    .bg-modal.full-width.scroll.bottom-left-absolute
-      .flex.flex-column
-        .row.flex.flex-justify-center
-          .carousel-navigation-container.flex.flex-justify-center.flex-align-center.h-pa-sm
-            swiper.flex.flex-items-center(:options="swiperOption")
-              swiper-slide(
-                v-for="(slider, index) in sliderList"
-                :key="index"
-                class=" overflow-hidden"
+    .bg-modal.full-width.bottom-left-absolute.text-center
+      .row.flex.flex-column
+        .row.flex-column.flex.flex-justify-center.h-mt-md.h-mb-md
+          .row.text-center
+            h2.text-white.no-margin {{title}}
+          .row.text-center
+            strong.text-white {{subtitle}}
+      .row.flex.flex-justify-center.h-mb-md
+        .carousel-navigation-container
+          swiper(:options="swiperOption")
+            swiper-slide(
+              v-for="(slider, index) in sliderList"
+              :key="index"
+              class="overflow-hidden"
+            )
+              h-fa-icon.h-mr-xs.text-white(
+                :icon="sliderIcon(index)"
+                @click="selectSlider(slider, index)"
               )
-                h-fa-icon.h-mr-xs.text-white(
-                  :icon="sliderIcon(index)"
-                  @click="selectSlider(slider, index)"
-                )
 
 </template>
 
 <script>
+
+import HSliderButton from './SliderButton'
+
 export default {
   name: 'HCarousel',
-  props: {
+  components: {
+    HSliderButton
   },
   data () {
     return {
@@ -51,7 +60,9 @@ export default {
           nextEl: '.swiper-button-next',
           prevEl: '.swiper-button-prev'
         }
-      }
+      },
+      title: '',
+      subtitle: ''
     }
   },
   mounted () {
@@ -75,18 +86,24 @@ export default {
       this.currentSlider = slider
       this.currentSlider.setVisible(true)
       this.currentIndex = index
+      this.title = this.currentSlider.getTitle()
+      this.subtitle = this.currentSlider.getSubtitle()
     },
     movSlider (value) {
       this.currentIndex += value
-      console.log('this.currentIndex antes: ' + this.currentIndex)
       if (this.currentIndex < 0) {
         this.currentIndex = this.sliderList.length - 1
       }
       if (this.currentIndex >= (this.sliderList.length)) {
         this.currentIndex = 0
       }
-      console.log('this.currentIndex depois: ' + this.currentIndex)
       this.selectSlider(this.sliderList[this.currentIndex], this.currentIndex)
+    },
+    setTitle (title) {
+      this.title = title
+    },
+    setSubtitle (subtitle) {
+      this.subtitle = subtitle
     }
   }
 }

@@ -1,16 +1,17 @@
 <template lang="pug">
-  div.media.flex
-    img.full-width(
+  .media-img.border-corner-rounded.overflow-hidden.flex.flex-items-center
+    img.full-size(
       v-if="img && img.length > 0" :src="img"
     )
-    .media-text.full-size.flex.flex-column.overflow-hidden
+    .media-text.full-size.overflow-hidden.flex
       slot
+
 </template>
 
 <script>
 
 export default {
-  name: 'HMediaImg',
+  name: 'HCardMediaImg',
   props: {
     img: {
       type: String,
@@ -42,7 +43,7 @@ H1,H2,H3,H4,H5,H6,P {
   margin: 0px;
 }
 
-.media {
+.media-img {
   position: relative;
 }
 
@@ -50,6 +51,6 @@ H1,H2,H3,H4,H5,H6,P {
   position: absolute;
   top:0px;
   left:0px;
-  z-index: 1;
+  z-index: 10;
 }
 </style>

@@ -95,37 +95,24 @@
      <h-input-plus-minus v-model="plusMinusModel"></h-input-plus-minus>
 
      <html-separator/>
-     <h-carousel style="width:300px; height: 200px">
-       <h-carousel-slider>
-         <img src="img/mountains.jpg" style="width:300px; height: 200px"/>
+     <h-carousel style="width:400px; height: 300px">
+       <h-carousel-slider title="Elegant River" subtitle="Nice Place">
+         <img src="img/mountains.jpg"  class="full-size"/>
        </h-carousel-slider>
-       <h-carousel-slider>
-          <h-media-img img="img/Nallah_Sindh.jpg" style="width:300px; height: 200px">
-            <h-media-text class="flex flex-items-start flex-justify-center" text="Nallah" desc="landscape"/>
-          </h-media-img>
+       <h-carousel-slider title="Nallah" subtitle="Landscape">
+          <img src="img/Nallah_Sindh.jpg" class="full-size"/>
+        </h-carousel-slider>
+       <h-carousel-slider title="Soccer Game" subtitle="Great Moments">
+          <img src="img/90minute.png" class="full-size"/>
        </h-carousel-slider>
-       <h-carousel-slider>
-          <h-media-img img="img/90minute.png" style="width:300px; height: 200px">
-            <h-media-text class="flex flex-items-center flex-justify-center" text="90th minute" desc="4.31 MB"/>
-          </h-media-img>
+       <h-carousel-slider title="Elegant River" subtitle="Nice Place">
+         <img src="img/mountains.jpg"  class="full-size"/>
        </h-carousel-slider>
-       <h-carousel-slider>
-         slider 4
-       </h-carousel-slider>
-       <h-carousel-slider>
-         slider 5
-       </h-carousel-slider>
-       <h-carousel-slider>
-         slider 6
-       </h-carousel-slider>
-       <h-carousel-slider>
-         slider 7
-       </h-carousel-slider>
-       <h-carousel-slider>
-         slider 8
-       </h-carousel-slider>
-       <h-carousel-slider>
-         slider 9
+       <h-carousel-slider title="Nallah" subtitle="Landscape">
+          <img src="img/Nallah_Sindh.jpg" class="full-size"/>
+        </h-carousel-slider>
+       <h-carousel-slider title="Soccer Game" subtitle="Great Moments">
+          <img src="img/90minute.png" class="full-size"/>
        </h-carousel-slider>
      </h-carousel>
     <html-separator/>

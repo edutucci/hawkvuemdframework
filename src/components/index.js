@@ -9,6 +9,8 @@ import HCardHeader from './card/CardHeader'
 import HCardHeaderText from './card/CardHeaderText.vue'
 import HCardHeaderMenu from './card/CardHeaderMenu.vue'
 import HCardMedia from './card/CardMedia'
+import HCardMediaImg from './card/CardMediaImg.vue'
+import HCardMediaText from './card/CardMediaText.vue'
 import HCardText from './card/CardText'
 import HCardActions from './card/CardActions'
 import HCardButtons from './card/CardButtons'
@@ -35,8 +37,6 @@ import HListHeader from './list/HListHeader.vue'
 import HListBody from './list/HListBody.vue'
 import HListItemLeft from './list/HListItemLeft.vue'
 import HListItemRight from './list/HListItemRight.vue'
-import HMediaImg from './common/MediaImg.vue'
-import HMediaText from './common/MediaText'
 import HAppToolbar from './toolbar/HAppToolbar.vue'
 import HAppToolbarContainer from './toolbar/HAppToolbarContainer.vue'
 import HAppToolbarNavigation from './toolbar/HAppToolbarNavigation.vue'
@@ -71,7 +71,6 @@ import HYoutubeVideo from './video/YoutubeVideo.vue'
 import HtmlLink from './html/HtmlLink.vue'
 import HtmlSeparator from './html/HtmlSeparator.vue'
 import HtmlArticle from './html/HtmlArticle.vue'
-import HSliderButton from './common/SliderButton.vue'
 
 const Components = {
   HBtn,
@@ -83,8 +82,8 @@ const Components = {
   HCardHeaderText,
   HCardHeaderMenu,
   HCardMedia,
-  HMediaImg,
-  HMediaText,
+  HCardMediaImg,
+  HCardMediaText,
   HCardText,
   HCardActions,
   HCardButtons,
@@ -144,8 +143,7 @@ const Components = {
   HYoutubeVideo,
   HtmlLink,
   HtmlArticle,
-  HtmlSeparator,
-  HSliderButton
+  HtmlSeparator
 }
 
 Object.keys(Components).forEach(name => {
