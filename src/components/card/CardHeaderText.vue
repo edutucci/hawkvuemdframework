@@ -1,9 +1,16 @@
 <template lang="pug">
-  .flex-1.card-header-text-padding
-    .title
-      h3 {{text}}
-    .subtitle
-      | {{desc}}
+  .row.flex.flex-column.overflow-hidden.card-padding
+    .flex
+      .card-header-image-padding(v-if="(icon && icon.length) || (avatar && avatar.length)")
+        h-fa-icon(:icon="icon" textcolor="text-gray")
+        h-avatar(:src="avatar")
+
+      .row.flex.flex-column
+        .title
+          h3  {{text}}
+        .subtitle
+          | {{desc}}
+
 </template>
 
 <script>
@@ -15,6 +22,14 @@ export default {
       default: ''
     },
     desc: {
+      type: String,
+      default: ''
+    },
+    icon: {
+      type: String,
+      default: ''
+    },
+    avatar: {
       type: String,
       default: ''
     }

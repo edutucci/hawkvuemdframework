@@ -45,7 +45,8 @@ export default new Router({
         { path: '/video', component: () => import('./views/video') },
         { path: '/snack', component: () => import('./views/plugins/snack') },
         { path: '/loading', component: () => import('./views/plugins/loading') },
-        { path: '/test', component: () => import('./views/test') }
+        { path: '/test', component: () => import('./views/test') },
+        { path: '/fileupload', component: () => import('./views/fileUpload') }
       ]
     }
   ]

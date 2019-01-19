@@ -51,8 +51,8 @@
       <h-card-media>
         <h-card-media-img img="img/Nallah_Sindh.jpg"/>
       </h-card-media>
-      <h-card-header avatar="avatar/Kostenlose.jpg">
-        <h-card-header-text text="River"  desc="Beautifull place" />
+      <h-card-header>
+        <h-card-header-text avatar="avatar/Kostenlose.jpg" text="River"  desc="Beautifull place" />
       </h-card-header>
       <h-card-text>
         span A river in the Ganderbal district of Jammu and Kashmir state of India.
@@ -166,7 +166,7 @@
       </code>
     </pre>
 
-    <h1 class="text-primary"> Card Header Help</h1>
+    <h1 class="text-primary"> Card Header Text Help</h1>
     <h2 class="text-primary"> Vue Properties</h2>
     <hr>
 
@@ -175,26 +175,6 @@
         <h3>Name</h3>
         <div>icon</div>
         <div>avatar</div>
-      </div>
-      <div class="h-pl-md">
-        <h3>Type</h3>
-        <div>String</div>
-        <div>String</div>
-      </div>
-      <div class="h-pl-md">
-        <h3 >Description</h3>
-        <div>Sets the icon for header</div>
-        <div>Sets the avatar for the header</div>
-      </div>
-    </div>
-
-    <h1 class="text-primary"> Card Header Text Help</h1>
-    <h2 class="text-primary"> Vue Properties</h2>
-    <hr>
-
-    <div class="flex">
-      <div>
-        <h3>Name</h3>
         <div>text</div>
         <div>desc</div>
       </div>
@@ -202,9 +182,13 @@
         <h3>Type</h3>
         <div>String</div>
         <div>String</div>
+        <div>String</div>
+        <div>String</div>
       </div>
       <div class="h-pl-md">
         <h3 >Description</h3>
+        <div>Sets the icon for header</div>
+        <div>Sets the avatar for the header</div>
         <div>Sets the text for header</div>
         <div>Sets the description for the header</div>
       </div>
@@ -299,8 +283,8 @@ export default {
   <h-card-media>
     <h-card-media-img img="img/Nallah_Sindh.jpg"/>
   </h-card-media>
-  <h-card-header avatar="avatar/Kostenlose.jpg">
-    <h-card-header-text text="River"  desc="Beautifull place" />
+  <h-card-header>
+    <h-card-header-text avatar="avatar/Kostenlose.jpg" text="River"  desc="Beautifull place" />
   </h-card-header>
   <h-card-text>
     span A river in the Ganderbal district of Jammu and Kashmir state of India.
