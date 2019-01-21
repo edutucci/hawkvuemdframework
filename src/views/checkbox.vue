@@ -140,9 +140,9 @@ export default {
       checkedNumbers: [1, 3],
       checkedObjects: [],
       checkedObjectsOptions: [
-        {id: 1, name: 'html'},
-        {id: 2, name: 'css'},
-        {id: 3, name: 'vuejs'}
+        { id: 1, name: 'html' },
+        { id: 2, name: 'css' },
+        { id: 3, name: 'vuejs' }
       ],
       checked2: false,
       ckboolean: `

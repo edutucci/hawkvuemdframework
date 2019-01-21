@@ -10,28 +10,53 @@
 
     <html-separator></html-separator>
     <div
-      class="border-primary text-center h-pa-sm"
-      @drop="dropHandler"
-      @dragover="dragOverHandler"
+      class="border-primary h-pa-sm flex flex-column no-user-select scroll"
     >
-      <p class="text-center text-primary">Drag one or more files</p>
-
-      <div v-if="fileList && fileList.length" class="flex flex-wrap flex-justify-center">
-        <h-card
-          v-for="(file, index) in fileList"
-          :key="index"
-          style="width:170px;"
-          class="h-ma-sm"
-        >
-          <h-card-media>
-            <h-card-media-img :img="file.image"/>
-          </h-card-media>
-          <h-card-header>
-            <h-card-header-text :text="file.fileName" :desc="file.fileSize"/>
-          </h-card-header>
-        </h-card>
+      <div>
+        <div class="flex bg-primary position-relative overflow-hidden file-upload-container">
+          <div class="h-pa-sm flex flex-items-center">
+            <h-fa-icon icon="fas fa-cloud-upload-alt text-white" size="24px"/>
+          </div>
+          <div class="flex-1 h-pa-sm text-white">
+            <div>
+              <h3 class="no-margin">Select Files</h3>
+            </div>
+            <div>
+              <p class="no-margin">Add files to upload</p>
+            </div>
+          </div>
+          <input type="file" name="myfile" class="full-width"/>
+        </div>
       </div>
 
+      <div
+        class="flex flex-1 flex-wrap flex-align-center border-primary border-dashed border-2 h-mt-md"
+        @drop="dropHandler"
+        @dragover="dragOverHandler"
+      >
+        <div class="row">
+          <p class="text-center text-primary">Drag one or more files</p>
+        </div>
+
+        <div
+          v-if="fileList && fileList.length"
+          class="row flex flex-wrap flex-justify-center"
+        >
+          <h-card
+            v-for="(file, index) in fileList"
+            :key="index"
+            style="width: 200px;"
+            class="h-ma-sm"
+          >
+            <h-card-media>
+              <h-card-media-img :img="file.imageData" style="max-height: 100px;"/>
+            </h-card-media>
+            <h-card-header>
+              <h-card-header-text :text="file.file.name" :desc="file.fileSize"/>
+            </h-card-header>
+          </h-card>
+        </div>
+      </div>
     </div>
 
   </div>
@@ -147,5 +172,13 @@ export default {
   height: 70px;
   padding: 10px;
   border: 1px solid #aaaaaa;
+}
+
+.file-upload-container input[type=file] {
+  font-size: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
 }
 </style>

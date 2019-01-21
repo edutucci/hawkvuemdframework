@@ -37,7 +37,7 @@ export default {
   data () {
     return {
       border: { borderColor: '#2196F3' },
-      background: {backgroundColor: '#2196F3'}
+      background: { backgroundColor: '#2196F3' }
     }
   },
   mounted () {

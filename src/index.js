@@ -20,4 +20,4 @@ Vue.use(VueAwesomeSwiper)
 
 // Vue.component('font-awesome-icon', FontAwesomeIcon)
 
-export default {Plugins, Components}
+export default { Plugins, Components }
