@@ -1,13 +1,6 @@
 <template>
   <div>
     <h1>FILE UPLOAD</h1>
-    <!-- <html-separator></html-separator>
-    <p>Drag the W3Schools image into the rectangle:</p>
-
-    <div id="div1" @drop="drop" @dragover="allowDrop"></div>
-    <br>
-    <img id="drag1" src="img/clock.png" draggable="true" @dragstart="drag" width="336" height="69"> -->
-
     <html-separator></html-separator>
     <div
       class="border-primary h-pa-sm flex flex-column no-user-select scroll"

@@ -1,28 +1,23 @@
 <template lang="pug">
   .flex
-    .flex.flex-justify-center(style="width: 40px")
+    .flex.flex-justify-center.auto-size
       .btn.bg-white.circle.flex.flex-justify-center.flex-items-center(
         style="width:16px;height:16px;"
       )
-        h-fa-icon.text-primary(
-          icon="fas fa-minus"
-          size="12px"
+        h-fa-icon.text-negative(
+          icon="fas fa-minus-circle"
+          size="16px"
           @click="setPlusMinusValue(-1)"
         )
-    .flex.flex-justify-center(style="width: 60px")
-      h-input(
-        text-center
-        :maxlength="4"
-        v-model="plusMinusModel"
-        readonly
-      )
-    .flex.flex-justify-center(style="width: 40px")
+    .flex.flex-justify-center.flex-items-center
+      h5.no-margin {{plusMinusModel}}
+    .flex.flex-justify-center.auto-size
       .btn.bg-white.circle.flex.flex-justify-center.flex-items-center(
         style="width:16px;height:16px;"
       )
-        h-fa-icon.text-primary(
-          icon="fas fa-plus"
-          size="12px"
+        h-fa-icon.text-positive(
+          icon="fas fa-plus-circle"
+          size="16px"
           @click="setPlusMinusValue(1)"
         )
 

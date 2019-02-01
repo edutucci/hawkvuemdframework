@@ -1,22 +1,23 @@
 <template>
   <div>
-    <h1>Textfield</h1>
-
-      <h1>Default Mode</h1>
-      <div class="col-6">
-        <h-input float-label="Name" v-model="txtName" placeholder="" left-icon="fas fa-phone" cleartext/>
-        <span>Name: {{ txtName }}</span>
-      </div>
+    <h1>Input</h1>
+    <h1>Default Mode</h1>
+    <html-separator/>
+    <div class="col-6">
+      <h-input float-label="Name" v-model="txtName" placeholder="" left-icon="fas fa-phone" cleartext/>
+      <span>Name: {{ txtName }}</span>
+    </div>
     <pre v-highlightjs="txttextcomp">
       <code class="html">
       </code>
     </pre>
 
-      <h1> Password</h1>
-      <div class="col-6">
-        <h-input type="password" float-label="Password" v-model="txtPassword" placeholder="type your password" />
-        <span>Password: {{ txtPassword }}</span>
-      </div>
+    <h1> Password</h1>
+    <html-separator/>
+    <div class="col-6">
+      <h-input type="password" float-label="Password" v-model="txtPassword" placeholder="type your password" />
+      <span>Password: {{ txtPassword }}</span>
+    </div>
 
     <pre v-highlightjs="txtpasswordcomp">
       <code class="html">
@@ -24,6 +25,7 @@
     </pre>
 
     <h1>Outlined Mode</h1>
+    <html-separator/>
     <div class="col-6">
       <h-input error-label="error label" left-icon="fas fa-home" helper-text="helper text"
         :maxlength="10" :text-counter="10"  v-model="txtName2"
@@ -38,6 +40,7 @@
     </pre>
 
     <h1>Key Events</h1>
+    <html-separator/>
     <div class="col-6">
       <strong>Arrow Down, Tab or Enter. Enter works as tab</strong>
       <h-input

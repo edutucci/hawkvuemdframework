@@ -20,10 +20,12 @@ export default new Router({
         { path: '/positioning', component: () => import('./views/css/positioning') },
         { path: '/visibility', component: () => import('./views/css/visibility') },
         { path: '/cssothers', component: () => import('./views/css/others') },
+        { path: '/borders', component: () => import('./views/css/borders') },
         { path: '/buttons', component: () => import('./views/buttons') },
         { path: '/buttongroup', component: () => import('./views/buttonGroup') },
         { path: '/icon', component: () => import('./views/icon') },
-        { path: '/textfield', component: () => import('./views/textfield') },
+        { path: '/input', component: () => import('./views/input') },
+        { path: '/inputMask', component: () => import('./views/inputMask') },
         { path: '/search', component: () => import('./views/search') },
         { path: '/drawer', component: () => import('./views/drawer') },
         { path: '/card', component: () => import('./views/card') },
@@ -46,7 +48,10 @@ export default new Router({
         { path: '/snack', component: () => import('./views/plugins/snack') },
         { path: '/loading', component: () => import('./views/plugins/loading') },
         { path: '/test', component: () => import('./views/test') },
-        { path: '/fileupload', component: () => import('./views/fileUpload') }
+        { path: '/fileupload', component: () => import('./views/fileUpload') },
+        { path: '/carousel', component: () => import('./views/carousel') },
+        { path: '/rating', component: () => import('./views/rating') },
+        { path: '/palleteColor', component: () => import('./views/guide/MaterialDesignColor') }
       ]
     }
   ]

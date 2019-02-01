@@ -62,6 +62,7 @@ import HTabs from './tab/HTabs.vue'
 import HTable from './table/HTable.vue'
 import HInput from './Inputs/HInput.vue'
 import HInputPlusMinus from './Inputs/InputPlusMinus.vue'
+import HInputMask from './Inputs/InputMask.vue'
 import HToggle from './checkbox/HToggle'
 import HPage from './page/Page.vue'
 import HPageContent from './page/PageContent.vue'
@@ -135,6 +136,7 @@ const Components = {
   HTable,
   HInput,
   HInputPlusMinus,
+  HInputMask,
   HToggle,
   HPage,
   HPageContent,
