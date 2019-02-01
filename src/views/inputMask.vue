@@ -2,22 +2,20 @@
   <div>
     <h1>Input Mask</h1>
     <html-separator/>
-    <h-input-mask mask="(11)1111-1111" v-model="maskModelTel"/>
+    <div>
+      <h-toggle v-model="masked" text="Masked?"/>
+    </div>
+    <html-separator/>
+    <h-input-mask mask="(11)1111-1111" v-model="maskModelTel" icon="fas fa-phone" :masked="masked" cleartext/>
     <span>maskModel: {{maskModelTel}}</span>
     <pre v-highlightjs="mask1">
       <code class="html">
       </code>
     </pre>
     <html-separator/>
-    <h-input-mask mask="11111-111" v-model="maskModelCep"/>
+    <h-input-mask mask="11111-111" v-model="maskModelCep" icon="fas fa-home" static-label="static label" :masked="masked" cleartext/>
     <span>maskModel: {{maskModelCep}}</span>
     <pre v-highlightjs="mask2">
-      <code class="html">
-      </code>
-    </pre>
-    <h1>Model</h1>
-    <strong>Model must be an Object and the user choose can choose wich value will use.</strong>
-    <pre v-highlightjs="mask3">
       <code class="html">
       </code>
     </pre>
@@ -31,27 +29,18 @@ export default {
   },
   data () {
     return {
+      masked: false,
       maskTel: '(11)1111-1111',
       maskCep: '11111-111',
-      maskModelTel: {
-        rawValue: '',
-        maskedValue: ''
-      },
-      maskModelCep: {
-        rawValue: '',
-        maskedValue: ''
-      },
+      maskModelTel: '',
+      maskModelCep: '',
       mask1: `
-<h-input-mask mask="(11)1111-1111" v-model="maskModel"/>
+<h-input-mask mask="(11)1111-1111" v-model="maskModelTel" icon="fas fa-phone" float-label="Phone" :masked="masked" cleartext/>
       `,
       mask2: `
-<h-input-mask mask="11111" v-model="maskModel"/>
+<h-input-mask mask="11111-111" v-model="maskModelCep" icon="fas fa-home" float-label="ZipCode" :masked="masked" cleartext/>
       `,
       mask3: `
-  maskModel: {
-    rawValue: '', // value without mask
-    maskedValue: '' // value with mask
-  }
       `
     }
   },

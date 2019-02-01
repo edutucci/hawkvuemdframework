@@ -11,7 +11,7 @@ SELECT
 Adicionar float-label e static-label para select OK
 Erro value.substr is not a function. Acontece quando v-model esta indefinido ou string vazia
 
-TEXTFIELD
+INPUT
 Implementar evento @blur para textfield OK
 
 INPUT CHIPS
@@ -24,3 +24,7 @@ Remover Negrito do texto OK
 
 SEPARATOR
 criar esse componente e adicionar a tag hr OK
+
+Data: 1/02/2019
+INPUT
+Quando floatlabel esta nulo ou sem valor nao esta desenhando e o icone fica muito baixo. Correcao: Sempre desenhar.

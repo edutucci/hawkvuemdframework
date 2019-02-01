@@ -12,7 +12,6 @@
         :class="{primary: primary, nofocus: nofocus, outline: outlined}"
       )
         div.static-label(
-          v-if="(staticLabel && staticLabel.length) || (floatLabel && floatLabel.length)"
           :class="{primary: primary, nofocus: nofocus}"
           :style="[staticLabelStyle]"
           style="height: 15px;"
@@ -42,7 +41,6 @@
                 @click="onClick"
               )
               label(
-                v-if="floatLabel"
                 class="control-label"
                 :class="{primary: primary, nofocus: nofocus}"
                 :style="[floatLabelStyle]"
@@ -99,10 +97,12 @@ export default {
       default: ''
     },
     floatLabel: {
-      type: String
+      type: String,
+      default: ''
     },
     staticLabel: {
-      type: String
+      type: String,
+      default: ''
     },
     errorLabel: {
       type: String
