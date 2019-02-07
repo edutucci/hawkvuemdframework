@@ -30,6 +30,8 @@ import HDateTimeInput from './date/DateTimeInput.vue'
 import HTimePicker from './date/HTimePicker.vue'
 import HTimeInput from './date/HTimeInput.vue'
 import HFaIcon from './icons/FaIcon.vue'
+import HFileUpload from './fileUpload/fileUpload.vue'
+import HImageUpload from './fileUpload/ImageUpload.vue'
 import HAvatar from './image/HAvatar.vue'
 import HList from './list/HList.vue'
 import HListItem from './list/HListItem.vue'
@@ -104,6 +106,8 @@ const Components = {
   HTimePicker,
   HTimeInput,
   HFaIcon,
+  HFileUpload,
+  HImageUpload,
   HAvatar,
   HList,
   HListItem,
