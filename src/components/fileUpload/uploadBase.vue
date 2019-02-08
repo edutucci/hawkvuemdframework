@@ -16,14 +16,23 @@ export default {
     maxSize: {
       type: Number,
       default: 2 * (1024 * 1024)
+    },
+    allowDrop: {
+      type: Boolean,
+      default: true
     }
   },
   data () {
     return {
-      fileList: []
+      fileList: [],
+      inputList: []
     }
   },
   methods: {
+    clearFilesList () {
+      this.fileList = []
+      this.$emit('addFiles', this.fileList)
+    },
     dragOverHandler (ev) {
       // console.log('File(s) in drop zone')
       // Prevent default behavior (Prevent file from being opened)

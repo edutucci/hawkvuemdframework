@@ -20,11 +20,13 @@
             class="full-width"
             accept="image/*"
             :multiple="multiple"
+             @change="handleFileChange"
             />
         </div>
       </div>
 
       <div
+        v-if="allowDrop"
         class="flex flex-1 flex-wrap flex-align-center border-primary border-dashed border-2 h-mt-md"
         @drop="dropHandlerImages"
         @dragover="dragOverHandler"
@@ -35,26 +37,36 @@
         <div v-else class="row">
           <p class="text-center text-primary">Drag your image</p>
         </div>
-
-        <div
-          v-if="fileList && fileList.length"
-          class="row flex flex-wrap flex-justify-center"
-        >
-          <h-card
-            v-for="(file, index) in fileList"
-            :key="index"
-            style="width: 200px;"
-            class="h-ma-sm"
-          >
-            <h-card-media>
-              <h-card-media-img :img="file.imageData" style="max-height: 150px;"/>
-            </h-card-media>
-            <h-card-header>
-              <h-card-header-text :text="file.file.name" :desc="file.fileSize"/>
-            </h-card-header>
-          </h-card>
-        </div>
       </div>
+
+      <div class="h-mt-md flex flex-justify-end">
+        <h-btn
+          contained
+          bgcolor="bg-primary" textcolor="text-white"
+          text="Clear"
+          @click="clearFilesList"
+        />
+      </div>
+
+      <div
+        v-if="fileList && fileList.length"
+        class="row flex flex-wrap flex-justify-center"
+      >
+        <h-card
+          v-for="(file, index) in fileList"
+          :key="index"
+          style="width: 200px;"
+          class="h-ma-sm"
+        >
+          <h-card-media>
+            <h-card-media-img :img="file.imageData" style="max-height: 150px;"/>
+          </h-card-media>
+          <h-card-header>
+            <h-card-header-text :text="file.file.name" :desc="file.fileSize"/>
+          </h-card-header>
+        </h-card>
+      </div>
+
     </div>
 
   </div>
@@ -69,10 +81,17 @@ export default {
   name: 'HFileUpload',
   extends: uploadBase,
   methods: {
+    async handleFileChange (ev) {
+      for (let i = 0; i < ev.target.files.length; i++) {
+        let file = ev.target.files[i]
+        if (_.includes(file.type, 'image/')) {
+          await this.addDropFile(file)
+        }
+      }
+      this.$emit('addFiles', this.fileList)
+    },
     async dropHandlerImages (ev) {
       ev.preventDefault()
-
-      this.fileList = []
 
       if (ev.dataTransfer.items) {
         // Use DataTransferItemList interface to access the file(s)

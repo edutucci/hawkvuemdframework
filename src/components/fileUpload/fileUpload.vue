@@ -16,15 +16,18 @@
               <p class="no-margin">Add files to upload</p>
             </div>
           </div>
-          <input type="file"
+          <input
+            type="file"
             class="full-width"
             :accept="extensions"
             :multiple="multiple"
+            @change="handleFileChange"
             />
         </div>
       </div>
 
       <div
+        v-if="allowDrop"
         class="flex flex-1 flex-wrap flex-align-center border-primary border-dashed border-2 h-mt-md"
         @drop="dropHandler"
         @dragover="dragOverHandler"
@@ -35,51 +38,48 @@
         <div v-else class="row">
           <p class="text-center text-primary">Drag your file</p>
         </div>
+      </div>
 
+      <div class="h-mt-md flex flex-justify-end">
+        <h-btn
+          contained
+          bgcolor="bg-primary" textcolor="text-white"
+          text="Clear"
+          @click="clearFilesList"
+        />
+      </div>
+
+      <div
+        v-if="fileList && fileList.length"
+        class="row"
+      >
         <div
-          v-if="fileList && fileList.length"
-          class="row"
+          class="flex border-gray h-ma-sm h-pa-sm overflow-hidden"
+          v-for="(file, fileIndex) in fileList"
+          :key="fileIndex"
         >
-          <div
-            class="flex border-gray h-ma-sm h-pa-sm overflow-hidden"
-            v-for="(file, fileIndex) in fileList"
-            :key="fileIndex"
-          >
-            <div class="flex-1">
-              <div class="full-height flex flex-items-center">
-                <div class="row flex flex-column">
-                  <h5 class="no-margin">{{file.file.name}}</h5>
-                  <p class="no-margin text-gray">{{file.fileSize}}</p>
-                  <p class="no-margin text-gray">{{file.file.type}}</p>
-                </div>
+          <div class="flex-1">
+            <div class="full-height flex flex-items-center">
+              <div class="row flex flex-column">
+                <h5 class="no-margin">{{file.file.name}}</h5>
+                <p class="no-margin text-gray">{{file.fileSize}}</p>
+                <p class="no-margin text-gray">{{file.file.type}}</p>
               </div>
             </div>
-            <div v-if="file.imageData" class="auto-size h-ma-sm">
-              <img :src="file.imageData" :alt="file.file.name" style="width:150px; height: 100px"/>
-            </div>
-            <div class="flex flex-items-center h-ma-sm">
-              <h-fa-icon
-                class="text-negative"
-                icon="fas fa-times-circle"
-                @click="removeFile(fileIndex)"
-              />
-            </div>
+          </div>
+          <div v-if="file.imageData" class="auto-size h-ma-sm">
+            <img :src="file.imageData" :alt="file.file.name" style="width:150px; height: 100px"/>
+          </div>
+          <div class="flex flex-items-center h-ma-sm">
+            <h-fa-icon
+              class="text-negative"
+              icon="fas fa-times-circle"
+              @click="removeFile(fileIndex)"
+            />
           </div>
         </div>
-        <!-- <h-card
-          v-for="(file, index) in fileList"
-          :key="index"
-          style="width: 200px;"
-          class="h-ma-sm"
-        >
-          <h-card-media>
-            <h-card-media-img :img="file.imageData" style="max-height: 150px;"/>
-          </h-card-media>
-          <h-card-header>
-            <h-card-header-text :text="file.file.name" :desc="file.fileSize"/>
-          </h-card-header>
-        </h-card> -->
       </div>
+
     </div>
 
   </div>
@@ -99,13 +99,18 @@ export default {
     }
   },
   methods: {
+    async handleFileChange (ev) {
+      for (let i = 0; i < ev.target.files.length; i++) {
+        let file = ev.target.files[i]
+        await this.addDropFile(file)
+      }
+      this.$emit('addFiles', this.fileList)
+    },
     async dropHandler (ev) {
       // console.log('File(s) dropped')
 
       // Prevent default behavior (Prevent file from being opened)
       ev.preventDefault()
-
-      this.fileList = []
 
       if (ev.dataTransfer.items) {
         // Use DataTransferItemList interface to access the file(s)
