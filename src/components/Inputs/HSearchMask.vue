@@ -6,9 +6,13 @@
     )
       h-input.full-width(
         ref="hawkSearch"
-        :leftIcon="icon"
-        v-model="query"
-        placeholder="Search for something"
+        :icon="icon"
+        v-model="inputDisplayMask"
+        :masked="masked"
+        :mask="mask"
+        :placeholder="placeholder"
+        :static-label="staticLabel"
+        :cleartext="cleartext"
         @onKeyDown="onKeyDown"
         @onTab="onTab"
         @onEnter="onEnter"
@@ -22,7 +26,6 @@
       .flex.flex-items-center.menu-item.bg-white.item-padding(
         v-for="(option, index) in options"
         :key="index"
-        @click="setInputText(option)"
       )
         .icon-left
           h-fa-icon(v-if="option.icon && option.icon.length" :icon="option.icon" size="2x" style="color: gray")
@@ -39,6 +42,7 @@
 <script>
 import { debounce } from 'lodash'
 import { mixin as clickaway } from 'vue-clickaway'
+import maskCore from './maskCore.js'
 
 export default {
   mixins: [ clickaway ],
@@ -60,6 +64,22 @@ export default {
     dtu: {
       type: Boolean,
       default: false
+    },
+    mask: {
+      type: String,
+      default: ''
+    },
+    masked: {
+      type: Boolean,
+      default: false
+    },
+    staticLabel: {
+      type: String,
+      default: ''
+    },
+    cleartext: {
+      type: Boolean,
+      default: false
     }
   },
   data () {
@@ -68,8 +88,12 @@ export default {
       left: '0px',
       right: '',
       bottom: '',
-      query: '',
-      delay: 200
+      inputDisplayMask: '',
+      delay: 2000,
+      maskObj: {
+        rawValue: '',
+        maskedValue: ''
+      }
     }
   },
   created () {
@@ -78,14 +102,51 @@ export default {
     this.changeDtu()
   },
   watch: {
-    query (query) {
-      this.searchQuery(query)
+    value: function (newValue) {
+      this.inputDisplayMask = this.maskObj.maskedValue
+    },
+    inputDisplayMask: function (newValue) {
+      this.onChangeMask(newValue)
+    },
+    masked: function (newValue) {
+      this.changeInputText(this.maskObj)
     },
     dtu: function (value) {
       this.changeDtu()
     }
   },
   methods: {
+    async onChangeMask (value) {
+      // console.log('value vale: ' + value)
+      // console.log('maskObj.maskedValue vale: ' + this.maskObj.maskedValue)
+      if (value !== this.maskObj.maskedValue) {
+        console.log('processing search mask')
+        // let myInput = document.getElementById('my-input-mask').getElementsByTagName('input')[0]
+        let maskObj = await maskCore.createMask(this.mask, value)
+        this.changeInputText(maskObj)
+      }
+    },
+    changeInputText (maskObj) {
+      this.maskObj.rawValue = maskObj.rawValue
+      this.maskObj.maskedValue = maskObj.maskedValue
+
+      // this.setCursorPos(this.inputDisplayMask, myInput)
+      let modelValue = (!this.masked) ? maskObj.rawValue : maskObj.maskedValue
+      this.$emit('input', modelValue)
+      this.searchQuery(modelValue)
+    },
+    setCursorPos (mask, input) {
+      let cursorPos = mask.indexOf('_')
+      this.$nextTick(() => {
+        this.setCaretPosition(input, cursorPos)
+      })
+    },
+    setCaretPosition (ctrl, pos) {
+      if (ctrl) {
+        ctrl.focus()
+        ctrl.setSelectionRange(pos, pos)
+      }
+    },
     changeDtu () {
       this.bottom = ''
       if (this.dtu) {
@@ -95,9 +156,9 @@ export default {
     searchQuery: debounce(function (query) {
       if (query && query.length > 0) {
         this.showdropdown = true
-        this.$emit('search', this.query)
+        this.$emit('search', query)
       }
-    }, 1000),
+    }, 500),
     away () {
       if (this.showdropdown) {
         this.showdropdown = false
@@ -115,15 +176,6 @@ export default {
     },
     focus () {
       this.$refs.hawkSearch.focus()
-    },
-    setInputText (option) {
-      let value = ''
-      if (option && option.value && option.value.trim().length) {
-        value = option.value
-      }
-      this.query = value
-      this.$emit('input', value)
-      this.away()
     }
   }
 }

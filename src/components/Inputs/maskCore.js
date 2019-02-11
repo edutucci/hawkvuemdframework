@@ -25,9 +25,14 @@ function createMask (mask, inputValue) {
   }
 
   maskInput.setPattern(mask, { value: localInputValue })
+  // console.log('maskInput raw value: ' + maskInput.getRawValue())
+  // console.log('maskInput masked value: ' + maskInput.getValue())
+
+  let rawValue = this.removeMask(maskInput.getRawValue())
+
   return {
     maskedValue: maskInput.getValue(),
-    rawValue: localInputValue
+    rawValue: rawValue
   }
 }
 

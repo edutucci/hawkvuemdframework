@@ -27,6 +27,7 @@ export default new Router({
         { path: '/input', component: () => import('./views/input') },
         { path: '/inputMask', component: () => import('./views/inputMask') },
         { path: '/search', component: () => import('./views/search') },
+        { path: '/searchMask', component: () => import('./views/searchMask') },
         { path: '/drawer', component: () => import('./views/drawer') },
         { path: '/card', component: () => import('./views/card') },
         { path: '/chip', component: () => import('./views/chips') },

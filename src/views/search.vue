@@ -1,7 +1,8 @@
 <template >
   <div>
     <h1>Search</h1>
-    <h-search @search="onSearch" ref="search" :options="options"/>
+    <h-search @search="onSearch" ref="search" :options="options" v-model="model1"/>
+    <span>model: {{model1}}</span>
     <div>
       <h-btn contained bgcolor="bg-secondary" textcolor="text-white" text="secondary"/>
     </div>
@@ -69,11 +70,15 @@
 </template>
 
 <script>
+
+import _ from 'lodash'
+
 export default {
   components: {
   },
   data () {
     return {
+      model1: '',
       options: [],
       exsearch: `
 <h-search @search="onSearch" ref="search" :options="options"/>
@@ -81,6 +86,9 @@ export default {
       exsearch2: `
 <h-search @search="onSearch" ref="search2" :options="options" dtu/>      `,
       sample: `
+
+import _ from 'lodash'
+
 export default {
   data () {
     return {
@@ -90,9 +98,17 @@ export default {
   methods: {
     onSearch (query) {
       this.options = []
-      this.options.push({avatar: 'avatar/turtle.png', text: 'Ninja Turtle', desc: 'I kill you'})
-      this.options.push({img: 'avatar/folder_open.jpeg', text: 'Photos', desc: 'Dez 12, 2017'})
-      this.options.push({icon: 'fas fa-volleyball-ball', text: 'Attractions', desc: 'Lets go to the movie?'})
+      this.options.push({ avatar: 'avatar/turtle.png', text: 'Ninja Turtle', desc: 'I kill you', value: 'Ninja Turtle' })
+      this.options.push({ img: 'avatar/folder_open.jpeg', text: 'Photos', desc: 'Dez 12, 2017', value: 'Photos' })
+      this.options.push({ icon: 'fas fa-volleyball-ball', text: 'Attractions', desc: 'Lets go to the movie?', value: 'Attractions' })
+      this.options.push({ avatar: 'avatar/turtle.png', text: 'Ninja Turtle 2', desc: 'I kill you', value: 'Ninja Turtle' })
+      this.options.push({ img: 'avatar/folder_open.jpeg', text: 'Photos 2', desc: 'Dez 12, 2017', value: 'Photos' })
+      this.options.push({ icon: 'fas fa-volleyball-ball', text: 'Attractions 2', desc: 'Lets go to the movie?', value: 'Attractions' })
+      this.options.push({ avatar: 'avatar/turtle.png', text: 'Ninja Turtle 3', desc: 'I kill you', value: 'Ninja Turtle' })
+      this.options.push({ img: 'avatar/folder_open.jpeg', text: 'Photos 3', desc: 'Dez 12, 2017', value: 'Photos' })
+      this.options.push({ icon: 'fas fa-volleyball-ball', text: 'Attractions 3', desc: 'Lets go to the movie?', value: 'Attractions' })
+
+      this.options = this.options.filter(opt => _.includes(opt.text.toLowerCase(), query.toLowerCase()))
     }
   }
       `
@@ -102,15 +118,17 @@ export default {
     onSearch (query) {
       // console.log('veio a query: ' + query)
       this.options = []
-      this.options.push({ avatar: 'avatar/turtle.png', text: 'Ninja Turtle', desc: 'I kill you' })
-      this.options.push({ img: 'avatar/folder_open.jpeg', text: 'Photos', desc: 'Dez 12, 2017' })
-      this.options.push({ icon: 'fas fa-volleyball-ball', text: 'Attractions', desc: 'Lets go to the movie?' })
-      this.options.push({ avatar: 'avatar/turtle.png', text: 'Ninja Turtle', desc: 'I kill you' })
-      this.options.push({ img: 'avatar/folder_open.jpeg', text: 'Photos', desc: 'Dez 12, 2017' })
-      this.options.push({ icon: 'fas fa-volleyball-ball', text: 'Attractions', desc: 'Lets go to the movie?' })
-      this.options.push({ avatar: 'avatar/turtle.png', text: 'Ninja Turtle', desc: 'I kill you' })
-      this.options.push({ img: 'avatar/folder_open.jpeg', text: 'Photos', desc: 'Dez 12, 2017' })
-      this.options.push({ icon: 'fas fa-volleyball-ball', text: 'Attractions', desc: 'Lets go to the movie?' })
+      this.options.push({ avatar: 'avatar/turtle.png', text: 'Ninja Turtle', desc: 'I kill you', value: 'Ninja Turtle' })
+      this.options.push({ img: 'avatar/folder_open.jpeg', text: 'Photos', desc: 'Dez 12, 2017', value: 'Photos' })
+      this.options.push({ icon: 'fas fa-volleyball-ball', text: 'Attractions', desc: 'Lets go to the movie?', value: 'Attractions' })
+      this.options.push({ avatar: 'avatar/turtle.png', text: 'Ninja Turtle 2', desc: 'I kill you', value: 'Ninja Turtle' })
+      this.options.push({ img: 'avatar/folder_open.jpeg', text: 'Photos 2', desc: 'Dez 12, 2017', value: 'Photos' })
+      this.options.push({ icon: 'fas fa-volleyball-ball', text: 'Attractions 2', desc: 'Lets go to the movie?', value: 'Attractions' })
+      this.options.push({ avatar: 'avatar/turtle.png', text: 'Ninja Turtle 3', desc: 'I kill you', value: 'Ninja Turtle' })
+      this.options.push({ img: 'avatar/folder_open.jpeg', text: 'Photos 3', desc: 'Dez 12, 2017', value: 'Photos' })
+      this.options.push({ icon: 'fas fa-volleyball-ball', text: 'Attractions 3', desc: 'Lets go to the movie?', value: 'Attractions' })
+
+      this.options = this.options.filter(opt => _.includes(opt.text.toLowerCase(), query.toLowerCase()))
     }
   }
 }

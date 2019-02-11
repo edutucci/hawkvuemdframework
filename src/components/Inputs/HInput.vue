@@ -38,6 +38,7 @@
                 @keydown.down="onKeyDown"
                 @keydown.tab="onTab"
                 @keyup.enter="onEnter"
+                @keyup.esc="onEscape"
                 @click="onClick"
               )
               label(
@@ -262,6 +263,9 @@ export default {
     onEnter () {
       this.$emit('onEnter')
     },
+    onEscape () {
+      this.$emit('onEscape')
+    },
     focus () {
       this.focused = true
     }
@@ -270,6 +274,8 @@ export default {
 </script>
 
 <style scoped>
+/* @import '../../css/variables.styl' */
+
 .textfield-container {
   position:relative;
   padding-top: 4px;
@@ -289,8 +295,12 @@ export default {
   border-radius: 5px;
 }
 
-.h-input {
+input[type="text"] {
   font-size:18px;
+  font-weight: bold;
+}
+
+.h-input {
   top: 30px;
   width:100%;
   border-style:none;

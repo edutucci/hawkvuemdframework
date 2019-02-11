@@ -1,7 +1,6 @@
 <template lang="pug">
   h-input(
     v-model="inputDisplayMask"
-    :id="id"
     :readonly="readonly"
     :cleartext="cleartext"
     :left-icon="icon"
@@ -26,15 +25,12 @@ export default {
       default: ''
     },
     mask: {
-      type: String
+      type: String,
+      default: ''
     },
     masked: {
       type: Boolean,
       default: false
-    },
-    id: {
-      type: String,
-      default: ''
     },
     floatLabel: {
       type: String
@@ -79,8 +75,10 @@ export default {
     }
   },
   watch: {
+    value: function (newValue) {
+      this.inputDisplayMask = this.maskObj.maskedValue
+    },
     inputDisplayMask: function (newValue) {
-      // console.log('mudou telefone: ' + newValue)
       this.onChangeMask(newValue)
     },
     masked: function (newValue) {
@@ -89,18 +87,18 @@ export default {
   },
   methods: {
     async onChangeMask (value) {
-      console.log('value vale: ' + value)
-      // let myInput = document.getElementById('my-input-mask').getElementsByTagName('input')[0]
-      let maskObj = await maskCore.createMask(this.mask, value)
-      this.changeInputText(maskObj)
+      // console.log('value vale: ' + value)
+      // console.log('maskObj.maskedValue vale: ' + this.maskObj.maskedValue)
+      if (value !== this.maskObj.maskedValue) {
+        console.log('processing mask')
+        // let myInput = document.getElementById('my-input-mask').getElementsByTagName('input')[0]
+        let maskObj = await maskCore.createMask(this.mask, value)
+        this.changeInputText(maskObj)
+      }
     },
     changeInputText (maskObj) {
       this.maskObj.rawValue = maskObj.rawValue
       this.maskObj.maskedValue = maskObj.maskedValue
-
-      let inputDisplayMask = maskObj.maskedValue
-      // console.log('inputDisplayMask vale: ' + inputDisplayMask)
-      this.inputDisplayMask = inputDisplayMask
 
       // this.setCursorPos(this.inputDisplayMask, myInput)
       let modelValue = (!this.masked) ? maskObj.rawValue : maskObj.maskedValue

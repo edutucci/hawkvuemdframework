@@ -58,6 +58,7 @@ import HNavDrawer from '../components/window/HNavDrawer'
 import HRadio from './radio/HRadio.vue'
 import HRating from './rating/Rating.vue'
 import HSearch from './Inputs/HSearch'
+import HSearchMask from './Inputs/HSearchMask'
 import HSelect from './select/HSelect.vue'
 import HTab from './tab/HTab.vue'
 import HTabs from './tab/HTabs.vue'
@@ -134,6 +135,7 @@ const Components = {
   HRadio,
   HRating,
   HSearch,
+  HSearchMask,
   HSelect,
   HTab,
   HTabs,
