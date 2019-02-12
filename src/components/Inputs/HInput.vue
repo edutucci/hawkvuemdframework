@@ -89,63 +89,15 @@
 
 <script>
 import { mixin as focusMixin } from 'vue-focus'
+import inputBase from './inputBase'
 
 export default {
+  extends: inputBase,
   mixins: [focusMixin],
   props: {
     value: {
       type: [String, Number],
       default: ''
-    },
-    floatLabel: {
-      type: String,
-      default: ''
-    },
-    staticLabel: {
-      type: String,
-      default: ''
-    },
-    errorLabel: {
-      type: String
-    },
-    helperText: {
-      type: String
-    },
-    textCounter: {
-      type: Number,
-      default: 0
-    },
-    textCenter: {
-      type: Boolean,
-      default: false
-    },
-    leftIcon: {
-      type: String,
-      default: ''
-    },
-    maxlength: {
-      type: Number,
-      default: 9999
-    },
-    outlined: {
-      type: Boolean,
-      default: false
-    },
-    type: {
-      type: String,
-      default: 'text'
-    },
-    readonly: {
-      type: Boolean,
-      default: false
-    },
-    placeholder: {
-      type: String,
-      default: ''
-    },
-    cleartext: {
-      type: Boolean,
-      default: false
     }
   },
   data () {

@@ -10,6 +10,7 @@
       @search="onSearch" :options="options" mask="1-111-111-1111" v-model="maskModelTel"
       icon="fas fa-phone" static-label="Domestic number" :masked="masked" cleartext
     />
+    <span>maskModel: {{maskModelTel}}</span>
     <!-- <span>maskModel: {{maskModelTel}}</span>
     <pre v-highlightjs="mask1">
       <code class="html">

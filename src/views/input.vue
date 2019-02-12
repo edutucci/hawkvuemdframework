@@ -4,7 +4,7 @@
     <h1>Default Mode</h1>
     <html-separator/>
     <div class="col-6">
-      <h-input float-label="Name" v-model="txtName" placeholder="" left-icon="fas fa-phone" cleartext/>
+      <h-input static-label="Name" v-model="txtName" placeholder="" left-icon="fas fa-phone" cleartext/>
       <span>Name: {{ txtName }}</span>
     </div>
     <pre v-highlightjs="txttextcomp">

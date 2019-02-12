@@ -6,13 +6,16 @@
     )
       h-input.full-width(
         ref="hawkSearch"
-        :icon="icon"
         v-model="inputDisplayMask"
-        :masked="masked"
-        :mask="mask"
-        :placeholder="placeholder"
-        :static-label="staticLabel"
+        :readonly="readonly"
         :cleartext="cleartext"
+        :left-icon="icon"
+        :float-label="floatLabel"
+        :static-label="staticLabel"
+        :placeholder="placeholder"
+        :helper-text="helperText"
+        :error-label="errorLabel"
+        :outlined="outlined"
         @onKeyDown="onKeyDown"
         @onTab="onTab"
         @onEnter="onEnter"
@@ -40,17 +43,17 @@
 </template>
 
 <script>
+
+import inputBase from './inputBase'
 import { debounce } from 'lodash'
 import { mixin as clickaway } from 'vue-clickaway'
 import maskCore from './maskCore.js'
 
 export default {
+  extends: inputBase,
   mixins: [ clickaway ],
   props: {
     value: {
-      type: String
-    },
-    placeholder: {
       type: String
     },
     options: {
@@ -70,14 +73,6 @@ export default {
       default: ''
     },
     masked: {
-      type: Boolean,
-      default: false
-    },
-    staticLabel: {
-      type: String,
-      default: ''
-    },
-    cleartext: {
       type: Boolean,
       default: false
     }
@@ -124,6 +119,11 @@ export default {
         // let myInput = document.getElementById('my-input-mask').getElementsByTagName('input')[0]
         let maskObj = await maskCore.createMask(this.mask, value)
         this.changeInputText(maskObj)
+      }
+
+      if (value.length > this.maskObj.maskedValue.length) {
+        // console.log('value > q mask: ')
+        this.inputDisplayMask = this.maskObj.maskedValue
       }
     },
     changeInputText (maskObj) {

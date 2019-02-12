@@ -6,7 +6,7 @@
       <h-toggle v-model="masked" text="Masked?"/>
     </div>
     <html-separator/>
-    <h-input-mask mask="(11)1111-1111" v-model="maskModelTel" icon="fas fa-phone" :masked="masked" cleartext/>
+    <h-input-mask outlined mask="(11)1111-1111" v-model="maskModelTel" icon="fas fa-phone" :masked="masked" cleartext/>
     <span>maskModel: {{maskModelTel}}</span>
     <pre v-highlightjs="mask1">
       <code class="html">

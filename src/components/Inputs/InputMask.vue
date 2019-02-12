@@ -16,11 +16,17 @@
 <script>
 
 import maskCore from './maskCore.js'
+import inputBase from './inputBase'
 
 export default {
+  extends: inputBase,
   name: 'HInputMask',
   props: {
     value: {
+      type: String,
+      default: ''
+    },
+    icon: {
       type: String,
       default: ''
     },
@@ -29,38 +35,6 @@ export default {
       default: ''
     },
     masked: {
-      type: Boolean,
-      default: false
-    },
-    floatLabel: {
-      type: String
-    },
-    staticLabel: {
-      type: String
-    },
-    errorLabel: {
-      type: String
-    },
-    helperText: {
-      type: String
-    },
-    icon: {
-      type: String,
-      default: ''
-    },
-    outlined: {
-      type: Boolean,
-      default: false
-    },
-    readonly: {
-      type: Boolean,
-      default: false
-    },
-    placeholder: {
-      type: String,
-      default: ''
-    },
-    cleartext: {
       type: Boolean,
       default: false
     }
@@ -76,9 +50,11 @@ export default {
   },
   watch: {
     value: function (newValue) {
+      // console.log('mudou value: ' + newValue)
       this.inputDisplayMask = this.maskObj.maskedValue
     },
     inputDisplayMask: function (newValue) {
+      // console.log('mudou inputDisplayMask: ' + newValue)
       this.onChangeMask(newValue)
     },
     masked: function (newValue) {
@@ -89,11 +65,17 @@ export default {
     async onChangeMask (value) {
       // console.log('value vale: ' + value)
       // console.log('maskObj.maskedValue vale: ' + this.maskObj.maskedValue)
+
       if (value !== this.maskObj.maskedValue) {
-        console.log('processing mask')
+        // console.log('processing mask')
         // let myInput = document.getElementById('my-input-mask').getElementsByTagName('input')[0]
         let maskObj = await maskCore.createMask(this.mask, value)
         this.changeInputText(maskObj)
+      }
+
+      if (value.length > this.maskObj.maskedValue.length) {
+        // console.log('value > q mask: ')
+        this.inputDisplayMask = this.maskObj.maskedValue
       }
     },
     changeInputText (maskObj) {
@@ -101,7 +83,7 @@ export default {
       this.maskObj.maskedValue = maskObj.maskedValue
 
       // this.setCursorPos(this.inputDisplayMask, myInput)
-      let modelValue = (!this.masked) ? maskObj.rawValue : maskObj.maskedValue
+      let modelValue = (!this.masked) ? this.maskObj.rawValue : this.maskObj.maskedValue
       this.$emit('input', modelValue)
     },
     setCursorPos (mask, input) {
