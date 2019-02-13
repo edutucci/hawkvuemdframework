@@ -12,7 +12,6 @@
     :outlined="outlined"
     @focus="onInputFocus()"
     @blur="onInputBlur()"
-    @input="onChange($event.target.value)"
     @keydown.down="onKeyDown"
     @keydown.tab="onTab"
     @keyup.enter="onEnter"
