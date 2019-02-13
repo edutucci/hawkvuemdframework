@@ -54,15 +54,14 @@
                 <h-collapsible-item text="List" @click="$router.push('/list'), $refs.nav.close()"/>
                 <h-collapsible-item text="Menu" @click="$router.push('/menu'), $refs.nav.close()"/>
                 <h-collapsible-item text="MenuSlider" @click="$router.push('/menuSlider'), $refs.nav.close()"/>
+                <h-collapsible-item text="Mask" @click="$router.push('/mask'), $refs.nav.close()"/>
                 <h-collapsible-item text="Modal" @click="$router.push('/modal'), $refs.nav.close()"/>
                 <h-collapsible-item text="Radio" @click="$router.push('/radio'), $refs.nav.close()"/>
                 <h-collapsible-item text="Search" @click="$router.push('/search'), $refs.nav.close()"/>
-                <h-collapsible-item text="Search Mask" @click="$router.push('/searchMask'), $refs.nav.close()"/>
                 <h-collapsible-item text="Select" @click="$router.push('/select'), $refs.nav.close()"/>
                 <h-collapsible-item text="Tab" @click="$router.push('/tab'), $refs.nav.close()"/>
                 <h-collapsible-item text="Table" @click="$router.push('/table'), $refs.nav.close()"/>
                 <h-collapsible-item text="Input" @click="$router.push('/input'), $refs.nav.close()"/>
-                <h-collapsible-item text="Input Mask" @click="$router.push('/inputMask'), $refs.nav.close()"/>
                 <h-collapsible-item text="Toolbar" @click="$router.push('/toolbar'), $refs.nav.close()"/>
                 <h-collapsible-item text="Toggle" @click="$router.push('/toggle'), $refs.nav.close()"/>
                 <h-collapsible-item text="Video" @click="$router.push('/video'), $refs.nav.close()"/>

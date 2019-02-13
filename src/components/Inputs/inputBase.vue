@@ -32,11 +32,19 @@ export default {
       type: String,
       default: ''
     },
+    rightIcon: {
+      type: String,
+      default: ''
+    },
     maxlength: {
       type: Number,
       default: 9999
     },
     outlined: {
+      type: Boolean,
+      default: false
+    },
+    filled: {
       type: Boolean,
       default: false
     },
@@ -55,6 +63,96 @@ export default {
     cleartext: {
       type: Boolean,
       default: false
+    }
+  },
+  data () {
+    return {
+      primary: false,
+      nofocus: true,
+      focused: false,
+      staticLabelStyle: {
+        fontSize: '12px'
+      },
+      floatLabelStyle: {
+        position: 'absolute',
+        top: '2px',
+        left: '9px',
+        fontSize: '12px',
+        zIndex: '2'
+      },
+      inputDisplay: ''
+    }
+  },
+  methods: {
+    onInputFocus () {
+      this.focused = true
+      this.floatLabelStyle.top = '2px'
+      this.floatLabelStyle.left = '9px'
+      this.floatLabelStyle.fontSize = '12px'
+
+      this.primary = true
+      this.nofocus = false
+
+      this.$emit('focus')
+    },
+    onInputBlur () {
+      this.focused = false
+      this.primary = false
+      this.nofocus = true
+      this.changeFloatLabelStyle()
+      this.$emit('blur')
+    },
+    changeFloatLabelStyle () {
+      console.log('passou float label')
+      console.log('this.value:' + this.value)
+      if (this.floatLabel && ((this.value && this.value.length) || (this.placeholder && this.placeholder.length))) {
+        console.log('passou com value')
+        this.floatLabelStyle.top = '2px'
+        this.floatLabelStyle.left = '9px'
+        this.floatLabelStyle.fontSize = '12px'
+      } else {
+        console.log('passou sem value')
+        this.floatLabelStyle.top = '20px'
+        this.floatLabelStyle.left = '9px'
+        this.floatLabelStyle.fontSize = '16px'
+      }
+    },
+    onChange (value) {
+      let txtValue = ''
+      if (value === undefined && this.value) {
+        txtValue = this.value
+      } else {
+        txtValue = value
+      }
+      this.inputDisplay = txtValue
+      this.$emit('change', txtValue)
+    },
+    onClick () {
+      this.focused = true
+      this.$emit('click')
+    },
+    onInputIconClick () {
+      if (this.type === 'password') {
+        this.inputtype = (this.inputtype === 'password') ? 'text' : 'password'
+      } else if (this.cleartext) {
+        this.inputDisplay = ''
+        this.onInputFocus()
+      }
+    },
+    onKeyDown () {
+      this.$emit('onKeyDown')
+    },
+    onTab () {
+      this.$emit('onTab')
+    },
+    onEnter () {
+      this.$emit('onEnter')
+    },
+    onEscape () {
+      this.$emit('onEscape')
+    },
+    focus () {
+      this.focused = true
     }
   }
 }

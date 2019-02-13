@@ -9,7 +9,7 @@
       )
     .flex.flex-column.full-width
       .full-width.input-container(
-        :class="{primary: primary, nofocus: nofocus, outline: outlined}"
+        :class="{primary: primary, nofocus: nofocus, outline: outlined, filled: filled}"
       )
         div.static-label(
           :class="{primary: primary, nofocus: nofocus}"
@@ -20,7 +20,7 @@
             | {{staticLabel}}
         .flex-1
           .flex.full-width
-            .flex-1
+            .flex-1.h-pl-sm
               input(
                 v-focus="focused"
                 class="h-input"
@@ -68,6 +68,11 @@
                 icon="fas fa-times-circle"
                 @click="onInputIconClick"
               )
+            h-fa-icon(
+              textcolor="text-gray"
+              :icon="rightIcon"
+              @click="onInputIconClick"
+            )
       .full-width
         .flex.flex-column
           .flex.full-width.helper-text
@@ -102,21 +107,7 @@ export default {
   },
   data () {
     return {
-      focused: false,
-      inputtype: 'text',
-      primary: false,
-      nofocus: true,
-      staticLabelStyle: {
-        fontSize: '12px'
-      },
-      floatLabelStyle: {
-        position: 'absolute',
-        top: '2px',
-        left: '9px',
-        fontSize: '12px',
-        zIndex: '-1'
-      },
-      inputDisplay: ''
+      inputtype: 'text'
     }
   },
   mounted () {
@@ -129,6 +120,7 @@ export default {
       this.$emit('input', newValue)
     },
     value: function (value) {
+      console.log('mudou value: ' + value)
       this.inputDisplay = value
       this.changeFloatLabelStyle()
     },
@@ -155,71 +147,6 @@ export default {
         text = ''
       }
       return text
-    },
-    onInputFocus () {
-      this.focused = true
-      this.floatLabelStyle.top = '2px'
-      this.floatLabelStyle.left = '9px'
-      this.floatLabelStyle.fontSize = '12px'
-
-      this.primary = true
-      this.nofocus = false
-
-      this.$emit('focus')
-    },
-    onInputBlur () {
-      this.focused = false
-      this.primary = false
-      this.nofocus = true
-      this.changeFloatLabelStyle()
-      this.$emit('blur')
-    },
-    changeFloatLabelStyle () {
-      if (this.floatLabel && (this.value || this.placeholder)) {
-        this.floatLabelStyle.top = '2px'
-        this.floatLabelStyle.left = '9px'
-        this.floatLabelStyle.fontSize = '12px'
-      } else {
-        this.floatLabelStyle.top = '20px'
-        this.floatLabelStyle.left = '9px'
-        this.floatLabelStyle.fontSize = '16px'
-      }
-    },
-    onChange (value) {
-      let txtValue = ''
-      if (value === undefined && this.value) {
-        txtValue = this.value
-      } else {
-        txtValue = value
-      }
-      this.$emit('change', txtValue)
-    },
-    onClick () {
-      this.focused = true
-      this.$emit('click')
-    },
-    onInputIconClick () {
-      if (this.type === 'password') {
-        this.inputtype = (this.inputtype === 'password') ? 'text' : 'password'
-      } else if (this.cleartext) {
-        this.inputDisplay = ''
-        this.onInputFocus()
-      }
-    },
-    onKeyDown () {
-      this.$emit('onKeyDown')
-    },
-    onTab () {
-      this.$emit('onTab')
-    },
-    onEnter () {
-      this.$emit('onEnter')
-    },
-    onEscape () {
-      this.$emit('onEscape')
-    },
-    focus () {
-      this.focused = true
     }
   }
 }
@@ -244,6 +171,11 @@ export default {
   border-color: gray;
   border-style: solid;
   border-width: 1px;
+  border-radius: 5px;
+}
+
+.input-container.filled {
+  background-color: #F5F5F5;
   border-radius: 5px;
 }
 

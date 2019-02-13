@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>Input</h1>
-    <h1>Default Mode</h1>
+    <h1>Standard</h1>
     <html-separator/>
     <div class="col-6">
       <h-input static-label="Name" v-model="txtName" placeholder="" left-icon="fas fa-phone" cleartext/>
@@ -12,10 +12,10 @@
       </code>
     </pre>
 
-    <h1> Password</h1>
+    <h1> Filled</h1>
     <html-separator/>
     <div class="col-6">
-      <h-input type="password" float-label="Password" v-model="txtPassword" placeholder="type your password" />
+      <h-input type="password" right-icon="fas fa-lock" filled float-label="Password" v-model="txtPassword" placeholder="type your password" />
       <span>Password: {{ txtPassword }}</span>
     </div>
 
@@ -24,12 +24,12 @@
       </code>
     </pre>
 
-    <h1>Outlined Mode</h1>
+    <h1>Outlined</h1>
     <html-separator/>
     <div class="col-6">
-      <h-input error-label="error label" left-icon="fas fa-home" helper-text="helper text"
+      <h-input error-label="error label" left-icon="fas fa-birthday-cake" right-icon="fas fa-calendar-alt" helper-text="helper text"
         :maxlength="10" :text-counter="10"  v-model="txtName2"
-        float-label="Name" outlined cleartext
+        float-label="Name" cleartext text-center
       />
       <span>Name: {{ txtName2 }}</span>
     </div>
@@ -48,23 +48,28 @@
         v-model="form.code"
         float-label="Code"
         ref="code"
+        left-icon="fas fa-code"
         @onKeyDown="onKeyDown"
         @onEnter="$refs.name.focus()"
       />
       <h-input
+        filled
         class="full-width"
         v-model="form.name"
         float-label="Name"
         ref="name"
+        left-icon="fas fa-user"
         @onKeyDown="onKeyDown"
         @onTab="onKeyTab"
         @onEnter="$refs.city.focus()"
       />
       <h-input
+        outlined
         class="full-width"
         v-model="form.city"
         float-label="City"
         ref="city"
+        left-icon="fas fa-map-marker-alt"
         @onKeyDown="onKeyDown"
         @onTab="onKeyTab"
         @onEnter="onEnter"
@@ -93,6 +98,7 @@
         <div>helper-text</div>
         <div>maxlength</div>
         <div>text-counter</div>
+        <div>text-center</div>
         <div>outlined</div>
         <div>cleartext</div>
         <div>readonly</div>
@@ -111,6 +117,7 @@
         <div>Boolean</div>
         <div>Boolean</div>
         <div>Boolean</div>
+        <div>Boolean</div>
       </div>
       <div class="h-pl-md">
         <h3 >Description</h3>
@@ -123,6 +130,7 @@
         <div>Sets the helper text for the input</div>
         <div>Specifies the maximum number of character for an input</div>
         <div>Specifies the quantity of character of the input</div>
+        <div>Sets the text align to the center</div>
         <div>Sets the input to outlined mode</div>
         <div>Shows the icon to clear input on right side</div>
         <div>Input can not be modified</div>
@@ -174,7 +182,7 @@ export default {
   data () {
     return {
       txtName: 'Eduardo',
-      txtName2: 'Eduardo',
+      txtName2: 'text align center',
       txtPassword: 'Password',
       focused: false,
       form: {
