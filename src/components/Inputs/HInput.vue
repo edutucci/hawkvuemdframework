@@ -107,6 +107,7 @@ export default {
   },
   data () {
     return {
+      focused: false,
       inputtype: 'text'
     }
   },
@@ -147,6 +148,23 @@ export default {
         text = ''
       }
       return text
+    },
+    onKeyDown () {
+      this.$emit('onKeyDown')
+    },
+    onTab () {
+      console.log('input tab emitted')
+      this.$emit('onTab')
+    },
+    onEnter () {
+      this.$emit('onEnter')
+    },
+    onEscape () {
+      this.$emit('onEscape')
+    },
+    focus () {
+      console.log('focus called')
+      this.focused = true
     }
   }
 }

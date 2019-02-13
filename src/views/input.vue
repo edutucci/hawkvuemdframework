@@ -245,7 +245,7 @@ export default {
       this.$SnackBar.create({
         message: 'Keydown key',
         textcolor: 'text-white',
-        bgcolor: 'bg-primary'
+        bgcolor: 'bg-positive'
       })
     },
     onKeyTab () {
@@ -253,7 +253,7 @@ export default {
       this.$SnackBar.create({
         message: 'Tab key',
         textcolor: 'text-white',
-        bgcolor: 'bg-primary'
+        bgcolor: 'bg-positive'
       })
     },
     onEnter () {
@@ -261,7 +261,7 @@ export default {
       this.$SnackBar.create({
         message: 'Enter key',
         textcolor: 'text-white',
-        bgcolor: 'bg-primary'
+        bgcolor: 'bg-positive'
       })
     },
     onChange (value) {
@@ -269,7 +269,7 @@ export default {
       this.$SnackBar.create({
         message: 'field change: ' + value,
         textcolor: 'text-white',
-        bgcolor: 'bg-primary'
+        bgcolor: 'bg-positive'
       })
     },
     onBlur () {

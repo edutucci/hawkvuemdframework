@@ -166,7 +166,6 @@ export default {
     },
     onKeyDown () {
       this.showdropdown = true
-      this.$emit('onKeyDown')
     },
     onTab () {
       this.$emit('onTab')

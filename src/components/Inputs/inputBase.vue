@@ -69,7 +69,6 @@ export default {
     return {
       primary: false,
       nofocus: true,
-      focused: false,
       staticLabelStyle: {
         fontSize: '12px'
       },
@@ -138,21 +137,6 @@ export default {
         this.inputDisplay = ''
         this.onInputFocus()
       }
-    },
-    onKeyDown () {
-      this.$emit('onKeyDown')
-    },
-    onTab () {
-      this.$emit('onTab')
-    },
-    onEnter () {
-      this.$emit('onEnter')
-    },
-    onEscape () {
-      this.$emit('onEscape')
-    },
-    focus () {
-      this.focused = true
     }
   }
 }

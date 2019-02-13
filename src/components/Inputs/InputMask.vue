@@ -12,11 +12,10 @@
     :outlined="outlined"
     @focus="onInputFocus()"
     @blur="onInputBlur()"
-    @keydown.down="onKeyDown"
-    @keydown.tab="onTab"
-    @keyup.enter="onEnter"
-    @keyup.esc="onEscape"
+    @onTab="onTab"
+    @onEnter="onEnter"
     @click="onClick"
+    ref="input"
   )
 </template>
 
@@ -24,6 +23,7 @@
 
 import maskCore from './maskCore.js'
 import inputBase from './inputBase'
+import uuidv1 from 'uuid/v1'
 
 export default {
   extends: inputBase,
@@ -48,6 +48,7 @@ export default {
   },
   data () {
     return {
+      inputRef: uuidv1(),
       inputDisplayMask: '',
       maskObj: {
         rawValue: '',
@@ -104,6 +105,15 @@ export default {
         ctrl.focus()
         ctrl.setSelectionRange(pos, pos)
       }
+    },
+    onTab () {
+      this.$emit('onTab')
+    },
+    onEnter () {
+      this.$emit('onEnter')
+    },
+    focus () {
+      this.$refs.input.focus()
     }
   }
 }
