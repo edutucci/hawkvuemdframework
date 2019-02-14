@@ -47,12 +47,15 @@ export default new Router({
         { path: '/video', component: () => import('./views/video') },
         { path: '/snack', component: () => import('./views/plugins/snack') },
         { path: '/loading', component: () => import('./views/plugins/loading') },
-        { path: '/test', component: () => import('./views/test') },
         { path: '/fileupload', component: () => import('./views/fileUpload') },
         { path: '/carousel', component: () => import('./views/carousel') },
         { path: '/rating', component: () => import('./views/rating') },
         { path: '/palleteColor', component: () => import('./views/guide/MaterialDesignColor') }
       ]
+    },
+    {
+      path: '/test',
+      component: () => import('./views/test')
     }
   ]
 })

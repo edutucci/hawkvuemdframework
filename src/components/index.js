@@ -33,12 +33,16 @@ import HFaIcon from './icons/FaIcon.vue'
 import HFileUpload from './fileUpload/fileUpload.vue'
 import HImageUpload from './fileUpload/ImageUpload.vue'
 import HAvatar from './image/HAvatar.vue'
+import HImg from './image/HImg'
 import HList from './list/HList.vue'
 import HListItem from './list/HListItem.vue'
 import HListHeader from './list/HListHeader.vue'
 import HListBody from './list/HListBody.vue'
 import HListItemLeft from './list/HListItemLeft.vue'
 import HListItemRight from './list/HListItemRight.vue'
+import HListItemContent from './list/HListItemContent'
+import HListItemSide from './list/HListItemSide'
+import HListItemText from './list/HListItemText'
 import HAppToolbar from './toolbar/HAppToolbar.vue'
 import HAppToolbarContainer from './toolbar/HAppToolbarContainer.vue'
 import HAppToolbarNavigation from './toolbar/HAppToolbarNavigation.vue'
@@ -110,11 +114,15 @@ const Components = {
   HFileUpload,
   HImageUpload,
   HAvatar,
+  HImg,
   HList,
   HListItem,
   HListHeader,
   HListItemLeft,
   HListItemRight,
+  HListItemContent,
+  HListItemSide,
+  HListItemText,
   HListBody,
   HAppToolbar,
   HAppToolbarNavigation,

@@ -1,6 +1,6 @@
 <template>
-   <div class="full-width list-item-container">
-    <div class="menu-item bg-white flex flex-row flex-items-center" :class="{active: active}">
+   <div class="full-width list-item-padding list-item-container">
+    <div class="bg-white flex flex-row" :class="{active: active}">
       <slot></slot>
     </div>
     <html-separator v-if="separator"/>

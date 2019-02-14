@@ -1,11 +1,161 @@
 <template>
   <div>
-    <h-input float-label="Phone" placeholder="" left-icon="fas fa-phone" cleartext v-model="inputDisplayTelefone" id="my-input-telefone" @focus="onFocusTelefone"/>
+    <!-- <h-input float-label="Phone" placeholder="" left-icon="fas fa-phone" cleartext v-model="inputDisplayTelefone" id="my-input-telefone" @focus="onFocusTelefone"/>
     <h-input float-label="ZipCode" placeholder="" left-icon="fas fa-phone" cleartext v-model="inputDisplayCep" id="my-input-cep" @focus="onFocusCep"/>
     <h-btn contained bgcolor="bg-primary" textcolor="text-white" text="Change Text" @click="applyText"/>
     <html-separator/>
     <h-input-plus-minus circlebuttons v-model="plusMinusModel"></h-input-plus-minus>
-    <h-input-plus-minus v-model="plusMinusModel"></h-input-plus-minus>
+    <h-input-plus-minus v-model="plusMinusModel"></h-input-plus-minus> -->
+    <!-- <div style="display:inline-block; background: gray">
+      <p>gray</p>
+    </div> -->
+    <div class="flex cursor-pointer" style="">
+      <h-list-item-side class="bg-primary">
+        <h-fa-icon icon="fas fa-home"/>
+      </h-list-item-side>
+      <h-list-item-side class="bg-positive">
+        <h-fa-icon icon="fas fa-home"/>
+      </h-list-item-side>
+    </div>
+
+    <h1>Single Line Item</h1>
+    <html-separator/>
+    <div style="width: 350px">
+      <h-list>
+        <h-list-body>
+          <h-list-item>
+            <h-list-item-content>
+              <h-list-item-text title="House in the clouds"/>
+            </h-list-item-content>
+          </h-list-item>
+          <h-list-item>
+            <h-list-item-content>
+              <h-list-item-text title="At the top"/>
+            </h-list-item-content>
+          </h-list-item>
+        </h-list-body>
+      </h-list>
+    </div>
+
+    <h1>Two Line Item</h1>
+    <div style="width: 350px">
+      <h-list>
+        <h-list-body>
+          <h-list-item>
+            <h-list-item-content>
+              <h-list-item-text title="House in the clouds" caption="Jonathan creates a new world"/>
+            </h-list-item-content>
+          </h-list-item>
+          <h-list-item>
+            <h-list-item-content>
+               <h-list-item-text title="At the top" caption="Cindy climbs new heights"/>
+            </h-list-item-content>
+          </h-list-item>
+          <html-separator/>
+         <h-list-item>
+            <h-list-item-side>
+              <h-fa-icon icon="fas fa-film"/>
+            </h-list-item-side>
+            <h-list-item-content>
+              <h-list-item-text title="House in the clouds" caption="Jonathan creates a new world"/>
+            </h-list-item-content>
+          </h-list-item>
+          <h-list-item>
+            <h-list-item-side>
+              <h-fa-icon icon="fas fa-plane"/>
+            </h-list-item-side>
+            <h-list-item-content>
+              <h-list-item-text title="At the top" caption="Cindy climbs new heights"/>
+            </h-list-item-content>
+          </h-list-item>
+        </h-list-body>
+      </h-list>
+    </div>
+
+    <h1>Three Line Item</h1>
+    <div style="width: 350px">
+      <h-list>
+        <h-list-body>
+          <h-list-item>
+            <h-list-item-side>
+              <h-avatar src=""/>
+            </h-list-item-side>
+            <h-list-item-content separator>
+              <h-list-item-text title="Brunch this weekend?" caption="I`ll be in your neighborhood doing errands this weekend."/>
+            </h-list-item-content>
+          </h-list-item>
+          <h-list-item>
+            <h-list-item-side>
+              <h-avatar src=""/>
+            </h-list-item-side>
+            <h-list-item-content>
+              <h-list-item-text title="Summer" caption="Wish I could come, but I'm out out town this weekend."/>
+            </h-list-item-content>
+          </h-list-item>
+          <html-separator/>
+          <h-list-item>
+            <h-list-item-side>
+              <h-img src="avatar/folder_open.jpeg"/>
+            </h-list-item-side>
+            <h-list-item-content separator>
+              <h-list-item-text title="At the top" caption="Cindy climbs new heights"/>
+            </h-list-item-content>
+            <h-list-item-side>
+              <h-list-item-text title="01"/>
+            </h-list-item-side>
+          </h-list-item>
+          <h-list-item>
+            <h-list-item-side>
+              <h-img src="avatar/folder_open.jpeg"/>
+            </h-list-item-side>
+            <h-list-item-content separator>
+              <h-list-item-text title="At the top" caption="Cindy climbs new heights"/>
+            </h-list-item-content>
+            <h-list-item-side>
+              <h-list-item-text title="02"/>
+            </h-list-item-side>
+          </h-list-item>
+        </h-list-body>
+      </h-list>
+    </div>
+
+    <h1>Custom Item</h1>
+    <div style="width: 350px">
+      <h-list>
+        <h-list-body>
+          <h-list-item>
+            <h-list-item-side>
+              <h-img src="avatar/folder_open.jpeg"/>
+            </h-list-item-side>
+            <h-list-item-content>
+              <h-list-item-text title="At the top" caption="Cindy climbs new heights"/>
+            </h-list-item-content>
+            <h-list-item-side>
+              <div class="text-center">
+                <h-fa-icon icon="fas fa-star" textcolor="text-yellowA400"/>
+                <h-list-item-text title="01"/>
+              </div>
+            </h-list-item-side>
+          </h-list-item>
+          <html-separator/>
+          <h-list-item>
+            <h-list-item-side>
+              <h-img src="avatar/folder_open.jpeg"/>
+            </h-list-item-side>
+            <h-list-item-content>
+              <h-list-item-text title="At the top" caption="Cindy climbs new heights"/>
+            </h-list-item-content>
+            <h-list-item-side>
+              <div class="text-center">
+                <h-fa-icon icon="fas fa-star" textcolor="text-yellowA400"/>
+                <h-list-item-text title="02"/>
+              </div>
+            </h-list-item-side>
+          </h-list-item>
+        </h-list-body>
+      </h-list>
+    </div>
+
   </div>
 </template>
 
