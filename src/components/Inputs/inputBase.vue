@@ -102,15 +102,11 @@ export default {
       this.$emit('blur')
     },
     changeFloatLabelStyle () {
-      console.log('passou float label')
-      console.log('this.value:' + this.value)
       if (this.floatLabel && ((this.value && this.value.length) || (this.placeholder && this.placeholder.length))) {
-        console.log('passou com value')
         this.floatLabelStyle.top = '2px'
         this.floatLabelStyle.left = '9px'
         this.floatLabelStyle.fontSize = '12px'
       } else {
-        console.log('passou sem value')
         this.floatLabelStyle.top = '20px'
         this.floatLabelStyle.left = '9px'
         this.floatLabelStyle.fontSize = '16px'

@@ -20,6 +20,7 @@
         @onTab="onTab"
         @onEnter="onEnter"
         @onEscape="away()"
+        :id="id"
       )
 
     .dropdown-menu.boxshadow.border-corner-rounded.full-width(
@@ -48,6 +49,7 @@ import inputBase from './inputBase'
 import { debounce } from 'lodash'
 import { mixin as clickaway } from 'vue-clickaway'
 import maskCore from './maskCore.js'
+import uuidv1 from 'uuid/v1'
 
 export default {
   extends: inputBase,
@@ -79,6 +81,7 @@ export default {
   },
   data () {
     return {
+      id: uuidv1(),
       showdropdown: false,
       left: '0px',
       right: '',
@@ -98,7 +101,7 @@ export default {
   },
   watch: {
     value: function (newValue) {
-      this.inputDisplayMask = this.maskObj.maskedValue
+      // this.inputDisplayMask = this.maskObj.maskedValue
     },
     inputDisplayMask: function (newValue) {
       this.onChangeMask(newValue)
@@ -110,11 +113,14 @@ export default {
       this.changeDtu()
     }
   },
+  mounted () {
+    this.onChangeMask(this.value)
+  },
   methods: {
     async onChangeMask (value) {
       // console.log('value vale: ' + value)
       // console.log('maskObj.maskedValue vale: ' + this.maskObj.maskedValue)
-      if (value !== this.maskObj.maskedValue) {
+      if (value !== this.maskObj.maskedValue || this.maskObj.maskedValue.length === 0) {
         console.log('processing search mask')
         // let myInput = document.getElementById('my-input-mask').getElementsByTagName('input')[0]
         let maskObj = await maskCore.createMask(this.mask, value)
@@ -127,12 +133,19 @@ export default {
       }
     },
     changeInputText (maskObj) {
+      // this.maskObj.rawValue = maskObj.rawValue
+      // this.maskObj.maskedValue = maskObj.maskedValue
+
+      // // this.setCursorPos(this.inputDisplayMask, myInput)
+      // let modelValue = (!this.masked) ? maskObj.rawValue : maskObj.maskedValue
+      // this.$emit('input', modelValue)
       this.maskObj.rawValue = maskObj.rawValue
       this.maskObj.maskedValue = maskObj.maskedValue
-
-      // this.setCursorPos(this.inputDisplayMask, myInput)
-      let modelValue = (!this.masked) ? maskObj.rawValue : maskObj.maskedValue
+      this.inputDisplayMask = this.maskObj.maskedValue
+      let modelValue = (!this.masked) ? this.maskObj.rawValue : this.maskObj.maskedValue
       this.$emit('input', modelValue)
+      let myInput = document.getElementById(this.id).getElementsByTagName('input')[0]
+      this.setCursorPos(maskObj.maskedValue, myInput)
       this.searchQuery(modelValue)
     },
     setCursorPos (mask, input) {

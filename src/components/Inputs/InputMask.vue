@@ -16,6 +16,7 @@
     @onEnter="onEnter"
     @click="onClick"
     ref="input"
+    :id="id"
   )
 </template>
 
@@ -48,7 +49,7 @@ export default {
   },
   data () {
     return {
-      inputRef: uuidv1(),
+      id: uuidv1(),
       inputDisplayMask: '',
       maskObj: {
         rawValue: '',
@@ -59,7 +60,7 @@ export default {
   watch: {
     value: function (newValue) {
       // console.log('mudou value: ' + newValue)
-      this.inputDisplayMask = this.maskObj.maskedValue
+      // this.inputDisplayMask = this.maskObj.maskedValue
     },
     inputDisplayMask: function (newValue) {
       // console.log('mudou inputDisplayMask: ' + newValue)
@@ -69,12 +70,15 @@ export default {
       this.changeInputText(this.maskObj)
     }
   },
+  mounted () {
+    this.onChangeMask(this.value)
+  },
   methods: {
     async onChangeMask (value) {
       // console.log('value vale: ' + value)
       // console.log('maskObj.maskedValue vale: ' + this.maskObj.maskedValue)
 
-      if (value !== this.maskObj.maskedValue) {
+      if (value !== this.maskObj.maskedValue || this.maskObj.maskedValue.length === 0) {
         // console.log('processing mask')
         // let myInput = document.getElementById('my-input-mask').getElementsByTagName('input')[0]
         let maskObj = await maskCore.createMask(this.mask, value)
@@ -82,17 +86,18 @@ export default {
       }
 
       if (value.length > this.maskObj.maskedValue.length) {
-        // console.log('value > q mask: ')
+        console.log('value > q mask: ')
         this.inputDisplayMask = this.maskObj.maskedValue
       }
     },
     changeInputText (maskObj) {
       this.maskObj.rawValue = maskObj.rawValue
       this.maskObj.maskedValue = maskObj.maskedValue
-
-      // this.setCursorPos(this.inputDisplayMask, myInput)
+      this.inputDisplayMask = this.maskObj.maskedValue
       let modelValue = (!this.masked) ? this.maskObj.rawValue : this.maskObj.maskedValue
       this.$emit('input', modelValue)
+      let myInput = document.getElementById(this.id).getElementsByTagName('input')[0]
+      this.setCursorPos(maskObj.maskedValue, myInput)
     },
     setCursorPos (mask, input) {
       let cursorPos = mask.indexOf('_')

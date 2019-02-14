@@ -121,7 +121,6 @@ export default {
       this.$emit('input', newValue)
     },
     value: function (value) {
-      console.log('mudou value: ' + value)
       this.inputDisplay = value
       this.changeFloatLabelStyle()
     },
@@ -153,7 +152,6 @@ export default {
       this.$emit('onKeyDown')
     },
     onTab () {
-      console.log('input tab emitted')
       this.$emit('onTab')
     },
     onEnter () {
@@ -163,7 +161,6 @@ export default {
       this.$emit('onEscape')
     },
     focus () {
-      console.log('focus called')
       this.focused = true
     }
   }
