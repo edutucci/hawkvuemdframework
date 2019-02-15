@@ -1,7 +1,7 @@
 <template lang="pug">
   div.list-title.flex
     .flex.flex-justify-start.title
-      h3  {{text}}
+      h4.no-margin  {{text}}
     .flex.flex-justify-start.title(style="padding-left: 48px;")
       h3  {{middletext}}
     div

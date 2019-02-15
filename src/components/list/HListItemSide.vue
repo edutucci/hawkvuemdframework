@@ -1,6 +1,7 @@
 <template lang="pug">
-  .flex.list-item-side-padding.flex-column.overflow-hidden
-    slot
+  .flex.list-item-content-padding.overflow-hidden
+    .flex.flex-column
+      slot
 </template>
 
 <script>

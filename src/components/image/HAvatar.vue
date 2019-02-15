@@ -13,7 +13,7 @@ export default {
     },
     size: {
       type: String,
-      default: '32px'
+      default: '40px'
     }
   },
   data () {

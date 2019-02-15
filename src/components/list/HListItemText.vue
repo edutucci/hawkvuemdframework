@@ -1,9 +1,10 @@
 <template lang="pug">
-  .row.flex-column
-    .title
-      | {{title}}
-    .subtitle.flex.flex-wrap
-      | {{caption}}
+  .flex.full-height
+    .flex.flex-column
+      .title
+        | {{title}}
+      .subtitle.flex.flex-wrap
+        | {{caption}}
 </template>
 
 <script>

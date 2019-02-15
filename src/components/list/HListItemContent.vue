@@ -1,6 +1,7 @@
 <template lang="pug">
-  .flex-1.list-item-content-padding.flex-column.overflow-hidden
-    slot
+  .flex.flex-1.list-item-content-padding.overflow-hidden.flex-items-center
+    .flex.flex-column
+      slot
     div.full-with(v-if="separator")
       html-separator
 </template>

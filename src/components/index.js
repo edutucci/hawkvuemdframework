@@ -43,6 +43,7 @@ import HListItemRight from './list/HListItemRight.vue'
 import HListItemContent from './list/HListItemContent'
 import HListItemSide from './list/HListItemSide'
 import HListItemText from './list/HListItemText'
+import HListItemImg from './list/HListItemImg'
 import HAppToolbar from './toolbar/HAppToolbar.vue'
 import HAppToolbarContainer from './toolbar/HAppToolbarContainer.vue'
 import HAppToolbarNavigation from './toolbar/HAppToolbarNavigation.vue'
@@ -123,6 +124,7 @@ const Components = {
   HListItemContent,
   HListItemSide,
   HListItemText,
+  HListItemImg,
   HListBody,
   HAppToolbar,
   HAppToolbarNavigation,
