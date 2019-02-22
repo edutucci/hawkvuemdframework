@@ -9,7 +9,7 @@
       )
     .flex.flex-column.full-width
       .full-width.input-container(
-        :class="{primary: primary, nofocus: nofocus, outline: outlined, filled: filled}"
+        :class="{primary: primary, nofocus: nofocus, outline: outlined, filled: filled, noborder: noborder}"
       )
         div.static-label(
           :class="{primary: primary, nofocus: nofocus}"
@@ -48,18 +48,12 @@
               )
                 | {{floatLabel}}
             div.h-pr-sm.h-pl-sm(
-              v-if="type === 'password' || type === 'dropdown' || cleartext"
+              v-if="type === 'password' || cleartext"
             )
               h-fa-icon(
                 v-if="type === 'password'"
                 textcolor="text-gray"
                 icon="fas fa-eye"
-                @click="onInputIconClick"
-              )
-              h-fa-icon(
-                v-else-if="type === 'dropdown'"
-                textcolor="text-gray"
-                icon="fas fa-angle-down"
                 @click="onInputIconClick"
               )
               h-fa-icon(
@@ -103,6 +97,10 @@ export default {
     value: {
       type: [String, Number],
       default: ''
+    },
+    noborder: {
+      type: Boolean,
+      default: false
     }
   },
   data () {

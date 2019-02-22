@@ -1,6 +1,6 @@
 <template>
     <div class="boxshadow border-corner-rounded flex flex-column full-height no-user-select">
-      <div class="flex flex-column" style="min-height:60px;overflow:hidden; position:relative; z-index: 1">
+      <div class="flex flex-column" style="overflow:hidden; position:relative; z-index: 1">
         <div v-if="selectedRows.length > 0" class="flex flex-row flex-items-center full-height" style="padding-left:8px;padding-right:8px;">
           <div class="flex-1" style="color:royalblue;">
             <strong>{{selectedRows.length}} item selected</strong>
@@ -12,12 +12,12 @@
           </div>
         </div>
         <div v-else class="flex flex-row">
-          <div class="flex flex-1 flex-items-center" style="padding-bottom:10px;padding-left:14px;padding-right:8px;padding-top:8px;">
-            <h3>{{title}}</h3>
+          <div class="flex flex-1 flex-items-center" style="padding: 8px;">
+            <h3 class="no-margin">{{title}}</h3>
           </div>
-          <div class="flex flex-items-center" style="padding-bottom:10px;padding-left:8px;padding-right:8px;padding-top:8px;">
+          <!-- <div class="flex flex-items-center" style="padding-bottom:10px;padding-left:8px;padding-right:8px;padding-top:8px;">
 
-          </div>
+          </div> -->
         </div>
       </div>
 
@@ -41,9 +41,13 @@
           <div v-for="(col, colindex) in columns" :key="colindex">
             <div
               class= "flex flex-items-center flex-justify-center"
+              :class = "{ 'cursor-pointer' : col.sortable}"
               style="min-width:100px; color: #67686a;"
-              :style="[rowlineheight]">
+              :style="[rowlineheight]"
+              @click="sort(col)"
+            >
               <strong>{{col.name}}</strong>
+              <h-fa-icon class="h-ml-xs" v-if="col.sortable" :icon="colIconName(col, colindex)" textcolor="text-red400"/>
             </div>
             <div class="flex flex-column">
               <div
@@ -61,31 +65,29 @@
         </div>
       </div>
       <div class="">
-        <div class="flex flex-justify-end flex-items-center">
-          <div class="h-pr-sm subtitle">
+        <div class="flex flex-justify-end">
+          <div class="flex flex-items-center h-pr-sm subtitle">
             Rows per page:
           </div>
-          <div class="h-pr-sm flex flex-items-center">
+          <div class="h-pr-sm h-pb-md flex flex-items-center">
             <h-select
               :showStaticLabel="false"
               :options="rowsperpage"
               v-model="rowsperpagevalue"
-              style="width:90px;"
+              style="width:60px;"
               dtu/>
           </div>
           <div class="btn bg-white circle
             flex flex-justify-center flex-items-center"
-            style="width:28px;height:28px;"
             @click="onPreviousPage"
           >
-            <h-fa-icon icon="fas fa-chevron-left"/>
+            <h-fa-icon icon="fas fa-chevron-left" size="16px"/>
           </div>
           <div class="btn bg-white circle
             flex flex-justify-center flex-items-center"
-            style="width:28px;height:28px;"
             @click="onNextPage"
             >
-              <h-fa-icon icon="fas fa-chevron-right" />
+              <h-fa-icon icon="fas fa-chevron-right" size="16px"/>
           </div>
         </div>
       </div>
@@ -187,6 +189,32 @@ export default {
     }
   },
   methods: {
+    colIconName (col, index) {
+      let name = ''
+      // console.log('col: ' + JSON.stringify(col))
+      if (col.type === undefined) {
+        this.$set(col, 'type', 'string')
+        // console.log('col type set: ' + JSON.stringify(col))
+      }
+
+      if (col.type.toLowerCase() === 'string') {
+        if (col.sortMode) {
+          name = (col.sortMode === 'ascending') ? 'fas fa-sort-alpha-down' : 'fas fa-sort-alpha-up'
+        } else {
+          this.$set(col, 'sortMode', 'ascending')
+          name = 'fas fa-sort-alpha-down'
+        }
+      } else if (col.type.toLowerCase() === 'number') {
+        if (col.sortMode) {
+          name = (col.sortMode === 'ascending') ? 'fas fa-sort-numeric-down' : 'fas fa-sort-numeric-up'
+        } else {
+          this.$set(col, 'sortMode', 'ascending')
+          name = 'fas fa-sort-numeric-down'
+        }
+      }
+
+      return name
+    },
     setDefaultRowColor () {
       for (let r = 0; r < this.tableData.rows.length; r++) {
         this.rowbackgroundColor[r] = 'list-item-color'
@@ -275,6 +303,29 @@ export default {
         this.rowsPage += 1
         // console.log('this.rowsPage:' + this.rowsPage)
         this.setTableRows()
+      }
+    },
+    sort (col) {
+      // console.log('col: ' + JSON.stringify(col))
+      if (col.sortable) {
+        if (col.sortMode === 'ascending') {
+          // descending
+          this.tableData.rows.sort(function strDes (a, b) {
+            // console.log('a[col.name]' + a[col.name])
+            if (a[col.name] > b[col.name]) return -1
+            else if (a[col.name] < b[col.name]) return 1
+            else return 0
+          })
+          col.sortMode = 'descending'
+        } else {
+          // ascending
+          this.tableData.rows.sort(function strDes (a, b) {
+            if (a[col.name] > b[col.name]) return 1
+            else if (a[col.name] < b[col.name]) return -1
+            else return 0
+          })
+          col.sortMode = 'ascending'
+        }
       }
     }
   }

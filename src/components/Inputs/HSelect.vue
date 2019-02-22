@@ -9,7 +9,7 @@
         @focus="magic_flag = true"
         :readonly="true"
         :value="display"
-        type='dropdown'
+        right-icon="fas fa-angle-down"
       )
 
     div.full-width.dropdown-menu.boxshadow.border-corner-rounded(
@@ -21,6 +21,7 @@
         v-for="(option, index) in options"
         :key="index"
         @click="onChangeItem(option)"
+        :id="selecId"
       )
         div.icon-left.h-pl-md(v-if="displayMode ==='icon'")
           h-fa-icon(:icon="option.icon")
@@ -28,14 +29,14 @@
           h-avatar(:src="option.avatar")
         div.flex-1  {{option.text}}
 
-    div.full-width.dropdown-menu.boxshadow.border-corner-rounded(v-else-if="multiselect && magic_flag")
-      div.flex.flex-row.menu-item(
-        :class="[bgcolor]"
-        v-for="option in options"
-        :key="option.value"
-        :style="{left: left, right: right, bottom: bottom}"
-      )
-        h-checkbox.h-pl-md(v-model="multiselectItem" :text="option.text" :value="option.value" @change="changeMultiselect")
+    //- div.full-width.dropdown-menu.boxshadow.border-corner-rounded(v-else-if="multiselect && magic_flag")
+    //-   div.flex.flex-row.menu-item(
+    //-     :class="[bgcolor]"
+    //-     v-for="option in options"
+    //-     :key="option.value"
+    //-     :style="{left: left, right: right, bottom: bottom}"
+    //-   )
+    //-     h-checkbox.h-pl-md(v-model="multiselectItem" :text="option.text" :value="option.value" @change="changeMultiselect")
 
 </template>
 
@@ -43,6 +44,7 @@
 
 import { mixin as clickaway } from 'vue-clickaway'
 import componentBase from '../componentBase.vue'
+import uuidv1 from 'uuid/v1'
 
 export default {
   extends: componentBase,
@@ -81,6 +83,7 @@ export default {
   },
   data: function () {
     return {
+      selecId: uuidv1(),
       display: '',
       item: 'User',
       magic_flag: false,
@@ -109,6 +112,11 @@ export default {
       if (arrDisp.length) {
         this.display = arrDisp.join()
       }
+    },
+    magic_flag: function (value) {
+      if (value) {
+        this.adjustDropDownPosition()
+      }
     }
   },
   mounted () {
@@ -118,6 +126,19 @@ export default {
     this.setDisplayValue()
   },
   methods: {
+    adjustDropDownPosition () {
+      this.$nextTick(() => {
+        let elem = document.getElementById(this.selecId)
+        if (elem) {
+          var distance = elem.getBoundingClientRect()
+          console.log('distance: ' + JSON.stringify(distance))
+          console.log('window.innerHeight: ' + window.innerHeight)
+          console.log('document.documentElement.clientHeight: ' + window.outerHeight)
+          console.log('document.body.clientHeight: ' + document.body.clientHeight)
+          // let wh = 2613
+        }
+      })
+    },
     setDisplayValue () {
       if (!this.multiselect) {
         this.display = this.value
@@ -146,22 +167,6 @@ export default {
 </script>
 
 <style scoped>
-input.select {
-   font-size: 18px;
-   /* padding-right: 25px;
-   padding-left: 10px; */
-   z-index: 0;
-   background-color: transparent !important;
-   border: none;
-   outline: none;
-   border-bottom: 4px solid blue;
-   width: 100%;
-}
-
-input:hover {
-  cursor: pointer;
-}
-
 .dropdown-arrow {
   position: absolute;
   color:black;

@@ -21,7 +21,7 @@
     "*.js"
   ],
   "scripts": {
-    "serve": "vue-cli-service serve --open",
+    "dev": "vue-cli-service serve --open",
     "build": "vue-cli-service build",
     "build-lib": "vue-cli-service build --target lib --name hawkframework ./src/index.js",
     "lint": "vue-cli-service lint",
