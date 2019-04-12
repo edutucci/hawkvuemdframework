@@ -8,11 +8,7 @@
         <h-btn-group-item name="sub" bgcolor="bg-negative" textcolor="text-white"  left-icon="fas fa-underline" text="Underline"/>
       </h-btn-group>
     </div>
-
-      <pre v-highlightjs="containedButtons">
-        <code class="html">
-        </code>
-      </pre>
+    <prism language="html" :code="containedButtons"></prism>
 
     <h1>Outlined Buttons</h1>
     <div>
@@ -22,11 +18,7 @@
         <h-btn-group-item name="sub" left-icon="fas fa-underline"/>
       </h-btn-group>
     </div>
-
-    <pre v-highlightjs="outlinedButtons">
-      <code class="html">
-      </code>
-    </pre>
+    <prism language="html" :code="outlinedButtons"></prism>
 
     <h2 class="text-primary">Button Group</h2>
     <h2 class="text-primary">Vue Properties</h2>

@@ -5,27 +5,23 @@
     <div>
       <h-toggle v-model="masked" text="Masked?"/>
     </div>
-    <html-separator/>
+    <!-- <html-separator/>
     <h-btn contained @click="$refs.mask1.focus()"/>
-    <h-btn contained @click="$refs.mask2.focus()"/>
+    <h-btn contained @click="$refs.mask2.focus()"/> -->
     <html-separator/>
     <h-input-mask ref="mask1" outlined mask="(11)1111-1111" v-model="maskModelTel" icon="fas fa-phone" :masked="masked" cleartext
       @onTab="onKeyTab"  @onEnter="$refs.mask2.focus()"
     />
     <span>maskModel: {{maskModelTel}}</span>
-    <pre v-highlightjs="mask1">
-      <code class="html">
-      </code>
-    </pre>
+    <prism language="html" :code="mask1"></prism>
+
     <html-separator/>
     <h-input-mask ref="mask2" mask="11111-111" v-model="maskModelCep" icon="fas fa-home" static-label="static label" :masked="masked" cleartext
       @onTab="onKeyTab" @onEnter="$refs.mask3.focus()"
     />
     <span>maskModel: {{maskModelCep}}</span>
-    <pre v-highlightjs="mask2">
-      <code class="html">
-      </code>
-    </pre>
+    <prism language="html" :code="mask2"></prism>
+
     <h1>Search Mask</h1>
     <html-separator/>
     <h-search-mask
@@ -34,17 +30,11 @@
       @onTab="onKeyTab" @onEnter="$refs.mask1.focus()"
     />
     <span>maskModel: {{maskModelTel2}}</span>
-    <pre v-highlightjs="mask3">
-      <code class="html">
-      </code>
-    </pre>
+    <prism language="html" :code="mask3"></prism>
 
     <h2 class="text-primary"> Vue Example</h2>
     <html-separator/>
-    <pre v-highlightjs="sample1">
-      <code class="html">
-      </code>
-    </pre>
+    <prism language="html" :code="sample1"></prism>
 
     <h2 class="text-primary"> Vue Properties</h2>
     <hr>

@@ -16,11 +16,7 @@
         </div>
       </div>
     </h-modal>
-
-    <pre v-highlightjs="modalContent">
-      <code class="html">
-      </code>
-    </pre>
+    <prism language="html" :code="modalContent"></prism>
 
     <div>
       <h-btn contained text="Prompt" @click="openModal2=true"/>
@@ -41,10 +37,7 @@
       </div>
     </h-modal>
 
-    <pre v-highlightjs="modalPrompt">
-      <code class="html">
-      </code>
-    </pre>
+    <prism language="html" :code="modalPrompt"></prism>
 
     <h2 class="text-primary"> Vue Properties</h2>
     <hr>

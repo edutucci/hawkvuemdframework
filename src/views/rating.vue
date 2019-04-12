@@ -6,19 +6,15 @@
       <h1>Normal Point</h1>
       <h-rating v-model="rating1" showmessages></h-rating>
     </div>
-    <pre v-highlightjs="ex1">
-      <code class="html">
-      </code>
-    </pre>
+    <prism language="html" :code="ex1"></prism>
+
     <html-separator></html-separator>
     <div>
       <h1>Half Point</h1>
       <h-rating v-model="rating2" showmessages halfpoints></h-rating>
     </div>
-    <pre v-highlightjs="ex2">
-      <code class="html">
-      </code>
-    </pre>
+    <prism language="html" :code="ex2"></prism>
+
     <html-separator></html-separator>
     <div>
       <h1>Custom Messages</h1>
@@ -30,10 +26,7 @@
       >
       </h-rating>
     </div>
-    <pre v-highlightjs="ex3">
-      <code class="html">
-      </code>
-    </pre>
+    <prism language="html" :code="ex3"></prism>
 
     <h2 class="text-primary"> Vue Properties</h2>
     <html-separator></html-separator>

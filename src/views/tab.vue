@@ -73,11 +73,7 @@
     </h-tabs>
 
     <h3>TabModel: {{tabModel}}</h3>
-
-    <pre v-highlightjs="tabhor">
-    <code class="html">
-    </code>
-    </pre>
+    <prism language="html" :code="tabhor"></prism>
 
     <h1>Vertical Tab</h1>
 
@@ -115,11 +111,7 @@
         This is the content of the tab 5
       </h-tab>
     </h-tabs>
-
-    <pre v-highlightjs="tabver">
-    <code class="html">
-    </code>
-    </pre>
+    <prism language="html" :code="tabver"></prism>
 
     <h2 class="text-primary"> Tabs Help</h2>
     <h2 class="text-primary"> Vue Properties</h2>

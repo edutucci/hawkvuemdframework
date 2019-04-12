@@ -2,171 +2,157 @@
   <div>
     <h1>List</h1>
 
-      <div class="col-6">
-        <h-list>
-          <h-app-toolbar>
-            <h-app-toolbar-container bgcolor="bg-primary" textcolor="text-white">
-              <h-app-toolbar-navigation icon="fas fa-bars" textcolor="text-white"/>
-              <h-app-toolbar-title title="Topics"/>
-            </h-app-toolbar-container>
-          </h-app-toolbar>
-          <h-list-body>
-            <h-list-item>
-              <h-list-item-left lefttext="Attractions" />
-            </h-list-item>
-            <h-list-item>
-              <h-list-item-left lefttext="Dining"/>
-            </h-list-item>
-            <h-list-item>
-              <h-list-item-left lefttext="Health"/>
-            </h-list-item>
-            <h-list-item>
-              <h-list-item-left lefttext="Sports"/>
-            </h-list-item>
-            <h-list-item>
-              <h-list-item-left lefttext="Travel"/>
-            </h-list-item>
-          </h-list-body>
-        </h-list>
-      </div>
-
-      <pre v-highlightjs="list">
-        <code class="html">
-        </code>
-      </pre>
-
-      <div class="col-6">
-        <h-list>
-          <h-app-toolbar>
-            <h-app-toolbar-container bgcolor="bg-primary" textcolor="text-white">
-              <h-app-toolbar-navigation icon="fas fa-bars" textcolor="text-white"/>
-              <h-app-toolbar-title title="Topics"/>
-            </h-app-toolbar-container>
-          </h-app-toolbar>
-          <h-list-body>
-            <h-list-item>
-              <h-list-item-left icon="fas fa-film" text="Attractions"/>
-            </h-list-item>
-            <h-list-item>
-              <h-list-item-left icon="fas fa-utensils" text="Dining"/>
-            </h-list-item>
-            <h-list-item>
-              <h-list-item-left icon="fas fa-heart" text="Health"/>
-            </h-list-item>
-            <h-list-item>
-              <h-list-item-left icon="fas fa-basketball-ball" text="Sports"/>
-            </h-list-item>
-            <h-list-item>
-              <h-list-item-left icon="fas fa-plane" text="Travel"/>
-            </h-list-item>
-          </h-list-body>
-        </h-list>
-      </div>
-    <pre v-highlightjs="list2">
-      <code class="html">
-      </code>
-    </pre>
-
-      <div class="col-6">
-        <h-list>
-          <h-app-toolbar>
-            <h-app-toolbar-container bgcolor="bg-primary" textcolor="text-white">
-              <h-app-toolbar-navigation icon="fas fa-bars" textcolor="text-white"/>
-              <h-app-toolbar-title title="Topics"/>
-            </h-app-toolbar-container>
-          </h-app-toolbar>
-          <h-collapsible separator>
-            <h-collapsible-menu icon="fas fa-film" text="Attractions">
-              <h-list-body>
-                <h-list-item>
-                  <h-list-item-left text="Shopping"/>
-                </h-list-item>
-                <h-list-item>
-                  <h-list-item-left text="Museums"/>
-                </h-list-item>
-              </h-list-body>
-            </h-collapsible-menu>
-            <h-collapsible-menu icon="fas fa-utensils" text="Dining">
-              <h-list-body>
-                <h-list-item>
-                  <h-list-item-left text="Restaurants"/>
-                </h-list-item>
-              </h-list-body>
-            </h-collapsible-menu>
-          </h-collapsible>
-        </h-list>
-      </div>
-    <pre v-highlightjs="list21">
-      <code class="html">
-      </code>
-    </pre>
-
-      <h-list class="col-6">
+    <div class="col-6">
+      <h-list>
         <h-app-toolbar>
           <h-app-toolbar-container bgcolor="bg-primary" textcolor="text-white">
             <h-app-toolbar-navigation icon="fas fa-bars" textcolor="text-white"/>
-            <h-app-toolbar-title title="Inbox"/>
+            <h-app-toolbar-title title="Topics"/>
           </h-app-toolbar-container>
         </h-app-toolbar>
-        <h-list-header text="Today is my birthday"/>
         <h-list-body>
           <h-list-item>
-            <h-list-item-left separator avatar="/avatar/turtle.png" text="Hi rambo" desc="You there?" />
+            <h-list-item-left lefttext="Attractions" />
           </h-list-item>
           <h-list-item>
-            <h-list-item-left separator avatar="/avatar/rambo.jpg" text="I am searching something to eat" desc="I think I am going to eat you."/>
+            <h-list-item-left lefttext="Dining"/>
+          </h-list-item>
+          <h-list-item>
+            <h-list-item-left lefttext="Health"/>
+          </h-list-item>
+          <h-list-item>
+            <h-list-item-left lefttext="Sports"/>
+          </h-list-item>
+          <h-list-item>
+            <h-list-item-left lefttext="Travel"/>
           </h-list-item>
         </h-list-body>
       </h-list>
+    </div>
 
-    <pre v-highlightjs="list3">
-      <code class="html">
-      </code>
-    </pre>
+    <prism language="html" :code="list"></prism>
 
-      <h-list class="col-6">
+    <div class="col-6">
+      <h-list>
         <h-app-toolbar>
           <h-app-toolbar-container bgcolor="bg-primary" textcolor="text-white">
             <h-app-toolbar-navigation icon="fas fa-bars" textcolor="text-white"/>
-            <h-app-toolbar-title title="My files" style="padding-top: 40px;"/>
+            <h-app-toolbar-title title="Topics"/>
           </h-app-toolbar-container>
         </h-app-toolbar>
-        <h-list-header middletext="Folders"/>
         <h-list-body>
           <h-list-item>
-            <h-list-item-left img="avatar/folder_open.jpeg" text="Photos" desc="Dez 12, 2017"/>
+            <h-list-item-left icon="fas fa-film" text="Attractions"/>
           </h-list-item>
           <h-list-item>
-            <h-list-item-left img="avatar/folder_open.jpeg" text="Images" desc="Events"/>
+            <h-list-item-left icon="fas fa-utensils" text="Dining"/>
+          </h-list-item>
+          <h-list-item>
+            <h-list-item-left icon="fas fa-heart" text="Health"/>
+          </h-list-item>
+          <h-list-item>
+            <h-list-item-left icon="fas fa-basketball-ball" text="Sports"/>
+          </h-list-item>
+          <h-list-item>
+            <h-list-item-left icon="fas fa-plane" text="Travel"/>
           </h-list-item>
         </h-list-body>
       </h-list>
-    <pre v-highlightjs="list4">
-      <code class="html">
-      </code>
-    </pre>
+    </div>
 
-      <h-list class="col-6">
-        <h-list-header text="4 items in your cart" />
-        <h-list-body>
-          <h-list-item separator>
-            <h-list-item-left img="img/pencil.png" text="Pencil" desc="in stock" />
-            <h-list-item-right text="2.00"/>
-          </h-list-item>
-          <h-list-item separator>
-            <h-list-item-left img="img/rubberbands.png" text="Hubberbands" desc="in stock"/>
-            <h-list-item-right text="4.00"/>
-          </h-list-item>
-          <h-list-item separator>
-            <h-list-item-left img="img/rulers.png" text="Rulers" desc="only 1 left in stock. Next month we will sell for you." />
-            <h-list-item-right text="6.00"/>
-          </h-list-item>
-          <h-list-item separator>
-            <h-list-item-left img="img/clock.png" text="Clock" desc="in stock" />
-            <h-list-item-right text="8.00"/>
-          </h-list-item>
-        </h-list-body>
+    <prism language="html" :code="list2"></prism>
+
+    <div class="col-6">
+      <h-list>
+        <h-app-toolbar>
+          <h-app-toolbar-container bgcolor="bg-primary" textcolor="text-white">
+            <h-app-toolbar-navigation icon="fas fa-bars" textcolor="text-white"/>
+            <h-app-toolbar-title title="Topics"/>
+          </h-app-toolbar-container>
+        </h-app-toolbar>
+        <h-collapsible separator>
+          <h-collapsible-menu icon="fas fa-film" text="Attractions">
+            <h-list-body>
+              <h-list-item>
+                <h-list-item-left text="Shopping"/>
+              </h-list-item>
+              <h-list-item>
+                <h-list-item-left text="Museums"/>
+              </h-list-item>
+            </h-list-body>
+          </h-collapsible-menu>
+          <h-collapsible-menu icon="fas fa-utensils" text="Dining">
+            <h-list-body>
+              <h-list-item>
+                <h-list-item-left text="Restaurants"/>
+              </h-list-item>
+            </h-list-body>
+          </h-collapsible-menu>
+        </h-collapsible>
       </h-list>
+    </div>
+    <prism language="html" :code="list21"></prism>
+
+    <h-list class="col-6">
+      <h-app-toolbar>
+        <h-app-toolbar-container bgcolor="bg-primary" textcolor="text-white">
+          <h-app-toolbar-navigation icon="fas fa-bars" textcolor="text-white"/>
+          <h-app-toolbar-title title="Inbox"/>
+        </h-app-toolbar-container>
+      </h-app-toolbar>
+      <h-list-header text="Today is my birthday"/>
+      <h-list-body>
+        <h-list-item>
+          <h-list-item-left separator avatar="/avatar/turtle.png" text="Hi rambo" desc="You there?" />
+        </h-list-item>
+        <h-list-item>
+          <h-list-item-left separator avatar="/avatar/rambo.jpg" text="I am searching something to eat" desc="I think I am going to eat you."/>
+        </h-list-item>
+      </h-list-body>
+    </h-list>
+
+    <prism language="html" :code="list3"></prism>
+
+    <h-list class="col-6">
+      <h-app-toolbar>
+        <h-app-toolbar-container bgcolor="bg-primary" textcolor="text-white">
+          <h-app-toolbar-navigation icon="fas fa-bars" textcolor="text-white"/>
+          <h-app-toolbar-title title="My files" style="padding-top: 40px;"/>
+        </h-app-toolbar-container>
+      </h-app-toolbar>
+      <h-list-header middletext="Folders"/>
+      <h-list-body>
+        <h-list-item>
+          <h-list-item-left img="avatar/folder_open.jpeg" text="Photos" desc="Dez 12, 2017"/>
+        </h-list-item>
+        <h-list-item>
+          <h-list-item-left img="avatar/folder_open.jpeg" text="Images" desc="Events"/>
+        </h-list-item>
+      </h-list-body>
+    </h-list>
+    <prism language="html" :code="list4"></prism>
+
+    <h-list class="col-6">
+      <h-list-header text="4 items in your cart" />
+      <h-list-body>
+        <h-list-item separator>
+          <h-list-item-left img="img/pencil.png" text="Pencil" desc="in stock" />
+          <h-list-item-right text="2.00"/>
+        </h-list-item>
+        <h-list-item separator>
+          <h-list-item-left img="img/rubberbands.png" text="Hubberbands" desc="in stock"/>
+          <h-list-item-right text="4.00"/>
+        </h-list-item>
+        <h-list-item separator>
+          <h-list-item-left img="img/rulers.png" text="Rulers" desc="only 1 left in stock. Next month we will sell for you." />
+          <h-list-item-right text="6.00"/>
+        </h-list-item>
+        <h-list-item separator>
+          <h-list-item-left img="img/clock.png" text="Clock" desc="in stock" />
+          <h-list-item-right text="8.00"/>
+        </h-list-item>
+      </h-list-body>
+    </h-list>
 
     <pre v-highlightjs="list5">
       <code class="html">

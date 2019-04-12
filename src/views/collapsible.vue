@@ -12,10 +12,7 @@
       </h-collapsible-menu>
     </h-collapsible>
 
-    <pre v-highlightjs="ex1">
-      <code class="html">
-      </code>
-    </pre>
+    <prism language="html" :code="ex1"></prism>
 
     <h1>Collapsible Custom Color</h1>
 
@@ -29,10 +26,7 @@
       </h-collapsible-menu>
     </h-collapsible>
 
-    <pre v-highlightjs="ex2">
-      <code class="html">
-      </code>
-    </pre>
+    <prism language="html" :code="ex2"></prism>
 
     <h1>Collapsible Custom Content</h1>
 
@@ -59,10 +53,7 @@
       </h-collapsible-menu>
     </h-collapsible>
 
-    <pre v-highlightjs="ex3">
-      <code class="html">
-      </code>
-    </pre>
+    <prism language="html" :code="ex3"></prism>
 
     <h2 class="text-primary"> Collapsible Menu Help</h2>
     <h2 class="text-primary"> Vue Properties</h2>

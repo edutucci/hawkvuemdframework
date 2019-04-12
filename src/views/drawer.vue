@@ -34,10 +34,8 @@
       </div>
     </h-nav-drawer>
 
-    <pre v-highlightjs="drawer">
-      <code class="html">
-      </code>
-    </pre>
+    <prism language="html" :code="drawer"></prism>
+
   </div>
 </template>
 

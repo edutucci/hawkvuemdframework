@@ -7,10 +7,7 @@
       <h-input static-label="Name" v-model="txtName" placeholder="" left-icon="fas fa-phone" cleartext/>
       <span>Name: {{ txtName }}</span>
     </div>
-    <pre v-highlightjs="txttextcomp">
-      <code class="html">
-      </code>
-    </pre>
+    <prism language="html" :code="txttextcomp"></prism>
 
     <h1> Filled</h1>
     <html-separator/>
@@ -19,10 +16,7 @@
       <span>Password: {{ txtPassword }}</span>
     </div>
 
-    <pre v-highlightjs="txtpasswordcomp">
-      <code class="html">
-      </code>
-    </pre>
+    <prism language="html" :code="txtpasswordcomp"></prism>
 
     <h1>Outlined</h1>
     <html-separator/>
@@ -34,10 +28,7 @@
       <span>Name: {{ txtName2 }}</span>
     </div>
 
-    <pre v-highlightjs="txtoutlined">
-      <code class="html">
-      </code>
-    </pre>
+    <prism language="html" :code="txtoutlined"></prism>
 
     <h1>Key Events</h1>
     <html-separator/>
@@ -78,10 +69,7 @@
       />
     </div>
 
-    <pre v-highlightjs="txtkeys">
-      <code class="html">
-      </code>
-    </pre>
+    <prism language="html" :code="txtkeys"></prism>
 
     <h2 class="text-primary"> Vue Properties</h2>
     <hr>

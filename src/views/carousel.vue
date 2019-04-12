@@ -22,10 +22,8 @@
         <img src="img/90minute.png" class="full-size"/>
       </h-carousel-slider>
     </h-carousel>
-    <pre v-highlightjs="carousel1">
-      <code class="html">
-      </code>
-    </pre>
+
+    <prism language="html" :code="carousel1"></prism>
 
   </div>
 </template>

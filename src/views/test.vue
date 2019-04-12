@@ -54,6 +54,20 @@
       </h-list>
     </div> -->
 
+    <!-- <pre v-highlightjs="containedButtons">
+      <code class="html">
+      </code>
+    </pre> -->
+
+    <!-- <pre>
+      <code class="language-javascript">
+        {{testeLang}}
+      </code>
+    </pre> -->
+
+    <!-- <prism language="html" :code="containedButtons"></prism> -->
+    <prism language="javascript" :code="testeLang"></prism>
+
     <h1>Single Line Item</h1>
     <html-separator/>
     <div style="width: 350px">
@@ -504,10 +518,58 @@
 <script>
 
 import maskCore from './maskCore.js'
+// import Prism from 'vue-prismjs'
+// import 'prismjs/themes/prism.css'
+
+export default {
+  // components: {
+  //   Prism
+  // },
+  data () {
+    return {
+      scriptTest: `
+<script>
+
+import maskCore from './maskCore.js'
+import Prism from 'vue-prismjs'
+import 'prismjs/themes/prism.css'
 
 export default {
   data () {
     return {
+    }
+  }
+}
+      `,
+      containedButtons: `
+<div>
+  <div>
+    <h-btn contained bgcolor="bg-white" textcolor="text-black" text="white" left-icon="fas fa-envelope" @click="btnClick"/>
+    <h-btn contained bgcolor="bg-primary" textcolor="text-white" text="primary" right-icon="fas fa-envelope"/>
+    <h-btn contained bgcolor="bg-secondary" textcolor="text-white" text="secondary"/>
+    <h-btn contained bgcolor="bg-positive" textcolor="text-white" text="positive"/>
+    <h-btn contained bgcolor="bg-negative" textcolor="text-white" text="negative"/>
+    <h-btn contained bgcolor="bg-info" textcolor="text-white" text="info"/>
+    <h-btn contained bgcolor="bg-warning" textcolor="text-white" text="warning"/>
+  </div>
+  <div class="col-6">
+    <h-btn contained class="full-width" bgcolor="bg-primary" textcolor="text-white" text="full width" right-icon="fas fa-envelope"/>
+    <h-btn contained class="full-width" bgcolor="bg-positive" textcolor="text-white" text="full width" left-icon="fas fa-envelope"/>
+  </div>
+</div>
+      `,
+      testeLang: `
+  watch: {
+    inputDisplayCep: function (newValue) {
+      // console.log('mudou value: ' + newValue)
+      this.onChangeCep(newValue)
+    },
+    inputDisplayTelefone: function (newValue) {
+      // console.log('mudou telefone: ' + newValue)
+      this.onChangeTelefone(newValue)
+    }
+  }
+      `,
       plusMinusModel: -999,
       inputDisplayTelefone: '',
       inputDisplayCep: '',
@@ -603,6 +665,7 @@ export default {
 </script>
 
 <style scoped>
+
 .btn {
   padding: 8px;
   font-size: 16px;

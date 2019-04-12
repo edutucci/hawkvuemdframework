@@ -8,12 +8,7 @@
           <div>
             your date is: {{date}}
           </div>
-          <div class="boxshadow">
-            <pre v-highlightjs="dateinput">
-              <code class="html">
-              </code>
-            </pre>
-          </div>
+          <prism language="html" :code="dateinput"></prism>
         </div>
       </div>
     </div>
@@ -26,12 +21,7 @@
           <div>
             your datetime is: {{datetime}}
           </div>
-          <div class="boxshadow">
-            <pre v-highlightjs="datetimeinput">
-              <code class="html">
-              </code>
-            </pre>
-          </div>
+          <prism language="html" :code="datetimeinput"></prism>
         </div>
       </div>
     </div>
@@ -44,12 +34,7 @@
           <div>
             your date is: {{myDate}}
           </div>
-          <div class="boxshadow">
-            <pre v-highlightjs="datepicker">
-              <code class="html">
-              </code>
-            </pre>
-          </div>
+          <prism language="html" :code="datepicker"></prism>
         </div>
       </div>
     </div>

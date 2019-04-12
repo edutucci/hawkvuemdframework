@@ -35,10 +35,7 @@
           </h-menu-dropdown>
     </div>
 
-    <pre v-highlightjs="menutop">
-      <code class="html">
-      </code>
-    </pre>
+    <prism language="html" :code="menutop"></prism>
 
     <h1> Menu Dropdown Bottom of screen</h1>
     <div class="flex h-ma-lg">
@@ -60,10 +57,7 @@
           </h-menu-dropdown>
     </div>
 
-    <pre v-highlightjs="menudown">
-      <code class="html">
-      </code>
-    </pre>
+    <prism language="html" :code="menudown"></prism>
 
     <h2 class="text-primary">Menu Dropdown Help</h2>
     <h2 class="text-primary"> Vue Properties</h2>

@@ -16,11 +16,8 @@
         </div>
 
       </h-card>
-    .boxshadow
-      <pre v-highlightjs="rblist">
-        <code class="html">
-        </code>
-      </pre>
+
+    <prism language="html" :code="rblist"></prism>
 
     div
       h1 List with Numbers
@@ -37,11 +34,7 @@
         </div>
 
       </h-card>
-    .boxshadow
-      <pre v-highlightjs="rbnumber">
-        <code class="html">
-        </code>
-      </pre>
+    <prism language="html" :code="rbnumber"></prism>
 
     div
       h1 List with option checked
@@ -53,11 +46,7 @@
           <div>Your gender is: {{ gender }}</div>
         </div>
       </h-card>
-    .boxshadow
-      <pre v-highlightjs="rbchecked">
-        <code class="html">
-        </code>
-      </pre>
+    <prism language="html" :code="rbchecked"></prism>
 
     <h2 class="text-primary"> Vue Properties</h2>
     <hr>

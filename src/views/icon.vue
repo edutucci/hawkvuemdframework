@@ -6,57 +6,45 @@
       <b>Note:</b> This component has support for <b>Font Awesome Icons 5.x</b>
     </div>
 
-      <h1>Colors</h1>
-      <h-fa-icon class="bg-primary h-pa-md" icon="fas fa-camera-retro" textcolor="text-white" @click="iconClick"/>
-      <h-fa-icon class="h-pa-md" icon="fas fa-camera-retro" textcolor="text-primary"/>
-      <h-fa-icon class="h-pa-md" icon="fas fa-camera-retro" textcolor="text-secondary"/>
-      <h-fa-icon class="h-pa-md" icon="fas fa-camera-retro" textcolor="text-positive"/>
-      <h-fa-icon class="h-pa-md" icon="fas fa-camera-retro" textcolor="text-negative"/>
-      <h-fa-icon class="h-pa-md" icon="fas fa-camera-retro" textcolor="text-info"/>
-      <h-fa-icon class="h-pa-md" icon="fas fa-camera-retro" textcolor="text-warning"/>
+    <h1>Colors</h1>
+    <h-fa-icon class="bg-primary h-pa-md" icon="fas fa-camera-retro" textcolor="text-white" @click="iconClick"/>
+    <h-fa-icon class="h-pa-md" icon="fas fa-camera-retro" textcolor="text-primary"/>
+    <h-fa-icon class="h-pa-md" icon="fas fa-camera-retro" textcolor="text-secondary"/>
+    <h-fa-icon class="h-pa-md" icon="fas fa-camera-retro" textcolor="text-positive"/>
+    <h-fa-icon class="h-pa-md" icon="fas fa-camera-retro" textcolor="text-negative"/>
+    <h-fa-icon class="h-pa-md" icon="fas fa-camera-retro" textcolor="text-info"/>
+    <h-fa-icon class="h-pa-md" icon="fas fa-camera-retro" textcolor="text-warning"/>
 
-      <pre v-highlightjs="iconColors">
-        <code class="html">
-        </code>
-      </pre>
+    <prism language="html" :code="iconColors"></prism>
 
-      <h1>Sizes</h1>
-      <h-fa-icon icon="fas fa-camera-retro" size="12px"/>
-      <h-fa-icon class="h-pa-xs" icon="fas fa-camera-retro" size="18px"/>
-      <h-fa-icon class="h-pa-xs" icon="fas fa-camera-retro" size="24px"/>
-      <h-fa-icon class="h-pa-xs" icon="fas fa-camera-retro" size="36px"/>
-      <h-fa-icon class="h-pa-xs" icon="fas fa-camera-retro" size="48px"/>
+    <h1>Sizes</h1>
+    <h-fa-icon icon="fas fa-camera-retro" size="12px"/>
+    <h-fa-icon class="h-pa-xs" icon="fas fa-camera-retro" size="18px"/>
+    <h-fa-icon class="h-pa-xs" icon="fas fa-camera-retro" size="24px"/>
+    <h-fa-icon class="h-pa-xs" icon="fas fa-camera-retro" size="36px"/>
+    <h-fa-icon class="h-pa-xs" icon="fas fa-camera-retro" size="48px"/>
 
-      <pre v-highlightjs="iconSizes">
-        <code class="html">
-        </code>
-      </pre>
+    <prism language="html" :code="iconSizes"></prism>
 
-      <h1>Animating Icons</h1>
-      <h-fa-icon class="h-pa-xs" icon="fas fa-spinner" spin/>
-      <h-fa-icon class="h-pa-xs" icon="fas fa-circle-notch" spin/>
-      <h-fa-icon class="h-pa-xs" icon="fas fa-sync" spin/>
-      <h-fa-icon class="h-pa-xs" icon="fas fa-cog" spin/>
-      <h-fa-icon class="h-pa-xs" icon="fas fa-spinner" pulse/>
-      <h-fa-icon class="h-pa-xs" icon="fas fa-stroopwafel" spin/>
+    <h1>Animating Icons</h1>
+    <h-fa-icon class="h-pa-xs" icon="fas fa-spinner" spin/>
+    <h-fa-icon class="h-pa-xs" icon="fas fa-circle-notch" spin/>
+    <h-fa-icon class="h-pa-xs" icon="fas fa-sync" spin/>
+    <h-fa-icon class="h-pa-xs" icon="fas fa-cog" spin/>
+    <h-fa-icon class="h-pa-xs" icon="fas fa-spinner" pulse/>
+    <h-fa-icon class="h-pa-xs" icon="fas fa-stroopwafel" spin/>
 
-      <pre v-highlightjs="iconAnimate">
-        <code class="html">
-        </code>
-      </pre>
+    <prism language="html" :code="iconAnimate"></prism>
 
-      <h1>Counters</h1>
-      <h-fa-icon class="h-pa-xs" icon="fas fa-stroopwafel" size="24px" textcolor="text-primary">
-        <h-counter bgcolor="bg-negative" textcolor="text-white">1</h-counter>
-      </h-fa-icon>
-      <h-fa-icon class="h-pa-xs" icon="fas fa-stroopwafel" size="36px">
-        <h-counter bgcolor="bg-negative" textcolor="text-white">12</h-counter>
-      </h-fa-icon>
+    <h1>Counters</h1>
+    <h-fa-icon class="h-pa-xs" icon="fas fa-stroopwafel" size="24px" textcolor="text-primary">
+      <h-counter bgcolor="bg-negative" textcolor="text-white">1</h-counter>
+    </h-fa-icon>
+    <h-fa-icon class="h-pa-xs" icon="fas fa-stroopwafel" size="36px">
+      <h-counter bgcolor="bg-negative" textcolor="text-white">12</h-counter>
+    </h-fa-icon>
 
-      <pre v-highlightjs="iconCounter">
-        <code class="html">
-        </code>
-      </pre>
+    <prism language="html" :code="iconCounter"></prism>
 
     <h2 class="text-primary"> Vue Properties</h2>
     <hr>

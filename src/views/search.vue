@@ -6,24 +6,14 @@
     <div>
       <h-btn contained bgcolor="bg-secondary" textcolor="text-white" text="secondary"/>
     </div>
-    <pre v-highlightjs="exsearch">
-      <code class="html">
-      </code>
-    </pre>
+    <prism language="html" :code="exsearch"></prism>
 
     <h1>Drawing menu from bottom to top</h1>
     <h-search @search="onSearch" ref="search2" :options="options" dtu/>
-
-    <pre v-highlightjs="exsearch2">
-      <code class="html">
-      </code>
-    </pre>
+    <prism language="html" :code="exsearch2"></prism>
 
     <h1>Example</h1>
-    <pre v-highlightjs="sample">
-      <code class="javascript">
-      </code>
-    </pre>
+    <prism language="javascript" :code="sample"></prism>
 
     <h2 class="text-primary"> Vue Properties</h2>
     <hr>

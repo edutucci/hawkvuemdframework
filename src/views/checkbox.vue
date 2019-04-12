@@ -14,11 +14,7 @@
         </div>
       </h-card>
 
-    .boxshadow
-      <pre v-highlightjs="ckboolean">
-        <code class="html">
-        </code>
-      </pre>
+    <prism language="html" :code="ckboolean"></prism>
 
     div
       h1 List
@@ -37,11 +33,7 @@
         </div>
       </h-card>
 
-    .boxshadow
-      <pre v-highlightjs="cklist">
-        <code class="html">
-        </code>
-      </pre>
+    <prism language="html" :code="cklist"></prism>
 
     <div>
       h1 List with numbers
@@ -57,11 +49,8 @@
           <span>Favorite numbers {{ checkedNumbers }}</span>
         </div>
       </h-card>
-    .boxshadow
-      <pre v-highlightjs="cklistnumbers">
-        <code class="html">
-        </code>
-      </pre>
+
+    <prism language="html" :code="cklistnumbers"></prism>
 
     </div>
 
@@ -76,12 +65,8 @@
           <span>Your objects {{ checkedObjects }}</span>
         </div>
       </h-card>
-    .boxshadow
-      <pre v-highlightjs="cklistobjects">
-        <code class="html">
-        </code>
-      </pre>
 
+      <prism language="html" :code="cklistobjects"></prism>
     </div>
 
     <h2 class="text-primary"> Vue Properties</h2>

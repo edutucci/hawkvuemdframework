@@ -3,12 +3,7 @@
     <h1>Select</h1>
 
     <h1> Select Options sample </h1>
-    <div class="boxshadow">
-      <pre v-highlightjs="selectOptions">
-        <code class="html">
-        </code>
-      </pre>
-    </div>
+    <prism language="html" :code="selectOptions"></prism>
 
     <h1>Select with Icons</h1>
     <div class="col-6">
@@ -19,24 +14,14 @@
         display-mode="icon"/>
       <span>selectModel: {{ selectModel }}</span>
     </div>
-    <div class="boxshadow">
-      <pre v-highlightjs="selectIcon">
-        <code class="html">
-        </code>
-      </pre>
-    </div>
+    <prism language="html" :code="selectIcon"></prism>
 
     <h1>Select with Avatar</h1>
     <div class="col-6">
       <h-select :options="options" v-model="selectModel1" display-mode="avatar"/>
       <span>selectModel1: {{ selectModel1 }}</span>
     </div>
-    <div class="boxshadow">
-      <pre v-highlightjs="selectAvatar">
-        <code class="html">
-        </code>
-      </pre>
-    </div>
+    <prism language="html" :code="selectAvatar"></prism>
 
     <h1>Multi Select</h1>
     <div class="col-6">
@@ -47,12 +32,7 @@
        />
       <span>multiselect: {{ multiselect }}</span>
     </div>
-    <div class="boxshadow">
-      <pre v-highlightjs="selectMulti">
-        <code class="html">
-        </code>
-      </pre>
-    </div>
+    <prism language="html" :code="selectMulti"></prism>
 
     <h2 class="text-primary"> Vue Properties</h2>
     <hr>

@@ -5,9 +5,13 @@ import store from './store'
 import './registerServiceWorker'
 import './theme/index.styl'
 import './index.js'
-import VueHighlightJS from 'vue-highlightjs'
 
-Vue.use(VueHighlightJS)
+// Vue Prism.js
+import Prism from 'vue-prismjs'
+import './css/prism/prism.css'
+
+Vue.component('Prism', Prism)
+
 Vue.config.productionTip = false
 
 new Vue({

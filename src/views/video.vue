@@ -7,10 +7,7 @@
 
     <h2 class="text-primary"> How to use</h2>
 
-    <pre v-highlightjs="cod1" >
-      <code class="html">
-      </code>
-    </pre>
+    <prism language="html" :code="cod1"></prism>
 
     <h2 class="text-primary"> Vue Properties</h2>
     <hr>

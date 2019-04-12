@@ -9,12 +9,7 @@
           <div>
             your time is: {{myHour}}
           </div>
-          <div class="boxshadow">
-            <pre v-highlightjs="timeinput">
-              <code class="html">
-              </code>
-            </pre>
-          </div>
+          <prism language="html" :code="timeinput"></prism>
         </div>
       </div>
     </div>
@@ -27,12 +22,7 @@
           <div>
             your time is: {{myHour}}
           </div>
-          <div class="boxshadow">
-            <pre v-highlightjs="timepicker">
-              <code class="html">
-              </code>
-            </pre>
-          </div>
+          <prism language="html" :code="timepicker"></prism>
         </div>
       </div>
     </div>

@@ -1,6 +1,6 @@
 <template lang="pug">
   .full-width
-    h1 Cards
+    <h1>Cards</h1>
 
     <h-card style="width:340px;">
       <h-card-header>
@@ -20,11 +20,7 @@
       </h-card-text>
     </h-card>
 
-    .boxshadow
-      <pre v-highlightjs="card1">
-        <code class="html">
-        </code>
-      </pre>
+    <prism language="html" :code="card1"></prism>
 
     <h-card>
       <h-card-header>
@@ -41,11 +37,7 @@
       </h-card-media>
     </h-card>
 
-    .boxshadow
-      <pre v-highlightjs="cardvideo1">
-        <code class="html">
-        </code>
-      </pre>
+    <prism language="html" :code="cardvideo1"></prism>
 
     <h-card style="width:340px;">
       <h-card-media>
@@ -69,11 +61,7 @@
       </h-card-actions>
     </h-card>
 
-    .boxshadow
-      <pre v-highlightjs="card2">
-        <code class="html">
-        </code>
-      </pre>
+    <prism language="html" :code="card2"></prism>
 
     h1  Card Scannable
 
@@ -116,10 +104,7 @@
       </h-card>
     </div>
 
-    <pre v-highlightjs="cardScannable">
-      <code class="html">
-      </code>
-    </pre>
+    <prism language="html" :code="cardScannable"></prism>
 
     h1  Card Distinction
 
@@ -161,10 +146,7 @@
           </h-card>
     </div>
 
-    <pre v-highlightjs="cardDistinction">
-      <code class="html">
-      </code>
-    </pre>
+    <prism language="html" :code="cardDistinction"></prism>
 
     <h1 class="text-primary"> Card Header Text Help</h1>
     <h2 class="text-primary"> Vue Properties</h2>

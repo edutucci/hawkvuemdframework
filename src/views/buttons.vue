@@ -16,11 +16,7 @@
         <h-btn contained class="full-width" bgcolor="bg-positive" textcolor="text-white" text="full width" left-icon="fas fa-envelope"/>
       </div>
     </div>
-
-      <pre v-highlightjs="containedButtons">
-        <code class="html">
-        </code>
-      </pre>
+    <prism language="html" :code="containedButtons"></prism>
 
     <h1>Text Buttons</h1>
     <div>
@@ -36,11 +32,7 @@
       <h-btn class="full-width" textbutton textcolor="text-black" text="black"/>
       <h-btn class="full-width" textbutton textcolor="text-primary" text="primary"/>
     </div>
-
-    <pre v-highlightjs="textbuttons">
-      <code class="html">
-      </code>
-    </pre>
+    <prism language="html" :code="textbuttons"></prism>
 
     <h1>Outlined Buttons</h1>
     <div>
@@ -60,10 +52,7 @@
       <h-btn class="full-width" outlined textcolor="text-primary" text="primary"/>
     </div>
 
-    <pre v-highlightjs="outlinedButtons">
-      <code class="html">
-      </code>
-    </pre>
+    <prism language="html" :code="outlinedButtons"></prism>
 
     <h1>Links</h1>
     <h-btn contained bgcolor="bg-primary">
@@ -78,10 +67,7 @@
       <html-link icon="fab fa-github" text="github new window" url="https://github.com/edutucci/hawkframework" new-window/>
     </h-btn>
 
-    <pre v-highlightjs="linksButtons">
-      <code class="html">
-      </code>
-    </pre>
+    <prism language="html" :code="linksButtons"></prism>
 
     <h1>Router</h1>
     <h-btn contained bgcolor="bg-primary">
@@ -96,10 +82,7 @@
       <html-link text="to this page" url="/buttons"/>
     </h-btn>
 
-    <pre v-highlightjs="routerButtons">
-      <code class="html">
-      </code>
-    </pre>
+    <prism language="html" :code="routerButtons"></prism>
 
     <h1>Counters</h1>
     <h-btn contained bgcolor="bg-primary" textcolor="text-white" text="warning">
@@ -112,10 +95,7 @@
       <h-counter bgcolor="bg-negative" textcolor="text-white">12</h-counter>
     </h-btn>
 
-    <pre v-highlightjs="btnCounters">
-      <code class="html">
-      </code>
-    </pre>
+    <prism language="html" :code="btnCounters"></prism>
 
     <h2 class="text-primary"> Vue Properties</h2>
     <hr>
@@ -187,10 +167,7 @@
       <h-btn-float minifloat bgcolor="bg-warning" icon="fas fa-plus"> </h-btn-float>
     </div>
 
-    <pre v-highlightjs="floatActionButtons">
-      <code class="html">
-      </code>
-    </pre>
+    <prism language="html" :code="floatActionButtons"></prism>
 
     <h2 class="text-primary"> Vue Properties</h2>
     <hr>

@@ -24,12 +24,7 @@
       </h-app-toolbar-container>
     </h-app-toolbar>
 
-    <div class="full-width h-pt-xl h-pb-xl">
-        <pre v-highlightjs="tb1" >
-          <code class="html">
-          </code>
-        </pre>
-    </div>
+    <prism language="html" :code="tb1"></prism>
 
     <h2>Example 2</h2>
     <h-app-toolbar>
@@ -49,12 +44,7 @@
       </h-app-toolbar-container>
     </h-app-toolbar>
 
-    <div class="full-width h-pt-xl h-pb-xl">
-        <pre v-highlightjs="tb2" >
-          <code class="html">
-          </code>
-        </pre>
-    </div>
+    <prism language="html" :code="tb2"></prism>
 
     <h1 class="text-primary">Toolbar App Bottom</h1>
 
@@ -84,12 +74,7 @@
        </h-app-toolbar-container>
     </h-app-toolbar>
 
-    <div class="full-width h-pt-xl h-pb-xl">
-        <pre v-highlightjs="tb3" >
-          <code class="html">
-          </code>
-        </pre>
-    </div>
+    <prism language="html" :code="tb3"></prism>
 
      <h1> End Fab</h1>
     <h-app-toolbar>
@@ -107,12 +92,7 @@
        </h-app-toolbar-container>
     </h-app-toolbar>
 
-    <div class="full-width h-pt-xl h-pb-xl">
-        <pre v-highlightjs="tb4" >
-          <code class="html">
-          </code>
-        </pre>
-    </div>
+    <prism language="html" :code="tb4"></prism>
 
     <h1> No Fab</h1>
     <h-app-toolbar>
@@ -127,12 +107,7 @@
       </h-app-toolbar-container>
     </h-app-toolbar>
 
-    <div class="full-width h-pt-xl h-pb-xl">
-        <pre v-highlightjs="tb5" >
-          <code class="html">
-          </code>
-        </pre>
-    </div>
+    <prism language="html" :code="tb5"></prism>
 
   </div>
 

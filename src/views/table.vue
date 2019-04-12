@@ -2,10 +2,7 @@
   <div style="top: 50px; position: relative;">
     <h1>Table</h1>
 
-    <pre v-highlightjs="tbdata">
-      <code class="javascript">
-      </code>
-    </pre>
+    <prism language="javascript" :code="tbdata"></prism>
 
     <pre v-highlightjs="tbColumns">
       <code class="javacript">
@@ -26,10 +23,7 @@
       </h-table>
     </div>
 
-    <pre v-highlightjs="table">
-      <code class="javacript">
-      </code>
-    </pre>
+    <prism language="html" :code="table"></prism>
 
     <h1>Table Selectable with custom columns</h1>
     <div class="text-primary" style="background-color: lightgray">
@@ -59,10 +53,7 @@
       </h-table>
     </div>
 
-    <pre v-highlightjs="table2">
-      <code class="javacript">
-      </code>
-    </pre>
+    <prism language="html" :code="table2"></prism>
 
     <h2 class="text-primary"> Table Help</h2>
     <h2 class="text-primary"> Vue Properties</h2>

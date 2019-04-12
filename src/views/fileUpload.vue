@@ -7,10 +7,8 @@
       :multiple="true"
       @addFiles="onChange"
     />
-    <pre v-highlightjs="ex1">
-      <code class="html">
-      </code>
-    </pre>
+    <prism language="html" :code="ex1"></prism>
+
     <h1>IMAGE UPLOAD</h1>
     <html-separator></html-separator>
     <h-image-upload
@@ -18,10 +16,8 @@
     :max-size="maxsize"
      @addFiles="onChange"
     />
-    <pre v-highlightjs="ex2">
-      <code class="html">
-      </code>
-    </pre>
+    <prism language="html" :code="ex2"></prism>
+
     <h1>NO ALLOW DROP</h1>
     <html-separator></html-separator>
     <h-file-upload
@@ -35,10 +31,7 @@
       @addFiles="onChange"
       :allow-drop="false"
     />
-    <pre v-highlightjs="ex3">
-      <code class="html">
-      </code>
-    </pre>
+    <prism language="html" :code="ex3"></prism>
 
     <pre v-highlightjs="vuefile">
       <code class="html">

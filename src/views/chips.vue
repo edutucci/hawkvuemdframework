@@ -12,10 +12,7 @@
       <h-chips text="Outlined" closable hide-on-close outlined></h-chips>
     </div>
 
-    <pre v-highlightjs="chip">
-      <code class="html">
-      </code>
-    </pre>
+    <prism language="html" :code="chip"></prism>
 
     <h1 class="text-primary"> Chips Help</h1>
     <h2 class="text-primary"> Vue Properties</h2>
@@ -88,10 +85,7 @@
       <span class="text-gray">InputchipsModel: {{ chipsInput }}</span>
     </div>
 
-    <pre v-highlightjs="inputchip">
-      <code class="html">
-      </code>
-    </pre>
+    <prism language="html" :code="inputchip"></prism>
 
     <h1 class="text-primary"> Input Chips Help</h1>
     <h2 class="text-primary"> Vue Properties</h2>
