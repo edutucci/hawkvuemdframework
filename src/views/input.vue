@@ -4,7 +4,7 @@
     <h1>Standard</h1>
     <html-separator/>
     <div class="col-6">
-      <h-input static-label="Name" v-model="txtName" placeholder="" left-icon="fas fa-phone" cleartext/>
+      <h-input float-label="Name" v-model="txtName" placeholder="" left-icon="fas fa-phone" cleartext/>
       <span>Name: {{ txtName }}</span>
     </div>
     <prism language="html" :code="txttextcomp"></prism>
@@ -21,14 +21,31 @@
     <h1>Outlined</h1>
     <html-separator/>
     <div class="col-6">
-      <h-input error-label="error label" left-icon="fas fa-birthday-cake" right-icon="fas fa-calendar-alt" helper-text="helper text"
+      <h-input outlined error-label="error label" left-icon="fas fa-birthday-cake" right-icon="fas fa-calendar-alt" helper-text="helper text"
         :maxlength="10" :text-counter="10"  v-model="txtName2"
         float-label="Name" cleartext text-center
+        @rightIconClick="showDate()"
       />
       <span>Name: {{ txtName2 }}</span>
     </div>
 
     <prism language="html" :code="txtoutlined"></prism>
+
+    <h1>Rounded</h1>
+    <html-separator/>
+    <div class="col-6">
+      <h-input type="password" right-icon="fas fa-lock" filled rounded static-label="Password" v-model="txtPassword" placeholder="type your password" />
+      <span>Password: {{ txtPassword }}</span>
+    </div>
+
+    <div class="col-6 h-mt-md">
+      <h-input outlined rounded error-label="error label" left-icon="fas fa-birthday-cake" right-icon="fas fa-calendar-alt" helper-text="helper text"
+        :maxlength="10" :text-counter="10"  v-model="txtName2"
+        static-label="Name" cleartext text-center
+      />
+      <span>Name: {{ txtName2 }}</span>
+    </div>
+    <prism language="html" :code="txtrounded"></prism>
 
     <h1>Key Events</h1>
     <html-separator/>
@@ -40,7 +57,7 @@
         float-label="Code"
         ref="code"
         left-icon="fas fa-code"
-        @onKeyDown="onKeyDown"
+        @onKeyDown="$refs.name.focus()"
         @onEnter="$refs.name.focus()"
       />
       <h-input
@@ -50,7 +67,19 @@
         float-label="Name"
         ref="name"
         left-icon="fas fa-user"
-        @onKeyDown="onKeyDown"
+        @onKeyDown="$refs.name2.focus()"
+        @onTab="onKeyTab"
+        @onEnter="$refs.name2.focus()"
+      />
+      <h-input
+        filled
+        rounded
+        class="full-width"
+        v-model="form.name"
+        float-label="Name"
+        ref="name2"
+        left-icon="fas fa-user"
+        @onKeyDown="$refs.city.focus()"
         @onTab="onKeyTab"
         @onEnter="$refs.city.focus()"
       />
@@ -60,6 +89,20 @@
         v-model="form.city"
         float-label="City"
         ref="city"
+        left-icon="fas fa-map-marker-alt"
+        @onKeyDown="$refs.city2.focus()"
+        @onTab="onKeyTab"
+        @onEnter="$refs.city2.focus()"
+        @change="onChange"
+        @blur="onBlur"
+      />
+      <h-input
+        outlined
+        rounded
+        class="full-width"
+        v-model="form.city"
+        float-label="City"
+        ref="city2"
         left-icon="fas fa-map-marker-alt"
         @onKeyDown="onKeyDown"
         @onTab="onKeyTab"
@@ -193,6 +236,20 @@ export default {
 />
 <span>Name: {{ txtName2 }}</span>
       `,
+      txtrounded: `
+<div class="col-6">
+  <h-input type="password" right-icon="fas fa-lock" filled rounded float-label="Password" v-model="txtPassword" placeholder="type your password" />
+  <span>Password: {{ txtPassword }}</span>
+</div>
+
+<div class="col-6 h-mt-md">
+  <h-input outlined rounded error-label="error label" left-icon="fas fa-birthday-cake" right-icon="fas fa-calendar-alt" helper-text="helper text"
+    :maxlength="10" :text-counter="10"  v-model="txtName2"
+    float-label="Name" cleartext text-center
+  />
+  <span>Name: {{ txtName2 }}</span>
+</div>
+      `,
       txtkeys: `
 <div class="col-6">
   <strong>Arrow Down, Tab or Enter. Enter works as tab</strong>
@@ -262,6 +319,10 @@ export default {
     },
     onBlur () {
       console.log('blur event')
+    },
+    showDate () {
+      console.log('rightIcon in action')
+      this.txtName2 = 'testando edit'
     }
   }
 }

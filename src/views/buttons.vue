@@ -4,8 +4,8 @@
     <div>
       <div>
         <h-btn contained bgcolor="bg-white" textcolor="text-black" text="white" left-icon="fas fa-envelope" @click="btnClick"/>
-        <h-btn contained bgcolor="bg-primary" textcolor="text-white" text="primary" right-icon="fas fa-envelope"/>
-        <h-btn contained bgcolor="bg-secondary" textcolor="text-white" text="secondary"/>
+        <h-btn contained rounded bgcolor="bg-primary" textcolor="text-white" text="primary" right-icon="fas fa-envelope"/>
+        <h-btn contained rounded bgcolor="bg-secondary" textcolor="text-white" text="secondary"/>
         <h-btn contained bgcolor="bg-positive" textcolor="text-white" text="positive"/>
         <h-btn contained bgcolor="bg-negative" textcolor="text-white" text="negative"/>
         <h-btn contained bgcolor="bg-info" textcolor="text-white" text="info"/>
@@ -37,7 +37,7 @@
     <h1>Outlined Buttons</h1>
     <div>
       <h-btn outlined text="disabled" disabled/>
-      <h-btn outlined textcolor="text-black" text="black" @click="btnClick"/>
+      <h-btn outlined textcolor="text-black" text="+ add entry" @click="btnClick"/>
       <h-btn outlined textcolor="text-primary" text="primary"/>
       <h-btn outlined textcolor="text-secondary" text="secondary"/>
       <h-btn outlined textcolor="text-positive" text="positive"/>
@@ -54,8 +54,34 @@
 
     <prism language="html" :code="outlinedButtons"></prism>
 
+    <h1>Rounded Buttons</h1>
+    <div>
+      <h-btn contained rounded text="disabled" disabled/>
+      <h-btn outlined rounded text="disabled" disabled/>
+      <h-btn contained rounded textcolor="text-black" text="+ add entry" @click="btnClick"/>
+      <h-btn contained rounded bgcolor="bg-primary" textcolor="text-white" text="primary"/>
+      <h-btn contained rounded bgcolor="bg-secondary" textcolor="text-white" text="secondary"/>
+      <h-btn contained rounded bgcolor="bg-positive" textcolor="text-white" text="positive"/>
+      <h-btn outlined rounded textcolor="text-negative" text="negative"/>
+      <h-btn outlined rounded textcolor="text-info" text="info"/>
+      <h-btn outlined rounded textcolor="text-warning" text="warning"/>
+    </div>
+
+    <div class="col-6">
+      <h-btn class="full-width" outlined rounded text="disabled" disabled/>
+      <h-btn class="full-width" contained rounded text="disabled" disabled/>
+      <h-btn class="full-width" outlined rounded textcolor="text-black" text="black"/>
+      <h-btn class="full-width" contained rounded textcolor="text-primary" text="primary"/>
+    </div>
+
+    <prism language="html" :code="roundedButtons"></prism>
+
     <h1>Links</h1>
     <h-btn contained bgcolor="bg-primary">
+      <html-link icon="fab fa-github" text="github" url="https://github.com/edutucci/hawkframework" textcolor="text-white"/>
+    </h-btn>
+
+    <h-btn contained rounded bgcolor="bg-primary">
       <html-link icon="fab fa-github" text="github" url="https://github.com/edutucci/hawkframework" textcolor="text-white"/>
     </h-btn>
 
@@ -67,11 +93,19 @@
       <html-link icon="fab fa-github" text="github new window" url="https://github.com/edutucci/hawkframework" new-window/>
     </h-btn>
 
+    <h-btn outlined rounded>
+      <html-link icon="fab fa-github" text="github new window" url="https://github.com/edutucci/hawkframework" new-window/>
+    </h-btn>
+
     <prism language="html" :code="linksButtons"></prism>
 
     <h1>Router</h1>
     <h-btn contained bgcolor="bg-primary">
-      <html-link text="to this page" url="/main" textcolor="text-white"/>
+      <html-link text="to this page" url="/buttons" textcolor="text-white"/>
+    </h-btn>
+
+    <h-btn contained rounded bgcolor="bg-primary">
+      <html-link text="to this page" url="/buttons" textcolor="text-white"/>
     </h-btn>
 
     <h-btn textbutton>
@@ -82,16 +116,30 @@
       <html-link text="to this page" url="/buttons"/>
     </h-btn>
 
+    <h-btn outlined rounded>
+      <html-link text="to this page" url="/buttons"/>
+    </h-btn>
+
     <prism language="html" :code="routerButtons"></prism>
 
     <h1>Counters</h1>
     <h-btn contained bgcolor="bg-primary" textcolor="text-white" text="warning">
       <h-counter bgcolor="bg-negative" textcolor="text-white">123</h-counter>
     </h-btn>
+
+    <h-btn contained rounded bgcolor="bg-primary" textcolor="text-white" text="warning">
+      <h-counter bgcolor="bg-negative" textcolor="text-white">123</h-counter>
+    </h-btn>
+
     <h-btn textbutton textcolor="text-primary" text="primary">
       <h-counter bgcolor="bg-negative" textcolor="text-white">12</h-counter>
     </h-btn>
+
     <h-btn outlined textcolor="text-primary" text="primary">
+      <h-counter bgcolor="bg-negative" textcolor="text-white">12</h-counter>
+    </h-btn>
+
+    <h-btn outlined rounded textcolor="text-primary" text="primary">
       <h-counter bgcolor="bg-negative" textcolor="text-white">12</h-counter>
     </h-btn>
 
@@ -111,6 +159,7 @@
         <div>contained</div>
         <div>textbutton</div>
         <div>outlined</div>
+        <div>rounded</div>
         <div>disabled</div>
         <div>transparent</div>
       </div>
@@ -121,6 +170,7 @@
         <div>String</div>
         <div>String</div>
         <div>String</div>
+        <div>Boolean</div>
         <div>Boolean</div>
         <div>Boolean</div>
         <div>Boolean</div>
@@ -137,6 +187,7 @@
         <div>Sets to button to contained mode</div>
         <div>Sets to button to textbutton mode</div>
         <div>Sets to button to outlined mode</div>
+        <div>Sets to button to rounded mode</div>
         <div>Button is disabled</div>
         <div>Useful for toolbar icons. Removes background and shadow.</div>
       </div>
@@ -269,14 +320,44 @@ export default {
   <h-btn class="full-width" outlined textcolor="text-primary" text="primary"/>
 </div>
       `,
+      roundedButtons: `
+<div>
+  <h-btn contained rounded text="disabled" disabled/>
+  <h-btn outlined rounded text="disabled" disabled/>
+  <h-btn contained rounded textcolor="text-black" text="+ add entry" @click="btnClick"/>
+  <h-btn contained rounded bgcolor="bg-primary" textcolor="text-white" text="primary"/>
+  <h-btn contained rounded bgcolor="bg-secondary" textcolor="text-white" text="secondary"/>
+  <h-btn contained rounded bgcolor="bg-positive" textcolor="text-white" text="positive"/>
+  <h-btn outlined rounded textcolor="text-negative" text="negative"/>
+  <h-btn outlined rounded textcolor="text-info" text="info"/>
+  <h-btn outlined rounded textcolor="text-warning" text="warning"/>
+</div>
+
+<div class="col-6">
+  <h-btn class="full-width" outlined rounded text="disabled" disabled/>
+  <h-btn class="full-width" contained rounded text="disabled" disabled/>
+  <h-btn class="full-width" outlined rounded textcolor="text-black" text="black"/>
+  <h-btn class="full-width" contained rounded textcolor="text-primary" text="primary"/>
+</div>
+      `,
       btnCounters: `
 <h-btn contained bgcolor="bg-primary" textcolor="text-white" text="warning">
   <h-counter bgcolor="bg-negative" textcolor="text-white">123</h-counter>
 </h-btn>
+
+<h-btn contained rounded bgcolor="bg-primary" textcolor="text-white" text="warning">
+  <h-counter bgcolor="bg-negative" textcolor="text-white">123</h-counter>
+</h-btn>
+
 <h-btn textbutton textcolor="text-primary" text="primary">
   <h-counter bgcolor="bg-negative" textcolor="text-white">12</h-counter>
 </h-btn>
-<h-btn class="h-pl-md" outlined textcolor="text-primary" text="primary">
+
+<h-btn outlined textcolor="text-primary" text="primary">
+  <h-counter bgcolor="bg-negative" textcolor="text-white">12</h-counter>
+</h-btn>
+
+<h-btn outlined rounded textcolor="text-primary" text="primary">
   <h-counter bgcolor="bg-negative" textcolor="text-white">12</h-counter>
 </h-btn>
       `,
@@ -295,11 +376,19 @@ export default {
   <html-link icon="fab fa-github" text="github" url="https://github.com/edutucci/hawkframework" textcolor="text-white"/>
 </h-btn>
 
+<h-btn contained rounded bgcolor="bg-primary">
+  <html-link icon="fab fa-github" text="github" url="https://github.com/edutucci/hawkframework" textcolor="text-white"/>
+</h-btn>
+
 <h-btn textbutton>
   <html-link text="github" url="https://github.com/edutucci/hawkframework"/>
 </h-btn>
 
 <h-btn outlined>
+  <html-link icon="fab fa-github" text="github new window" url="https://github.com/edutucci/hawkframework" new-window/>
+</h-btn>
+
+<h-btn outlined rounded>
   <html-link icon="fab fa-github" text="github new window" url="https://github.com/edutucci/hawkframework" new-window/>
 </h-btn>
       `,
@@ -308,11 +397,19 @@ export default {
   <html-link text="to this page" url="/buttons" textcolor="text-white"/>
 </h-btn>
 
+<h-btn contained rounded bgcolor="bg-primary">
+  <html-link text="to this page" url="/buttons" textcolor="text-white"/>
+</h-btn>
+
 <h-btn textbutton>
   <html-link text="to this page" url="/buttons"/>
 </h-btn>
 
 <h-btn outlined>
+  <html-link text="to this page" url="/buttons"/>
+</h-btn>
+
+<h-btn outlined rounded>
   <html-link text="to this page" url="/buttons"/>
 </h-btn>
       `

@@ -1,5 +1,7 @@
 <template lang="pug">
-  .textfield-container.flex
+  .textfield-container.flex(
+    :class="{ rounded: rounded }"
+  )
     .flex.h-pt-sm
       h-fa-icon.h-icon(
         v-if="leftIcon && leftIcon.length"
@@ -9,7 +11,7 @@
       )
     .flex.flex-column.full-width
       .full-width.input-container(
-        :class="{primary: primary, nofocus: nofocus, outline: outlined, filled: filled, noborder: noborder}"
+        :class="{primary: primary, nofocus: nofocus, outlined: outlined, filled: filled, rounded: rounded, noborder: noborder}"
       )
         div.static-label(
           :class="{primary: primary, nofocus: nofocus}"
@@ -62,11 +64,12 @@
                 icon="fas fa-times-circle"
                 @click="onInputIconClick"
               )
-            h-fa-icon(
-              textcolor="text-gray"
-              :icon="rightIcon"
-              @click="onInputIconClick"
-            )
+            div.h-pr-sm
+              h-fa-icon(
+                textcolor="text-gray"
+                :icon="rightIcon"
+                @click="onInputRightIconClick"
+              )
       .full-width
         .flex.flex-column
           .flex.full-width.helper-text
@@ -116,9 +119,11 @@ export default {
   },
   watch: {
     inputDisplay: function (newValue) {
+      // console.log('inputDisplay change in input:', newValue)
       this.$emit('input', newValue)
     },
     value: function (value) {
+      // console.log('value change in input:', value)
       this.inputDisplay = value
       this.changeFloatLabelStyle()
     },
@@ -180,16 +185,28 @@ export default {
   padding-bottom:2px;
 }
 
-.input-container.outline {
+.input-container.outlined {
   border-color: gray;
   border-style: solid;
   border-width: 1px;
   border-radius: 5px;
 }
 
+.input-container.outlined.rounded {
+  border-color: gray;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 50px;
+}
+
 .input-container.filled {
   background-color: #F5F5F5;
   border-radius: 5px;
+}
+
+.input-container.filled.rounded {
+  background-color: #F5F5F5;
+  border-radius: 50px;
 }
 
 input[type="text"] {

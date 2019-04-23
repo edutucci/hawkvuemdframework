@@ -4,7 +4,7 @@
       v-if="contained"
       @click="onClick"
       class="btn flex flex-items-center full-width"
-      :class="[bgcolor, textcolor, {'boxshadow': !transparent}]"
+      :class="[bgcolor, textcolor, {'boxshadow': !transparent, rounded: rounded }]"
       style="position: relative;"
       :style="[btnObject]"
     )
@@ -28,7 +28,7 @@
     div(v-else-if="outlined"
       @click="onClick"
       class="btn outlinedbtn flex flex-items-center full-width"
-      :class="[textcolor, { disabled: disabled}]"
+      :class="[textcolor, { disabled: disabled, rounded: rounded }]"
       style="position: relative;"
     )
       div(class="btn-content full-width flex flex-justify-center")
@@ -52,6 +52,9 @@ export default {
       type: Boolean
     },
     outlined: {
+      type: Boolean
+    },
+    rounded: {
       type: Boolean
     },
     text: {

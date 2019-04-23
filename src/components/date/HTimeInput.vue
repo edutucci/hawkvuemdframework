@@ -54,6 +54,10 @@ export default {
     this.setInputDate(this.value)
   },
   watch: {
+    inputValue: function (value) {
+      let date = (value && value.lengh > 0) ? value : new Date()
+      this.ok(date)
+    },
     value: function (value) {
       this.ok(value)
     }

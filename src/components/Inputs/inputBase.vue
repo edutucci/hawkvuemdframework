@@ -48,6 +48,10 @@ export default {
       type: Boolean,
       default: false
     },
+    rounded: {
+      type: Boolean,
+      default: false
+    },
     type: {
       type: String,
       default: 'text'
@@ -65,12 +69,23 @@ export default {
       default: false
     }
   },
+  watch: {
+    type: function (value) {
+      console.log('type value: ', value)
+      if (value === 'text' || value === 'password') {
+        this.inputtype = value
+      } else {
+        this.inputtype = 'text'
+      }
+    }
+  },
   data () {
     return {
       primary: false,
       nofocus: true,
       staticLabelStyle: {
-        fontSize: '12px'
+        fontSize: '12px',
+        position: 'relative'
       },
       floatLabelStyle: {
         position: 'absolute',
@@ -88,6 +103,10 @@ export default {
       this.floatLabelStyle.top = '2px'
       this.floatLabelStyle.left = '9px'
       this.floatLabelStyle.fontSize = '12px'
+
+      if (this.rounded) {
+        this.floatLabelStyle.left = '22px'
+      }
 
       this.primary = true
       this.nofocus = false
@@ -111,6 +130,10 @@ export default {
         this.floatLabelStyle.left = '9px'
         this.floatLabelStyle.fontSize = '16px'
       }
+
+      if (this.rounded) {
+        this.floatLabelStyle.left = '22px'
+      }
     },
     onChange (value) {
       let txtValue = ''
@@ -133,6 +156,10 @@ export default {
         this.inputDisplay = ''
         this.onInputFocus()
       }
+    },
+    onInputRightIconClick () {
+      this.focused = true
+      this.$emit('rightIconClick')
     }
   }
 }
