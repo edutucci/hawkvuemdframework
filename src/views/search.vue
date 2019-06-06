@@ -1,7 +1,19 @@
 <template >
   <div>
     <h1>Search</h1>
-    <h-search @search="onSearch" ref="search" :options="options" v-model="model1"/>
+    <!-- <h-search @search="onSearch" ref="search" :options="options" v-model="model1"/> -->
+    <div>
+      <h-input :options="options"
+        v-model="model1"
+        search
+        input-icon="fas fa-search"
+        label="Select with icons"
+        display-mode="image"
+        @input="onSearch"
+        bgcolor="bg-primary"
+        textcolor="text-white"
+      />
+    </div>
     <span>model: {{model1}}</span>
     <div>
       <h-btn contained bgcolor="bg-secondary" textcolor="text-white" text="secondary"/>
@@ -61,7 +73,7 @@
 
 <script>
 
-import _ from 'lodash'
+// import _ from 'lodash'
 
 export default {
   components: {
@@ -106,7 +118,7 @@ export default {
   },
   methods: {
     onSearch (query) {
-      // console.log('veio a query: ' + query)
+      console.log('veio a query: ' + query)
       this.options = []
       this.options.push({ avatar: 'avatar/turtle.png', text: 'Ninja Turtle', desc: 'I kill you', value: 'Ninja Turtle' })
       this.options.push({ img: 'avatar/folder_open.jpeg', text: 'Photos', desc: 'Dez 12, 2017', value: 'Photos' })
@@ -118,7 +130,7 @@ export default {
       this.options.push({ img: 'avatar/folder_open.jpeg', text: 'Photos 3', desc: 'Dez 12, 2017', value: 'Photos' })
       this.options.push({ icon: 'fas fa-volleyball-ball', text: 'Attractions 3', desc: 'Lets go to the movie?', value: 'Attractions' })
 
-      this.options = this.options.filter(opt => _.includes(opt.text.toLowerCase(), query.toLowerCase()))
+      // this.options = this.options.filter(opt => _.includes(opt.text.toLowerCase(), query.toLowerCase()))
     }
   }
 }

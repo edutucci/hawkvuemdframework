@@ -1,8 +1,4 @@
 /*
-  COLORS
-*/
-
-/*
   BACKGROUND COLOR
 */
 
@@ -108,37 +104,6 @@
   color gray
 
 /*
-  BORDER COLOR
-*/
-
-.border-white
-  border: 1px solid $white
-
-.border-black
-  border: 1px solid $black
-
-.border-primary
-  border: 1px solid $primary
-
-.border-secondary
-  border: 1px solid $secondary
-
-.border-positive
-  border: 1px solid $positive
-
-.border-negative
-  border: 1px solid $negative
-
-.border-info
-  border: 1px solid $info
-
-.border-warning
-  border: 1px solid $warning
-
-.border-gray
-  border: 1px solid gray
-
-/*
   COMPONENTS
 */
 
@@ -147,9 +112,11 @@
 */
 
 $edit-controls-nofocus = gray
+$error-message-text = #E53935
+$input-bg-filled = #F5F5F5
 
-.input-container.noborder
-  border  none
+.input-container.filled
+  background-color $input-bg-filled
 
 .input-container.primary.noborder
   border  none
@@ -160,23 +127,22 @@ $edit-controls-nofocus = gray
 .input-container.primary
   border-bottom 2px solid $primary
 
-.input-container.nofocus
-  border-bottom 2px solid $edit-controls-nofocus
-
 .control-label.primary
   color $primary
 
 .control-label.nofocus
   color $edit-controls-nofocus
 
-.static-label.nofocus
+.input-container-label.nofocus
   color: #616161
 
-.static-label.primary
+.input-container-label.primary
   color black
 
-.error-label
-  color $negative
+
+
+.error-message
+  color $error-message-text
   font-size 12px
   font-weight bold
 

@@ -1,0 +1,100 @@
+<template lang="pug">
+  div
+</template>
+
+<script>
+import componentBase from '../componentBase.vue'
+
+export default {
+  extends: componentBase,
+  name: 'InputProperties',
+  props: {
+    placeholder: {
+      type: String,
+      default: ''
+    },
+    label: {
+      type: String,
+      default: ''
+    },
+    errorMessage: {
+      type: String,
+      default: ''
+    },
+    helperText: {
+      type: String,
+      default: ''
+    },
+    textCounter: {
+      type: Number,
+      default: 0
+    },
+    maxlength: {
+      type: Number,
+      default: 9999
+    },
+    leftIcon: {
+      type: String,
+      default: ''
+    },
+    rightIcon: {
+      type: String,
+      default: ''
+    },
+    outline: {
+      type: Boolean,
+      default: false
+    },
+    filled: {
+      type: Boolean,
+      default: false
+    },
+    rounded: {
+      type: Boolean,
+      default: false
+    },
+    textCenter: {
+      type: Boolean,
+      default: false
+    },
+    readonly: {
+      type: Boolean,
+      default: false
+    },
+    clearable: {
+      type: Boolean,
+      default: false
+    },
+    selectSingle: {
+      type: Boolean,
+      default: false
+    },
+    multiSelect: {
+      type: Boolean,
+      default: false
+    },
+    displayMode: {
+      type: String,
+      default: ''
+    },
+    search: {
+      type: Boolean,
+      default: false
+    },
+    inputIcon: {
+      type: String,
+      default: ''
+    },
+    options: {
+      type: Array,
+      default: () => ([])
+    }
+  },
+  data () {
+    return {
+      inputDisplay: '',
+      inputtype: ''
+    }
+  }
+}
+</script>

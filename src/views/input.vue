@@ -1,29 +1,54 @@
 <template>
   <div>
+    <!-- <h1>Input Container</h1> -->
+    <!-- <html-separator/> -->
+
+    <!-- <h-input-container
+      rounded
+      filled
+    >
+      CONTAINER IMPLEMENTING
+    </h-input-container> -->
+
+    <!-- <html-separator/>
+    <h1>Input Field</h1>
+    <html-separator/>
+
+    <h-input-field
+      filled
+      label="Nome"
+      left-icon="fas fa-phone"
+      v-model="txtName"
+    />
+
+    <html-separator/> -->
+    <!-- <div class="border-bottom border-info border-1 text-positive">A div element with a double bottom border.</div> -->
+
     <h1>Input</h1>
     <h1>Standard</h1>
     <html-separator/>
     <div class="col-6">
-      <h-input float-label="Name" v-model="txtName" placeholder="" left-icon="fas fa-phone" cleartext/>
-      <span>Name: {{ txtName }}</span>
+      <h-input label="" v-model="txtName" placeholder="" cleartext/>
     </div>
+    <span>Name: {{ txtName }}</span>
+
     <prism language="html" :code="txttextcomp"></prism>
 
     <h1> Filled</h1>
     <html-separator/>
     <div class="col-6">
-      <h-input type="password" right-icon="fas fa-lock" filled float-label="Password" v-model="txtPassword" placeholder="type your password" />
+      <h-input type="password" right-icon="fas fa-lock" filled label="Password" v-model="txtPassword" placeholder="type your password" />
       <span>Password: {{ txtPassword }}</span>
     </div>
 
     <prism language="html" :code="txtpasswordcomp"></prism>
 
-    <h1>Outlined</h1>
+    <h1>Outline</h1>
     <html-separator/>
     <div class="col-6">
-      <h-input outlined error-label="error label" left-icon="fas fa-birthday-cake" right-icon="fas fa-calendar-alt" helper-text="helper text"
+      <h-input outline error-message="error message" left-icon="fas fa-birthday-cake" right-icon="fas fa-calendar-alt" helper-text="helper text"
         :maxlength="10" :text-counter="10"  v-model="txtName2"
-        float-label="Name" cleartext text-center
+        label="Name" cleartext text-center
         @rightIconClick="showDate()"
       />
       <span>Name: {{ txtName2 }}</span>
@@ -34,14 +59,14 @@
     <h1>Rounded</h1>
     <html-separator/>
     <div class="col-6">
-      <h-input type="password" right-icon="fas fa-lock" filled rounded static-label="Password" v-model="txtPassword" placeholder="type your password" />
+      <h-input type="password" right-icon="fas fa-lock" filled rounded label="Password" v-model="txtPassword" placeholder="type your password" />
       <span>Password: {{ txtPassword }}</span>
     </div>
 
     <div class="col-6 h-mt-md">
-      <h-input outlined rounded error-label="error label" left-icon="fas fa-birthday-cake" right-icon="fas fa-calendar-alt" helper-text="helper text"
+      <h-input outline rounded error-message="error message" left-icon="fas fa-birthday-cake" right-icon="fas fa-calendar-alt" helper-text="helper text"
         :maxlength="10" :text-counter="10"  v-model="txtName2"
-        static-label="Name" cleartext text-center
+        label="Name" cleartext text-center
       />
       <span>Name: {{ txtName2 }}</span>
     </div>
@@ -54,7 +79,7 @@
       <h-input
         class="full-width"
         v-model="form.code"
-        float-label="Code"
+        label="Code"
         ref="code"
         left-icon="fas fa-code"
         @onKeyDown="$refs.name.focus()"
@@ -64,7 +89,7 @@
         filled
         class="full-width"
         v-model="form.name"
-        float-label="Name"
+        label="Name"
         ref="name"
         left-icon="fas fa-user"
         @onKeyDown="$refs.name2.focus()"
@@ -74,9 +99,10 @@
       <h-input
         filled
         rounded
+        outline
         class="full-width"
         v-model="form.name"
-        float-label="Name"
+        label="Name"
         ref="name2"
         left-icon="fas fa-user"
         @onKeyDown="$refs.city.focus()"
@@ -84,10 +110,10 @@
         @onEnter="$refs.city.focus()"
       />
       <h-input
-        outlined
+        outline
         class="full-width"
         v-model="form.city"
-        float-label="City"
+        label="City"
         ref="city"
         left-icon="fas fa-map-marker-alt"
         @onKeyDown="$refs.city2.focus()"
@@ -97,11 +123,11 @@
         @blur="onBlur"
       />
       <h-input
-        outlined
+        outline
         rounded
         class="full-width"
         v-model="form.city"
-        float-label="City"
+        label="City"
         ref="city2"
         left-icon="fas fa-map-marker-alt"
         @onKeyDown="onKeyDown"
@@ -123,20 +149,18 @@
         <div>type</div>
         <div>placeholder</div>
         <div>left-icon</div>
-        <div>float-label</div>
-        <div>static-label</div>
-        <div>error-label</div>
+        <div>label</div>
+        <div>error-message</div>
         <div>helper-text</div>
         <div>maxlength</div>
         <div>text-counter</div>
         <div>text-center</div>
-        <div>outlined</div>
-        <div>cleartext</div>
+        <div>outline</div>
+        <div>clearable</div>
         <div>readonly</div>
       </div>
       <div class="h-pl-md">
         <h3>Type</h3>
-        <div>String</div>
         <div>String</div>
         <div>String</div>
         <div>String</div>
@@ -155,14 +179,13 @@
         <div>Type of input. Available: text and password</div>
         <div>Sets the placeholder for the input</div>
         <div>Sets the icon to left of the input</div>
-        <div>Sets the float label for the input</div>
-        <div>Sets the static label for the input</div>
-        <div>Sets the error label for the input</div>
+        <div>Sets the label for the input</div>
+        <div>Sets the error message for the input</div>
         <div>Sets the helper text for the input</div>
         <div>Specifies the maximum number of character for an input</div>
         <div>Specifies the quantity of character of the input</div>
         <div>Sets the text align to the center</div>
-        <div>Sets the input to outlined mode</div>
+        <div>Sets the input to outline mode</div>
         <div>Shows the icon to clear input on right side</div>
         <div>Input can not be modified</div>
       </div>
@@ -327,3 +350,16 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+/* .border1 {
+  border-bottom-width: 5px;
+  border-bottom-style: solid;
+  border-bottom-color: red
+} */
+
+/* .border-positive {
+  border-color: green;
+} */
+
+</style>

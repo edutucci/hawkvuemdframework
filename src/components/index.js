@@ -68,6 +68,8 @@ import HSelect from './Inputs/HSelect.vue'
 import HTab from './tab/HTab.vue'
 import HTabs from './tab/HTabs.vue'
 import HTable from './table/HTable.vue'
+import HInputContainer from './Inputs/InputContainer'
+import HInputField from './Inputs/InputField'
 import HInput from './Inputs/HInput.vue'
 import HInputPlusMinus from './Inputs/InputPlusMinus.vue'
 import HInputMask from './Inputs/InputMask.vue'
@@ -150,6 +152,8 @@ const Components = {
   HTab,
   HTabs,
   HTable,
+  HInputContainer,
+  HInputField,
   HInput,
   HInputPlusMinus,
   HInputMask,

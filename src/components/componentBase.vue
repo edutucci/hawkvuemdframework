@@ -6,9 +6,6 @@
 
 export default {
   props: {
-    value: {
-      type: String
-    },
     textcolor: {
       type: String,
       default: 'text-black'
@@ -16,6 +13,10 @@ export default {
     bgcolor: {
       type: String,
       default: 'bg-white'
+    },
+    borderColor: {
+      type: String,
+      default: 'border-gray'
     }
   },
   data () {

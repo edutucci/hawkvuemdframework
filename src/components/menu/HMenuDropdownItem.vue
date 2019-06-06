@@ -1,12 +1,12 @@
 <template  lang="pug">
-  .flex.menu-item.h-pa-md(
+  .flex.menu-item-padding(
     :class="[bgcolor]"
     @click="onClick"
   )
-    .icon-left
+    .menu-item-content-padding
       h-fa-icon(:icon="icon")
 
-    .flex-1(
+    .flex-1.menu-item-content-padding(
       :class="[textcolor]"
     )
       | {{text}}

@@ -7,9 +7,11 @@
 
     <h1>Select with Icons</h1>
     <div class="col-6">
-      <h-select :options="options"
+      <h-input :options="options"
         v-model="selectModel"
-        static-label="Select with icons"
+        select-single
+        input-icon="fas fa-angle-down"
+        label="Select with icons"
         @input="onInput"
         display-mode="icon"/>
       <span>selectModel: {{ selectModel }}</span>
@@ -18,18 +20,16 @@
 
     <h1>Select with Avatar</h1>
     <div class="col-6">
-      <h-select :options="options" v-model="selectModel1" display-mode="avatar"/>
+      <h-input select-single :options="options" v-model="selectModel1" input-icon="fas fa-angle-down" display-mode="avatar"/>
       <span>selectModel1: {{ selectModel1 }}</span>
     </div>
     <prism language="html" :code="selectAvatar"></prism>
 
     <h1>Multi Select</h1>
     <div class="col-6">
-      <h-select :options="options"
-       v-model="multiselect"
-       multiselect
-       @changeMultiselect="changeMultiselect"
-       />
+      <h-input multiSelect :options="options" input-icon="fas fa-angle-down"
+       v-model="multiselect" @changeMultiselect="changeMultiselect"
+      />
       <span>multiselect: {{ multiselect }}</span>
     </div>
     <prism language="html" :code="selectMulti"></prism>
@@ -88,6 +88,7 @@ export default {
   },
   data () {
     return {
+      keypressed: '',
       selectModel: 'Bluetooth1',
       selectModel1: 'chrome1',
       multiselect: ['heart1', 'discord1'],
@@ -202,6 +203,10 @@ options: [
     }
   },
   methods: {
+    show: function (event) {
+      console.log('event: ', event.keyCode)
+      this.keypressed += event.keyCode
+    },
     onInput (value) {
       // console.log('input selecionado: ' + value)
     },

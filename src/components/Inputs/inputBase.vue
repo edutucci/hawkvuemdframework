@@ -83,84 +83,85 @@ export default {
     return {
       primary: false,
       nofocus: true,
-      staticLabelStyle: {
-        fontSize: '12px',
-        position: 'relative'
-      },
-      floatLabelStyle: {
-        position: 'absolute',
-        top: '2px',
-        left: '9px',
-        fontSize: '12px',
-        zIndex: '2'
-      },
-      inputDisplay: ''
+      // staticLabelStyle: {
+      //   fontSize: '12px',
+      //   position: 'relative'
+      // },
+      // floatLabelStyle: {
+      //   position: 'absolute',
+      //   top: '2px',
+      //   left: '9px',
+      //   fontSize: '12px',
+      //   zIndex: '2'
+      // },
+      inputDisplay: '',
+      inputtype: 'text'
     }
   },
   methods: {
-    onInputFocus () {
-      this.focused = true
-      this.floatLabelStyle.top = '2px'
-      this.floatLabelStyle.left = '9px'
-      this.floatLabelStyle.fontSize = '12px'
+    // onInputFocus () {
+    //   this.focused = true
+    //   this.floatLabelStyle.top = '2px'
+    //   this.floatLabelStyle.left = '9px'
+    //   this.floatLabelStyle.fontSize = '12px'
 
-      if (this.rounded) {
-        this.floatLabelStyle.left = '22px'
-      }
+    //   if (this.rounded) {
+    //     this.floatLabelStyle.left = '22px'
+    //   }
 
-      this.primary = true
-      this.nofocus = false
+    //   this.primary = true
+    //   this.nofocus = false
 
-      this.$emit('focus')
-    },
-    onInputBlur () {
-      this.focused = false
-      this.primary = false
-      this.nofocus = true
-      this.changeFloatLabelStyle()
-      this.$emit('blur')
-    },
-    changeFloatLabelStyle () {
-      if (this.floatLabel && ((this.value && this.value.length) || (this.placeholder && this.placeholder.length))) {
-        this.floatLabelStyle.top = '2px'
-        this.floatLabelStyle.left = '9px'
-        this.floatLabelStyle.fontSize = '12px'
-      } else {
-        this.floatLabelStyle.top = '20px'
-        this.floatLabelStyle.left = '9px'
-        this.floatLabelStyle.fontSize = '16px'
-      }
+    //   this.$emit('focus')
+    // },
+    // onInputBlur () {
+    //   this.focused = false
+    //   this.primary = false
+    //   this.nofocus = true
+    //   this.changeFloatLabelStyle()
+    //   this.$emit('blur')
+    // },
+    // changeFloatLabelStyle () {
+    //   if (this.floatLabel && ((this.value && this.value.length) || (this.placeholder && this.placeholder.length))) {
+    //     this.floatLabelStyle.top = '2px'
+    //     this.floatLabelStyle.left = '9px'
+    //     this.floatLabelStyle.fontSize = '12px'
+    //   } else {
+    //     this.floatLabelStyle.top = '20px'
+    //     this.floatLabelStyle.left = '9px'
+    //     this.floatLabelStyle.fontSize = '16px'
+    //   }
 
-      if (this.rounded) {
-        this.floatLabelStyle.left = '22px'
-      }
-    },
-    onChange (value) {
-      let txtValue = ''
-      if (value === undefined && this.value) {
-        txtValue = this.value
-      } else {
-        txtValue = value
-      }
-      this.inputDisplay = txtValue
-      this.$emit('change', txtValue)
-    },
-    onClick () {
-      this.focused = true
-      this.$emit('click')
-    },
-    onInputIconClick () {
-      if (this.type === 'password') {
-        this.inputtype = (this.inputtype === 'password') ? 'text' : 'password'
-      } else if (this.cleartext) {
-        this.inputDisplay = ''
-        this.onInputFocus()
-      }
-    },
-    onInputRightIconClick () {
-      this.focused = true
-      this.$emit('rightIconClick')
-    }
+    //   if (this.rounded) {
+    //     this.floatLabelStyle.left = '22px'
+    //   }
+    // },
+    // onChange (value) {
+    //   let txtValue = ''
+    //   if (value === undefined && this.value) {
+    //     txtValue = this.value
+    //   } else {
+    //     txtValue = value
+    //   }
+    //   this.inputDisplay = txtValue
+    //   this.$emit('change', txtValue)
+    // },
+    // onClick () {
+    //   this.focused = true
+    //   this.$emit('click')
+    // },
+    // onInputIconClick () {
+    //   if (this.type === 'password') {
+    //     this.inputtype = (this.inputtype === 'password') ? 'text' : 'password'
+    //   } else if (this.cleartext) {
+    //     this.inputDisplay = ''
+    //     this.onInputFocus()
+    //   }
+    // },
+    // onInputRightIconClick () {
+    //   this.focused = true
+    //   this.$emit('rightIconClick')
+    // }
   }
 }
 </script>

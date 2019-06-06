@@ -1,4 +1,69 @@
 /*
+  INPUT CONTAINER
+*/
+
+.main-input-container {
+  position:relative;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+.main-input-container.rounded {
+  margin-right: 5px;
+}
+
+.input-container.outline {
+  border-color: gray;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 5px;
+}
+
+.input-container.outline.rounded {
+  border-radius: 50px;
+}
+
+.input-container.filled {
+  border-radius: 0px;
+}
+
+.input-container.filled.outline.rounded {
+  border-radius: 50px;
+}
+
+.input-container.outline.filled.rounded > .input-field-container {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.input-container.outline.rounded > .input-field-container {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+input[type="text"] {
+  font-size:18px;
+  font-weight: bold;
+}
+
+.input-label {
+  font-size: 12px;
+  padding: 0px;
+}
+
+/*
+  INPUT FIELD
+*/
+.input-field {
+  width:100%;
+  border-style:none;
+  outline: none;
+  z-index:0;
+  padding-top: 2px;
+  background:none;
+}
+
+/*
   MODAL
 */
 .drawer {
@@ -77,7 +142,7 @@
 END BUTTONS
 */
 
-.circle, .rounded {
+.circle {
   border-radius: 50%;
 }
 
@@ -120,38 +185,9 @@ END BUTTONS
   color: white;
 }
 
-.item-padding {
-  padding-left: 16px;
-  padding-right: 16px;
-}
-
-.icon-left {
-  padding-right: 16px;
-}
-
-.menu-icon-left {
-  padding-left: 16px;
-  padding-right: 16px;
-  width: 36px;
-}
-
-.menu-item {
-  padding-top:8px;
-  padding-bottom: 8px;
-}
-
-.menu-title {
-  height: 40px;
-}
-
 .list-item-padding {
   padding: 13px 0px;
 }
-
-// .list-item-side-padding {
-//   padding-left: 10px;
-//   padding-right: 10px;
-// }
 
 .list-item-content-padding {
   padding-left: 10px;
@@ -252,6 +288,19 @@ POPUP MENUS
   overflow-y: auto;
   z-index: 1650;
   cursor: pointer;
+}
+
+.menu-item-padding {
+  padding: 8px 0px;   
+}
+
+.menu-item-content-padding {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.menu-item-padding:hover {
+  background-color: #EEEEEE;
 }
 
 /*
