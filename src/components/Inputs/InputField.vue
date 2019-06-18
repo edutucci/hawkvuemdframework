@@ -1,6 +1,6 @@
 <template lang="pug">
   input.input-field(
-    v-if="this.chips"
+    v-if="!this.chips"
     v-focus="inputFocus"
     :class="[{'text-center': textCenter}, filled]"
     v-model="inputDisplay"
@@ -19,7 +19,7 @@
     @click="onClick"
   )
   input.input-field(
-    v-else="this.chips"
+    v-else
     v-focus="inputFocus"
     :class="[{'text-center': textCenter}, filled]"
     v-model="inputDisplay"
@@ -84,11 +84,12 @@ export default {
   },
   methods: {
     onInput: _.debounce(function (value) {
-      // console.log('value onChange in input-field:', value)
+      console.log('value debounce input-field:', value)
       this.inputDisplay = value
       this.$emit('input', value)
     }, 500),
     onInputChip (value) {
+      console.log('onInputChip input-field:', value)
       this.inputDisplay = value
       this.$emit('input', value)
     },

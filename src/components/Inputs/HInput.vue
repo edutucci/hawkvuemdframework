@@ -9,7 +9,6 @@
     :filled="filled"
     :rounded="rounded"
     :leftIcon="leftIcon"
-    :chips="chips"
   )
     .flex.flex-column.full-width(v-on-clickaway="away")
       div(
@@ -37,6 +36,7 @@
             :filled="filled"
             :textCenter="textCenter"
             :focused="focused"
+            :chips="chips"
             @input="onInput"
             @focus="focus"
             @blur="blur"
@@ -49,7 +49,7 @@
           )
         .flex.flex-items-center
           h-fa-icon(:icon="inputIcon" style="padding: 6px")
-      div.full-width.dropdown-menu.boxshadow.border-corner-rounded(
+      div.bg-white.full-width.dropdown-menu.boxshadow.border-corner-rounded(
         :style="{left: left, right: right, bottom: bottom}"
       )
         div.flex.flex-items-center.menu-item(
