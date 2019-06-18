@@ -7,7 +7,6 @@
         .flex.flex-items-center(v-if="leftIcon && leftIcon.length" style="padding: 6px")
           div
             h-fa-icon(
-              :textcolor="textcolor"
               :icon="leftIcon"
               size="18px"
             )
@@ -71,11 +70,6 @@ export default {
   },
   mounted () {
     this.changeBorderColor()
-  },
-  watch: {
-    textcolor: function (value) {
-      // console.log('mudou inputcontainer textcolor:', value)
-    }
   },
   methods: {
     changeBorderColor () {

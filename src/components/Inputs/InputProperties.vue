@@ -88,6 +88,10 @@ export default {
     options: {
       type: Array,
       default: () => ([])
+    },
+    chips: {
+      type: Boolean,
+      default: false
     }
   },
   data () {

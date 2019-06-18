@@ -1,5 +1,6 @@
 <template lang="pug">
   input.input-field(
+    v-if="this.chips"
     v-focus="inputFocus"
     :class="[{'text-center': textCenter}, filled]"
     v-model="inputDisplay"
@@ -13,6 +14,26 @@
     @keydown.down="onKeyDown"
     @keydown.tab="onTab"
     @keyup.enter="onEnter"
+    @keyup.esc="onEscape"
+    @keyup.40="onArrowDown"
+    @click="onClick"
+  )
+  input.input-field(
+    v-else="this.chips"
+    v-focus="inputFocus"
+    :class="[{'text-center': textCenter}, filled]"
+    v-model="inputDisplay"
+    :type="inputtype"
+    :readonly="readonly"
+    :placeholder="placeholder"
+    :maxlength="maxlength"
+    @input="onInputChip($event.target.value)"
+    @focus="onInputFocus()"
+    @blur="onInputBlur()"
+    @keydown.down="onKeyDown"
+    @keydown.tab="onTab"
+    @keyup.enter="onEnter"
+    @keyup.delete="onDelete"
     @keyup.esc="onEscape"
     @keyup.40="onArrowDown"
     @click="onClick"
@@ -67,6 +88,10 @@ export default {
       this.inputDisplay = value
       this.$emit('input', value)
     }, 500),
+    onInputChip (value) {
+      this.inputDisplay = value
+      this.$emit('input', value)
+    },
     onInputFocus () {
       this.inputFocus = true
       this.$emit('focus')
@@ -85,6 +110,9 @@ export default {
       // console.log('enter key input-field')
       this.$emit('onEnter')
     },
+    onDelete () {
+      this.$emit('onDelete')
+    },
     onEscape () {
       this.$emit('onEscape')
     },
@@ -102,5 +130,4 @@ export default {
 </script>
 
 <style scoped>
-
 </style>

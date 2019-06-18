@@ -58,11 +58,6 @@
 
     <h1>Rounded</h1>
     <html-separator/>
-    <div class="col-6">
-      <h-input type="password" right-icon="fas fa-lock" filled rounded label="Password" v-model="txtPassword" placeholder="type your password" />
-      <span>Password: {{ txtPassword }}</span>
-    </div>
-
     <div class="col-6 h-mt-md">
       <h-input outline rounded error-message="error message" left-icon="fas fa-birthday-cake" right-icon="fas fa-calendar-alt" helper-text="helper text"
         :maxlength="10" :text-counter="10"  v-model="txtName2"

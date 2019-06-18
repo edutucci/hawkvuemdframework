@@ -85,6 +85,15 @@
       <span class="text-gray">InputchipsModel: {{ chipsInput }}</span>
     </div>
 
+    <div class="col-6 h-mt-md">
+      <h-input
+        left-icon="fas fa-birthday-cake"
+        label="Type your chips"
+        chips
+        v-model="chipsInput"
+      />
+    </div>
+
     <prism language="html" :code="inputchip"></prism>
 
     <h1 class="text-primary"> Input Chips Help</h1>

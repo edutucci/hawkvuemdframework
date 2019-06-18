@@ -7,7 +7,7 @@
         v-model="model1"
         search
         input-icon="fas fa-search"
-        label="Select with icons"
+        label=""
         display-mode="image"
         @input="onSearch"
         bgcolor="bg-primary"

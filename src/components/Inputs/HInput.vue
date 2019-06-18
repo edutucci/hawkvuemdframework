@@ -9,31 +9,46 @@
     :filled="filled"
     :rounded="rounded"
     :leftIcon="leftIcon"
+    :chips="chips"
   )
     .flex.flex-column.full-width(v-on-clickaway="away")
-      .flex
-        h-input-field(
-          :class="[inputContainerTextColor, {'text-center': textCenter}]"
-          v-model="inputDisplay"
-          :type="inputtype"
-          :readonly="readonly"
-          :rounded="rounded"
-          :outline="outline"
-          :filled="filled"
-          :textCenter="textCenter"
-          :focused="focused"
-          @input="onInput"
-          @focus="focus"
-          @blur="blur"
-          @onKeyDown="onKeyDown"
-          @onTab="onTab"
-          @onEnter="onEnter"
-          @onEscape="onEscape"
-          @onArrowDown="onArrowDown"
-          @click="onClick"
+      div(
+        v-if="this.chips"
+        @click="focus"
+      )
+        h-chips.h-pa-xs(
+          v-for="(chip, index) in value"
+          :key="index"
+          :text="chip"
+          textcolor="text-white"
+          bgcolor="bg-primary"
+          closable
+          @onClose="closeChip(index)"
         )
-        div(:class="[inputContainerTextColor]" style="padding: 6px")
-          h-fa-icon(:icon="inputIcon")
+      .flex
+        .flex-1
+          h-input-field(
+            :class="[{'text-center': textCenter}]"
+            v-model="inputDisplay"
+            :type="inputtype"
+            :readonly="readonly"
+            :rounded="rounded"
+            :outline="outline"
+            :filled="filled"
+            :textCenter="textCenter"
+            :focused="focused"
+            @input="onInput"
+            @focus="focus"
+            @blur="blur"
+            @onKeyDown="onKeyDown"
+            @onTab="onTab"
+            @onEnter="onEnter"
+            @onEscape="onEscape"
+            @onDelete="onDelete"
+            @click="onClick"
+          )
+        .flex.flex-items-center
+          h-fa-icon(:icon="inputIcon" style="padding: 6px")
       div.full-width.dropdown-menu.boxshadow.border-corner-rounded(
         :style="{left: left, right: right, bottom: bottom}"
       )
@@ -69,6 +84,7 @@
 import { mixin as clickaway } from 'vue-clickaway'
 import { mixin as focusMixin } from 'vue-focus'
 import InputProperties from './InputProperties'
+import _ from 'lodash'
 
 export default {
   extends: InputProperties,
@@ -94,25 +110,29 @@ export default {
       left: '0px',
       right: '',
       bottom: '',
-      multiselectItem: []
+      multiselectItem: [],
+      chipsValue: []
     }
   },
   mounted () {
     this.inputtype = this.type
     this.inputContainerColor = this.bgcolor
     this.inputContainerTextColor = this.textcolor
+    // console.log('mounted this.value: ', this.value)
     this.makeInputValue()
-    // this.onChange(this.value)
-    // this.onInputBlur()
   },
   watch: {
     inputDisplay: function (value) {
       // console.log('inputDisplay change in h-input:', value)
-      this.$emit('input', value)
+      if (!this.chips) {
+        this.$emit('input', value)
+      }
     },
     value: function (value) {
       // console.log('value change in h-input:', value)
-      this.inputDisplay = value
+      if (!this.chips) {
+        this.inputDisplay = value
+      }
     },
     placeholder: function (value) {
       // this.changeFloatLabelStyle()
@@ -174,6 +194,8 @@ export default {
             })
           }
           this.multiselectItem = multiselectItem
+        } else if (Array.isArray(localInputDisplay)) {
+          this.onChangeChips(localInputDisplay)
         }
       }
     },
@@ -183,7 +205,9 @@ export default {
         this.magic_flag = true
       }
       this.inputDisplay = value
-      this.$emit('input', value)
+      if (!this.chips) {
+        this.$emit('input', value)
+      }
     },
     // inputMaxlength (value) {
     //   let text = value
@@ -202,7 +226,7 @@ export default {
         this.magic_flag = true
       }
       this.inputContainerColor = 'bg-white'
-      this.inputContainerTextColor = 'text-black'
+      this.inputContainerTextColor = 'text-primary'
     },
     blur () {
       // console.log('blur on h-inputfield')
@@ -211,22 +235,36 @@ export default {
       this.inputContainerTextColor = this.textcolor
     },
     onKeyDown () {
-      this.$emit('onKeyDown')
+      if (this.search) {
+        this.magic_flag = true
+      } else {
+        this.$emit('onKeyDown')
+      }
     },
     onTab () {
       this.$emit('onTab')
     },
     onEnter () {
       // console.log('enter key h-input')
-      this.$emit('onEnter')
+      if (this.chips) {
+        // console.log('inputDisplay: ', this.inputDisplay)
+        // console.log('this.value: ', this.value)
+        if (this.inputDisplay.length) {
+          if (this.value.length === 0) {
+            this.chipsValue = []
+            this.chipsValue.push(this.txtValue)
+          } else {
+            this.chipsValue = _.clone(this.value)
+            this.chipsValue.push(this.inputDisplay)
+          }
+          this.onChangeChips(this.chipsValue)
+        }
+      } else {
+        this.$emit('onEnter')
+      }
     },
     onEscape () {
       this.$emit('onEscape')
-    },
-    onArrowDown () {
-      if (this.search) {
-        this.magic_flag = true
-      }
     },
     onClick () {
       this.$emit('onClick')
@@ -244,6 +282,29 @@ export default {
       } else {
         this.$emit('input', this.multiselectItem)
         this.$emit('changeMultiselect', this.multiselectItem)
+      }
+    },
+    onChangeChips (value) {
+      // console.log('chips: ', value)
+      let arrValue = []
+      if (value !== undefined && value.length) {
+        arrValue = value
+      }
+      this.$emit('input', arrValue)
+      this.inputDisplay = ''
+      // console.log('typeof value: ', Array.isArray(this.value))
+    },
+    closeChip (index) {
+      this.chipsValue = _.clone(this.value)
+      this.$emit('onDelete', this.chipsValue[index])
+      this.$delete(this.chipsValue, index)
+      this.$emit('input', this.chipsValue)
+    },
+    onDelete () {
+      if (this.chips) {
+        if (this.inputDisplay.length === 0 && this.value && this.value.length) {
+          this.closeChip(this.value.length - 1)
+        }
       }
     }
   }

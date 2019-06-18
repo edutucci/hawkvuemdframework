@@ -133,15 +133,15 @@ export default {
   watch: {
     value: function (value) {
       this.chipsValue = _.clone(this.value)
-      this.changeFloatLabelStyle()
+      // this.changeFloatLabelStyle()
     },
     floatLabel: function (value) {
       this.chipsValue = _.clone(this.value)
-      this.changeFloatLabelStyle()
+      // this.changeFloatLabelStyle()
     },
     placeholder: function (value) {
       this.chipsValue = _.clone(this.value)
-      this.changeFloatLabelStyle()
+      // this.changeFloatLabelStyle()
     }
   },
   computed: {
