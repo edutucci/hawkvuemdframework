@@ -4,7 +4,7 @@
       <div class="flex">
         <div class="flex flex-column">
           <h1>Date Input</h1>
-          <h-date-input v-model="date" @input="change"/>
+          <h-date-time-dialog v-model="date" @input="change"/>
           <div>
             your date is: {{date}}
           </div>
@@ -13,7 +13,7 @@
       </div>
     </div>
 
-    <div class="flex flex-column">
+    <!-- <div class="flex flex-column">
       <div class="flex">
         <div class="flex flex-column">
           <h1>DateTime Input</h1>
@@ -24,7 +24,7 @@
           <prism language="html" :code="datetimeinput"></prism>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <div class="flex flex-column">
       <div class="flex">

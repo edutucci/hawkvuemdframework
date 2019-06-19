@@ -1,20 +1,10 @@
 <template lang="pug">
-  div(
-    v-on-clickaway="hidePanel"
-    style="width:350px; position:relative;"
-  )
-    .flex.flex-column.full-width
-      .full-width
-        h-input.full-width(
-          @click="openPanelDate"
-          v-model="inputValue"
-          :placeholder="placeholder"
-          :readonly="true")
+  .flex.flex-column
+    div
+      h-fa-icon(icon="far fa-calendar-alt" @click="panelType = 'date', showDateTime = true")
 
-      div.position-absolute.boxshadow.full-width(
-        v-if="showDatePicker"
-        style="top:67px;background-color: white;z-index: 1600;"
-      )
+    h-modal(v-model="showDateTime")
+      .flex.flex.column
         date-panel(
           v-if="panelType === 'date'"
           show-time
@@ -27,7 +17,6 @@
           @cancel="hidePanel"
           @onShowTime="panelType = 'time'"
         )
-
         time-panel(
           v-if="panelType === 'time'"
           :date="currentDateTime"
@@ -35,7 +24,6 @@
           @cancel="panelType = 'date'"
           :pickerMode="false"
         )
-
 </template>
 
 <script>
@@ -46,6 +34,7 @@ import { mixin as clickaway } from 'vue-clickaway'
 import moment from 'moment'
 
 export default {
+  name: 'DateTimeDialog',
   mixins: [ clickaway ],
   props: {
     placeholder: {
@@ -71,6 +60,7 @@ export default {
   },
   data () {
     return {
+      showDateTime: false,
       showDatePicker: false,
       currentDateTime: new Date(),
       panelType: 'date',
@@ -124,6 +114,8 @@ export default {
       this.updateData(date)
       this.$emit('input', date)
       this.currentDateTime = new Date()
+      this.showDateTime = false
+      this.panelType = 'date'
     },
     openPanelDate () {
       this.currentDateTime = this.value

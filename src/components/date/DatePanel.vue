@@ -1,7 +1,7 @@
 <template lang="pug">
   .flex.flex-column.boxshadow
     .flex.full-width
-      .full-width.flex.flex-justify-center.flex-items-center.bg-primary.h-pa-md
+      .full-width.flex.flex-justify-center.flex-items-center.bg-primary.h-pa-xs
         div
           .btn.bg-primary
             h-fa-icon(textcolor="text-white" icon="fas fa-chevron-left" size="24px" @click="onPrevNextMonth(-1)")
@@ -10,18 +10,18 @@
           .flex.flex-column
             .flex.flex-justify-center
               .btn.bg-primary.text-white(@click="panelMode= (panelMode === 'years') ? 'days' : 'years'")
-                h2 {{currentDate.getFullYear().toString()}}
+                h3.no-margin {{currentDate.getFullYear().toString()}}
 
             .flex.flex-justify-center.text-white
               .btn.bg-primary.text-white(@click="panelMode= (panelMode === 'months') ? 'days' : 'months'")
-                h2  {{week_days[currentDate.getDay()]}}, {{months[currentDate.getMonth()]}} {{currentDate.getDate()}}
+                h3.no-margin {{week_days[currentDate.getDay()]}}, {{months[currentDate.getMonth()]}} {{currentDate.getDate()}}
 
         div
           .btn.bg-primary
             h-fa-icon(textcolor="text-white" icon="fas fa-chevron-right" size="24px" @click="onPrevNextMonth(1)")
     .flex.full-width.flex-items-center.bg-primary(v-if="showTime")
-      .full-width.flex.flex-justify-center.h-pa-md.text-white
-        h2  {{datetime}}
+      .full-width.flex.flex-justify-center.text-white
+        h3.no-margin {{datetime}}
       div.btn.bg-primary
         h-fa-icon(icon="fas fa-clock" textcolor="text-white" @click="onShowTime")
     .flex-1.h-pt-md(v-show="panelMode==='days'" style="height:280px")

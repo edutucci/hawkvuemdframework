@@ -25,10 +25,8 @@ import HCounter from './chips/Counter.vue'
 import HCarousel from './carousel/Carousel.vue'
 import HCarouselSlider from './carousel/CarouselSlider.vue'
 import HDatePicker from './date/HDatePicker.vue'
-import HDateInput from './date/HDateInput.vue'
-import HDateTimeInput from './date/DateTimeInput.vue'
+import HDateTimeDialog from './date/DateTimeDialog.vue'
 import HTimePicker from './date/HTimePicker.vue'
-import HTimeInput from './date/HTimeInput.vue'
 import HFaIcon from './icons/FaIcon.vue'
 import HFileUpload from './fileUpload/fileUpload.vue'
 import HImageUpload from './fileUpload/ImageUpload.vue'
@@ -109,10 +107,8 @@ const Components = {
   HInputChips,
   HCounter,
   HDatePicker,
-  HDateInput,
-  HDateTimeInput,
+  HDateTimeDialog,
   HTimePicker,
-  HTimeInput,
   HFaIcon,
   HFileUpload,
   HImageUpload,
