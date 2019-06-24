@@ -38,9 +38,9 @@
           )
             | {{day.monthDay}}
 
-      .flex.flex-justify-end.h-mb-sm
-        h-btn(outlined text="OK" textcolor="text-primary" class="h-pr-md" @click="onOK")
-        h-btn(v-if="!pickerMode" outlined text="Close" textcolor="text-primary" class="h-pr-md" @click="onClose")
+      //- .flex.flex-justify-end.h-mb-sm
+      //-   h-btn(outlined text="OK" textcolor="text-primary" class="h-pr-md" @click="onOK")
+      //-   h-btn(v-if="!pickerMode" outlined text="Close" textcolor="text-primary" class="h-pr-md" @click="onClose")
     .flex-1.scroll(v-show="panelMode==='years'" style="max-height:280px")
       .flex.flex-justify-center.btn.bg-white(v-for="year in years" @click="applyYear(year)")
         | {{year}}
@@ -103,11 +103,11 @@ export default {
       this.getCalendar()
     },
     onOK () {
-      this.$emit('ok', this.currentDate)
+      // this.$emit('ok', this.currentDate)
     },
-    onClose () {
-      this.$emit('cancel')
-    },
+    // onClose () {
+    //   this.$emit('cancel')
+    // },
     onPrevNextMonth (value) {
       this.panelMode = 'days'
       this.updateMonth(value)
@@ -134,9 +134,9 @@ export default {
     onYearClick (year) {
       this.panelMode = 'days'
       this.updateYear(year)
-      if (this.pickerMode) {
-        this.onOK()
-      }
+      // if (this.pickerMode) {
+      //   this.onOK()
+      // }
     },
     onShowTime () {
       this.$emit('onShowTime')

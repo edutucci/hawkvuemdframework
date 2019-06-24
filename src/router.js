@@ -21,8 +21,8 @@ export default new Router({
         { path: '/visibility', component: () => import('./views/css/visibility') },
         { path: '/cssothers', component: () => import('./views/css/others') },
         { path: '/borders', component: () => import('./views/css/borders') },
-        { path: '/buttons', component: () => import('./views/buttons') },
-        { path: '/buttongroup', component: () => import('./views/buttonGroup') },
+        { path: '/buttons', component: () => import('./views/pages/buttons/buttons') },
+        { path: '/buttongroup', component: () => import('./views/pages/buttons/buttonGroup') },
         { path: '/icon', component: () => import('./views/icon') },
         { path: '/input', component: () => import('./views/input') },
         { path: '/search', component: () => import('./views/search') },
@@ -34,7 +34,7 @@ export default new Router({
         { path: '/mask', component: () => import('./views/mask') },
         { path: '/list', component: () => import('./views/list') },
         { path: '/collapsible', component: () => import('./views/collapsible') },
-        { path: '/checkbox', component: () => import('./views/checkbox') },
+        { path: '/checkbox', component: () => import('./views/pages/checkbox/checkbox') },
         { path: '/radio', component: () => import('./views/radio') },
         { path: '/select', component: () => import('./views/select') },
         { path: '/tab', component: () => import('./views/tab') },
@@ -56,6 +56,10 @@ export default new Router({
     {
       path: '/test',
       component: () => import('./views/test')
+    },
+    {
+      path: '/example',
+      component: () => import('./views/examples/checkbox.vue')
     }
   ]
 })

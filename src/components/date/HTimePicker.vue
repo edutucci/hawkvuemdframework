@@ -2,7 +2,8 @@
   div(style="width:350px; position:relative;")
     time-panel(
       :date="value"
-      @ok="ok"
+      @ok="setTime"
+      :pickerMode="true"
     )
 
 </template>
@@ -28,7 +29,7 @@ export default {
   mounted () {
   },
   methods: {
-    ok (date) {
+    setTime (date) {
       // console.log('date: ' + date)
       this.$emit('input', date)
     }

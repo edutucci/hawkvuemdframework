@@ -4,9 +4,9 @@
       | {{text}}
       input(
         type="checkbox" @click="onChange(this)"
-        :checked="checkboxState" :disabled="disabled"
+        :checked="checkboxState" :disabled="readonly"
       )
-      span.checkmark.primary(:class="{disabled:disabled}")
+      span.checkmark.primary(:class="{disabled:readonly}")
 
 </template>
 
@@ -25,7 +25,7 @@ export default {
       type: Boolean,
       default: false
     },
-    disabled: {
+    readonly: {
       type: Boolean,
       default: false
     },

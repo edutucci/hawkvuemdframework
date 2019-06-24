@@ -1,5 +1,6 @@
 import Vue from 'vue'
 
+import CompCode from './others/CompCode'
 import HBtn from './buttons/Btn.vue'
 import HBtnFloat from './buttons/BtnFloat.vue'
 import HBtnGroup from './buttons/BtnGroup.vue'
@@ -82,6 +83,7 @@ import HtmlSeparator from './html/HtmlSeparator.vue'
 import HtmlArticle from './html/HtmlArticle.vue'
 
 const Components = {
+  CompCode,
   HBtn,
   HBtnFloat,
   HBtnGroup,

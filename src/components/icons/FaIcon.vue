@@ -1,5 +1,5 @@
 <template lang="pug">
-  i.faicon(
+  i(
     :class="[icon, textcolor, {'fa-pulse': pulse, 'fa-spin': spin}]"
     style="cursor:pointer;"
     :style="styleObject"
@@ -56,7 +56,7 @@ export default {
 </script>
 
 <style>
-.faicon {
+/* .faicon {
   position: relative;
-}
+} */
 </style>

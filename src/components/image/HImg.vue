@@ -3,6 +3,7 @@
     img(
       v-if="src && src.length > 0" :src="src"
       :style="[imageSizeObject]"
+      @click="onClick"
     )
 </template>
 
@@ -37,6 +38,11 @@ export default {
     },
     height: function (value) {
       this.imageSizeObject.height = value
+    }
+  },
+  methods: {
+    onClick () {
+      this.$emit('click')
     }
   }
 }

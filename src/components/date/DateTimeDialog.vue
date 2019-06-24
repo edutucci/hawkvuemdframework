@@ -1,24 +1,24 @@
 <template lang="pug">
-  .flex.flex-column
-    div
-      h-fa-icon(icon="far fa-calendar-alt" @click="panelType = 'date', showDateTime = true")
+  .flex.flex-column()
+    div(v-if="this.mode === 'time' || this.mode === 'date'")
+      h-fa-icon(:icon="componentIcon" @click="showDateTime = true")
+    div(v-else-if="this.mode === 'datetime'")
+      h-img.cursor-pointer(src="/img/icons/datetime.png" width="24px" height="24px" @click="showDateTime = true")
 
     h-modal(v-model="showDateTime")
       .flex.flex.column
         date-panel(
-          v-if="panelType === 'date'"
-          show-time
+          v-if="panelType === 'date' && (this.mode === 'datetime' || this.mode === 'date')"
+          :show-time="this.mode === 'datetime' || this.mode === 'time'"
           :week_days="week_days"
           :months="months"
           :date="currentDateTime",
           :pickerMode="false"
-          @ok="ok"
           @dateChanged="dateChanged"
-          @cancel="hidePanel"
           @onShowTime="panelType = 'time'"
         )
         time-panel(
-          v-if="panelType === 'time'"
+          v-if="panelType === 'time' && (this.mode === 'datetime' || this.mode === 'time')"
           :date="currentDateTime"
           @ok="setTime"
           @cancel="panelType = 'date'"
@@ -31,27 +31,18 @@
 import datePanel from './DatePanel'
 import timePanel from './TimePanel'
 import { mixin as clickaway } from 'vue-clickaway'
-import moment from 'moment'
 
 export default {
   name: 'DateTimeDialog',
   mixins: [ clickaway ],
   props: {
-    placeholder: {
-      type: String,
-      default: ''
-    },
     value: {
       type: Date,
       default: new Date()
     },
-    displayFormat: {
+    mode: {
       type: String,
-      default: 'L LT'
-    },
-    locale: {
-      type: String,
-      default: 'en'
+      default: 'datetime'
     }
   },
   components: {
@@ -61,10 +52,9 @@ export default {
   data () {
     return {
       showDateTime: false,
-      showDatePicker: false,
       currentDateTime: new Date(),
       panelType: 'date',
-      inputValue: ' ',
+      componentIcon: '',
       week_days: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
       months: [
         'January',
@@ -83,52 +73,41 @@ export default {
     }
   },
   mounted () {
-    // console.log('mounted: ' + this.value)
     this.currentDateTime = this.value
-    this.setInputDate(this.currentDateTime)
+    this.changeComponentIcon(this.mode)
   },
   watch: {
     value: function (value) {
-      // console.log('watched: ' + this.value)
       this.currentDateTime = value
-      this.updateData(this.currentDateTime)
     },
-    locale: function (locale) {
-      this.ok(this.value)
-    },
-    displayFormat: function (format) {
-      this.ok(this.value)
+    mode: function (value) {
+      this.changeComponentIcon(value)
     }
   },
   methods: {
-    dateChanged (date) {
-      // console.log('dateChanged: ' + date)
-      this.currentDateTime = date
-      // console.log('DateTime: ' + this.currentDateTime)
+    changeComponentIcon (value) {
+      if (value === 'datetime' || value === 'date') {
+        this.componentIcon = 'far fa-calendar-alt'
+      } else if (value === 'time') {
+        this.componentIcon = 'far fa-clock'
+        this.panelType = 'time'
+      }
     },
-    updateData (date) {
-      this.setInputDate(date)
-      this.hidePanel()
+    dateChanged (date) {
+      this.currentDateTime = date
+      this.showDateTime = false
+      // this.panelType = 'date'
+      this.$emit('input', date)
     },
     ok (date) {
-      this.updateData(date)
       this.$emit('input', date)
-      this.currentDateTime = new Date()
+      // this.currentDateTime = new Date()
       this.showDateTime = false
-      this.panelType = 'date'
-    },
-    openPanelDate () {
-      this.currentDateTime = this.value
-      this.showDatePicker = !this.showDatePicker
-      this.panelType = 'date'
+      // this.panelType = 'date'
     },
     hidePanel () {
-      this.showDatePicker = false
-      this.panelType = ''
-    },
-    setInputDate (date) {
-      moment.locale(this.locale)
-      this.inputValue = moment(date).format(this.displayFormat)
+      // this.panelType = ''
+      this.showDateTime = false
     },
     setTime (time) {
       let year = this.currentDateTime.getFullYear()
@@ -139,7 +118,15 @@ export default {
       let min = time.getMinutes()
 
       this.currentDateTime = new Date(year, month, day, hour, min, 0, 0)
-      this.panelType = 'date'
+
+      if (this.mode === 'time') {
+        this.ok(this.currentDateTime)
+      } else {
+        this.panelType = 'date'
+      }
+    },
+    away () {
+      this.hidePanel()
     }
   }
 }

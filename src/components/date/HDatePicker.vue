@@ -3,8 +3,8 @@
     date-panel(
       :week_days="week_days"
       :months="months"
-      :date="value"
-      @ok="ok"
+      :date="currentDate"
+      @dateChanged="dateChanged"
     )
 
 </template>
@@ -39,18 +39,21 @@ export default {
         'October',
         'November',
         'December'
-      ]
+      ],
+      currentDate: new Date()
     }
   },
   mounted () {
+    this.currentDate = this.value
   },
   watch: {
     value: function (value) {
-      this.ok(value)
+      this.currentDate = value
     }
   },
   methods: {
-    ok (date) {
+    dateChanged (date) {
+      this.currentDate = date
       this.$emit('input', date)
     }
   }

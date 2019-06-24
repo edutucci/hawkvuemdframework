@@ -4,6 +4,7 @@
       <div class="btn bg-primary" @click="panelMode= (panelMode === '12h' || panelMode === 'min') ? '24h' : '12h'"><h2 class="no-margin">{{hour}}</h2></div>
       <div class="h-pl-sm h-pr-sm"><h2 class="no-margin">:</h2></div>
       <div class="btn bg-primary" @click="panelMode= (panelMode !== 'min') ? 'min' : '12h'"><h2 class="no-margin">{{min}}</h2></div>
+      <div class="btn bg-primary"><h2 class="no-margin">{{AMPM}}</h2></div>
     </div>
     <div class="flex flex-justify-center h-pa-lg">
       <div class="clock">
@@ -17,12 +18,12 @@
           <div @click="updateHour(tH.text, tH.rotateZ)"> {{tH.text}} </div>
         </div>
         <div v-if="panelMode==='min'" v-for="tMin in transformsMin" :key="tMin.text" class="btn circle text-primary flex flex-justify-center" :class="{activemin: tMin.text === curMin.toString()}" :style="tMin.transform">
-          <div @click="updateMin(tMin.text, tMin.rotateZ)">{{tMin.text}}</div>
+          <div @click="updateMin(tMin.text, tMin.rotateZ, true)">{{tMin.text}}</div>
         </div>
       </div>
     </div>
     <div class="flex flex-justify-end h-pa-sm">
-      h-btn(outlined text="OK" textcolor="text-primary" class="h-pr-md" @click="onOK")
+      h-btn(v-if="!pickerMode" outlined text="OK" textcolor="text-primary" class="h-pr-md" @click="onOK")
       h-btn(v-if="!pickerMode" outlined text="Close" textcolor="text-primary" class="h-pr-md" @click="onClose")
     </div>
   </div>
@@ -31,11 +32,9 @@
 
 <script>
 
-import HTime from './HTime'
 import moment from 'moment'
 
 export default {
-  extends: HTime,
   props: {
     date: {
       type: Date,
@@ -48,6 +47,7 @@ export default {
   },
   data () {
     return {
+      currentDate: new Date(),
       panelMode: '12h',
       curHour: '0',
       curMin: '0',
@@ -70,62 +70,74 @@ export default {
         {
           transform: { transform: 'rotate(-90deg) translate(8.5rem) rotate(90deg)' },
           text: '12',
-          rotateZ: 'rotateZ(0deg)'
+          rotateZ: 'rotateZ(0deg)',
+          rotateZDeg: 0
         },
         {
           transform: { transform: 'rotate(-60deg) translate(8.5rem) rotate(60deg)' },
           text: '1',
-          rotateZ: 'rotateZ(30deg)'
+          rotateZ: 'rotateZ(30deg)',
+          rotateZDeg: 30
         },
         {
           transform: { transform: 'rotate(-30deg) translate(8.5rem) rotate(30deg)' },
           text: '2',
-          rotateZ: 'rotateZ(60deg)'
+          rotateZ: 'rotateZ(60deg)',
+          rotateZDeg: 60
         },
         {
           transform: { transform: 'rotate(0deg) translate(8.5rem) rotate(0deg)' },
           text: '3',
-          rotateZ: 'rotateZ(90deg)'
+          rotateZ: 'rotateZ(90deg)',
+          rotateZDeg: 90
         },
         {
           transform: { transform: 'rotate(30deg) translate(8.5rem) rotate(-30deg)' },
           text: '4',
-          rotateZ: 'rotateZ(120deg)'
+          rotateZ: 'rotateZ(120deg)',
+          rotateZDeg: 120
         },
         {
           transform: { transform: 'rotate(60deg) translate(8.5rem) rotate(-60deg)' },
           text: '5',
-          rotateZ: 'rotateZ(150deg)'
+          rotateZ: 'rotateZ(150deg)',
+          rotateZDeg: 150
         },
         {
           transform: { transform: 'rotate(90deg) translate(8.5rem) rotate(-90deg)' },
           text: '6',
-          rotateZ: 'rotateZ(180deg)'
+          rotateZ: 'rotateZ(180deg)',
+          rotateZDeg: 180
         },
         {
           transform: { transform: 'rotate(120deg) translate(8.5rem) rotate(-120deg)' },
           text: '7',
-          rotateZ: 'rotateZ(210deg)'
+          rotateZ: 'rotateZ(210deg)',
+          rotateZDeg: 210
         },
         {
           transform: { transform: 'rotate(150deg) translate(8.5rem) rotate(-150deg)' },
           text: '8',
-          rotateZ: 'rotateZ(240deg)'
+          rotateZ: 'rotateZ(240deg)',
+          rotateZDeg: 240
         },
         {
           transform: { transform: 'rotate(180deg) translate(8.5rem) rotate(-180deg)' },
           text: '9',
-          rotateZ: 'rotateZ(270deg)'
+          rotateZ: 'rotateZ(270deg)',
+          rotateZDeg: 270
         },
         {
           transform: { transform: 'rotate(210deg) translate(8.5rem) rotate(-210deg)' },
           text: '10',
-          rotateZ: 'rotateZ(300deg)'
+          rotateZ: 'rotateZ(300deg)',
+          rotateZDeg: 300
         },
         {
           transform: { transform: 'rotate(240deg) translate(8.5rem) rotate(-240deg)' },
           text: '11',
-          rotateZ: 'rotateZ(330deg)'
+          rotateZ: 'rotateZ(330deg)',
+          rotateZDeg: 330
         }
       ],
       transforms24Hours: [
@@ -323,6 +335,9 @@ export default {
     },
     min () {
       return moment(this.currentDate).minute(this.curMin).format('mm')
+    },
+    AMPM () {
+      return moment(this.currentDate).minute(this.curMin).format('A')
     }
   },
   watch: {
@@ -331,6 +346,10 @@ export default {
     }
   },
   methods: {
+    configTime (hour, min) {
+      // console.log('configtime:' + hour + ':' + min)
+      this.currentDate = new Date(0, 0, 0, hour, min, 0)
+    },
     setTimePanel () {
       this.currentDate = this.date
       this.curHour = this.currentDate.getHours()
@@ -340,7 +359,6 @@ export default {
     },
     onOK () {
       this.configTime(this.curHour, this.curMin)
-      console.log('this curdate: ' + this.currentDate)
       this.$emit('ok', this.currentDate)
     },
     onClose () {
@@ -349,16 +367,18 @@ export default {
     updatePointers () {
       let pH = this.curHour
       let fH = this.transforms24Hours.find(hour => hour.text === pH.toString())
+
       if (fH) {
-        this.updateHour(pH, fH.rotateZ)
+        this.updateHour(pH, fH.rotateZ, this.curMin)
       }
 
-      let pM = this.curMin
-      let minAngle = (360 / 60) * pM
+      let min = this.curMin
+      let minAngle = (360 / 60) * min
       let rotMin = 'rotateZ(' + minAngle + 'deg)'
-      this.updateMin(pM, rotMin)
+
+      this.updateMin(min, rotMin, false)
     },
-    updateHour (hour, rotateZ) {
+    updateHour (hour, rotateZ, min) {
       this.curHour = Number(hour)
       this.pointer12H.transform = rotateZ
       this.pointer24H.transform = rotateZ
@@ -369,13 +389,25 @@ export default {
       let h12 = this.transforms12Hours.find(hour => hour.text === h.toString())
       if (h12) {
         this.pointer12H.transform = h12.rotateZ
+        if (min > 30 && min < 50) {
+          let localRotate = h12.rotateZDeg + 15
+          let localRotateString = 'rotateZ(' + localRotate + 'deg)'
+          this.pointer12H.transform = localRotateString
+        } else if (min >= 50) {
+          let localRotate = h12.rotateZDeg + 23
+          let localRotateString = 'rotateZ(' + localRotate + 'deg)'
+          this.pointer12H.transform = localRotateString
+        }
       }
       this.panelMode = 'min'
     },
-    updateMin (min, rotateZ) {
+    updateMin (min, rotateZ, updateByBtnMin) {
       this.curMin = Number(min)
       this.pointerMin.transform = rotateZ
       this.panelMode = '12h'
+      if (this.pickerMode && updateByBtnMin) {
+        this.onOK()
+      }
     }
   }
 }

@@ -1,5 +1,5 @@
 <template lang="pug">
-  div(style="display:inline-flex;")
+  div(class="h-btn" style="display:inline-flex;")
     div(
       v-if="contained"
       @click="onClick"
