@@ -1,52 +1,53 @@
-<template lang="pug">
-  div
+<template>
+  <div>
     <h1> Radio Buttons </h1>
-    div
-      h1 List with String
-      <h-card>
-        <h-card-text desc="What type of movies do you like?"/>
-        <div>
-          h-radio(v-model="typeMovie" text="Comedy" value="Comedy")
-          h-radio(v-model="typeMovie" text="Action" value="Action")
-          h-radio(v-model="typeMovie" text="Science" value="Science")
-          h-radio(v-model="typeMovie" text="Romance" value="Romance")
-        </div>
-        <div>
-          | I like of: {{ typeMovie }}
-        </div>
 
-      </h-card>
+    <comp-code class="h-mt-lg" title="List with String" :code="rblist" :script="rblistScript"
+      javascript
+    >
+      <div>
+        What type of movies do you like?
+      </div>
+      <div>
+        <h-radio v-model="typeMovie" text="Comedy" value="Comedy"/>
+        <h-radio v-model="typeMovie" text="Action" value="Action"/>
+        <h-radio v-model="typeMovie" text="Science" value="Science"/>
+        <h-radio v-model="typeMovie" text="Romance" value="Romance"/>
+      </div>
+      <div>
+        I like of: {{ typeMovie }}
+      </div>
+    </comp-code>
 
-    <prism language="html" :code="rblist"></prism>
+    <comp-code class="h-mt-lg" title="List with Numbers" :code="rbnumber" :script="rbnumberScript"
+      javascript
+    >
+      <div>
+        Wich number do you hate?
+      </div>
+      <div>
+        <h-radio v-model="typeNumber" text="10" :value="10"/>
+        <h-radio v-model="typeNumber" text="13" :value="13"/>
+        <h-radio v-model="typeNumber" text="15" :value="15"/>
+        <h-radio v-model="typeNumber" text="20" :value="20"/>
+      </div>
+      <div>
+        I hate number: {{ typeNumber }}
+      </div>
+    </comp-code>
 
-    div
-      h1 List with Numbers
-      <h-card>
-        <h-card-text desc="Wich number do you hate?"/>
-        <div>
-          h-radio(v-model="typeNumber" text="10" :value="10" @change="change")
-          h-radio(v-model="typeNumber" text="13" :value="13" @change="change")
-          h-radio(v-model="typeNumber" text="15" :value="15")
-          h-radio(v-model="typeNumber" text="20" :value="20")
-        </div>
-        <div>
-          | I hate number: {{ typeNumber }}
-        </div>
-
-      </h-card>
-    <prism language="html" :code="rbnumber"></prism>
-
-    div
-      h1 List with option checked
-      <h-card>
-        <h-card-text desc="Select your gender"/>
-        <div>
-          <h-radio v-model="gender" text="Male" value="male" checked/>
-          <h-radio v-model="gender" text="Female" value="female" />
-          <div>Your gender is: {{ gender }}</div>
-        </div>
-      </h-card>
-    <prism language="html" :code="rbchecked"></prism>
+    <comp-code class="h-mt-lg" title="List with option checked" :code="rbchecked" :script="rbcheckedScript"
+      javascript
+    >
+      <div>
+        Select your gender
+      </div>
+      <div>
+       <h-radio v-model="gender" text="Male" value="male" checked/>
+       <h-radio v-model="gender" text="Female" value="female" />
+       <div>Your gender is: {{ gender }}</div>
+      </div>
+    </comp-code>
 
     <h2 class="text-primary"> Vue Properties</h2>
     <hr>
@@ -103,49 +104,70 @@ export default {
       typeNumber: 0,
       gender: '',
       rblist: `
-<h-card>
-  <h-card-text desc="What type of movies do you like?"/>
-  <div>
-    h-radio(v-model="typeMovie" text="Comedy" value="Comedy")
-    h-radio(v-model="typeMovie" text="Action" value="Action")
-    h-radio(v-model="typeMovie" text="Science" value="Science")
-    h-radio(v-model="typeMovie" text="Romance" value="Romance")        
-  </div>
-  <div>
-    | I like of: {{ typeMovie }}
-  </div>
-</h-card>
-      `,
-      rbnumber: `
-<h-card>
-  <h-card-text desc="Wich number do you hate?"/>
-  <div>
-    h-radio(v-model="typeNumber" text="10" :value="10")
-    h-radio(v-model="typeNumber" text="13" :value="13")
-    h-radio(v-model="typeNumber" text="15" :value="15")
-    h-radio(v-model="typeNumber" text="20" :value="20")
-  </div>
-  <div>
-    | I hate number: {{ typeNumber }}
-  </div>
-
-</h-card>
-      `,
-      rbchecked: `
-<h-card>
-  <h-card-text desc="Select your gender"/>      
-  <div>
-    <h-radio v-model="gender" text="Male" value="male" checked/>
-    <h-radio v-model="gender" text="Female" value="female" />
-    <div>Your gender is: {{ gender }}</div>      
-  </div>
-</h-card>
-      `
+<div>
+  What type of movies do you like?
+</div>
+<div>
+  <h-radio v-model="typeMovie" text="Comedy" value="Comedy"/>
+  <h-radio v-model="typeMovie" text="Action" value="Action"/>
+  <h-radio v-model="typeMovie" text="Science" value="Science"/>
+  <h-radio v-model="typeMovie" text="Romance" value="Romance"/>
+</div>
+<div>
+  I like of: {{ typeMovie }}
+</div>
+`,
+      rblistScript: `
+export default {
+  data () {
+    return {
+      typeMovie: ''
     }
-  },
-  methods: {
-    change (value) {
-      console.log('value change: ' + value)
+  }
+}
+`,
+      rbnumber: `
+<div>
+  Wich number do you hate?
+</div>
+<div>
+  <h-radio v-model="typeNumber" text="10" :value="10"/>
+  <h-radio v-model="typeNumber" text="13" :value="13"/>
+  <h-radio v-model="typeNumber" text="15" :value="15"/>
+  <h-radio v-model="typeNumber" text="20" :value="20"/>
+</div>
+<div>
+  I hate number: {{ typeNumber }}
+</div>
+`,
+      rbnumberScript: `
+export default {
+  data () {
+    return {
+      typeNumber: 0
+    }
+  }
+}    
+`,
+      rbchecked: `
+<div>
+  Select your gender
+</div>
+<div>
+  <h-radio v-model="gender" text="Male" value="male" checked/>
+  <h-radio v-model="gender" text="Female" value="female" />
+  <div>Your gender is: {{ gender }}</div>
+</div>
+`,
+      rbcheckedScript: `
+export default {
+  data () {
+    return {
+      gender: ''
+    }
+  }
+}      
+`
     }
   }
 }

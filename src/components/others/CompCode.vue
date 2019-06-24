@@ -4,9 +4,9 @@
       .flex-1.text-bold
         | {{title}}
       .flex
-        h-fa-icon(icon="far fa-file-code" @click="pageName = 'result'")
-        h-fa-icon.h-ml-sm(icon="fas fa-code" @click="pageName = 'template'")
-        h-fa-icon.h-ml-sm(v-if="javascript" icon="fab fa-js" @click="pageName = 'javascript'")
+        h-fa-icon(icon="far fa-file-code" @click="changePage('result')")
+        h-fa-icon.h-ml-sm(icon="fas fa-code" @click="changePage('template')")
+        h-fa-icon.h-ml-sm(v-if="javascript" icon="fab fa-js" @click="changePage('javascript')")
     .flex.flex-column
       div.h-pa-sm(v-if="pageName === 'result'")
         slot
@@ -55,6 +55,9 @@ export default {
     }
   },
   methods: {
+    changePage (pageName) {
+      this.pageName = (this.pageName === pageName) ? this.pageName = 'result' : this.pageName = pageName
+    },
     copyCodeToClipboard () {
       try {
         var copyText = (this.pageName === 'template') ? document.getElementById(this.codeId) : document.getElementById(this.scriptId)

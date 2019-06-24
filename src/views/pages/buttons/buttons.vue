@@ -271,13 +271,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-div > .h-btn:not(:last-child) {
-  margin-right: 5px;
-}
-div > .h-btn {
-  margin-top: 5px;
-}
-
-</style>

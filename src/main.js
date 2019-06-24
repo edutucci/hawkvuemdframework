@@ -4,6 +4,7 @@ import router from './router'
 import store from './store'
 import './registerServiceWorker'
 import './theme/index.styl'
+import './theme/app.styl'
 import './index.js'
 
 // Vue Prism.js

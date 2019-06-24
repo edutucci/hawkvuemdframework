@@ -59,7 +59,7 @@ export default new Router({
     },
     {
       path: '/example',
-      component: () => import('./views/examples/checkbox.vue')
+      component: () => import('./views/examples/radio')
     }
   ]
 })
