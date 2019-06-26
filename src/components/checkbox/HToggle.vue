@@ -2,7 +2,7 @@
   <div class="flex flex-items-center switch-container">
     <div>
       <label class="switch">
-        <input type="checkbox"  @click="onChange(this)" :checked="checkboxState" :disabled="disabled">
+        <input type="checkbox"  @click="onChange(this)" :checked="checkboxState" :disabled="readonly">
         <span class="slider round"></span>
       </label>
     </div>
@@ -11,29 +11,68 @@
 </template>
 
 <script>
-import HCheckbox from './HCheckbox'
+
 export default {
-  extends: HCheckbox,
   model: {
     prop: 'model',
     event: 'change'
   },
   props: {
-    // value: {
-    //   type: [String, Number]
-    // },
-    // text: [String, Number],
-    // checked: Boolean,
-    // model: {
-    //   type: [String, Array, Boolean],
-    //   default: undefined
-    // }
-    // id: {
-    //   type: [String, Number]
-    // }
+    value: {
+      type: [String, Number, Object]
+    },
+    text: [String, Number],
+    checked: {
+      type: Boolean,
+      default: false
+    },
+    readonly: {
+      type: Boolean,
+      default: false
+    },
+    model: {
+      type: [String, Array, Boolean],
+      default: undefined
+    }
   },
   data () {
     return {}
+  },
+  mounted () {
+    if (this.checked && !this.checkboxState) {
+      this.onChange()
+    }
+  },
+  computed: {
+    checkboxState () {
+      if (this.model === undefined) {
+        return this.checked
+      }
+
+      if (Array.isArray(this.model)) {
+        return this.model.indexOf(this.value) !== -1
+      }
+
+      return this.model
+    }
+  },
+  methods: {
+    onChange (checkbox) {
+      let value = this.model
+
+      if (Array.isArray(value)) {
+        value = value.slice()
+        const i = value.indexOf(this.value)
+        if (i === -1) {
+          value.push(this.value)
+        } else {
+          value.splice(i, 1)
+        }
+      } else {
+        value = !this.checkboxState
+      }
+      this.$emit('change', value)
+    }
   }
 }
 </script>

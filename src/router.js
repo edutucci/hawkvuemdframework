@@ -27,7 +27,7 @@ export default new Router({
         { path: '/input', component: () => import('./views/input') },
         { path: '/search', component: () => import('./views/search') },
         { path: '/drawer', component: () => import('./views/drawer') },
-        { path: '/card', component: () => import('./views/card') },
+        { path: '/card', component: () => import('./views/pages/card/card') },
         { path: '/chip', component: () => import('./views/chips') },
         { path: '/menu', component: () => import('./views/menu') },
         { path: '/menuSlider', component: () => import('./views/menuSlider') },
@@ -35,7 +35,7 @@ export default new Router({
         { path: '/list', component: () => import('./views/list') },
         { path: '/collapsible', component: () => import('./views/collapsible') },
         { path: '/checkbox', component: () => import('./views/pages/checkbox/checkbox') },
-        { path: '/radio', component: () => import('./views/radio') },
+        { path: '/radio', component: () => import('./views/pages/radio/radio') },
         { path: '/select', component: () => import('./views/select') },
         { path: '/tab', component: () => import('./views/tab') },
         { path: '/table', component: () => import('./views/table') },
@@ -43,7 +43,7 @@ export default new Router({
         { path: '/modal', component: () => import('./views/modal') },
         { path: '/date', component: () => import('./views/date') },
         { path: '/time', component: () => import('./views/time') },
-        { path: '/toggle', component: () => import('./views/toggle') },
+        { path: '/toggle', component: () => import('./views/pages/toggle/toggle') },
         { path: '/video', component: () => import('./views/video') },
         { path: '/snack', component: () => import('./views/plugins/snack') },
         { path: '/loading', component: () => import('./views/plugins/loading') },
@@ -59,7 +59,7 @@ export default new Router({
     },
     {
       path: '/example',
-      component: () => import('./views/examples/radio')
+      component: () => import('./views/examples/toggle')
     }
   ]
 })
