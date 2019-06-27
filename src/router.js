@@ -40,16 +40,16 @@ export default new Router({
         { path: '/tab', component: () => import('./views/tab') },
         { path: '/table', component: () => import('./views/table') },
         { path: '/toolbar', component: () => import('./views/toolbar') },
-        { path: '/modal', component: () => import('./views/modal') },
+        { path: '/dialog', component: () => import('./views/pages/dialog/dialog') },
         { path: '/date', component: () => import('./views/date') },
         { path: '/time', component: () => import('./views/time') },
         { path: '/toggle', component: () => import('./views/pages/toggle/toggle') },
-        { path: '/video', component: () => import('./views/video') },
+        { path: '/video', component: () => import('./views/pages/video/video') },
         { path: '/snack', component: () => import('./views/plugins/snack') },
         { path: '/loading', component: () => import('./views/plugins/loading') },
         { path: '/fileupload', component: () => import('./views/fileUpload') },
         { path: '/carousel', component: () => import('./views/pages/carousel/carousel') },
-        { path: '/rating', component: () => import('./views/rating') },
+        { path: '/rating', component: () => import('./views/pages/rating/rating') },
         { path: '/palleteColor', component: () => import('./views/guide/MaterialDesignColor') }
       ]
     },
@@ -59,7 +59,7 @@ export default new Router({
     },
     {
       path: '/example',
-      component: () => import('./views/examples/drawer')
+      component: () => import('./views/examples/dialog')
     }
   ]
 })

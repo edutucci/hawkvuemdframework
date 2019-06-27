@@ -3,7 +3,7 @@
     h-page-header(fixed)
       h-app-toolbar
         h-app-toolbar-container(bgcolor="bg-primary" textcolor="text-white")
-          h-app-toolbar-navigation(icon="fas fa-bars" textcolor="text-white" @click="$refs.nav.open()")
+          h-app-toolbar-navigation(icon="fas fa-bars" textcolor="text-white" @click="showDrawer = true")
           h-app-toolbar-title(title="HawkFramework 1.0.12")
           h-app-toolbar-action
             h-btn(contained transparent)
@@ -11,7 +11,7 @@
             h-btn(contained transparent)
               html-link(url="https://github.com/edutucci/hawkframework" icon="fab fa-github" textcolor="text-white" new-window)
 
-    <h-nav-drawer ref="nav">
+    <h-nav-drawer ref="nav" v-model="showDrawer" side="left">
       <div class="flex flex-column bg-white full-size" style="display: inline-flex;">
 
         <div slot="header" class="text-center h-pa-md">
@@ -55,7 +55,7 @@
                 <h-collapsible-item text="Menu" @click="$router.push('/menu'), $refs.nav.close()"/>
                 <h-collapsible-item text="MenuSlider" @click="$router.push('/menuSlider'), $refs.nav.close()"/>
                 <h-collapsible-item text="Mask" @click="$router.push('/mask'), $refs.nav.close()"/>
-                <h-collapsible-item text="Modal" @click="$router.push('/modal'), $refs.nav.close()"/>
+                <h-collapsible-item text="Dialog" @click="$router.push('/dialog'), $refs.nav.close()"/>
                 <h-collapsible-item text="Radio" @click="$router.push('/radio'), $refs.nav.close()"/>
                 <h-collapsible-item text="Search" @click="$router.push('/search'), $refs.nav.close()"/>
                 <h-collapsible-item text="Select" @click="$router.push('/select'), $refs.nav.close()"/>
@@ -99,6 +99,7 @@
 export default {
   data () {
     return {
+      showDrawer: false
     }
   },
   created () {
