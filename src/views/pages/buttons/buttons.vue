@@ -1,5 +1,6 @@
 <template>
   <div>
+    <h1>Buttons</h1>
     <comp-code title="Contained Buttons" :code="containedButtons">
       <div>
         <div>

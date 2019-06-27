@@ -26,14 +26,14 @@ export default new Router({
         { path: '/icon', component: () => import('./views/icon') },
         { path: '/input', component: () => import('./views/input') },
         { path: '/search', component: () => import('./views/search') },
-        { path: '/drawer', component: () => import('./views/drawer') },
+        { path: '/drawer', component: () => import('./views/pages/drawer/drawer') },
         { path: '/card', component: () => import('./views/pages/card/card') },
         { path: '/chip', component: () => import('./views/chips') },
         { path: '/menu', component: () => import('./views/menu') },
         { path: '/menuSlider', component: () => import('./views/menuSlider') },
         { path: '/mask', component: () => import('./views/mask') },
         { path: '/list', component: () => import('./views/list') },
-        { path: '/collapsible', component: () => import('./views/collapsible') },
+        { path: '/collapsible', component: () => import('./views/pages/collapsible/collapsible') },
         { path: '/checkbox', component: () => import('./views/pages/checkbox/checkbox') },
         { path: '/radio', component: () => import('./views/pages/radio/radio') },
         { path: '/select', component: () => import('./views/select') },
@@ -48,7 +48,7 @@ export default new Router({
         { path: '/snack', component: () => import('./views/plugins/snack') },
         { path: '/loading', component: () => import('./views/plugins/loading') },
         { path: '/fileupload', component: () => import('./views/fileUpload') },
-        { path: '/carousel', component: () => import('./views/carousel') },
+        { path: '/carousel', component: () => import('./views/pages/carousel/carousel') },
         { path: '/rating', component: () => import('./views/rating') },
         { path: '/palleteColor', component: () => import('./views/guide/MaterialDesignColor') }
       ]
@@ -59,7 +59,7 @@ export default new Router({
     },
     {
       path: '/example',
-      component: () => import('./views/examples/toggle')
+      component: () => import('./views/examples/drawer')
     }
   ]
 })

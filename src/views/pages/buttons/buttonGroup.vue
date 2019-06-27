@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 class="no-margin">Buttons  Group</h1>
+    <h1>Buttons  Group</h1>
 
     <comp-code class="h-mt-lg" title="Contained Buttons" :code="containedButtons">
       <div>
