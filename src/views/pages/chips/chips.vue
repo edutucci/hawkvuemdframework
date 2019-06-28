@@ -1,7 +1,8 @@
 <template>
   <div class="full-size">
     <h1>CHIPS</h1>
-    <div>
+
+    <comp-code class="h-mt-lg" title="Styles" :code="chip">
       <h-chips text="disabled" icon="fas fa-camera-retro" closable disabled hide-on-close></h-chips>
       <h-chips text="Eduardo" bgcolor="bg-secondary" closable hide-on-close></h-chips>
       <h-chips text="Jhon" closable hide-on-close icon="fas fa-camera-retro" bgcolor="bg-primary" textcolor="text-white"></h-chips>
@@ -10,9 +11,7 @@
       <h-chips text="outlined disabled" icon="fas fa-camera-retro" closable disabled hide-on-close outlined></h-chips>
       <h-chips text="outlined disabled" closable disabled hide-on-close outlined></h-chips>
       <h-chips text="Outlined" closable hide-on-close outlined></h-chips>
-    </div>
-
-    <prism language="html" :code="chip"></prism>
+    </comp-code>
 
     <h1 class="text-primary"> Chips Help</h1>
     <h2 class="text-primary"> Vue Properties</h2>
@@ -65,8 +64,7 @@
       </div>
     </div>
 
-    <div>
-      <h1>Input Chips</h1>
+    <!-- <comp-code class="h-mt-lg" title="Input Chips" >
       <h-input-chips
         v-model="chipsInput"
         float-label="Name"
@@ -80,21 +78,23 @@
         @onDelete="onDelete"
       >
       </h-input-chips>
-    </div>
-    <div>
-      <span class="text-gray">InputchipsModel: {{ chipsInput }}</span>
-    </div>
+      <div>
+        <span class="text-gray">InputchipsModel: {{ chipsInput }}</span>
+      </div>
+    </comp-code> -->
 
-    <div class="col-6 h-mt-md">
-      <h-input
-        left-icon="fas fa-birthday-cake"
-        label="Type your chips"
-        chips
-        v-model="chipsInput"
-      />
-    </div>
-
-    <prism language="html" :code="inputchip"></prism>
+    <comp-code class="h-mt-lg" title="Input Chips"  :code="inputchip" :script="inputchipScript"
+      javascript
+    >
+      <div class="h-mt-md">
+        <h-input
+          left-icon="fas fa-birthday-cake"
+          label="Type your chips"
+          chips
+          v-model="chipsInput"
+        />
+      </div>
+    </comp-code>
 
     <h1 class="text-primary"> Input Chips Help</h1>
     <h2 class="text-primary"> Vue Properties</h2>
@@ -169,7 +169,6 @@
 export default {
   data () {
     return {
-      txtName: '',
       chipsInput: ['tucci', 'cleiton', 'carlos', 'pablo', 'luis'],
       chip: `
 <h-chips text="disabled" icon="fas fa-camera-retro" closable disabled hide-on-close></h-chips>
@@ -180,16 +179,28 @@ export default {
 <h-chips text="outlined disabled" icon="fas fa-camera-retro" closable disabled hide-on-close outlined></h-chips>
 <h-chips text="outlined disabled" closable disabled hide-on-close outlined></h-chips>
 <h-chips text="Outlined" closable hide-on-close outlined></h-chips>
-      `,
+`,
       inputchip: `
 <div>
-  <h1>Input Chips</h1>
-  <h-input-chips v-model="chipsInput" float-label="Name"  left-icon="fas fa-camera-retro" helper-text="Type your chips" cleartext></h-input-chips>
+  <h-input
+    left-icon="fas fa-birthday-cake"
+    label="Type your chips"
+    chips
+    v-model="chipsInput"
+  />
 </div>
-<div>
-  <span class="text-gray">InputchipsModel: {{ chipsInput }}</span>
-</div>
-      `
+`,
+      inputchipScript: `
+export default {
+  components: {
+  },
+  data () {
+    return {
+      chipsInput: ['tucci', 'cleiton', 'carlos', 'pablo', 'luis']
+    }
+  }
+}
+`
     }
   },
   methods: {

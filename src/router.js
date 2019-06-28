@@ -28,7 +28,7 @@ export default new Router({
         { path: '/search', component: () => import('./views/search') },
         { path: '/drawer', component: () => import('./views/pages/drawer/drawer') },
         { path: '/card', component: () => import('./views/pages/card/card') },
-        { path: '/chip', component: () => import('./views/chips') },
+        { path: '/chip', component: () => import('./views/pages/chips/chips') },
         { path: '/menu', component: () => import('./views/menu') },
         { path: '/menuSlider', component: () => import('./views/menuSlider') },
         { path: '/mask', component: () => import('./views/mask') },
@@ -59,7 +59,7 @@ export default new Router({
     },
     {
       path: '/example',
-      component: () => import('./views/examples/dialog')
+      component: () => import('./views/examples/chips')
     }
   ]
 })
