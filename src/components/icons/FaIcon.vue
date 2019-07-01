@@ -1,10 +1,12 @@
 <template lang="pug">
-  i(
-    :class="[icon, textcolor, {'fa-pulse': pulse, 'fa-spin': spin}]"
-    style="cursor:pointer;"
-    :style="styleObject"
-    @click="onClick"
-  )
+  div(style="position:relative; display: inline-block;")
+    i(
+      :class="[icon, textcolor, {'fa-pulse': pulse, 'fa-spin': spin}]"
+      :style="styleObject"
+      @click="onClick"
+    )
+    slot
+
  </template>
 
 <script>

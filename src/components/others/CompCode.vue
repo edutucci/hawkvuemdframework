@@ -13,12 +13,14 @@
       div.position-relative(v-if="pageName === 'template'")
         .divcopycode.top-left-absolute.full-size.h-mt-sm
           textarea(:value="code" :id="codeId" style="height: 86%; width: 98%;")
-        h-fa-icon.top-right-absolute.h-mr-sm.h-mt-md.buttoncopycode(icon="far fa-copy" textcolor="text-primary" @click="copyCodeToClipboard")
+        .top-right-absolute.h-mr-sm.h-mt-md.buttoncopycode
+          h-fa-icon(icon="far fa-copy" textcolor="text-primary" @click="copyCodeToClipboard")
         prism(language="html" :code="code")
       div.position-relative(v-if="pageName === 'javascript'")
         .divcopycode.top-left-absolute.full-size.h-mt-sm
           textarea(:value="script" :id="scriptId" style="height: 86%; width: 98%;")
-        h-fa-icon.top-right-absolute.h-mr-sm.h-mt-md.buttoncopycode(icon="far fa-copy" textcolor="text-primary" @click="copyCodeToClipboard")
+        .top-right-absolute.h-mr-sm.h-mt-md.buttoncopycode
+          h-fa-icon(icon="far fa-copy" textcolor="text-primary" @click="copyCodeToClipboard")
         prism(language="javascript" :code="script")
 
 </template>

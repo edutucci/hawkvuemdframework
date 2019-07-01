@@ -47,7 +47,7 @@
                 <h-collapsible-item text="Chips/InputChips" @click="$router.push('/chip'), $refs.nav.close()"/>
                 <h-collapsible-item text="Carousel" @click="$router.push('/carousel'), $refs.nav.close()"/>
                 <h-collapsible-item text="Collapsible" @click="$router.push('/collapsible'), $refs.nav.close()"/>
-                <h-collapsible-item text="Date" @click="$router.push('/date'), $refs.nav.close()"/>
+                <h-collapsible-item text="Date" @click="$router.push('/datetime'), $refs.nav.close()"/>
                 <h-collapsible-item text="Drawer" @click="$router.push('/drawer'), $refs.nav.close()"/>
                 <h-collapsible-item text="Time" @click="$router.push('/time'), $refs.nav.close()"/>
                 <h-collapsible-item text="Icons" @click="$router.push('/icon'), $refs.nav.close()"/>
