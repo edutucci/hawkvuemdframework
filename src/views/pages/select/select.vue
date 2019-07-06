@@ -38,7 +38,7 @@
       javascript
     >
       <div class="col-6">
-        <h-input multiSelect :options="options" input-icon="fas fa-angle-down"
+        <h-input multi-select :options="options" input-icon="fas fa-angle-down"
         v-model="multiselect"
         @changeMultiselect="changeMultiselect"
         />

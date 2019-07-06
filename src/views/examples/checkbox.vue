@@ -23,6 +23,19 @@
       </div>
     </div>
 
+    <h3>Option Checked</h3>
+    <div class="h-pa-sm border border-gray border-corner-rounded">
+      <div>
+        Option checked
+      </div>
+      <div>
+        <h-checkbox v-model="ckChecked" text="Item checked" :checked="ckChecked"/>
+      </div>
+      <div>
+        Your model is {{ckChecked}}
+      </div>
+    </div>
+
     <h3>List</h3>
     <div class="h-pa-sm border border-gray border-corner-rounded">
       <div>
@@ -75,6 +88,7 @@
 export default {
   data () {
     return {
+      ckChecked: true,
       termAccepted: false,
       colors: [],
       checkedNumbers: [1, 3],

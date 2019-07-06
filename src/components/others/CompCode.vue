@@ -7,21 +7,21 @@
         h-fa-icon(icon="far fa-file-code" @click="changePage('result')")
         h-fa-icon.h-ml-sm(icon="fas fa-code" @click="changePage('template')")
         h-fa-icon.h-ml-sm(v-if="javascript" icon="fab fa-js" @click="changePage('javascript')")
-    .flex.flex-column
+    .flex.flex-column.position-relative
       div.h-pa-sm(v-if="pageName === 'result'")
         slot
       div.position-relative(v-if="pageName === 'template'")
-        .divcopycode.top-left-absolute.full-size.h-mt-sm
-          textarea(:value="code" :id="codeId" style="height: 86%; width: 98%;")
         .top-right-absolute.h-mr-sm.h-mt-md.buttoncopycode
           h-fa-icon(icon="far fa-copy" textcolor="text-primary" @click="copyCodeToClipboard")
         prism(language="html" :code="code")
       div.position-relative(v-if="pageName === 'javascript'")
-        .divcopycode.top-left-absolute.full-size.h-mt-sm
-          textarea(:value="script" :id="scriptId" style="height: 86%; width: 98%;")
         .top-right-absolute.h-mr-sm.h-mt-md.buttoncopycode
           h-fa-icon(icon="far fa-copy" textcolor="text-primary" @click="copyCodeToClipboard")
         prism(language="javascript" :code="script")
+      .divcopycode.top-left-absolute.full-size.h-mt-sm(
+        v-if="pageName === 'template' || pageName === 'javascript'"
+      )
+        textarea(:value="textareaCode" :id="textareaId" style="height: 86%; width: 98%;")
 
 </template>
 
@@ -52,8 +52,22 @@ export default {
   data () {
     return {
       pageName: 'result',
-      codeId: uuidv1(),
-      scriptId: uuidv1()
+      textareaId: uuidv1(),
+      textareaCode: ''
+    }
+  },
+  watch: {
+    pageName: function (value) {
+      switch (value) {
+        case 'template':
+          this.textareaCode = this.code
+          break
+        case 'javascript':
+          this.textareaCode = this.script
+          break
+        default:
+          this.textareaCode = ''
+      }
     }
   },
   methods: {
@@ -62,7 +76,7 @@ export default {
     },
     copyCodeToClipboard () {
       try {
-        var copyText = (this.pageName === 'template') ? document.getElementById(this.codeId) : document.getElementById(this.scriptId)
+        var copyText = document.getElementById(this.textareaId)
         copyText.select()
 
         /* Copy the text inside the text field */
@@ -82,8 +96,6 @@ export default {
 }
 
 .buttoncopycode {
-  /* position: absolute;
-  right: 0; */
   z-index: 110
 }
 </style>

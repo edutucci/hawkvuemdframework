@@ -118,38 +118,26 @@ export default {
     this.inputtype = this.type
     this.inputContainerColor = this.bgcolor
     this.inputContainerTextColor = this.textcolor
-    // console.log('mounted this.value: ', this.value)
     this.makeInputValue()
   },
   watch: {
     inputDisplay: function (value) {
-      // console.log('inputDisplay change in h-input:', value)
       if (!this.chips) {
         this.$emit('input', value)
       }
     },
     value: function (value) {
-      // console.log('value change in h-input:', value)
       if (!this.chips) {
         this.inputDisplay = value
       }
     },
-    placeholder: function (value) {
-      // this.changeFloatLabelStyle()
-    },
-    floatLabel: function (value) {
-      // this.changeFloatLabelStyle()
-    },
     bgcolor: function (value) {
-      // console.log('inputDisplay change in h-input:', value)
       this.inputContainerColor = value
     },
     textcolor: function (value) {
-      // console.log('inputDisplay change in h-input:', value)
       this.inputContainerTextColor = value
     },
     multiselectItem: function (value) {
-      // console.log('multiselectItem watch: ', value)
       let arrDisp = []
       let display = ''
       value.forEach(item => {
@@ -172,7 +160,6 @@ export default {
   },
   methods: {
     makeInputValue () {
-      // console.log('value in makeInputChange: ', this.value)
       let localInputDisplay = this.value
       this.inputDisplay = this.value
       if (localInputDisplay) {
@@ -187,7 +174,6 @@ export default {
           if (Array.isArray(localInputDisplay)) {
             localInputDisplay.forEach(item => {
               let index = this.options.findIndex(opt => opt.value === item)
-              // console.log('multiselect index: ', index)
               if (index !== -1) {
                 multiselectItem.push(this.options[index].value)
               }
@@ -220,7 +206,6 @@ export default {
     //   return text
     // },
     focus () {
-      // console.log('focus on h-inputfield')
       this.focused = true
       if (this.selectSingle || this.multiSelect) {
         this.magic_flag = true
@@ -229,7 +214,6 @@ export default {
       this.inputContainerTextColor = 'text-primary'
     },
     blur () {
-      // console.log('blur on h-inputfield')
       this.focused = false
       this.inputContainerColor = this.bgcolor
       this.inputContainerTextColor = this.textcolor
@@ -245,10 +229,7 @@ export default {
       this.$emit('onTab')
     },
     onEnter () {
-      // console.log('enter key h-input')
       if (this.chips) {
-        // console.log('inputDisplay: ', this.inputDisplay)
-        // console.log('this.value: ', this.value)
         if (this.inputDisplay.length) {
           if (this.value.length === 0) {
             this.chipsValue = []
@@ -270,29 +251,33 @@ export default {
       this.$emit('onClick')
     },
     away () {
-      // this.value = 'You clicked away...'
       this.magic_flag = false
     },
     onSelectItem (option) {
       if (!this.multiSelect) {
-        // console.log('on selectItem:', option.text)
         this.inputDisplay = option.text
         this.$emit('input', option.value)
         this.away()
       } else {
+        let multivalue = []
+        this.multiselectItem.forEach(item => {
+          let idx = this.options.findIndex(opt => opt.value === item)
+          if (idx !== -1) {
+            multivalue.push(this.options[idx].text)
+          }
+        })
+        this.inputDisplay = multivalue
         this.$emit('input', this.multiselectItem)
         this.$emit('changeMultiselect', this.multiselectItem)
       }
     },
     onChangeChips (value) {
-      // console.log('chips: ', value)
       let arrValue = []
       if (value !== undefined && value.length) {
         arrValue = value
       }
       this.$emit('input', arrValue)
       this.inputDisplay = ''
-      // console.log('typeof value: ', Array.isArray(this.value))
     },
     closeChip (index) {
       this.chipsValue = _.clone(this.value)

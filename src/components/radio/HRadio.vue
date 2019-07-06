@@ -1,13 +1,15 @@
 <template lang="pug">
-  label.container.primary
-    | {{text}}
-    input(type="radio"
-      :name="value"
-      :checked="checkboxState"
-      @change="onChange"
-      :disabled="disabled"
-    )
-    span.checkmark.primary(:class="{disabled:disabled}")
+  .flex(style="display: inline-block;")
+    label.container
+      | {{text}}
+      input(type="radio"
+        :name="value"
+        :checked="radioState"
+        @change="onChange"
+        :disabled="disabled"
+      )
+      span.checkmark.border.border-2(:class="[bordercolor, {disabled:disabled}]")
+        .radio-ball(:class="[bgcolor]")
 
 </template>
 
@@ -19,7 +21,7 @@ export default {
   },
   props: {
     value: {
-      type: [String, Number]
+      type: [String, Number, Boolean, Object]
     },
     text: [String, Number],
     checked: {
@@ -31,7 +33,7 @@ export default {
       default: false
     },
     model: {
-      type: [String, Number],
+      type: [String, Array, Boolean, Number, Object],
       default: undefined
     }
   },
@@ -40,17 +42,49 @@ export default {
     }
   },
   mounted () {
-    if (this.checked && !this.checkboxState) {
+    if (this.checked && !this.radioState) {
       this.onChange()
     }
   },
+  watch: {
+    checked: function (value) {
+      this.checkIfValueExists()
+    }
+  },
   computed: {
-    checkboxState () {
-      let bool = this.model === this.value
-      return bool
+    radioState () {
+      if (this.model !== undefined) {
+        return this.model === this.value
+      }
+
+      if (Array.isArray(this.model)) {
+        let idx = this.model.indexOf(this.value) !== -1
+        return idx
+      }
+
+      return this.model
+    },
+    bgcolor () {
+      return (this.radioState) ? 'bg-primary' : 'bg-white'
+    },
+    bordercolor () {
+      let color = ''
+      if (this.readonly) {
+        color = 'border-gray'
+      } else {
+        color = (this.radioState) ? 'border-primary' : 'radio-border-gray'
+      }
+      return color
     }
   },
   methods: {
+    checkIfValueExists () {
+      if (this.checked) {
+        this.$emit('change', this.value)
+      } else {
+        this.$emit('change', '')
+      }
+    },
     onChange (event) {
       this.$emit('change', this.value)
     }
@@ -87,7 +121,7 @@ export default {
     left: 0;
     height: 14px;
     width: 14px;
-    border: 2px solid gray;
+    /* border: 2px solid gray; */
     border-radius: 50%;
 }
 
@@ -97,7 +131,7 @@ export default {
     left: 0;
     height: 14px;
     width: 14px;
-    border: 2px solid lightgrey;
+    /* border: 2px solid lightgrey; */
     border-radius: 50%;
 }
 
@@ -124,12 +158,26 @@ export default {
 }
 
 /* Style the indicator (dot/circle) */
-.container.primary .checkmark:after {
+.container .checkmark:after {
   top: 3px;
   left: 3px;
   width: 8px;
   height: 8px;
   border-radius: 50%;
+}
+
+.radio-ball {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.radio-border-gray {
+  border-color: gray;
 }
 
 </style>

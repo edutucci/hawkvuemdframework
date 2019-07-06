@@ -1,42 +1,42 @@
 <template>
-  <div class="scroll">
+  <div>
     <h1>FILE UPLOAD</h1>
-    <html-separator></html-separator>
-    <h-file-upload
-      extensions="image/png"
-      :multiple="true"
-      @addFiles="onChange"
-    />
-    <prism language="html" :code="ex1"></prism>
 
-    <h1>IMAGE UPLOAD</h1>
-    <html-separator></html-separator>
-    <h-image-upload
-    :multiple="true"
-    :max-size="maxsize"
-     @addFiles="onChange"
-    />
-    <prism language="html" :code="ex2"></prism>
+    <comp-code class="h-mt-lg" title="Files" :code="ex1" :script="ex1Script"
+      javascript
+    >
+      <h-file-upload
+        extensions="image/png"
+        :multiple="true"
+        @addFiles="onChange"
+      />
+    </comp-code>
 
-    <h1>NO ALLOW DROP</h1>
-    <html-separator></html-separator>
-    <h-file-upload
+    <comp-code class="h-mt-lg" title="Images" :code="ex2" :script="ex2Script"
+      javascript
+    >
+      <h-image-upload
       :multiple="true"
+      :max-size="maxsize"
       @addFiles="onChange"
-      :allow-drop="false"
-    />
-    <h-image-upload
-      class="h-mt-sm"
-      :multiple="true"
-      @addFiles="onChange"
-      :allow-drop="false"
-    />
-    <prism language="html" :code="ex3"></prism>
+      />
+    </comp-code>
 
-    <pre v-highlightjs="vuefile">
-      <code class="html">
-      </code>
-    </pre>
+    <comp-code class="h-mt-lg" title="Area Drop Hidden" :code="ex3" :script="ex3Script"
+      javascript
+    >
+      <h-file-upload
+        :multiple="true"
+        @addFiles="onChange"
+        :allow-drop="false"
+      />
+      <h-image-upload
+        class="h-mt-sm"
+        :multiple="true"
+        @addFiles="onChange"
+        :allow-drop="false"
+      />
+    </comp-code>
 
     <h2 class="text-primary"> Vue Properties</h2>
     <hr>
@@ -88,24 +88,15 @@ export default {
   data () {
     return {
       fileList: [],
-      maxsize: 1024 * 500, // 500 bytes
+      maxsize: 1024 * 500,
       ex1: `
 <h-file-upload extensions="image/png" :multiple="true" @addFiles="onChange"/>
-      `,
-      ex2: `
-<h-image-upload :multiple="true" @addFiles="onChange" :max-size="maxsize"/>
-      `,
-      ex3: `
-<h-file-upload :multiple="true" @addFiles="onChange" :allow-drop="false" />
-
-<h-image-upload class="h-mt-sm" :multiple="true" @addFiles="onChange" :allow-drop="false" />
-      `,
-      vuefile: `
+`,
+      ex1Script: `
 export default {
   data () {
     return {
-      fileList: [],
-      maxsize: 1024 * 500 // 500 bytes
+      fileList: []
     }
   },
   methods: {
@@ -121,7 +112,58 @@ export default {
     }
   }
 }
-      `
+`,
+      ex2: `
+<h-image-upload :multiple="true" @addFiles="onChange" :max-size="maxsize"/>
+`,
+      ex2Script: `
+export default {
+  data () {
+    return {
+      fileList: [],
+      maxsize: 1024 * 500
+    }
+  },
+  methods: {
+    onChange (fileList) {
+      console.log('onChange fired')
+      fileList.forEach(file => {
+        console.log('FileName: ' + file.file.name + ' - FileSize:' + file.file.size)
+        console.log('File Type: ' + file.file.type)
+        console.log('FileSizeString: ' + file.fileSize)
+        let imageInfo = (file.imageData) ? 'has image data' : 'no image data'
+        console.log('ImageData: ' + imageInfo)
+      })
+    }
+  }
+}
+`,
+      ex3: `
+<h-file-upload :multiple="true" @addFiles="onChange" :allow-drop="false" />
+
+<h-image-upload class="h-mt-sm" :multiple="true" @addFiles="onChange" :allow-drop="false" />
+`,
+      ex3Script: `
+export default {
+  data () {
+    return {
+      fileList: []
+    }
+  },
+  methods: {
+    onChange (fileList) {
+      console.log('onChange fired')
+      fileList.forEach(file => {
+        console.log('FileName: ' + file.file.name + ' - FileSize:' + file.file.size)
+        console.log('File Type: ' + file.file.type)
+        console.log('FileSizeString: ' + file.fileSize)
+        let imageInfo = (file.imageData) ? 'has image data' : 'no image data'
+        console.log('ImageData: ' + imageInfo)
+      })
+    }
+  }
+}
+`
     }
   },
   methods: {

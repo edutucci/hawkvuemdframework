@@ -2,6 +2,11 @@
   <div>
     <h1>Collapsible</h1>
 
+    <!--
+      BUGS
+        - Adicionar evento click no h-collapsible-item
+    -->
+
     <comp-code title="standard" :code="ex1">
       <h-collapsible>
         <h-collapsible-menu icon="fas fa-film" text="Attractions">

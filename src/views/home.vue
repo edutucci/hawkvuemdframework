@@ -47,22 +47,21 @@
                 <h-collapsible-item text="Chips/InputChips" @click="$router.push('/chip'), $refs.nav.close()"/>
                 <h-collapsible-item text="Carousel" @click="$router.push('/carousel'), $refs.nav.close()"/>
                 <h-collapsible-item text="Collapsible" @click="$router.push('/collapsible'), $refs.nav.close()"/>
-                <h-collapsible-item text="Date" @click="$router.push('/datetime'), $refs.nav.close()"/>
+                <h-collapsible-item text="Date and Time" @click="$router.push('/datetime'), $refs.nav.close()"/>
                 <h-collapsible-item text="Drawer" @click="$router.push('/drawer'), $refs.nav.close()"/>
-                <h-collapsible-item text="Time" @click="$router.push('/time'), $refs.nav.close()"/>
                 <h-collapsible-item text="Icons" @click="$router.push('/icon'), $refs.nav.close()"/>
-                <h-collapsible-item text="List" @click="$router.push('/list'), $refs.nav.close()"/>
-                <h-collapsible-item text="Menu" @click="$router.push('/menu'), $refs.nav.close()"/>
-                <h-collapsible-item text="MenuSlider" @click="$router.push('/menuSlider'), $refs.nav.close()"/>
+                <h-collapsible-item text="List (atualizar help)" @click="$router.push('/list'), $refs.nav.close()"/>
+                <h-collapsible-item text="Menu (atualizar help)" @click="$router.push('/menu'), $refs.nav.close()"/>
+                <h-collapsible-item text="MenuSlider (atualizar help)" @click="$router.push('/menuSlider'), $refs.nav.close()"/>
                 <h-collapsible-item text="Mask" @click="$router.push('/mask'), $refs.nav.close()"/>
                 <h-collapsible-item text="Dialog" @click="$router.push('/dialog'), $refs.nav.close()"/>
                 <h-collapsible-item text="Radio" @click="$router.push('/radio'), $refs.nav.close()"/>
                 <h-collapsible-item text="Search" @click="$router.push('/search'), $refs.nav.close()"/>
                 <h-collapsible-item text="Select" @click="$router.push('/select'), $refs.nav.close()"/>
-                <h-collapsible-item text="Tab" @click="$router.push('/tab'), $refs.nav.close()"/>
-                <h-collapsible-item text="Table" @click="$router.push('/table'), $refs.nav.close()"/>
-                <h-collapsible-item text="Input" @click="$router.push('/input'), $refs.nav.close()"/>
-                <h-collapsible-item text="Toolbar" @click="$router.push('/toolbar'), $refs.nav.close()"/>
+                <h-collapsible-item text="Tab (atualizar help)" @click="$router.push('/tab'), $refs.nav.close()"/>
+                <h-collapsible-item text="Table (atualizar help)" @click="$router.push('/table'), $refs.nav.close()"/>
+                <h-collapsible-item text="Input (atualizar help)" @click="$router.push('/input'), $refs.nav.close()"/>
+                <h-collapsible-item text="Toolbar (atualizar help)" @click="$router.push('/toolbar'), $refs.nav.close()"/>
                 <h-collapsible-item text="Toggle" @click="$router.push('/toggle'), $refs.nav.close()"/>
                 <h-collapsible-item text="Video" @click="$router.push('/video'), $refs.nav.close()"/>
                 <h-collapsible-item text="Rating" @click="$router.push('/rating'), $refs.nav.close()"/>

@@ -1,7 +1,21 @@
 <template>
   <div>
 
-    <h3>List with String</h3>
+    <h3>Boolean</h3>
+    <div class="h-pa-sm border border-gray border-corner-rounded">
+      <div>
+        Do you agree to our terms and conditions?
+      </div>
+      <div>
+        <h-radio v-model="typeBoolean" text="Yes" :value="true"/>
+        <h-radio v-model="typeBoolean" text="No" :value="false"/>
+      </div>
+      <div>
+        I like of: {{ typeBoolean }}
+      </div>
+    </div>
+
+    <h3>String</h3>
     <div class="h-pa-sm border border-gray border-corner-rounded">
       <div>
         What type of movies do you like?"
@@ -17,7 +31,7 @@
       </div>
     </div>
 
-    <h3>List with Numbers</h3>
+    <h3>Numbers</h3>
     <div class="h-pa-sm border border-gray border-corner-rounded">
       <div>
         Wich number do you hate?
@@ -33,7 +47,7 @@
       </div>
     </div>
 
-    <h3>List with option checked</h3>
+    <h3>Option checked</h3>
     <div class="h-pa-sm border border-gray border-corner-rounded">
       <div>
         Select your gender
@@ -45,6 +59,19 @@
       </div>
     </div>
 
+    <h3>Ojects</h3>
+    <div class="h-pa-sm border border-gray border-corner-rounded">
+      <div>
+        Select yours favorite objects
+      </div>
+      <div>
+       <h-radio v-model="radioObjects" :text="radioObjectsOptions[0].name" :value="radioObjectsOptions[0]"/>
+       <h-radio v-model="radioObjects" :text="radioObjectsOptions[1].name" :value="radioObjectsOptions[1]" />
+       <h-radio v-model="radioObjects" :text="radioObjectsOptions[2].name" :value="radioObjectsOptions[2]" />
+       <div>Your objects: {{ radioObjects }}</div>
+      </div>
+    </div>
+
   </div>
 </template>
 
@@ -52,9 +79,16 @@
 export default {
   data () {
     return {
+      typeBoolean: false,
       typeMovie: '',
       typeNumber: 0,
-      gender: ''
+      gender: '',
+      radioObjects: '',
+      radioObjectsOptions: [
+        { id: 1, name: 'html' },
+        { id: 2, name: 'css' },
+        { id: 3, name: 'vuejs' }
+      ]
     }
   }
 }

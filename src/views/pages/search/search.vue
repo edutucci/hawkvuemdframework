@@ -1,8 +1,15 @@
 <template >
   <div>
     <h1>Search</h1>
-    <!-- <h-search @search="onSearch" ref="search" :options="options" v-model="model1"/> -->
-    <div>
+
+    <!--
+      BUGS
+      - o dropdown deve ter uma direcao automatica
+    -->
+
+    <comp-code class="h-mt-lg" title="Standard" :code="exsearch" :script="exsearchScript"
+      javascript
+    >
       <h-input :options="options"
         v-model="model1"
         search
@@ -10,22 +17,18 @@
         label=""
         display-mode="image"
         @input="onSearch"
-        bgcolor="bg-primary"
-        textcolor="text-white"
       />
-    </div>
-    <span>model: {{model1}}</span>
-    <div>
-      <h-btn contained bgcolor="bg-secondary" textcolor="text-white" text="secondary"/>
-    </div>
-    <prism language="html" :code="exsearch"></prism>
+      <div>
+        model: {{model1}}
+      </div>
+    </comp-code>
 
-    <h1>Drawing menu from bottom to top</h1>
+    <!-- <h1>Drawing menu from bottom to top</h1>
     <h-search @search="onSearch" ref="search2" :options="options" dtu/>
     <prism language="html" :code="exsearch2"></prism>
 
     <h1>Example</h1>
-    <prism language="javascript" :code="sample"></prism>
+    <prism language="javascript" :code="sample"></prism> -->
 
     <h2 class="text-primary"> Vue Properties</h2>
     <hr>
@@ -73,7 +76,7 @@
 
 <script>
 
-// import _ from 'lodash'
+import _ from 'lodash'
 
 export default {
   components: {
@@ -83,17 +86,24 @@ export default {
       model1: '',
       options: [],
       exsearch: `
-<h-search @search="onSearch" ref="search" :options="options"/>
-      `,
-      exsearch2: `
-<h-search @search="onSearch" ref="search2" :options="options" dtu/>      `,
-      sample: `
-
+<h-input :options="options"
+  v-model="model1"
+  search
+  input-icon="fas fa-search"
+  label=""
+  display-mode="image"
+  @input="onSearch"
+/>
+<div>
+  model: {{model1}}
+</div>
+`,
+      exsearchScript: `
 import _ from 'lodash'
-
 export default {
   data () {
     return {
+      model1: '',
       options: []
     }
   },
@@ -113,12 +123,12 @@ export default {
       this.options = this.options.filter(opt => _.includes(opt.text.toLowerCase(), query.toLowerCase()))
     }
   }
-      `
+}
+`
     }
   },
   methods: {
     onSearch (query) {
-      console.log('veio a query: ' + query)
       this.options = []
       this.options.push({ avatar: 'avatar/turtle.png', text: 'Ninja Turtle', desc: 'I kill you', value: 'Ninja Turtle' })
       this.options.push({ img: 'avatar/folder_open.jpeg', text: 'Photos', desc: 'Dez 12, 2017', value: 'Photos' })
@@ -130,7 +140,7 @@ export default {
       this.options.push({ img: 'avatar/folder_open.jpeg', text: 'Photos 3', desc: 'Dez 12, 2017', value: 'Photos' })
       this.options.push({ icon: 'fas fa-volleyball-ball', text: 'Attractions 3', desc: 'Lets go to the movie?', value: 'Attractions' })
 
-      // this.options = this.options.filter(opt => _.includes(opt.text.toLowerCase(), query.toLowerCase()))
+      this.options = this.options.filter(opt => _.includes(opt.text.toLowerCase(), query.toLowerCase()))
     }
   }
 }

@@ -2,7 +2,27 @@
   <div>
     <h1> Radio Buttons </h1>
 
-    <comp-code class="h-mt-lg" title="List with String" :code="rblist" :script="rblistScript"
+    <!--
+      ADD
+      - adicionar a property color para background quando estiver checked
+    -->
+
+    <comp-code class="h-mt-lg" title="Boolean" :code="rbboolean" :script="rbbooleanScript"
+      javascript
+    >
+      <div>
+        Do you agree to our terms and conditions?
+      </div>
+      <div>
+        <h-radio v-model="typeBoolean" text="Yes" :value="true"/>
+        <h-radio v-model="typeBoolean" text="No" :value="false"/>
+      </div>
+      <div>
+        I like of: {{ typeBoolean }}
+      </div>
+    </comp-code>
+
+    <comp-code class="h-mt-lg" title="String" :code="rblist" :script="rblistScript"
       javascript
     >
       <div>
@@ -19,7 +39,7 @@
       </div>
     </comp-code>
 
-    <comp-code class="h-mt-lg" title="List with Numbers" :code="rbnumber" :script="rbnumberScript"
+    <comp-code class="h-mt-lg" title="Numbers" :code="rbnumber" :script="rbnumberScript"
       javascript
     >
       <div>
@@ -36,7 +56,7 @@
       </div>
     </comp-code>
 
-    <comp-code class="h-mt-lg" title="List with option checked" :code="rbchecked" :script="rbcheckedScript"
+    <comp-code class="h-mt-lg" title="Option checked" :code="rbchecked" :script="rbcheckedScript"
       javascript
     >
       <div>
@@ -46,6 +66,20 @@
        <h-radio v-model="gender" text="Male" value="male" checked/>
        <h-radio v-model="gender" text="Female" value="female" />
        <div>Your gender is: {{ gender }}</div>
+      </div>
+    </comp-code>
+
+    <comp-code class="h-mt-lg" title="Objects" :code="rbobjects" :script="rbobjectsScript"
+      javascript
+    >
+      <div>
+        Select yours favorite objects
+      </div>
+      <div>
+       <h-radio v-model="radioObjects" :text="radioObjectsOptions[0].name" :value="radioObjectsOptions[0]"/>
+       <h-radio v-model="radioObjects" :text="radioObjectsOptions[1].name" :value="radioObjectsOptions[1]" />
+       <h-radio v-model="radioObjects" :text="radioObjectsOptions[2].name" :value="radioObjectsOptions[2]" />
+       <div>Your objects: {{ radioObjects }}</div>
       </div>
     </comp-code>
 
@@ -100,9 +134,37 @@ export default {
   },
   data () {
     return {
+      typeBoolean: false,
       typeMovie: '',
       typeNumber: 0,
       gender: '',
+      radioObjects: '',
+      radioObjectsOptions: [
+        { id: 1, name: 'html' },
+        { id: 2, name: 'css' },
+        { id: 3, name: 'vuejs' }
+      ],
+      rbboolean: `
+<div>
+  Do you agree to our terms and conditions?
+</div>
+<div>
+  <h-radio v-model="typeBoolean" text="Yes" :value="true"/>
+  <h-radio v-model="typeBoolean" text="No" :value="false"/>
+</div>
+<div>
+  I like of: {{ typeBoolean }}
+</div>
+`,
+      rbbooleanScript: `
+export default {
+  data () {
+    return {
+      typeBoolean: false
+    }
+  }
+}
+`,
       rblist: `
 <div>
   What type of movies do you like?
@@ -166,7 +228,32 @@ export default {
       gender: ''
     }
   }
-}      
+}
+`,
+      rbobjects: `
+<div>
+  Select yours favorite objects
+</div>
+<div>
+  <h-radio v-model="radioObjects" :text="radioObjectsOptions[0].name" :value="radioObjectsOptions[0]"/>
+  <h-radio v-model="radioObjects" :text="radioObjectsOptions[1].name" :value="radioObjectsOptions[1]" />
+  <h-radio v-model="radioObjects" :text="radioObjectsOptions[2].name" :value="radioObjectsOptions[2]" />
+  <div>Your objects: {{ radioObjects }}</div>
+</div>
+`,
+      rbobjectsScript: `
+export default {
+  data () {
+    return {
+      radioObjects: [],
+      radioObjectsOptions: [
+        { id: 1, name: 'html' },
+        { id: 2, name: 'css' },
+        { id: 3, name: 'vuejs' }
+      ]
+    }
+  }
+}
 `
     }
   }

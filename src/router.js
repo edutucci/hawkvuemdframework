@@ -24,29 +24,29 @@ export default new Router({
         { path: '/buttons', component: () => import('./views/pages/buttons/buttons') },
         { path: '/buttongroup', component: () => import('./views/pages/buttons/buttonGroup') },
         { path: '/icon', component: () => import('./views/pages/icon/icon') },
-        { path: '/input', component: () => import('./views/input') },
-        { path: '/search', component: () => import('./views/search') },
+        { path: '/input', component: () => import('./views/pages/input/input') },
+        { path: '/search', component: () => import('./views/pages/search/search') },
         { path: '/drawer', component: () => import('./views/pages/drawer/drawer') },
         { path: '/card', component: () => import('./views/pages/card/card') },
         { path: '/chip', component: () => import('./views/pages/chips/chips') },
-        { path: '/menu', component: () => import('./views/menu') },
-        { path: '/menuSlider', component: () => import('./views/menuSlider') },
+        { path: '/menu', component: () => import('./views/pages/menu/menu') },
+        { path: '/menuSlider', component: () => import('./views/pages/menu/menuSlider') },
         { path: '/mask', component: () => import('./views/mask') },
-        { path: '/list', component: () => import('./views/list') },
+        { path: '/list', component: () => import('./views/pages/list/list') },
         { path: '/collapsible', component: () => import('./views/pages/collapsible/collapsible') },
         { path: '/checkbox', component: () => import('./views/pages/checkbox/checkbox') },
         { path: '/radio', component: () => import('./views/pages/radio/radio') },
         { path: '/select', component: () => import('./views/pages/select/select') },
-        { path: '/tab', component: () => import('./views/tab') },
-        { path: '/table', component: () => import('./views/table') },
-        { path: '/toolbar', component: () => import('./views/toolbar') },
+        { path: '/tab', component: () => import('./views/pages/tab/tab') },
+        { path: '/table', component: () => import('./views/pages/table/table') },
+        { path: '/toolbar', component: () => import('./views/pages/toolbar/toolbar') },
         { path: '/dialog', component: () => import('./views/pages/dialog/dialog') },
         { path: '/datetime', component: () => import('./views/pages/datetime/datetime') },
         { path: '/toggle', component: () => import('./views/pages/toggle/toggle') },
         { path: '/video', component: () => import('./views/pages/video/video') },
         { path: '/snack', component: () => import('./views/plugins/snack') },
         { path: '/loading', component: () => import('./views/plugins/loading') },
-        { path: '/fileupload', component: () => import('./views/fileUpload') },
+        { path: '/fileupload', component: () => import('./views/pages/fileUpload/fileUpload') },
         { path: '/carousel', component: () => import('./views/pages/carousel/carousel') },
         { path: '/rating', component: () => import('./views/pages/rating/rating') },
         { path: '/palleteColor', component: () => import('./views/guide/MaterialDesignColor') }
@@ -58,7 +58,7 @@ export default new Router({
     },
     {
       path: '/example',
-      component: () => import('./views/examples/select')
+      component: () => import('./views/examples/radio')
     }
   ]
 })
