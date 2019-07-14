@@ -1,8 +1,6 @@
 <template>
-  <div v-if="isVisible" class="tab full-width  full-height">
-    <div class="h-pa-sm">
-      <slot></slot>
-    </div>
+  <div v-if="isVisible" class="bg-white full-width full-height scroll">
+    <slot></slot>
   </div>
 </template>
 

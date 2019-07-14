@@ -17,31 +17,29 @@
   border-radius: 5px;
 }
 
-.input-container.outline.rounded {
-  border-radius: 50px;
-}
+// .input-container.outline.rounded {
+//   border-radius: 50px;
+// }
 
-.input-container.filled {
-  border-radius: 0px;
-}
+// .input-container.filled {
+//   border-radius: 0px;
+// }
 
-.input-container.filled.outline.rounded {
-  border-radius: 50px;
-}
+// .input-container.filled.outline.rounded {
+//   border-radius: 50px;
+// }
 
-.input-container.outline.filled.rounded > .input-field-container {
-  margin-left: 20px;
-  margin-right: 20px;
-}
-
+.input-container.outline.filled.rounded > .input-field-container,
 .input-container.outline.rounded > .input-field-container {
-  margin-left: 20px;
-  margin-right: 20px;
+  margin-left: 6px;
+  margin-right: 6px;
 }
 
-.input-label {
-  font-size: 12px;
-  padding: 0px;
+.input-container.outline > .input-field-container,
+.input-container.outline.rounded > .input-field-container,
+.input-container.filled > .input-field-container {
+  margin-left: 6px;
+  margin-right: 6px;
 }
 
 /*
@@ -53,7 +51,7 @@
   outline: none;
   z-index:0;
   background:none;
-  height: 25px;
+  font-size: 12px;
 }
 
 /*
@@ -114,6 +112,10 @@
   border-radius: 50%;
 }
 
+.btn.rounded {
+  border-radius: 50px;
+}
+
 .btn.outlinedbtn, .btngroup.outlinedbtn {
   border: 1px solid lightgray;
   border-radius: 5px;
@@ -122,6 +124,11 @@
 .btn.outlinedbtn.rounded {
   border: 1px solid lightgray;
   border-radius: 50px;
+}
+
+.btn.containedbtn.disabled {
+  color: gray;
+  background-color: lightgray;
 }
 
 .btn.outlinedbtn.disabled {
@@ -134,10 +141,6 @@ END BUTTONS
 
 .circle {
   border-radius: 50%;
-}
-
-.rounded {
-  border-radius: 50px;
 }
 
 
@@ -155,7 +158,6 @@ END BUTTONS
 .tab {
   display:inline-block;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  border-radius: 2px;
 }
 
 .title {
@@ -265,23 +267,25 @@ a {
 /*
 POPUP MENUS
 */
-
-.dropdown {
-  position: relative;
+.shadow {
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); border-radius: 5px;
 }
 
-.dropdown-menu {
+.dropdown {
+  display: inline-block;
+  z-index: 1500;
+}
+
+.dropdown-content {
   position: absolute;
-  background-color: white;
-  min-width: 250px;
-  max-height: 320px;
-  overflow-y: auto;
-  z-index: 1650;
+  z-index: 1600;
+  overflow-y: auto
   cursor: pointer;
+  padding: 4px;
 }
 
 .menu-item-padding {
-  padding: 8px 0px;   
+  padding: 6px 0px;   
 }
 
 .menu-item-content-padding {

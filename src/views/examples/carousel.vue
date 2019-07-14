@@ -21,6 +21,24 @@
         <h-carousel-slider title="Soccer Game" subtitle="Great Moments">
           <img src="img/90minute.png" class="full-size"/>
         </h-carousel-slider>
+        <h-carousel-slider title="Elegant River" subtitle="Nice Place">
+          <img src="img/mountains.jpg"  class="full-size"/>
+        </h-carousel-slider>
+        <h-carousel-slider title="Nallah" subtitle="Landscape">
+          <img src="img/Nallah_Sindh.jpg" class="full-size"/>
+        </h-carousel-slider>
+        <h-carousel-slider title="Soccer Game" subtitle="Great Moments">
+          <img src="img/90minute.png" class="full-size"/>
+        </h-carousel-slider>
+        <h-carousel-slider title="Elegant River" subtitle="Nice Place">
+          <img src="img/mountains.jpg"  class="full-size"/>
+        </h-carousel-slider>
+        <h-carousel-slider title="Nallah" subtitle="Landscape">
+          <img src="img/Nallah_Sindh.jpg" class="full-size"/>
+        </h-carousel-slider>
+        <h-carousel-slider title="Soccer Game" subtitle="Great Moments">
+          <img src="img/90minute.png" class="full-size"/>
+        </h-carousel-slider>
       </h-carousel>
     </div>
 

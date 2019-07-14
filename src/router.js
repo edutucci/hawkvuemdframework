@@ -49,7 +49,8 @@ export default new Router({
         { path: '/fileupload', component: () => import('./views/pages/fileUpload/fileUpload') },
         { path: '/carousel', component: () => import('./views/pages/carousel/carousel') },
         { path: '/rating', component: () => import('./views/pages/rating/rating') },
-        { path: '/palleteColor', component: () => import('./views/guide/MaterialDesignColor') }
+        { path: '/palleteColor', component: () => import('./views/guide/MaterialDesignColor') },
+        { path: '/scroll', component: () => import('./views/pages/scroll/scroll') }
       ]
     },
     {
@@ -58,7 +59,7 @@ export default new Router({
     },
     {
       path: '/example',
-      component: () => import('./views/examples/radio')
+      component: () => import('./views/examples/input')
     }
   ]
 })

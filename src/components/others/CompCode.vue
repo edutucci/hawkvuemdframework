@@ -7,7 +7,7 @@
         h-fa-icon(icon="far fa-file-code" @click="changePage('result')")
         h-fa-icon.h-ml-sm(icon="fas fa-code" @click="changePage('template')")
         h-fa-icon.h-ml-sm(v-if="javascript" icon="fab fa-js" @click="changePage('javascript')")
-    .flex.flex-column.position-relative
+    .flex.flex-column.bg-white.border-corner-rounded.position-relative
       div.h-pa-sm(v-if="pageName === 'result'")
         slot
       div.position-relative(v-if="pageName === 'template'")

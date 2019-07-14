@@ -19,16 +19,28 @@
             strong.text-white {{subtitle}}
       .row.flex.flex-justify-center.h-mb-md
         .carousel-navigation-container
-          swiper(:options="swiperOption")
-            swiper-slide(
-              v-for="(slider, index) in sliderList"
-              :key="index"
-              class="overflow-hidden"
-            )
-              h-fa-icon.h-mr-xs.text-white(
+          h-scroll-navigator(
+            icon-color="text-white"
+          )
+            .flex
+              h-fa-icon.h-mr-lg(
+                textcolor="text-white"
+                v-for="(slider, index) in sliderList"
+                :key="index"
                 :icon="sliderIcon(index)"
                 @click="selectSlider(slider, index)"
               )
+        //- .carousel-navigation-container
+        //-   swiper(:options="swiperOption")
+        //-     swiper-slide(
+        //-       v-for="(slider, index) in sliderList"
+        //-       :key="index"
+        //-       class="overflow-hidden"
+        //-     )
+        //-       h-fa-icon.h-mr-xs.text-white(
+        //-         :icon="sliderIcon(index)"
+        //-         @click="selectSlider(slider, index)"
+        //-       )
 
 </template>
 
@@ -46,21 +58,6 @@ export default {
       sliderList: [],
       currentSlider: undefined,
       currentIndex: undefined,
-      swiperOption: {
-        slidesPerView: 5,
-        spaceBetween: 3,
-        slidesPerGroup: 1,
-        loop: true,
-        freeMode: true,
-        pagination: {
-          el: '.swiper-pagination',
-          clickable: true
-        },
-        navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev'
-        }
-      },
       title: '',
       subtitle: ''
     }
@@ -68,7 +65,6 @@ export default {
   mounted () {
     if (this.sliderList && this.sliderList.length) {
       this.selectSlider(this.sliderList[0], 0)
-      this.swiperOption.slidesPerView = this.sliderList.length
     }
   },
   methods: {

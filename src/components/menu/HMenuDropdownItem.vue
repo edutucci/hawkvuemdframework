@@ -1,15 +1,17 @@
 <template  lang="pug">
-  .flex.menu-item-padding(
-    :class="[bgcolor]"
-    @click="onClick"
+  div(
   )
-    .menu-item-content-padding
-      h-fa-icon(:icon="icon")
-
-    .flex-1.menu-item-content-padding(
-      :class="[textcolor]"
+    .flex.menu-item-padding(
+      :class="[bgcolor]"
+      @click="onClick"
     )
-      | {{text}}
+      .menu-item-content-padding
+        h-fa-icon(:icon="icon")
+
+      .flex-1.text-subtitle1.menu-item-content-padding(
+        :class="[textcolor]"
+      )
+        | {{text}}
 
 </template>
 

@@ -4,14 +4,7 @@ import './css/fontawesome-free-5.3.1-web/css/all.css'
 import Components from './components'
 import Plugins from './plugins'
 
-import Vue from 'vue'
-
-import VueAwesomeSwiper from 'vue-awesome-swiper'
-import 'swiper/dist/css/swiper.css'
-
 // import Prism from 'vue-prismjs'
-
-Vue.use(VueAwesomeSwiper)
 // Vue.use(Prism)
 
 // import { library } from '@fortawesome/fontawesome-svg-core'

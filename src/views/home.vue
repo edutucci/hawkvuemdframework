@@ -1,6 +1,6 @@
 <template lang="pug">
-  h-page
-    h-page-header(fixed)
+  h-main-body.window-height
+    h-page-header
       h-app-toolbar
         h-app-toolbar-container(bgcolor="bg-primary" textcolor="text-white")
           h-app-toolbar-navigation(icon="fas fa-bars" textcolor="text-white" @click="showDrawer = true")
@@ -84,10 +84,10 @@
       </div>
     </h-nav-drawer>
 
-    h-page-content(style="margin-top: 62px; margin-bottom: 115px")
+    h-main-page
       router-view
 
-    h-page-footer(fixed)
+    h-page-footer
       .flex.flex-justify-center.flex-items-center.bg-primary.text-white(style="height: 60px")
         H3 HawkFramework Page Footer
 

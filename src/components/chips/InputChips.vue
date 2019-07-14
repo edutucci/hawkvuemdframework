@@ -219,14 +219,12 @@ export default {
 <style scoped>
 .textfield-container {
   position:relative;
-  padding-top: 2px;
-  padding-bottom: 2px;
+  /* padding-top: 2px;
+  padding-bottom: 2px; */
 }
 
 .input-container {
   position:relative;
-  padding-top: 2px;
-  padding-bottom: 0px;
 }
 
 .input-container.outline {
@@ -243,11 +241,10 @@ export default {
   border-style:none;
   outline: none;
   z-index:0;
-  padding-top: 2px;
 }
 
-.h-icon {
+/* .h-icon {
   padding: 8px;
-}
+} */
 
 </style>

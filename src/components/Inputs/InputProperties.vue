@@ -41,7 +41,7 @@ export default {
       type: String,
       default: ''
     },
-    outline: {
+    outlined: {
       type: Boolean,
       default: false
     },

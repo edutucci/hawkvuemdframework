@@ -1,9 +1,10 @@
 <template>
-  <div>
+  <h-page-content>
     <h1>Buttons</h1>
     <comp-code title="Contained Buttons" :code="containedButtons">
       <div>
         <div>
+          <h-btn contained bgcolor="bg-white" textcolor="text-black" text="disabled" left-icon="fas fa-envelope" disabled/>
           <h-btn contained bgcolor="bg-white" textcolor="text-black" text="white" left-icon="fas fa-envelope"/>
           <h-btn contained rounded bgcolor="bg-primary" textcolor="text-white" text="primary" right-icon="fas fa-envelope"/>
           <h-btn contained rounded bgcolor="bg-secondary" textcolor="text-white" text="secondary"/>
@@ -255,7 +256,7 @@
       </div>
     </div>
 
-  </div>
+  </h-page-content>
 </template>
 
 <script>

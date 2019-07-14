@@ -1,71 +1,38 @@
 <template>
   <div>
-    <!-- <h1>Input Container</h1> -->
-    <!-- <html-separator/> -->
 
-    <!-- <h-input-container
-      rounded
-      filled
-    >
-      CONTAINER IMPLEMENTING
-    </h-input-container> -->
+    <!--
+      Add
+      - add event @rightIconClick for aditional input icon click
+      - add rightIcon property
 
-    <!-- <html-separator/>
-    <h1>Input Field</h1>
-    <html-separator/>
+      Bugs
+        - property helper-text is not working
+        - property error-message is not working
+        - property text-center is not working
+        - change property cleartext to clearble
+        - change property outline to outlined
+        - property maxlength is not working
+        - property text-counter is not working
+        - add property readonly
+        - dont aply border rounded for rounded property only
+        - fix margin left and right for outlined and rounded
+        - fix margin left and right for filled and rounded
+    -->
 
-    <h-input-field
-      filled
-      label="Nome"
-      left-icon="fas fa-phone"
-      v-model="txtName"
-    />
+    <h3>Input</h3>
 
-    <html-separator/> -->
-    <!-- <div class="border-bottom border-info border-1 text-positive">A div element with a double bottom border.</div> -->
+    <comp-code class="h-mt-lg" title="Types" :code="txttypes">
+      <h-input v-model="txtName" label="Standard" placeholder="Type something" cleartext/>
 
-    <h1>Input</h1>
-    <h1>Standard</h1>
-    <html-separator/>
-    <div class="col-6">
-      <h-input label="" v-model="txtName" placeholder="" cleartext/>
-    </div>
-    <span>Name: {{ txtName }}</span>
+      <h-input type="password" v-model="txtName" label="Password"
+        left-icon="fas fa-key" placeholder="type your password" cleartext/>
 
-    <prism language="html" :code="txttextcomp"></prism>
-
-    <h1> Filled</h1>
-    <html-separator/>
-    <div class="col-6">
-      <h-input type="password" right-icon="fas fa-lock" filled label="Password" v-model="txtPassword" placeholder="type your password" />
-      <span>Password: {{ txtPassword }}</span>
-    </div>
-
-    <prism language="html" :code="txtpasswordcomp"></prism>
-
-    <h1>Outline</h1>
-    <html-separator/>
-    <div class="col-6">
-      <h-input outline error-message="error message" left-icon="fas fa-birthday-cake" right-icon="fas fa-calendar-alt" helper-text="helper text"
-        :maxlength="10" :text-counter="10"  v-model="txtName2"
-        label="Name" cleartext text-center
-        @rightIconClick="showDate()"
-      />
-      <span>Name: {{ txtName2 }}</span>
-    </div>
-
-    <prism language="html" :code="txtoutlined"></prism>
-
-    <h1>Rounded</h1>
-    <html-separator/>
-    <div class="col-6 h-mt-md">
-      <h-input outline rounded error-message="error message" left-icon="fas fa-birthday-cake" right-icon="fas fa-calendar-alt" helper-text="helper text"
-        :maxlength="10" :text-counter="10"  v-model="txtName2"
-        label="Name" cleartext text-center
-      />
-      <span>Name: {{ txtName2 }}</span>
-    </div>
-    <prism language="html" :code="txtrounded"></prism>
+      <h-input outlined v-model="txtName" label="Outlined" />
+      <h-input outlined rounded v-model="txtName" label="Outlined and Rounded"/>
+      <h-input filled v-model="txtName" label="Filled" />
+      <h-input filled rounded  v-model="txtName" label="Filled and Rounded"/>
+    </comp-code>
 
     <h1>Key Events</h1>
     <html-separator/>
@@ -94,7 +61,7 @@
       <h-input
         filled
         rounded
-        outline
+        outlined
         class="full-width"
         v-model="form.name"
         label="Name"
@@ -105,7 +72,7 @@
         @onEnter="$refs.city.focus()"
       />
       <h-input
-        outline
+        outlined
         class="full-width"
         v-model="form.city"
         label="City"
@@ -118,7 +85,7 @@
         @blur="onBlur"
       />
       <h-input
-        outline
+        outlined
         rounded
         class="full-width"
         v-model="form.city"
@@ -150,7 +117,7 @@
         <div>maxlength</div>
         <div>text-counter</div>
         <div>text-center</div>
-        <div>outline</div>
+        <div>outlined</div>
         <div>clearable</div>
         <div>readonly</div>
       </div>
@@ -180,7 +147,7 @@
         <div>Specifies the maximum number of character for an input</div>
         <div>Specifies the quantity of character of the input</div>
         <div>Sets the text align to the center</div>
-        <div>Sets the input to outline mode</div>
+        <div>Sets the input to outlined mode</div>
         <div>Shows the icon to clear input on right side</div>
         <div>Input can not be modified</div>
       </div>
@@ -230,44 +197,24 @@ export default {
   },
   data () {
     return {
-      txtName: 'Eduardo',
-      txtName2: 'text align center',
-      txtPassword: 'Password',
+      txtName: 'Input types',
       focused: false,
       form: {
         code: '',
         name: '',
         city: ''
       },
-      txttextcomp: `
-<h-input float-label="Name" v-model="txtName" placeholder="" cleartext/>
-<span>Name: {{ txtName }}</span>
-      `,
-      txtpasswordcomp: `
-<h-input type="password" float-label="Password" v-model="txtPassword" placeholder="type your password"/>
-<span>Password: {{ txtPassword }}</span>     
-      `,
-      txtoutlined: `
-<h-input error-label="error label" left-icon="fas fa-home" helper-text="helper text"
-  :maxlength="10" :text-counter="10"  v-model="txtName2"
-  float-label="Name" outlined cleartext
-/>
-<span>Name: {{ txtName2 }}</span>
-      `,
-      txtrounded: `
-<div class="col-6">
-  <h-input type="password" right-icon="fas fa-lock" filled rounded float-label="Password" v-model="txtPassword" placeholder="type your password" />
-  <span>Password: {{ txtPassword }}</span>
-</div>
+      txttypes: `
+<h-input v-model="txtName" label="Standard" placeholder="Type something" cleartext/>
 
-<div class="col-6 h-mt-md">
-  <h-input outlined rounded error-label="error label" left-icon="fas fa-birthday-cake" right-icon="fas fa-calendar-alt" helper-text="helper text"
-    :maxlength="10" :text-counter="10"  v-model="txtName2"
-    float-label="Name" cleartext text-center
-  />
-  <span>Name: {{ txtName2 }}</span>
-</div>
-      `,
+<h-input type="password" v-model="txtName" label="Password"
+  left-icon="fas fa-key" placeholder="type your password" cleartext/>
+
+<h-input outlined v-model="txtName" label="Outlined" />
+<h-input outlined rounded v-model="txtName" label="Rounded"/>
+<h-input filled v-model="txtName" label="Filled" />
+<h-input filled rounded  v-model="txtName" label="Filled and Rounded"/>
+`,
       txtkeys: `
 <div class="col-6">
   <strong>Arrow Down, Tab or Enter. Enter works as tab</strong>
@@ -304,7 +251,6 @@ export default {
   },
   methods: {
     onKeyDown () {
-      console.log('keydown')
       this.$SnackBar.create({
         message: 'Keydown key',
         textcolor: 'text-white',
@@ -312,7 +258,6 @@ export default {
       })
     },
     onKeyTab () {
-      console.log('tab')
       this.$SnackBar.create({
         message: 'Tab key',
         textcolor: 'text-white',
@@ -320,7 +265,6 @@ export default {
       })
     },
     onEnter () {
-      console.log('enter')
       this.$SnackBar.create({
         message: 'Enter key',
         textcolor: 'text-white',
@@ -328,7 +272,6 @@ export default {
       })
     },
     onChange (value) {
-      console.log('field change: ' + value)
       this.$SnackBar.create({
         message: 'field change: ' + value,
         textcolor: 'text-white',
@@ -336,11 +279,11 @@ export default {
       })
     },
     onBlur () {
-      console.log('blur event')
-    },
-    showDate () {
-      console.log('rightIcon in action')
-      this.txtName2 = 'testando edit'
+      this.$SnackBar.create({
+        message: 'Blur event ',
+        textcolor: 'text-white',
+        bgcolor: 'bg-positive'
+      })
     }
   }
 }

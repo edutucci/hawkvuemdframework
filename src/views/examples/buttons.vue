@@ -1,8 +1,9 @@
 <template>
-  <div>
+  <h-page>
     <h3>Contained Buttons</h3>
     <div class="h-pa-sm border border-gray border-corner-rounded">
       <div>
+        <h-btn contained bgcolor="bg-white" textcolor="text-black" text="disabled" left-icon="fas fa-envelope" disabled/>
         <h-btn contained bgcolor="bg-white" textcolor="text-black" text="white" left-icon="fas fa-envelope"/>
         <h-btn contained rounded bgcolor="bg-primary" textcolor="text-white" text="primary" right-icon="fas fa-envelope"/>
         <h-btn contained rounded bgcolor="bg-secondary" textcolor="text-white" text="secondary"/>
@@ -139,7 +140,7 @@
       </h-btn>
     </div>
 
-  </div>
+  </h-page>
 </template>
 
 <script>

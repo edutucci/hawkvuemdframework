@@ -3,7 +3,8 @@
     .flex.flex-items-center.bg-modal.circle.btn(
       style="diplay:inline-block; width: 24px; height: 24px;"
     )
-      h-fa-icon.text-white(
+      h-fa-icon(
+        textcolor="text-white"
         :icon="icon"
         @click="onClick"
         size="36px"

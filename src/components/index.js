@@ -73,7 +73,8 @@ import HInput from './Inputs/HInput.vue'
 import HInputPlusMinus from './Inputs/InputPlusMinus.vue'
 import HInputMask from './Inputs/InputMask.vue'
 import HToggle from './checkbox/Toggle'
-import HPage from './page/Page.vue'
+import HMainBody from './page/MainBody.vue'
+import HMainPage from './page/MainPage.vue'
 import HPageContent from './page/PageContent.vue'
 import HPageHeader from './page/PageHeader.vue'
 import HPageFooter from './page/PageFooter.vue'
@@ -81,6 +82,7 @@ import HYoutubeVideo from './video/YoutubeVideo.vue'
 import HtmlLink from './html/HtmlLink.vue'
 import HtmlSeparator from './html/HtmlSeparator.vue'
 import HtmlArticle from './html/HtmlArticle.vue'
+import HScrollNavigator from './scroll/ScrollNavigator'
 
 const Components = {
   CompCode,
@@ -156,14 +158,16 @@ const Components = {
   HInputPlusMinus,
   HInputMask,
   HToggle,
-  HPage,
+  HMainBody,
+  HMainPage,
   HPageContent,
   HPageHeader,
   HPageFooter,
   HYoutubeVideo,
   HtmlLink,
   HtmlArticle,
-  HtmlSeparator
+  HtmlSeparator,
+  HScrollNavigator
 }
 
 Object.keys(Components).forEach(name => {

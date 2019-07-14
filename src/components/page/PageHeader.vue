@@ -1,5 +1,5 @@
 <template>
-  <header :class="{'top-left-fixed': fixed, 'full-width': fixed, 'z-header-index': fixed}">
+  <header style="z-index: 1000;">
     <slot></slot>
   </header>
 </template>
@@ -21,9 +21,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-.z-header-index {
-  z-index: 1500;
-}
-</style>

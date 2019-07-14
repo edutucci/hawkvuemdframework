@@ -3,8 +3,8 @@
     div(
       v-if="contained"
       @click="onClick"
-      class="btn flex flex-items-center full-width"
-      :class="[bgcolor, textcolor, {'boxshadow': !transparent, rounded: rounded }]"
+      class="btn containedbtn flex flex-items-center full-width"
+      :class="[bgcolor, textcolor, { disabled: disabled,'boxshadow': !transparent, rounded: rounded }]"
       style="position: relative;"
       :style="[btnObject]"
     )

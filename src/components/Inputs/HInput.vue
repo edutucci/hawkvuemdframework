@@ -5,12 +5,12 @@
     :label="label"
     :errorMessage="errorMessage"
     :helperText="helperText"
-    :outline="outline"
+    :outlined="outlined"
     :filled="filled"
     :rounded="rounded"
     :leftIcon="leftIcon"
   )
-    .flex.flex-column.full-width(v-on-clickaway="away")
+    .flex.flex-column.full-width.dropdown(v-on-clickaway="away")
       div(
         v-if="this.chips"
         @click="focus"
@@ -25,14 +25,15 @@
           @onClose="closeChip(index)"
         )
       .flex
-        .flex-1
+        .flex.flex-1.flex-column.h-mr-sm
           h-input-field(
+            :id="inputId"
             :class="[{'text-center': textCenter}]"
             v-model="inputDisplay"
             :type="inputtype"
             :readonly="readonly"
             :rounded="rounded"
-            :outline="outline"
+            :outlined="outlined"
             :filled="filled"
             :textCenter="textCenter"
             :focused="focused"
@@ -48,36 +49,37 @@
             @click="onClick"
           )
         .flex.flex-items-center
-          h-fa-icon(:icon="inputIcon" style="padding: 6px")
-      div.bg-white.full-width.dropdown-menu.boxshadow.border-corner-rounded(
-        :style="{left: left, right: right, bottom: bottom}"
-      )
-        div.flex.flex-items-center.menu-item(
-          :class="[inputContainerColor]"
-          v-for="(option, index) in options"
-          :key="index"
-          @click="onSelectItem(option)"
-          v-if="magic_flag"
-        )
-          .flex.full-width.menu-item-padding(v-if="selectSingle")
-            div(v-if="displayMode ==='icon'")
-              h-fa-icon.menu-item-content-padding(:icon="option.icon")
-            div(v-if="displayMode ==='avatar'")
-              h-avatar.menu-item-content-padding(:src="option.avatar")
-            div(v-if="displayMode ==='image'")
-              img.menu-item-content-padding(:src="option.img" style="width:32px; height:32px;")
-            div.flex-1.menu-item-content-padding  {{option.text}}
-          .flex.full-width(v-else-if="multiSelect")
-            h-checkbox.h-pl-md(v-model="multiselectItem" :text="option.text" :value="option.value" @change="onSelectItem")
-          .flex.full-width.menu-item-padding(v-else-if="search")
-            h-fa-icon.menu-item-content-padding(v-if="option.icon && option.icon.length" :icon="option.icon" size="32x" style="color: gray")
-            h-avatar.menu-item-content-padding(v-else-if="option.avatar && option.avatar.length > 0" :src="option.avatar" style="width:32px; height:32px;")
-            img.menu-item-content-padding(v-else-if="option.img && option.img.length > 0" :src="option.img" style="width:32px; height:32px;")
-            .flex-1.flex-column.overflow-hidden.menu-item-content-padding
-              .title
-                strong {{option.text}}
-              .subtitle.flex.flex-wrap
-                strong {{option.desc}}
+          h-fa-icon(:icon="inputIcon")
+      //- div.bg-white.full-width.dropdown-content.shadow(
+      //-   :style="{right: right, bottom: bottom}"
+      //-   v-if="showdropdown"
+      //-   :id="dropMenuId"
+      //- )
+      //-   div.flex.flex-items-center(
+      //-     :class="[inputContainerColor]"
+      //-     v-for="(option, index) in options"
+      //-     :key="index"
+      //-     @click="onSelectItem(option)"
+      //-   )
+      //-     .flex.full-width.menu-item-padding(v-if="selectSingle")
+      //-       div(v-if="displayMode ==='icon'")
+      //-         h-fa-icon.menu-item-content-padding(:icon="option.icon")
+      //-       div(v-if="displayMode ==='avatar'")
+      //-         h-avatar.menu-item-content-padding(:src="option.avatar")
+      //-       div(v-if="displayMode ==='image'")
+      //-         img.menu-item-content-padding(:src="option.img" style="width:32px; height:32px;")
+      //-       div.flex-1.menu-item-content-padding  {{option.text}}
+      //-     .flex.full-width(v-else-if="multiSelect")
+      //-       h-checkbox.h-pl-md(v-model="multiselectItem" :text="option.text" :value="option.value" @change="onSelectItem")
+      //-     .flex.full-width.menu-item-padding(v-else-if="search")
+      //-       h-fa-icon.menu-item-content-padding(v-if="option.icon && option.icon.length" :icon="option.icon" size="32x" style="color: gray")
+      //-       h-avatar.menu-item-content-padding(v-else-if="option.avatar && option.avatar.length > 0" :src="option.avatar" style="width:32px; height:32px;")
+      //-       img.menu-item-content-padding(v-else-if="option.img && option.img.length > 0" :src="option.img" style="width:32px; height:32px;")
+      //-       .flex-1.flex-column.overflow-hidden.menu-item-content-padding
+      //-         .title
+      //-           strong {{option.text}}
+      //-         .subtitle.flex.flex-wrap
+      //-           strong {{option.desc}}
 </template>
 
 <script>
@@ -85,6 +87,8 @@ import { mixin as clickaway } from 'vue-clickaway'
 import { mixin as focusMixin } from 'vue-focus'
 import InputProperties from './InputProperties'
 import _ from 'lodash'
+import uuidv1 from 'uuid/v1'
+import viewport from '../others/viewport'
 
 export default {
   extends: InputProperties,
@@ -101,13 +105,14 @@ export default {
   },
   data () {
     return {
+      inputId: uuidv1(),
+      dropMenuId: uuidv1(),
       inputtype: '',
       inputDisplay: '',
       focused: false,
       inputContainerColor: '',
       inputContainerTextColor: '',
-      magic_flag: false,
-      left: '0px',
+      showdropdown: false,
       right: '',
       bottom: '',
       multiselectItem: [],
@@ -188,7 +193,7 @@ export default {
     onInput (value) {
       // console.log('value onInput in h-input:', value)
       if (this.search) {
-        this.magic_flag = true
+        this.showdropdown = true
       }
       this.inputDisplay = value
       if (!this.chips) {
@@ -207,11 +212,35 @@ export default {
     // },
     focus () {
       this.focused = true
-      if (this.selectSingle || this.multiSelect) {
-        this.magic_flag = true
-      }
       this.inputContainerColor = 'bg-white'
       this.inputContainerTextColor = 'text-primary'
+
+      if (this.selectSingle || this.multiSelect) {
+        this.onClick()
+      }
+    },
+    checkViewport () {
+      this.showdropdown = true
+      this.bottom = ''
+      console.log('this.showdropdown:', this.showdropdown)
+
+      this.$nextTick(() => {
+        let input = document.getElementById(this.inputId)
+        let dropMenu = document.getElementById(this.dropMenuId)
+        // let container = document.getElementById(this.containerid)
+        if (input && dropMenu) {
+          if (viewport.elementBelowOfPage(dropMenu)) {
+            // console.log('abaixo da tela:', JSON.stringify(rectDropMenu))
+            // let rectInput = input.getClientRects()
+            // let rectDropMenu = dropMenu.getClientRects()
+            // let bottomMenu = rectDropMenu['0'].bottom
+            // let menuHeight = rectDropMenu['0'].height
+            // let inputHeight = rectInput['0'].height
+            // let result = bottomMenu + menuHeight + inputHeight
+            this.bottom = '30px'
+          }
+        }
+      })
     },
     blur () {
       this.focused = false
@@ -220,7 +249,7 @@ export default {
     },
     onKeyDown () {
       if (this.search) {
-        this.magic_flag = true
+        this.showdropdown = true
       } else {
         this.$emit('onKeyDown')
       }
@@ -248,10 +277,13 @@ export default {
       this.$emit('onEscape')
     },
     onClick () {
+      if (this.selectSingle || this.multiSelect) {
+        this.checkViewport()
+      }
       this.$emit('onClick')
     },
     away () {
-      this.magic_flag = false
+      this.showdropdown = false
     },
     onSelectItem (option) {
       if (!this.multiSelect) {
