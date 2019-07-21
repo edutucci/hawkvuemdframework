@@ -1,27 +1,28 @@
 <template lang="pug">
-  .flex.flex-column.full-width.border.border-gray.border-corner-rounded
-    .flex.h-pa-md.bg-gray100.border-corner-rounded
-      .flex-1.text-bold
-        | {{title}}
-      .flex
-        h-fa-icon(icon="far fa-file-code" @click="changePage('result')")
-        h-fa-icon.h-ml-sm(icon="fas fa-code" @click="changePage('template')")
-        h-fa-icon.h-ml-sm(v-if="javascript" icon="fab fa-js" @click="changePage('javascript')")
-    .flex.flex-column.bg-white.border-corner-rounded.position-relative
-      div.h-pa-sm(v-if="pageName === 'result'")
-        slot
-      div.position-relative(v-if="pageName === 'template'")
-        .top-right-absolute.h-mr-sm.h-mt-md.buttoncopycode
-          h-fa-icon(icon="far fa-copy" textcolor="text-primary" @click="copyCodeToClipboard")
-        prism(language="html" :code="code")
-      div.position-relative(v-if="pageName === 'javascript'")
-        .top-right-absolute.h-mr-sm.h-mt-md.buttoncopycode
-          h-fa-icon(icon="far fa-copy" textcolor="text-primary" @click="copyCodeToClipboard")
-        prism(language="javascript" :code="script")
-      .divcopycode.top-left-absolute.full-size.h-mt-sm(
-        v-if="pageName === 'template' || pageName === 'javascript'"
-      )
-        textarea(:value="textareaCode" :id="textareaId" style="height: 86%; width: 98%;")
+  .flex.border.border-gray.border-radius
+    .flex.flex-column.full-width
+      .flex.h-pa-md.bg-gray100
+        .flex-1.text-bold
+          | {{title}}
+        .flex
+          h-fa-icon(icon="far fa-file-code" @click="changePage('result')")
+          h-fa-icon.h-ml-sm(icon="fas fa-code" @click="changePage('template')")
+          h-fa-icon.h-ml-sm(v-if="javascript" icon="fab fa-js" @click="changePage('javascript')")
+      .flex.flex-column.full-width.bg-white.position-relative
+        div.h-pa-sm(v-if="pageName === 'result'")
+          slot
+        div.position-relative(v-if="pageName === 'template'" style="min-height: 40px;")
+          .top-right-absolute.h-mr-sm.h-mt-md.buttoncopycode
+            h-fa-icon(icon="far fa-copy" textcolor="text-primary" @click="copyCodeToClipboard")
+          prism(language="html" :code="code")
+        div.position-relative(v-if="pageName === 'javascript'")
+          .top-right-absolute.h-mr-sm.h-mt-md.buttoncopycode
+            h-fa-icon(icon="far fa-copy" textcolor="text-primary" @click="copyCodeToClipboard")
+          prism(language="javascript" :code="script")
+        .divcopycode.top-left-absolute.full-size.h-mt-sm(
+          v-if="pageName === 'template' || pageName === 'javascript'"
+        )
+          textarea(:value="textareaCode" :id="textareaId" style="height: 86%; width: 98%;")
 
 </template>
 

@@ -67,7 +67,7 @@
               </div>
             </div>
           </div>
-          <div v-if="file.imageData" class="auto-size h-ma-sm">
+          <div v-if="file.imageData" class="inline-block h-ma-sm">
             <img :src="file.imageData" :alt="file.file.name" style="width:150px; height: 100px"/>
           </div>
           <div class="flex flex-items-center h-ma-sm">

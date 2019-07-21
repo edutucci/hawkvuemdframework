@@ -10,36 +10,32 @@
   margin-right: 5px;
 }
 
-.input-container.outline {
+.input-container.outlined {
   border-color: gray;
   border-style: solid;
   border-width: 1px;
   border-radius: 5px;
 }
 
-// .input-container.outline.rounded {
-//   border-radius: 50px;
-// }
+.input-container.outlined.rounded,
+.input-container.filled.rounded {
+  border-radius: 50px;
+}
 
-// .input-container.filled {
-//   border-radius: 0px;
-// }
-
-// .input-container.filled.outline.rounded {
-//   border-radius: 50px;
-// }
-
-.input-container.outline.filled.rounded > .input-field-container,
-.input-container.outline.rounded > .input-field-container {
+.input-container.outlined > .input-field-container,
+.input-container.filled > .input-field-container {
   margin-left: 6px;
   margin-right: 6px;
 }
 
-.input-container.outline > .input-field-container,
-.input-container.outline.rounded > .input-field-container,
-.input-container.filled > .input-field-container {
-  margin-left: 6px;
-  margin-right: 6px;
+.input-container.filled.rounded > .input-field-container {
+  margin-left: 16px;
+  margin-right: 16px;
+}
+
+.input-container.outlined.rounded > .input-field-container {
+  margin-left: 16px;
+  margin-right: 16px;
 }
 
 /*
@@ -272,6 +268,7 @@ POPUP MENUS
 }
 
 .dropdown {
+  position: relative;
   display: inline-block;
   z-index: 1500;
 }
@@ -279,9 +276,9 @@ POPUP MENUS
 .dropdown-content {
   position: absolute;
   z-index: 1600;
-  overflow-y: auto
   cursor: pointer;
   padding: 4px;
+  min-width: 100px;
 }
 
 .menu-item-padding {

@@ -2,7 +2,7 @@
   <div>
 
     <h3>Boolean</h3>
-    <div class="h-pa-sm border border-gray border-corner-rounded">
+    <div class="h-pa-sm border border-gray border-radius">
       <div>
         Do you agree to our terms and conditions?
       </div>
@@ -16,7 +16,7 @@
     </div>
 
     <h3>String</h3>
-    <div class="h-pa-sm border border-gray border-corner-rounded">
+    <div class="h-pa-sm border border-gray border-radius">
       <div>
         What type of movies do you like?"
       </div>
@@ -32,7 +32,7 @@
     </div>
 
     <h3>Numbers</h3>
-    <div class="h-pa-sm border border-gray border-corner-rounded">
+    <div class="h-pa-sm border border-gray border-radius">
       <div>
         Wich number do you hate?
       </div>
@@ -48,7 +48,7 @@
     </div>
 
     <h3>Option checked</h3>
-    <div class="h-pa-sm border border-gray border-corner-rounded">
+    <div class="h-pa-sm border border-gray border-radius">
       <div>
         Select your gender
       </div>
@@ -60,7 +60,7 @@
     </div>
 
     <h3>Ojects</h3>
-    <div class="h-pa-sm border border-gray border-corner-rounded">
+    <div class="h-pa-sm border border-gray border-radius">
       <div>
         Select yours favorite objects
       </div>

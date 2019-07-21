@@ -2,7 +2,7 @@
   <div>
 
     <h3>Drawer Left</h3>
-    <div class="h-pa-sm border border-gray border-corner-rounded">
+    <div class="h-pa-sm border border-gray border-radius">
       <div>
         <h-btn contained bgcolor="bg-primary" textcolor="text-white" text="Open Drawer Left" @click="showDrawer = true; side='left'"/>
         <h-btn contained bgcolor="bg-primary" textcolor="text-white" text="Open Drawer Right" @click="showDrawer = true; side='right'"/>

@@ -1,7 +1,7 @@
 <template >
   <div>
     <h3>Standard</h3>
-    <div class="h-pa-sm border border-gray border-corner-rounded">
+    <div class="h-pa-sm border border-gray border-radius">
       <h-input :options="options"
         v-model="model1"
         search

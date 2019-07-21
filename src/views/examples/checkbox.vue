@@ -1,7 +1,7 @@
 <template>
   <div>
     <h3>Boolean</h3>
-    <div class="h-pa-sm border border-gray border-corner-rounded">
+    <div class="h-pa-sm border border-gray border-radius">
       <div>
         Do you agree to our terms and conditions?
       </div>
@@ -14,7 +14,7 @@
     </div>
 
     <h3>Readonly</h3>
-    <div class="h-pa-sm border border-gray border-corner-rounded">
+    <div class="h-pa-sm border border-gray border-radius">
       <div>
         Checkbox disabled
       </div>
@@ -24,7 +24,7 @@
     </div>
 
     <h3>Option Checked</h3>
-    <div class="h-pa-sm border border-gray border-corner-rounded">
+    <div class="h-pa-sm border border-gray border-radius">
       <div>
         Option checked
       </div>
@@ -37,7 +37,7 @@
     </div>
 
     <h3>List</h3>
-    <div class="h-pa-sm border border-gray border-corner-rounded">
+    <div class="h-pa-sm border border-gray border-radius">
       <div>
         Select your favorite colors
       </div>
@@ -53,7 +53,7 @@
     </div>
 
     <h3>List with numbers</h3>
-    <div class="h-pa-sm border border-gray border-corner-rounded">
+    <div class="h-pa-sm border border-gray border-radius">
       <div>
         Select yours favorite numbers
       </div>
@@ -69,7 +69,7 @@
     </div>
 
     <h3>List with objects</h3>
-    <div class="h-pa-sm border border-gray border-corner-rounded">
+    <div class="h-pa-sm border border-gray border-radius">
       <div>
         Select yours favorite objects
       </div>

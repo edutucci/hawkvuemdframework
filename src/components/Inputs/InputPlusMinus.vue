@@ -1,6 +1,6 @@
 <template lang="pug">
   .flex
-    .flex.flex-justify-center.auto-size
+    .flex.flex-justify-center.inline-block
       .btn.bg-white.circle.flex.flex-justify-center.flex-items-center(
         style="width:16px;height:16px;"
       )
@@ -11,7 +11,7 @@
         )
     .flex.flex-justify-center.flex-items-center
       h5.no-margin {{plusMinusModel}}
-    .flex.flex-justify-center.auto-size
+    .flex.flex-justify-center.inline-block
       .btn.bg-white.circle.flex.flex-justify-center.flex-items-center(
         style="width:16px;height:16px;"
       )

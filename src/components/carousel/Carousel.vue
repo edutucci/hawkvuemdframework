@@ -1,5 +1,5 @@
 <template lang="pug">
-  .carousel-container.border-corner-rounded.boxshadow.flex.flex-column.overflow-hidden.no-user-select
+  .carousel-container.border-radius.boxshadow.flex.flex-column.overflow-hidden.no-user-select
     h-slider-button.top-left-absolute(
       icon="fas fa-chevron-left"
       @click="movSlider(-1)"

@@ -1,7 +1,7 @@
 <template>
   <div>
     <h3>Header, Image and Text</h3>
-    <div class="h-pa-sm border border-gray border-corner-rounded">
+    <div class="h-pa-sm border border-gray border-radius">
       <h-card style="width:340px;">
         <h-card-header>
           <h-card-header-text text="River" desc="Beautifull place A river in the Ganderbal district" />
@@ -22,7 +22,7 @@
     </div>
 
     <h3>Card Media</h3>
-    <div class="h-pa-sm border border-gray border-corner-rounded">
+    <div class="h-pa-sm border border-gray border-radius">
       <h-card>
         <h-card-header>
           <h-card-header-text text="Vue CLI 3" desc="Usage Plugins GUI" />
@@ -40,7 +40,7 @@
     </div>
 
     <h3>Card Actions</h3>
-    <div class="h-pa-sm border border-gray border-corner-rounded">
+    <div class="h-pa-sm border border-gray border-radius">
       <h-card style="width:340px;">
         <h-card-media>
           <h-card-media-img img="img/Nallah_Sindh.jpg"/>
@@ -65,7 +65,7 @@
     </div>
 
     <h3>Card Scannable</h3>
-    <div class="h-pa-sm border border-gray border-corner-rounded">
+    <div class="h-pa-sm border border-gray border-radius">
       <div class="flex flex-wrap">
         <h-card style="width:256px">
         <h-card-media>
@@ -107,7 +107,7 @@
     </div>
 
     <h3>Card Distinction</h3>
-    <div class="h-pa-sm border border-gray border-corner-rounded">
+    <div class="h-pa-sm border border-gray border-radius">
       <div class="flex flex-justify-center boxshadow h-ma-md" style="width:380px;">
         <div class="flex flex-column flex-wrap">
           <div class="h-ma-md" style="width:360px; height: 200px;">

@@ -1,7 +1,7 @@
 <template>
   <div>
     <h3>Modal Content</h3>
-    <div class="h-pa-sm border border-gray border-corner-rounded">
+    <div class="h-pa-sm border border-gray border-radius">
       <div>
         <h-btn contained text="Modal Content" @click="openModal=true"/>
       </div>
@@ -19,7 +19,7 @@
     </div>
 
     <h3>Confirm</h3>
-    <div class="h-pa-sm border border-gray border-corner-rounded">
+    <div class="h-pa-sm border border-gray border-radius">
       <div>
         <h-btn contained text="Confirm" @click="openModal2=true"/>
       </div>

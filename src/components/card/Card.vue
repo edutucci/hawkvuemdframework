@@ -1,5 +1,5 @@
 <template lang="pug">
-  .boxshadow.no-user-select.border-corner-rounded.auto-size.bg-white
+  .boxshadow.no-user-select.border-radius.bg-white(style="display: inline-block;")
     .flex.flex-column
       slot
 </template>

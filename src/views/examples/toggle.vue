@@ -1,7 +1,7 @@
 <template>
   <div>
     <h3>Boolean</h3>
-    <div class="h-pa-sm border border-gray border-corner-rounded">
+    <div class="h-pa-sm border border-gray border-radius">
       <div>
         Do you agree terms and conditions?
       </div>
@@ -14,7 +14,7 @@
     </div>
 
     <h3>List</h3>
-    <div class="h-pa-sm border border-gray border-corner-rounded">
+    <div class="h-pa-sm border border-gray border-radius">
       <div>
         Select your favorite colors
       </div>
@@ -29,7 +29,7 @@
     </div>
 
     <h3>List with numbers</h3>
-    <div class="h-pa-sm border border-gray border-corner-rounded">
+    <div class="h-pa-sm border border-gray border-radius">
       <div>
         Select yours favorite numbers
       </div>

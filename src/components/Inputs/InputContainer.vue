@@ -4,13 +4,13 @@
   )
     .full-width
       .flex.full-width
-        .flex.flex-items-center(v-if="leftIcon && leftIcon.length")
-          h-fa-icon.h-mr-sm(
+        .flex(v-if="leftIcon && leftIcon.length")
+          h-fa-icon.h-pr-sm.h-mt-xs(
             :icon="leftIcon"
-            size="18px"
+            size="16px"
           )
-        .flex.flex-1.flex-column.full-width.border-bottom
-          .full-with.input-container.border-bottom(
+        .flex.flex-1.flex-column.full-width
+          .full-with.input-container(
             :class="[inputBorder, { outlined:outlined, filled: filled, rounded: rounded }]"
           )
             .flex.flex-column.input-field-container
@@ -20,22 +20,7 @@
                 | {{label}}
               .full-width
                 slot
-    //- .full-width(style="margin-left: 30px")
-    //-   .flex.flex-column
-    //-     .flex.full-width.helper-text
-    //-       .flex-1(
-    //-         v-if="helperText"
-    //-       )
-    //-         | {{helperText}}
-    //-       .flex(
-    //-         v-if="textCounter"
-    //-       )
-    //-         | {{textCounter}}
-    //-   .flex.flex-column
-    //-     .flex.full-with.error-message(
-    //-       v-if="errorMessage"
-    //-     )
-    //-       | {{errorMessage}}
+
 </template>
 
 <script>

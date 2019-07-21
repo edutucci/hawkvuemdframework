@@ -7,31 +7,26 @@
       - add rightIcon property
 
       Bugs
-        - property helper-text is not working
-        - property error-message is not working
-        - property text-center is not working
-        - change property cleartext to clearble
-        - change property outline to outlined
-        - property maxlength is not working
-        - property text-counter is not working
-        - add property readonly
-        - dont aply border rounded for rounded property only
-        - fix margin left and right for outlined and rounded
-        - fix margin left and right for filled and rounded
     -->
 
     <h3>Input</h3>
 
     <comp-code class="h-mt-lg" title="Types" :code="txttypes">
-      <h-input v-model="txtName" label="Standard" placeholder="Type something" cleartext/>
+      <h-input v-model="txtName" label="Standard" placeholder="Type something"/>
 
       <h-input type="password" v-model="txtName" label="Password"
-        left-icon="fas fa-key" placeholder="type your password" cleartext/>
+        left-icon="fas fa-key" placeholder="type your password" clearable
+        helper-text="Type a text" error-message="Invalid information"/>
 
       <h-input outlined v-model="txtName" label="Outlined" />
       <h-input outlined rounded v-model="txtName" label="Outlined and Rounded"/>
       <h-input filled v-model="txtName" label="Filled" />
       <h-input filled rounded  v-model="txtName" label="Filled and Rounded"/>
+      <h-input v-model="txtName" label="Messages for validation" clearable
+        helper-text="Type a text" error-message="Invalid information" :maxlength="10" :text-counter="10"
+      />
+      <h-input text-center v-model="txtName" label="Text center"/>
+       <h-input text-center readonly v-model="txtName" label="Readonly"/>
     </comp-code>
 
     <h1>Key Events</h1>
@@ -205,10 +200,10 @@ export default {
         city: ''
       },
       txttypes: `
-<h-input v-model="txtName" label="Standard" placeholder="Type something" cleartext/>
+<h-input v-model="txtName" label="Standard" placeholder="Type something" clearable/>
 
 <h-input type="password" v-model="txtName" label="Password"
-  left-icon="fas fa-key" placeholder="type your password" cleartext/>
+  left-icon="fas fa-key" placeholder="type your password" clearable/>
 
 <h-input outlined v-model="txtName" label="Outlined" />
 <h-input outlined rounded v-model="txtName" label="Rounded"/>

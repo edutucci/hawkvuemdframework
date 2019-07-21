@@ -2,7 +2,7 @@
   <div>
 
     <h3>Files</h3>
-    <div class="h-pa-sm border border-gray border-corner-rounded">
+    <div class="h-pa-sm border border-gray border-radius">
       <h-file-upload
         extensions="image/png"
         :multiple="true"
@@ -11,7 +11,7 @@
     </div>
 
     <h3>Images</h3>
-    <div class="h-pa-sm border border-gray border-corner-rounded">
+    <div class="h-pa-sm border border-gray border-radius">
       <h-image-upload
       :multiple="true"
       :max-size="maxsize"
@@ -20,7 +20,7 @@
     </div>
 
     <h3>Area Drop Hidden</h3>
-    <div class="h-pa-sm border border-gray border-corner-rounded">
+    <div class="h-pa-sm border border-gray border-radius">
       <h-file-upload
         :multiple="true"
         @addFiles="onChange"

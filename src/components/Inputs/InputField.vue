@@ -2,7 +2,7 @@
   input.input-field(
     v-if="!this.chips"
     v-focus="inputFocus"
-    :class="[{'text-center': textCenter}, filled]"
+    :class="[{'text-center': textCenter, 'readonly': readonly}, filled]"
     v-model="inputDisplay"
     :type="inputtype"
     :readonly="readonly"
@@ -21,7 +21,7 @@
   input.input-field(
     v-else
     v-focus="inputFocus"
-    :class="[{'text-center': textCenter}, filled]"
+    :class="[{'text-center': textCenter, 'readonly': readonly}, filled]"
     v-model="inputDisplay"
     :type="inputtype"
     :readonly="readonly"

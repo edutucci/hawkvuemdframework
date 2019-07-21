@@ -3,7 +3,7 @@
     <h1>Collapsible</h1>
 
     <h3>Standard</h3>
-    <div class="h-pa-sm border border-gray border-corner-rounded">
+    <div class="h-pa-sm border border-gray border-radius">
       <h-collapsible>
         <h-collapsible-menu icon="fas fa-film" text="Attractions">
           <h-collapsible-item text="Shopping"></h-collapsible-item>
@@ -16,7 +16,7 @@
     </div>
 
     <h3>Custom Color</h3>
-    <div class="h-pa-sm border border-gray border-corner-rounded">
+    <div class="h-pa-sm border border-gray border-radius">
       <h-collapsible>
         <h-collapsible-menu icon="fa fa-film" text="Attractions" bgcolor="bg-primary" textcolor="text-white">
           <h-collapsible-item text="Shopping" bgcolor="bg-primary" textcolor="text-white"></h-collapsible-item>
@@ -29,7 +29,7 @@
     </div>
 
     <h3>Custom Content</h3>
-    <div class="h-pa-sm border border-gray border-corner-rounded">
+    <div class="h-pa-sm border border-gray border-radius">
       <h-collapsible>
         <h-collapsible-menu icon="fa fa-film" text="Letter">
           <div class="flex flex-items-center flex-justify-center">

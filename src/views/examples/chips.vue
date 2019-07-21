@@ -3,7 +3,7 @@
     <h1>CHIPS</h1>
 
     <h3>Styles</h3>
-    <div class="h-pa-sm border border-gray border-corner-rounded">
+    <div class="h-pa-sm border border-gray border-radius">
       <h-chips text="disabled" icon="fas fa-camera-retro" closable disabled hide-on-close></h-chips>
       <h-chips text="Eduardo" bgcolor="bg-secondary" closable hide-on-close></h-chips>
       <h-chips text="Jhon" closable hide-on-close icon="fas fa-camera-retro" bgcolor="bg-primary" textcolor="text-white"></h-chips>
@@ -15,7 +15,7 @@
     </div>
 
     <h3>Input Chips</h3>
-    <div class="h-pa-sm border border-gray border-corner-rounded">
+    <div class="h-pa-sm border border-gray border-radius">
       <div class="h-mt-md">
         <h-input
           left-icon="fas fa-birthday-cake"

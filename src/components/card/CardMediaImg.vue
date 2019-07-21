@@ -1,5 +1,5 @@
 <template lang="pug">
-  .media-img.border-corner-rounded.overflow-hidden.flex.flex-items-center
+  .media-img.border-radius.overflow-hidden.flex.flex-items-center
     img.full-size(
       v-if="img && img.length > 0" :src="img"
     )

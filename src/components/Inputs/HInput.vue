@@ -3,8 +3,6 @@
     :bgcolor="inputContainerColor"
     :textcolor="inputContainerTextColor"
     :label="label"
-    :errorMessage="errorMessage"
-    :helperText="helperText"
     :outlined="outlined"
     :filled="filled"
     :rounded="rounded"
@@ -26,30 +24,59 @@
         )
       .flex
         .flex.flex-1.flex-column.h-mr-sm
-          h-input-field(
-            :id="inputId"
-            :class="[{'text-center': textCenter}]"
-            v-model="inputDisplay"
-            :type="inputtype"
-            :readonly="readonly"
-            :rounded="rounded"
-            :outlined="outlined"
-            :filled="filled"
-            :textCenter="textCenter"
-            :focused="focused"
-            :chips="chips"
-            @input="onInput"
-            @focus="focus"
-            @blur="blur"
-            @onKeyDown="onKeyDown"
-            @onTab="onTab"
-            @onEnter="onEnter"
-            @onEscape="onEscape"
-            @onDelete="onDelete"
-            @click="onClick"
-          )
+          .flex.border-bottom.border-gray
+            h-input-field(
+              :id="inputId"
+              v-model="inputDisplay"
+              :type="inputtype"
+              :maxlength="maxlength"
+              :readonly="readonly"
+              :rounded="rounded"
+              :outlined="outlined"
+              :filled="filled"
+              :textCenter="textCenter"
+              :focused="focused"
+              :chips="chips"
+              @input="onInput"
+              @focus="focus"
+              @blur="blur"
+              @onKeyDown="onKeyDown"
+              @onTab="onTab"
+              @onEnter="onEnter"
+              @onEscape="onEscape"
+              @onDelete="onDelete"
+              @click="onClick"
+            )
+            h-fa-icon.h-mr-xs(
+              v-if="clearable"
+              textcolor="text-gray"
+              icon="fas fa-times-circle"
+              @click="inputDisplay = ''"
+            )
+            h-fa-icon(
+              v-if="inputtype === 'password'"
+              textcolor="text-gray"
+              icon="fas fa-eye"
+              @click="togglePassword"
+            )
+          .flex.flex-column
+            .flex.full-width.helper-text
+              .flex-1.text-caption(
+                v-if="helperText"
+              )
+                | {{helperText}}
+              .flex.text-caption.flex-1.flex-justify-end(
+                v-if="textCounter"
+              )
+                | {{inputCounter}}
+            .flex.flex-column
+              .flex.full-with.text-caption.error-message(
+                v-if="errorMessage"
+              )
+                | {{errorMessage}}
         .flex.flex-items-center
           h-fa-icon(:icon="inputIcon")
+
       //- div.bg-white.full-width.dropdown-content.shadow(
       //-   :style="{right: right, bottom: bottom}"
       //-   v-if="showdropdown"
@@ -155,6 +182,9 @@ export default {
         display = arrDisp.join()
       }
       this.inputDisplay = display
+    },
+    type: function (value) {
+      this.inputtype = value
     }
   },
   computed: {
@@ -200,16 +230,6 @@ export default {
         this.$emit('input', value)
       }
     },
-    // inputMaxlength (value) {
-    //   let text = value
-    //   if (value) {
-    //     text = value.substr(0, this.maxlength)
-    //   }
-    //   if (text === undefined) {
-    //     text = ''
-    //   }
-    //   return text
-    // },
     focus () {
       this.focused = true
       this.inputContainerColor = 'bg-white'
@@ -246,6 +266,9 @@ export default {
       this.focused = false
       this.inputContainerColor = this.bgcolor
       this.inputContainerTextColor = this.textcolor
+    },
+    togglePassword () {
+      this.inputtype = (this.inputtype === 'password') ? 'text' : 'password'
     },
     onKeyDown () {
       if (this.search) {

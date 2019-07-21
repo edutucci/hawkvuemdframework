@@ -3,7 +3,7 @@
     <h1>Date and Time</h1>
 
     <h3>Date Input</h3>
-    <div class="h-pa-sm border border-gray border-corner-rounded">
+    <div class="h-pa-sm border border-gray border-radius">
       <div class="flex flex-column full-width">
         <div class="flex flex-items-center">
           <div class="col-6">
@@ -15,7 +15,7 @@
     </div>
 
     <h3>Time Input</h3>
-    <div class="h-pa-sm border border-gray border-corner-rounded">
+    <div class="h-pa-sm border border-gray border-radius">
       <div class="flex flex-column full-width">
         <div class="flex flex-items-center">
           <div class="col-6">
@@ -27,7 +27,7 @@
     </div>
 
     <h3>Date and Time Input</h3>
-    <div class="h-pa-sm border border-gray border-corner-rounded">
+    <div class="h-pa-sm border border-gray border-radius">
       <div class="flex flex-column full-width">
         <div class="flex flex-items-center">
           <div class="col-6">
@@ -39,7 +39,7 @@
     </div>
 
     <h3>Date Picker</h3>
-    <div class="h-pa-sm border border-gray border-corner-rounded">
+    <div class="h-pa-sm border border-gray border-radius">
       <div class="flex flex-column">
         <h-date-picker v-model="datepickerModel"/>
         <div class="h-mt-sm">
@@ -49,7 +49,7 @@
     </div>
 
     <h3>Time Picker</h3>
-    <div class="h-pa-sm border border-gray border-corner-rounded">
+    <div class="h-pa-sm border border-gray border-radius">
       <div class="flex flex-column">
         <h-time-picker v-model="timepickerModel"/>
         <div class="h-mt-sm">

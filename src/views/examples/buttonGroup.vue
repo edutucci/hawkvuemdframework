@@ -1,7 +1,7 @@
 <template>
   <div>
     <h3>Contained Buttons</h3>
-    <div class="h-pa-sm border border-gray border-corner-rounded">
+    <div class="h-pa-sm border border-gray border-radius">
       <h-btn-group contained>
         <h-btn-group-item name="bold" bgcolor="bg-primary" textcolor="text-white" left-icon="fas fa-bold" text="Bold"/>
         <h-btn-group-item name="italic" bgcolor="bg-positive" textcolor="text-white" right-icon="fas fa-italic" text="Italic"/>
@@ -10,7 +10,7 @@
     </div>
 
     <h3>Outlined Buttons</h3>
-    <div class="h-pa-sm border border-gray border-corner-rounded">
+    <div class="h-pa-sm border border-gray border-radius">
       <h-btn-group outlined>
         <h-btn-group-item name="bold" left-icon="fas fa-bold"/>
         <h-btn-group-item name="italic" left-icon="fas fa-italic"/>

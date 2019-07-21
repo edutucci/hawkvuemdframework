@@ -3,12 +3,12 @@
     h1 CSS Classes
     html-separator
     .row.text-center
-      div.auto-size.bg-primary.text-white.h-pa-md.h-mr-md primary
-      div.auto-size.bg-secondary.text-white.h-pa-md.h-mr-md secondary
-      div.auto-size.bg-positive.text-white.h-pa-md.h-mr-md positive
-      div.auto-size.bg-negative.text-white.h-pa-md.h-mr-md negative
-      div.auto-size.bg-info.text-white.h-pa-md.h-mr-md info
-      div.auto-size.bg-warning.text-white.h-pa-md.h-mr-md warning
+      div.inline-block.bg-primary.text-white.h-pa-md.h-mr-md primary
+      div.inline-block.bg-secondary.text-white.h-pa-md.h-mr-md secondary
+      div.inline-block.bg-positive.text-white.h-pa-md.h-mr-md positive
+      div.inline-block.bg-negative.text-white.h-pa-md.h-mr-md negative
+      div.inline-block.bg-info.text-white.h-pa-md.h-mr-md info
+      div.inline-block.bg-warning.text-white.h-pa-md.h-mr-md warning
 
     .row
       <p>To use the classes use the prefixes <b>bg-, text-, border-</b> </p>

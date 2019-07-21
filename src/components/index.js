@@ -5,6 +5,7 @@ import HBtn from './buttons/Btn.vue'
 import HBtnFloat from './buttons/BtnFloat.vue'
 import HBtnGroup from './buttons/BtnGroup.vue'
 import HBtnGroupItem from './buttons/BtnGroupItem.vue'
+import HBtnDropdown from './buttons/BtnDropdown.vue'
 import HCard from './card/Card.vue'
 import HCardHeader from './card/CardHeader'
 import HCardHeaderText from './card/CardHeaderText.vue'
@@ -52,8 +53,6 @@ import HAppToolbarMenu from './toolbar/HAppToolbarMenu.vue'
 import HAppToolbarFab from './toolbar/HAppToolbarFab'
 import HMenuBar from './menu/HMenuBar.vue'
 import HMenuBarItem from './menu/HMenuBarItem.vue'
-import HMenuDropdown from './menu/HMenuDropdown.vue'
-import HMenuDropdownItem from './menu/HMenuDropdownItem.vue'
 import HSlideMenuList from './menu/SlideMenuList.vue'
 import HSlideMenu from './menu/HSlideMenu.vue'
 import HSlideMenuItem from './menu/HSlideMenuItem.vue'
@@ -66,7 +65,8 @@ import HSearchMask from './Inputs/HSearchMask'
 import HSelect from './Inputs/HSelect.vue'
 import HTab from './tab/HTab.vue'
 import HTabs from './tab/HTabs.vue'
-import HTable from './table/HTable.vue'
+import HTable from './table/Table.vue'
+import HtmlTable from './table/HtmlTable'
 import HInputContainer from './Inputs/InputContainer'
 import HInputField from './Inputs/InputField'
 import HInput from './Inputs/HInput.vue'
@@ -90,6 +90,7 @@ const Components = {
   HBtnFloat,
   HBtnGroup,
   HBtnGroupItem,
+  HBtnDropdown,
   HCard,
   HCardHeader,
   HCardHeaderText,
@@ -137,8 +138,6 @@ const Components = {
   HAppToolbarFab,
   HMenuBar,
   HMenuBarItem,
-  HMenuDropdown,
-  HMenuDropdownItem,
   HSlideMenuList,
   HSlideMenu,
   HSlideMenuItem,
@@ -152,6 +151,7 @@ const Components = {
   HTab,
   HTabs,
   HTable,
+  HtmlTable,
   HInputContainer,
   HInputField,
   HInput,

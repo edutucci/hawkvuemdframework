@@ -1,13 +1,16 @@
 <template lang="pug">
   .page-content.full-height(
     :class="{'page-content-padding': padding }"
-    v-resize.initial="onResize"
+    style=" margin-top: 57px;"
+    id="page-content"
   )
     slot
 </template>
 
 <script>
+
 import resize from 'vue-resize-directive'
+
 export default {
   name: 'PageContent',
   directives: {
@@ -20,9 +23,6 @@ export default {
     }
   },
   methods: {
-    onResize () {
-      // console.log('page content resize')
-    }
   }
 }
 </script>

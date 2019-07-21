@@ -1,5 +1,5 @@
 <template lang="pug">
-  h-main-body.window-height
+  h-main-body
     h-page-header
       h-app-toolbar
         h-app-toolbar-container(bgcolor="bg-primary" textcolor="text-white")
@@ -10,6 +10,18 @@
               html-link(url="/" icon="fas fa-globe" textcolor="text-white")
             h-btn(contained transparent)
               html-link(url="https://github.com/edutucci/hawkframework" icon="fab fa-github" textcolor="text-white" new-window)
+            h-btn(contained transparent left-icon="fab fa-github" @click="showtb=!showtb")
+
+      h-app-toolbar(v-if="showtb")
+        h-app-toolbar-container(bgcolor="bg-primary" textcolor="text-white")
+          h-app-toolbar-navigation(icon="fas fa-bars" textcolor="text-white" @click="showDrawer = true")
+          h-app-toolbar-title(title="HawkFramework 1.0.12")
+          h-app-toolbar-action
+            h-btn(contained transparent)
+              html-link(url="/" icon="fas fa-globe" textcolor="text-white")
+            h-btn(contained transparent)
+              html-link(url="https://github.com/edutucci/hawkframework" icon="fab fa-github" textcolor="text-white" new-window)
+            h-btn(contained transparent left-icon="fab fa-github" @click="showtb=!showtb")
 
     <h-nav-drawer ref="nav" v-model="showDrawer" side="left">
       <div class="flex flex-column bg-white full-size" style="display: inline-flex;">
@@ -42,6 +54,7 @@
               <h-collapsible-menu text="Components" icon="fas fa-hdd">
                 <h-collapsible-item text="Buttons" @click="$router.push('/buttons'), $refs.nav.close()"/>
                 <h-collapsible-item text="Button Group" @click="$router.push('/buttongroup'), $refs.nav.close()"/>
+                <h-collapsible-item text="Button Dropdown" @click="$router.push('/buttondropdown'), $refs.nav.close()"/>
                 <h-collapsible-item text="Cards" @click="$router.push('/card'), $refs.nav.close()"/>
                 <h-collapsible-item text="Checkbox" @click="$router.push('/checkbox'), $refs.nav.close()"/>
                 <h-collapsible-item text="Chips/InputChips" @click="$router.push('/chip'), $refs.nav.close()"/>
@@ -51,7 +64,7 @@
                 <h-collapsible-item text="Drawer" @click="$router.push('/drawer'), $refs.nav.close()"/>
                 <h-collapsible-item text="Icons" @click="$router.push('/icon'), $refs.nav.close()"/>
                 <h-collapsible-item text="List (atualizar help)" @click="$router.push('/list'), $refs.nav.close()"/>
-                <h-collapsible-item text="Menu (atualizar help)" @click="$router.push('/menu'), $refs.nav.close()"/>
+                //- <h-collapsible-item text="Menu (atualizar help)" @click="$router.push('/menu'), $refs.nav.close()"/>
                 <h-collapsible-item text="MenuSlider (atualizar help)" @click="$router.push('/menuSlider'), $refs.nav.close()"/>
                 <h-collapsible-item text="Mask" @click="$router.push('/mask'), $refs.nav.close()"/>
                 <h-collapsible-item text="Dialog" @click="$router.push('/dialog'), $refs.nav.close()"/>
@@ -98,6 +111,7 @@
 export default {
   data () {
     return {
+      showtb: false,
       showDrawer: false
     }
   },

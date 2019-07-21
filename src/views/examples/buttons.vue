@@ -1,7 +1,7 @@
 <template>
   <h-page>
     <h3>Contained Buttons</h3>
-    <div class="h-pa-sm border border-gray border-corner-rounded">
+    <div class="h-pa-sm border border-gray border-radius">
       <div>
         <h-btn contained bgcolor="bg-white" textcolor="text-black" text="disabled" left-icon="fas fa-envelope" disabled/>
         <h-btn contained bgcolor="bg-white" textcolor="text-black" text="white" left-icon="fas fa-envelope"/>
@@ -21,7 +21,7 @@
     </div>
 
     <h3>Text Buttons</h3>
-    <div class="h-pa-sm border border-gray border-corner-rounded">
+    <div class="h-pa-sm border border-gray border-radius">
       <h-btn textbutton textcolor="text-black" text="black"/>
       <h-btn textbutton textcolor="text-primary" text="primary"/>
       <h-btn textbutton textcolor="text-secondary" text="secondary"/>
@@ -36,7 +36,7 @@
     </div>
 
     <h3>Outlined Buttons</h3>
-    <div class="h-pa-sm border border-gray border-corner-rounded">
+    <div class="h-pa-sm border border-gray border-radius">
       <h-btn outlined text="disabled" disabled/>
       <h-btn outlined textcolor="text-primary" text="primary"/>
       <h-btn outlined textcolor="text-secondary" text="secondary"/>
@@ -53,7 +53,7 @@
     </div>
 
     <h3>Rounded Buttons</h3>
-    <div class="h-pa-sm border border-gray border-corner-rounded">
+    <div class="h-pa-sm border border-gray border-radius">
       <h-btn contained rounded text="disabled" disabled/>
       <h-btn outlined rounded text="disabled" disabled/>
       <h-btn contained rounded bgcolor="bg-primary" textcolor="text-white" text="primary"/>
@@ -72,7 +72,7 @@
     </div>
 
     <h3>Links</h3>
-    <div class="h-pa-sm border border-gray border-corner-rounded">
+    <div class="h-pa-sm border border-gray border-radius">
       <h-btn contained bgcolor="bg-primary">
         <html-link icon="fab fa-github" text="github" url="https://github.com/edutucci/hawkframework" textcolor="text-white"/>
       </h-btn>
@@ -95,7 +95,7 @@
     </div>
 
     <h3>Router</h3>
-    <div class="h-pa-sm border border-gray border-corner-rounded">
+    <div class="h-pa-sm border border-gray border-radius">
       <h-btn contained bgcolor="bg-primary">
         <html-link text="to this page" url="/buttons" textcolor="text-white"/>
       </h-btn>
@@ -118,7 +118,7 @@
     </div>
 
     <h3>Counters</h3>
-    <div class="h-pa-sm border border-gray border-corner-rounded">
+    <div class="h-pa-sm border border-gray border-radius">
       <h-btn contained bgcolor="bg-primary" textcolor="text-white" text="warning">
         <h-counter bgcolor="bg-negative" textcolor="text-white">123</h-counter>
       </h-btn>
