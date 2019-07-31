@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <h1>Toggle</h1>
+  <h-page-content padding>
+    <div class="text-h4">Toggle</div>
 
     <!--
       Bugs
@@ -12,48 +12,57 @@
     <comp-code class="h-mt-lg" title="Boolean" :code="ckboolean" :script="ckbooleanScript"
       javascript
     >
-      <div>
-        Do you agree terms and conditions?
+      <div class="column">
+        <div class="col">
+          Do you agree terms and conditions?
+        </div>
+        <div class="col">
+          <h-toggle v-model="termAccepted" text="I agree"/>
+        </div>
+        <div class="col">
+          Your option is: {{ termAccepted }}
+        </div>
       </div>
-      <div>
-        <h-toggle v-model="termAccepted" text="I agree"/>
-      </div>
-      <div>
-        Your option is: {{ termAccepted }}
-      </div>
+
     </comp-code>
 
     <comp-code class="h-mt-lg" title="List" :code="cklist" :script="cklistScript"
       javascript
     >
-      <div>
-        Select your favorite colors
+      <div class="column">
+        <div class="col">
+          Select your favorite colors
+        </div>
+        <div class="col">
+          <h-toggle v-model="colors" text="Red" value="Red"/>
+          <h-toggle v-model="colors" text="Green" value="Green"/>
+          <h-toggle v-model="colors" text="Blue" value="Blue"/>
+        </div>
+        <div class="col">
+          Your favorites colors: {{ colors }}
+        </div>
       </div>
-      <div>
-        <h-toggle v-model="colors" text="Red" value="Red"/>
-        <h-toggle v-model="colors" text="Green" value="Green"/>
-        <h-toggle v-model="colors" text="Blue" value="Blue"/>
-      </div>
-      <div>
-        Your favorites colors: {{ colors }}
-      </div>
+
     </comp-code>
 
     <comp-code class="h-mt-lg" title="List with numbers" :code="cklistnumbers" :script="cklistnumbersScript"
       javascript
     >
-      <div>
-        Select yours favorite numbers
+      <div class="column">
+        <div class="col">
+          Select yours favorite numbers
+        </div>
+        <div class="col">
+          <h-toggle v-model="checkedNumbers" text="1" :value="1"/>
+          <h-toggle v-model="checkedNumbers" text="2" :value="2"/>
+          <h-toggle v-model="checkedNumbers" text="3" :value="3"/>
+          <h-toggle v-model="checkedNumbers" text="4" :value="4"/>
+        </div>
+        <div class="col">
+          Favorite numbers {{ checkedNumbers }}
+        </div>
       </div>
-      <div>
-        <h-toggle v-model="checkedNumbers" text="1" :value="1"/>
-        <h-toggle v-model="checkedNumbers" text="2" :value="2"/>
-        <h-toggle v-model="checkedNumbers" text="3" :value="3"/>
-        <h-toggle v-model="checkedNumbers" text="4" :value="4"/>
-      </div>
-      <div>
-        Favorite numbers {{ checkedNumbers }}
-      </div>
+
     </comp-code>
 
     <h2 class="text-primary"> Vue Properties</h2>
@@ -97,7 +106,7 @@
       </div>
     </div>
 
-  </div>
+  </h-page-content>
 </template>
 
 <script>
@@ -113,15 +122,17 @@ export default {
       checkedNumbers: [1, 3],
       checked2: false,
       ckboolean: `
-<div>
-  Do you agree terms and conditions?
+<div class="column">
+  <div class="col">
+    Do you agree terms and conditions?
+  </div>
+  <div class="col">
+    <h-toggle v-model="termAccepted" text="I agree"/>
+  </div>
+  <div class="col">
+    Your option is: {{ termAccepted }}
+  </div>
 </div>
-<div>
-  <h-toggle v-model="termAccepted" text="I agree"/>
-</div>
-<div>
-  Your option is: {{ termAccepted }}
-</div> 
 `,
       ckbooleanScript: `
   data () {
@@ -131,16 +142,18 @@ export default {
   }    
 `,
       cklist: `
-<div>
-  Select your favorite colors
-</div>
-<div>
-  <h-toggle v-model="colors" text="Red" value="Red"/>
-  <h-toggle v-model="colors" text="Green" value="Green"/>
-  <h-toggle v-model="colors" text="Blue" value="Blue"/>
-</div>
-<div>
-  Your favorites colors: {{ colors }}
+<div class="column">
+  <div class="col">
+    Select your favorite colors
+  </div>
+  <div class="col">
+    <h-toggle v-model="colors" text="Red" value="Red"/>
+    <h-toggle v-model="colors" text="Green" value="Green"/>
+    <h-toggle v-model="colors" text="Blue" value="Blue"/>
+  </div>
+  <div class="col">
+    Your favorites colors: {{ colors }}
+  </div>
 </div>
 `,
       cklistScript: `
@@ -151,17 +164,19 @@ export default {
   }    
 `,
       cklistnumbers: `
-<div>
-  Select yours favorite numbers
-</div>
-<div>
-  <h-toggle v-model="checkedNumbers" text="1" :value="1"/>
-  <h-toggle v-model="checkedNumbers" text="2" :value="2"/>
-  <h-toggle v-model="checkedNumbers" text="3" :value="3"/>
-  <h-toggle v-model="checkedNumbers" text="4" :value="4"/>
-</div>
-<div>
-  Favorite numbers {{ checkedNumbers }}
+<div class="column">
+  <div class="col">
+    Select yours favorite numbers
+  </div>
+  <div class="col">
+    <h-toggle v-model="checkedNumbers" text="1" :value="1"/>
+    <h-toggle v-model="checkedNumbers" text="2" :value="2"/>
+    <h-toggle v-model="checkedNumbers" text="3" :value="3"/>
+    <h-toggle v-model="checkedNumbers" text="4" :value="4"/>
+  </div>
+  <div class="col">
+    Favorite numbers {{ checkedNumbers }}
+  </div>
 </div>
 `,
       cklistnumbersScript: `

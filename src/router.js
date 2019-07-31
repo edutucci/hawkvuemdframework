@@ -60,7 +60,7 @@ export default new Router({
     },
     {
       path: '/example',
-      component: () => import('./views/examples/input')
+      component: () => import('./views/examples/icon.vue')
     }
   ]
 })
