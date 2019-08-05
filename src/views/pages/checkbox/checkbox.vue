@@ -11,90 +11,108 @@
       title="Boolean" :code="ckboolean" :script="ckbooleanScript"
       javascript
     >
-      <div>
-        Do you agree to our terms and conditions?
+      <div class="column">
+        <div class="col">
+          Do you agree to our terms and conditions?
+        </div>
+        <div class="col">
+          <h-checkbox v-model="termAccepted" text="I agree"/>
+        </div>
+        <div class="col">
+          Your option is: {{ termAccepted }}
+        </div>
       </div>
-      <div>
-        <h-checkbox v-model="termAccepted" text="I agree"/>
-      </div>
-      <div>
-        Your option is: {{ termAccepted }}
-      </div>
+
     </comp-code>
 
     <comp-code class="h-mt-md" title="Readonly" :code="ckdisabled" :script="ckbooleanScript"
       javascript
     >
-      <div>
-        Checkbox disabled
+      <div class="column">
+        <div class="col">
+          Checkbox disabled
+        </div>
+        <div class="col">
+          <h-checkbox v-model="termAccepted" text="I agree" readonly/>
+        </div>
       </div>
-      <div>
-        <h-checkbox v-model="termAccepted" text="I agree" readonly/>
-      </div>
+
     </comp-code>
 
     <comp-code class="h-mt-md" title="Option checked" :code="itemChecked" :script="itemCheckedScript"
       javascript
     >
-      <div>
-        Option checked
+      <div class="column">
+        <div class="col">
+          Option checked
+        </div>
+        <div class="col">
+          <h-checkbox v-model="ckChecked" text="Item checked" :checked="ckChecked"/>
+        </div>
+        <div class="col">
+          Your model is {{ckChecked}}
+        </div>
       </div>
-      <div>
-        <h-checkbox v-model="ckChecked" text="Item checked" :checked="ckChecked"/>
-      </div>
-      <div>
-        Your model is {{ckChecked}}
-      </div>
+
     </comp-code>
 
     <comp-code class="h-mt-md" title="List" :code="cklist" :script="cklistScript"
       javascript
     >
-      <div>
-        Select your favorite colors
-      </div>
-      <div>
-        <h-checkbox v-model="colors" text="Red" value="Red"/>
-        <h-checkbox v-model="colors" text="Green" value="Green"/>
-        <h-checkbox v-model="colors" text="Blue" value="Blue"/>
+      <div class="column">
+        <div>
+          Select your favorite colors
+        </div>
+        <div>
+          <h-checkbox v-model="colors" text="Red" value="Red"/>
+          <h-checkbox v-model="colors" text="Green" value="Green"/>
+          <h-checkbox v-model="colors" text="Blue" value="Blue"/>
+        </div>
+
+        <div>
+          Your favorites colors: {{ colors }}
+        </div>
       </div>
 
-      <div>
-        Your favorites colors: {{ colors }}
-      </div>
     </comp-code>
 
     <comp-code class="h-mt-md" title="List with numbers" :code="cklistnumbers" :script="checkedNumbersScript"
       javascript
     >
-      <div>
-        Select yours favorite numbers
+      <div class="column">
+        <div class="col">
+          Select yours favorite numbers
+        </div>
+        <div class="col">
+          <h-checkbox v-model="checkedNumbers" text="1" :value="1"/>
+          <h-checkbox v-model="checkedNumbers" text="2" :value="2"/>
+          <h-checkbox v-model="checkedNumbers" text="3" :value="3"/>
+          <h-checkbox v-model="checkedNumbers" text="4" :value="4"/>
+        </div>
+        <div class="col">
+          <span>Favorite numbers {{ checkedNumbers }}</span>
+        </div>
       </div>
-      <div>
-        <h-checkbox v-model="checkedNumbers" text="1" :value="1"/>
-        <h-checkbox v-model="checkedNumbers" text="2" :value="2"/>
-        <h-checkbox v-model="checkedNumbers" text="3" :value="3"/>
-        <h-checkbox v-model="checkedNumbers" text="4" :value="4"/>
-      </div>
-      <div>
-        <span>Favorite numbers {{ checkedNumbers }}</span>
-      </div>
+
     </comp-code>
 
     <comp-code class="h-mt-md" title="List with objects" :code="cklistobjects" :script="cklistobjectsScript"
       javascript
     >
-      <div>
-        Select yours favorite objects
+      <div class="column">
+        <div class="col">
+          Select yours favorite objects
+        </div>
+        <div class="col">
+          <h-checkbox v-model="checkedObjects" :text="checkedObjectsOptions[0].name" :value="checkedObjectsOptions[0]"/>
+          <h-checkbox v-model="checkedObjects" :text="checkedObjectsOptions[1].name" :value="checkedObjectsOptions[1]"/>
+          <h-checkbox v-model="checkedObjects" :text="checkedObjectsOptions[2].name" :value="checkedObjectsOptions[2]"/>
+        </div>
+        <div class="col">
+          <span>Your objects {{ checkedObjects }}</span>
+        </div>
       </div>
-      <div>
-        <h-checkbox v-model="checkedObjects" :text="checkedObjectsOptions[0].name" :value="checkedObjectsOptions[0]"/>
-        <h-checkbox v-model="checkedObjects" :text="checkedObjectsOptions[1].name" :value="checkedObjectsOptions[1]"/>
-        <h-checkbox v-model="checkedObjects" :text="checkedObjectsOptions[2].name" :value="checkedObjectsOptions[2]"/>
-      </div>
-      <div>
-        <span>Your objects {{ checkedObjects }}</span>
-      </div>
+
     </comp-code>
 
     <h2 class="text-primary"> Vue Properties</h2>
@@ -163,14 +181,16 @@ export default {
         { id: 3, name: 'vuejs' }
       ],
       ckboolean: `
-<div>
-  Do you agree to our terms and conditions?
-</div>
-<div>
-  <h-checkbox v-model="termAccepted" text="I agree"/>
-</div>
-<div>
-  Your option is: {{ termAccepted }}
+<div class="column">
+  <div class="col">
+    Do you agree to our terms and conditions?
+  </div>
+  <div class="col">
+    <h-checkbox v-model="termAccepted" text="I agree"/>
+  </div>
+  <div class="col">
+    Your option is: {{ termAccepted }}
+  </div>
 </div>
 `,
       ckbooleanScript: `
@@ -183,23 +203,27 @@ export default {
 }
 `,
       ckdisabled: `
-<div>
-  Checkbox disabled
-</div>
-<div>
-  <h-checkbox v-model="termAccepted" text="I agree" readonly/>
+<div class="column">
+  <div class="col">
+    Checkbox disabled
+  </div>
+  <div class="col">
+    <h-checkbox v-model="termAccepted" text="I agree" readonly/>
+  </div>
 </div>
 `,
       itemChecked: `
-<div>
-  Option checked
+<div class="column">
+  <div class="col">
+    Option checked
+  </div>
+  <div class="col">
+    <h-checkbox v-model="ckChecked" text="Item checked" :checked="ckChecked"/>
+  </div>
+  <div class="col">
+    Your model is {{ckChecked}}
+  </div>
 </div>
-<div>
-  <h-checkbox v-model="ckChecked" text="Item checked" :checked="ckChecked"/>
-</div>
-<div>
-  Your model is {{ckChecked}}
-</div>    
 `,
       itemCheckedScript: `
 
@@ -212,17 +236,19 @@ export default {
 }
 `,
       cklist: `
-<div>
-  Select your favorite colors
-</div>
-<div>
-  <h-checkbox v-model="colors" text="Red" value="Red" :checked="true"/>
-  <h-checkbox v-model="colors" text="Green" value="Green"/>
-  <h-checkbox v-model="colors" text="Blue" value="Blue"/>
-</div>
+<div class="column">
+  <div>
+    Select your favorite colors
+  </div>
+  <div>
+    <h-checkbox v-model="colors" text="Red" value="Red"/>
+    <h-checkbox v-model="colors" text="Green" value="Green"/>
+    <h-checkbox v-model="colors" text="Blue" value="Blue"/>
+  </div>
 
-<div>
-  Your favorites colors: {{ colors }}
+  <div>
+    Your favorites colors: {{ colors }}
+  </div>
 </div>
 `,
       cklistScript: `
@@ -235,17 +261,19 @@ export default {
 }    
 `,
       cklistnumbers: `
-<div>
-  Select yours favorite numbers
-</div>
-<div>
-  <h-checkbox v-model="checkedNumbers" text="1" :value="1"/>
-  <h-checkbox v-model="checkedNumbers" text="2" :value="2"/>
-  <h-checkbox v-model="checkedNumbers" text="3" :value="3"/>
-  <h-checkbox v-model="checkedNumbers" text="4" :value="4"/>
-</div>
-<div>
-  <span>Favorite numbers {{ checkedNumbers }}</span>
+<div class="column">
+  <div class="col">
+    Select yours favorite numbers
+  </div>
+  <div class="col">
+    <h-checkbox v-model="checkedNumbers" text="1" :value="1"/>
+    <h-checkbox v-model="checkedNumbers" text="2" :value="2"/>
+    <h-checkbox v-model="checkedNumbers" text="3" :value="3"/>
+    <h-checkbox v-model="checkedNumbers" text="4" :value="4"/>
+  </div>
+  <div class="col">
+    <span>Favorite numbers {{ checkedNumbers }}</span>
+  </div>
 </div>
 `,
       checkedNumbersScript: `
@@ -258,14 +286,18 @@ export default {
 }    
 `,
       cklistobjects: `
-<div>
-  Select yours favorite objects
-</div>
-<div v-for="(opt, index) in checkedObjectsOptions" :key="index">
-  <h-checkbox v-model="checkedObjects" :text="opt.name" :value="opt"/>
-</div>
-<div>
-  <span>Your objects {{ checkedObjects }}</span>
+<div class="column">
+  <div class="col">
+    Select yours favorite objects
+  </div>
+  <div class="col">
+    <h-checkbox v-model="checkedObjects" :text="checkedObjectsOptions[0].name" :value="checkedObjectsOptions[0]"/>
+    <h-checkbox v-model="checkedObjects" :text="checkedObjectsOptions[1].name" :value="checkedObjectsOptions[1]"/>
+    <h-checkbox v-model="checkedObjects" :text="checkedObjectsOptions[2].name" :value="checkedObjectsOptions[2]"/>
+  </div>
+  <div class="col">
+    <span>Your objects {{ checkedObjects }}</span>
+  </div>
 </div>
 `,
       cklistobjectsScript: `

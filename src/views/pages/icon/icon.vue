@@ -7,7 +7,7 @@
     </div>
 
     <comp-code class="h-mt-lg" title="Colors" :code="iconColors">
-      <div>
+      <div class="row">
         <h-fa-icon class="bg-primary h-pa-md" icon="fas fa-camera-retro" textcolor="text-white"/>
         <h-fa-icon class="h-pa-md" icon="fas fa-camera-retro" textcolor="text-primary"/>
         <h-fa-icon class="h-pa-md" icon="fas fa-camera-retro" textcolor="text-secondary"/>
@@ -19,7 +19,7 @@
     </comp-code>
 
     <comp-code class="h-mt-lg" title="Sizes" :code="iconSizes">
-      <div>
+      <div class="row">
         <h-fa-icon icon="fas fa-camera-retro" size="12px"/>
         <h-fa-icon class="h-pa-xs" icon="fas fa-camera-retro" size="18px"/>
         <h-fa-icon class="h-pa-xs" icon="fas fa-camera-retro" size="24px"/>
@@ -28,9 +28,8 @@
       </div>
     </comp-code>
 
-    <h1>Animating Icons</h1>
-    <comp-code class="h-mt-lg" title="Colors" :code="iconAnimate">
-      <div>
+    <comp-code class="h-mt-lg" title="Animating" :code="iconAnimate">
+      <div class="row">
         <h-fa-icon class="h-pa-xs" icon="fas fa-spinner" spin/>
         <h-fa-icon class="h-pa-xs" icon="fas fa-circle-notch" spin/>
         <h-fa-icon class="h-pa-xs" icon="fas fa-sync" spin/>
@@ -40,9 +39,8 @@
       </div>
     </comp-code>
 
-    <h1>Counters</h1>
-    <comp-code class="h-mt-lg" title="Colors" :code="iconCounter">
-      <div>
+    <comp-code class="h-mt-lg" title="Counters" :code="iconCounter">
+      <div class="row">
         <h-fa-icon class="h-pa-xs" icon="fas fa-stroopwafel" size="24px" textcolor="text-primary">
           <h-counter bgcolor="bg-negative" textcolor="text-white">1</h-counter>
         </h-fa-icon>
@@ -107,7 +105,7 @@ export default {
   data () {
     return {
       iconColors: `
-<div>
+<div class="row">
   <h-fa-icon class="bg-primary h-pa-md" icon="fas fa-camera-retro" textcolor="text-white"/>
   <h-fa-icon class="h-pa-md" icon="fas fa-camera-retro" textcolor="text-primary"/>
   <h-fa-icon class="h-pa-md" icon="fas fa-camera-retro" textcolor="text-secondary"/>
@@ -118,7 +116,7 @@ export default {
 </div>
 `,
       iconSizes: `
-<div>
+<div class="row">
   <h-fa-icon icon="fas fa-camera-retro" size="12px"/>
   <h-fa-icon class="h-pa-xs" icon="fas fa-camera-retro" size="18px"/>
   <h-fa-icon class="h-pa-xs" icon="fas fa-camera-retro" size="24px"/>
@@ -127,7 +125,7 @@ export default {
 </div>
 `,
       iconAnimate: `
-<div>
+<div class="row">
   <h-fa-icon class="h-pa-xs" icon="fas fa-spinner" spin/>
   <h-fa-icon class="h-pa-xs" icon="fas fa-circle-notch" spin/>
   <h-fa-icon class="h-pa-xs" icon="fas fa-sync" spin/>
@@ -137,7 +135,7 @@ export default {
 </div>
 `,
       iconCounter: `
-<div>
+<div class="row">
   <h-fa-icon class="h-pa-xs" icon="fas fa-stroopwafel" size="24px" textcolor="text-primary">
     <h-counter bgcolor="bg-negative" textcolor="text-white">1</h-counter>
   </h-fa-icon>
