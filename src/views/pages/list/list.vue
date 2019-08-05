@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <h1>List</h1>
+  <h-page-content>
+    <div class="text-h4">List</div>
 
     <div class="col-6">
       <h-list>
@@ -353,7 +353,7 @@
       </div>
     </div>
 
-  </div>
+  </h-page-content>
 </template>
 
 <script>

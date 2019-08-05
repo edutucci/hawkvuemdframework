@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <h-page-content padding>
 
     <!--
       Add
@@ -9,7 +9,7 @@
       Bugs
     -->
 
-    <h3>Input</h3>
+    <div class="text-h4">Input</div>
 
     <comp-code class="h-mt-lg" title="Types" :code="txttypes">
       <h-input v-model="txtName" label="Standard" placeholder="Type something"/>
@@ -30,7 +30,7 @@
     </comp-code>
 
     <h1>Key Events</h1>
-    <html-separator/>
+    <h-separator/>
     <div class="col-6">
       <strong>Arrow Down, Tab or Enter. Enter works as tab</strong>
       <h-input
@@ -182,7 +182,7 @@
       </div>
     </div>
 
-  </div>
+  </h-page-content>
 </template>
 
 <script>

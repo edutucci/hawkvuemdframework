@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <h1>Drawer</h1>
+  <h-page-content padding>
+    <div class="text-h4">Drawer</div>
 
     <!--
       Bugs
@@ -43,7 +43,7 @@
       </h-nav-drawer>
     </comp-code>
 
-  </div>
+  </h-page-content>
 </template>
 
 <script>

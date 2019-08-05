@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <h1>Collapsible</h1>
+  <h-page-content padding>
+    <div class="text-h4">Collapsible</div>
 
     <!--
       BUGS
@@ -104,7 +104,7 @@
       </div>
     </div>
 
-  </div>
+  </h-page-content>
 </template>
 
 <script>

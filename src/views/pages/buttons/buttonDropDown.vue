@@ -1,11 +1,11 @@
 <template>
   <h-page-content padding>
 
-    <h1>Button Dropdown</h1>
+    <div class="text-h4">Button Dropdown</div>
 
     <comp-code class="h-mt-lg" title="Options" :code="containedButtons">
       <div class="flex">
-        <h-btn-dropdown text="Options" bgcolor="bg-primary" textcolor="text-white">
+        <h-btn-dropdown text="Options" drop-down-icon="fas fa-caret-down" bgcolor="bg-primary" textcolor="text-white">
           <div class="flex">
             <div class="flex flex-column h-pa-sm">
               <div class="text-body1">MyProfile</div>
@@ -19,7 +19,7 @@
 
     <comp-code class="h-mt-lg" title="Profile" :code="outlinedButtons">
       <div class="flex flex-justify-center">
-        <h-btn-dropdown text="Profile" bgcolor="bg-primary" textcolor="text-white">
+        <h-btn-dropdown text="Profile" drop-down-icon="fas fa-caret-down" bgcolor="bg-primary" textcolor="text-white">
           <div class="flex h-pa-sm">
             <div class="flex flex-items-center"><h-avatar src="avatar/Eduard.jpg" size="72px"/></div>
             <div class="flex flex-column h-ml-sm">
@@ -32,12 +32,7 @@
     </comp-code>
 
     <!-- col-x -->
-    <div class="row">
-      <div class="flex-1" style="background-color: gray;">col</div>
-      <div class="flex-1" style="background-color: gray;">col</div>
-      <div class="flex-1" style="background-color: gray;">col</div>
-      <div class="flex-1" style="background-color: gray;">col</div>
-      <!-- <div class="flex-1" style="background-color: gray;">col</div>
+    <!-- <div class="row">
       <div class="flex-1" style="background-color: gray;">col</div>
       <div class="flex-1" style="background-color: gray;">col</div>
       <div class="flex-1" style="background-color: gray;">col</div>
@@ -51,11 +46,16 @@
       <div class="flex-1" style="background-color: gray;">col</div>
       <div class="flex-1" style="background-color: gray;">col</div>
       <div class="flex-1" style="background-color: gray;">col</div>
-      <div class="flex-1" style="background-color: gray;">col</div> -->
-    </div>
+      <div class="flex-1" style="background-color: gray;">col</div>
+      <div class="flex-1" style="background-color: gray;">col</div>
+      <div class="flex-1" style="background-color: gray;">col</div>
+      <div class="flex-1" style="background-color: gray;">col</div>
+      <div class="flex-1" style="background-color: gray;">col</div>
+      <div class="flex-1" style="background-color: gray;">col</div>
+    </div> -->
 
     <!-- col-auto -->
-    <div class="h-mt-md flex scroll">
+    <!-- <div class="h-mt-md flex scroll">
       <div class="col-auto" style="width: 350px;background-color: gray; text-align: center">col-auto</div>
       <div class="col-auto" style="width: 350px;background-color: gray; text-align: center">col-auto</div>
       <div class="col-auto" style="width: 350px;background-color: gray; text-align: center">col-auto</div>
@@ -68,23 +68,23 @@
       <div class="col-auto" style="width: 350px;background-color: gray; text-align: center">col-auto</div>
       <div class="col-auto" style="width: 350px;background-color: gray; text-align: center">col-auto</div>
       <div class="col-auto" style="width: 350px;background-color: gray; text-align: center">col-auto</div>
-    </div>
+    </div> -->
 
     <!-- column -->
 
-    <div class="h-mt-md row">
+    <!-- <div class="h-mt-md row">
       <div class="col2" style="background-color: gray;">col-4</div>
       <div class="col2" style="background-color: gray;">col-4</div>
       <div class="col2" style="background-color: gray;">col-4</div>
       <div class="co2" style="background-color: gray;">col-4</div>
-    </div>
+    </div> -->
 
     <!-- col-space -->
-    <div class="h-mt-md flex scroll">
+    <!-- <div class="h-mt-md flex scroll">
       <div class="col-auto" style="width: 350px;background-color: gray; text-align: center">col-auto</div>
       <div class="col-space" style="background-color: gray; text-align: center">col-space</div>
       <div class="col-auto" style="width: 350px;background-color: gray; text-align: center">col-auto</div>
-    </div>
+    </div> -->
 
     <!-- <h2 class="text-primary">Button Group</h2>
     <h2 class="text-primary">Vue Properties</h2>

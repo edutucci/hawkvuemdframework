@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <h1>Toggle</h1>
+  <h-page-content padding>
+    <div class="text-h4">Toggle</div>
 
     <!--
       Bugs
@@ -97,7 +97,7 @@
       </div>
     </div>
 
-  </div>
+  </h-page-content>
 </template>
 
 <script>

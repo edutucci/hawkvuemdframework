@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <h1> Radio Buttons </h1>
+  <h-page-content padding>
+    <div class="text-h4"> Radio Buttons </div>
 
     <!--
       ADD
@@ -124,7 +124,7 @@
       </div>
     </div>
 
-  </div>
+  </h-page-content>
 </template>
 
 <script>

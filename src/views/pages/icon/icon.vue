@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <h1>Icons</h1>
+  <h-page-content padding>
+    <div class="text-h4">Icons</div>
 
     <div class="text-primary" style="background-color: lightgray">
       <b>Note:</b> This component has support for <b>Font Awesome Icons 5.x</b>
@@ -96,7 +96,7 @@
       </div>
     </div>
 
-  </div>
+  </h-page-content>
 </template>
 
 <script>

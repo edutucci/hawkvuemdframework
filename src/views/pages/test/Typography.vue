@@ -16,6 +16,9 @@
     .text-caption Caption
     .text-overline Overline
 
+    div
+      h-btn(text-button bgcolor="bg-primary" textcolor="text-primary" text="primary")
+
   </div>
 </template>
 

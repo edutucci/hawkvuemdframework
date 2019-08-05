@@ -1,39 +1,24 @@
 <template>
-  <div class="full-height">
-    <h1>Installation</h1>
-    <pre v-highlightjs="install">
-      <code class="javascript">
-      </code>
-    </pre>
+  <h-page-content padding>
+    <div class="text-h4">Installation</div>
+    <prism :code="install"/>
 
-    <h1>Defining the theme</h1>
-    <h2>Add a theme folder in src folder.</h2>
+    <div class="text-h4">Defining the theme</div>
+    <div class="text-body1">1.Add a theme folder in src folder.Create a file named variables.styl with the following code:</div>
 
-    <strong> 1. Create a file named variables.styl with the following code:</strong>
-    <pre v-highlightjs="theme">
-      <code class="javascript">
-      </code>
-    </pre>
+    <prism :code="theme" language="stylus"/>
 
-    <strong> 2. Create a file named index.styl with the following code:</strong>
-    <pre v-highlightjs="theme2">
-      <code class="javascript">
-      </code>
-    </pre>
+    <div class="text-body1"> 2. Create a file named index.styl with the following code:</div>
+    <prism :code="theme2" language="stylus"/>
 
-    <h1>Add in main.js</h1>
-    <pre v-highlightjs="mainjs">
-      <code class="javascript">
-      </code>
-    </pre>
+    <div class="text-h4">Configuration</div>
+    <div class="text-body1">Add in main.js</div>
+    <prism :code="mainjs" language="javascript"/>
 
-    <h1>Project start-kit</h1>
-    <pre v-highlightjs="starterkit">
-      <code class="javascript">
-      </code>
-    </pre>
+    <div class="text-h4">Project start-kit</div>
+    <prism :code="starterkit" language="javascript"/>
 
-  </div>
+  </h-page-content>
 </template>
 
 <script>

@@ -1,8 +1,5 @@
 <template lang="pug">
-  div.full-width.flex.flex-wrap.flex-items-center(
-    :class="[bgcolor, textcolor]"
-    style="padding-left: 16px; padding-top: 8px; padding-bottom: 8px;"
-  )
+  .h-pa-sm.full-width.flex.flex-wrap.flex-items-center
     slot
 </template>
 

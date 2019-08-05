@@ -69,7 +69,7 @@
     <prism language="javascript" :code="testeLang"></prism>
 
     <h1>Single Line Item</h1>
-    <html-separator/>
+    <h-separator/>
     <div style="width: 350px">
       <h-list>
         <h-list-body>
@@ -83,7 +83,7 @@
               <h-list-item-text title="At the top"/>
             </h-list-item-content>
           </h-list-item>
-          <html-separator/>
+          <h-separator/>
           <h-list-item>
             <h-list-item-side>
               <h-avatar src="avatar/AnaArmas.jpg"/>
@@ -123,7 +123,7 @@
               <h-list-item-text title="Dinning"/>
             </h-list-item-content>
           </h-list-item>
-          <html-separator/>
+          <h-separator/>
           <h-list-item>
             <h-list-item-side>
               <h-fa-icon icon="fas fa-film"/>
@@ -158,7 +158,7 @@
                <h-list-item-text title="At the top" caption="Cindy climbs new heights"/>
             </h-list-item-content>
           </h-list-item>
-          <html-separator/>
+          <h-separator/>
          <h-list-item>
             <h-list-item-side>
               <h-fa-icon icon="fas fa-film"/>
@@ -257,7 +257,7 @@
               <h-fa-icon icon="fas fa-info-circle" textcolor="text-gray"/>
             </h-list-item-side>
           </h-list-item>
-          <html-separator/>
+          <h-separator/>
           <h-list-header text="Recent files"/>
           <h-list-item>
             <h-list-item-side>
@@ -389,7 +389,7 @@
               </div>
             </h-list-item-side>
           </h-list-item>
-          <html-separator/>
+          <h-separator/>
           <h-list-item>
             <h-list-item-side>
               <h-list-item-img src="avatar/folder_open.jpeg"/>
@@ -482,7 +482,7 @@
               <h-checkbox/>
             </h-list-item-side>
           </h-list-item>
-          <html-separator/>
+          <h-separator/>
           <h-list-header text="Notifications"/>
           <h-list-item>
             <h-list-item-content separator>

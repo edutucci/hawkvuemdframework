@@ -1,6 +1,6 @@
 <template >
-  <div>
-    <h1>Search</h1>
+  <h-page-content padding>
+    <div class="text-h4">Search</div>
 
     <!--
       BUGS
@@ -71,7 +71,7 @@
       </div>
     </div>
 
-  </div>
+  </h-page-content>
 </template>
 
 <script>

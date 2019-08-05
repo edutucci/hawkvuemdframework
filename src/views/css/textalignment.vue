@@ -1,26 +1,30 @@
-<template lang="pug">
-  div
-    h1 Text Alignment
+<template>
+  <h-page-content padding>
+    <div class="text-h4">Text Alignment</div>
 
-    .flex.boxshadow
-      .flex.flex-column.h-pr-md
-        div
-          strong  text-left
-        div
-          strong text-right
-        div
-          strong text-center
-        div
-          strong text-justify
-      .flex.flex-column
-        div
-          strong  The text is left aligned
-        div
-          strong  The text is right aligned
-        div
-          strong  The text is center aligned
-        div
-          strong  The text is justify aligned
+    <html-table borders class="h-mt-md">
+      <tr class="text-left">
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+      <tr>
+        <td>text-left</td>
+        <td>The text is left aligned</td>
+      </tr>
+      <tr>
+        <td>text-right</td>
+        <td>The text is right aligned</td>
+      </tr>
+      <tr>
+        <td>text-center</td>
+        <td>The text is center aligned</td>
+      </tr>
+      <tr>
+        <td>text-justify</td>
+        <td>The text is justify aligned</td>
+      </tr>
+    </html-table>
+  </h-page-content>
 
 </template>
 

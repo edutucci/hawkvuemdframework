@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <h1>Checkbox</h1>
+  <h-page-content padding>
+    <div class="text-h4">Checkbox</div>
 
     <!--
       ADD
@@ -138,7 +138,7 @@
       </div>
     </div>
 
-  </div>
+  </h-page-content>
 
 </template>
 

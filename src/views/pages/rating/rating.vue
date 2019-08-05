@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <h1>Rating</h1>
+  <h-page-content padding>
+    <div class="text-h4">Rating</div>
 
     <comp-code class="h-mt-lg" title="Normal Point" :code="ex1" :script="ex1Script"
       javascript
@@ -26,7 +26,7 @@
    </comp-code>
 
     <h2 class="text-primary"> Vue Properties</h2>
-    <html-separator></html-separator>
+    <h-separator></h-separator>
 
     <div class="flex">
       <div>
@@ -48,7 +48,7 @@
         <div>Array of messages for each star</div>
       </div>
     </div>
-  </div>
+  </h-page-content>
 </template>
 
 <script>

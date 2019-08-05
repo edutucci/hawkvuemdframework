@@ -1,26 +1,36 @@
 <template>
-  <div>
-    <h1  class="text-primary">Toolbar App Top</h1>
+  <h-page-content padding>
+    <h1  class="text-h4">Toolbar App Top</h1>
 
     <div class="text-primary" style="background-color: lightgray">
       <b>Note:</b> To add Toolbar App Top in the top of element the use the classes: <b>top-left-absolute</b> or <b>top-left-fixed</b>
     </div>
 
     <h2>Example 1</h2>
-    <h-app-toolbar>
-      <h-app-toolbar-container bgcolor="bg-primary" textcolor="text-white">
+    <h-app-toolbar bgcolor="bg-primary">
+      <h-app-toolbar-container>
         <h-app-toolbar-navigation icon="fas fa-bars" textcolor="text-white"/>
-        <h-app-toolbar-title title="My big music collection to sing"/>
+        <h-app-toolbar-title class="text-h6 text-white">
+          My big music collection to sing
+        </h-app-toolbar-title>
         <h-app-toolbar-action>
           <h-fa-icon icon="fas fa-heart" textcolor="text-white" @click="iconClick"/>
           <h-fa-icon icon="fas fa-search" textcolor="text-white"/>
-        </h-app-toolbar-action>
-        <h-app-toolbar-menu>
-          <h-menu-dropdown rtl icon="fas fa-ellipsis-v" textcolor="text-white">
+          <h-btn-dropdown drop-down-icon="fas fa-ellipsis-v" bgcolor="bg-primary" textcolor="text-white">
+            <div class="column">
+              <div class="col text-body1">
+                item 1
+              </div>
+              <div class="col text-body1">
+                item 2
+              </div>
+            </div>
+          </h-btn-dropdown>
+          <!-- <h-menu-dropdown rtl icon="fas fa-ellipsis-v" textcolor="text-white">
             <h-menu-dropdown-item icon="fas fa-check-circle" text="You are correct." />
             <h-menu-dropdown-item icon="fas fa-handshake" text="You are in good hands"/>
-          </h-menu-dropdown>
-        </h-app-toolbar-menu>
+          </h-menu-dropdown> -->
+        </h-app-toolbar-action>
       </h-app-toolbar-container>
     </h-app-toolbar>
 
@@ -36,10 +46,10 @@
           <h-fa-icon icon="fas fa-search" textcolor="text-white"/>
         </h-app-toolbar-action>
         <h-app-toolbar-menu>
-          <h-menu-dropdown rtl icon="fas fa-ellipsis-v" textcolor="text-white">
+          <!-- <h-menu-dropdown rtl icon="fas fa-ellipsis-v" textcolor="text-white">
             <h-menu-dropdown-item icon="fas fa-check-circle" text="You are correct." />
             <h-menu-dropdown-item icon="fas fa-handshake" text="You are in good hands"/>
-          </h-menu-dropdown>
+          </h-menu-dropdown> -->
         </h-app-toolbar-menu>
       </h-app-toolbar-container>
     </h-app-toolbar>
@@ -57,10 +67,10 @@
       <h-app-toolbar-container bgcolor="bg-secondary" textcolor="text-white">
         <h-app-toolbar-navigation icon="fas fa-bars" textcolor="text-white"/>
         <h-app-toolbar-menu>
-          <h-menu-dropdown dtu icon="fas fa-ellipsis-v" textcolor="text-white">
+          <!-- <h-menu-dropdown dtu icon="fas fa-ellipsis-v" textcolor="text-white">
             <h-menu-dropdown-item icon="fas fa-check-circle" text="You are correct." />
             <h-menu-dropdown-item icon="fas fa-handshake" text="You are in good hands"/>
-          </h-menu-dropdown>
+          </h-menu-dropdown> -->
          </h-app-toolbar-menu>
          <h-app-toolbar-fab class="flex-justify-center">
            <h-btn-float bgcolor="bg-black" textcolor="text-white" icon="fas fa-plus"/>
@@ -109,7 +119,7 @@
 
     <prism language="html" :code="tb5"></prism>
 
-  </div>
+  </h-page-content>
 
 </template>
 

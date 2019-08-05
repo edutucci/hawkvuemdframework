@@ -1,38 +1,20 @@
 <template lang="pug">
   div(class="h-btn" style="display:inline-flex;")
     div(
-      v-if="contained"
       @click="onClick"
-      class="btn containedbtn flex flex-items-center full-width"
-      :class="[bgcolor, textcolor, { disabled: disabled,'boxshadow': !transparent, rounded: rounded }]"
-      style="position: relative;"
-      :style="[btnObject]"
+      class="btn flex flex-items-center full-width color-hover position-relative"
+      :class="\
+        [compBgColor, textcolor, compBgColorHover, size, \
+        { 'fab': fab, 'contained': (!textButton && !outlined), 'textbutton': textButton, 'outlined': outlined, \
+          disabled: disabled, rounded: rounded }]"
     )
-      div(class="btn-content full-width flex flex-justify-center")
+      div(class="btn-content full-width flex flex-justify-center" :class="[typography]")
         div(v-if="leftIcon && leftIcon.length > 0" class="flex-align-center")
           h-fa-icon(:textcolor="textcolor" :icon="leftIcon" size="16px")
         div(v-if="text && text.length > 0" class="flex flex-align-center h-ml-sm h-mr-sm")
-          | {{text.toUpperCase()}}
+          | {{buttonText}}
         div(v-if="rightIcon && rightIcon.length > 0" class="flex-align-center")
           h-fa-icon(:textcolor="textcolor" :icon="rightIcon" size="16px")
-        slot
-    div(v-else-if="textbutton"
-      @click="onClick"
-      class="btn flatbtn flex flex-items-center full-width bg-white"
-      :class="[textcolor, disabled]"
-      style="position: relative;"
-    )
-      div(class="btn-content full-width flex flex-justify-center")
-        | {{text.toUpperCase()}}
-        slot
-    div(v-else-if="outlined"
-      @click="onClick"
-      class="btn outlinedbtn flex flex-items-center full-width"
-      :class="[textcolor, { disabled: disabled, rounded: rounded }]"
-      style="position: relative;"
-    )
-      div(class="btn-content full-width flex flex-justify-center")
-        | {{text.toUpperCase()}}
         slot
 
 </template>
@@ -45,17 +27,21 @@ export default {
   name: 'HBtn',
   extends: componentBase,
   props: {
-    textbutton: {
-      type: Boolean
-    },
-    contained: {
-      type: Boolean
+    textButton: {
+      type: Boolean,
+      default: false
     },
     outlined: {
-      type: Boolean
+      type: Boolean,
+      default: false
     },
     rounded: {
-      type: Boolean
+      type: Boolean,
+      default: false
+    },
+    fab: {
+      type: Boolean,
+      default: false
     },
     text: {
       type: String,
@@ -70,36 +56,102 @@ export default {
     disabled: {
       type: Boolean
     },
-    transparent: {
+    caps: {
       type: Boolean,
       default: false
+    },
+    size: {
+      type: String,
+      default: 'md'
     }
   },
   components: {
   },
   data () {
     return {
-      btnObject: {
-        height: '20px',
-        background: ''
-      }
+      typography: 'text-body1'
     }
   },
   mounted () {
-    this.checkTransparent()
+    this.onBackgroundHover()
+    this.changeComponentBackground()
+    this.changeFontSize()
   },
   watch: {
-    transparent: function (value) {
-      this.checkTransparent()
+    textButton: function (value) {
+      this.compBgColorHover = ''
+      this.compBorderColor = ''
+      if (value) {
+        this.onBackgroundHover()
+      }
+      this.changeComponentBackground()
+    },
+    outlined: function (value) {
+      this.compBgColorHover = ''
+      this.compBorderColor = ''
+      if (value) {
+        this.onBackgroundHover()
+        this.changeBorderColor()
+      }
+      this.changeComponentBackground()
+    },
+    bgcolor: function (value) {
+      this.compBgColorHover = ''
+      this.compBorderColor = ''
+      this.onBackgroundHover()
+      this.changeComponentBackground()
+    },
+    size: function (value) {
+      this.changeFontSize()
+    }
+  },
+  computed: {
+    buttonText () {
+      return (!this.caps) ? this.text : this.text.toUpperCase()
     }
   },
   methods: {
-    checkTransparent () {
-      this.btnObject.background = (this.transparent) ? 'none' : ''
+    changeComponentBackground () {
+      this.compBgColor = this.bgcolor
+      if (this.textButton || this.outlined) {
+        this.compBgColor = 'bg-transparent'
+      }
+    },
+    changeBorderColor () {
+      this.compBorderColor = this.bgcolor
+      this.compBorderColor = this.compBorderColor.replace(/bg/, 'border')
+    },
+    changeFontSize () {
+      switch (this.size) {
+        case 'xs':
+          this.typography = 'text-caption'
+          break
+        case 'sm':
+          this.typography = 'text-body2'
+          break
+        case 'md':
+          this.typography = 'text-body1'
+          break
+        case 'lg':
+          this.typography = 'text-h5'
+          break
+        case 'xl':
+          this.typography = 'text-h4'
+          break
+        default:
+          this.typography = 'text-body1'
+      }
     },
     onClick () {
       if (!this.disabled) {
         this.$emit('click')
+      }
+    },
+    onBackgroundHover () {
+      if (!this.textButton && !this.outlined) {
+        this.getBackgroundHover(false)
+      } else {
+        this.getBackgroundHover(true)
       }
     }
   }

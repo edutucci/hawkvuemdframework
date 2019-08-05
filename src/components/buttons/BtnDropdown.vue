@@ -5,7 +5,7 @@
     v-on-clickaway="hideMenu"
     :id="containerid"
   )
-    .flex.flex-items-center.cursor-pointer.h-pa-xs
+    .flex.flex-items-center.cursor-pointer
       div(@click="checkViewport")
         h-fa-icon(
           v-if="icon && icon.length"
@@ -24,9 +24,9 @@
         :class="[textcolor]"
         @click="checkViewport"
       )
-        | {{text}}
-        h-fa-icon.h-ml-sm(
-          icon="fas fa-caret-down"
+        .text-body1.h-mr-sm(v-if="text") {{text}}
+        h-fa-icon(
+          :icon="dropDownIcon"
           :textcolor="textcolor"
         )
 
@@ -57,6 +57,10 @@ export default {
       default: ''
     },
     icon: {
+      type: String,
+      default: ''
+    },
+    dropDownIcon: {
       type: String,
       default: ''
     },

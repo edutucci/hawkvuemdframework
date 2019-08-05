@@ -1,27 +1,25 @@
-<template lang="pug">
-  h-main-body
-    h-page-header
-      h-app-toolbar
-        h-app-toolbar-container(bgcolor="bg-primary" textcolor="text-white")
-          h-app-toolbar-navigation(icon="fas fa-bars" textcolor="text-white" @click="showDrawer = true")
-          h-app-toolbar-title(title="HawkFramework 1.0.12")
-          h-app-toolbar-action
-            h-btn(contained transparent)
-              html-link(url="/" icon="fas fa-globe" textcolor="text-white")
-            h-btn(contained transparent)
-              html-link(url="https://github.com/edutucci/hawkframework" icon="fab fa-github" textcolor="text-white" new-window)
-            h-btn(contained transparent left-icon="fab fa-github" @click="showtb=!showtb")
-
-      h-app-toolbar(v-if="showtb")
-        h-app-toolbar-container(bgcolor="bg-primary" textcolor="text-white")
-          h-app-toolbar-navigation(icon="fas fa-bars" textcolor="text-white" @click="showDrawer = true")
-          h-app-toolbar-title(title="HawkFramework 1.0.12")
-          h-app-toolbar-action
-            h-btn(contained transparent)
-              html-link(url="/" icon="fas fa-globe" textcolor="text-white")
-            h-btn(contained transparent)
-              html-link(url="https://github.com/edutucci/hawkframework" icon="fab fa-github" textcolor="text-white" new-window)
-            h-btn(contained transparent left-icon="fab fa-github" @click="showtb=!showtb")
+<template>
+  <h-main-body>
+    <h-page-header>
+      <h-app-toolbar bgcolor="bg-primary" textcolor="text-white">
+        <h-app-toolbar-container>
+          <h-app-toolbar-navigation>
+            <h-fa-icon icon="fas fa-bars" textcolor="text-white" @click="showDrawer = true"/>
+          </h-app-toolbar-navigation>
+          <h-app-toolbar-title class="text-body1">
+            HawkFramework 1.0.12
+          </h-app-toolbar-title>
+          <h-app-toolbar-action>
+            <h-btn text-button>
+              <html-link url="/" icon="fas fa-globe" textcolor="text-white"/>
+            </h-btn>
+            <h-btn text-button>
+              <html-link url="https://github.com/edutucci/hawkframework" icon="fab fa-github" textcolor="text-white" new-window/>
+            </h-btn>
+          </h-app-toolbar-action>
+        </h-app-toolbar-container>
+      </h-app-toolbar>
+    </h-page-header>
 
     <h-nav-drawer ref="nav" v-model="showDrawer" side="left">
       <div class="flex flex-column bg-white full-size" style="display: inline-flex;">
@@ -62,6 +60,7 @@
                 <h-collapsible-item text="Collapsible" @click="$router.push('/collapsible'), $refs.nav.close()"/>
                 <h-collapsible-item text="Date and Time" @click="$router.push('/datetime'), $refs.nav.close()"/>
                 <h-collapsible-item text="Drawer" @click="$router.push('/drawer'), $refs.nav.close()"/>
+                <h-collapsible-item text="File Upload" @click="$router.push('/fileupload'), $refs.nav.close()"/>
                 <h-collapsible-item text="Icons" @click="$router.push('/icon'), $refs.nav.close()"/>
                 <h-collapsible-item text="List (atualizar help)" @click="$router.push('/list'), $refs.nav.close()"/>
                 //- <h-collapsible-item text="Menu (atualizar help)" @click="$router.push('/menu'), $refs.nav.close()"/>
@@ -97,12 +96,17 @@
       </div>
     </h-nav-drawer>
 
-    h-main-page
-      router-view
+    <h-main-page>
+      <router-view/>
+    </h-main-page>
 
-    h-page-footer
-      .flex.flex-justify-center.flex-items-center.bg-primary.text-white(style="height: 60px")
-        H3 HawkFramework Page Footer
+    <h-page-footer>
+      <div class="flex justify-center align-items-center bg-primary text-white" style="height: 60px">
+        <div class="text-h6">HawkFramework Page Footer</div>
+      </div>
+    </h-page-footer>
+
+  </h-main-body>
 
 </template>
 

@@ -80,10 +80,10 @@
 */
 
 .btn {
-  padding: 8px;
-  font-size: 16px;
-  outline: none;
-  white-space: nowrap;
+  // padding: 8px;
+  // font-size: 16px;
+  // outline: none;
+  // white-space: nowrap;
   cursor: pointer;
 }
 
@@ -94,42 +94,53 @@
   cursor: pointer;
 }
 
-.flatbtn:hover {
-  border-radius: 5px;  
-}
+.btn.contained:hover
+  box-shadow: 0px 3px 4px 2px rgba(0,0,0,0.2);
 
-.btnfab {
-  padding: 8px;
-  font-size: 16px;
-  outline: none;
-  white-space: nowrap;
-  display: inline-flex;
-  cursor: pointer;
-  border-radius: 50%;
-}
+// .flatbtn:hover {
+//   border-radius: 5px;  
+// }
+
+// .btnfab {
+//   padding: 8px;
+//   font-size: 16px;
+//   outline: none;
+//   white-space: nowrap;
+//   display: inline-flex;
+//   cursor: pointer;
+//   border-radius: 50%;
+// }
 
 .btn.rounded {
   border-radius: 50px;
 }
 
-.btn.outlinedbtn, .btngroup.outlinedbtn {
-  border: 1px solid lightgray;
-  border-radius: 5px;
-}
+.btn.xs
+  padding: 4px
 
-.btn.outlinedbtn.rounded {
-  border: 1px solid lightgray;
-  border-radius: 50px;
-}
+.btn.xs.fab
+  padding: 6px
+  
+.btn.sm
+  padding: 6px
 
-.btn.containedbtn.disabled {
-  color: gray;
-  background-color: lightgray;
-}
+.btn.sm.fab
+  padding: 8px
 
-.btn.outlinedbtn.disabled {
-  color: gray;
-}
+.btn.md
+  padding: 8px
+
+.btn.md.fab
+  padding: 10px
+
+.btn.lg
+  padding: 12px
+
+.btn.xl
+  padding: 14px
+
+.btn.fab
+  border-radius: 50%
 
 /*
 END BUTTONS
@@ -292,22 +303,6 @@ POPUP MENUS
 
 .menu-item-padding:hover {
   background-color: #EEEEEE;
-}
-
-/*
-ARTICLE
-*/
-
-article.radius {
-  border-radius: 5px;
-}
-
-article.chip {
-  border-radius: 50px;
-}
-
-article.article-content {
-  padding: 3px;
 }
 
 /*

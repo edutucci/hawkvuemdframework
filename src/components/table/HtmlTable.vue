@@ -15,6 +15,8 @@
         )
           | {{row[col]}}
 
+      slot
+
 </template>
 
 <script>

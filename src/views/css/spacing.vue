@@ -1,52 +1,74 @@
-<template lang="pug">
-  div
-    h1 Spacing
+<template>
+  <h-page-content padding>
+    <div class="text-h4">Spacing</div>
 
-    h2 This css helps you with spacing between elements
+    <div class="text-h4 h-mt-lg">Syntax</div>
+    <div class="text-body1">H - TYPE + DIRECTION - SIZE</div>
 
-    h1 Syntax
+    <html-table borders class="h-mt-md">
+      <tr>
+        <th class="text-left">Type</th>
+      </tr>
+      <tr>
+        <td>m for margin</td>
+      </tr>
+      <tr>
+        <td>p for padding</td>
+      </tr>
+    </html-table>
 
-    div.boxshadow
-      | H - TYPE + DIRECTION - SIZE
+    <html-table borders class="h-mt-md">
+      <tr>
+        <th class="text-left">DIRECTION</th>
+      </tr>
+      <tr>
+        <td>(t) for top, (b) for bottom, (l) for left, (r) for right</td>
+      </tr>
+      <tr>
+        <td>(a) for all</td>
+      </tr>
+    </html-table>
 
-    div.boxshadow
-      | TYPE
-      <ul>
-        <li>m for margin</li>
-        <li>p for padding</li>
-      </ul>
+    <html-table borders class="h-mt-md">
+      <tr>
+        <th class="text-left">SIZE</th>
+      </tr>
+      <tr>
+        <td>xs (extra small)</td>
+      </tr>
+      <tr>
+        <td>sm (small)</td>
+      </tr>
+      <tr>
+        <td>md (medium)</td>
+      </tr>
+      <tr>
+        <td>lg (large)</td>
+      </tr>
+      <tr>
+        <td>xl (extra large)</td>
+      </tr>
+    </html-table>
 
-    div.boxshadow
-      | DIRECTION
-      <ul>
-        <li>(t) for top, (b) for bottom, (l) for left, (r) for right</li>
-        <li>(a) for all</li>
-      </ul>
+    <comp-code class="h-mt-md" title="Examples" :code="ex">
+      <div class="h-pa-sm border border-gray"> small padding</div>
+      <div class="h-ml-sm border border-gray h-mt-sm"> small margin left</div>
+    </comp-code>
 
-    div.boxshadow
-      | SIZE
-      <ul>
-        <li>xs (extra small)</li>
-        <li>sm (small)</li>
-        <li>md (medium)</li>
-        <li>lg (large)</li>
-        <li>xl (extra large)</li>
-      </ul>
-
-    h1 Examples
-
-    div.boxshadow
-      h3 small size for all paddings
-      textarea.boxshadow(readonly style="border: none;") <div class="h-pa-sm"/>
-
-    div.boxshadow
-      h3  medium size for margin left
-      textarea.boxshadow(readonly style="border: none;") <div class="h-ml-md"/>
+  </h-page-content>
 
 </template>
 
 <script>
 export default {
-  name: 'Spacing'
+  name: 'Spacing',
+  data () {
+    return {
+      ex: `
+<div class="h-pa-sm border border-gray"> small padding</div>
+<div class="h-ml-sm border border-gray h-mt-sm"> small margin left</div>      
+`
+    }
+  }
 }
 </script>

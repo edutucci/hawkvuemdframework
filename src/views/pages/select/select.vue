@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <h1>Select</h1>
+  <h-page-content padding>
+    <div class="text-h4">Select</div>
 
     <!--
       Bugs
@@ -92,7 +92,7 @@
       </div>
     </div>
 
-  </div>
+  </h-page-content>
 </template>
 
 <script>

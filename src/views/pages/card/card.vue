@@ -1,16 +1,16 @@
 <template>
-  <div>
-    <h1>Cards</h1>
+  <h-page-content padding>
+    <div class="text-h4">Cards</div>
 
     <comp-code class="h-mt-lg" title="Header, Image and Text" :code="card1">
       <h-card style="width:340px;">
         <h-card-header>
           <h-card-header-text text="River" desc="Beautifull place A river in the Ganderbal district" />
           <h-card-header-menu>
-            <h-menu-dropdown rtl icon="fas fa-ellipsis-v" textcolor="text-black">
+            <!-- <h-menu-dropdown rtl icon="fas fa-ellipsis-v" textcolor="text-black">
               <h-menu-dropdown-item icon="fas fa-check-circle" text="You are correct." />
               <h-menu-dropdown-item icon="fas fa-handshake" text="You are in good hands"/>
-            </h-menu-dropdown>
+            </h-menu-dropdown> -->
           </h-card-header-menu>
         </h-card-header>
         <h-card-media>
@@ -27,10 +27,10 @@
         <h-card-header>
           <h-card-header-text text="Vue CLI 3" desc="Usage Plugins GUI" />
           <h-card-header-menu>
-            <h-menu-dropdown rtl icon="fas fa-ellipsis-v" textcolor="text-black">
+            <!-- <h-menu-dropdown rtl icon="fas fa-ellipsis-v" textcolor="text-black">
               <h-menu-dropdown-item icon="fas fa-check-circle" text="You are correct." />
               <h-menu-dropdown-item icon="fas fa-handshake" text="You are in good hands"/>
-            </h-menu-dropdown>
+            </h-menu-dropdown> -->
           </h-card-header-menu>
         </h-card-header>
         <h-card-media>
@@ -218,7 +218,7 @@
       </div>
     </div>
 
-  </div>
+  </h-page-content>
 
 </template>
 

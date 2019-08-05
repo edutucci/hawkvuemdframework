@@ -1,6 +1,6 @@
 <template lang="pug">
-  div.flex(style="" @click="onClick")
-    h-fa-icon(:icon="icon" :textcolor="textcolor")
+  div(display:inline-block)
+    slot
 </template>
 
 <script>

@@ -1,6 +1,6 @@
 <template>
-  <div class="full-size">
-    <h1>CHIPS</h1>
+  <h-page-content padding>
+    <div class="text-h4">CHIPS</div>
 
     <comp-code class="h-mt-lg" title="Styles" :code="chip">
       <h-chips text="disabled" icon="fas fa-camera-retro" closable disabled hide-on-close></h-chips>
@@ -162,7 +162,7 @@
       </div>
     </div>
 
-  </div>
+  </h-page-content>
 </template>
 
 <script>

@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <h1>Youtube Video</h1>
+  <h-page-content padding>
+    <div class="text-h4">Youtube Video</div>
 
     <comp-code class="h-mt-lg" title="video 1" :code="ex1">
       <div><h-youtube-video :width="340" :height="220" src="https://www.youtube.com/embed/nSmMkeNjjPg"/></div>
@@ -39,7 +39,7 @@
         <div>Starts the video automatically.</div>
       </div>
     </div>
-  </div>
+  </h-page-content>
 </template>
 
 <script>

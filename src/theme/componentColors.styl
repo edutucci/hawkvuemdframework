@@ -36,41 +36,54 @@
   BACKGROUND COLOR HOVER
 */
 
-.bg-white:hover.btn, .bg-black:hover.btn,
-.bg-white:hover.tab, .bg-black:hover.tab,
-.bg-white:hover.menu-item, .bg-black:hover.menu-item,
-.bg-white:hover.collapsible-item
+// .bg-white:hover.btn,
+// .bg-white:hover.tab, .bg-black:hover.tab,
+// .bg-white:hover.menu-item, .bg-black:hover.menu-item,
+// .bg-white:hover.collapsible-item
+.bg-white-hover:hover.color-hover,
+.bg-white-flat-hover:hover.color-hover
   background-color $whitehover
 
-.bg-primary:hover.btn, .bg-primary:hover.tab,
-.bg-primary:hover.menu-item
-.bg-primary:hover.collapsible-item
+.bg-black-hover:hover.color-hover,
+.bg-black-flat-hover:hover.color-hover
+  background-color: white
+  color: black
+
+.bg-primary-hover:hover.color-hover
   background-color $primaryhover
 
-.bg-secondary:hover.btn, .bg-secondary:hover.tab,
-.bg-secondary:hover.menu-item,
-.bg-secondary:hover.collapsible-item
+.bg-primary-flat-hover:hover.color-hover
+  background-color $primaryflathover
+
+.bg-secondary-hover:hover.color-hover
   background-color $secondaryhover
 
-.bg-positive:hover.btn, .bg-positive:hover.tab,
-.bg-positive:hover.menu-item
-.bg-positive:hover.collapsible-item
+.bg-secondary-flat-hover:hover.color-hover
+  background-color $secondaryflathover
+
+.bg-positive-hover:hover.color-hover
   background-color $positivehover
 
-.bg-negative:hover.btn, .bg-negative:hover.tab,
-.bg-negative:hover.menu-item
-.bg-negative:hover.collapsible-item
+.bg-positive-flat-hover:hover.color-hover
+  background-color $positiveflathover
+
+.bg-negative-hover:hover.color-hover
   background-color: $negativehover
 
-.bg-info:hover.btn, .bg-info:hover.tab,
-.bg-info:hover.menu-item
-.bg-info:hover.collapsible-item
+.bg-negative-flat-hover:hover.color-hover
+  background-color: $negativeflathover
+
+.bg-info-hover:hover.color-hover
   background-color $infohover
 
-.bg-warning:hover.btn, .bg-info:hover.tab,
-.bg-warning:hover.menu-item
-.bg-warning:hover.collapsible-item
+.bg-info-flat-hover:hover.color-hover
+  background-color $infoflathover
+
+.bg-warning-hover:hover.color-hover
   background-color $warninghover
+
+.bg-warning-flat-hover:hover.color-hover
+  background-color $warningflathover
 
 /*
   TEXT COLOR
@@ -106,6 +119,32 @@
 /*
   COMPONENTS
 */
+
+/*
+  BUTTON
+*/
+
+.btn.contained.disabled
+  color: gray
+  background-color: lightgray
+
+.btn.textbutton
+  background-color: none;
+  border-radius: 5px;
+
+.btn.outlined, .btngroup.outlinedbtn {
+  border: 1px solid lightgray;
+  border-radius: 5px;
+}
+
+.btn.outlined.rounded {
+  border: 1px solid lightgray;
+  border-radius: 50px;
+}
+
+// .btn.outlinedbtn.disabled {
+//   color: gray;
+// }
 
 /*
   TEXTFIELD

@@ -4,6 +4,6 @@
 
 <script>
 export default {
-  name: 'HtmlSeparator'
+  name: 'HSeparator'
 }
 </script>

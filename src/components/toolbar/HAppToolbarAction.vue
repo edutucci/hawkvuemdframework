@@ -1,5 +1,5 @@
 <template lang="pug">
-  div.tbaction(style="padding-left: 16px; padding-right: 16px;")
+  .flex.flex-align-center.toolbar-action
     slot
 </template>
 
@@ -10,13 +10,8 @@ export default {
 </script>
 
 <style scoped>
-.tbaction > .faicon {
-  padding-right: 16px;
-  padding-left: 16px;
-}
-
-.tbaction > a {
-  padding-right: 16px;
-  padding-left: 16px;
+.toolbar-action > * {
+  padding-right: 8px;
+  padding-left: 8px;
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <h1>Date and Time</h1>
+  <h-page-content padding>
+    <div class="text-h4">Date and Time</div>
 
     <comp-code class="h-mt-lg" title="Date Input" :code="dateInput" :script="dateInputScript"
       javascript
@@ -63,7 +63,7 @@
       </div>
     </comp-code>
 
-  </div>
+  </h-page-content>
 </template>
 
 <script>

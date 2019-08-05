@@ -1,63 +1,48 @@
-<template lang="pug">
-  div
-    h1 Others css Helpers
+<template>
+  <h-page-content padding>
 
-    strong
-      | Here you will have others css class to help you with your templates
+    <div class="text-h4">Others css Helpers</div>
 
-    h1 Mouse
-    .flex.boxshadow
-      .flex.flex-column.h-pr-md
-        div
-          strong  Name
-        div
-          strong no-user-select
-        div
-          strong cursor-pointer
-      .flex.flex-column
-        div
-          strong Description
-        div
-          strong The user can not select text of an element
-        div
-          strong The cursor is a pointer and indicates a link
+    <html-table borders >
+      <tr class="text-left">
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+      <tr>
+        <td>no-user-select</td>
+        <td> The user can not select text of an element</td>
+      </tr>
+      <tr>
+        <td>cursor-pointer</td>
+        <td>The cursor is a pointer and indicates a link</td>
+      </tr>
+      <tr>
+        <td>text-white</td>
+        <td>text of an element becomes white</td>
+      </tr>
+      <tr>
+        <td>text-bold</td>
+        <td>text of an element becomes bold</td>
+      </tr>
+      <tr>
+        <td>scroll</td>
+        <td>auto scrollbars to element</td>
+      </tr>
+      <tr>
+        <td>no-margin</td>
+        <td>removes margins</td>
+      </tr>
+      <tr>
+        <td>no-padding</td>
+        <td>removes padding</td>
+      </tr>
+      <tr>
+        <td>overflow-hidden</td>
+        <td>sets overflow-hidden to element</td>
+      </tr>
+    </html-table>
 
-    h1 Text
-    .flex.boxshadow
-      .flex.flex-column.h-pr-md
-        div
-          strong  Name
-        div
-          strong text-white
-        div
-          strong text-bold
-        div
-          strong scroll
-        div
-          strong no-margin
-        div
-          strong no-padding
-        div
-          strong no-border
-        div
-          strong overflow-hidden
-      .flex.flex-column
-        div
-          strong Description
-        div
-          strong text of an element becomes white
-        div
-          strong text of an element becomes bold
-        div
-          strong auto scrollbars to element
-        div
-          strong removes margins
-        div
-          strong removes padding
-        div
-          strong removes border
-        div
-          strong sets overflow-hidden to element
+  </h-page-content>
 
 </template>
 

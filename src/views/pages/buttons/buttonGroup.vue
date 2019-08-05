@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <h1>Buttons  Group</h1>
+  <h-page-content padding>
+    <div class="text-h4">Buttons  Group</div>
 
     <comp-code class="h-mt-lg" title="Contained Buttons" :code="containedButtons">
       <div>
@@ -98,7 +98,7 @@
       </div>
     </div>
 
-  </div>
+  </h-page-content>
 </template>
 
 <script>

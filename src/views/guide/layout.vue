@@ -1,19 +1,55 @@
 <template>
-  <div>
-    <h2>Example 1 - Default layout</h2>
+  <h-page-content>
+    <div class="text-h4">Layout</div>
 
-    <pre v-highlightjs="temp1">
-      <code class="html">
-      </code>
-    </pre>
+    <div class="text-h4 h-mt-md">Defining your layout</div>
 
-    <h1>Layout with Header and Footer Fixed</h1>
-    <pre v-highlightjs="temp2">
-      <code class="html">
-      </code>
-    </pre>
+    <comp-code title="Basic Layout" class="h-mt-md" :code="layout1">
+      <h-app-toolbar>
+        <h-app-toolbar-container bgcolor="bg-primary" textcolor="text-white">
+          <h-app-toolbar-navigation icon="fas fa-bars" textcolor="text-white" @click="showDrawer = true"/>
+          <h-app-toolbar-title title="Basic Layout"/>
+          <h-app-toolbar-action>
+            <h-btn contained transparent>
+              <html-link url="/" icon="fas fa-globe" textcolor="text-white"/>
+            </h-btn>
+            <h-btn contained transparent>
+              <html-link url="https://github.com/edutucci/hawkframework" icon="fab fa-github" textcolor="text-white" new-window/>
+            </h-btn>
+          </h-app-toolbar-action>
+        </h-app-toolbar-container>
+      </h-app-toolbar>
 
-  </div>
+      <h-main-page>
+        <div class="scroll" style="height: 200px;">
+          <p>11111111111111111</p>
+          <p>11111111111111111</p>
+          <p>11111111111111111</p>
+          <p>11111111111111111</p>
+          <p>11111111111111111</p>
+          <p>11111111111111111</p>
+          <p>11111111111111111</p>
+          <p>11111111111111111</p>
+          <p>11111111111111111</p>
+          <p>11111111111111111</p>
+          <p>11111111111111111</p>
+          <p>11111111111111111</p>
+          <p>11111111111111111</p>
+          <p>11111111111111111</p>
+          <p>11111111111111111</p>
+        </div>
+
+      </h-main-page>
+
+      <div class="positon-relative">
+        <div class="flex justify-center align-items-center bg-primary text-white" style="height: 60px">
+          <div class="text-h6">My Page Footer</div>
+        </div>
+      </div>
+
+    </comp-code>
+
+  </h-page-content>
 </template>
 
 <script>
@@ -21,75 +57,37 @@ export default {
   name: 'Layout',
   data () {
     return {
-      msg1: `For this example we will use a project created with vue cli 3.`,
-      temp1: `YourMainPage.vue
+      layout1: `
+<h-main-body>
+  <h-page-header>
+    <h-app-toolbar>
+      <h-app-toolbar-container bgcolor="bg-primary" textcolor="text-white">
+        <h-app-toolbar-navigation icon="fas fa-bars" textcolor="text-white" @click="showDrawer = true"/>
+        <h-app-toolbar-title title="HawkFramework 1.0.12"/>
+        <h-app-toolbar-action>
+          <h-btn contained transparent>
+            <html-link url="/" icon="fas fa-globe" textcolor="text-white"/>
+          </h-btn>
+          <h-btn contained transparent>
+            <html-link url="https://github.com/edutucci/hawkframework" icon="fab fa-github" textcolor="text-white" new-window/>
+          </h-btn>
+        </h-app-toolbar-action>
+      </h-app-toolbar-container>
+    </h-app-toolbar>
+  </h-page-header>
 
-<template lang="pug">
-  h-page
-    h-page-header
-      h-app-toolbar
-        h-app-toolbar-container(bgcolor="bg-secondary" textcolor="text-white")
-          h-app-toolbar-navigation(icon="fas fa-bars" textcolor="text-white" @click="$refs.nav.open()")
-          h-app-toolbar-title(title="HawkFramework")
-          h-app-toolbar-action
-            h-btn(contained transparent)
-              html-link(url="/" icon="fas fa-globe" textcolor="text-white")
-            h-btn(contained transparent)
-              html-link(url="https://github.com/edutucci/hawkframework" icon="fab fa-github" textcolor="text-white" new-window)
+  <h-main-page>
+    <router-view/>
+  </h-main-page>
 
-    h-page-content
-      router-view
+  <h-page-footer>
+    <div class="flex justify-center align-items-center bg-primary text-white" style="height: 60px">
+      <div class="text-h4">HawkFramework Page Footer</div>
+    </div>
+  </h-page-footer>
 
-    h-page-footer
-      .flex.flex-justify-center.flex-items-center.bg-primary.text-white(style="height: 60px")
-        H3 HawkFramework Page Footer
-
-</template>
-
-YourPage.vue
-
-<template>
-  <div class="text-center">
-    <h1> Page Content</h1>
-    <img src='img/mountains.jpg' style="width: 650px; height: 350px;">
-  </div>
-
-</template>
-      `,
-      temp2: `YourMainPage.vue
-
-<template lang="pug">
-  h-page
-    h-page-header(fixed)
-      h-app-toolbar
-        h-app-toolbar-container(bgcolor="bg-secondary" textcolor="text-white")
-          h-app-toolbar-navigation(icon="fas fa-bars" textcolor="text-white" @click="$refs.nav.open()")
-          h-app-toolbar-title(title="HawkFramework")
-          h-app-toolbar-action
-            h-btn(contained transparent)
-              html-link(url="/" icon="fas fa-globe" textcolor="text-white")
-            h-btn(contained transparent)
-              html-link(url="https://github.com/edutucci/hawkframework" icon="fab fa-github" textcolor="text-white" new-window)
-
-    h-page-content(style="margin-top: 62px; margin-bottom: 115px")
-      router-view
-
-    h-page-footer(fixed)
-      .flex.flex-justify-center.flex-items-center.bg-primary.text-white(style="height: 60px")
-        H3 HawkFramework Page Footer
-
-</template>
-
-YourPage.vue
-
-<template>
-  <div class="text-center">
-    <h1> Page Content</h1>
-    <img src='img/mountains.jpg' style="width: 650px; height: 350px;">
-  </div>
-
-</template>
-      `
+</h-main-body>
+`
     }
   }
 }
