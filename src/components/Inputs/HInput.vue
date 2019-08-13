@@ -1,7 +1,7 @@
 <template lang="pug">
   h-input-container(
-    :bgcolor="inputContainerColor"
-    :textcolor="inputContainerTextColor"
+    :bg-color="inputContainerColor"
+    :text-color="inputContainerTextColor"
     :label="label"
     :outlined="outlined"
     :filled="filled"
@@ -17,7 +17,7 @@
           v-for="(chip, index) in value"
           :key="index"
           :text="chip"
-          textcolor="text-white"
+          text-color="text-white"
           bgcolor="bg-primary"
           closable
           @onClose="closeChip(index)"
@@ -49,13 +49,13 @@
             )
             h-fa-icon.h-mr-xs(
               v-if="clearable"
-              textcolor="text-gray"
+              text-color="text-gray"
               icon="fas fa-times-circle"
               @click="inputDisplay = ''"
             )
             h-fa-icon(
               v-if="inputtype === 'password'"
-              textcolor="text-gray"
+              text-color="text-gray"
               icon="fas fa-eye"
               @click="togglePassword"
             )

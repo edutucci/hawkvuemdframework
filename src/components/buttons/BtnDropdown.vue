@@ -1,39 +1,45 @@
 <template lang="pug">
   div(
-    class="dropdown"
-    :class="[bgcolor]"
+    class="btn-dropdown h-pl-xs"
+    :class="[bgColor]"
     v-on-clickaway="hideMenu"
     :id="containerid"
   )
-    .flex.flex-items-center.cursor-pointer
-      div(@click="checkViewport")
-        h-fa-icon(
-          v-if="icon && icon.length"
-          :icon="icon"
-          :textcolor="textcolor"
-          :id="containerid"
-        )
-        h-avatar(
-          v-else-if="avatar && avatar.length > 0"
-          :src="avatar"
-        )
-        img(v-else-if="img && img.length > 0"
-          :src="img" style="width:32px; height:32px;"
-        )
-      .flex.flex-items-center.text-body1(
-        :class="[textcolor]"
+    .btn-dropdown-container.flex.flex-items-center.cursor-pointer.full-height(
+      @click="checkViewport"
+    )
+      h-fa-icon(
+        v-if="icon && icon.length"
+        :icon="icon"
+        :text-color="textColor"
+        :id="containerid"
+      )
+      h-avatar(
+        v-else-if="avatar && avatar.length > 0"
+        :src="avatar"
+      )
+      img(v-else-if="img && img.length > 0"
+        :src="img" style="width:32px; height:32px;"
+      )
+
+      .btn-dropdown-content.flex.flex-items-center.text-body1.full-height(
+        :class="[textColor]"
         @click="checkViewport"
       )
-        .text-body1.h-mr-sm(v-if="text") {{text}}
-        h-fa-icon(
-          :icon="dropDownIcon"
-          :textcolor="textcolor"
+        .text-body1.h-mr-sm(
+          v-if="text"
         )
+          | {{text}}
+        .full-height
+          h-fa-icon(
+            :icon="dropDownIcon"
+            :text-color="textColor"
+          )
 
     .dropdown-content.shadow.bg-white(
       v-if="showdropdown"
       :style="{left: left, right: right, bottom: bottom}"
-      :id="menuid"
+      :id="meuid"
     )
       slot
 

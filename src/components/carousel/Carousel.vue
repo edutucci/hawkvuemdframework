@@ -10,13 +10,12 @@
     )
     .flex-1
       slot
-    .bg-modal.full-width.bottom-left-absolute.text-center
-      .row.flex.flex-column
-        .row.flex-column.flex.flex-justify-center.h-mt-md.h-mb-md
-          .row.text-center
-            h2.text-white.no-margin {{title}}
-          .row.text-center
-            strong.text-white {{subtitle}}
+    .bg-modal.full-width.bottom-left-absolute
+      .flex-column.text-center.text-white
+        .col.text-h5.text-bold
+          | {{title}}
+        .col.text-subtitle1
+          | {{subtitle}}
       .row.flex.flex-justify-center.h-mb-md
         .carousel-navigation-container
           h-scroll-navigator(
@@ -24,23 +23,12 @@
           )
             .flex
               h-fa-icon.h-mr-lg(
-                textcolor="text-white"
+                text-color="text-white"
                 v-for="(slider, index) in sliderList"
                 :key="index"
                 :icon="sliderIcon(index)"
                 @click="selectSlider(slider, index)"
               )
-        //- .carousel-navigation-container
-        //-   swiper(:options="swiperOption")
-        //-     swiper-slide(
-        //-       v-for="(slider, index) in sliderList"
-        //-       :key="index"
-        //-       class="overflow-hidden"
-        //-     )
-        //-       h-fa-icon.h-mr-xs.text-white(
-        //-         :icon="sliderIcon(index)"
-        //-         @click="selectSlider(slider, index)"
-        //-       )
 
 </template>
 

@@ -79,7 +79,7 @@ import HPageContent from './page/PageContent.vue'
 import HPageHeader from './page/PageHeader.vue'
 import HPageFooter from './page/PageFooter.vue'
 import HYoutubeVideo from './video/YoutubeVideo.vue'
-import HtmlLink from './html/HtmlLink.vue'
+import HLink from './html/Link.vue'
 import HSeparator from './html/Separator.vue'
 import HArticle from './html/Article.vue'
 import HScrollNavigator from './scroll/ScrollNavigator'
@@ -164,7 +164,7 @@ const Components = {
   HPageHeader,
   HPageFooter,
   HYoutubeVideo,
-  HtmlLink,
+  HLink,
   HArticle,
   HSeparator,
   HScrollNavigator

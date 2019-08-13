@@ -1,23 +1,23 @@
 <template lang="pug">
   div.flex.flex-column.full-width
-    .div(v-if="separator" :class="[bgcolor]")
+    .div(v-if="separator" :class="[bgColor]")
       h-separator
     .flex.flex-column.full-with(@click="selectCollapse()" )
       .flex.full-width(style="height:40px;")
-        .flex.flex-items-center(v-if="icon && icon.length" :class="[bgcolor]" style="padding-left:16px;padding-right:8px;height:40px;")
-          h-fa-icon(:icon="icon" :textcolor="textcolor")
-        .flex.flex-1.flex-items-center(:class="[textcolor, bgcolor]" style="padding-left:16px;")
+        .flex.flex-items-center(v-if="icon && icon.length" :class="[bgColor]" style="padding-left:16px;padding-right:8px;height:40px;")
+          h-fa-icon(:icon="icon" :text-color="textColor")
+        .flex.flex-1.flex-items-center(:class="[textColor, bgColor]" style="padding-left:16px;")
           .overflow-hidden
             | {{text}}
-        .flex.flex-items-center.arrow(:class="[bgcolor]" style="padding-left:16px;padding-right:16px;")
+        .flex.flex-items-center.arrow(:class="[bgColor]" style="padding-left:16px;padding-right:16px;")
           h-fa-icon(
-            :textcolor="textcolor"
+            :text-color="textColor"
             :class="{ 'arrow2': !isVisible, 'arrow': isVisible }"
             icon="fas fa-angle-down"
           )
       .full-width(v-if="isVisible")
         slot
-    div(v-if="separator" :class="[bgcolor]")
+    div(v-if="separator" :class="[bgColor]")
       h-separator
 
 </template>

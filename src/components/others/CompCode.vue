@@ -13,11 +13,11 @@
           slot
         div.position-relative(v-if="pageName === 'template'" style="min-height: 40px;")
           .top-right-absolute.h-mr-sm.h-mt-md.buttoncopycode
-            h-fa-icon(icon="far fa-copy" textcolor="text-primary" @click="copyCodeToClipboard")
+            h-fa-icon(icon="far fa-copy" text-color="text-primary" @click="copyCodeToClipboard")
           prism(language="html" :code="code")
         div.position-relative(v-if="pageName === 'javascript'")
           .top-right-absolute.h-mr-sm.h-mt-md.buttoncopycode
-            h-fa-icon(icon="far fa-copy" textcolor="text-primary" @click="copyCodeToClipboard")
+            h-fa-icon(icon="far fa-copy" text-color="text-primary" @click="copyCodeToClipboard")
           prism(language="javascript" :code="script")
         .divcopycode.top-left-absolute.full-size.h-mt-sm(
           v-if="pageName === 'template' || pageName === 'javascript'"

@@ -79,23 +79,12 @@
   BUTTONS
 */
 
-.btn {
-  // padding: 8px;
-  // font-size: 16px;
-  // outline: none;
-  // white-space: nowrap;
-  cursor: pointer;
-}
-
-.btngroup {
-  font-size: 16px;
-  outline: none;
-  white-space: nowrap;
-  cursor: pointer;
-}
-
 .btn.contained:hover
   box-shadow: 0px 3px 4px 2px rgba(0,0,0,0.2);
+  border: none;
+
+.btn.textbutton
+  border: none;
 
 // .flatbtn:hover {
 //   border-radius: 5px;  
@@ -111,6 +100,9 @@
 //   border-radius: 50%;
 // }
 
+.btn.outlined
+  border-radius: 5px;
+
 .btn.rounded {
   border-radius: 50px;
 }
@@ -119,28 +111,75 @@
   padding: 4px
 
 .btn.xs.fab
-  padding: 6px
+  min-width: 20px
+  min-height: 20px
   
 .btn.sm
   padding: 6px
 
 .btn.sm.fab
-  padding: 8px
+  min-width: 22px
+  min-height: 22px
 
 .btn.md
   padding: 8px
 
 .btn.md.fab
-  padding: 10px
+  min-width: 25px
+  min-height: 25px
 
 .btn.lg
-  padding: 12px
+  padding: 10px
+
+.btn.lg.fab
+  min-width: 32px
+  min-height: 32px
 
 .btn.xl
-  padding: 14px
+  padding: 12px
+
+.btn.xl.fab
+  min-width: 40px
+  min-height: 40px
 
 .btn.fab
   border-radius: 50%
+  border: none
+
+.btngroup > .h-btn:first-child .btn-content
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+
+.btngroup > .h-btn:last-child .btn-content
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+
+.btngroup > .btn-dropdown:first-child
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+
+.btngroup > .btn-dropdown:last-child
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+
+.btngroup.rounded
+  border-radius: 50px
+
+.btngroup.rounded > .h-btn:first-child .btn-content
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+
+.btngroup.rounded > .h-btn:last-child .btn-content
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+
+.btngroup.rounded > .btn-dropdown:first-child
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+
+.btngroup.rounded > .btn-dropdown:last-child
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
 
 /*
 END BUTTONS
@@ -224,33 +263,11 @@ hr {
 
 .arrow {
    transform: rotate(0deg);
-  /* -webkit-animation-name: example;
-  -webkit-animation-duration: 0.3s;
-  animation-name: example;
-  animation-duration: 0.3s; */
 }
 
 .arrow2 {
     transform: rotate(180deg);
-    /* -webkit-animation-name: example2;
-    -webkit-animation-duration: 0.3s;
-    animation-name: example2;
-    animation-duration: 0.3s; */
 }
-
-/* Standard syntax */
-/* @keyframes example {
-  0% { transform: rotate(0deg); }
-  50% { transform: rotate(90deg); }
-  100% { transform: rotate(180deg); }
-} */
-
-/* Standard syntax */
- /* @keyframes example2 {
-  0% { transform: rotate(180deg); }
-  50% { transform: rotate(90deg); }
-  100% { transform: rotate(0deg); }
-} */
 
 /*
 COUNTER
@@ -278,10 +295,12 @@ POPUP MENUS
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); border-radius: 5px;
 }
 
-.dropdown {
+.btn-dropdown {
   position: relative;
   display: inline-block;
   z-index: 1500;
+  height: 30px;
+  padding: 2px 0px
 }
 
 .dropdown-content {

@@ -1,17 +1,10 @@
 <template lang="pug">
   div(style="display:inline-flex;")
     div(
-      v-if="contained"
-      class="btngroup flex flex-items-center full-width"
+      class="btngroup flex flex-justify-center flex-items-center full-width"
+      :class="[ {'rounded': rounded, 'outlined border border-gray border-radius': outlined } ]"
     )
-      div(class="full-width flex flex-justify-center")
-        slot
-    div(v-else-if="outlined"
-      class="btngroup outlinedbtn flex flex-items-center full-width"
-      style="padding: 4px;"
-    )
-      div(class="full-width flex flex-justify-center")
-        slot
+      slot
 
 </template>
 
@@ -20,23 +13,34 @@
 export default {
   name: 'HBtnGroup',
   props: {
-    contained: {
-      type: Boolean
-    },
     outlined: {
-      type: Boolean
+      type: Boolean,
+      default: false
+    },
+    rounded: {
+      type: Boolean,
+      default: false
     }
   },
   components: {
   },
   data () {
     return {
-      name: ''
+      name: '',
+      currentButton: undefined
     }
   },
   mounted () {
   },
   methods: {
+    setActiveButton (btn) {
+      if (this.currentButton) {
+        this.currentButton.setActive(false)
+      }
+
+      this.currentButton = btn
+      btn.setActive(true)
+    },
     setName (name) {
       this.name = name
     },

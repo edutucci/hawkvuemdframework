@@ -6,11 +6,11 @@
 
 export default {
   props: {
-    textcolor: {
+    textColor: {
       type: String,
       default: 'text-black'
     },
-    bgcolor: {
+    bgColor: {
       type: String,
       default: 'bg-white'
     },
@@ -32,8 +32,7 @@ export default {
   methods: {
     getBackgroundHover (flat) {
       this.compBgColorHover = ''
-      console.log('this.bgcolor vale:', this.bgcolor)
-      switch (this.bgcolor) {
+      switch (this.bgColor) {
         case 'bg-white':
         case 'bg-black':
         case 'bg-primary':
@@ -42,7 +41,7 @@ export default {
         case 'bg-negative':
         case 'bg-info':
         case 'bg-warning':
-          this.compBgColorHover = this.bgcolor + '-hover'
+          this.compBgColorHover = this.bgColor + '-hover'
           break
         default:
           this.getBackgroundFromMaterialPallete(flat)
@@ -52,43 +51,43 @@ export default {
       }
     },
     getBackgroundFromMaterialPallete (flat) {
-      if (this.bgcolor.indexOf('red') !== -1) {
+      if (this.bgColor.indexOf('red') !== -1) {
         this.compBgColorHover = 'bg-red-hover'
-      } else if (this.bgcolor.indexOf('pink') !== -1) {
+      } else if (this.bgColor.indexOf('pink') !== -1) {
         this.compBgColorHover = 'bg-pink-hover'
-      } else if (this.bgcolor.indexOf('deepPurple') !== -1) {
+      } else if (this.bgColor.indexOf('deepPurple') !== -1) {
         this.compBgColorHover = 'bg-deepPurple-hover'
-      } else if (this.bgcolor.indexOf('purple') !== -1) {
+      } else if (this.bgColor.indexOf('purple') !== -1) {
         this.compBgColorHover = 'bg-purple-hover'
-      } else if (this.bgcolor.indexOf('indigo') !== -1) {
+      } else if (this.bgColor.indexOf('indigo') !== -1) {
         this.compBgColorHover = 'bg-indigo-hover'
-      } else if (this.bgcolor.indexOf('lightBlue') !== -1) {
+      } else if (this.bgColor.indexOf('lightBlue') !== -1) {
         this.compBgColorHover = 'bg-lightBlue-hover'
-      } else if (this.bgcolor.indexOf('blueGray') !== -1) {
+      } else if (this.bgColor.indexOf('blueGray') !== -1) {
         this.compBgColorHover = 'bg-blueGray-hover'
-      } else if (this.bgcolor.indexOf('blue') !== -1) {
+      } else if (this.bgColor.indexOf('blue') !== -1) {
         this.compBgColorHover = 'bg-blue-hover'
-      } else if (this.bgcolor.indexOf('cyan') !== -1) {
+      } else if (this.bgColor.indexOf('cyan') !== -1) {
         this.compBgColorHover = 'bg-cyan-hover'
-      } else if (this.bgcolor.indexOf('teal') !== -1) {
+      } else if (this.bgColor.indexOf('teal') !== -1) {
         this.compBgColorHover = 'bg-teal-hover'
-      } else if (this.bgcolor.indexOf('lightGreen') !== -1) {
+      } else if (this.bgColor.indexOf('lightGreen') !== -1) {
         this.compBgColorHover = 'bg-lightGreen-hover'
-      } else if (this.bgcolor.indexOf('green') !== -1) {
+      } else if (this.bgColor.indexOf('green') !== -1) {
         this.compBgColorHover = 'bg-green-hover'
-      } else if (this.bgcolor.indexOf('lime') !== -1) {
+      } else if (this.bgColor.indexOf('lime') !== -1) {
         this.compBgColorHover = 'bg-lime-hover'
-      } else if (this.bgcolor.indexOf('yellow') !== -1) {
+      } else if (this.bgColor.indexOf('yellow') !== -1) {
         this.compBgColorHover = 'bg-yellow-hover'
-      } else if (this.bgcolor.indexOf('amber') !== -1) {
+      } else if (this.bgColor.indexOf('amber') !== -1) {
         this.compBgColorHover = 'bg-amber-hover'
-      } else if (this.bgcolor.indexOf('deepOrange') !== -1) {
+      } else if (this.bgColor.indexOf('deepOrange') !== -1) {
         this.compBgColorHover = 'bg-deepOrange-hover'
-      } else if (this.bgcolor.indexOf('orange') !== -1) {
+      } else if (this.bgColor.indexOf('orange') !== -1) {
         this.compBgColorHover = 'bg-orange-hover'
-      } else if (this.bgcolor.indexOf('brown') !== -1) {
+      } else if (this.bgColor.indexOf('brown') !== -1) {
         this.compBgColorHover = 'bg-brown-hover'
-      } else if (this.bgcolor.indexOf('gray') !== -1) {
+      } else if (this.bgColor.indexOf('gray') !== -1) {
         this.compBgColorHover = 'bg-gray-hover'
       }
     }

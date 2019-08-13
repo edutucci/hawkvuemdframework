@@ -1,18 +1,21 @@
 <template lang="pug">
   .scroll-navigator
     .flex.flex-items-center.scroll-container
-      h-btn(v-if="showButtons" contained transparent :disabled="!showLeffButton" :textcolor="iconColor"
-        left-icon="fas fa-chevron-left" @click="scrollLeft(true)"
+      h-btn(v-if="showButtons" text-button fab bg-color="bg-transparent" size="sm" :disabled="!showLeffButton"
+        @click="scrollLeft(true)"
       )
+        h-fa-icon(icon="fas fa-arrow-left" :text-color="iconColor")
+
       .flex-1.cursor-pointer.overflow-hidden.no-user-select(
         id="scroll" v-resize.initial="onResize" v-dragscroll="true"
         @scroll="onscroll"
       )
         div
           slot
-      h-btn(v-if="showButtons" contained transparent :disabled="!showRightButton" :textcolor="iconColor"
-        left-icon="fas fa-chevron-right" @click="scrollLeft(false)"
+      h-btn(v-if="showButtons" text-button fab bg-color="bg-transparent" size="sm" :disabled="!showRightButton"
+        @click="scrollLeft(false)"
       )
+        h-fa-icon(icon="fas fa-arrow-right" :text-color="iconColor")
 
  </template>
 

@@ -1,20 +1,21 @@
 <template lang="pug">
-  div(class="h-btn" style="display:inline-flex;")
+  div(class="h-btn btn-container" style="display:inline-flex; cursor: pointer;")
     div(
       @click="onClick"
-      class="btn flex flex-items-center full-width color-hover position-relative"
+      class="btn btn-content flex flex-items-center full-width color-hover position-relative border"
       :class="\
-        [compBgColor, textcolor, compBgColorHover, size, \
-        { 'fab': fab, 'contained': (!textButton && !outlined), 'textbutton': textButton, 'outlined': outlined, \
+        [compBgColor, textColor, size, compBgColorHover, compBorderColor, compActiveClass, \
+        { 'active': (isActive || active), 'border': outlined, 'fab': fab, \
+          'contained': (!textButton && !outlined), 'textbutton': textButton, 'outlined': outlined, \
           disabled: disabled, rounded: rounded }]"
     )
-      div(class="btn-content full-width flex flex-justify-center" :class="[typography]")
+      div(class=" full-width flex flex-justify-center" :class="[typography]")
         div(v-if="leftIcon && leftIcon.length > 0" class="flex-align-center")
-          h-fa-icon(:textcolor="textcolor" :icon="leftIcon" size="16px")
-        div(v-if="text && text.length > 0" class="flex flex-align-center h-ml-sm h-mr-sm")
+          h-fa-icon(:text-color="textColor" :icon="leftIcon" size="16px")
+        div(v-if="text && text.length > 0" class="flex flex-align-center h-ml-xs h-mr-xs")
           | {{buttonText}}
         div(v-if="rightIcon && rightIcon.length > 0" class="flex-align-center")
-          h-fa-icon(:textcolor="textcolor" :icon="rightIcon" size="16px")
+          h-fa-icon(:text-color="textColor" :icon="rightIcon" size="16px")
         slot
 
 </template>
@@ -63,19 +64,29 @@ export default {
     size: {
       type: String,
       default: 'md'
+    },
+    active: {
+      type: Boolean,
+      default: false
+    },
+    activeClass: {
+      type: String,
+      default: ''
     }
   },
   components: {
   },
   data () {
     return {
-      typography: 'text-body1'
+      typography: 'text-body1',
+      isActive: false
     }
   },
   mounted () {
     this.onBackgroundHover()
     this.changeComponentBackground()
     this.changeFontSize()
+    this.changeBorderColor()
   },
   watch: {
     textButton: function (value) {
@@ -88,18 +99,17 @@ export default {
     },
     outlined: function (value) {
       this.compBgColorHover = ''
-      this.compBorderColor = ''
       if (value) {
         this.onBackgroundHover()
         this.changeBorderColor()
       }
       this.changeComponentBackground()
     },
-    bgcolor: function (value) {
+    bgColor: function (value) {
       this.compBgColorHover = ''
-      this.compBorderColor = ''
       this.onBackgroundHover()
       this.changeComponentBackground()
+      this.changeBorderColor()
     },
     size: function (value) {
       this.changeFontSize()
@@ -107,19 +117,29 @@ export default {
   },
   computed: {
     buttonText () {
-      return (!this.caps) ? this.text : this.text.toUpperCase()
+      let text = this.text
+      if (text) {
+        text = (!this.caps) ? this.text : this.text.toUpperCase()
+      }
+      return text
+    },
+    compActiveClass () {
+      return (this.isActive || this.active) ? this.activeClass : ''
     }
   },
   methods: {
     changeComponentBackground () {
-      this.compBgColor = this.bgcolor
+      this.compBgColor = this.bgColor
       if (this.textButton || this.outlined) {
         this.compBgColor = 'bg-transparent'
       }
     },
     changeBorderColor () {
-      this.compBorderColor = this.bgcolor
-      this.compBorderColor = this.compBorderColor.replace(/bg/, 'border')
+      this.compBorderColor = ''
+      if (this.outlined) {
+        this.compBorderColor = this.bgColor
+        this.compBorderColor = this.compBorderColor.replace(/bg/, 'border')
+      }
     },
     changeFontSize () {
       switch (this.size) {
@@ -144,6 +164,12 @@ export default {
     },
     onClick () {
       if (!this.disabled) {
+        try {
+          this.$parent.setActiveButton(this)
+        } catch (error) {
+
+        }
+
         this.$emit('click')
       }
     },
@@ -153,6 +179,9 @@ export default {
       } else {
         this.getBackgroundHover(true)
       }
+    },
+    setActive (value) {
+      this.isActive = value
     }
   }
 }

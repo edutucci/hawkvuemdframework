@@ -3,7 +3,7 @@
   //-   :class="[bgcolor, textcolor]"
   //- )
   .top-right-absolute.counter(
-    :class="[bgcolor, textcolor]"
+    :class="[bgColor, textColor]"
   )
     slot
 </template>

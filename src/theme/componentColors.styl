@@ -129,22 +129,23 @@
   background-color: lightgray
 
 .btn.textbutton
-  background-color: none;
-  border-radius: 5px;
+  background-color: none
+  border-radius: 5px
+  // border: none;
 
-.btn.outlined, .btngroup.outlinedbtn {
+.btn.textbutton.disabled
+  background-color: lightgray
+  color: gray
+
+.btn.outlined.disabled
+  color: gray
+  border: 1px solid gray
+
+.btngroup.outlinedbtn {
   border: 1px solid lightgray;
   border-radius: 5px;
 }
 
-.btn.outlined.rounded {
-  border: 1px solid lightgray;
-  border-radius: 50px;
-}
-
-// .btn.outlinedbtn.disabled {
-//   color: gray;
-// }
 
 /*
   TEXTFIELD
@@ -197,19 +198,6 @@ input.readonly
 
 .bg-modal
   background-color:  #F2F2F2
-
-
-/*
-  TEXT BUTTON COLOR
-*/
-
-.outlinedbtn
-  background-color: none;
-  border: 1px solid $textbtnhover
-
-.outlinedbtn:hover
-  background-color  $whitehover
-  border: 1px solid $textbtnhover
 
 /*
   ACTIVE TAB BORDER COLOR

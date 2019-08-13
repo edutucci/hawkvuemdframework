@@ -1,14 +1,12 @@
 <template lang="pug">
   h-btn(
-    contained
     :class="{active: checkCurrentItem}"
-    :bgcolor="bg_color"
-    :textcolor="text_color"
+    :bg-color="bg_color"
+    :text-color="text_color"
     :text="text"
     :rightIcon="rightIcon"
     :leftIcon="leftIcon"
     :disabled="disabled"
-    :transparent="transparent"
     @click="onClick"
   )
 </template>
@@ -34,10 +32,6 @@ export default {
     disabled: {
       type: Boolean
     },
-    transparent: {
-      type: Boolean,
-      default: false
-    },
     name: {
       type: String,
       default: ''
@@ -60,16 +54,16 @@ export default {
     }
   },
   watch: {
-    bgcolor: function (newValue) {
+    bgColor: function (newValue) {
       this.bg_color = newValue
     },
-    textcolor: function (newValue) {
+    textColor: function (newValue) {
       this.text_color = newValue
     }
   },
   created () {
-    this.bg_color = this.bgcolor
-    this.text_color = this.textcolor
+    this.bg_color = this.bgColor
+    this.text_color = this.textColor
   },
   methods: {
     onClick () {
@@ -81,8 +75,8 @@ export default {
         this.bg_color = 'bg-gray'
         this.text_color = 'text-black'
       } else {
-        this.bg_color = this.bgcolor
-        this.text_color = this.textcolor
+        this.bg_color = this.bgColor
+        this.text_color = this.textColor
       }
     }
   }

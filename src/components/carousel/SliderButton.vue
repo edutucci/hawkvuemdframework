@@ -1,14 +1,15 @@
 <template lang="pug">
   .slider-button.full-height.flex.flex-items-center
-    .flex.flex-items-center.bg-modal.circle.btn(
-      style="diplay:inline-block; width: 24px; height: 24px;"
+    .flex.flex-items-center(
+      style="diplay:inline-block; min-width: 24px; min-height: 24px;"
     )
-      h-fa-icon(
-        textcolor="text-white"
-        :icon="icon"
-        @click="onClick"
-        size="36px"
-      )
+      h-btn(text-button bg-color="bg-primary" fab size="lg")
+        h-fa-icon(
+          text-color="text-white"
+          :icon="icon"
+          @click="onClick"
+          size="32px"
+        )
 </template>
 
 <script>

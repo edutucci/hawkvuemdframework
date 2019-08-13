@@ -1,6 +1,6 @@
 <template lang="pug">
   .toolbar.flex(
-    :class="[bgcolor, textcolor]"
+    :class="[bgColor, textColor]"
   )
     slot
 </template>

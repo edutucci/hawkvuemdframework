@@ -1,7 +1,7 @@
 <template lang="pug">
   div(style="position:relative; display: inline-block;")
     i(
-      :class="[icon, textcolor, {'fa-pulse': pulse, 'fa-spin': spin}]"
+      :class="[icon, textColor, {'fa-pulse': pulse, 'fa-spin': spin}]"
       :style="styleObject"
       @click="onClick"
     )

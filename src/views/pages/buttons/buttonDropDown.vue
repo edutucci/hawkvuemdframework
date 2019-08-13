@@ -4,31 +4,25 @@
     <div class="text-h4">Button Dropdown</div>
 
     <comp-code class="h-mt-lg" title="Options" :code="containedButtons">
-      <div class="flex">
-        <h-btn-dropdown text="Options" drop-down-icon="fas fa-caret-down" bgcolor="bg-primary" textcolor="text-white">
-          <div class="flex">
-            <div class="flex flex-column h-pa-sm">
-              <div class="text-body1">MyProfile</div>
-              <div class="text-body1">MyProfile</div>
-              <div class="text-body1">MyProfile</div>
-            </div>
-          </div>
-        </h-btn-dropdown>
-      </div>
+      <h-btn-dropdown text="Options" drop-down-icon="fas fa-caret-down" bg-color="bg-primary" text-color="text-white">
+        <div class="flex flex-column h-pa-sm">
+          <div class="text-body1">MyProfile</div>
+          <div class="text-body1">MyProfile</div>
+          <div class="text-body1">MyProfile</div>
+        </div>
+      </h-btn-dropdown>
     </comp-code>
 
     <comp-code class="h-mt-lg" title="Profile" :code="outlinedButtons">
-      <div class="flex flex-justify-center">
-        <h-btn-dropdown text="Profile" drop-down-icon="fas fa-caret-down" bgcolor="bg-primary" textcolor="text-white">
-          <div class="flex h-pa-sm">
-            <div class="flex flex-items-center"><h-avatar src="avatar/Eduard.jpg" size="72px"/></div>
-            <div class="flex flex-column h-ml-sm">
-              <div class="text-body1">My Profile</div>
-              <h-btn contained bgcolor="bg-primary" textcolor="text-white" text="Logout"/>
-            </div>
+      <h-btn-dropdown class="full-height" text="Profile" drop-down-icon="fas fa-caret-down" bg-color="bg-primary" text-color="text-white">
+        <div class="flex h-pa-sm">
+          <div class="flex flex-items-center"><h-avatar src="avatar/Eduard.jpg" size="72px"/></div>
+          <div class="flex flex-column h-ml-sm">
+            <div class="text-body1">My Profile</div>
+            <h-btn contained bg-color="bg-primary" text-color="text-white" text="Logout"/>
           </div>
-        </h-btn-dropdown>
-      </div>
+        </div>
+      </h-btn-dropdown>
     </comp-code>
 
     <!-- col-x -->

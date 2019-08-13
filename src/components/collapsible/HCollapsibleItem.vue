@@ -2,7 +2,7 @@
   .collapsible-item.flex.flex-1.flex-items-center.flex-wrap(
     @click="onClick"
     style="height:40px;"
-    :class="[bgcolor, textcolor]"
+    :class="[bgColor, textColor]"
   )
     | {{text}}
 

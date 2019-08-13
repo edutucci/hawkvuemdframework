@@ -1,20 +1,20 @@
 <template>
   <h-main-body>
     <h-page-header>
-      <h-app-toolbar bgcolor="bg-primary" textcolor="text-white">
+      <h-app-toolbar bg-color="bg-primary" text-color="text-white">
         <h-app-toolbar-container>
           <h-app-toolbar-navigation>
-            <h-fa-icon icon="fas fa-bars" textcolor="text-white" @click="showDrawer = true"/>
+            <h-fa-icon icon="fas fa-bars" text-color="text-white" @click="showDrawer = true"/>
           </h-app-toolbar-navigation>
           <h-app-toolbar-title class="text-body1">
             HawkFramework 1.0.12
           </h-app-toolbar-title>
           <h-app-toolbar-action>
             <h-btn text-button>
-              <html-link url="/" icon="fas fa-globe" textcolor="text-white"/>
+              <h-link url="/" icon="fas fa-globe" text-color="text-white"/>
             </h-btn>
             <h-btn text-button>
-              <html-link url="https://github.com/edutucci/hawkframework" icon="fab fa-github" textcolor="text-white" new-window/>
+              <h-link url="https://github.com/edutucci/hawkframework" icon="fab fa-github" text-color="text-white" new-window/>
             </h-btn>
           </h-app-toolbar-action>
         </h-app-toolbar-container>
