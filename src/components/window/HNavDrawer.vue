@@ -5,19 +5,16 @@
     :class="{ 'drawer': value, 'flex-justify-start': side === 'left', 'flex-justify-end': side === 'right' }"
     :style="{ width: activeWidth }"
   >
-    <div class="flex flex-column drawer_container" v-on-clickaway="away">
-      <div class="flex flex-justify-end h-pa-sm bg-primary">
-        <h-fa-icon icon="fas fa-times" textcolor="text-white" @click="close"/>
-      </div>
-      <header>
+    <div class="flex flex-column drawer_container position-relative" v-on-clickaway="away">
+      <div class="position-relative">
         <slot name="header"></slot>
-      </header>
+      </div>
       <main class="flex-1">
         <slot></slot>
       </main>
-      <footer>
+      <div>
         <slot name="footer"></slot>
-      </footer>
+      </div>
     </div>
 
   </div>

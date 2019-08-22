@@ -9,7 +9,7 @@ import componentBase from '../componentBase'
 
 export default {
   extends: componentBase,
-  name: 'Collapsible',
+  name: 'HCollapsible',
   props: {
     separator: {
       type: Boolean,

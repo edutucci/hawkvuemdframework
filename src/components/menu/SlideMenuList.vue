@@ -57,7 +57,7 @@
             <h-btn contained
               class="full-width"
             >
-              <html-link :text="item.text" :url="item.url" :new-window="item.newWindow"/>
+              <h-link :text="item.text" :url="item.url" :new-window="item.newWindow"/>
             </h-btn>
           </div>
         </div>

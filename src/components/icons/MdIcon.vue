@@ -1,11 +1,12 @@
 <template lang="pug">
   div(style="position:relative; display: inline-block;")
     i(
-      class="h-icon"
-      :class="[icon, textColor, {'fa-pulse': pulse, 'fa-spin': spin}]"
+      class="h-icon material-icons"
+      :class="[textColor]"
       :style="styleObject"
       @click="onClick"
     )
+      | {{icon}}
     slot
 
  </template>
@@ -18,19 +19,12 @@ export default {
   extends: componentBase,
   props: {
     icon: {
-      type: String
+      type: String,
+      default: ''
     },
     size: {
       type: String,
-      default: '16px'
-    },
-    pulse: {
-      type: Boolean,
-      default: false
-    },
-    spin: {
-      type: Boolean,
-      default: false
+      default: '20px'
     }
   },
   watch: {

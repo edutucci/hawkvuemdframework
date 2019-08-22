@@ -7,13 +7,13 @@
       </div>
       <div class="flex h-pt-md">
         <div class="text-center" style="width: 250px">
-          <html-link icon="far fa-newspaper" url="https://github.com/edutucci/hawkframework" icon-size="72px" new-window/>
+          <h-link icon="far fa-newspaper" url="https://github.com/edutucci/hawkframework" icon-size="72px" new-window/>
           <h3 class="no-margin">
             Build web pages with lightweight components.
           </h3>
         </div>
         <div class="text-center" style="width: 250px">
-          <html-link icon="fab fa-github" url="https://github.com/edutucci/hawkframework-starter-kit" icon-size="72px" new-window/>
+          <h-link icon="fab fa-github" url="https://github.com/edutucci/hawkframework-starter-kit" icon-size="72px" new-window/>
           <h3 class="no-margin">
             Download the project starter kit to test this library.
           </h3>

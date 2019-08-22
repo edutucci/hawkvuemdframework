@@ -1,18 +1,18 @@
 <template lang="pug">
   div(
-    class="btn-dropdown h-pl-xs"
+    class="btn-dropdown no-user-select"
     :class="[bgColor]"
-    v-on-clickaway="hideMenu"
+    v-on-clickaway="close"
     :id="containerid"
   )
     .btn-dropdown-container.flex.flex-items-center.cursor-pointer.full-height(
+      :class="[size]"
       @click="checkViewport"
     )
       h-fa-icon(
         v-if="icon && icon.length"
         :icon="icon"
         :text-color="textColor"
-        :id="containerid"
       )
       h-avatar(
         v-else-if="avatar && avatar.length > 0"
@@ -22,24 +22,24 @@
         :src="img" style="width:32px; height:32px;"
       )
 
-      .btn-dropdown-content.flex.flex-items-center.text-body1.full-height(
+      .btn-dropdown-content.flex.flex-items-center.text-body1(
         :class="[textColor]"
         @click="checkViewport"
       )
-        .text-body1.h-mr-sm(
+        .text-body1.h-mr-xs(
           v-if="text"
         )
           | {{text}}
-        .full-height
-          h-fa-icon(
-            :icon="dropDownIcon"
-            :text-color="textColor"
-          )
+        h-fa-icon(
+          :icon="dropDownIcon"
+          :text-color="textColor"
+          size="18px"
+        )
 
     .dropdown-content.shadow.bg-white(
       v-if="showdropdown"
       :style="{left: left, right: right, bottom: bottom}"
-      :id="meuid"
+      :id="menuid"
     )
       slot
 
@@ -58,6 +58,10 @@ export default {
   directives: {
   },
   props: {
+    value: {
+      type: Boolean,
+      default: false
+    },
     text: {
       type: String,
       default: ''
@@ -77,6 +81,10 @@ export default {
     img: {
       type: String,
       default: ''
+    },
+    size: {
+      type: String,
+      default: 'md'
     }
   },
   data () {
@@ -93,7 +101,7 @@ export default {
   mounted () {
   },
   methods: {
-    hideMenu () {
+    close () {
       this.showdropdown = false
     },
     checkViewport () {
@@ -110,29 +118,10 @@ export default {
         if (container && menu) {
           let rectMenu = menu.getClientRects()
           let rectContainer = container.getClientRects()
-          console.log('rectContainer:', JSON.stringify(rectContainer))
-          // console.log('window', JSON.stringify(window.innerWidth))
-          // this.right = '' + ((window.innerWidth) - (rectContainer['0'].right)) + 'px'
-          // this.top = '' + rectMenu['0'].top + 'px'
-          // console.log(' this.right:', this.right)
-          // console.log(' this.menuid[0].width:', rectMenu['0'].width)
           if (rectMenu['0'].width > rectContainer['0'].right) {
             this.right = ''
             this.left = '0'
           }
-
-          let pageContent = document.getElementById('page-content')
-          if (pageContent) {
-            // let rectpageContent = pageContent.getClientRects()
-            // console.log('clientWidth:', JSON.stringify(pageContent.clientWidth))
-            // console.log('classList:', JSON.stringify(pageContent.classList))
-          }
-          // console.log(' this.top:', this.top)
-          // console.log('window.innerWidth:', window.innerWidth)
-
-          // let dropmenu = document.getElementById('dropmenu')
-          // rectMenu = dropmenu.getClientRects()
-          // console.log('dropmenu:', JSON.stringify(rectMenu))
         }
       })
     }

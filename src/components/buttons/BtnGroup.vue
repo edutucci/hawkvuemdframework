@@ -1,8 +1,8 @@
 <template lang="pug">
   div(style="display:inline-flex;")
     div(
-      class="btngroup flex flex-justify-center flex-items-center full-width"
-      :class="[ {'rounded': rounded, 'outlined border border-gray border-radius': outlined } ]"
+      class="no-user-select btngroup flex flex-justify-center flex-items-center full-width"
+      :class="[compBgColor, compBorderColor, {'rounded': rounded, 'outlined border border-radius': outlined } ]"
     )
       slot
 
@@ -10,8 +10,11 @@
 
 <script>
 
+import componentBase from '../componentBase.vue'
+
 export default {
   name: 'HBtnGroup',
+  extends: componentBase,
   props: {
     outlined: {
       type: Boolean,
@@ -26,26 +29,36 @@ export default {
   },
   data () {
     return {
-      name: '',
-      currentButton: undefined
     }
   },
   mounted () {
+    this.changeComponentBackground()
+    this.changeBorderColor()
+  },
+  watch: {
+    bgColor: function (value) {
+      this.compBgColorHover = ''
+      this.changeComponentBackground()
+      this.changeBorderColor()
+    },
+    outlined: function (value) {
+      this.changeBorderColor()
+      this.changeComponentBackground()
+    }
   },
   methods: {
-    setActiveButton (btn) {
-      if (this.currentButton) {
-        this.currentButton.setActive(false)
+    changeComponentBackground () {
+      this.compBgColor = this.bgColor
+      if (this.outlined) {
+        this.compBgColor = 'bg-transparent'
       }
-
-      this.currentButton = btn
-      btn.setActive(true)
     },
-    setName (name) {
-      this.name = name
-    },
-    getName () {
-      return this.name
+    changeBorderColor () {
+      this.compBorderColor = ''
+      if (this.outlined) {
+        this.compBorderColor = (this.bgColor === 'bg-white') ? 'border-gray' : this.bgColor
+        this.compBorderColor = this.compBorderColor.replace(/bg/, 'border')
+      }
     }
   }
 }

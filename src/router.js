@@ -30,7 +30,7 @@ export default new Router({
         { path: '/drawer', component: () => import('./views/pages/drawer/drawer') },
         { path: '/card', component: () => import('./views/pages/card/card') },
         { path: '/chip', component: () => import('./views/pages/chips/chips') },
-        // { path: '/menu', component: () => import('./views/pages/menu/menu') },
+        { path: '/menu', component: () => import('./views/pages/menu/menu') },
         { path: '/menuSlider', component: () => import('./views/pages/menu/menuSlider') },
         { path: '/mask', component: () => import('./views/mask') },
         { path: '/list', component: () => import('./views/pages/list/list') },
@@ -56,11 +56,11 @@ export default new Router({
     },
     {
       path: '/test',
-      component: () => import('./views/pages/test/Typography')
+      component: () => import('./views/pages/test/List.vue')
     },
     {
       path: '/example',
-      component: () => import('./views/examples/buttons.vue')
+      component: () => import('./views/examples/list.vue')
     }
   ]
 })

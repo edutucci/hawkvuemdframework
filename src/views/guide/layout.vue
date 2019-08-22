@@ -11,10 +11,10 @@
           <h-app-toolbar-title title="Basic Layout"/>
           <h-app-toolbar-action>
             <h-btn contained transparent>
-              <html-link url="/" icon="fas fa-globe" textcolor="text-white"/>
+              <h-link url="/" icon="fas fa-globe" textcolor="text-white"/>
             </h-btn>
             <h-btn contained transparent>
-              <html-link url="https://github.com/edutucci/hawkframework" icon="fab fa-github" textcolor="text-white" new-window/>
+              <h-link url="https://github.com/edutucci/hawkframework" icon="fab fa-github" textcolor="text-white" new-window/>
             </h-btn>
           </h-app-toolbar-action>
         </h-app-toolbar-container>
@@ -66,10 +66,10 @@ export default {
         <h-app-toolbar-title title="HawkFramework 1.0.12"/>
         <h-app-toolbar-action>
           <h-btn contained transparent>
-            <html-link url="/" icon="fas fa-globe" textcolor="text-white"/>
+            <h-link url="/" icon="fas fa-globe" textcolor="text-white"/>
           </h-btn>
           <h-btn contained transparent>
-            <html-link url="https://github.com/edutucci/hawkframework" icon="fab fa-github" textcolor="text-white" new-window/>
+            <h-link url="https://github.com/edutucci/hawkframework" icon="fab fa-github" textcolor="text-white" new-window/>
           </h-btn>
         </h-app-toolbar-action>
       </h-app-toolbar-container>

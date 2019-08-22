@@ -1,10 +1,16 @@
 <template lang="pug">
-  .overflow-hidden.card-padding
+  .h-card-section
     slot
+
 </template>
 
 <script>
 export default {
-  name: 'HCardActions'
+  name: 'HCardSection',
+  data () {
+    return {
+
+    }
+  }
 }
 </script>

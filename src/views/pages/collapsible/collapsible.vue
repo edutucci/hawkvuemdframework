@@ -21,12 +21,12 @@
 
     <comp-code class="h-mt-md" title="Custom Color" :code="ex2">
       <h-collapsible>
-        <h-collapsible-menu icon="fa fa-film" text="Attractions" bgcolor="bg-primary" textcolor="text-white">
-          <h-collapsible-item text="Shopping" bgcolor="bg-primary" textcolor="text-white"></h-collapsible-item>
-          <h-collapsible-item text="Museum" bgcolor="bg-primary" textcolor="text-white"></h-collapsible-item>
+        <h-collapsible-menu icon="fa fa-film" text="Attractions" bg-color="bg-primary" text-color="text-white">
+          <h-collapsible-item text="Shopping" bg-color="bg-primary" text-color="text-white"></h-collapsible-item>
+          <h-collapsible-item text="Museum" bg-color="bg-primary" text-color="text-white"></h-collapsible-item>
         </h-collapsible-menu>
-        <h-collapsible-menu icon="fas fa-utensils" text="Dining" bgcolor="bg-primary" textcolor="text-white">
-          <h-collapsible-item text="Restaurants" bgcolor="bg-primary" textcolor="text-white"></h-collapsible-item>
+        <h-collapsible-menu icon="fas fa-utensils" text="Dining" bg-color="bg-primary" text-color="text-white">
+          <h-collapsible-item text="Restaurants" bg-color="bg-primary" text-color="text-white"></h-collapsible-item>
         </h-collapsible-menu>
       </h-collapsible>
     </comp-code>
@@ -63,8 +63,8 @@
     <div class="flex">
       <div>
         <h3>Name</h3>
-        <div>bgcolor</div>
-        <div>textcolor</div>
+        <div>bg-color</div>
+        <div>text-color</div>
         <div>icon</div>
         <div>text</div>
       </div>
@@ -124,12 +124,12 @@ export default {
 `,
       ex2: `
 <h-collapsible>
-  <h-collapsible-menu icon="fa fa-film" text="Attractions" bgcolor="bg-primary" textcolor="text-white">
-    <h-collapsible-item text="Shopping" bgcolor="bg-primary" textcolor="text-white"></h-collapsible-item>
-    <h-collapsible-item text="Museum" bgcolor="bg-primary" textcolor="text-white"></h-collapsible-item>
+  <h-collapsible-menu icon="fa fa-film" text="Attractions" bg-color="bg-primary" text-color="text-white">
+    <h-collapsible-item text="Shopping" bg-color="bg-primary" text-color="text-white"></h-collapsible-item>
+    <h-collapsible-item text="Museum" bg-color="bg-primary" text-color="text-white"></h-collapsible-item>
   </h-collapsible-menu>
-  <h-collapsible-menu icon="fas fa-utensils" text="Dining" bgcolor="bg-primary" textcolor="text-white">
-    <h-collapsible-item text="Restaurants" bgcolor="bg-primary" textcolor="text-white"></h-collapsible-item>
+  <h-collapsible-menu icon="fas fa-utensils" text="Dining" bg-color="bg-primary" text-color="text-white">
+    <h-collapsible-item text="Restaurants" bg-color="bg-primary" text-color="text-white"></h-collapsible-item>
   </h-collapsible-menu>
 </h-collapsible>
 `,

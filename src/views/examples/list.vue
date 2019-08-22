@@ -1,613 +1,391 @@
 <template>
-  <div>
-    <h1>List</h1>
+  <h-page-content padding>
 
-    <div class="col-6">
-      <h-list>
-        <h-app-toolbar>
-          <h-app-toolbar-container bgcolor="bg-primary" textcolor="text-white">
-            <h-app-toolbar-navigation icon="fas fa-bars" textcolor="text-white"/>
-            <h-app-toolbar-title title="Topics"/>
-          </h-app-toolbar-container>
-        </h-app-toolbar>
-        <h-list-body>
+    <h3>Single Line Item</h3>
+    <div class="h-pa-sm border border-gray border-radius">
+      <h-list style="max-width: 350px">
+        <h-list-item>
+          <h-list-item-content>
+            <h-list-item-text title="House in the clouds"/>
+          </h-list-item-content>
+        </h-list-item>
+        <h-list-item>
+          <h-list-item-content>
+            <h-list-item-text title="At the top"/>
+          </h-list-item-content>
+        </h-list-item>
+        <h-separator/>
+        <h-list-item>
+          <h-list-item-side>
+            <h-avatar src="avatar/AnaArmas.jpg"/>
+          </h-list-item-side>
+          <h-list-item-content>
+            <h-list-item-text title="Ana"/>
+          </h-list-item-content>
+        </h-list-item>
+        <h-list-item>
+          <h-list-item-side>
+            <h-avatar src="avatar/Eduard.jpg"/>
+          </h-list-item-side>
+          <h-list-item-content>
+            <h-list-item-text title="Eduard"/>
+          </h-list-item-content>
+        </h-list-item>
+      </h-list>
+
+      <h-list class="h-mt-md" style="max-width: 350px">
           <h-list-item>
-            <h-list-item-left lefttext="Attractions" />
+            <h-list-item-content>
+              <h-list-item-text title="Attractions"/>
+            </h-list-item-content>
           </h-list-item>
           <h-list-item>
-            <h-list-item-left lefttext="Dining"/>
+            <h-list-item-content>
+              <h-list-item-text title="Dinning"/>
+            </h-list-item-content>
+          </h-list-item>
+          <h-separator/>
+          <h-list-item>
+            <h-list-item-side>
+              <h-fa-icon icon="fas fa-film" size="20px"/>
+            </h-list-item-side>
+            <h-list-item-content>
+              <h-list-item-text title="Attractions"/>
+            </h-list-item-content>
           </h-list-item>
           <h-list-item>
-            <h-list-item-left lefttext="Health"/>
+            <h-list-item-side>
+              <h-fa-icon icon="fas fa-utensils" size="20px"/>
+            </h-list-item-side>
+            <h-list-item-content>
+              <h-list-item-text title="Dinning"/>
+            </h-list-item-content>
           </h-list-item>
-          <h-list-item>
-            <h-list-item-left lefttext="Sports"/>
-          </h-list-item>
-          <h-list-item>
-            <h-list-item-left lefttext="Travel"/>
-          </h-list-item>
-        </h-list-body>
       </h-list>
     </div>
 
-    <prism language="html" :code="list"></prism>
+    <h3>Two Line Item</h3>
+    <div class="h-pa-sm border border-gray border-radius">
+      <h-list style="max-width: 350px">
+        <h-list-item>
+          <h-list-item-content>
+            <h-list-item-text title="House in the clouds" caption="Jonathan creates a new world"/>
+          </h-list-item-content>
+        </h-list-item>
+        <h-list-item>
+          <h-list-item-content>
+              <h-list-item-text title="At the top" caption="Cindy climbs new heights"/>
+          </h-list-item-content>
+        </h-list-item>
+        <h-separator/>
+        <h-list-item>
+          <h-list-item-side>
+            <h-fa-icon icon="fas fa-film"/>
+          </h-list-item-side>
+          <h-list-item-content>
+            <h-list-item-text title="House in the clouds" caption="Jonathan creates a new world"/>
+          </h-list-item-content>
+        </h-list-item>
+        <h-list-item>
+          <h-list-item-side>
+            <h-fa-icon icon="fas fa-plane"/>
+          </h-list-item-side>
+          <h-list-item-content>
+            <h-list-item-text title="At the top" caption="Cindy climbs new heights"/>
+          </h-list-item-content>
+        </h-list-item>
+      </h-list>
 
-    <div class="col-6">
-      <h-list>
-        <h-app-toolbar>
-          <h-app-toolbar-container bgcolor="bg-primary" textcolor="text-white">
-            <h-app-toolbar-navigation icon="fas fa-bars" textcolor="text-white"/>
-            <h-app-toolbar-title title="Topics"/>
-          </h-app-toolbar-container>
-        </h-app-toolbar>
-        <h-list-body>
-          <h-list-item>
-            <h-list-item-left icon="fas fa-film" text="Attractions"/>
-          </h-list-item>
-          <h-list-item>
-            <h-list-item-left icon="fas fa-utensils" text="Dining"/>
-          </h-list-item>
-          <h-list-item>
-            <h-list-item-left icon="fas fa-heart" text="Health"/>
-          </h-list-item>
-          <h-list-item>
-            <h-list-item-left icon="fas fa-basketball-ball" text="Sports"/>
-          </h-list-item>
-          <h-list-item>
-            <h-list-item-left icon="fas fa-plane" text="Travel"/>
-          </h-list-item>
-        </h-list-body>
+      <h-list class="h-mt-md" style="max-width: 350px">
+        <h-list-header text="Today"/>
+        <h-list-item>
+          <h-list-item-side class="flex-items-center">
+            <h-list-item-img class="flex-items-center" src="img/pencil.png"/>
+          </h-list-item-side>
+          <h-list-item-content>
+            <h-list-item-text title="Pencil" caption="in stock"/>
+          </h-list-item-content>
+          <h-list-item-side class="flex-items-center">
+            <h-list-item-text title="1.50"/>
+          </h-list-item-side>
+        </h-list-item>
+        <h-list-item>
+          <h-list-item-side class="flex-items-center">
+            <h-list-item-img class="flex-items-center" src="img/rubberbands.png"/>
+          </h-list-item-side>
+          <h-list-item-content>
+            <h-list-item-text title="Hubberbands" caption="in stock"/>
+          </h-list-item-content>
+          <h-list-item-side class="flex-items-center">
+            <h-list-item-text title="4.5"/>
+          </h-list-item-side>
+        </h-list-item>
+        <h-list-item>
+          <h-list-item-side class="flex-items-center">
+            <h-list-item-img class="flex-items-center" src="img/rulers.png"/>
+          </h-list-item-side>
+          <h-list-item-content>
+            <h-list-item-text title="Rulers" caption="only 1 left in stock"/>
+          </h-list-item-content>
+          <h-list-item-side class="flex-items-center">
+            <h-list-item-text title="8.00"/>
+          </h-list-item-side>
+        </h-list-item>
+      </h-list>
+
+      <h-list class="h-mt-md" style="width: 350px">
+        <h-list-item>
+          <h-list-item-side>
+            <h-list-item-img src="avatar/folder_open.jpeg"/>
+          </h-list-item-side>
+          <h-list-item-content>
+            <h-list-item-text title="Photos" caption="Jan 9, 2018"/>
+          </h-list-item-content>
+          <h-list-item-side class="flex-items-center">
+            <h-fa-icon icon="fas fa-info-circle" text-color="text-gray"/>
+          </h-list-item-side>
+        </h-list-item>
+        <h-list-item>
+          <h-list-item-side>
+            <h-list-item-img src="avatar/folder_open.jpeg"/>
+          </h-list-item-side>
+          <h-list-item-content>
+            <h-list-item-text title="Recipes" caption="Jan"/>
+          </h-list-item-content>
+          <h-list-item-side class="flex-items-center">
+            <h-fa-icon icon="fas fa-info-circle" text-color="text-gray"/>
+          </h-list-item-side>
+        </h-list-item>
+        <h-separator/>
+        <h-list-header text="Recent files"/>
+        <h-list-item>
+          <h-list-item-side>
+            <h-list-item-img src="avatar/folder_open.jpeg"/>
+          </h-list-item-side>
+          <h-list-item-content>
+            <h-list-item-text title="Vacation itinerary" caption="Jan 20, 2018"/>
+          </h-list-item-content>
+          <h-list-item-side class="flex-items-center">
+            <h-fa-icon icon="fas fa-info-circle" text-color="text-gray"/>
+          </h-list-item-side>
+        </h-list-item>
+        <h-list-item>
+          <h-list-item-side>
+            <h-list-item-img src="avatar/folder_open.jpeg"/>
+          </h-list-item-side>
+          <h-list-item-content>
+            <h-list-item-text title="Kicthen remodel" caption="Jan 10, 2018"/>
+          </h-list-item-content>
+          <h-list-item-side class="flex-items-center">
+            <h-fa-icon icon="fas fa-info-circle" text-color="text-gray"/>
+          </h-list-item-side>
+        </h-list-item>
       </h-list>
     </div>
 
-    <prism language="html" :code="list2"></prism>
+    <h3>Three Line Item</h3>
+    <div class="h-pa-sm border border-gray border-radius">
+      <h-list style="max-width: 400px">
+        <h-list-header text="Recipes"/>
+        <h-list-item>
+          <h-list-item-side>
+            <h-list-item-img class="flex-items-center" src="img/Crunchy.jpg" large/>
+          </h-list-item-side>
+          <h-list-item-content>
+            <h-list-item-text title="Crunchy Croissants" caption="Buttery, flaky pastry named for its crescent shape."/>
+          </h-list-item-content>
+          <h-list-item-side>
+            <h-list-item-text title="01"/>
+          </h-list-item-side>
+        </h-list-item>
+        <h-list-item>
+          <h-list-item-side>
+            <h-list-item-img class="flex-items-center" src="img/GrilledEggPlant.jpg" large/>
+          </h-list-item-side>
+          <h-list-item-content>
+            <h-list-item-text title="Grilled Eggplant" caption="Tender with a rich, complex and flavor when cooked."/>
+          </h-list-item-content>
+          <h-list-item-side>
+            <h-list-item-text title="02"/>
+          </h-list-item-side>
+        </h-list-item>
+        <h-list-item>
+          <h-list-item-side>
+            <h-list-item-img class="flex-items-center" src="img/TangerineSalad.jpg" large/>
+          </h-list-item-side>
+          <h-list-item-content>
+            <h-list-item-text title="Tangerine Salad" caption="Peak tangerine season lasts from autumn to spring."/>
+          </h-list-item-content>
+          <h-list-item-side>
+            <h-list-item-text title="03"/>
+          </h-list-item-side>
+        </h-list-item>
+      </h-list>
 
-    <div class="col-6">
-      <h-list>
-        <h-app-toolbar>
-          <h-app-toolbar-container bgcolor="bg-primary" textcolor="text-white">
-            <h-app-toolbar-navigation icon="fas fa-bars" textcolor="text-white"/>
-            <h-app-toolbar-title title="Topics"/>
-          </h-app-toolbar-container>
-        </h-app-toolbar>
-        <h-collapsible separator>
+      <h-list class="h-mt-md" style="max-width: 400px">
+        <h-list-header text="Today"/>
+        <h-list-item>
+          <h-list-item-side class="flex-items-center">
+            <h-avatar src="avatar/Eduard.jpg"/>
+          </h-list-item-side>
+          <h-list-item-content>
+            <h-list-item-text title="Brunch this weekend?" caption="I'll be in your neighborhood doing errands this weekend."/>
+          </h-list-item-content>
+        </h-list-item>
+        <h-list-item>
+          <h-list-item-side class="flex-items-center">
+            <h-avatar src="avatar/AnaArmas.jpg"/>
+          </h-list-item-side>
+          <h-list-item-content>
+            <h-list-item-text title="Summer BBQ" caption="Wish I coould come, but I'm out of town this weekend."/>
+          </h-list-item-content>
+        </h-list-item>
+        <h-list-item>
+          <h-list-item-side class="flex-items-center">
+            <h-avatar src="avatar/Kostenlose.jpg"/>
+          </h-list-item-side>
+          <h-list-item-content>
+            <h-list-item-text title="Oui Oui" caption="Do you have Paris recommendations? Have you ever been?."/>
+          </h-list-item-content>
+        </h-list-item>
+      </h-list>
+
+      <h-list class="h-mt-md" style="max-width: 400px">
+          <h-list-item>
+            <h-list-item-side>
+              <h-list-item-img src="avatar/folder_open.jpeg"/>
+            </h-list-item-side>
+            <h-list-item-content>
+              <h-list-item-text title="At the top" caption="Cindy climbs new heights"/>
+            </h-list-item-content>
+            <h-list-item-side>
+              <div class="text-center">
+                <h-fa-icon icon="fas fa-star" text-color="text-yellowA400"/>
+                <h-list-item-text title="01"/>
+              </div>
+            </h-list-item-side>
+          </h-list-item>
+          <h-separator/>
+          <h-list-item>
+            <h-list-item-side>
+              <h-list-item-img src="avatar/folder_open.jpeg"/>
+            </h-list-item-side>
+            <h-list-item-content>
+              <h-list-item-text title="At the top" caption="Cindy climbs new heights"/>
+            </h-list-item-content>
+            <h-list-item-side class="flex-justify-end">
+              <div class="text-right"><h-fa-icon icon="fas fa-star" text-color="text-yellowA400"/></div>
+              <h-list-item-text title="02" class="flex-justify-end"/>
+              <h-list-item-text caption="5 min ago" class="flex-justify-end"/>
+            </h-list-item-side>
+          </h-list-item>
+      </h-list>
+    </div>
+
+    <h3>Expand and collapse</h3>
+    <div class="h-pa-sm border border-gray border-radius">
+      <h-list class="h-mt-md" style="width: 350px">
+        <h-collapsible>
           <h-collapsible-menu icon="fas fa-film" text="Attractions">
-            <h-list-body>
+            <h-list>
               <h-list-item>
-                <h-list-item-left text="Shopping"/>
+                <h-list-item-content>
+                  <h-list-item-text title="Shopping"/>
+                </h-list-item-content>
               </h-list-item>
               <h-list-item>
-                <h-list-item-left text="Museums"/>
+                <h-list-item-content>
+                  <h-list-item-text title="Museums"/>
+                </h-list-item-content>
               </h-list-item>
-            </h-list-body>
+            </h-list>
           </h-collapsible-menu>
           <h-collapsible-menu icon="fas fa-utensils" text="Dining">
-            <h-list-body>
+            <h-list>
               <h-list-item>
-                <h-list-item-left text="Restaurants"/>
+                <h-list-item-content>
+                  <h-list-item-text title="Restaurants"/>
+                </h-list-item-content>
               </h-list-item>
-            </h-list-body>
+            </h-list>
           </h-collapsible-menu>
         </h-collapsible>
       </h-list>
     </div>
-    <prism language="html" :code="list21"></prism>
 
-    <h-list class="col-6">
-      <h-app-toolbar>
-        <h-app-toolbar-container bgcolor="bg-primary" textcolor="text-white">
-          <h-app-toolbar-navigation icon="fas fa-bars" textcolor="text-white"/>
-          <h-app-toolbar-title title="Inbox"/>
-        </h-app-toolbar-container>
-      </h-app-toolbar>
-      <h-list-header text="Today is my birthday"/>
-      <h-list-body>
-        <h-list-item>
-          <h-list-item-left separator avatar="/avatar/turtle.png" text="Hi rambo" desc="You there?" />
-        </h-list-item>
-        <h-list-item>
-          <h-list-item-left separator avatar="/avatar/rambo.jpg" text="I am searching something to eat" desc="I think I am going to eat you."/>
-        </h-list-item>
-      </h-list-body>
-    </h-list>
-
-    <prism language="html" :code="list3"></prism>
-
-    <h-list class="col-6">
-      <h-app-toolbar>
-        <h-app-toolbar-container bgcolor="bg-primary" textcolor="text-white">
-          <h-app-toolbar-navigation icon="fas fa-bars" textcolor="text-white"/>
-          <h-app-toolbar-title title="My files" style="padding-top: 40px;"/>
-        </h-app-toolbar-container>
-      </h-app-toolbar>
-      <h-list-header middletext="Folders"/>
-      <h-list-body>
-        <h-list-item>
-          <h-list-item-left img="avatar/folder_open.jpeg" text="Photos" desc="Dez 12, 2017"/>
-        </h-list-item>
-        <h-list-item>
-          <h-list-item-left img="avatar/folder_open.jpeg" text="Images" desc="Events"/>
-        </h-list-item>
-      </h-list-body>
-    </h-list>
-    <prism language="html" :code="list4"></prism>
-
-    <h-list class="col-6">
-      <h-list-header text="4 items in your cart" />
-      <h-list-body>
-        <h-list-item separator>
-          <h-list-item-left img="img/pencil.png" text="Pencil" desc="in stock" />
-          <h-list-item-right text="2.00"/>
-        </h-list-item>
-        <h-list-item separator>
-          <h-list-item-left img="img/rubberbands.png" text="Hubberbands" desc="in stock"/>
-          <h-list-item-right text="4.00"/>
-        </h-list-item>
-        <h-list-item separator>
-          <h-list-item-left img="img/rulers.png" text="Rulers" desc="only 1 left in stock. Next month we will sell for you." />
-          <h-list-item-right text="6.00"/>
-        </h-list-item>
-        <h-list-item separator>
-          <h-list-item-left img="img/clock.png" text="Clock" desc="in stock" />
-          <h-list-item-right text="8.00"/>
-        </h-list-item>
-      </h-list-body>
-    </h-list>
-
-    <pre v-highlightjs="list5">
-      <code class="html">
-      </code>
-    </pre>
-
-    <h-list class="col-6">
-      <h-list-header text="Selectable products" />
-      <h-list-body>
-        <h-list-item
-          separator
-          v-for="(prod, index) in products"
-          :key="index"
-        >
-          <h-list-item-left
-            selectable
-            :img="prod.img"
-            :text="prod.text"
-            :desc="prod.desc"
-            :select-model="cart"
-            :select-value="prod.text"
-            @itemLeftClick="itemClick"
-            @selectedItem="selectValue"
-            @removedItem="removedItem"/>
-          <h-list-item-right
-            :text="prod.value"
-            icon="fas fa-edit"
-            :select-value="prod.text"
-            @rightIconClick="rightIconClick"
-          />
-        </h-list-item>
-      </h-list-body>
-    </h-list>
-
-    <div>
-      selected products: {{cart}}
-    </div>
-    <div>
-      product to edit: {{selectedProduct}}
-    </div>
-    <div>
-      item Left clicked: {{itemclicked}}
+    <h3>Controls</h3>
+    <div class="h-pa-sm border border-gray border-radius">
+      <h-list class="h-mt-md" style="width: 400px">
+        <h-list-header text="Today"/>
+          <h-list-item>
+            <h-list-item-side class="flex-items-center">
+              <h-avatar src="avatar/Eduard.jpg"/>
+            </h-list-item-side>
+            <h-list-item-content>
+              <h-list-item-text title="Brunch this weekend?" caption="I'll be in your neighborhood doing errands this weekend."/>
+            </h-list-item-content>
+            <h-list-item-side class="flex-items-center">
+              <h-checkbox/>
+            </h-list-item-side>
+          </h-list-item>
+          <h-list-item>
+            <h-list-item-side class="flex-items-center">
+              <h-avatar src="avatar/AnaArmas.jpg"/>
+            </h-list-item-side>
+            <h-list-item-content>
+              <h-list-item-text title="Summer BBQ" caption="Wish I coould come, but I'm out of town this weekend."/>
+            </h-list-item-content>
+            <h-list-item-side class="flex-items-center">
+              <h-checkbox/>
+            </h-list-item-side>
+          </h-list-item>
+          <h-list-item>
+            <h-list-item-side class="flex-items-center">
+              <h-avatar src="avatar/Kostenlose.jpg"/>
+            </h-list-item-side>
+            <h-list-item-content>
+              <h-list-item-text title="Oui Oui" caption="Do you have Paris recommendations? Have you ever been?."/>
+            </h-list-item-content>
+            <h-list-item-side class="flex-items-center">
+              <h-checkbox/>
+            </h-list-item-side>
+          </h-list-item>
+          <h-separator/>
+          <h-list-header text="Notifications"/>
+          <h-list-item>
+            <h-list-item-content>
+              <h-list-item-text title="Games"/>
+            </h-list-item-content>
+            <h-list-item-side class="flex-items-center">
+              <h-toggle/>
+            </h-list-item-side>
+          </h-list-item>
+          <h-list-item>
+            <h-list-item-content>
+              <h-list-item-text title="WhatsApp"/>
+            </h-list-item-content>
+            <h-list-item-side class="flex-items-center">
+              <h-toggle/>
+            </h-list-item-side>
+          </h-list-item>
+          <h-list-item>
+            <h-list-item-content>
+              <h-list-item-text title="E-Mail"/>
+            </h-list-item-content>
+            <h-list-item-side class="flex-items-center">
+              <h-toggle/>
+            </h-list-item-side>
+          </h-list-item>
+      </h-list>
     </div>
 
-    <pre v-highlightjs="list6">
-      <code class="html">
-      </code>
-    </pre>
-    <pre v-highlightjs="selectableProducts">
-      <code class="javascript">
-      </code>
-    </pre>
-
-    <h2 class="text-primary">List Header Help</h2>
-    <h2 class="text-primary"> Vue Properties</h2>
-    <hr>
-
-    <div class="flex">
-      <div>
-        <h3>Name</h3>
-        <div>text</div>
-        <div>middletext</div>
-      </div>
-      <div class="h-pl-md">
-        <h3>Type</h3>
-        <div>String</div>
-        <div>String</div>
-      </div>
-      <div class="h-pl-md">
-        <h3 >Description</h3>
-        <div>Text without padding for the list</div>
-        <div>Text with padding-left for the list</div>
-      </div>
-    </div>
-
-    <h2 class="text-primary"> List Item Help</h2>
-    <h2 class="text-primary"> Vue Properties</h2>
-    <hr>
-
-    <div class="flex">
-      <div>
-        <h3>Name</h3>
-        <div>separator</div>
-      </div>
-      <div class="h-pl-md">
-        <h3>Type</h3>
-        <div>Boolean</div>
-      </div>
-      <div class="h-pl-md">
-        <h3 >Description</h3>
-        <div>Add a separator below the item</div>
-      </div>
-    </div>
-
-    <h2 class="text-primary"> List Item Left Help</h2>
-
-    <h2 class="text-primary"> Vue Properties</h2>
-    <hr>
-
-    <div class="flex">
-      <div style="width: 120px;">
-        <h3>Name</h3>
-        <div>select-value</div>
-        <div>select-model</div>
-        <div>selectable</div>
-        <div>separator</div>
-        <div>icon</div>
-        <div>img</div>
-        <div>avatar</div>
-        <div>lefttext</div>
-        <div>text</div>
-        <div>desc</div>
-      </div>
-      <div class="h-pl-md" style="width: 200px;">
-        <h3>Type</h3>
-        <div>String, Number, Object</div>
-        <div>Array</div>
-        <div>Boolean</div>
-        <div>Boolean</div>
-        <div>String</div>
-        <div>String</div>
-        <div>String</div>
-        <div>String</div>
-        <div>String</div>
-        <div>String</div>
-      </div>
-      <div>
-        <h3 >Description</h3>
-        <div>The value for the selected item</div>
-        <div>
-            Checks if contains the select-value property. If true checkbox is selected.
-        </div>
-        <div>Add a checkbox for all items</div>
-        <div>Add a separator below the item</div>
-        <div>Sets the icon of the item</div>
-        <div>Sets the image of the item</div>
-        <div>Sets the avatar of the item</div>
-        <div>Sets the text of the item without icon and avatar</div>
-        <div>Sets the text of the item to right side of the icon or avatar</div>
-        <div>Sets the desc of the item to right side of the icon or avatar</div>
-      </div>
-    </div>
-
-    <h2 class="text-primary"> Vue Events</h2>
-    <hr>
-
-    <div class="flex">
-      <div>
-        <h3>Name</h3>
-        <div>@itemLeftClick(value)</div>
-        <div>@selectedItem(value)</div>
-        <div>@removedItem(value)</div>
-      </div>
-      <div class="h-pl-md">
-        <h3>Description</h3>
-        <div>Triggered on item click. The value of property select-value is sent.</div>
-        <div>Triggered on checkbox item is checked. The value of property select-value is sent as Array.</div>
-        <div>Triggered on checkbox item is not checked. The value of property select-value is sent.</div>
-      </div>
-    </div>
-
-    <h2 class="text-primary"> List Item Right</h2>
-    <h2 class="text-primary"> Vue Properties</h2>
-    <hr>
-
-    <div class="flex">
-      <div>
-        <h3>Name</h3>
-        <div>select-value</div>
-        <div>icon</div>
-        <div>text</div>
-      </div>
-      <div class="h-pl-md">
-        <h3>Type</h3>
-        <div>String, Number, Object</div>
-        <div>String</div>
-        <div>String</div>
-      </div>
-      <div class="h-pl-md">
-        <h3 >Description</h3>
-        <div>The value for the selected item</div>
-        <div>Sets the icon of the item</div>
-        <div>Sets the text of the icon</div>
-      </div>
-    </div>
-
-    <h2 class="text-primary"> Vue Events</h2>
-    <hr>
-
-    <div class="flex">
-      <div>
-        <h3>Name</h3>
-        <div>@rightIconClick(value)</div>
-      </div>
-      <div class="h-pl-md">
-        <h3>Description</h3>
-        <div>Triggered on icon click.The event @itemClick is fired too. The value of property select-value is sent.</div>
-      </div>
-    </div>
-
-  </div>
-</template>
+  </h-page-content></template>
 
 <script>
 
 export default {
-  components: {
-  },
   data () {
-    return {
-      products: [
-        { img: '/img/pencil.png', text: 'Pencil', desc: 'in stock', value: '2.00' },
-        { img: '/img/rubberbands.png', text: 'Hubberbands', desc: 'in stock', value: '4.00' },
-        { img: '/img/rulers.png', text: 'Rulers', desc: 'only 1 left in stock. Next month we will sell for you.', value: '6.00' },
-        { img: '/img/clock.png', text: 'Clock', desc: 'in stock', value: '8.00' }
-      ],
-      cart: ['Clock', 'Pencil'],
-      selectedProduct: undefined,
-      itemclicked: undefined,
-      topicItem: '',
-      list: `
-<div class="col-6">
-  <h-list>
-    <h-app-toolbar>
-      <h-app-toolbar-container bgcolor="bg-primary" textcolor="text-white">
-        <h-app-toolbar-navigation icon="fas fa-bars" textcolor="text-white"/>
-        <h-app-toolbar-title title="Topics"/>
-      </h-app-toolbar-container>
-    </h-app-toolbar>
-    <h-list-body>
-      <h-list-item>
-        <h-list-item-left lefttext="Attractions" />
-      </h-list-item>
-      <h-list-item>
-        <h-list-item-left lefttext="Dining"/>
-      </h-list-item>
-      <h-list-item>
-        <h-list-item-left lefttext="Health"/>
-      </h-list-item>
-      <h-list-item>
-        <h-list-item-left lefttext="Sports"/>
-      </h-list-item>
-      <h-list-item>
-        <h-list-item-left lefttext="Travel"/>
-      </h-list-item>
-    </h-list-body>
-  </h-list>
-</div>
-      `,
-      list2: `
-<div class="col-6">
-  <h-list>
-    <h-app-toolbar>
-      <h-app-toolbar-container bgcolor="bg-primary" textcolor="text-white">
-        <h-app-toolbar-navigation icon="fas fa-bars" textcolor="text-white"/>
-        <h-app-toolbar-title title="Topics"/>
-      </h-app-toolbar-container>
-    </h-app-toolbar>
-    <h-list-body>
-      <h-list-item>
-        <h-list-item-left icon="fas fa-film" text="Attractions"/>
-      </h-list-item>
-      <h-list-item>
-        <h-list-item-left icon="fas fa-utensils" text="Dining"/>
-      </h-list-item>
-      <h-list-item>
-        <h-list-item-left icon="fas fa-heart" text="Health"/>
-      </h-list-item>
-      <h-list-item>
-        <h-list-item-left icon="fas fa-basketball-ball" text="Sports"/>
-      </h-list-item>
-      <h-list-item>
-        <h-list-item-left icon="fas fa-plane" text="Travel"/>
-      </h-list-item>
-    </h-list-body>
-  </h-list>
-</div>
-      `,
-      list21: `
-<div class="col-6">
-  <h-list>
-    <h-app-toolbar>
-      <h-app-toolbar-container bgcolor="bg-primary" textcolor="text-white">
-        <h-app-toolbar-navigation icon="fas fa-bars" textcolor="text-white"/>
-        <h-app-toolbar-title title="Topics"/>
-      </h-app-toolbar-container>
-    </h-app-toolbar>
-    <h-collapsible separator>
-      <h-collapsible-menu icon="fas fa-film" text="Attractions">
-        <h-list-body>
-          <h-list-item>
-            <h-list-item-left text="Shopping"/>
-          </h-list-item>
-          <h-list-item>
-            <h-list-item-left text="Museums"/>
-          </h-list-item>
-        </h-list-body>
-      </h-collapsible-menu>
-      <h-collapsible-menu icon="fas fa-utensils" text="Dining">
-        <h-list-body>
-          <h-list-item>
-            <h-list-item-left text="Restaurants"/>
-          </h-list-item>
-        </h-list-body>
-      </h-collapsible-menu>
-    </h-collapsible>
-  </h-list>
-</div>
-      `,
-      list3: `
-<h-list class="col-6">
-  <h-app-toolbar>
-    <h-app-toolbar-container bgcolor="bg-primary" textcolor="text-white">
-      <h-app-toolbar-navigation icon="fas fa-bars" textcolor="text-white"/>
-      <h-app-toolbar-title title="Inbox"/>
-    </h-app-toolbar-container>
-  </h-app-toolbar>
-  <h-list-header text="Today is my birthday"/>
-  <h-list-body>
-    <h-list-item>
-      <h-list-item-left separator avatar="/avatar/turtle.png" text="Hi rambo" desc="You there?" />
-    </h-list-item>
-    <h-list-item>
-      <h-list-item-left separator avatar="/avatar/rambo.jpg" text="I am searching something to eat" desc="I think I am going to eat you."/>
-    </h-list-item>
-  </h-list-body>
-</h-list>
-      `,
-      list4: `
-<h-list class="col-6">
-  <h-app-toolbar>
-    <h-app-toolbar-container bgcolor="bg-primary" textcolor="text-white">
-      <h-app-toolbar-navigation icon="fas fa-bars" textcolor="text-white"/>
-      <h-app-toolbar-title title="My files" style="padding-top: 40px;"/>
-    </h-app-toolbar-container>
-  </h-app-toolbar>
-  <h-list-header middletext="Folders"/>
-  <h-list-body>
-    <h-list-item>
-      <h-list-item-left img="avatar/folder_open.jpeg" text="Photos" desc="Dez 12, 2017"/>
-    </h-list-item>
-    <h-list-item>
-      <h-list-item-left img="avatar/folder_open.jpeg" text="Images" desc="Events"/>
-    </h-list-item>
-  </h-list-body>
-</h-list>
-      `,
-      list5: `
-<h-list class="col-6">
-  <h-list-header text="4 items in your cart" />
-  <h-list-body>
-    <h-list-item separator>
-      <h-list-item-left img="img/pencil.png" text="Pencil" desc="in stock" />
-      <h-list-item-right text="2.00"/>
-    </h-list-item>
-    <h-list-item separator>
-      <h-list-item-left img="img/rubberbands.png" text="Hubberbands" desc="in stock"/>
-      <h-list-item-right text="4.00"/>
-    </h-list-item>
-    <h-list-item separator>
-      <h-list-item-left img="img/rulers.png" text="Rulers" desc="only 1 left in stock. Next month we will sell for you." />
-      <h-list-item-right text="6.00"/>
-    </h-list-item>
-    <h-list-item separator>
-      <h-list-item-left img="img/clock.png" text="Clock" desc="in stock" />
-      <h-list-item-right text="8.00"/>
-    </h-list-item>
-  </h-list-body>
-</h-list>
-      `,
-      list6: `
-<h-list class="col-6">
-  <h-list-header text="Selectable products" />
-  <h-list-body>
-    <h-list-item
-      separator
-      v-for="(prod, index) in products"
-      :key="index"
-    >
-      <h-list-item-left
-        selectable
-        :img="prod.img"
-        :text="prod.text"
-        :desc="prod.desc"
-        :select-model="cart"
-        :select-value="prod.text"
-        @itemLeftClick="itemClick"
-        @selectedItem="selectValue"
-        @removedItem="removedItem"/>
-      <h-list-item-right
-        :text="prod.value"
-        icon="fas fa-edit"
-        :select-value="prod.text"
-        @rightIconClick="rightIconClick"
-      />
-    </h-list-item>
-  </h-list-body>
-</h-list>
-      `,
-      selectableProducts: `
-export default {
-  data () {
-    return {
-      products: [
-        {img: '/img/pencil.png', text: 'Pencil', desc: 'in stock', value: '2.00'},
-        {img: '/img/rubberbands.png', text: 'Hubberbands', desc: 'in stock', value: '4.00'},
-        {img: '/img/rulers.png', text: 'Rulers', desc: 'only 1 left in stock. Next month we will sell for you.', value: '6.00'},
-        {img: '/img/clock.png', text: 'Clock', desc: 'in stock', value: '8.00'}
-      ],
-      cart: ['Clock', 'Pencil'],
-      selectedProduct: undefined,
-      itemclicked: undefined
-    }
-  },
-  methods: {
-    selectValue (product) {
-      if (product.length) {
-        this.cart.push(product[0])
-      }
-    },
-    removedItem (product) {
-      let prod = this.cart.findIndex(item => item === product)
-      if (prod !== -1) {
-        this.$delete(this.cart, prod)
-      }
-    },
-    rightIconClick (product) {
-      this.selectedProduct = product
-    },
-    itemClick (product) {
-      this.itemclicked = product
-    }
-  }
-}
-      `
-    }
-  },
-  methods: {
-    selectValue (product) {
-      if (product.length) {
-        this.cart.push(product[0])
-      }
-    },
-    removedItem (product) {
-      let prod = this.cart.findIndex(item => item === product)
-      if (prod !== -1) {
-        this.$delete(this.cart, prod)
-      }
-    },
-    rightIconClick (product) {
-      this.selectedProduct = product
-    },
-    itemClick (product) {
-      this.itemclicked = product
-    }
+    return {}
   }
 }
 </script>

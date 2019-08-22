@@ -1,8 +1,8 @@
 <template lang="pug">
   .collapsible-item.flex.flex-1.flex-items-center.flex-wrap(
     @click="onClick"
-    style="height:40px;"
-    :class="[bgColor, textColor]"
+    class="color-hover h-pa-sm"
+    :class="[textColor, compBgColor, compBgColorHover]"
   )
     | {{text}}
 
@@ -13,6 +13,7 @@
 import componentBase from '../componentBase.vue'
 
 export default {
+  name: 'HCollapsibleItem',
   extends: componentBase,
   props: {
     text: {
@@ -23,7 +24,20 @@ export default {
     return {
     }
   },
+  mounted () {
+    this.compBgColor = this.bgColor
+    this.onBackgroundHover()
+  },
+  watch: {
+    bgColor: function (value) {
+      this.onBackgroundHover()
+      this.compBgColor = this.bgColor
+    }
+  },
   methods: {
+    onBackgroundHover () {
+      this.getBackgroundHover(false)
+    },
     onClick () {
       this.$emit('click')
     }

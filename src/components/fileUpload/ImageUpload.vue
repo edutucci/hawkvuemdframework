@@ -61,9 +61,10 @@
           <h-card-media>
             <h-card-media-img :img="file.imageData" style="max-height: 150px;"/>
           </h-card-media>
-          <h-card-header>
-            <h-card-header-text :text="file.file.name" :desc="file.fileSize"/>
-          </h-card-header>
+          <h-card-section>
+            <div class="text-h6">{{file.file.name}}</div>
+            <div class="caption">{{file.fileSize}}</div>
+          </h-card-section>
         </h-card>
       </div>
 

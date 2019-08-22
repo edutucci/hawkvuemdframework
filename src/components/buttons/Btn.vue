@@ -1,8 +1,8 @@
 <template lang="pug">
-  div(class="h-btn btn-container" style="display:inline-flex; cursor: pointer;")
+  div(class="h-btn btn-container no-user-select" style="display:inline-flex; cursor: pointer;")
     div(
       @click="onClick"
-      class="btn btn-content flex flex-items-center full-width color-hover position-relative border"
+      class="btn btn-content flex flex-items-center full-width color-hover position-relative"
       :class="\
         [compBgColor, textColor, size, compBgColorHover, compBorderColor, compActiveClass, \
         { 'active': (isActive || active), 'border': outlined, 'fab': fab, \
@@ -11,11 +11,11 @@
     )
       div(class=" full-width flex flex-justify-center" :class="[typography]")
         div(v-if="leftIcon && leftIcon.length > 0" class="flex-align-center")
-          h-fa-icon(:text-color="textColor" :icon="leftIcon" size="16px")
+          h-fa-icon(class="btn-icon" :text-color="textColor" :icon="leftIcon" size="16px")
         div(v-if="text && text.length > 0" class="flex flex-align-center h-ml-xs h-mr-xs")
           | {{buttonText}}
         div(v-if="rightIcon && rightIcon.length > 0" class="flex-align-center")
-          h-fa-icon(:text-color="textColor" :icon="rightIcon" size="16px")
+          h-fa-icon(class="btn-icon" :text-color="textColor" :icon="rightIcon" size="16px")
         slot
 
 </template>
@@ -164,12 +164,6 @@ export default {
     },
     onClick () {
       if (!this.disabled) {
-        try {
-          this.$parent.setActiveButton(this)
-        } catch (error) {
-
-        }
-
         this.$emit('click')
       }
     },

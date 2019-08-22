@@ -4,12 +4,9 @@ import CompCode from './others/CompCode'
 import HBtn from './buttons/Btn.vue'
 import HBtnFloat from './buttons/BtnFloat.vue'
 import HBtnGroup from './buttons/BtnGroup.vue'
-import HBtnGroupItem from './buttons/BtnGroupItem.vue'
 import HBtnDropdown from './buttons/BtnDropdown.vue'
 import HCard from './card/Card.vue'
-import HCardHeader from './card/CardHeader'
-import HCardHeaderText from './card/CardHeaderText.vue'
-import HCardHeaderMenu from './card/CardHeaderMenu.vue'
+import HCardSection from './card/CardSection'
 import HCardMedia from './card/CardMedia'
 import HCardMediaImg from './card/CardMediaImg.vue'
 import HCardMediaText from './card/CardMediaText.vue'
@@ -18,9 +15,9 @@ import HCardActions from './card/CardActions'
 import HCardButtons from './card/CardButtons'
 import HCardIcons from './card/CardIcons'
 import HCheckbox from './checkbox/Checkbox.vue'
-import HCollapsible from './collapsible/HCollapsible.vue'
-import HCollapsibleMenu from './collapsible/HCollapsibleMenu.vue'
-import HCollapsibleItem from './collapsible/HCollapsibleItem.vue'
+import HCollapsible from './collapsible/Collapsible.vue'
+import HCollapsibleMenu from './collapsible/CollapsibleMenu.vue'
+import HCollapsibleItem from './collapsible/CollapsibleItem.vue'
 import HChips from './chips/Chips.vue'
 import HInputChips from './chips/InputChips.vue'
 import HCounter from './chips/Counter.vue'
@@ -30,20 +27,18 @@ import HDatePicker from './date/HDatePicker.vue'
 import HDateTimeDialog from './date/DateTimeDialog.vue'
 import HTimePicker from './date/HTimePicker.vue'
 import HFaIcon from './icons/FaIcon.vue'
+import HMdIcon from './icons/MdIcon.vue'
 import HFileUpload from './fileUpload/fileUpload.vue'
 import HImageUpload from './fileUpload/ImageUpload.vue'
 import HAvatar from './image/HAvatar.vue'
 import HImg from './image/HImg'
-import HList from './list/HList.vue'
-import HListItem from './list/HListItem.vue'
-import HListHeader from './list/HListHeader.vue'
-import HListBody from './list/HListBody.vue'
-import HListItemLeft from './list/HListItemLeft.vue'
-import HListItemRight from './list/HListItemRight.vue'
-import HListItemContent from './list/HListItemContent'
-import HListItemSide from './list/HListItemSide'
-import HListItemText from './list/HListItemText'
-import HListItemImg from './list/HListItemImg'
+import HList from './list/List.vue'
+import HListItem from './list/ListItem.vue'
+import HListHeader from './list/ListHeader.vue'
+import HListItemContent from './list/ListItemContent'
+import HListItemSide from './list/ListItemSide'
+import HListItemText from './list/ListItemText'
+import HListItemImg from './list/ListItemImg'
 import HAppToolbar from './toolbar/HAppToolbar.vue'
 import HAppToolbarContainer from './toolbar/HAppToolbarContainer.vue'
 import HAppToolbarNavigation from './toolbar/HAppToolbarNavigation.vue'
@@ -89,12 +84,9 @@ const Components = {
   HBtn,
   HBtnFloat,
   HBtnGroup,
-  HBtnGroupItem,
   HBtnDropdown,
   HCard,
-  HCardHeader,
-  HCardHeaderText,
-  HCardHeaderMenu,
+  HCardSection,
   HCardMedia,
   HCardMediaImg,
   HCardMediaText,
@@ -115,6 +107,7 @@ const Components = {
   HDateTimeDialog,
   HTimePicker,
   HFaIcon,
+  HMdIcon,
   HFileUpload,
   HImageUpload,
   HAvatar,
@@ -122,13 +115,10 @@ const Components = {
   HList,
   HListItem,
   HListHeader,
-  HListItemLeft,
-  HListItemRight,
   HListItemContent,
   HListItemSide,
   HListItemText,
   HListItemImg,
-  HListBody,
   HAppToolbar,
   HAppToolbarNavigation,
   HAppToolbarContainer,

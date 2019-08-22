@@ -10,10 +10,10 @@
             HawkFramework 1.0.12
           </h-app-toolbar-title>
           <h-app-toolbar-action>
-            <h-btn text-button>
+            <h-btn text-button bg-color="bg-transparent">
               <h-link url="/" icon="fas fa-globe" text-color="text-white"/>
             </h-btn>
-            <h-btn text-button>
+            <h-btn text-button bg-color="bg-transparent">
               <h-link url="https://github.com/edutucci/hawkframework" icon="fab fa-github" text-color="text-white" new-window/>
             </h-btn>
           </h-app-toolbar-action>
@@ -25,9 +25,14 @@
       <div class="flex flex-column bg-white full-size" style="display: inline-flex;">
 
         <div slot="header" class="text-center h-pa-md">
-          <h-avatar src="img/hawk.jpg" size="64px"/>
-          <h3 class="no-padding no-margin">Hawk </h3>
-          <h3 class="no-padding no-margin"> Framework</h3>
+          <div class="top-left-absolute flex flex-justify-end h-pa-sm bg-primary" style="left:0; right:0;">
+            <h-fa-icon icon="fas fa-times" text-color="text-white" @click="$refs.nav.close()"/>
+          </div>
+          <div class="column" style="margin-top: 30px;">
+            <h-avatar src="img/hawk.jpg" size="64px"/>
+            <h3 class="no-padding no-margin">Hawk </h3>
+            <h3 class="no-padding no-margin"> Framework</h3>
+          </div>
         </div>
 
         <div class="flex-1">

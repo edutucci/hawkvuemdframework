@@ -2,8 +2,8 @@
   .flex.flex-1.list-item-content-padding.overflow-hidden.flex-items-center
     .flex.flex-column
       slot
-    div.full-with(v-if="separator")
-      html-separator
+    // div.full-with(v-if="separator")
+    //   h-separator
 </template>
 
 <script>
