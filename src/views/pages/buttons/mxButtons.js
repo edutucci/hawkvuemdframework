@@ -140,6 +140,120 @@ const mxButtons = {
   </h-btn>
 </div>
 `,
+      dropdownButtons: `
+<div class="row">
+  <div class="col-auto">
+    <h-btn dropdown
+      text="Options"
+      bg-color="bg-primary"
+      text-color="text-white"
+      v-model="text"
+      @click="text = true"
+    >
+      <div class="flex flex-column">
+        <h-list style="width: 150px">
+          <h-list-item>
+            <h-list-item-content>
+              <h-list-item-text title="Item 1"/>
+            </h-list-item-content>
+          </h-list-item>
+          <h-list-item>
+            <h-list-item-content>
+              <h-list-item-text title="Item 2"/>
+            </h-list-item-content>
+          </h-list-item>
+          <h-list-item>
+            <h-list-item-content>
+              <h-list-item-text title="Item 3"/>
+            </h-list-item-content>
+          </h-list-item>
+        </h-list>
+      </div>
+    </h-btn>
+  </div>
+
+  <div class="col-auto">
+    <h-btn dropdown
+      class="h-ml-sm"
+      left-icon="fas fa-home"
+      text="Icons"
+      bg-color="bg-primary"
+      text-color="text-white"
+      v-model="icon"
+      @click="icon = true"
+    >
+      <div class="row">
+        <h-btn text-button left-icon="fas fa-align-left"/>
+        <h-btn text-button left-icon="fas fa-align-center" class="h-ml-xs"/>
+        <h-btn text-button left-icon="fas fa-align-right" class="h-ml-xs"/>
+        <h-btn text-button left-icon="fas fa-align-justify" class="h-ml-xs"/>
+      </div>
+    </h-btn>
+  </div>
+
+  <div class="col-auto">
+    <h-btn dropdown
+      text-button
+      size="sm"
+      class="h-ml-sm"
+      avatar="avatar/AnaArmas.jpg"
+      text="Avatar"
+      text-color="text-primary"
+      v-model="avatar"
+      @click="avatar = true"
+    >
+      <div class="row align-items-center h-pa-sm" style="min-width:150px">
+        <div class="col-auto">
+          <h-avatar src="avatar/AnaArmas.jpg" size="72px"/>
+        </div>
+        <div class="col h-ml-sm">
+          <h-btn text="Profile" bg-color="bg-primary" text-color="text-white"/>
+        </div>
+      </div>
+    </h-btn>
+  </div>
+
+  <div class="col-auto">
+    <h-btn dropdown
+      outlined
+      size="sm"
+      class="h-ml-sm"
+      img="img/Nallah_Sindh.jpg"
+      text="Image"
+      text-color="text-primary"
+      bg-color="bg-primary"
+      v-model="image"
+      @click="image = true"
+    >
+      <div class="row align-items-center justify-center h-pa-sm" style="min-width:150px">
+        <div class="col-auto">
+          <div class="column">
+            <div class="col">
+              <h-img src="img/Nallah_Sindh.jpg" width="180px" height="128px"/>
+            </div>
+            <div class="col text-body1 text-center text-black">
+              River
+            </div>
+          </div>
+        </div>
+      </div>
+    </h-btn>
+  </div>
+
+</div>
+`,
+      scriptDropdownButtons: `
+export default {
+  data () {
+    return {
+      text: false,
+      icon: false,
+      avatar: false,
+      image: false
+    }
+  }
+}
+`,
       linksButtons: `
 <h-btn bg-color="bg-primary">
   <h-link icon="fab fa-github" text="github" url="https://github.com/edutucci/hawkframework" text-color="text-white"/>

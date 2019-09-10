@@ -80,6 +80,7 @@ export default {
 <style scoped>
 .switch-container {
   display: inline-flex;
+  min-height: 25px;
 }
 
 .switch {

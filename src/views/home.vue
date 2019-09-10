@@ -67,15 +67,15 @@
                 <h-collapsible-item text="Drawer" @click="$router.push('/drawer'), $refs.nav.close()"/>
                 <h-collapsible-item text="File Upload" @click="$router.push('/fileupload'), $refs.nav.close()"/>
                 <h-collapsible-item text="Icons" @click="$router.push('/icon'), $refs.nav.close()"/>
-                <h-collapsible-item text="List (atualizar help)" @click="$router.push('/list'), $refs.nav.close()"/>
-                //- <h-collapsible-item text="Menu (atualizar help)" @click="$router.push('/menu'), $refs.nav.close()"/>
-                <h-collapsible-item text="MenuSlider (atualizar help)" @click="$router.push('/menuSlider'), $refs.nav.close()"/>
+                <h-collapsible-item text="List" @click="$router.push('/list'), $refs.nav.close()"/>
+                <!-- <h-collapsible-item text="Menu (atualizar help)" @click="$router.push('/menu'), $refs.nav.close()"/> -->
+                <!-- <h-collapsible-item text="MenuSlider (atualizar help)" @click="$router.push('/menuSlider'), $refs.nav.close()"/> -->
                 <h-collapsible-item text="Mask" @click="$router.push('/mask'), $refs.nav.close()"/>
                 <h-collapsible-item text="Dialog" @click="$router.push('/dialog'), $refs.nav.close()"/>
                 <h-collapsible-item text="Radio" @click="$router.push('/radio'), $refs.nav.close()"/>
                 <h-collapsible-item text="Search" @click="$router.push('/search'), $refs.nav.close()"/>
                 <h-collapsible-item text="Select" @click="$router.push('/select'), $refs.nav.close()"/>
-                <h-collapsible-item text="Tab (atualizar help)" @click="$router.push('/tab'), $refs.nav.close()"/>
+                <h-collapsible-item text="Tab" @click="$router.push('/tab'), $refs.nav.close()"/>
                 <h-collapsible-item text="Table (atualizar help)" @click="$router.push('/table'), $refs.nav.close()"/>
                 <h-collapsible-item text="Input (atualizar help)" @click="$router.push('/input'), $refs.nav.close()"/>
                 <h-collapsible-item text="Toolbar (atualizar help)" @click="$router.push('/toolbar'), $refs.nav.close()"/>

@@ -430,6 +430,8 @@
 export default {
   data () {
     return {
+      myInputModel: '',
+      myInputModel2: '',
       lst1Line: `
       
       `,

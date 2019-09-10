@@ -3,7 +3,9 @@
 </template>
 
 <script>
+
 import componentBase from '../componentBase.vue'
+import defaults from './currencyDirective/options'
 
 export default {
   extends: componentBase,
@@ -92,6 +94,42 @@ export default {
     chips: {
       type: Boolean,
       default: false
+    },
+    inputMask: {
+      type: Boolean,
+      default: false
+    },
+    inputCurrency: {
+      type: Boolean,
+      default: false
+    },
+    mask: {
+      type: String,
+      default: ''
+    },
+    masked: {
+      type: Boolean,
+      default: false
+    },
+    precision: {
+      type: Number,
+      default: () => defaults.precision
+    },
+    decimal: {
+      type: String,
+      default: () => defaults.decimal
+    },
+    thousands: {
+      type: String,
+      default: () => defaults.thousands
+    },
+    prefix: {
+      type: String,
+      default: () => defaults.prefix
+    },
+    suffix: {
+      type: String,
+      default: () => defaults.suffix
     }
   },
   data () {

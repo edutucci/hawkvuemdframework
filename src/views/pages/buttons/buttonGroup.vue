@@ -16,28 +16,40 @@
           <h-btn text-button left-icon="fas fa-bold"/>
           <h-btn text-button left-icon="fas fa-italic"/>
           <h-btn text-button left-icon="fas fa-underline"/>
-          <h-btn-dropdown ref="toolbar1" text="Align" drop-down-icon="fas fa-caret-down" bg-color="bg-transparent">
+          <h-btn dropdown
+            ref="toolbar1"
+            text="Align"
+            bg-color="bg-transparent"
+            v-model="btnAlign1"
+            @click="btnAlign1 = true"
+          >
             <div class="row">
              <h-btn text-button left-icon="fas fa-align-left" @click="$refs.toolbar1.close()"/>
              <h-btn text-button left-icon="fas fa-align-center" class="h-ml-xs" @click="$refs.toolbar1.close()"/>
              <h-btn text-button left-icon="fas fa-align-right" class="h-ml-xs" @click="$refs.toolbar1.close()"/>
              <h-btn text-button left-icon="fas fa-align-justify" class="h-ml-xs" @click="$refs.toolbar1.close()"/>
             </div>
-          </h-btn-dropdown>
+          </h-btn>
         </h-btn-group>
 
         <h-btn-group rounded class="h-ml-sm" bg-color="bg-gray">
           <h-btn text-button left-icon="fas fa-bold"/>
           <h-btn text-button left-icon="fas fa-italic"/>
           <h-btn text-button left-icon="fas fa-underline"/>
-          <h-btn-dropdown ref="toolbar2" text="Align" drop-down-icon="fas fa-caret-down" bg-color="bg-transparent">
+          <h-btn dropdown
+            ref="toolbar2"
+            text="Align"
+            bg-color="bg-transparent"
+            v-model="btnAlign2"
+            @click="btnAlign2 = true"
+          >
             <div class="row">
-             <h-btn text-button left-icon="fas fa-align-left" @click="$refs.toolbar2.close()"/>
-             <h-btn text-button left-icon="fas fa-align-center" class="h-ml-xs" @click="$refs.toolbar2.close()"/>
-             <h-btn text-button left-icon="fas fa-align-right" class="h-ml-xs" @click="$refs.toolbar2.close()"/>
-             <h-btn text-button left-icon="fas fa-align-justify" class="h-ml-xs" @click="$refs.toolbar2.close()"/>
+             <h-btn text-button left-icon="fas fa-align-left"/>
+             <h-btn text-button left-icon="fas fa-align-center" class="h-ml-xs"/>
+             <h-btn text-button left-icon="fas fa-align-right" class="h-ml-xs"/>
+             <h-btn text-button left-icon="fas fa-align-justify" class="h-ml-xs"/>
             </div>
-          </h-btn-dropdown>
+          </h-btn>
         </h-btn-group>
       </div>
 
@@ -46,28 +58,40 @@
           <h-btn text-button left-icon="fas fa-bold"/>
           <h-btn text-button left-icon="fas fa-italic"/>
           <h-btn text-button left-icon="fas fa-underline"/>
-          <h-btn-dropdown ref="toolbar3" text="Align" drop-down-icon="fas fa-caret-down">
+          <h-btn dropdown
+           ref="toolbar3"
+           text="Align"
+           bg-color="bg-transparent"
+           v-model="btnAlign3"
+           @click="btnAlign3 = true"
+          >
             <div class="row">
-             <h-btn text-button left-icon="fas fa-align-left" @click="$refs.toolbar3.close()"/>
-             <h-btn text-button left-icon="fas fa-align-center" class="h-ml-xs" @click="$refs.toolbar3.close()"/>
-             <h-btn text-button left-icon="fas fa-align-right" class="h-ml-xs" @click="$refs.toolbar3.close()"/>
-             <h-btn text-button left-icon="fas fa-align-justify" class="h-ml-xs" @click="$refs.toolbar3.close()"/>
+             <h-btn text-button left-icon="fas fa-align-left"/>
+             <h-btn text-button left-icon="fas fa-align-center" class="h-ml-xs"/>
+             <h-btn text-button left-icon="fas fa-align-right" class="h-ml-xs"/>
+             <h-btn text-button left-icon="fas fa-align-justify" class="h-ml-xs"/>
             </div>
-          </h-btn-dropdown>
+          </h-btn>
         </h-btn-group>
 
         <h-btn-group outlined rounded class="h-ml-sm" bg-color="bg-primary">
           <h-btn text-button left-icon="fas fa-bold"/>
           <h-btn text-button left-icon="fas fa-italic"/>
           <h-btn text-button left-icon="fas fa-underline"/>
-          <h-btn-dropdown ref="toolbar4" text="Align" drop-down-icon="fas fa-caret-down" bg-color="bg-transparent">
+          <h-btn dropdown
+           ref="toolbar4"
+           text="Align"
+           bg-color="bg-transparent"
+           v-model="btnAlign4"
+           @click="btnAlign4 = true"
+          >
             <div class="row">
-             <h-btn text-button left-icon="fas fa-align-left" @click="$refs.toolbar4.close()"/>
-             <h-btn text-button left-icon="fas fa-align-center" class="h-ml-xs" @click="$refs.toolbar4.close()"/>
-             <h-btn text-button left-icon="fas fa-align-right" class="h-ml-xs" @click="$refs.toolbar4.close()"/>
-             <h-btn text-button left-icon="fas fa-align-justify" class="h-ml-xs" @click="$refs.toolbar4.close()"/>
+             <h-btn text-button left-icon="fas fa-align-left"/>
+             <h-btn text-button left-icon="fas fa-align-center" class="h-ml-xs"/>
+             <h-btn text-button left-icon="fas fa-align-right" class="h-ml-xs"/>
+             <h-btn text-button left-icon="fas fa-align-justify" class="h-ml-xs"/>
             </div>
-          </h-btn-dropdown>
+          </h-btn>
         </h-btn-group>
       </div>
     </comp-code>
@@ -81,6 +105,8 @@
             :active="activeButton === 'italic'" active-class="btnactive" @click="activeButton = 'italic'"/>
           <h-btn bg-color="bg-negative" text-color="text-white"  left-icon="fas fa-underline" text="Underline"
             :active="activeButton === 'underline'" active-class="btnactive" @click="activeButton = 'underline'"/>
+          <h-btn bg-color="bg-info" text-color="text-white"  left-icon="fas fa-underline" text="Align"
+            :active="activeButton === 'align'" active-class="btnactive" @click="activeButton = 'align'"/>
         </h-btn-group>
       </div>
 
@@ -92,14 +118,21 @@
             :active="activeButton === 'italic'" active-class="btnactive"/>
           <h-btn text-button left-icon="fas fa-underline" @click="activeButton = 'underline'"
             :active="activeButton === 'underline'" active-class="btnactive"/>
-          <h-btn-dropdown ref="toolbar5" text="Align" drop-down-icon="fas fa-caret-down" bg-color="bg-transparent">
+          <h-btn
+           dropdown
+           ref="toolbar5"
+           text="Align"
+           v-model="btnAlign5"
+           @click="activeButton = 'align'; btnAlign5 = true "
+           :active="activeButton === 'align'" active-class="btnactive"
+          >
             <div class="row">
              <h-btn text-button left-icon="fas fa-align-left" @click="$refs.toolbar1.close()"/>
              <h-btn text-button left-icon="fas fa-align-center" class="h-ml-xs" @click="$refs.toolbar5.close()"/>
              <h-btn text-button left-icon="fas fa-align-right" class="h-ml-xs" @click="$refs.toolbar5.close()"/>
              <h-btn text-button left-icon="fas fa-align-justify" class="h-ml-xs" @click="$refs.toolbar5.close()"/>
             </div>
-          </h-btn-dropdown>
+          </h-btn>
         </h-btn-group>
       </div>
 
@@ -111,14 +144,20 @@
             :active="activeButton === 'italic'" active-class="btnactive"/>
           <h-btn text-button left-icon="fas fa-underline" @click="activeButton = 'underline'"
             :active="activeButton === 'underline'" active-class="btnactive"/>
-          <h-btn-dropdown ref="toolbar6" text="Align" drop-down-icon="fas fa-caret-down">
+          <h-btn dropdown
+           ref="toolbar6"
+           text="Align"
+           v-model="btnAlign6"
+           @click="btnAlign6 = true"
+           :active="activeButton === 'align'" active-class="btnactive"
+          >
             <div class="row">
              <h-btn text-button left-icon="fas fa-align-left" @click="$refs.toolbar1.close()"/>
              <h-btn text-button left-icon="fas fa-align-center" class="h-ml-xs" @click="$refs.toolbar6.close()"/>
              <h-btn text-button left-icon="fas fa-align-right" class="h-ml-xs" @click="$refs.toolbar6.close()"/>
              <h-btn text-button left-icon="fas fa-align-justify" class="h-ml-xs" @click="$refs.toolbar6.close()"/>
             </div>
-          </h-btn-dropdown>
+          </h-btn>
         </h-btn-group>
       </div>
     </comp-code>
@@ -214,7 +253,13 @@ export default {
     return {
       activeButton: '',
       activeButton2: '',
-      activeButton3: ''
+      activeButton3: '',
+      btnAlign1: false,
+      btnAlign2: false,
+      btnAlign3: false,
+      btnAlign4: false,
+      btnAlign5: false,
+      btnAlign6: false
     }
   }
 }
@@ -222,7 +267,7 @@ export default {
 
 <style>
 
-.btn.active, .btn.active:hover {
+.btn.active, .btn-dropdown.active, .btn.active:hover, .btn-dropdown.active:hover {
   background-color: gray;
   color: white;
 }

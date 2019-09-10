@@ -1,6 +1,6 @@
 <template lang="pug">
   .main-input-container(
-    :class="[bgcolor]"
+    :class="[bgColor]"
   )
     .full-width
       .flex.full-width
@@ -15,7 +15,7 @@
           )
             .flex.flex-column.input-field-container
               .full-width.text-caption.text-gray(
-                :class="[textcolor, {primary: primary, nofocus: nofocus, 'input-container-rounded': rounded}]"
+                :class="[textColor, {primary: primary, nofocus: nofocus, 'input-container-rounded': rounded}]"
               )
                 | {{label}}
               .full-width
@@ -58,8 +58,8 @@ export default {
   methods: {
     changeBorderColor () {
       this.inputBorder = this.borderColor
-      if (this.textcolor && this.textcolor.length > 1) {
-        let color = this.textcolor.split('-')[1]
+      if (this.textColor && this.textColor.length > 1) {
+        let color = this.textColor.split('-')[1]
         if (color) {
           this.inputBorder = 'border-' + color
         }

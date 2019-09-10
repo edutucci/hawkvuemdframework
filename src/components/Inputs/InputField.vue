@@ -1,6 +1,40 @@
 <template lang="pug">
   input.input-field(
-    v-if="!this.chips"
+    v-if="inputMask"
+    :id="inputId"
+    v-focus="inputFocus"
+    :class="[{'text-center': textCenter, 'readonly': readonly}, filled]"
+    v-model="inputDisplay"
+    v-mask="mask"
+    :readonly="readonly"
+    :placeholder="placeholder"
+    @input="onInput($event.target.value)"
+    @focus="onInputFocus()"
+    @blur="onInputBlur()"
+    @keydown.tab="onTab"
+    @keyup.enter="onEnter"
+    @click="onClick"
+  )
+  input.input-field(
+    v-else-if="inputCurrency"
+    :id="inputId"
+    v-focus="inputFocus"
+    :class="[{'text-center': textCenter, 'readonly': readonly}, filled]"
+    v-model="inputDisplay"
+    v-money="{ precision, decimal, thousands, prefix, suffix }"
+    :readonly="readonly"
+    :placeholder="placeholder"
+    :maxlength="maxlength"
+    @input="onInput($event.target.value)"
+    @focus="onInputFocus()"
+    @blur="onInputBlur()"
+    @keydown.tab="onTab"
+    @keyup.enter="onEnter"
+    @click="onClick"
+  )
+  input.input-field(
+    v-else-if="!this.chips"
+    :id="inputId"
     v-focus="inputFocus"
     :class="[{'text-center': textCenter, 'readonly': readonly}, filled]"
     v-model="inputDisplay"
@@ -20,6 +54,7 @@
   )
   input.input-field(
     v-else
+    :id="inputId"
     v-focus="inputFocus"
     :class="[{'text-center': textCenter, 'readonly': readonly}, filled]"
     v-model="inputDisplay"
@@ -42,17 +77,20 @@
 
 <script>
 
+import uuidv1 from 'uuid/v1'
 import { mixin as focusMixin } from 'vue-focus'
 import InputProperties from './InputProperties'
+import money from './currencyDirective/directive'
 import _ from 'lodash'
 
 export default {
   extends: InputProperties,
   mixins: [focusMixin],
+  directives: { money },
   name: 'InputField',
   props: {
     value: {
-      type: [String, Array],
+      type: [String, Array, Number],
       default: ''
     },
     focused: {
@@ -62,6 +100,7 @@ export default {
   },
   data () {
     return {
+      inputId: uuidv1(),
       inputFocus: false
     }
   },
@@ -83,13 +122,18 @@ export default {
     }
   },
   methods: {
-    onInput: _.debounce(function (value) {
-      console.log('value debounce input-field:', value)
+    onInput (value) {
+      // console.log('value debounce input-field:', value)
+      // this.inputDisplay = value
+      this.$emit('input', value)
+    },
+    onInputSearch: _.debounce(function (value) {
+      // console.log('value debounce input-field:', value)
       this.inputDisplay = value
       this.$emit('input', value)
     }, 500),
     onInputChip (value) {
-      console.log('onInputChip input-field:', value)
+      // console.log('onInputChip input-field:', value)
       this.inputDisplay = value
       this.$emit('input', value)
     },

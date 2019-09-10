@@ -7,7 +7,7 @@
   )
     .btn-dropdown-container.flex.flex-items-center.cursor-pointer.full-height(
       :class="[size]"
-      @click="checkViewport"
+      @click="onClick"
     )
       h-fa-icon(
         v-if="icon && icon.length"
@@ -24,13 +24,16 @@
 
       .btn-dropdown-content.flex.flex-items-center.text-body1(
         :class="[textColor]"
-        @click="checkViewport"
       )
-        .text-body1.h-mr-xs(
+        .text-body1(
           v-if="text"
         )
           | {{text}}
-        h-fa-icon(
+
+        div
+          slot(name="content")
+
+        h-fa-icon.h-ml-xs(
           :icon="dropDownIcon"
           :text-color="textColor"
           size="18px"
@@ -47,9 +50,9 @@
 
 <script>
 
-import { mixin as clickaway } from 'vue-clickaway'
 import componentBase from '../componentBase.vue'
 import uuidv1 from 'uuid/v1'
+import { mixin as clickaway } from 'vue-clickaway'
 
 export default {
   name: 'BtnDropdown',
@@ -99,14 +102,28 @@ export default {
     }
   },
   mounted () {
+    this.showdropdown = this.value
+  },
+  watch: {
+    value: function (value) {
+      this.showdropdown = value
+      if (value) {
+        this.checkViewport()
+      }
+    }
   },
   methods: {
     close () {
-      this.showdropdown = false
+      this.$emit('input', false)
+    },
+    onClick () {
+      if (!this.value) {
+        this.$emit('click')
+      } else {
+        this.close()
+      }
     },
     checkViewport () {
-      this.showdropdown = true
-
       this.left = ''
       this.right = '0'
       this.top = ''

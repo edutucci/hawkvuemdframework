@@ -1,5 +1,5 @@
 <template lang="pug">
-  .overflow-hidden
+  div(style="position:relative; display: inline-block;")
     img(
       v-if="src && src.length > 0" :src="src"
       :style="[imageSizeObject]"
@@ -17,11 +17,11 @@ export default {
     },
     width: {
       type: String,
-      default: '32px'
+      default: '24px'
     },
     height: {
       type: String,
-      default: '32px'
+      default: '24px'
     }
   },
   data () {

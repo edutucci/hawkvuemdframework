@@ -56,11 +56,11 @@ export default new Router({
     },
     {
       path: '/test',
-      component: () => import('./views/pages/test/List.vue')
+      component: () => import('./views/pages/test/Currency.vue')
     },
     {
       path: '/example',
-      component: () => import('./views/examples/list.vue')
+      component: () => import('./views/examples/tab.vue')
     }
   ]
 })

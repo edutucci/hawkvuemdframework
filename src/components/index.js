@@ -30,8 +30,8 @@ import HFaIcon from './icons/FaIcon.vue'
 import HMdIcon from './icons/MdIcon.vue'
 import HFileUpload from './fileUpload/fileUpload.vue'
 import HImageUpload from './fileUpload/ImageUpload.vue'
-import HAvatar from './image/HAvatar.vue'
-import HImg from './image/HImg'
+import HAvatar from './image/Avatar.vue'
+import HImg from './image/Img.vue'
 import HList from './list/List.vue'
 import HListItem from './list/ListItem.vue'
 import HListHeader from './list/ListHeader.vue'
@@ -56,17 +56,14 @@ import HNavDrawer from '../components/window/HNavDrawer'
 import HRadio from './radio/HRadio.vue'
 import HRating from './rating/Rating.vue'
 import HSearch from './Inputs/HSearch'
-import HSearchMask from './Inputs/HSearchMask'
-import HSelect from './Inputs/HSelect.vue'
 import HTab from './tab/HTab.vue'
 import HTabs from './tab/HTabs.vue'
 import HTable from './table/Table.vue'
 import HtmlTable from './table/HtmlTable'
 import HInputContainer from './Inputs/InputContainer'
 import HInputField from './Inputs/InputField'
-import HInput from './Inputs/HInput.vue'
+import HInput from './Inputs/Input.vue'
 import HInputPlusMinus from './Inputs/InputPlusMinus.vue'
-import HInputMask from './Inputs/InputMask.vue'
 import HToggle from './checkbox/Toggle'
 import HMainBody from './page/MainBody.vue'
 import HMainPage from './page/MainPage.vue'
@@ -136,8 +133,6 @@ const Components = {
   HRadio,
   HRating,
   HSearch,
-  HSearchMask,
-  HSelect,
   HTab,
   HTabs,
   HTable,
@@ -146,7 +141,6 @@ const Components = {
   HInputField,
   HInput,
   HInputPlusMinus,
-  HInputMask,
   HToggle,
   HMainBody,
   HMainPage,

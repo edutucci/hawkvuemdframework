@@ -25,12 +25,9 @@
 
 <script>
 
-import HAvatar from '../components/image/HAvatar'
-
 export default {
   name: 'Main',
   components: {
-    HAvatar
   }
 }
 </script>

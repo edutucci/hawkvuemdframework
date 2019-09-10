@@ -37,6 +37,9 @@
               :textCenter="textCenter"
               :focused="focused"
               :chips="chips"
+              :input-mask="inputMask"
+              :input-currency="inputCurrency"
+              :mask="mask"
               @input="onInput"
               @focus="focus"
               @blur="blur"
@@ -77,36 +80,36 @@
         .flex.flex-items-center
           h-fa-icon(:icon="inputIcon")
 
-      //- div.bg-white.full-width.dropdown-content.shadow(
-      //-   :style="{right: right, bottom: bottom}"
-      //-   v-if="showdropdown"
-      //-   :id="dropMenuId"
-      //- )
-      //-   div.flex.flex-items-center(
-      //-     :class="[inputContainerColor]"
-      //-     v-for="(option, index) in options"
-      //-     :key="index"
-      //-     @click="onSelectItem(option)"
-      //-   )
-      //-     .flex.full-width.menu-item-padding(v-if="selectSingle")
-      //-       div(v-if="displayMode ==='icon'")
-      //-         h-fa-icon.menu-item-content-padding(:icon="option.icon")
-      //-       div(v-if="displayMode ==='avatar'")
-      //-         h-avatar.menu-item-content-padding(:src="option.avatar")
-      //-       div(v-if="displayMode ==='image'")
-      //-         img.menu-item-content-padding(:src="option.img" style="width:32px; height:32px;")
-      //-       div.flex-1.menu-item-content-padding  {{option.text}}
-      //-     .flex.full-width(v-else-if="multiSelect")
-      //-       h-checkbox.h-pl-md(v-model="multiselectItem" :text="option.text" :value="option.value" @change="onSelectItem")
-      //-     .flex.full-width.menu-item-padding(v-else-if="search")
-      //-       h-fa-icon.menu-item-content-padding(v-if="option.icon && option.icon.length" :icon="option.icon" size="32x" style="color: gray")
-      //-       h-avatar.menu-item-content-padding(v-else-if="option.avatar && option.avatar.length > 0" :src="option.avatar" style="width:32px; height:32px;")
-      //-       img.menu-item-content-padding(v-else-if="option.img && option.img.length > 0" :src="option.img" style="width:32px; height:32px;")
-      //-       .flex-1.flex-column.overflow-hidden.menu-item-content-padding
-      //-         .title
-      //-           strong {{option.text}}
-      //-         .subtitle.flex.flex-wrap
-      //-           strong {{option.desc}}
+        div.bg-white.full-width.dropdown-content.shadow(
+          :style="{right: right, bottom: bottom}"
+          v-if="showdropdown"
+          :id="dropMenuId"
+        )
+          div.flex.flex-items-center(
+            :class="[inputContainerColor]"
+            v-for="(option, index) in options"
+            :key="index"
+            @click="onSelectItem(option)"
+          )
+            .flex.flex-items-center.full-width.menu-item-padding(v-if="selectSingle")
+              div(v-if="displayMode ==='icon'")
+                h-fa-icon.menu-item-content-padding(:icon="option.icon")
+              div(v-if="displayMode ==='avatar'")
+                h-avatar.menu-item-content-padding(:src="option.avatar")
+              div(v-if="displayMode ==='image'")
+                img.menu-item-content-padding(:src="option.img" style="width:32px; height:32px;")
+              div.flex-1.menu-item-content-padding  {{option.text}}
+            .flex.full-width(v-else-if="multiSelect")
+              h-checkbox.h-pl-md(v-model="multiselectItem" :text="option.text" :value="option.value" @change="onSelectItem")
+            .flex.full-width.menu-item-padding(v-else-if="search")
+              h-fa-icon.menu-item-content-padding(v-if="option.icon && option.icon.length" :icon="option.icon" size="32x" style="color: gray")
+              h-avatar.menu-item-content-padding(v-else-if="option.avatar && option.avatar.length > 0" :src="option.avatar" style="width:32px; height:32px;")
+              img.menu-item-content-padding(v-else-if="option.img && option.img.length > 0" :src="option.img" style="width:32px; height:32px;")
+              .flex-1.flex-column.overflow-hidden.menu-item-content-padding
+                .title
+                  strong {{option.text}}
+                .subtitle.flex.flex-wrap
+                  strong {{option.desc}}
 </template>
 
 <script>
@@ -116,13 +119,14 @@ import InputProperties from './InputProperties'
 import _ from 'lodash'
 import uuidv1 from 'uuid/v1'
 import viewport from '../others/viewport'
+import { unformat, format } from './currencyDirective/utils'
 
 export default {
   extends: InputProperties,
   mixins: [focusMixin, clickaway],
   props: {
     value: {
-      type: [String, Array],
+      type: [String, Array, Number],
       default: ''
     },
     type: {
@@ -143,7 +147,11 @@ export default {
       right: '',
       bottom: '',
       multiselectItem: [],
-      chipsValue: []
+      chipsValue: [],
+      maskObj: {
+        rawValue: '',
+        maskedValue: ''
+      }
     }
   },
   mounted () {
@@ -154,12 +162,14 @@ export default {
   },
   watch: {
     inputDisplay: function (value) {
-      if (!this.chips) {
+      // console.log('mudou display: ', value)
+      if (!this.chips && !this.inputMask && !this.inputCurrency) {
         this.$emit('input', value)
       }
     },
     value: function (value) {
-      if (!this.chips) {
+      // console.log('mudou value: ', value)
+      if (!this.chips && !this.inputMask && !this.inputCurrency) {
         this.inputDisplay = value
       }
     },
@@ -185,6 +195,13 @@ export default {
     },
     type: function (value) {
       this.inputtype = value
+    },
+    masked: function (newValue) {
+      if (this.inputMask) {
+        this.changeModelMask()
+      } else {
+        this.changeModelCurrencyMask()
+      }
     }
   },
   computed: {
@@ -218,15 +235,43 @@ export default {
         } else if (Array.isArray(localInputDisplay)) {
           this.onChangeChips(localInputDisplay)
         }
+
+        // if (this.inputMask) {
+        //   this.changeModelMask()
+        // }
       }
     },
+    changeModelMask () {
+      let modelValue = this.inputDisplay
+      if (!this.masked) {
+        let patt = new RegExp('[()-/:._]', 'g')
+        modelValue = this.inputDisplay.replace(patt, '')
+      }
+      // console.log('changeModelMask modelvalue: ', modelValue)
+      this.$emit('input', modelValue)
+    },
+    changeModelCurrencyMask () {
+      let modelValue = (this.masked) ? this.inputDisplay : unformat(this.inputDisplay, this.precision)
+      // console.log('changeModelCurrencyMask modelValue:', modelValue)
+      this.$emit('input', modelValue)
+    },
+    formatCurrency (value) {
+      this.inputDisplay = format(value, this.$props)
+      // console.log('formatCurrency inputDisplay: ', this.inputDisplay)
+    },
     onInput (value) {
-      // console.log('value onInput in h-input:', value)
+      // console.log('onInput value:', value)
       if (this.search) {
         this.showdropdown = true
       }
+
       this.inputDisplay = value
-      if (!this.chips) {
+
+      if (this.inputCurrency) {
+        this.changeModelCurrencyMask()
+      } else if (this.inputMask) {
+        this.changeModelMask()
+      } else if (!this.chips) {
         this.$emit('input', value)
       }
     },
@@ -242,7 +287,7 @@ export default {
     checkViewport () {
       this.showdropdown = true
       this.bottom = ''
-      console.log('this.showdropdown:', this.showdropdown)
+      // console.log('this.showdropdown:', this.showdropdown)
 
       this.$nextTick(() => {
         let input = document.getElementById(this.inputId)
@@ -341,6 +386,7 @@ export default {
       this.$emit('input', this.chipsValue)
     },
     onDelete () {
+      // console.log('input delete model:', this.inputDisplay)
       if (this.chips) {
         if (this.inputDisplay.length === 0 && this.value && this.value.length) {
           this.closeChip(this.value.length - 1)

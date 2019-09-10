@@ -1,5 +1,5 @@
 <template>
-  <div v-if="isVisible" class="bg-white full-width full-height scroll">
+  <div v-if="isVisible" class="bg-white full-height">
     <slot></slot>
   </div>
 </template>

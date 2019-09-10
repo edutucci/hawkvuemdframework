@@ -1,114 +1,25 @@
 <template>
-  <div>
+  <h-page-content>
     <h1>Input Mask</h1>
-    <html-separator/>
+    <h-separator/>
+
     <div>
       <h-toggle v-model="masked" text="Masked?"/>
     </div>
-    <!-- <html-separator/>
-    <h-btn contained @click="$refs.mask1.focus()"/>
-    <h-btn contained @click="$refs.mask2.focus()"/> -->
-    <html-separator/>
-    <h-input-mask ref="mask1" outlined mask="(11)1111-1111" v-model="maskModelTel" icon="fas fa-phone" :masked="masked" cleartext
-      @onTab="onKeyTab"  @onEnter="$refs.mask2.focus()"
-    />
+
+    <h-input outlined input-mask mask="(##)#####-####" v-model="maskModelTel" left-icon="fas fa-phone" :masked="masked" clearable/>
     <span>maskModel: {{maskModelTel}}</span>
-    <prism language="html" :code="mask1"></prism>
 
-    <html-separator/>
-    <h-input-mask ref="mask2" mask="11111-111" v-model="maskModelCep" icon="fas fa-home" static-label="static label" :masked="masked" cleartext
-      @onTab="onKeyTab" @onEnter="$refs.mask3.focus()"
-    />
-    <span>maskModel: {{maskModelCep}}</span>
-    <prism language="html" :code="mask2"></prism>
+    <!-- <h-input outlined input-mask mask="11111-111" v-model="maskModelCep" left-icon="fas fa-home" :masked="masked" clearable/>
+    <span>maskModel: {{maskModelCep}}</span> -->
 
-    <h1>Search Mask</h1>
-    <html-separator/>
-    <h-search-mask
-      @search="onSearch" ref="mask3" :options="options" mask="1-111-111-1111" v-model="maskModelTel2"
-      icon="fas fa-phone" static-label="Domestic number" :masked="masked" cleartext
-      @onTab="onKeyTab" @onEnter="$refs.mask1.focus()"
-    />
-    <span>maskModel: {{maskModelTel2}}</span>
-    <prism language="html" :code="mask3"></prism>
+    <!-- <input type="text" v-mask="'AAA-####'" v-model="myInputModel2"/> -->
 
-    <h2 class="text-primary"> Vue Example</h2>
-    <html-separator/>
-    <prism language="html" :code="sample1"></prism>
+    <h1>Currency Mask</h1>
+    <h-input outlined input-currency v-model="maskModelCurrency" left-icon="fas fa-money" :masked="masked" clearable/>
+    <span>maskModel: {{maskModelCurrency}}</span>
 
-    <h2 class="text-primary"> Vue Properties</h2>
-    <hr>
-
-    <div class="flex">
-      <div>
-        <h3>Name</h3>
-        <div>placeholder</div>
-        <div>left-icon</div>
-        <div>float-label</div>
-        <div>static-label</div>
-        <div>error-label</div>
-        <div>helper-text</div>
-        <div>outlined</div>
-        <div>cleartext</div>
-        <div>readonly</div>
-      </div>
-      <div class="h-pl-md">
-        <h3>Type</h3>
-        <div>String</div>
-        <div>String</div>
-        <div>String</div>
-        <div>String</div>
-        <div>String</div>
-        <div>Number</div>
-        <div>Boolean</div>
-        <div>Boolean</div>
-        <div>Boolean</div>
-      </div>
-      <div class="h-pl-md">
-        <h3 >Description</h3>
-        <div>Sets the placeholder for the input</div>
-        <div>Sets the icon to left of the input</div>
-        <div>Sets the float label for the input</div>
-        <div>Sets the static label for the input</div>
-        <div>Sets the error label for the input</div>
-        <div>Sets the helper text for the input</div>
-        <div>Sets the input to outlined mode</div>
-        <div>Shows the icon to clear input on right side</div>
-        <div>Input can not be modified</div>
-      </div>
-    </div>
-
-    <h2 class="text-primary"> Vue Events</h2>
-    <hr>
-
-    <div class="flex">
-      <div>
-        <h3>Name</h3>
-        <div>@onTab</div>
-        <div>@onEnter</div>
-      </div>
-      <div class="h-pl-md">
-        <h3>Description</h3>
-        <div>Triggered on Tab</div>
-        <div>Triggered on Enter</div>
-      </div>
-    </div>
-
-    <h2 class="text-primary"> Vue Methods</h2>
-    <hr>
-
-    <div class="flex">
-      <div>
-        <h3>Name</h3>
-        <div>focus</div>
-      </div>
-      <div class="h-pl-md">
-        <h3>Description</h3>
-        <div>The input get focus</div>
-      </div>
-    </div>
-
-  </div>
+  </h-page-content>
 </template>
 
 <script>
@@ -124,6 +35,7 @@ export default {
       maskModelTel: '',
       maskModelCep: '',
       maskModelTel2: '',
+      maskModelCurrency: '20000',
       options: [],
       mask1: `
 <h-input-mask mask="(11)1111-1111" v-model="maskModelTel" icon="fas fa-phone" float-label="Phone" :masked="masked" cleartext/>

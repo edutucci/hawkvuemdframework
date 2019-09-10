@@ -1,5 +1,5 @@
 <template lang="pug">
-  div
+  div(style="position:relative; display: inline-block;")
     img.avatar(:src="src" alt="avatar" :style="[imgsize]")
 </template>
 
@@ -13,7 +13,7 @@ export default {
     },
     size: {
       type: String,
-      default: '32px'
+      default: '24px'
     }
   },
   data () {

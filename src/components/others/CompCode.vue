@@ -11,18 +11,18 @@
       .flex.flex-column.full-width.bg-white.position-relative
         div.h-pa-sm(v-if="pageName === 'result'")
           slot
-        div.position-relative(v-if="pageName === 'template'" style="min-height: 40px;")
+        div.position-relative(v-if="pageName === 'template'" style="min-height: 60px;")
           .top-right-absolute.h-mr-sm.h-mt-md.buttoncopycode
             h-fa-icon(icon="far fa-copy" text-color="text-primary" @click="copyCodeToClipboard")
           prism(language="html" :code="code")
-        div.position-relative(v-if="pageName === 'javascript'")
+        div.position-relative(v-if="pageName === 'javascript'" style="min-height: 60px;")
           .top-right-absolute.h-mr-sm.h-mt-md.buttoncopycode
             h-fa-icon(icon="far fa-copy" text-color="text-primary" @click="copyCodeToClipboard")
           prism(language="javascript" :code="script")
         .divcopycode.top-left-absolute.full-size.h-mt-sm(
           v-if="pageName === 'template' || pageName === 'javascript'"
         )
-          textarea(:value="textareaCode" :id="textareaId" style="height: 86%; width: 98%;")
+          textarea(:value="textareaCode" :id="textareaId" style="max-height: 86%; width: 98%;")
 
 </template>
 
