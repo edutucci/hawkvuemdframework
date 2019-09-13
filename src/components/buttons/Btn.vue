@@ -123,10 +123,6 @@ export default {
       type: Boolean,
       default: false
     },
-    activeClass: {
-      type: String,
-      default: ''
-    },
     avatar: {
       type: String,
       default: ''

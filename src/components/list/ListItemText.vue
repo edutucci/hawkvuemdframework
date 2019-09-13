@@ -1,9 +1,9 @@
 <template lang="pug">
   .flex.full-height
     .flex.flex-column
-      .title
+      .text-body1
         | {{title}}
-      .subtitle.flex.flex-wrap
+      .text-overline.text-gray.flex.flex-wrap
         | {{caption}}
 </template>
 

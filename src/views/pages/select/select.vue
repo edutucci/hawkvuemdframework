@@ -13,7 +13,7 @@
       <div class="col-6">
         <h-input :options="options"
           v-model="selectModel"
-          select-single
+          input-select
           input-icon="fas fa-angle-down"
           label="Select with icons"
           display-mode="icon"/>
@@ -27,7 +27,7 @@
       javascript
     >
       <div class="col-6">
-        <h-input select-single :options="options" v-model="selectModel1" input-icon="fas fa-angle-down" display-mode="avatar"/>
+        <h-input input-select :options="options" v-model="selectModel1" input-icon="fas fa-angle-down" display-mode="avatar"/>
       </div>
       <div>
         selectModel1: {{ selectModel1 }}

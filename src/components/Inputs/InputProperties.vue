@@ -67,7 +67,7 @@ export default {
       type: Boolean,
       default: false
     },
-    selectSingle: {
+    inputSelect: {
       type: Boolean,
       default: false
     },
@@ -79,7 +79,7 @@ export default {
       type: String,
       default: ''
     },
-    search: {
+    inputSearch: {
       type: Boolean,
       default: false
     },

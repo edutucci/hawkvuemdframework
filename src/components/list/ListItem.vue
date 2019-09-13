@@ -4,6 +4,7 @@
       class="flex color-hover h-pa-sm"
       :class="[textColor, compBgColor, compBgColorHover, {active: active}]"
       style="min-height: 25px;"
+      @click="onClick"
     >
       <slot></slot>
     </div>
@@ -42,6 +43,9 @@ export default {
   methods: {
     onBackgroundHover () {
       this.getBackgroundHover(false)
+    },
+    onClick () {
+      this.$emit('click')
     }
   }
 }

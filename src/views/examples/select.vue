@@ -5,8 +5,8 @@
     <div class="h-pa-sm border border-gray border-radius">
       <div class="col-6">
         <h-input :options="options"
+          multiSelect
           v-model="selectModel"
-          select-single
           input-icon="fas fa-angle-down"
           label="Select with icons"
           display-mode="icon"/>
@@ -19,7 +19,7 @@
     <h3>Avatar</h3>
     <div class="h-pa-sm border border-gray border-radius">
       <div class="col-6">
-        <h-input select-single :options="options" v-model="selectModel1" input-icon="fas fa-angle-down" display-mode="avatar"/>
+        <h-input :options="options" v-model="selectModel1" input-icon="fas fa-angle-down" display-mode="avatar"/>
       </div>
       <div>
         selectModel1: {{ selectModel1 }}

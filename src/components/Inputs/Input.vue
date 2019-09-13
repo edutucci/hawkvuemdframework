@@ -8,7 +8,7 @@
     :rounded="rounded"
     :leftIcon="leftIcon"
   )
-    .flex.flex-column.full-width.dropdown(v-on-clickaway="away")
+    .flex.flex-column.full-width(v-on-clickaway="away")
       div(
         v-if="this.chips"
         @click="focus"
@@ -80,36 +80,52 @@
         .flex.flex-items-center
           h-fa-icon(:icon="inputIcon")
 
-        div.bg-white.full-width.dropdown-content.shadow(
+        div.bg-white.full-width.dropdown-content.scroll-y-only.shadow.border-radius(
           :style="{right: right, bottom: bottom}"
           v-if="showdropdown"
           :id="dropMenuId"
         )
-          div.flex.flex-items-center(
-            :class="[inputContainerColor]"
-            v-for="(option, index) in options"
-            :key="index"
-            @click="onSelectItem(option)"
-          )
-            .flex.flex-items-center.full-width.menu-item-padding(v-if="selectSingle")
-              div(v-if="displayMode ==='icon'")
-                h-fa-icon.menu-item-content-padding(:icon="option.icon")
-              div(v-if="displayMode ==='avatar'")
-                h-avatar.menu-item-content-padding(:src="option.avatar")
-              div(v-if="displayMode ==='image'")
-                img.menu-item-content-padding(:src="option.img" style="width:32px; height:32px;")
-              div.flex-1.menu-item-content-padding  {{option.text}}
-            .flex.full-width(v-else-if="multiSelect")
-              h-checkbox.h-pl-md(v-model="multiselectItem" :text="option.text" :value="option.value" @change="onSelectItem")
-            .flex.full-width.menu-item-padding(v-else-if="search")
-              h-fa-icon.menu-item-content-padding(v-if="option.icon && option.icon.length" :icon="option.icon" size="32x" style="color: gray")
-              h-avatar.menu-item-content-padding(v-else-if="option.avatar && option.avatar.length > 0" :src="option.avatar" style="width:32px; height:32px;")
-              img.menu-item-content-padding(v-else-if="option.img && option.img.length > 0" :src="option.img" style="width:32px; height:32px;")
-              .flex-1.flex-column.overflow-hidden.menu-item-content-padding
-                .title
-                  strong {{option.text}}
-                .subtitle.flex.flex-wrap
-                  strong {{option.desc}}
+
+            h-list.full-width
+              h-list-item(
+                v-if="inputSelect"
+                v-for="(option, index) in options"
+                :key="index"
+                @click="onSelectItem(option)"
+              )
+                h-list-item-side(v-if="displayMode ==='icon'")
+                  h-fa-icon(:icon="option.icon")
+                h-list-item-side(v-if="displayMode ==='avatar'")
+                  h-avatar(:src="option.avatar")
+                h-list-item-side(v-if="displayMode ==='image'")
+                  img(:src="option.img" style="width:32px; height:32px;")
+                h-list-item-content
+                  h-list-item-text(:title="option.text")
+
+              h-list-item(
+                v-else-if="multiSelect"
+                v-for="(option, index) in options"
+                :key="index"
+                @click="onSelectItem(option)"
+              )
+                h-list-item-side
+                  h-checkbox(v-model="multiselectItem" :text="option.text" :value="option.value" @change="onSelectItem")
+
+              h-list-item(
+                v-else-if="inputSearch"
+                v-for="(option, index) in options"
+                :key="index"
+                @click="onSelectItem(option)"
+              )
+                h-list-item-side(v-if="option.icon && option.icon.length")
+                  h-fa-icon(:icon="option.icon" size="32x" style="color: gray")
+                h-list-item-side(v-else-if="option.avatar && option.avatar.length > 0")
+                  h-avatar(:src="option.avatar" style="width:32px; height:32px;")
+                h-list-item-side(v-else-if="option.img && option.img.length > 0")
+                  img(:src="option.img" style="width:32px; height:32px;")
+                h-list-item-content
+                  h-list-item-text(:title="option.text" :caption="option.desc")
+
 </template>
 
 <script>
@@ -122,6 +138,7 @@ import viewport from '../others/viewport'
 import { unformat, format } from './currencyDirective/utils'
 
 export default {
+  name: 'HInput',
   extends: InputProperties,
   mixins: [focusMixin, clickaway],
   props: {
@@ -202,6 +219,10 @@ export default {
       } else {
         this.changeModelCurrencyMask()
       }
+    },
+    options: function (value) {
+      console.log('mudou options:', JSON.stringify(value))
+      this.checkViewport()
     }
   },
   computed: {
@@ -215,7 +236,7 @@ export default {
       let localInputDisplay = this.value
       this.inputDisplay = this.value
       if (localInputDisplay) {
-        if (this.selectSingle && (this.options && this.options.length)) {
+        if (this.inputSelect && (this.options && this.options.length)) {
           let index = this.options.findIndex(item => item.value === this.value)
           if (index !== -1) {
             let option = this.options[index]
@@ -261,7 +282,7 @@ export default {
     },
     onInput (value) {
       // console.log('onInput value:', value)
-      if (this.search) {
+      if (this.inputSearch) {
         this.showdropdown = true
       }
 
@@ -280,7 +301,7 @@ export default {
       this.inputContainerColor = 'bg-white'
       this.inputContainerTextColor = 'text-primary'
 
-      if (this.selectSingle || this.multiSelect) {
+      if (this.inputSelect || this.multiSelect) {
         this.onClick()
       }
     },
@@ -316,8 +337,8 @@ export default {
       this.inputtype = (this.inputtype === 'password') ? 'text' : 'password'
     },
     onKeyDown () {
-      if (this.search) {
-        this.showdropdown = true
+      if (this.inputSearch) {
+        this.checkViewport()
       } else {
         this.$emit('onKeyDown')
       }
@@ -345,7 +366,7 @@ export default {
       this.$emit('onEscape')
     },
     onClick () {
-      if (this.selectSingle || this.multiSelect) {
+      if (this.inputSelect || this.multiSelect) {
         this.checkViewport()
       }
       this.$emit('onClick')

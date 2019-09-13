@@ -12,50 +12,15 @@
     >
       <h-input :options="options"
         v-model="model1"
-        search
+        input-search
         input-icon="fas fa-search"
-        label=""
-        display-mode="image"
+        label="Search"
         @input="onSearch"
       />
       <div>
         model: {{model1}}
       </div>
     </comp-code>
-
-    <!-- <h1>Drawing menu from bottom to top</h1>
-    <h-search @search="onSearch" ref="search2" :options="options" dtu/>
-    <prism language="html" :code="exsearch2"></prism>
-
-    <h1>Example</h1>
-    <prism language="javascript" :code="sample"></prism> -->
-
-    <h2 class="text-primary"> Vue Properties</h2>
-    <hr>
-
-    <div class="flex">
-      <div>
-        <h3>Name</h3>
-        <div>options</div>
-        <div>placeholder</div>
-        <div>icon</div>
-        <div>dtu</div>
-      </div>
-      <div class="h-pl-md">
-        <h3>Type</h3>
-        <div>Array</div>
-        <div>String</div>
-        <div>String</div>
-        <div>Boolean</div>
-      </div>
-      <div class="h-pl-md">
-        <h3 >Description</h3>
-        <div>Sets a array with popup menu for the search</div>
-        <div>Sets the placeholder for the input</div>
-        <div>Replaces the icon</div>
-        <div>Draws the menu from bottom to top</div>
-      </div>
-    </div>
 
     <h2 class="text-primary"> Vue Events</h2>
     <hr>
