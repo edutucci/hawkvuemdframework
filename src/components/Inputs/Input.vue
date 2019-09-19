@@ -2,14 +2,18 @@
   h-input-container(
     :bg-color="inputContainerColor"
     :text-color="inputContainerTextColor"
-    :label="label"
-    :outlined="outlined"
+    :label="containerLabel"
     :filled="filled"
-    :rounded="rounded"
-    :leftIcon="leftIcon"
+    :leadingIcon="leadingIcon"
+    :focused="focused"
+    :dense="dense"
+    :errorMessage="errorMessage"
+    :helperText="helperText"
+    :inputTextCounter="inputTextCounter"
+    :inputCounter="inputCounter"
   )
-    .flex.flex-column.full-width(v-on-clickaway="away")
-      div(
+    .column.full-width(v-on-clickaway="away")
+      .col(
         v-if="this.chips"
         @click="focus"
       )
@@ -22,19 +26,20 @@
           closable
           @onClose="closeChip(index)"
         )
-      .flex
-        .flex.flex-1.flex-column.h-mr-sm
-          .flex.border-bottom.border-gray
+      .col
+        .row.align-items-center
+          .col-auto.text-subtitle1(v-if="prefix && prefix.length")
+            | {{prefix}}
+          .col
             h-input-field(
               :id="inputId"
               v-model="inputDisplay"
               :type="inputtype"
               :maxlength="maxlength"
               :readonly="readonly"
-              :rounded="rounded"
-              :outlined="outlined"
               :filled="filled"
               :textCenter="textCenter"
+              :placeholder="containerPlaceholder"
               :focused="focused"
               :chips="chips"
               :input-mask="inputMask"
@@ -50,81 +55,75 @@
               @onDelete="onDelete"
               @click="onClick"
             )
+          .col-auto.text-body2(v-if="suffix && suffix.length")
+            | {{suffix}}
+          .col-auto.input-icons-padding(v-if="clearable")
             h-fa-icon.h-mr-xs(
-              v-if="clearable"
-              text-color="text-gray"
+              text-color="text-gray600"
               icon="fas fa-times-circle"
               @click="inputDisplay = ''"
             )
+          .col-auto.input-icons-padding(v-if="inputtype === 'password'")
             h-fa-icon(
-              v-if="inputtype === 'password'"
-              text-color="text-gray"
+              text-color="text-gray600"
               icon="fas fa-eye"
               @click="togglePassword"
             )
-          .flex.flex-column
-            .flex.full-width.helper-text
-              .flex-1.text-caption(
-                v-if="helperText"
-              )
-                | {{helperText}}
-              .flex.text-caption.flex-1.flex-justify-end(
-                v-if="textCounter"
-              )
-                | {{inputCounter}}
-            .flex.flex-column
-              .flex.full-with.text-caption.error-message(
-                v-if="errorMessage"
-              )
-                | {{errorMessage}}
-        .flex.flex-items-center
-          h-fa-icon(:icon="inputIcon")
+          .col-auto(v-if="trailingIcon && trailingIcon.length > 0")
+            .row.justify-center.align-items-center.full-height
+              .col-auto.h-mr-sm
+                h-fa-icon(:icon="trailingIcon" text-color="text-gray600")
+          .col-auto.input-icons-padding(v-if="inputSearch || inputSelect")
+            h-fa-icon(
+              text-color="text-primary"
+              icon="fas fa-caret-down"
+            )
 
-        div.bg-white.full-width.dropdown-content.scroll-y-only.shadow.border-radius(
+        .bg-white.dropdown-content.scroll-y-only.shadow.border-radius(
           :style="{right: right, bottom: bottom}"
           v-if="showdropdown"
           :id="dropMenuId"
         )
+          h-list(v-if="inputSelect")
+            h-list-item(
+              v-for="(option, index) in options"
+              :key="`${dropMenuId}-${index}`"
+              @click="onSelectItem(option)"
+            )
+              h-list-item-side(v-if="displayMode ==='icon'")
+                h-fa-icon(:icon="option.icon")
+              h-list-item-side(v-if="displayMode ==='avatar'")
+                h-avatar(:src="option.avatar")
+              h-list-item-side(v-if="displayMode ==='image'")
+                img(:src="option.img" style="width:32px; height:32px;")
+              h-list-item-content
+                h-list-item-text(:title="option.text")
 
-            h-list.full-width
-              h-list-item(
-                v-if="inputSelect"
-                v-for="(option, index) in options"
-                :key="index"
-                @click="onSelectItem(option)"
-              )
-                h-list-item-side(v-if="displayMode ==='icon'")
-                  h-fa-icon(:icon="option.icon")
-                h-list-item-side(v-if="displayMode ==='avatar'")
-                  h-avatar(:src="option.avatar")
-                h-list-item-side(v-if="displayMode ==='image'")
-                  img(:src="option.img" style="width:32px; height:32px;")
-                h-list-item-content
-                  h-list-item-text(:title="option.text")
+          h-list(v-else-if="multiSelect")
+            h-list-item(
+              v-show="multiSelect"
+              v-for="(option, index) in options"
+              :key="`${dropMenuId}-${index}`"
+              @click="onSelectItem(option)"
+            )
+              h-list-item-side
+                h-checkbox(v-model="multiselectItem" :text="option.text" :value="option.value" @change="onSelectItem")
 
-              h-list-item(
-                v-else-if="multiSelect"
-                v-for="(option, index) in options"
-                :key="index"
-                @click="onSelectItem(option)"
-              )
-                h-list-item-side
-                  h-checkbox(v-model="multiselectItem" :text="option.text" :value="option.value" @change="onSelectItem")
-
-              h-list-item(
-                v-else-if="inputSearch"
-                v-for="(option, index) in options"
-                :key="index"
-                @click="onSelectItem(option)"
-              )
-                h-list-item-side(v-if="option.icon && option.icon.length")
-                  h-fa-icon(:icon="option.icon" size="32x" style="color: gray")
-                h-list-item-side(v-else-if="option.avatar && option.avatar.length > 0")
-                  h-avatar(:src="option.avatar" style="width:32px; height:32px;")
-                h-list-item-side(v-else-if="option.img && option.img.length > 0")
-                  img(:src="option.img" style="width:32px; height:32px;")
-                h-list-item-content
-                  h-list-item-text(:title="option.text" :caption="option.desc")
+          h-list(v-else-if="inputSearch")
+            h-list-item(
+              v-show="inputSearch"
+              v-for="(option, index) in options"
+              :key="`${dropMenuId}-${index}`"
+              @click="onSelectItem(option)"
+            )
+              h-list-item-side(v-if="option.icon && option.icon.length")
+                h-fa-icon(:icon="option.icon" size="32x" style="color: gray")
+              h-list-item-side(v-else-if="option.avatar && option.avatar.length > 0")
+                h-avatar(:src="option.avatar" style="width:32px; height:32px;")
+              h-list-item-side(v-else-if="option.img && option.img.length > 0")
+                img(:src="option.img" style="width:32px; height:32px;")
+              h-list-item-content
+                h-list-item-text(:title="option.text" :caption="option.desc")
 
 </template>
 
@@ -157,6 +156,8 @@ export default {
       dropMenuId: uuidv1(),
       inputtype: '',
       inputDisplay: '',
+      inputPlaceholder: '',
+      inputLabel: '',
       focused: false,
       inputContainerColor: '',
       inputContainerTextColor: '',
@@ -173,14 +174,14 @@ export default {
   },
   mounted () {
     this.inputtype = this.type
-    this.inputContainerColor = this.bgcolor
+    this.inputContainerColor = this.bgColor
     this.inputContainerTextColor = this.textcolor
     this.makeInputValue()
   },
   watch: {
     inputDisplay: function (value) {
       // console.log('mudou display: ', value)
-      if (!this.chips && !this.inputMask && !this.inputCurrency) {
+      if (!this.chips && !this.inputMask && !this.inputCurrency && !this.inputSelect && !this.inputSearch) {
         this.$emit('input', value)
       }
     },
@@ -190,7 +191,8 @@ export default {
         this.inputDisplay = value
       }
     },
-    bgcolor: function (value) {
+    bgColor: function (value) {
+      console.log('mudou bgColor: ', value)
       this.inputContainerColor = value
     },
     textcolor: function (value) {
@@ -221,13 +223,31 @@ export default {
       }
     },
     options: function (value) {
-      console.log('mudou options:', JSON.stringify(value))
+      // console.log('mudou options:', JSON.stringify(value))
       this.checkViewport()
     }
   },
   computed: {
-    inputCounter () {
-      let valueLength = (this.value) ? this.value.length : 0
+    containerLabel () {
+      let value = this.label
+      if (!this.focused) {
+        if ((!this.inputDisplay) || (this.inputDisplay && this.inputDisplay.length === 0)) {
+          value = ''
+        }
+      }
+      return value
+    },
+    containerPlaceholder () {
+      let value = ''
+      if (!this.focused) {
+        if ((!this.inputDisplay) || (this.inputDisplay && this.inputDisplay.length === 0)) {
+          value = this.label
+        }
+      }
+      return value
+    },
+    inputTextCounter () {
+      let valueLength = (this.value) ? this.value.length : '' + 0
       return '' + valueLength + ' / ' + this.textCounter
     }
   },
@@ -282,8 +302,16 @@ export default {
     },
     onInput (value) {
       // console.log('onInput value:', value)
+      // if (this.inputSearch) {
+      //   this.showdropdown = true
+      // }
+      if (this.inputSelect) {
+        return
+      }
+
       if (this.inputSearch) {
-        this.showdropdown = true
+        this.onInputSearch(value)
+        return
       }
 
       this.inputDisplay = value
@@ -296,14 +324,15 @@ export default {
         this.$emit('input', value)
       }
     },
+    onInputSearch: _.debounce(function (value) {
+      // console.log('value debounce input-field:', value)
+      // this.inputDisplay = value
+      this.$emit('onFilter', value)
+    }, 500),
     focus () {
       this.focused = true
       this.inputContainerColor = 'bg-white'
       this.inputContainerTextColor = 'text-primary'
-
-      if (this.inputSelect || this.multiSelect) {
-        this.onClick()
-      }
     },
     checkViewport () {
       this.showdropdown = true
@@ -330,8 +359,9 @@ export default {
     },
     blur () {
       this.focused = false
-      this.inputContainerColor = this.bgcolor
-      this.inputContainerTextColor = this.textcolor
+      this.inputContainerColor = this.bgColor
+      this.inputContainerTextColor = this.textColor
+      this.$emit('blur')
     },
     togglePassword () {
       this.inputtype = (this.inputtype === 'password') ? 'text' : 'password'
@@ -363,6 +393,9 @@ export default {
       }
     },
     onEscape () {
+      if (this.inputSelect || this.multiSelect || this.inputSearch) {
+        this.showdropdown = false
+      }
       this.$emit('onEscape')
     },
     onClick () {
@@ -384,7 +417,7 @@ export default {
         this.multiselectItem.forEach(item => {
           let idx = this.options.findIndex(opt => opt.value === item)
           if (idx !== -1) {
-            multivalue.push(this.options[idx].text)
+            multivalue.push(this.options[idx].value)
           }
         })
         this.inputDisplay = multivalue

@@ -6,37 +6,31 @@
   position:relative;
 }
 
-.main-input-container.rounded {
-  margin-right: 5px;
-}
+.input-container.outlined
+  min-height 40px
 
-.input-container.outlined {
-  border-color: gray;
-  border-style: solid;
-  border-width: 1px;
-  border-radius: 5px;
-}
+.input-container.outlined.dense
+  min-height 30px
 
-.input-container.outlined.rounded,
-.input-container.filled.rounded {
-  border-radius: 50px;
-}
+.input-container.filled
+  min-height 42px
 
-.input-container.outlined > .input-field-container,
-.input-container.filled > .input-field-container {
-  margin-left: 6px;
-  margin-right: 6px;
-}
+.input-container.filled.dense
+  min-height 27px
 
-.input-container.filled.rounded > .input-field-container {
-  margin-left: 16px;
-  margin-right: 16px;
-}
+.input-label-outlined
+  position absolute
+  top -7px
+  z-index: 50px
 
-.input-container.outlined.rounded > .input-field-container {
-  margin-left: 16px;
-  margin-right: 16px;
-}
+.input-icons-padding
+  padding: 0px 4px
+
+.input-message-padding-no-icon
+  margin-left: 10px
+
+.input-message-padding-icon
+  margin-left: 37px
 
 /*
   INPUT FIELD
@@ -47,7 +41,6 @@
   outline: none;
   z-index:0;
   background:none;
-  font-size: 12px;
 }
 
 /*

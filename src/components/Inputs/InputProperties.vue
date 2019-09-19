@@ -31,27 +31,39 @@ export default {
       type: Number,
       default: 0
     },
+    inputCounter: {
+      type: Boolean,
+      default: false
+    },
+    suffix: {
+      type: String,
+      default: ''
+    },
+    prefix: {
+      type: String,
+      default: ''
+    },
     maxlength: {
       type: Number,
       default: 9999
     },
-    leftIcon: {
+    leadingIcon: {
       type: String,
       default: ''
     },
-    rightIcon: {
+    trailingIcon: {
       type: String,
       default: ''
     },
-    outlined: {
-      type: Boolean,
-      default: false
-    },
+    // outlined: {  removed because is default textfield
+    //   type: Boolean,
+    //   default: false
+    // },
     filled: {
       type: Boolean,
       default: false
     },
-    rounded: {
+    dense: {
       type: Boolean,
       default: false
     },
@@ -123,11 +135,11 @@ export default {
       type: String,
       default: () => defaults.thousands
     },
-    prefix: {
+    currencyprefix: {
       type: String,
       default: () => defaults.prefix
     },
-    suffix: {
+    currencysuffix: {
       type: String,
       default: () => defaults.suffix
     }

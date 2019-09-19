@@ -21,7 +21,7 @@
     v-focus="inputFocus"
     :class="[{'text-center': textCenter, 'readonly': readonly}, filled]"
     v-model="inputDisplay"
-    v-money="{ precision, decimal, thousands, prefix, suffix }"
+    v-money="{ precision, decimal, thousands, currencyprefix, currencysuffix }"
     :readonly="readonly"
     :placeholder="placeholder"
     :maxlength="maxlength"
@@ -32,7 +32,7 @@
     @keyup.enter="onEnter"
     @click="onClick"
   )
-  input.input-field(
+  input.input-field.text-subtitle1(
     v-else-if="!this.chips"
     :id="inputId"
     v-focus="inputFocus"
@@ -81,7 +81,6 @@ import uuidv1 from 'uuid/v1'
 import { mixin as focusMixin } from 'vue-focus'
 import InputProperties from './InputProperties'
 import money from './currencyDirective/directive'
-import _ from 'lodash'
 
 export default {
   extends: InputProperties,
@@ -127,11 +126,6 @@ export default {
       // this.inputDisplay = value
       this.$emit('input', value)
     },
-    onInputSearch: _.debounce(function (value) {
-      // console.log('value debounce input-field:', value)
-      this.inputDisplay = value
-      this.$emit('input', value)
-    }, 500),
     onInputChip (value) {
       // console.log('onInputChip input-field:', value)
       this.inputDisplay = value

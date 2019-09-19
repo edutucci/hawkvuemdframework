@@ -10,8 +10,8 @@ export default {
 </script>
 
 <style scoped>
-.toolbar-action > * {
+/* .toolbar-action > * {
   padding-right: 8px;
   padding-left: 8px;
-}
+} */
 </style>

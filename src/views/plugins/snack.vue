@@ -1,15 +1,15 @@
 <template>
-  <div>
+  <h-page-content padding>
     <h1>SnackBar</h1>
 
     <div>
-      <h-btn contained text="Show SnackBar" @click="showSnackBar"/>
+      <h-btn text="Show SnackBar" @click="showSnackBar"/>
     </div>
 
-    <pre v-highlightjs="s1">
+    <!-- <pre v-highlightjs="s1">
       <code class="javacript">
       </code>
-    </pre>
+    </pre> -->
 
     <h2 class="text-primary"> Vue Properties</h2>
     <hr>
@@ -35,10 +35,11 @@
       </div>
     </div>
 
-  </div>
+  </h-page-content>
 </template>
 
 <script>
+import test from './test'
 export default {
   data () {
     return {
@@ -55,11 +56,12 @@ this.$SnackBar.create({
   },
   methods: {
     showSnackBar () {
-      this.$SnackBar.create({
-        message: 'Download Completed',
-        textcolor: 'text-white',
-        bgcolor: 'bg-positive'
-      })
+      // this.$SnackBar.create({
+      //   message: 'Download Completed',
+      //   textcolor: 'text-white',
+      //   bgcolor: 'bg-positive'
+      // })
+      test.showSnack()
     }
   }
 }
