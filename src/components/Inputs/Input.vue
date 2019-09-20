@@ -1,16 +1,21 @@
 <template lang="pug">
   h-input-container(
-    :bg-color="inputContainerColor"
+    :bg-color="bgColor"
     :text-color="inputContainerTextColor"
     :label="containerLabel"
     :filled="filled"
     :leadingIcon="leadingIcon"
+    :trailingIcon="trailingIcon"
     :focused="focused"
     :dense="dense"
     :errorMessage="errorMessage"
     :helperText="helperText"
     :inputTextCounter="inputTextCounter"
     :inputCounter="inputCounter"
+    :clearable="clearable"
+    :inputType="inputType"
+    :inputDropdown="inputDropdown"
+    @onClearable="onClearable"
   )
     .column.full-width(v-on-clickaway="away")
       .col(
@@ -34,7 +39,7 @@
             h-input-field(
               :id="inputId"
               v-model="inputDisplay"
-              :type="inputtype"
+              :type="inputType"
               :maxlength="maxlength"
               :readonly="readonly"
               :filled="filled"
@@ -57,27 +62,6 @@
             )
           .col-auto.text-body2(v-if="suffix && suffix.length")
             | {{suffix}}
-          .col-auto.input-icons-padding(v-if="clearable")
-            h-fa-icon.h-mr-xs(
-              text-color="text-gray600"
-              icon="fas fa-times-circle"
-              @click="inputDisplay = ''"
-            )
-          .col-auto.input-icons-padding(v-if="inputtype === 'password'")
-            h-fa-icon(
-              text-color="text-gray600"
-              icon="fas fa-eye"
-              @click="togglePassword"
-            )
-          .col-auto(v-if="trailingIcon && trailingIcon.length > 0")
-            .row.justify-center.align-items-center.full-height
-              .col-auto.h-mr-sm
-                h-fa-icon(:icon="trailingIcon" text-color="text-gray600")
-          .col-auto.input-icons-padding(v-if="inputSearch || inputSelect")
-            h-fa-icon(
-              text-color="text-primary"
-              icon="fas fa-caret-down"
-            )
 
         .bg-white.dropdown-content.scroll-y-only.shadow.border-radius(
           :style="{right: right, bottom: bottom}"
@@ -249,6 +233,13 @@ export default {
     inputTextCounter () {
       let valueLength = (this.value) ? this.value.length : '' + 0
       return '' + valueLength + ' / ' + this.textCounter
+    },
+    inputDropdown () {
+      let value = false
+      if (this.inputSearch || this.inputSelect || this.multiSelect) {
+        value = true
+      }
+      return value
     }
   },
   methods: {
@@ -331,8 +322,8 @@ export default {
     }, 500),
     focus () {
       this.focused = true
-      this.inputContainerColor = 'bg-white'
-      this.inputContainerTextColor = 'text-primary'
+      // this.inputContainerColor = 'bg-white'
+      // this.inputContainerTextColor = 'text-primary'
     },
     checkViewport () {
       this.showdropdown = true
@@ -446,6 +437,10 @@ export default {
           this.closeChip(this.value.length - 1)
         }
       }
+    },
+    onClearable () {
+      console.log('onClearable fired')
+      this.inputDisplay = ''
     }
   }
 }

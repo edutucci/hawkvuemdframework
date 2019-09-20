@@ -12,6 +12,8 @@
         trailing-icon="fas fa-search"
         @onFilter="onSearch"
         dense
+        clearable
+        error-message="invalid information"
       />
       <div>
         model: {{model1}}
@@ -27,7 +29,22 @@
             Musics
           </h-app-toolbar-title>
           <h-app-toolbar-action>
-            <div class="bg-white">
+
+          </h-app-toolbar-action>
+        </h-app-toolbar-container>
+      </h-app-toolbar>
+    </comp-code>
+
+    <comp-code class="h-mt-lg" title="Standard" :code="exsearch" :script="exsearchScript"
+      javascript
+    >
+      <h-app-toolbar bg-color="bg-primary" text-color="text-white">
+        <h-app-toolbar-container>
+          <h-app-toolbar-title class="text-body1">
+            Collection
+          </h-app-toolbar-title>
+          <h-app-toolbar-action>
+            <div>
               <h-input
                 v-model="model1"
                 input-search
@@ -36,8 +53,22 @@
                 trailing-icon="fas fa-search"
                 @onFilter="onSearch"
                 dense
-                bg-color="bg-primary"
+                bg-color="bg-purple400"
                 filled
+                clearable
+              />
+            </div>
+            <div class="h-ml-sm">
+              <h-input
+                v-model="model1"
+                input-search
+                label="Search"
+                leading-icon="fas fa-search"
+                trailing-icon="fas fa-search"
+                @onFilter="onSearch"
+                dense
+                bg-color="bg-purple400"
+                clearable
               />
             </div>
           </h-app-toolbar-action>

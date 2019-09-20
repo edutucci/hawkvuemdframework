@@ -11,6 +11,10 @@ export default {
   extends: componentBase,
   name: 'InputProperties',
   props: {
+    inputType: {
+      type: String,
+      default: 'text'
+    },
     placeholder: {
       type: String,
       default: ''
