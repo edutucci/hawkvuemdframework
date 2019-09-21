@@ -2,6 +2,12 @@
   h-input-container(
     :bg-color="bgColor"
     :text-color="inputContainerTextColor"
+    :label-color="inputContainerLabelColor"
+    :icon-color="inputContainerIconColor"
+    :iconDropdownColor="inputContainerIconDropdownColor"
+    :helperTextColor="inputContainerHelperTextColor"
+    :errorTextColor="inputContainerErrorTextColor"
+    :iconErrorTextColor="inputContainerIconErrorTextColor"
     :label="containerLabel"
     :filled="filled"
     :leadingIcon="leadingIcon"
@@ -37,6 +43,7 @@
             | {{prefix}}
           .col
             h-input-field(
+              :class="[inputContainerTextColor]"
               :id="inputId"
               v-model="inputDisplay"
               :type="inputType"
@@ -128,23 +135,24 @@ export default {
     value: {
       type: [String, Array, Number],
       default: ''
-    },
-    type: {
-      type: String,
-      default: ''
     }
   },
   data () {
     return {
       inputId: uuidv1(),
       dropMenuId: uuidv1(),
-      inputtype: '',
       inputDisplay: '',
       inputPlaceholder: '',
       inputLabel: '',
       focused: false,
       inputContainerColor: '',
       inputContainerTextColor: '',
+      inputContainerLabelColor: '',
+      inputContainerIconColor: '',
+      inputContainerIconDropdownColor: '',
+      inputContainerHelperTextColor: '',
+      inputContainerErrorTextColor: '',
+      inputContainerIconErrorTextColor: '',
       showdropdown: false,
       right: '',
       bottom: '',
@@ -157,10 +165,8 @@ export default {
     }
   },
   mounted () {
-    this.inputtype = this.type
-    this.inputContainerColor = this.bgColor
-    this.inputContainerTextColor = this.textcolor
     this.makeInputValue()
+    this.makeInputContainerColors()
   },
   watch: {
     inputDisplay: function (value) {
@@ -176,11 +182,10 @@ export default {
       }
     },
     bgColor: function (value) {
-      console.log('mudou bgColor: ', value)
-      this.inputContainerColor = value
+      this.makeInputContainerColors()
     },
     textcolor: function (value) {
-      this.inputContainerTextColor = value
+      this.makeInputContainerColors()
     },
     multiselectItem: function (value) {
       let arrDisp = []
@@ -195,9 +200,6 @@ export default {
         display = arrDisp.join()
       }
       this.inputDisplay = display
-    },
-    type: function (value) {
-      this.inputtype = value
     },
     masked: function (newValue) {
       if (this.inputMask) {
@@ -273,6 +275,25 @@ export default {
         // }
       }
     },
+    makeInputContainerColors () {
+      if (this.bgColor === 'bg-white') {
+        this.inputContainerTextColor = 'text-black'
+        this.inputContainerLabelColor = 'text-black'
+        this.inputContainerIconColor = 'text-gray600'
+        this.inputContainerIconDropdownColor = 'text-primary'
+        this.inputContainerHelperTextColor = 'text-gray600'
+        this.inputContainerErrorTextColor = 'text-red800'
+        this.inputContainerIconErrorTextColor = 'text-red600'
+      } else {
+        this.inputContainerTextColor = 'text-white'
+        this.inputContainerLabelColor = 'text-white'
+        this.inputContainerIconColor = 'text-white'
+        this.inputContainerIconDropdownColor = 'text-white'
+        this.inputContainerHelperTextColor = 'text-white'
+        this.inputContainerErrorTextColor = 'text-white'
+        this.inputContainerIconErrorTextColor = 'text-white'
+      }
+    },
     changeModelMask () {
       let modelValue = this.inputDisplay
       if (!this.masked) {
@@ -322,6 +343,10 @@ export default {
     }, 500),
     focus () {
       this.focused = true
+
+      if (this.bgColor === 'bg-white') {
+        this.inputContainerLabelColor = 'text-primary'
+      }
       // this.inputContainerColor = 'bg-white'
       // this.inputContainerTextColor = 'text-primary'
     },
@@ -350,12 +375,11 @@ export default {
     },
     blur () {
       this.focused = false
-      this.inputContainerColor = this.bgColor
-      this.inputContainerTextColor = this.textColor
+      this.makeInputContainerColors()
       this.$emit('blur')
     },
     togglePassword () {
-      this.inputtype = (this.inputtype === 'password') ? 'text' : 'password'
+      // this.inputtype = (this.inputtype === 'password') ? 'text' : 'password'
     },
     onKeyDown () {
       if (this.inputSearch) {

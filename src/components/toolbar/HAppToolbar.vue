@@ -1,5 +1,6 @@
 <template lang="pug">
-  .toolbar.flex(
+  .row.toolbar(
+    class="overflow-x-hidden"
     :class="[bgColor, textColor]"
   )
     slot

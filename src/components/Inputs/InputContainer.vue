@@ -8,7 +8,7 @@
           .col-auto(v-if="leadingIcon && leadingIcon.length > 0")
             .row.justify-center.align-items-center.full-height
               .col-auto.h-ml-sm.h-mr-sm
-                h-fa-icon(:icon="leadingIcon" text-color="text-gray600")
+                h-fa-icon(:icon="leadingIcon" :text-color="iconColor")
           .col.position-relative(
             :class="[{ 'h-mt-xs': !filled }]"
           )
@@ -28,7 +28,7 @@
                     class="text-black"
                     :class="[{ }]"
                   )
-                    .text-caption.text-bold.h-pl-xs.h-pr-xs(:class="[bgColor, { 'input-label-outlined': !filled }]")
+                    .text-caption.text-bold.h-pl-xs.h-pr-xs(:class="[bgColor, labelColor, { 'input-label-outlined': !filled }]")
                       | {{label}}
                   .col.full-height
                     .row.align-items-center.full-height
@@ -36,36 +36,36 @@
                         :class="{ 'h-mt-xs': !filled }"
                       )
                         slot
-          .col-auto
-            .row.justify-center.align-items-center.full-height
-              .col-auto.input-icons-padding(v-if="errorMessage && errorMessage.length > 0")
-                h-fa-icon(
-                  text-color="text-red600"
-                  icon="fas fa-exclamation-circle"
-                  @click="onClearable"
-                )
-              .col-auto.input-icons-padding(v-if="clearable")
-                h-fa-icon(
-                  text-color="text-gray600"
-                  icon="fas fa-times-circle"
-                  @click="onClearable"
-                )
-              .col-auto.input-icons-padding(v-if="inputType === 'password'")
-                h-fa-icon(
-                  text-color="text-gray600"
-                  icon="fas fa-eye"
-                  @click="togglePassword"
-                )
-              .col-auto.input-icons-padding(v-if="trailingIcon && trailingIcon.length > 0")
-                  h-fa-icon(
-                    :icon="trailingIcon"
-                    text-color="text-gray600"
-                  )
-              .col-auto.input-icons-padding(v-if="inputDropdown")
-                h-fa-icon(
-                  text-color="text-primary"
-                  icon="fas fa-caret-down"
-                )
+                      .col-auto
+                        .row.justify-center.align-items-center.full-height
+                          .col-auto.input-icons-padding(v-if="errorMessage && errorMessage.length > 0")
+                            h-fa-icon(
+                              :text-color="iconErrorTextColor"
+                              icon="fas fa-exclamation-circle"
+                              @click="onClearable"
+                            )
+                          .col-auto.input-icons-padding(v-if="clearable")
+                            h-fa-icon(
+                              :text-color="iconColor"
+                              icon="fas fa-times-circle"
+                              @click="onClearable"
+                            )
+                          .col-auto.input-icons-padding(v-if="inputType === 'password'")
+                            h-fa-icon(
+                              :text-color="iconColor"
+                              icon="fas fa-eye"
+                              @click="togglePassword"
+                            )
+                          .col-auto.input-icons-padding(v-if="trailingIcon && trailingIcon.length > 0")
+                              h-fa-icon(
+                                :icon="trailingIcon"
+                                :text-color="iconColor"
+                              )
+                          .col-auto.input-icons-padding(v-if="inputDropdown")
+                            h-fa-icon(
+                              :text-color="iconDropdownColor"
+                              icon="fas fa-caret-down"
+                            )
       .col
         .column.h-mt-xs(
           :class="[\
@@ -73,20 +73,23 @@
              'input-message-padding-icon': leadingIcon && leadingIcon.length > 0 } ]"
         )
           .col
-            .row.helper-text
+            .row
               .col-auto.text-caption(
+                :class="[helperTextColor]"
                 v-if="(helperText && helperText.length > 0 && (!errorMessage || (errorMessage && errorMessage.length === 0)))"
               )
                 | {{helperText}}
               .col-space.text-right(
+                :class="[helperTextColor]"
                 v-if="inputCounter"
               )
                 | {{inputTextCounter}}
-          .col
-            .row.text-caption.text-red800(
-              v-if="errorMessage && errorMessage.length > 0"
-            )
-              | {{errorMessage}}
+          .col.text-caption(
+            :class="[errorTextColor]"
+            v-if="errorMessage && errorMessage.length > 0"
+          )
+            | {{errorMessage}}
+
 </template>
 
 <script>
@@ -108,6 +111,30 @@ export default {
     inputDropdown: {
       type: Boolean,
       default: false
+    },
+    labelColor: {
+      type: String,
+      default: 'text-black'
+    },
+    iconColor: {
+      type: String,
+      default: 'text-gray600'
+    },
+    iconDropdownColor: {
+      type: String,
+      default: 'text-primary'
+    },
+    helperTextColor: {
+      type: String,
+      default: 'text-gray600'
+    },
+    errorTextColor: {
+      type: String,
+      default: 'text-red800'
+    },
+    iconErrorTextColor: {
+      type: String,
+      default: 'text-red600'
     }
   },
   data () {

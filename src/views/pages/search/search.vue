@@ -9,12 +9,15 @@
         v-model="model1"
         input-search
         label="Search"
+        leading-icon="fas fa-search"
         trailing-icon="fas fa-search"
         @onFilter="onSearch"
         dense
         clearable
-        error-message="invalid information"
+        helper-text="Search here"
+        error-message="error"
       />
+
       <div>
         model: {{model1}}
       </div>
@@ -29,7 +32,21 @@
             Musics
           </h-app-toolbar-title>
           <h-app-toolbar-action>
-
+            <div>
+              <h-input
+                v-model="model1"
+                input-search
+                label="Search"
+                leading-icon="fas fa-search"
+                trailing-icon="fas fa-search"
+                @onFilter="onSearch"
+                dense
+                bg-color="bg-primary"
+                filled
+                clearable
+                helper-text="Search here"
+              />
+            </div>
           </h-app-toolbar-action>
         </h-app-toolbar-container>
       </h-app-toolbar>
@@ -53,22 +70,9 @@
                 trailing-icon="fas fa-search"
                 @onFilter="onSearch"
                 dense
-                bg-color="bg-purple400"
-                filled
+                bg-color="bg-primary"
                 clearable
-              />
-            </div>
-            <div class="h-ml-sm">
-              <h-input
-                v-model="model1"
-                input-search
-                label="Search"
-                leading-icon="fas fa-search"
-                trailing-icon="fas fa-search"
-                @onFilter="onSearch"
-                dense
-                bg-color="bg-purple400"
-                clearable
+                error-message="Invalid information"
               />
             </div>
           </h-app-toolbar-action>
