@@ -108,11 +108,11 @@
               @click="onSelectItem(option)"
             )
               h-list-item-side(v-if="option.icon && option.icon.length")
-                h-fa-icon(:icon="option.icon" size="32x" style="color: gray")
+                h-fa-icon(:icon="option.icon" size="32px" style="color: gray")
               h-list-item-side(v-else-if="option.avatar && option.avatar.length > 0")
-                h-avatar(:src="option.avatar" style="width:32px; height:32px;")
+                h-avatar(:src="option.avatar" size="32px")
               h-list-item-side(v-else-if="option.img && option.img.length > 0")
-                img(:src="option.img" style="width:32px; height:32px;")
+                img(:src="option.img" width="32px" height="32px")
               h-list-item-content
                 h-list-item-text(:title="option.text" :caption="option.desc")
 

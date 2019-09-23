@@ -1,5 +1,5 @@
 <template lang="pug">
-  .row.flex-align-center.toolbar-action.scroll
+  .row.flex-align-center.toolbar-action
     slot
 </template>
 

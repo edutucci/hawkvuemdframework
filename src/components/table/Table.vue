@@ -40,14 +40,14 @@
           </div>
           <div v-for="(col, colindex) in columns" :key="colindex">
             <div
-              class= "flex flex-items-center flex-justify-center"
+              class= "flex flex-items-center flex-justify-center text-subtitle2 text-gray"
               :class = "{ 'cursor-pointer' : col.sortable}"
-              style="min-width:100px; color: #67686a;"
+              style="min-width:100px;"
               :style="[rowlineheight]"
               @click="sort(col)"
             >
-              <strong>{{col.name}}</strong>
-              <h-fa-icon class="h-ml-xs" v-if="col.sortable" :icon="colIconName(col, colindex)" textcolor="text-red400"/>
+              {{col.name}}
+              <h-fa-icon class="h-ml-xs" v-if="col.sortable" :icon="colIconName(col, colindex)" text-color="text-red400"/>
             </div>
             <div class="flex flex-column">
               <div
@@ -70,24 +70,28 @@
             Rows per page:
           </div>
           <div class="h-pr-sm h-pb-md flex flex-items-center">
-            <h-select
-              :showStaticLabel="false"
+            <h-input
               :options="rowsperpage"
               v-model="rowsperpagevalue"
+              input-select
               style="width:60px;"
-              dtu/>
+            />
           </div>
           <div class="btn bg-white circle
             flex flex-justify-center flex-items-center"
             @click="onPreviousPage"
           >
-            <h-fa-icon icon="fas fa-chevron-left" size="16px"/>
+            <h-btn text-button fab text-color="text-white" size="sm">
+              <h-fa-icon icon="fas fa-chevron-left" size="16px"/>
+            </h-btn>
           </div>
           <div class="btn bg-white circle
             flex flex-justify-center flex-items-center"
             @click="onNextPage"
             >
-              <h-fa-icon icon="fas fa-chevron-right" size="16px"/>
+              <h-btn text-button fab text-color="text-white" size="sm">
+                <h-fa-icon icon="fas fa-chevron-right" size="16px"/>
+              </h-btn>
           </div>
         </div>
       </div>

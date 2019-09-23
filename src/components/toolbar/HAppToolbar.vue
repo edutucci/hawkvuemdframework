@@ -1,6 +1,6 @@
 <template lang="pug">
   .row.toolbar(
-    class="overflow-x-hidden"
+    class=""
     :class="[bgColor, textColor]"
   )
     slot

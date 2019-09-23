@@ -60,7 +60,7 @@ export default new Router({
     },
     {
       path: '/example',
-      component: () => import('./views/examples/buttonGroup.vue')
+      component: () => import('./views/examples/search.vue')
     }
   ]
 })
