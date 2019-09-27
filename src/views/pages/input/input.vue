@@ -15,8 +15,20 @@
       <div class="column col-inputs">
         <h-input v-model="types" label="Outlined"/>
         <h-input v-model="types" label="Filled" filled/>
-        <h-input v-model="types" label="Outlined dense" dense/>
-        <h-input v-model="types" label="Filled dense" filled dense/>
+      </div>
+      <div class="row h-mt-md">
+        <div class="col">
+          <h-input v-model="types" label="Outlined dense" dense/>
+        </div>
+        <div class="col">
+          <h-input v-model="types" label="Filled dense" filled dense/>
+        </div>
+      </div>
+    </comp-code>
+
+    <comp-code class="h-mt-lg" title="Password" :code="txtpassword">
+      <div class="column col-inputs">
+        <h-input v-model="types" label="Password" dense type="password"/>
       </div>
     </comp-code>
 
@@ -267,6 +279,11 @@ export default {
   <h-input v-model="types" label="Outlined dense" dense/>
   <h-input v-model="types" label="Filled dense" filled dense/>
 </div>
+`,
+      txtpassword: `
+<div class="column col-inputs">
+  <h-input v-model="types" label="Password" dense type="password"/>
+</div>    
 `,
       txtkeys: `
 <div class="col-6">

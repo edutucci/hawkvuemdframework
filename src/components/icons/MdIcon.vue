@@ -17,6 +17,7 @@ import componentBase from '../componentBase.vue'
 
 export default {
   extends: componentBase,
+  name: 'HMDIcon',
   props: {
     icon: {
       type: String,

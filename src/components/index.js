@@ -64,6 +64,7 @@ import HInputContainer from './Inputs/InputContainer'
 import HInputField from './Inputs/InputField'
 import HInput from './Inputs/Input.vue'
 import HInputPlusMinus from './Inputs/InputPlusMinus.vue'
+import HRangeSlider from './Inputs/RangeSlider'
 import HToggle from './checkbox/Toggle'
 import HMainBody from './page/MainBody.vue'
 import HMainPage from './page/MainPage.vue'
@@ -73,7 +74,7 @@ import HPageFooter from './page/PageFooter.vue'
 import HYoutubeVideo from './video/YoutubeVideo.vue'
 import HLink from './html/Link.vue'
 import HSeparator from './html/Separator.vue'
-import HArticle from './html/Article.vue'
+import HBanner from './banner/Banner'
 import HScrollNavigator from './scroll/ScrollNavigator'
 
 const Components = {
@@ -140,6 +141,7 @@ const Components = {
   HInputContainer,
   HInputField,
   HInput,
+  HRangeSlider,
   HInputPlusMinus,
   HToggle,
   HMainBody,
@@ -149,7 +151,7 @@ const Components = {
   HPageFooter,
   HYoutubeVideo,
   HLink,
-  HArticle,
+  HBanner,
   HSeparator,
   HScrollNavigator
 }

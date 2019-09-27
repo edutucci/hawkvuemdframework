@@ -11,7 +11,7 @@ export default {
   extends: componentBase,
   name: 'InputProperties',
   props: {
-    inputType: {
+    type: {
       type: String,
       default: 'text'
     },
@@ -151,7 +151,7 @@ export default {
   data () {
     return {
       inputDisplay: '',
-      inputtype: ''
+      inputType: ''
     }
   }
 }

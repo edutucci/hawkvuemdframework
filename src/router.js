@@ -24,6 +24,7 @@ export default new Router({
         { path: '/buttons', component: () => import('./views/pages/buttons/buttons') },
         { path: '/buttongroup', component: () => import('./views/pages/buttons/buttonGroup') },
         { path: '/buttondropdown', component: () => import('./views/pages/buttons/buttonDropDown') },
+        { path: '/banner', component: () => import('./views/pages/banner/banner') },
         { path: '/icon', component: () => import('./views/pages/icon/icon') },
         { path: '/input', component: () => import('./views/pages/input/input') },
         { path: '/search', component: () => import('./views/pages/search/search') },
@@ -37,6 +38,7 @@ export default new Router({
         { path: '/collapsible', component: () => import('./views/pages/collapsible/collapsible') },
         { path: '/checkbox', component: () => import('./views/pages/checkbox/checkbox') },
         { path: '/radio', component: () => import('./views/pages/radio/radio') },
+        { path: '/rangeslider', component: () => import('./views/pages/rangeslider/rangeslider') },
         { path: '/select', component: () => import('./views/pages/select/select') },
         { path: '/tab', component: () => import('./views/pages/tab/tab') },
         { path: '/table', component: () => import('./views/pages/table/table') },
@@ -60,7 +62,7 @@ export default new Router({
     },
     {
       path: '/example',
-      component: () => import('./views/examples/search.vue')
+      component: () => import('./views/examples/rangeslider')
     }
   ]
 })

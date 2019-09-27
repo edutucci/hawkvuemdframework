@@ -58,6 +58,7 @@
                 <h-collapsible-item text="Buttons" @click="$router.push('/buttons'), $refs.nav.close()"/>
                 <h-collapsible-item text="Button Group" @click="$router.push('/buttongroup'), $refs.nav.close()"/>
                 <h-collapsible-item text="Button Dropdown" @click="$router.push('/buttondropdown'), $refs.nav.close()"/>
+                <h-collapsible-item text="Banner" @click="$router.push('/banner'), $refs.nav.close()"/>
                 <h-collapsible-item text="Cards" @click="$router.push('/card'), $refs.nav.close()"/>
                 <h-collapsible-item text="Checkbox" @click="$router.push('/checkbox'), $refs.nav.close()"/>
                 <h-collapsible-item text="Chips/InputChips" @click="$router.push('/chip'), $refs.nav.close()"/>
@@ -73,6 +74,7 @@
                 <h-collapsible-item text="Mask" @click="$router.push('/mask'), $refs.nav.close()"/>
                 <h-collapsible-item text="Dialog" @click="$router.push('/dialog'), $refs.nav.close()"/>
                 <h-collapsible-item text="Radio" @click="$router.push('/radio'), $refs.nav.close()"/>
+                <h-collapsible-item text="Range Slider" @click="$router.push('/rangeslider'), $refs.nav.close()"/>
                 <h-collapsible-item text="Search" @click="$router.push('/search'), $refs.nav.close()"/>
                 <h-collapsible-item text="Select" @click="$router.push('/select'), $refs.nav.close()"/>
                 <h-collapsible-item text="Tab" @click="$router.push('/tab'), $refs.nav.close()"/>

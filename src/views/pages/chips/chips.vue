@@ -88,7 +88,6 @@
     >
       <div class="h-mt-md">
         <h-input
-          left-icon="fas fa-birthday-cake"
           label="Type your chips"
           chips
           v-model="chipsInput"

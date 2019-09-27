@@ -11,7 +11,7 @@
       javascript
     >
       <div class="col-6">
-        <h-input :options="options"
+        <h-input dense :options="options"
           v-model="selectModel"
           input-select
           input-icon="fas fa-angle-down"
@@ -27,7 +27,7 @@
       javascript
     >
       <div class="col-6">
-        <h-input input-select :options="options" v-model="selectModel1" input-icon="fas fa-angle-down" display-mode="avatar"/>
+        <h-input dense input-select :options="options" v-model="selectModel1" input-icon="fas fa-angle-down" display-mode="avatar"/>
       </div>
       <div>
         selectModel1: {{ selectModel1 }}
@@ -38,7 +38,7 @@
       javascript
     >
       <div class="col-6">
-        <h-input multi-select :options="options" input-icon="fas fa-angle-down"
+        <h-input dense multi-select :options="options" input-icon="fas fa-angle-down"
         v-model="multiselect"
         @changeMultiselect="changeMultiselect"
         />

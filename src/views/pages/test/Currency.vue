@@ -5,6 +5,11 @@
          @input="onInput($event.target.value)"
          v-money="{ precision, decimal, thousands, prefix, suffix }"
       />
+
+      <h-banner class="h-mt-md">
+
+      </h-banner>
+
   </h-page-content>
 </template>
 

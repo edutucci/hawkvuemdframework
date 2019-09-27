@@ -6,23 +6,23 @@
   position:relative;
 }
 
-// .input-container.outlined
-//   min-height 40px
+.input-container.outlined
+  min-height 50px
 
-// .input-container.filled
-//   min-height 42px
+.input-container.filled
+  min-height 52px
 
 .input-container.outlined.dense
-  min-height 28px
+  min-height 35px
 
 .input-container.filled.dense
-  min-height 36px
+  min-height 35px
 
 .input-label-outlined
   position absolute
   top -7px
   z-index: 50px
-  margin-left: 4px;
+  margin-left: 12px;
 
 .input-icons-padding
   padding: 0px 4px
@@ -31,7 +31,7 @@
   margin-left: 10px
 
 .input-message-padding-icon
-  margin-left: 37px
+  margin-left: 47px
 
 /*
   INPUT FIELD
@@ -43,10 +43,6 @@
   z-index:0;
   background:none;
   margin-left: 5px;
-}
-
-input::placeholder {
-  font-weight: bold;
 }
 
 /*
@@ -333,4 +329,53 @@ CARD
 
 .card-header-image-padding {
   padding-right: 12px;  
+}
+
+
+/*
+INPUT RANGE
+*/
+
+.slider {
+-webkit-appearance: none;
+ outline: none;
+ height: 5px;
+-webkit-transition: .2s; /* 0.2 seconds transition on hover */
+  transition: opacity .2s;
+  border-radius: 50px;
+}
+
+.slider::-webkit-slider-thumb {
+-webkit-appearance: none;
+  width: 15px; /* Set a specific slider handle width */
+  height: 15px; /* Slider handle height */
+  cursor: pointer; /* Cursor on hover */
+  border-radius: 50%;
+  background: lightgray;
+}
+
+.slider::-moz-range-thumb {
+-webkit-appearance: none;
+  width: 15px; /* Set a specific slider handle width */
+  height: 15px; /* Slider handle height */
+  cursor: pointer; /* Cursor on hover */
+  border-radius: 50%;
+}
+
+input::-moz-focus-inner, input::-moz-focus-outer { 
+  border: none; 
+}
+
+
+/*
+BANNER
+*/
+
+.banner-container .h-icon {
+  padding: 5px;
+  margin-right: 10px;
+}
+
+.banner-container .h-btn:not(:last-child) {
+  margin-right: 10px;
 }

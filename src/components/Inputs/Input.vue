@@ -1,6 +1,8 @@
 <template lang="pug">
   h-input-container(
-    :bg-color="bgColor"
+    :inputContainerFieldBottomBorderColor="inputContainerFieldBottomBorderColor"
+    :inputContainerFieldBackgroundColor="inputContainerFieldBackgroundColor"
+    :bg-color="inputContainerBackgroundColor"
     :text-color="inputContainerTextColor"
     :label-color="inputContainerLabelColor"
     :icon-color="inputContainerIconColor"
@@ -19,9 +21,10 @@
     :inputTextCounter="inputTextCounter"
     :inputCounter="inputCounter"
     :clearable="clearable"
-    :inputType="inputType"
+    :type="type"
     :inputDropdown="inputDropdown"
     @onClearable="onClearable"
+    @onTogglePassword="togglePassword"
   )
     .column.full-width(v-on-clickaway="away")
       .col(
@@ -39,10 +42,10 @@
         )
       .col
         .row.align-items-center
-          .col-auto.text-subtitle1(v-if="prefix && prefix.length")
+          .col-auto(v-if="prefix && prefix.length")
             | {{prefix}}
           .col
-            h-input-field(
+            h-input-field.text-caption(
               :class="[inputContainerTextColor]"
               :id="inputId"
               v-model="inputDisplay"
@@ -85,8 +88,8 @@
                 h-fa-icon(:icon="option.icon")
               h-list-item-side(v-if="displayMode ==='avatar'")
                 h-avatar(:src="option.avatar")
-              h-list-item-side(v-if="displayMode ==='image'")
-                img(:src="option.img" style="width:32px; height:32px;")
+              // h-list-item-side(v-if="displayMode ==='image'")
+              //   img(:src="option.img" style="width:32px; height:32px;")
               h-list-item-content
                 h-list-item-text(:title="option.text")
 
@@ -107,12 +110,12 @@
               :key="`${dropMenuId}-${index}`"
               @click="onSelectItem(option)"
             )
-              h-list-item-side(v-if="option.icon && option.icon.length")
-                h-fa-icon(:icon="option.icon" size="32px" style="color: gray")
-              h-list-item-side(v-else-if="option.avatar && option.avatar.length > 0")
-                h-avatar(:src="option.avatar" size="32px")
-              h-list-item-side(v-else-if="option.img && option.img.length > 0")
-                img(:src="option.img" width="32px" height="32px")
+              h-list-item-side.align-items-center(v-if="option.icon && option.icon.length")
+                h-fa-icon(:icon="option.icon" size="24px" style="color: gray")
+              h-list-item-side.align-items-center(v-else-if="option.avatar && option.avatar.length > 0")
+                h-avatar(:src="option.avatar" size="24px")
+              h-list-item-side.align-items-center(v-else-if="option.img && option.img.length > 0")
+                img(:src="option.img" width="24px" height="24px")
               h-list-item-content
                 h-list-item-text(:title="option.text" :caption="option.desc")
 
@@ -145,7 +148,9 @@ export default {
       inputPlaceholder: '',
       inputLabel: '',
       focused: false,
-      inputContainerColor: '',
+      inputContainerFieldBottomBorderColor: '',
+      inputContainerFieldBackgroundColor: '',
+      inputContainerBackgroundColor: '',
       inputContainerTextColor: '',
       inputContainerLabelColor: '',
       inputContainerIconColor: '',
@@ -157,26 +162,21 @@ export default {
       right: '',
       bottom: '',
       multiselectItem: [],
-      chipsValue: [],
-      maskObj: {
-        rawValue: '',
-        maskedValue: ''
-      }
+      chipsValue: []
     }
   },
   mounted () {
     this.makeInputValue()
     this.makeInputContainerColors()
+    this.inputType = this.type
   },
   watch: {
     inputDisplay: function (value) {
-      // console.log('mudou display: ', value)
       if (!this.chips && !this.inputMask && !this.inputCurrency && !this.inputSelect && !this.inputSearch) {
         this.$emit('input', value)
       }
     },
     value: function (value) {
-      // console.log('mudou value: ', value)
       if (!this.chips && !this.inputMask && !this.inputCurrency) {
         this.inputDisplay = value
       }
@@ -209,7 +209,6 @@ export default {
       }
     },
     options: function (value) {
-      // console.log('mudou options:', JSON.stringify(value))
       this.checkViewport()
     }
   },
@@ -269,14 +268,13 @@ export default {
         } else if (Array.isArray(localInputDisplay)) {
           this.onChangeChips(localInputDisplay)
         }
-
-        // if (this.inputMask) {
-        //   this.changeModelMask()
-        // }
       }
     },
     makeInputContainerColors () {
       if (this.bgColor === 'bg-white') {
+        this.inputContainerFieldBottomBorderColor = 'border-gray500'
+        this.inputContainerFieldBackgroundColor = (!this.filled) ? 'bg-white' : 'bg-gray'
+        this.inputContainerBackgroundColor = 'bg-white'
         this.inputContainerTextColor = 'text-black'
         this.inputContainerLabelColor = 'text-black'
         this.inputContainerIconColor = 'text-gray600'
@@ -285,6 +283,9 @@ export default {
         this.inputContainerErrorTextColor = 'text-red800'
         this.inputContainerIconErrorTextColor = 'text-red600'
       } else {
+        this.inputContainerFieldBottomBorderColor = 'border-white'
+        this.inputContainerFieldBackgroundColor = this.bgColor
+        this.inputContainerBackgroundColor = this.bgColor
         this.inputContainerTextColor = 'text-white'
         this.inputContainerLabelColor = 'text-white'
         this.inputContainerIconColor = 'text-white'
@@ -300,23 +301,16 @@ export default {
         let patt = new RegExp('[()-/:._]', 'g')
         modelValue = this.inputDisplay.replace(patt, '')
       }
-      // console.log('changeModelMask modelvalue: ', modelValue)
       this.$emit('input', modelValue)
     },
     changeModelCurrencyMask () {
       let modelValue = (this.masked) ? this.inputDisplay : unformat(this.inputDisplay, this.precision)
-      // console.log('changeModelCurrencyMask modelValue:', modelValue)
       this.$emit('input', modelValue)
     },
     formatCurrency (value) {
       this.inputDisplay = format(value, this.$props)
-      // console.log('formatCurrency inputDisplay: ', this.inputDisplay)
     },
     onInput (value) {
-      // console.log('onInput value:', value)
-      // if (this.inputSearch) {
-      //   this.showdropdown = true
-      // }
       if (this.inputSelect) {
         return
       }
@@ -337,8 +331,6 @@ export default {
       }
     },
     onInputSearch: _.debounce(function (value) {
-      // console.log('value debounce input-field:', value)
-      // this.inputDisplay = value
       this.$emit('onFilter', value)
     }, 500),
     focus () {
@@ -346,28 +338,20 @@ export default {
 
       if (this.bgColor === 'bg-white') {
         this.inputContainerLabelColor = 'text-primary'
+        if (this.filled) {
+          this.inputContainerFieldBottomBorderColor = 'border-primary'
+        }
       }
-      // this.inputContainerColor = 'bg-white'
-      // this.inputContainerTextColor = 'text-primary'
     },
     checkViewport () {
       this.showdropdown = true
       this.bottom = ''
-      // console.log('this.showdropdown:', this.showdropdown)
 
       this.$nextTick(() => {
         let input = document.getElementById(this.inputId)
         let dropMenu = document.getElementById(this.dropMenuId)
-        // let container = document.getElementById(this.containerid)
         if (input && dropMenu) {
           if (viewport.elementBelowOfPage(dropMenu)) {
-            // console.log('abaixo da tela:', JSON.stringify(rectDropMenu))
-            // let rectInput = input.getClientRects()
-            // let rectDropMenu = dropMenu.getClientRects()
-            // let bottomMenu = rectDropMenu['0'].bottom
-            // let menuHeight = rectDropMenu['0'].height
-            // let inputHeight = rectInput['0'].height
-            // let result = bottomMenu + menuHeight + inputHeight
             this.bottom = '30px'
           }
         }
@@ -379,7 +363,7 @@ export default {
       this.$emit('blur')
     },
     togglePassword () {
-      // this.inputtype = (this.inputtype === 'password') ? 'text' : 'password'
+      this.inputType = (this.inputType === 'password') ? 'text' : 'password'
     },
     onKeyDown () {
       if (this.inputSearch) {
@@ -455,7 +439,6 @@ export default {
       this.$emit('input', this.chipsValue)
     },
     onDelete () {
-      // console.log('input delete model:', this.inputDisplay)
       if (this.chips) {
         if (this.inputDisplay.length === 0 && this.value && this.value.length) {
           this.closeChip(this.value.length - 1)
@@ -463,7 +446,6 @@ export default {
       }
     },
     onClearable () {
-      console.log('onClearable fired')
       this.inputDisplay = ''
     }
   }

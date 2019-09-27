@@ -32,13 +32,13 @@
     @keyup.enter="onEnter"
     @click="onClick"
   )
-  input.input-field.text-subtitle1(
+  input.input-field(
     v-else-if="!this.chips"
     :id="inputId"
     v-focus="inputFocus"
     :class="[{'text-center': textCenter, 'readonly': readonly}, filled]"
     v-model="inputDisplay"
-    :type="inputtype"
+    :type="type"
     :readonly="readonly"
     :placeholder="placeholder"
     :maxlength="maxlength"
@@ -58,7 +58,6 @@
     v-focus="inputFocus"
     :class="[{'text-center': textCenter, 'readonly': readonly}, filled]"
     v-model="inputDisplay"
-    :type="inputtype"
     :readonly="readonly"
     :placeholder="placeholder"
     :maxlength="maxlength"

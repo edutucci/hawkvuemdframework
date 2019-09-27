@@ -1,6 +1,6 @@
 <template lang="pug">
   .main-input-container(
-    :class="[bgColor, { 'h-pt-xs': !filled }]"
+    :class="[bgColor]"
   )
     .column
       .col
@@ -10,11 +10,11 @@
               .col-auto.h-ml-sm.h-mr-sm
                 h-fa-icon(:icon="leadingIcon" :text-color="iconColor")
           .col.position-relative(
-            :class="[{ 'h-mt-xs': !filled }]"
           )
             .row
               .col(
-                :class="[borderColor, \
+                :class="[inputContainerFieldBackgroundColor, \
+                  inputContainerFieldBottomBorderColor, \
                   {'border border-radius': !filled, \
                   'border-bottom border-top-radius': filled, 'border-2': filled, \
                   }]"
@@ -28,11 +28,14 @@
                     class="text-black"
                     :class="[{ }]"
                   )
-                    .text-caption.text-bold.h-pl-xs.h-pr-xs(:class="[bgColor, labelColor, { 'input-label-outlined': !filled }]")
+                    .text-caption.text-bold.h-pr-xs.h-ml-md(
+                      :class="[inputContainerFieldBackgroundColor, labelColor, \
+                       { 'input-label-outlined': !filled }]"
+                    )
                       | {{label}}
                   .col.full-height
                     .row.align-items-center.full-height
-                      .col.h-mr-sm(
+                      .col.h-mr-sm.h-ml-sm(
                         :class="{ 'h-mt-xs': !filled }"
                       )
                         slot
@@ -50,11 +53,11 @@
                               icon="fas fa-times-circle"
                               @click="onClearable"
                             )
-                          .col-auto.input-icons-padding(v-if="inputType === 'password'")
+                          .col-auto.input-icons-padding(v-if="type === 'password'")
                             h-fa-icon(
                               :text-color="iconColor"
                               icon="fas fa-eye"
-                              @click="togglePassword"
+                              @click="onTogglePassword"
                             )
                           .col-auto.input-icons-padding(v-if="trailingIcon && trailingIcon.length > 0")
                               h-fa-icon(
@@ -135,6 +138,14 @@ export default {
     iconErrorTextColor: {
       type: String,
       default: 'text-red600'
+    },
+    inputContainerFieldBackgroundColor: {
+      type: String,
+      default: 'bg-gray'
+    },
+    inputContainerFieldBottomBorderColor: {
+      type: String,
+      default: 'bg-gray'
     }
   },
   data () {
@@ -147,6 +158,9 @@ export default {
   methods: {
     onClearable () {
       this.$emit('onClearable')
+    },
+    onTogglePassword () {
+      this.$emit('onTogglePassword')
     }
   }
 }
