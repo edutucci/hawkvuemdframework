@@ -1,5 +1,5 @@
 <template lang="pug">
-  .main-input-container(
+  .main-input-container.cursor-pointer(
     :class="[bgColor]"
   )
     .column
@@ -38,7 +38,9 @@
                       .col.h-mr-sm.h-ml-sm(
                         :class="{ 'h-mt-xs': !filled }"
                       )
-                        slot
+                        .row.align-items-center
+                          .col
+                            slot
                       .col-auto
                         .row.justify-center.align-items-center.full-height
                           .col-auto.input-icons-padding(v-if="errorMessage && errorMessage.length > 0")
@@ -161,6 +163,10 @@ export default {
     },
     onTogglePassword () {
       this.$emit('onTogglePassword')
+    },
+    containerClick () {
+      console.log('container click')
+      // @click="checkViewport"
     }
   }
 }

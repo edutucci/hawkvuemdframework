@@ -2,46 +2,42 @@
   .chip-container.flex.flex-items-center(
     v-if="show"
   )
-    .chip-content(
+    .chip-content.row.align-items-center.bg-primary(
       v-if="!outlined"
-      :class="[bgcolor, {bgdefault: bgdefault, disabled: disabled}]"
+      :class="[{bgdefault: bgdefault, disabled: disabled}]"
     )
-      div.h-pl-sm.h-pr-xs(v-if="icon && icon.length > 0")
-        h-fa-icon(:icon="icon" :textcolor="chiptextcolor")
-        span.h-pl-sm(:class="[chiptextcolor]") {{text}}
-        h-fa-icon.h-pl-sm(
+      .row.align-items-center.nowrap.h-pl-sm.h-pr-xs
+        .col-auto.h-pr-xs(v-if="icon && icon.length > 0")
+          h-fa-icon(:icon="icon" :text-color="chiptextcolor")
+        .col-auto.text-caption
+          span(:class="[chiptextcolor]") {{text}}
+      .col-auto
+        h-fa-icon(
           v-if="closable"
           icon="fas fa-times-circle"
-          :textcolor="chiptextcolor"
+          :text-color="chiptextcolor"
           @click="onClose"
         )
-      div.h-pl-sm.h-pr-xs(v-else)
-        span(:class="[chiptextcolor]") {{text}}
-        h-fa-icon.h-pl-sm(
-          v-if="closable"
-          icon="fas fa-times-circle"
-          :textcolor="chiptextcolor"
-          @click="onClose"
-        )
+
     .chip-content(
       v-else
       :class="{outline: outlined, disabled: disabled}"
     )
-      div.h-pl-xs.h-pr-xs(v-if="icon && icon.length > 0")
-        h-fa-icon(:icon="icon" :textcolor="chiptextcolor")
+      .row.nowrap.h-pl-xs.h-pr-xs(v-if="icon && icon.length > 0")
+        h-fa-icon(:icon="icon" :text-color="chiptextcolor")
         span.h-pl-sm(:class="[chiptextcolor]") {{text}}
         h-fa-icon.h-pl-sm(
           v-if="closable"
           icon="fas fa-times-circle"
-          :textcolor="chiptextcolor"
+          :text-color="chiptextcolor"
           @click="onClose"
         )
-      div.h-pl-sm.h-pr-sm(v-else)
+      .row.nowrap.h-pl-sm.h-pr-sm(v-else)
         span(:class="[chiptextcolor]") {{text}}
         h-fa-icon.h-pl-sm(
           v-if="closable"
           icon="fas fa-times-circle"
-          :textcolor="chiptextcolor"
+          :text-color="chiptextcolor"
           @click="onClose"
         )
 
@@ -91,16 +87,16 @@ export default {
     return {
       show: true,
       bgdefault: false,
-      chiptextcolor: this.textcolor
+      chiptextcolor: this.textColor
     }
   },
   mounted () {
-    this.chiptextcolor = this.textcolor
+    this.chiptextcolor = this.textColor
     if (!this.outlined) {
       if (this.disabled) {
         this.chiptextcolor = 'text-gray'
       }
-      if (this.bgcolor === 'bg-white' || this.disabled) {
+      if (this.bgColor === 'bg-white' || this.disabled) {
         this.bgdefault = true
       }
     } else {

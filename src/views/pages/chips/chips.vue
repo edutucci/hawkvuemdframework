@@ -4,9 +4,9 @@
 
     <comp-code class="h-mt-lg" title="Styles" :code="chip">
       <h-chips text="disabled" icon="fas fa-camera-retro" closable disabled hide-on-close></h-chips>
-      <h-chips text="Eduardo" bgcolor="bg-secondary" closable hide-on-close></h-chips>
-      <h-chips text="Jhon" closable hide-on-close icon="fas fa-camera-retro" bgcolor="bg-primary" textcolor="text-white"></h-chips>
-      <h-chips text="Jhon" closable hide-on-close avatar="http://autokadabra.ru/system/uploads/users/18/18340/small.png?1318432918" bgcolor="bg-primary" textcolor="text-white"></h-chips>
+      <h-chips text="Eduardo" bg-color="bg-secondary" closable hide-on-close></h-chips>
+      <h-chips text="Jhon" closable hide-on-close icon="fas fa-camera-retro" bg-color="bg-primary" text-color="text-white"></h-chips>
+      <h-chips text="Jhon" closable hide-on-close avatar="http://autokadabra.ru/system/uploads/users/18/18340/small.png?1318432918" bg-color="bg-primary" text-color="text-white"></h-chips>
 
       <h-chips text="outlined disabled" icon="fas fa-camera-retro" closable disabled hide-on-close outlined></h-chips>
       <h-chips text="outlined disabled" closable disabled hide-on-close outlined></h-chips>

@@ -26,7 +26,8 @@
     @onClearable="onClearable"
     @onTogglePassword="togglePassword"
   )
-    .column.full-width(v-on-clickaway="away")
+    .column.full-width(v-on-clickaway="away"
+    )
       .col(
         v-if="this.chips"
         @click="focus"
@@ -36,15 +37,35 @@
           :key="index"
           :text="chip"
           text-color="text-white"
-          bgcolor="bg-primary"
+          bg-color="bg-gray"
           closable
           @onClose="closeChip(index)"
         )
-      .col
+      .col(
+        v-else-if="selectChips && multiSelect"
+      )
+        .row.wrap
+          .col-auto(
+            v-for="(chip, index) in selectChipsValue"
+            :key="index"
+          )
+            h-chips.h-pa-xs(
+              :text="chip.text"
+              text-color="text-white"
+              bg-color="bg-gray500"
+              closable
+            )
+          .col(
+            @click="checkViewport"
+          )
+            input.full-width.no-border.cursor-pointer(type="text"  @click="checkViewport" readonly)
+      .col(
+        v-if="!selectChips"
+      )
         .row.align-items-center
           .col-auto(v-if="prefix && prefix.length")
             | {{prefix}}
-          .col
+          .col()
             h-input-field.text-caption(
               :class="[inputContainerTextColor]"
               :id="inputId"
@@ -73,51 +94,51 @@
           .col-auto.text-body2(v-if="suffix && suffix.length")
             | {{suffix}}
 
-        .bg-white.dropdown-content.scroll-y-only.shadow.border-radius(
-          :style="{right: right, bottom: bottom}"
-          v-if="showdropdown"
-          :id="dropMenuId"
-        )
-          h-list(v-if="inputSelect")
-            h-list-item(
-              v-for="(option, index) in options"
-              :key="`${dropMenuId}-${index}`"
-              @click="onSelectItem(option)"
-            )
-              h-list-item-side(v-if="displayMode ==='icon'")
-                h-fa-icon(:icon="option.icon")
-              h-list-item-side(v-if="displayMode ==='avatar'")
-                h-avatar(:src="option.avatar")
-              // h-list-item-side(v-if="displayMode ==='image'")
-              //   img(:src="option.img" style="width:32px; height:32px;")
-              h-list-item-content
-                h-list-item-text(:title="option.text")
+      .bg-white.dropdown-content.scroll-y-only.shadow.border-radius(
+        :style="{right: right, bottom: bottom}"
+        v-if="showdropdown"
+        :id="dropMenuId"
+      )
+        h-list(v-if="inputSelect")
+          h-list-item(
+            v-for="(option, index) in options"
+            :key="`${dropMenuId}-${index}`"
+            @click="onSelectItem(option)"
+          )
+            h-list-item-side(v-if="displayMode ==='icon'")
+              h-fa-icon(:icon="option.icon")
+            h-list-item-side(v-if="displayMode ==='avatar'")
+              h-avatar(:src="option.avatar")
+            // h-list-item-side(v-if="displayMode ==='image'")
+            //   img(:src="option.img" style="width:32px; height:32px;")
+            h-list-item-content
+              h-list-item-text(:title="option.text")
 
-          h-list(v-else-if="multiSelect")
-            h-list-item(
-              v-show="multiSelect"
-              v-for="(option, index) in options"
-              :key="`${dropMenuId}-${index}`"
-              @click="onSelectItem(option)"
-            )
-              h-list-item-side
-                h-checkbox(v-model="multiselectItem" :text="option.text" :value="option.value" @change="onSelectItem")
+        h-list(v-else-if="multiSelect")
+          h-list-item(
+            v-show="multiSelect"
+            v-for="(option, index) in options"
+            :key="`${dropMenuId}-${index}`"
+            @click="onSelectItem(option)"
+          )
+            h-list-item-side
+              h-checkbox(v-model="multiselectItem" :text="option.text" :value="option.value" @change="onSelectItem")
 
-          h-list(v-else-if="inputSearch")
-            h-list-item(
-              v-show="inputSearch"
-              v-for="(option, index) in options"
-              :key="`${dropMenuId}-${index}`"
-              @click="onSelectItem(option)"
-            )
-              h-list-item-side.align-items-center(v-if="option.icon && option.icon.length")
-                h-fa-icon(:icon="option.icon" size="24px" style="color: gray")
-              h-list-item-side.align-items-center(v-else-if="option.avatar && option.avatar.length > 0")
-                h-avatar(:src="option.avatar" size="24px")
-              h-list-item-side.align-items-center(v-else-if="option.img && option.img.length > 0")
-                img(:src="option.img" width="24px" height="24px")
-              h-list-item-content
-                h-list-item-text(:title="option.text" :caption="option.desc")
+        h-list(v-else-if="inputSearch")
+          h-list-item(
+            v-show="inputSearch"
+            v-for="(option, index) in options"
+            :key="`${dropMenuId}-${index}`"
+            @click="onSelectItem(option)"
+          )
+            h-list-item-side.align-items-center(v-if="option.icon && option.icon.length")
+              h-fa-icon(:icon="option.icon" size="24px" style="color: gray")
+            h-list-item-side.align-items-center(v-else-if="option.avatar && option.avatar.length > 0")
+              h-avatar(:src="option.avatar" size="24px")
+            h-list-item-side.align-items-center(v-else-if="option.img && option.img.length > 0")
+              img(:src="option.img" width="24px" height="24px")
+            h-list-item-content
+              h-list-item-text(:title="option.text" :caption="option.desc")
 
 </template>
 
@@ -162,7 +183,8 @@ export default {
       right: '',
       bottom: '',
       multiselectItem: [],
-      chipsValue: []
+      chipsValue: [],
+      selectChipsValue: []
     }
   },
   mounted () {
@@ -172,6 +194,7 @@ export default {
   },
   watch: {
     inputDisplay: function (value) {
+      console.log('mudou value:', value)
       if (!this.chips && !this.inputMask && !this.inputCurrency && !this.inputSelect && !this.inputSearch) {
         this.$emit('input', value)
       }
@@ -261,6 +284,10 @@ export default {
               let index = this.options.findIndex(opt => opt.value === item)
               if (index !== -1) {
                 multiselectItem.push(this.options[index].value)
+                this.selectChipsValue.push({
+                  text: this.options[index].text,
+                  value: this.options[index].value
+                })
               }
             })
           }
@@ -352,7 +379,7 @@ export default {
         let dropMenu = document.getElementById(this.dropMenuId)
         if (input && dropMenu) {
           if (viewport.elementBelowOfPage(dropMenu)) {
-            this.bottom = '30px'
+            this.bottom = '0px'
           }
         }
       })
@@ -413,10 +440,15 @@ export default {
         this.away()
       } else {
         let multivalue = []
+        this.selectChipsValue = []
         this.multiselectItem.forEach(item => {
           let idx = this.options.findIndex(opt => opt.value === item)
           if (idx !== -1) {
             multivalue.push(this.options[idx].value)
+            this.selectChipsValue.push({
+              text: this.options[idx].text,
+              value: this.options[idx].value
+            })
           }
         })
         this.inputDisplay = multivalue

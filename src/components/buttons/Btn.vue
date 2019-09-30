@@ -167,13 +167,13 @@ export default {
     },
     outlined: function (value) {
       this.compBgColorHover = ''
-      console.log('outlined mudou:', value)
+      // console.log('outlined mudou:', value)
       this.onBackgroundHover()
       this.changeBorderColor()
       this.changeComponentBackground()
     },
     bgColor: function (value) {
-      console.log('this.bgColor changed', this.bgColor)
+      // console.log('this.bgColor changed', this.bgColor)
       this.compBgColorHover = ''
       this.onBackgroundHover()
       this.changeComponentBackground()

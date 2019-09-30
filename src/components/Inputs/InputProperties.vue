@@ -95,6 +95,10 @@ export default {
       type: String,
       default: ''
     },
+    selectChips: {
+      type: Boolean,
+      default: false
+    },
     inputSearch: {
       type: Boolean,
       default: false

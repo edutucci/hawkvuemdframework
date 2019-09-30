@@ -48,6 +48,21 @@
       </div>
     </comp-code>
 
+    <comp-code class="h-mt-lg" title="Multi Select Chips" :code="selectMulti" :script="selectMultiScript"
+      javascript
+    >
+      <div class="col-6">
+        <h-input dense multi-select select-chips :options="options" input-icon="fas fa-angle-down"
+        v-model="multiselect"
+        @changeMultiselect="changeMultiselect"
+        label="select chips"
+        />
+      </div>
+      <div>
+        multiselect: {{ multiselect }}
+      </div>
+    </comp-code>
+
     <h2 class="text-primary"> Vue Properties</h2>
     <hr>
 
@@ -57,14 +72,10 @@
         <div>options</div>
         <div>displayMode</div>
         <div>multiselect</div>
-        <div>placeholder</div>
-        <div>dtu</div>
       </div>
       <div class="h-pl-md">
         <h3>Type</h3>
         <div>Array</div>
-        <div>String</div>
-        <div>Boolean</div>
         <div>String</div>
         <div>Boolean</div>
       </div>
@@ -73,8 +84,6 @@
         <div>Array with data for the dropdown menu</div>
         <div>icon or avatar. One of the options will be appear before the menu item</div>
         <div>Multiselect mode is enabled</div>
-        <div>Placeholder for the input</div>
-        <div>Shows the dropdown menu from bottom to top</div>
       </div>
     </div>
 
