@@ -8,11 +8,10 @@ Project created with vue-cli 3
 
 Free CSS Library for vuejs 2.x with lightweight components.
 
-## Current Version 1.0.11
-
 # Site and Documentation
 <a href="https://edutucci.github.io/hawkframework/" target="_blank"> Hawk Framework </a>
 
+<!---
 ## Installation
 ``` bash 
 yarn add hawkframework
@@ -21,12 +20,16 @@ or
 ``` bash 
 npm install hawkframework
 ```
+-->
 
+<!---
 ## Clone the project
 Download the project using the git command using the terminal and install all dependences
 ``` bash 
 git clone https://github.com/edutucci/hawkframework.git
 ```
+-->
+
 ## Note
 When the project is modified it's will be automatically recompiled. Just press <strong>F5</strong> to refresh the page.
 

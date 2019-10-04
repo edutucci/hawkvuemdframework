@@ -1,15 +1,15 @@
-// import SnackBar from '../../plugins'
+import SnackBar from '../../plugins'
 
-// function showSnack () {
-//   SnackBar.create({
-//     message: 'Download Completed',
-//     textcolor: 'text-white',
-//     bgcolor: 'bg-positive'
-//   })
-// }
+function showSnack () {
+  SnackBar.create({
+    message: 'Download Completed',
+    textcolor: 'text-white',
+    bgcolor: 'bg-positive'
+  })
+}
 
-// let teste = {
-//   showSnack: showSnack
-// }
+let teste = {
+  showSnack: showSnack
+}
 
-// export default teste
+export default teste

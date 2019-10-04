@@ -51,9 +51,11 @@
 </template>
 
 <script>
+import HDate from './HDate'
 import moment from 'moment'
 
 export default {
+  extends: HDate,
   props: {
     date: {
       type: Date,
