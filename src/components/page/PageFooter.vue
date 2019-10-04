@@ -1,5 +1,5 @@
 <template>
-  <footer :class="{'bottom-left-fixed': fixed, 'full-width': fixed, 'z-footer-index': fixed}">
+  <footer class="bottom-left-fixed" style="right:0px; z-index: 1000;">
     <slot></slot>
   </footer>
 </template>
@@ -21,9 +21,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-.z-footer-index {
-  z-index: 1500;
-}
-</style>

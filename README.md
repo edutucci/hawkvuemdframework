@@ -3,10 +3,12 @@
     <img width="100" height="100" src="https://github.com/edutucci/hawkframework/blob/master/public/img/hawk.png"/>
 </p>
 
-# Hawk Framework 1.0.11
-Project created with vue-cli 3(vue-router, eslint standard)
+# Hawk Framework 1.0.12 (Development)
+Project created with vue-cli 3
 
 Free CSS Library for vuejs 2.x with lightweight components.
+
+## Current Version 1.0.11
 
 # Site and Documentation
 <a href="https://edutucci.github.io/hawkframework/" target="_blank"> Hawk Framework </a>

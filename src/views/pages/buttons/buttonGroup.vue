@@ -1,0 +1,294 @@
+<template>
+  <h-page-content padding>
+    <div class="text-h4">Buttons  Group</div>
+
+    <comp-code class="h-mt-lg" title="Types" :code="ex1"
+      :script="ex1Script" javascript
+    >
+      <div>
+        <h-btn-group contained>
+          <h-btn bg-color="bg-primary" text-color="text-white" left-icon="fas fa-bold" text="Bold"/>
+          <h-btn bg-color="bg-positive" text-color="text-white" right-icon="fas fa-italic" text="Italic"/>
+          <h-btn bg-color="bg-negative" text-color="text-white"  left-icon="fas fa-underline" text="Underline"/>
+        </h-btn-group>
+      </div>
+
+      <div class="h-mt-md">
+        <h-btn-group bg-color="bg-gray">
+          <h-btn text-button left-icon="fas fa-bold"/>
+          <h-btn text-button left-icon="fas fa-italic"/>
+          <h-btn text-button left-icon="fas fa-underline"/>
+          <h-btn dropdown
+            text="Align"
+            bg-color="bg-transparent"
+            v-model="btnAlign1"
+            @click="btnAlign1 = true"
+          >
+            <div class="row">
+             <h-btn text-button left-icon="fas fa-align-left"/>
+             <h-btn text-button left-icon="fas fa-align-center" class="h-ml-xs"/>
+             <h-btn text-button left-icon="fas fa-align-right" class="h-ml-xs"/>
+             <h-btn text-button left-icon="fas fa-align-justify" class="h-ml-xs"/>
+            </div>
+          </h-btn>
+        </h-btn-group>
+
+        <h-btn-group rounded class="h-ml-sm" bg-color="bg-gray">
+          <h-btn text-button left-icon="fas fa-bold"/>
+          <h-btn text-button left-icon="fas fa-italic"/>
+          <h-btn text-button left-icon="fas fa-underline"/>
+          <h-btn dropdown
+            text="Align"
+            bg-color="bg-transparent"
+            v-model="btnAlign2"
+            @click="btnAlign2 = true"
+          >
+            <div class="row">
+             <h-btn text-button left-icon="fas fa-align-left"/>
+             <h-btn text-button left-icon="fas fa-align-center" class="h-ml-xs"/>
+             <h-btn text-button left-icon="fas fa-align-right" class="h-ml-xs"/>
+             <h-btn text-button left-icon="fas fa-align-justify" class="h-ml-xs"/>
+            </div>
+          </h-btn>
+        </h-btn-group>
+      </div>
+
+      <div class="h-mt-md">
+        <h-btn-group outlined bg-color="bg-primary">
+          <h-btn text-button left-icon="fas fa-bold"/>
+          <h-btn text-button left-icon="fas fa-italic"/>
+          <h-btn text-button left-icon="fas fa-underline"/>
+          <h-btn dropdown
+           text-button
+           text="Align"
+           v-model="btnAlign3"
+           @click="btnAlign3 = true"
+          >
+            <div class="row">
+             <h-btn text-button left-icon="fas fa-align-left"/>
+             <h-btn text-button left-icon="fas fa-align-center" class="h-ml-xs"/>
+             <h-btn text-button left-icon="fas fa-align-right" class="h-ml-xs"/>
+             <h-btn text-button left-icon="fas fa-align-justify" class="h-ml-xs"/>
+            </div>
+          </h-btn>
+        </h-btn-group>
+
+        <h-btn-group outlined rounded class="h-ml-sm" bg-color="bg-primary">
+          <h-btn text-button left-icon="fas fa-bold"/>
+          <h-btn text-button left-icon="fas fa-italic"/>
+          <h-btn text-button left-icon="fas fa-underline"/>
+          <h-btn dropdown
+           text-button
+           text="Align"
+           v-model="btnAlign4"
+           @click="btnAlign4 = true"
+          >
+            <div class="row">
+             <h-btn text-button left-icon="fas fa-align-left"/>
+             <h-btn text-button left-icon="fas fa-align-center" class="h-ml-xs"/>
+             <h-btn text-button left-icon="fas fa-align-right" class="h-ml-xs"/>
+             <h-btn text-button left-icon="fas fa-align-justify" class="h-ml-xs"/>
+            </div>
+          </h-btn>
+        </h-btn-group>
+      </div>
+    </comp-code>
+
+    <h2 class="text-primary">Button Group</h2>
+    <h2 class="text-primary">Vue Properties</h2>
+    <hr>
+
+    <div class="flex">
+      <div>
+        <h3>Name</h3>
+        <div>contained</div>
+        <div>outlined</div>
+      </div>
+      <div class="h-pl-md">
+        <h3>Type</h3>
+        <div>Boolean</div>
+        <div>Boolean</div>
+      </div>
+      <div class="h-pl-md">
+        <h3 >Description</h3>
+        <div>Sets to buttongroup to contained mode</div>
+        <div>Sets to buttongroup to outlined mode</div>
+      </div>
+    </div>
+
+    <h2 class="text-primary">Button Group Item</h2>
+    <h2 class="text-primary">Vue Properties</h2>
+    <hr>
+
+    <div class="flex">
+      <div>
+        <h3>Name</h3>
+        <div>name</div>
+        <div>bg-color</div>
+        <div>text-color</div>
+        <div>text</div>
+        <div>left-icon</div>
+        <div>right-icon</div>
+        <div>disabled</div>
+        <div>transparent</div>
+      </div>
+      <div class="h-pl-md">
+        <h3>Type</h3>
+        <div>String</div>
+        <div>String</div>
+        <div>String</div>
+        <div>String</div>
+        <div>String</div>
+        <div>String</div>
+        <div>Boolean</div>
+        <div>Boolean</div>
+      </div>
+      <div class="h-pl-md">
+        <h3 >Description</h3>
+        <div>Sets the name for the current button and used to set current button</div>
+        <div>Background color of the button</div>
+        <div>Text color of the button</div>
+        <div>Text of the button</div>
+        <div>Sets the icon to left of the button</div>
+        <div>Sets the icon to right of the button</div>
+        <div>Button is disabled</div>
+        <div>Useful for toolbar icons. Removes background and shadow</div>
+      </div>
+    </div>
+
+    <h2 class="text-primary"> Vue Events</h2>
+    <hr>
+
+    <div class="flex">
+      <div>
+        <h3>Name</h3>
+        <div>@click</div>
+      </div>
+      <div class="h-pl-md">
+        <h3>Description</h3>
+        <div>Triggered on button click</div>
+      </div>
+    </div>
+
+  </h-page-content>
+</template>
+
+<script>
+
+import mxButtonGroup from './mxButtonGroup'
+
+export default {
+  mixins: [mxButtonGroup],
+  components: {
+  },
+  data () {
+    return {
+      btnAlign1: false,
+      btnAlign2: false,
+      btnAlign3: false,
+      btnAlign4: false,
+      ex1: `
+<div>
+  <h-btn-group contained>
+    <h-btn bg-color="bg-primary" text-color="text-white" left-icon="fas fa-bold" text="Bold"/>
+    <h-btn bg-color="bg-positive" text-color="text-white" right-icon="fas fa-italic" text="Italic"/>
+    <h-btn bg-color="bg-negative" text-color="text-white"  left-icon="fas fa-underline" text="Underline"/>
+  </h-btn-group>
+</div>
+
+<div class="h-mt-md">
+  <h-btn-group bg-color="bg-gray">
+    <h-btn text-button left-icon="fas fa-bold"/>
+    <h-btn text-button left-icon="fas fa-italic"/>
+    <h-btn text-button left-icon="fas fa-underline"/>
+    <h-btn dropdown
+      text="Align"
+      bg-color="bg-transparent"
+      v-model="btnAlign1"
+      @click="btnAlign1 = true"
+    >
+      <div class="row">
+        <h-btn text-button left-icon="fas fa-align-left"/>
+        <h-btn text-button left-icon="fas fa-align-center" class="h-ml-xs"/>
+        <h-btn text-button left-icon="fas fa-align-right" class="h-ml-xs"/>
+        <h-btn text-button left-icon="fas fa-align-justify" class="h-ml-xs"/>
+      </div>
+    </h-btn>
+  </h-btn-group>
+
+  <h-btn-group rounded class="h-ml-sm" bg-color="bg-gray">
+    <h-btn text-button left-icon="fas fa-bold"/>
+    <h-btn text-button left-icon="fas fa-italic"/>
+    <h-btn text-button left-icon="fas fa-underline"/>
+    <h-btn dropdown
+      text="Align"
+      bg-color="bg-transparent"
+      v-model="btnAlign2"
+      @click="btnAlign2 = true"
+    >
+      <div class="row">
+        <h-btn text-button left-icon="fas fa-align-left"/>
+        <h-btn text-button left-icon="fas fa-align-center" class="h-ml-xs"/>
+        <h-btn text-button left-icon="fas fa-align-right" class="h-ml-xs"/>
+        <h-btn text-button left-icon="fas fa-align-justify" class="h-ml-xs"/>
+      </div>
+    </h-btn>
+  </h-btn-group>
+</div>
+
+<div class="h-mt-md">
+  <h-btn-group outlined bg-color="bg-primary">
+    <h-btn text-button left-icon="fas fa-bold"/>
+    <h-btn text-button left-icon="fas fa-italic"/>
+    <h-btn text-button left-icon="fas fa-underline"/>
+    <h-btn dropdown
+      text-button
+      text="Align"
+      v-model="btnAlign3"
+      @click="btnAlign3 = true"
+    >
+      <div class="row">
+        <h-btn text-button left-icon="fas fa-align-left"/>
+        <h-btn text-button left-icon="fas fa-align-center" class="h-ml-xs"/>
+        <h-btn text-button left-icon="fas fa-align-right" class="h-ml-xs"/>
+        <h-btn text-button left-icon="fas fa-align-justify" class="h-ml-xs"/>
+      </div>
+    </h-btn>
+  </h-btn-group>
+
+  <h-btn-group outlined rounded class="h-ml-sm" bg-color="bg-primary">
+    <h-btn text-button left-icon="fas fa-bold"/>
+    <h-btn text-button left-icon="fas fa-italic"/>
+    <h-btn text-button left-icon="fas fa-underline"/>
+    <h-btn dropdown
+      text-button
+      text="Align"
+      v-model="btnAlign4"
+      @click="btnAlign4 = true"
+    >
+      <div class="row">
+        <h-btn text-button left-icon="fas fa-align-left"/>
+        <h-btn text-button left-icon="fas fa-align-center" class="h-ml-xs"/>
+        <h-btn text-button left-icon="fas fa-align-right" class="h-ml-xs"/>
+        <h-btn text-button left-icon="fas fa-align-justify" class="h-ml-xs"/>
+      </div>
+    </h-btn>
+  </h-btn-group>
+</div>
+`,
+      ex1Script: `
+export default {
+  data () {
+    return {
+      btnAlign1: false,
+      btnAlign2: false,
+      btnAlign3: false,
+      btnAlign4: false
+    }
+  }
+}
+`
+    }
+  }
+}
+</script>

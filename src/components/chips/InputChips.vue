@@ -12,16 +12,16 @@
         :class="{primary: primary, nofocus: nofocus}"
       )
         .static-label(
-          v-if="showStaticLabel"
+          v-if="(staticLabel && staticLabel.length) || (floatLabel && floatLabel.length)"
           :class="{primary: primary, nofocus: nofocus}"
           :style="[staticLabelStyle]"
           style="height: 15px;"
         )
-          div.h-pl-sm(v-if="staticLabel")
+          div.h-pl-sm(v-if="staticLabel && staticLabel.length")
             | {{staticLabel}}
-        .flex.flex-wrap
-          div.h-pb-xs
-            h-chips.h-mr-xs(
+        .flex.flex-wrap.flex-items-center
+          div
+            h-chips.h-ma-xs(
               v-for="(chip, index) in value"
               :key="index"
               :text="chip"
@@ -47,13 +47,6 @@
                   @keyup.delete="onDelete"
                   @click="onClick"
                 )
-                label(
-                  v-if="floatLabel"
-                  class="control-label"
-                  :class="{primary: primary, nofocus: nofocus}"
-                  :style="[floatLabelStyle]"
-                )
-                  | {{floatLabel}}
               div.h-pl-sm
                 h-fa-icon(
                   v-if="cleartext"
@@ -91,9 +84,6 @@ export default {
       type: Array,
       default: () => ([])
     },
-    floatLabel: {
-      type: String
-    },
     staticLabel: {
       type: String
     },
@@ -102,14 +92,6 @@ export default {
     },
     helperText: {
       type: String
-    },
-    // textCounter: {
-    //   type: Number,
-    //   default: 0
-    // },
-    showStaticLabel: {
-      type: Boolean,
-      default: true
     },
     leftIcon: {
       type: String,
@@ -141,13 +123,6 @@ export default {
       txtValue: '',
       staticLabelStyle: {
         fontSize: '12px'
-      },
-      floatLabelStyle: {
-        position: 'absolute',
-        top: '2px',
-        left: '9px',
-        fontSize: '12px',
-        zIndex: '-1'
       }
     }
   },
@@ -158,15 +133,15 @@ export default {
   watch: {
     value: function (value) {
       this.chipsValue = _.clone(this.value)
-      this.changeFloatLabelStyle()
+      // this.changeFloatLabelStyle()
     },
     floatLabel: function (value) {
       this.chipsValue = _.clone(this.value)
-      this.changeFloatLabelStyle()
+      // this.changeFloatLabelStyle()
     },
     placeholder: function (value) {
       this.chipsValue = _.clone(this.value)
-      this.changeFloatLabelStyle()
+      // this.changeFloatLabelStyle()
     }
   },
   computed: {
@@ -178,9 +153,6 @@ export default {
   methods: {
     onInputFocus () {
       this.focused = true
-      this.floatLabelStyle.top = '2px'
-      this.floatLabelStyle.left = '9px'
-      this.floatLabelStyle.fontSize = '12px'
 
       this.primary = true
       this.nofocus = false
@@ -192,18 +164,6 @@ export default {
       this.primary = false
       this.nofocus = true
       this.txtValue = ''
-      this.changeFloatLabelStyle()
-    },
-    changeFloatLabelStyle () {
-      if (this.floatLabel && (!this.chipsValue || this.chipsValue.length > 0 || this.placeholder)) {
-        this.floatLabelStyle.top = '2px'
-        this.floatLabelStyle.left = '9px'
-        this.floatLabelStyle.fontSize = '12px'
-      } else {
-        this.floatLabelStyle.top = '20px'
-        this.floatLabelStyle.left = '9px'
-        this.floatLabelStyle.fontSize = '16px'
-      }
     },
     onChange (value) {
       let arrValue = []
@@ -259,13 +219,12 @@ export default {
 <style scoped>
 .textfield-container {
   position:relative;
-  padding: 8px;
+  /* padding-top: 2px;
+  padding-bottom: 2px; */
 }
 
 .input-container {
   position:relative;
-  padding-top: 2px;
-  padding-bottom:2px;
 }
 
 .input-container.outline {
@@ -282,12 +241,10 @@ export default {
   border-style:none;
   outline: none;
   z-index:0;
-  padding-top: 2px;
-  background:none;
 }
 
-.h-icon {
+/* .h-icon {
   padding: 8px;
-}
+} */
 
 </style>

@@ -1,6 +1,9 @@
 <template lang="pug">
-  .counter(
-    :class="[bgcolor, textcolor]"
+  //- .counter(
+  //-   :class="[bgcolor, textcolor]"
+  //- )
+  .top-right-absolute.counter(
+    :class="[bgColor, textColor]"
   )
     slot
 </template>
@@ -17,12 +20,10 @@ export default {
 
 <style scoped>
 .counter {
-  display: inline-block;
-  position: absolute;
-  top: 0px;
   font-size: 10px;
   border-radius: 50%;
-  padding: 3px;
+  padding: 4px;
   z-index:8;
 }
+
 </style>

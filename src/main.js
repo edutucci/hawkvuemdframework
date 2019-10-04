@@ -4,10 +4,20 @@ import router from './router'
 import store from './store'
 import './registerServiceWorker'
 import './theme/index.styl'
+import './theme/app.styl'
 import './index.js'
-import VueHighlightJS from 'vue-highlightjs'
 
-Vue.use(VueHighlightJS)
+// Vue Prism.js
+import Prism from 'vue-prismjs'
+import './css/prism/prism.css'
+
+// v-mask
+import { VueMaskDirective } from 'v-mask'
+
+Vue.component('Prism', Prism)
+
+Vue.directive('mask', VueMaskDirective)
+
 Vue.config.productionTip = false
 
 new Vue({

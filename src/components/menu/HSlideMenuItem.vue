@@ -35,12 +35,12 @@ export default {
   },
   watch: {
     text: function (valueNew, valueOld) {
-      console.log('valueNew: ' + valueNew)
-      console.log('valueOld: ' + valueOld)
+      // console.log('valueNew: ' + valueNew)
+      // console.log('valueOld: ' + valueOld)
       this.$parent.updateSlideMenuItem(valueNew, valueOld, this.newWindow)
     },
     newWindow: function (valueNew) {
-      console.log('newWindow valueNew: ' + valueNew)
+      // console.log('newWindow valueNew: ' + valueNew)
       this.$parent.updateSlideMenuItem(this.text, this.text, this.newWindow)
     }
   },

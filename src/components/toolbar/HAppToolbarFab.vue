@@ -18,6 +18,9 @@ export default {
 .tbfab > .btnfab {
   position: absolute;
   z-index: 3;
-  top: -50px;
+  top: -0px;
+  transform: translate(0px, -42px);
+  -ms-transform: translate(0px, -42px); /* IE 9 */
+  -webkit-transform: translate(0px, -42px); /* Safari 3-8 */
 }
 </style>

@@ -1,10 +1,13 @@
 <template lang="pug">
-  i.faicon(
-    :class="[icon, textcolor, {'fa-pulse': pulse, 'fa-spin': spin}]"
-    style="cursor:pointer;"
-    :style="styleObject"
-    @click="onClick"
-  )
+  div(style="position:relative; display: inline-block;")
+    i(
+      class="h-icon"
+      :class="[icon, textColor, {'fa-pulse': pulse, 'fa-spin': spin}]"
+      :style="styleObject"
+      @click="onClick"
+    )
+    slot
+
  </template>
 
 <script>
@@ -13,13 +16,14 @@ import componentBase from '../componentBase.vue'
 
 export default {
   extends: componentBase,
+  name: 'HFaIcon',
   props: {
     icon: {
       type: String
     },
     size: {
       type: String,
-      default: '20px'
+      default: '16px'
     },
     pulse: {
       type: Boolean,
@@ -32,7 +36,6 @@ export default {
   },
   watch: {
     size: function (value) {
-      console.log('value: ' + value)
       this.styleObject.fontSize = value
     }
   },
@@ -57,7 +60,7 @@ export default {
 </script>
 
 <style>
-.faicon {
+/* .faicon {
   position: relative;
-}
+} */
 </style>

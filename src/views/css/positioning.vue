@@ -1,98 +1,98 @@
-<template lang="pug">
-  div
-    h1 Positioning
+<template>
+  <h-page-content padding>
 
-    h2 This css helps you with positioning method used for an element
+    <div class="text-h4">Positioning</div>
 
-    h1 Positions
-    .flex.boxshadow
-      .flex.flex-column.h-pr-md
-        div
-          strong  Class
-        div
-          strong  position-static
-        div
-          strong  position-relative
-        div
-          strong  position-fixed
-        div
-          strong  position-absolute
-      .flex.flex-column
-        div
-          strong  Description
-        div
-          strong  position static
-        div
-          strong  position relative
-        div
-          strong  position fixed
-        div
-          strong  position absolute
+    <div class="text-h4 h-mt-md">Positions</div>
 
-    h1 Top Positions
-    .flex.boxshadow
-      .flex.flex-column.h-pr-md
-        div
-          strong  Class
-        div
-          strong  top-left
-        div
-          strong  top-left-absolute
-        div
-          strong  top-left-fixed
-        div
-          strong  top-right
-        div
-          strong  top-right-absolute
-        div
-          strong  top-right-fixed
-      .flex.flex-column
-        div
-          strong  Description
-        div
-          strong  top left
-        div
-          strong  top left absolute
-        div
-          strong  top left fixed
-        div
-          strong  top-right
-        div
-          strong  top-right absolute
-        div
-          strong  top-right fixed
+    <html-table borders>
+      <tr class="text-left">
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+      <tr>
+        <td>position-relative</td>
+        <td>position relative</td>
+      </tr>
+      <tr>
+        <td>position-static</td>
+        <td>position static</td>
+      </tr>
+      <tr>
+        <td>position-absolute</td>
+        <td>position absolute</td>
+      </tr>
+      <tr>
+        <td>position-fixed</td>
+        <td>position fixed</td>
+      </tr>
+    </html-table>
 
-    h1 Bottom Positions
-    .flex.boxshadow
-      .flex.flex-column.h-pr-md
-        div
-          strong  Class
-        div
-          strong  bottom-left
-        div
-          strong  bottom-left-absolute
-        div
-          strong  bottom-left-fixed
-        div
-          strong  bottom-right
-        div
-          strong  bottom-right-absolute
-        div
-          strong  bottom-right-fixed
-      .flex.flex-column
-        div
-          strong  Description
-        div
-          strong  bottom left
-        div
-          strong  bottom left absolute
-        div
-          strong  bottom left fixed
-        div
-          strong  bottom-right
-        div
-          strong  bottom-right absolute
-        div
-          strong  bottom-right fixed
+    <div class="text-h4 h-mt-md">Top Positions</div>
 
+    <html-table borders>
+      <tr class="text-left">
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+      <tr>
+        <td>top-left</td>
+        <td>top left</td>
+      </tr>
+      <tr>
+        <td>top-left-absolute</td>
+        <td>top left absolute</td>
+      </tr>
+      <tr>
+        <td>top-left-fixed</td>
+        <td>top left fixed</td>
+      </tr>
+      <tr>
+        <td>top-right</td>
+        <td>top-right</td>
+      </tr>
+      <tr>
+        <td>top-right-absolute</td>
+        <td>top-right absolute</td>
+      </tr>
+      <tr>
+        <td>top-right-fixed</td>
+        <td>top-right fixed</td>
+      </tr>
+    </html-table>
+
+    <div class="text-h4 h-mt-md">Bottom Positions</div>
+
+    <html-table borders>
+      <tr class="text-left">
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+      <tr>
+        <td>bottom-left</td>
+        <td>bottom left</td>
+      </tr>
+      <tr>
+        <td>bottom-left-absolute</td>
+        <td>bottom left absolute</td>
+      </tr>
+      <tr>
+        <td>bottom-left-fixed</td>
+        <td>bottom left fixed</td>
+      </tr>
+      <tr>
+        <td>bottom-right</td>
+        <td>bottom-right</td>
+      </tr>
+      <tr>
+        <td>bottom-right-absolute</td>
+        <td>bottom-right absolute</td>
+      </tr>
+      <tr>
+        <td>bottom-right-fixed</td>
+        <td>bottom-right fixed</td>
+      </tr>
+    </html-table>
+
+  </h-page-content>
 </template>

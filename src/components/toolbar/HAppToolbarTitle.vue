@@ -1,21 +1,13 @@
 <template lang="pug">
-  div.h-pl-lg.flex.flex-1.flex-wrap
-    .text-bold.tbtitle {{title}}
+  .col-space.h-pl-md.h-pr-md.text-bold
+    slot
+
+  //- div.h-pl-lg.flex.flex-1.flex-wrap
+  //-   .text-bold.tbtitle {{title}}
 </template>
 
 <script>
 export default {
-  props: {
-    title: {
-      type: String,
-      default: ''
-    }
-  }
+  name: 'HToolbarTitle'
 }
 </script>
-
-<style scoped>
-.tbtitle {
-  font-size: 20px;
-}
-</style>

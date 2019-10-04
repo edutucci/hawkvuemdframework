@@ -18,7 +18,7 @@
         @click="selectMenu(item)"
       />
     </div>
-    <div  v-if="menuContent && menuContent.items.length" class="slide-menu-container div-rounded">
+    <div  v-if="menuContent && menuContent.items.length" class="slide-menu-container border-radius">
       <div class="flex flex-column full-width">
         <div class="flex flex-row" :class="[bgcolor,textcolor]">
           <div class="flex flex-row flex-items-center flex-1">
@@ -57,7 +57,7 @@
             <h-btn contained
               class="full-width"
             >
-              <html-link :text="item.text" :url="item.url" :new-window="item.newWindow"/>
+              <h-link :text="item.text" :url="item.url" :new-window="item.newWindow"/>
             </h-btn>
           </div>
         </div>
