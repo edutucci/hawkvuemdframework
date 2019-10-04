@@ -1,45 +1,24 @@
 <template lang="pug">
-  .chip-container.flex.flex-items-center(
-    v-if="show"
+  .h-chip.chip-container(
+    style="display:inline-flex; cursor: pointer;"
   )
-    .chip-content.row.align-items-center.bg-primary(
-      v-if="!outlined"
-      :class="[{bgdefault: bgdefault, disabled: disabled}]"
+    .row.align-items-center(
+      @click="onClick"
+      class="chip full-width flex-justify-center flex-items-center full-height"
+      :class="\
+        [compBgColor, textColor, compBorderColor, typography, \
+        { 'border': outlined, 'dense': dense }]"
     )
-      .row.align-items-center.nowrap.h-pl-sm.h-pr-xs
-        .col-auto.h-pr-xs(v-if="icon && icon.length > 0")
-          h-fa-icon(:icon="icon" :text-color="chiptextcolor")
-        .col-auto.text-caption
-          span(:class="[chiptextcolor]") {{text}}
-      .col-auto
-        h-fa-icon(
-          v-if="closable"
-          icon="fas fa-times-circle"
-          :text-color="chiptextcolor"
-          @click="onClose"
-        )
-
-    .chip-content(
-      v-else
-      :class="{outline: outlined, disabled: disabled}"
-    )
-      .row.nowrap.h-pl-xs.h-pr-xs(v-if="icon && icon.length > 0")
-        h-fa-icon(:icon="icon" :text-color="chiptextcolor")
-        span.h-pl-sm(:class="[chiptextcolor]") {{text}}
-        h-fa-icon.h-pl-sm(
-          v-if="closable"
-          icon="fas fa-times-circle"
-          :text-color="chiptextcolor"
-          @click="onClose"
-        )
-      .row.nowrap.h-pl-sm.h-pr-sm(v-else)
-        span(:class="[chiptextcolor]") {{text}}
-        h-fa-icon.h-pl-sm(
-          v-if="closable"
-          icon="fas fa-times-circle"
-          :text-color="chiptextcolor"
-          @click="onClose"
-        )
+      .col-auto.h-pl-xs(v-if="this.filter && value")
+        h-fa-icon(:text-color="textColor" icon="fas fa-check" :size="iconSize")
+      .col-auto.h-pl-xs(v-else-if="icon && icon.length > 0")
+        h-fa-icon(:text-color="textColor" :icon="icon" :size="iconSize")
+      .col-auto.h-pl-xs(v-else-if="avatar && avatar.length > 0")
+        h-avatar(:src="avatar" :size="avatarSize")
+      .col(v-if="text && text.length > 0" class="h-ml-xs h-mr-xs")
+        | {{text}}
+      .col-auto(v-if="closable" @click.stop="onClose")
+        h-fa-icon(:text-color="textColor" icon="fas fa-times-circle" :size="iconSize" )
 
 </template>
 
@@ -50,6 +29,10 @@ import componentBase from '../componentBase.vue'
 export default {
   extends: componentBase,
   props: {
+    value: {
+      type: Boolean,
+      default: false
+    },
     closable: {
       type: Boolean,
       default: false
@@ -78,73 +61,80 @@ export default {
       type: Boolean,
       default: false
     },
-    hideOnClose: {
+    dense: {
+      type: Boolean,
+      default: false
+    },
+    filter: {
       type: Boolean,
       default: false
     }
   },
   data () {
     return {
-      show: true,
-      bgdefault: false,
-      chiptextcolor: this.textColor
+      chiptextcolor: this.textColor,
+      typography: 'text-body1',
+      iconSize: '16px',
+      avatarSize: '24px'
     }
   },
   mounted () {
-    this.chiptextcolor = this.textColor
-    if (!this.outlined) {
-      if (this.disabled) {
-        this.chiptextcolor = 'text-gray'
-      }
-      if (this.bgColor === 'bg-white' || this.disabled) {
-        this.bgdefault = true
-      }
-    } else {
-      if (!this.disabled) {
-        this.chiptextcolor = 'text-black'
-      } else {
-        this.chiptextcolor = 'text-gray'
-      }
+    this.changeComponentBackground()
+    this.changeBorderColor()
+    this.changeSizes()
+  },
+  watch: {
+    bgColor: function (value) {
+      this.changeComponentBackground()
+      this.changeBorderColor()
+    },
+    outlined: function (value) {
+      this.changeComponentBackground()
+      this.changeBorderColor()
+    },
+    dense: function (value) {
+      this.changeSizes()
     }
   },
   methods: {
-    onClose () {
-      if (!this.disabled) {
-        if (this.hideOnClose) {
-          this.show = false
-        } else {
-          this.$emit('onClose')
+    changeComponentBackground () {
+      this.compBgColor = this.bgColor
+      if (this.outlined) {
+        this.compBgColor = 'bg-white'
+      } else {
+        if (this.bgColor === 'bg-white') {
+          this.compBgColor = 'bg-gray300'
         }
+      }
+    },
+    changeBorderColor () {
+      this.compBorderColor = ''
+      if (this.outlined) {
+        if (this.bgColor === 'bg-white') {
+          this.compBorderColor = 'border-gray500'
+        } else {
+          this.compBorderColor = this.bgColor
+          this.compBorderColor = this.compBorderColor.replace(/bg/, 'border')
+        }
+      }
+    },
+    changeSizes () {
+      this.iconSize = (!this.dense) ? '16px' : '12px'
+      this.avatarSize = (!this.dense) ? '24px' : '16px'
+      this.typography = (!this.dense) ? 'text-body1' : 'text-caption'
+    },
+    onClick () {
+      if (this.filter && this.value !== undefined) {
+        let val = !this.value
+        this.$emit('input', val)
+      }
+    },
+    onClose () {
+      console.log('chip close fired')
+      if (!this.disabled) {
+        this.$emit('onClose')
       }
     }
   }
 }
 </script>
-
-<style scoped>
-.chip-container {
-  display: inline-flex;
-}
-
-.chip-content.disabled > .chip-text,
-.chip-content.bgdefault.disabled > .chip-text
-{
-  background-color: rgb(211, 211, 211, 0.6);
-}
-.chip-content {
-  border-radius: 50px;
-  padding: 3px;
-}
-
-.chip-content.bgdefault {
-  background-color: lightgray;
-}
-
-.chip-content.outline {
-  background-color: white;
-  border-color: gray;
-  border-style: solid;
-  border-width: 1px;
-  border-radius: 50px;
-}
-</style>

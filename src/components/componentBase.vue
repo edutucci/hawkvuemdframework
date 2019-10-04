@@ -21,6 +21,7 @@ export default {
   },
   data () {
     return {
+      compTextColor: '',
       compBgColor: '',
       compBgColorHover: '',
       compBorderColor: ''

@@ -33,11 +33,10 @@
         @click="focus"
       )
         h-chips.h-pa-xs(
-          v-for="(chip, index) in value"
+          v-for="(chip, index) in selectChipsValue"
           :key="index"
-          :text="chip"
-          text-color="text-white"
-          bg-color="bg-gray"
+          :text="chip.text"
+          dense
           closable
           @onClose="closeChip(index)"
         )
@@ -51,9 +50,9 @@
           )
             h-chips.h-pa-xs(
               :text="chip.text"
-              text-color="text-white"
-              bg-color="bg-gray500"
+              dense
               closable
+              @onClose="closeSelectChip(index)"
             )
           .col(
             @click="checkViewport"
@@ -119,7 +118,6 @@
             v-show="multiSelect"
             v-for="(option, index) in options"
             :key="`${dropMenuId}-${index}`"
-            @click="onSelectItem(option)"
           )
             h-list-item-side
               h-checkbox(v-model="multiselectItem" :text="option.text" :value="option.value" @change="onSelectItem")
@@ -183,7 +181,6 @@ export default {
       right: '',
       bottom: '',
       multiselectItem: [],
-      chipsValue: [],
       selectChipsValue: []
     }
   },
@@ -193,36 +190,14 @@ export default {
     this.inputType = this.type
   },
   watch: {
-    inputDisplay: function (value) {
-      console.log('mudou value:', value)
-      if (!this.chips && !this.inputMask && !this.inputCurrency && !this.inputSelect && !this.inputSearch) {
-        this.$emit('input', value)
-      }
-    },
     value: function (value) {
-      if (!this.chips && !this.inputMask && !this.inputCurrency) {
-        this.inputDisplay = value
-      }
+      this.makeInputValue()
     },
     bgColor: function (value) {
       this.makeInputContainerColors()
     },
     textcolor: function (value) {
       this.makeInputContainerColors()
-    },
-    multiselectItem: function (value) {
-      let arrDisp = []
-      let display = ''
-      value.forEach(item => {
-        let val = this.options.find(opt => opt.value === item)
-        if (val) {
-          arrDisp.push(val.text)
-        }
-      })
-      if (arrDisp.length) {
-        display = arrDisp.join()
-      }
-      this.inputDisplay = display
     },
     masked: function (newValue) {
       if (this.inputMask) {
@@ -277,12 +252,26 @@ export default {
             let option = this.options[index]
             this.onSelectItem(option)
           }
+        } else if (this.chips) {
+          this.selectChipsValue = []
+          if (Array.isArray(localInputDisplay)) {
+            localInputDisplay.forEach(item => {
+              this.selectChipsValue.push({
+                text: item,
+                value: item
+              })
+            })
+          }
+          this.inputDisplay = ''
         } else if (this.multiSelect && (this.options && this.options.length)) {
           let multiselectItem = []
+          let arrDisp = []
+          this.selectChipsValue = []
           if (Array.isArray(localInputDisplay)) {
             localInputDisplay.forEach(item => {
               let index = this.options.findIndex(opt => opt.value === item)
               if (index !== -1) {
+                arrDisp.push(this.options[index].text)
                 multiselectItem.push(this.options[index].value)
                 this.selectChipsValue.push({
                   text: this.options[index].text,
@@ -290,10 +279,9 @@ export default {
                 })
               }
             })
+            this.inputDisplay = arrDisp.join(', ')
           }
           this.multiselectItem = multiselectItem
-        } else if (Array.isArray(localInputDisplay)) {
-          this.onChangeChips(localInputDisplay)
         }
       }
     },
@@ -404,16 +392,15 @@ export default {
     },
     onEnter () {
       if (this.chips) {
-        if (this.inputDisplay.length) {
-          if (this.value.length === 0) {
-            this.chipsValue = []
-            this.chipsValue.push(this.txtValue)
-          } else {
-            this.chipsValue = _.clone(this.value)
-            this.chipsValue.push(this.inputDisplay)
-          }
-          this.onChangeChips(this.chipsValue)
-        }
+        this.selectChipsValue.push({
+          text: this.inputDisplay,
+          value: this.inputDisplay
+        })
+        let arrValue = []
+        this.selectChipsValue.forEach(chip => {
+          arrValue.push(chip.value)
+        })
+        this.$emit('input', arrValue)
       } else {
         this.$emit('onEnter')
       }
@@ -451,24 +438,12 @@ export default {
             })
           }
         })
-        this.inputDisplay = multivalue
         this.$emit('input', this.multiselectItem)
         this.$emit('changeMultiselect', this.multiselectItem)
       }
     },
-    onChangeChips (value) {
-      let arrValue = []
-      if (value !== undefined && value.length) {
-        arrValue = value
-      }
-      this.$emit('input', arrValue)
-      this.inputDisplay = ''
-    },
     closeChip (index) {
-      this.chipsValue = _.clone(this.value)
-      this.$emit('onDelete', this.chipsValue[index])
-      this.$delete(this.chipsValue, index)
-      this.$emit('input', this.chipsValue)
+      this.closeSelectChip(index)
     },
     onDelete () {
       if (this.chips) {
@@ -479,6 +454,14 @@ export default {
     },
     onClearable () {
       this.inputDisplay = ''
+    },
+    closeSelectChip (index) {
+      this.$delete(this.selectChipsValue, index)
+      let arrValue = []
+      this.selectChipsValue.forEach(chip => {
+        arrValue.push(chip.value)
+      })
+      this.$emit('input', arrValue)
     }
   }
 }

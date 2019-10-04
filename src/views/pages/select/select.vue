@@ -38,7 +38,7 @@
       javascript
     >
       <div class="col-6">
-        <h-input dense multi-select :options="options" input-icon="fas fa-angle-down"
+        <h-input dense multi-select :options="options"
         v-model="multiselect"
         @changeMultiselect="changeMultiselect"
         />
@@ -52,14 +52,13 @@
       javascript
     >
       <div class="col-6">
-        <h-input dense multi-select select-chips :options="options" input-icon="fas fa-angle-down"
-        v-model="multiselect"
-        @changeMultiselect="changeMultiselect"
+        <h-input dense multi-select select-chips :options="options"
+        v-model="multiselectChip"
         label="select chips"
         />
       </div>
       <div>
-        multiselect: {{ multiselect }}
+        chips: {{ multiselectChip }}
       </div>
     </comp-code>
 
@@ -112,6 +111,7 @@ export default {
       selectModel: 'Bluetooth1',
       selectModel1: 'chrome1',
       multiselect: ['heart1', 'discord1'],
+      multiselectChip: ['heart1', 'discord1'],
       options: [
         {
           'text': 'Address-book',

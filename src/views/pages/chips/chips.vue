@@ -2,15 +2,113 @@
   <h-page-content padding>
     <div class="text-h4">CHIPS</div>
 
-    <comp-code class="h-mt-lg" title="Styles" :code="chip">
-      <h-chips text="disabled" icon="fas fa-camera-retro" closable disabled hide-on-close></h-chips>
-      <h-chips text="Eduardo" bg-color="bg-secondary" closable hide-on-close></h-chips>
-      <h-chips text="Jhon" closable hide-on-close icon="fas fa-camera-retro" bg-color="bg-primary" text-color="text-white"></h-chips>
-      <h-chips text="Jhon" closable hide-on-close avatar="http://autokadabra.ru/system/uploads/users/18/18340/small.png?1318432918" bg-color="bg-primary" text-color="text-white"></h-chips>
+    <comp-code class="h-mt-lg" title="Standard" :code="chip">
+      <div class="row">
+        <div class="col">
+          <h-chips text="Peyton Smith"/>
+          <h-chips text="Jonas Eckhart"/>
+          <h-chips text="John Pella"/>
+          <h-chips text="Francis Pernille"/>
+        </div>
+      </div>
 
-      <h-chips text="outlined disabled" icon="fas fa-camera-retro" closable disabled hide-on-close outlined></h-chips>
-      <h-chips text="outlined disabled" closable disabled hide-on-close outlined></h-chips>
-      <h-chips text="Outlined" closable hide-on-close outlined></h-chips>
+      <div class="row h-mt-md">
+        <div class="col">
+          <h-chips outlined text="Peyton Smith"/>
+          <h-chips outlined text="Jonas Eckhart"/>
+          <h-chips outlined text="John Pella"/>
+          <h-chips outlined text="Francis Pernille"/>
+        </div>
+      </div>
+
+      <div class="row h-mt-md">
+        <div class="col">
+          <h-chips dense text="Peyton Smith"/>
+          <h-chips dense text="Jonas Eckhart"/>
+          <h-chips dense text="John Pella"/>
+          <h-chips dense text="Francis Pernille"/>
+        </div>
+      </div>
+
+      <div class="row h-mt-md">
+        <div class="col">
+          <h-chips dense outlined text="Peyton Smith"/>
+          <h-chips dense outlined text="Jonas Eckhart"/>
+          <h-chips dense outlined text="John Pella"/>
+          <h-chips dense outlined text="Francis Pernille"/>
+        </div>
+      </div>
+
+    </comp-code>
+
+    <comp-code class="h-mt-lg" title="Icons" :code="chip">
+      <div class="row">
+        <div class="col">
+          <h-chips text="Portland" icon="fas fa-map-marker-alt"/>
+          <h-chips text="Biking" icon="fas fa-biking"/>
+          <h-chips outlined text="Portland" icon="fas fa-map-marker-alt"/>
+          <h-chips outlined text="Biking" icon="fas fa-biking"/>
+        </div>
+      </div>
+
+      <div class="row h-mt-md">
+        <div class="col">
+          <h-chips dense text="Portland" icon="fas fa-map-marker-alt"/>
+          <h-chips dense text="Biking" icon="fas fa-biking"/>
+          <h-chips dense outlined text="Portland" icon="fas fa-map-marker-alt"/>
+          <h-chips dense outlined text="Biking" icon="fas fa-biking"/>
+        </div>
+      </div>
+    </comp-code>
+
+    <comp-code class="h-mt-lg" title="Avatar" :code="chip">
+      <div class="row">
+        <div class="col">
+          <h-chips text="Kostenlose" avatar="avatar/Kostenlose.jpg"/>
+          <h-chips text="Eduard" avatar="avatar/Eduard.jpg"/>
+          <h-chips outlined text="Kostenlose" avatar="avatar/Kostenlose.jpg"/>
+          <h-chips outlined text="Eduard" avatar="avatar/Eduard.jpg"/>
+        </div>
+      </div>
+
+      <div class="row h-mt-md">
+        <div class="col">
+          <h-chips dense text="Kostenlose" avatar="avatar/Kostenlose.jpg"/>
+          <h-chips dense text="Eduard" avatar="avatar/Eduard.jpg"/>
+          <h-chips dense outlined text="Kostenlose" avatar="avatar/Kostenlose.jpg"/>
+          <h-chips dense outlined text="Eduard" avatar="avatar/Eduard.jpg"/>
+        </div>
+      </div>
+    </comp-code>
+
+    <comp-code class="h-mt-lg" title="Closable" :code="chip">
+      <div class="row">
+        <div class="col">
+          <h-chips closable text="Portland" icon="fas fa-map-marker-alt"/>
+          <h-chips closable text="Kostenlose" avatar="avatar/Kostenlose.jpg"/>
+          <h-chips closable outlined text="Portland" icon="fas fa-map-marker-alt"/>
+          <h-chips closable outlined text="Kostenlose" avatar="avatar/Kostenlose.jpg"/>
+        </div>
+      </div>
+
+      <div class="row h-mt-md">
+        <div class="col">
+          <h-chips dense closable text="Portland" icon="fas fa-map-marker-alt"/>
+          <h-chips dense closable text="Kostenlose" avatar="avatar/Kostenlose.jpg"/>
+          <h-chips dense outlined closable text="Portland" icon="fas fa-map-marker-alt"/>
+          <h-chips dense outlined closable text="Kostenlose" avatar="avatar/Kostenlose.jpg"/>
+        </div>
+      </div>
+    </comp-code>
+
+    <comp-code class="h-mt-lg" title="Select" :code="chip">
+      <div class="row">
+        <div class="col">
+          <h-chips filter v-model="chipsFilter.travel" text="Travel" icon="fas fa-plane"/>
+          <h-chips filter v-model="chipsFilter.movies" text="Movies" icon="fas fa-film"/>
+          <h-chips filter v-model="chipsFilter.food" text="Food" icon="fas fa-utensils"/>
+        </div>
+      </div>
     </comp-code>
 
     <h1 class="text-primary"> Chips Help</h1>
@@ -25,7 +123,6 @@
         <div>img</div>
         <div>text</div>
         <div>disabled</div>
-        <div>hide-on-close</div>
         <div>outlined</div>
       </div>
       <div class="h-pl-md">
@@ -36,7 +133,6 @@
         <div>String</div>
         <div>Booelan</div>
         <div>Boolean</div>
-        <div>Boolean</div>
       </div>
       <div class="h-pl-md">
         <h3 >Description</h3>
@@ -45,7 +141,6 @@
         <div>Sets the img to left of the text</div>
         <div>Sets the text of the chip</div>
         <div>The chips is disabled</div>
-        <div>Hides the chip if you click on icon close but it does not emits onClose event</div>
         <div>Sets the input to outlined mode</div>
       </div>
     </div>
@@ -64,34 +159,19 @@
       </div>
     </div>
 
-    <!-- <comp-code class="h-mt-lg" title="Input Chips" >
-      <h-input-chips
-        v-model="chipsInput"
-        float-label="Name"
-        static-label="My chips list"
-        left-icon=""
-        helper-text="Type your chips"
-        error-label="Write 1 chips please"
-        cleartext
-        @change="onchange"
-        @onTab="ontab"
-        @onDelete="onDelete"
-      >
-      </h-input-chips>
-      <div>
-        <span class="text-gray">InputchipsModel: {{ chipsInput }}</span>
-      </div>
-    </comp-code> -->
-
     <comp-code class="h-mt-lg" title="Input Chips"  :code="inputchip" :script="inputchipScript"
       javascript
     >
       <div class="h-mt-md">
         <h-input
+          dense
           label="Type your chips"
           chips
           v-model="chipsInput"
         />
+      </div>
+      <div>
+        chipsInput: {{chipsInput}}
       </div>
     </comp-code>
 
@@ -168,6 +248,11 @@
 export default {
   data () {
     return {
+      chipsFilter: {
+        travel: false,
+        movies: false,
+        food: false
+      },
       chipsInput: ['tucci', 'cleiton', 'carlos', 'pablo', 'luis'],
       chip: `
 <h-chips text="disabled" icon="fas fa-camera-retro" closable disabled hide-on-close></h-chips>
@@ -203,18 +288,6 @@ export default {
     }
   },
   methods: {
-    closeChip (index) {
-      this.$delete(this.chipsInput, index)
-    },
-    onchange (value) {
-      console.log('onchange: ' + value)
-    },
-    ontab () {
-      console.log('ontab: ')
-    },
-    onDelete (value) {
-      console.log('ondelete: ' + value)
-    }
   }
 }
 </script>
