@@ -66,3 +66,5 @@ yarn run build
 ```
 yarn run lint
 ```
+
+made with ❤️ 
