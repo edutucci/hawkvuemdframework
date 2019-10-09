@@ -42,7 +42,7 @@ export default new Router({
         { path: '/select', component: () => import('./views/pages/select/select') },
         { path: '/tab', component: () => import('./views/pages/tab/tab') },
         { path: '/table', component: () => import('./views/pages/table/table') },
-        { path: '/toolbar', component: () => import('./views/pages/toolbar/toolbar') },
+        { path: '/appbar', component: () => import('./views/pages/appbar/appbar.vue') },
         { path: '/dialog', component: () => import('./views/pages/dialog/dialog') },
         { path: '/datetime', component: () => import('./views/pages/datetime/datetime') },
         { path: '/toggle', component: () => import('./views/pages/toggle/toggle') },
@@ -62,7 +62,7 @@ export default new Router({
     },
     {
       path: '/example',
-      component: () => import('./views/examples/rangeslider')
+      component: () => import('./views/examples/appbar.vue')
     }
   ]
 })

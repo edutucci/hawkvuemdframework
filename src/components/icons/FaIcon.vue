@@ -1,7 +1,7 @@
 <template lang="pug">
-  div(style="position:relative; display: inline-block;")
+  div.h-icon(style="position:relative; display: inline-block;")
     i(
-      class="h-icon"
+      class=""
       :class="[icon, textColor, {'fa-pulse': pulse, 'fa-spin': spin}]"
       :style="styleObject"
       @click="onClick"

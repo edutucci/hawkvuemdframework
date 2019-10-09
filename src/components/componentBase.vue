@@ -35,7 +35,6 @@ export default {
       this.compBgColorHover = ''
       switch (this.bgColor) {
         case 'bg-white':
-        case 'bg-black':
         case 'bg-primary':
         case 'bg-secondary':
         case 'bg-positive':

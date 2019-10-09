@@ -1,19 +1,17 @@
 <template>
   <h-main-body>
     <h-page-header>
-      <h-app-toolbar bg-color="bg-primary" text-color="text-white">
+      <h-app-toolbar bg-color="bg-primary">
         <h-app-toolbar-container>
-          <h-app-toolbar-navigation>
-            <h-fa-icon icon="fas fa-bars" text-color="text-white" @click="showDrawer = true"/>
-          </h-app-toolbar-navigation>
-          <h-app-toolbar-title class="text-body1">
+          <h-app-toolbar-navigation text-color="text-white" @click="showDrawer = true"/>
+          <h-app-toolbar-title class="text-white">
             HawkFramework 1.0.12
           </h-app-toolbar-title>
           <h-app-toolbar-action>
-            <h-btn text-button bg-color="bg-transparent">
-              <h-link url="/" icon="fas fa-globe" text-color="text-white"/>
+            <h-btn fab size="sm" bg-color="bg-transparent">
+              <h-link url="/" icon="fas fa-home" text-color="text-white"/>
             </h-btn>
-            <h-btn text-button bg-color="bg-transparent">
+            <h-btn fab size="sm" bg-color="bg-transparent">
               <h-link url="https://github.com/edutucci/hawkframework" icon="fab fa-github" text-color="text-white" new-window/>
             </h-btn>
           </h-app-toolbar-action>
@@ -78,9 +76,9 @@
                 <h-collapsible-item text="Search" @click="$router.push('/search'), $refs.nav.close()"/>
                 <h-collapsible-item text="Select" @click="$router.push('/select'), $refs.nav.close()"/>
                 <h-collapsible-item text="Tab" @click="$router.push('/tab'), $refs.nav.close()"/>
-                <h-collapsible-item text="Table (atualizar help)" @click="$router.push('/table'), $refs.nav.close()"/>
-                <h-collapsible-item text="Input (atualizar help)" @click="$router.push('/input'), $refs.nav.close()"/>
-                <h-collapsible-item text="Toolbar (atualizar help)" @click="$router.push('/toolbar'), $refs.nav.close()"/>
+                <h-collapsible-item text="Table" @click="$router.push('/table'), $refs.nav.close()"/>
+                <h-collapsible-item text="Input" @click="$router.push('/input'), $refs.nav.close()"/>
+                <h-collapsible-item text="Appbar" @click="$router.push('/appbar'), $refs.nav.close()"/>
                 <h-collapsible-item text="Toggle" @click="$router.push('/toggle'), $refs.nav.close()"/>
                 <h-collapsible-item text="Video" @click="$router.push('/video'), $refs.nav.close()"/>
                 <h-collapsible-item text="Rating" @click="$router.push('/rating'), $refs.nav.close()"/>

@@ -47,12 +47,12 @@
               slot(name="content")
 
             h-fa-icon.h-ml-xs(
-              icon="fas fa-caret-down"
+              :icon="dropDownIcon"
               :text-color="textColor"
               size="18px"
             )
 
-        .dropdown-content.shadow.bg-white(
+        .dropdown-content.bg-white.border-radius(
           v-if="showdropdown"
           :style="{left: left, right: right, bottom: bottom}"
           :id="menuid"
@@ -130,6 +130,10 @@ export default {
     img: {
       type: String,
       default: ''
+    },
+    dropDownIcon: {
+      type: String,
+      default: 'fas fa-caret-down'
     }
   },
   components: {

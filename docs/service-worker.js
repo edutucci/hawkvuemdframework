@@ -11,10 +11,10 @@
  * See https://goo.gl/2aRDsh
  */
 
-importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.4.1/workbox-sw.js");
+importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/hawkframework/precache-manifest.bde92417c3961272619bb9e0ef539c6d.js"
+  "/precache-manifest.e690fea1a7f263c865f2318b768dbcc3.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "hawkframework"});

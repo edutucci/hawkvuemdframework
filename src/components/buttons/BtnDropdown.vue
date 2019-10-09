@@ -39,7 +39,7 @@
           size="18px"
         )
 
-    .dropdown-content.shadow.bg-white(
+    .dropdown-content.shadow.bg-white.border-radius(
       v-if="showdropdown"
       :style="{left: left, right: right, bottom: bottom}"
       :id="menuid"
