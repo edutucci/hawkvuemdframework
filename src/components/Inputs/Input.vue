@@ -65,7 +65,7 @@
           .col-auto(v-if="prefix && prefix.length")
             | {{prefix}}
           .col()
-            h-input-field.text-caption(
+            h-input-field.text-caption.cursor-pointer(
               :class="[inputContainerTextColor]"
               :id="inputId"
               v-model="inputDisplay"

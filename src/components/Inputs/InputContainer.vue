@@ -1,9 +1,9 @@
 <template lang="pug">
-  .main-input-container.cursor-pointer(
+  .main-input-container(
     :class="[bgColor]"
   )
     .column
-      .col
+      .col.cursor-pointer
         .row
           .col-auto(v-if="leadingIcon && leadingIcon.length > 0")
             .row.justify-center.align-items-center.full-height

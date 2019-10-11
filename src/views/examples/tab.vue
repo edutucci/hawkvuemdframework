@@ -1,7 +1,8 @@
 <template>
   <h-page-content>
-    <div class="h-pa-sm border border-gray border-radius">
-      <div class="text-body1 text-bold">Horizontal Tabs</div>
+
+    <h3>Horizontal Tabs</h3>
+    <div class="h-pa-sm border border-gray border-radius">  
       <div class="border border-primary border-radius" style="height: 150px;">
         <h-tabs v-model="horTab" bg-color="bg-primary" text-color="text-white">
           <h-tab name="HOME">
@@ -106,8 +107,8 @@
 
     </div>
 
+    <h3>Vertical Tabs</h3>
     <div class="h-mt-md h-pa-sm border border-gray border-radius">
-      <div class="text-body1 text-bold">Vertical Tabs</div>
       <div class="border border-primary border-radius" style="height: 150px;">
         <h-tabs vertical v-model="verTab" bg-color="bg-primary" text-color="text-white">
           <h-tab name="HOME">

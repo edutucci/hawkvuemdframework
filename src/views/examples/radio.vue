@@ -1,8 +1,8 @@
 <template>
   <h-page-content padding>
 
-    <div class="h-pa-sm border border-gray border-radius">
-      <div class="text-body1 text-bold">Boolean</div>
+    <h3>Boolean</h3>
+    <div class="h-pa-sm border border-gray border-radius">  
       <div class="column">
         <div class="col">
           Do you agree to our terms and conditions?
@@ -17,8 +17,8 @@
       </div>
     </div>
 
-    <div class="h-mt-md h-pa-sm border border-gray border-radius">
-      <div class="text-body1 text-bold">String</div>
+    <h3>String</h3>
+    <div class="h-mt-md h-pa-sm border border-gray border-radius">     
       <div class="column">
         <div class="col">
           What type of movies do you like?
@@ -35,8 +35,8 @@
       </div>
     </div>
 
-    <div class="h-mt-md h-pa-sm border border-gray border-radius">
-      <div class="text-body1 text-bold">Numbers</div>
+    <h3>Numbers</h3>
+    <div class="h-mt-md h-pa-sm border border-gray border-radius">      
       <div class="column">
         <div class="col">
           Wich number do you hate?
@@ -53,8 +53,8 @@
       </div>
     </div>
 
-    <div class="h-mt-md h-pa-sm border border-gray border-radius">
-      <div class="text-body1 text-bold">Option checked</div>
+    <h3>Option checked</h3>
+    <div class="h-mt-md h-pa-sm border border-gray border-radius">      
       <div class="column">
         <div class="col">
           Select your gender
@@ -67,8 +67,8 @@
       </div>
     </div>
 
-    <div class="h-mt-md h-pa-sm border border-gray border-radius">
-      <div class="text-body1 text-bold">Objects</div>
+    <h3>Objects</h3>
+    <div class="h-mt-md h-pa-sm border border-gray border-radius">  
       <div class="column">
         <div class="col">
           Select yours favorite objects

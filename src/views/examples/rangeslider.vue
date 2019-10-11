@@ -3,7 +3,7 @@
     <div class="text-h4">Range SLider</div>
 
   <h3>Styles</h3>
- <div class="h-pa-sm border border-gray border-radius">
+  <div class="h-pa-sm border border-gray border-radius">
 
     <div class="row align-items-center">
       <div class="col">

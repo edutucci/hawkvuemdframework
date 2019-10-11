@@ -94,7 +94,7 @@
               <h-fa-icon icon="fas fa-shopping-cart"  text-color="text-white" size="32px"/>
             </h-btn>
             <h-btn fab bg-color="bg-primary" text-color="text-white" size="xl">
-              <h-fa-iconoutlined icon="fas fa-plane"  text-color="text-white" size="32px"/>
+              <h-fa-icon icon="fas fa-plane"  text-color="text-white" size="32px"/>
             </h-btn>
           </div>
           <div>
@@ -381,8 +381,7 @@
       </div>
       <div class="col-auto h-pl-xs">
         <h-list class="sticky">
-          <h-list-header text="Types"/>
-          <h-separator/>
+          <h-list-header text="Types" class="bg-gray"/>
           <h-list-item @click="goToElement('btn-contained')">
             <h-list-item-content>
               <h-list-item-text title="Contained"/>
@@ -403,8 +402,7 @@
               <h-list-item-text title="Rounded"/>
             </h-list-item-content>
           </h-list-item>
-          <h-list-header text="Addtional Types"/>
-          <h-separator/>
+          <h-list-header text="Additional Types" class="bg-gray"/>
         </h-list>
       </div>
     </div>
@@ -436,11 +434,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-.sticky {
-  position: -webkit-sticky;
-  position: sticky;
-  top: 70px;
-}
-</style>
