@@ -6,7 +6,10 @@
       Bugs
       - Allow draws right side screen
     -->
-
+      <div>
+        <h-btn contained bgcolor="bg-primary" textcolor="text-white" text="Open Drawer Left" @click="showDrawer = true; side='left'"/>
+        <h-btn contained bgcolor="bg-primary" textcolor="text-white" text="Open Drawer Right" @click="showDrawer = true; side='right'"/>
+      </div>
     <comp-code class="h-mt-lg" title="Drawer Left" :code="drawer" :script="drawerScript"
       javascript
     >
@@ -14,10 +17,12 @@
         <h-btn contained bgcolor="bg-primary" textcolor="text-white" text="Open Drawer Left" @click="showDrawer = true; side='left'"/>
         <h-btn contained bgcolor="bg-primary" textcolor="text-white" text="Open Drawer Right" @click="showDrawer = true; side='right'"/>
       </div>
+    </comp-code>
+
       <h-nav-drawer v-model="showDrawer" :side="side">
         <div class="flex flex-column bg-white full-size" style="display: inline-flex;">
           <div slot="header" class="text-center h-pa-md">
-            <h-avatar src="img/hawk.jpg" size="64px"/>
+            <h-image avatar src="img/hawk.jpg" size="64px"/>
             <h3 class="no-padding no-margin">Hawk </h3>
             <h3 class="no-padding no-margin"> Framework</h3>
           </div>
@@ -41,7 +46,6 @@
           </div>
         </div>
       </h-nav-drawer>
-    </comp-code>
 
   </h-page-content>
 </template>
@@ -60,7 +64,7 @@ export default {
 <h-nav-drawer v-model="showDrawer" :side="side">
   <div class="flex flex-column bg-white full-size" style="display: inline-flex;">
     <div slot="header" class="text-center h-pa-md">
-      <h-avatar src="img/hawk.jpg" size="64px"/>
+      <h-image avatar src="img/hawk.jpg" size="64px"/>
       <h3 class="no-padding no-margin">Hawk </h3>
       <h3 class="no-padding no-margin"> Framework</h3>
     </div>

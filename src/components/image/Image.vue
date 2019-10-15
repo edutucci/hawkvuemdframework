@@ -1,13 +1,13 @@
 <template lang="pug">
-  .h-avatar-container(
+  .h-image-container(
     :style="[imgsize]"
   )
-    .h-avatar-content.flex.align-items-center.overflow-hidden(
+    .h-image-content.flex.justify-center.overflow-hidden(
       v-if="src && src.length > 0"
-      :class="[bgColor, textColor, { 'square': square, 'border-radius': borderRadius }]"
+      :class="[bgColor, textColor, { 'avatar': avatar, 'border-radius': borderRadius }]"
     )
-      img(:src="src" alt="avatar")
-    .h-avatar-content.flex.justify-center.align-items-center.overflow-hidden(
+      img.h-avatar-img-content(:src="src" alt="avatar")
+    .h-image-content.flex.justify-center.align-items-center.overflow-hidden(
       v-else
       :class="[bgColor, textColor, { 'square': square, 'border-radius': borderRadius }]"
     )
@@ -31,7 +31,7 @@ export default {
       type: String,
       default: '40px'
     },
-    square: {
+    avatar: {
       type: Boolean,
       default: false
     },

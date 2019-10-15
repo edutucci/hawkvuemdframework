@@ -75,7 +75,7 @@
         <h-card-section>
           <div class="row align-items-center">
             <div class="col-auto">
-              <h-avatar src="avatar/Kostenlose.jpg"></h-avatar>
+              <h-image avatar src="avatar/Kostenlose.jpg"></h-image>
             </div>
             <div class="col h-ml-sm">
               <div class="column">

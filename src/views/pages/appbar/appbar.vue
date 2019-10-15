@@ -51,7 +51,7 @@
       <h-app-toolbar bg-color="bg-deepOrange600">
         <h-app-toolbar-container>
           <h-app-toolbar-navigation text-color="text-white"/>
-          <h-avatar src="img/music-collection.jpg" size="42px"/>
+          <h-image avatar src="img/music-collection.jpg" size="42px"/>
           <h-app-toolbar-title class="text-white">
             My big music collection to sing
           </h-app-toolbar-title>
@@ -98,7 +98,7 @@
           <h-app-toolbar-navigation text-color="text-white"/>
           <h-app-toolbar-title inset class="text-white">
             <div class="col-auto">
-              <h-avatar src="img/music-collection.jpg" size="42px"/>
+              <h-image avatar src="img/music-collection.jpg" size="42px"/>
             </div>
             <div class="col h-mt-sm h-ml-sm">
               My big music collection to sing
@@ -254,7 +254,7 @@ export default {
 <h-app-toolbar bg-color="bg-deepOrange600">
   <h-app-toolbar-container>
     <h-app-toolbar-navigation text-color="text-white"/>
-    <h-avatar src="img/music-collection.jpg" size="42px"/>
+    <h-image avatar src="img/music-collection.jpg" size="42px"/>
     <h-app-toolbar-title class="text-white">
       My big music collection to sing
     </h-app-toolbar-title>
@@ -301,7 +301,7 @@ export default {
     <h-app-toolbar-navigation text-color="text-white"/>
     <h-app-toolbar-title inset class="text-white">
       <div class="col-auto">
-        <h-avatar src="img/music-collection.jpg" size="42px"/>
+        <h-image avatar src="img/music-collection.jpg" size="42px"/>
       </div>
       <div class="col h-mt-sm h-ml-sm">
         My big music collection to sing

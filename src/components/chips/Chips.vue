@@ -14,7 +14,7 @@
       .col-auto.h-pl-xs(v-else-if="icon && icon.length > 0")
         h-fa-icon(:text-color="textColor" :icon="icon" :size="iconSize")
       .col-auto.h-pl-xs(v-else-if="avatar && avatar.length > 0")
-        h-avatar(:src="avatar" :size="avatarSize")
+        h-image(:src="avatar" :size="avatarSize" avatar)
       .col(v-if="text && text.length > 0" class="h-ml-xs h-mr-xs")
         | {{text}}
       .col-auto(v-if="closable" @click.stop="onClose")

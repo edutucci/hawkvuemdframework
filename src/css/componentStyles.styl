@@ -394,26 +394,50 @@ CHIPS
 }
 
 /*
-AVATAR
+AVATAR / IMAGE
 */
 
-.h-avatar-container {
+.h-image-container {
   position:relative;
   display: inline-block;
   height: 1em;
   width: 1em;
 }
 
-.h-avatar-content {
+.h-image-content {
   width: inherit;
   height: inherit;
+  border-radius: 0;
+}
+
+.h-avatar-img-content {
+  width: 100%;
+  height: 100%; 
+}
+
+.h-image-content.avatar {
   border-radius: 50%;
 }
 
-.h-avatar-content.square {
-  border-radius: 0;  
+.h-image-content.border-radius {
+  border-radius: 5px;  
 }
 
-.h-avatar-content.border-radius {
-  border-radius: 5px;  
+/*
+IMAGE
+*/
+.h-image-container {
+  // position:relative;
+  // display: inline-block;
+  position: relative;
+  vertical-align: middle;
+  display: inline-block;
+  border-radius: 50%;
+  font-size: 48px;
+  height: 1em;
+  width: 1em;  
+}
+
+img.rounded {
+  
 }

@@ -218,7 +218,7 @@
               >
                 <div class="row align-items-center h-pa-sm" style="min-width:150px">
                   <div class="col-auto">
-                    <h-avatar src="avatar/AnaArmas.jpg" size="72px"/>
+                    <h-image avatar src="avatar/AnaArmas.jpg" size="72px"/>
                   </div>
                   <div class="col h-ml-sm">
                     <h-btn text="Profile" bg-color="bg-primary" text-color="text-white"/>
@@ -243,7 +243,7 @@
                   <div class="col-auto">
                     <div class="column">
                       <div class="col">
-                        <h-img src="img/Nallah_Sindh.jpg" width="180px" height="128px"/>
+                        <h-image src="img/Nallah_Sindh.jpg" style="width:180px; height:128px"/>
                       </div>
                       <div class="col text-body1 text-center text-black">
                         River

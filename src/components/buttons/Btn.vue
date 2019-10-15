@@ -28,11 +28,12 @@
             :icon="leftIcon"
             :text-color="textColor"
           )
-          h-avatar.h-mr-xs(
+          h-image.h-mr-xs(
             v-else-if="avatar && avatar.length > 0"
             :src="avatar"
+            avatar
           )
-          h-img.h-mr-xs(v-else-if="img && img.length > 0"
+          h-image.h-mr-xs(v-else-if="img && img.length > 0"
             :src="img"
           )
           .btn-dropdown-content.flex.flex-items-center.text-body1(

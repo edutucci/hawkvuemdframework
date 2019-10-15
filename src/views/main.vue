@@ -3,7 +3,7 @@
     <div class="flex flex-column">
       <div class="text-center">
         <h1>Hawk Framework</h1>
-        <h-avatar src="img/hawk.jpg" size="256px"/>
+        <h-image avatar src="img/hawk.jpg" size="256px"/>
       </div>
       <div class="flex h-pt-md">
         <div class="text-center" style="width: 250px">

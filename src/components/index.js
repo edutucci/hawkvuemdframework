@@ -29,8 +29,7 @@ import HFaIcon from './icons/FaIcon.vue'
 import HMdIcon from './icons/MdIcon.vue'
 import HFileUpload from './fileUpload/fileUpload.vue'
 import HImageUpload from './fileUpload/ImageUpload.vue'
-import HAvatar from './image/Avatar.vue'
-import HImg from './image/Img.vue'
+import HImage from './image/Image'
 import HList from './list/List.vue'
 import HListItem from './list/ListItem.vue'
 import HListHeader from './list/ListHeader.vue'
@@ -105,8 +104,7 @@ const Components = {
   HMdIcon,
   HFileUpload,
   HImageUpload,
-  HAvatar,
-  HImg,
+  HImage,
   HList,
   HListItem,
   HListHeader,

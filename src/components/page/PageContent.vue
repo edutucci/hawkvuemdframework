@@ -1,5 +1,5 @@
 <template lang="pug">
-  .page-content.full-height(
+  .page-content.position-relative.full-height(
     :class="{'page-content-padding': padding }"
     style=" margin-top: 57px;"
     id="page-content"

@@ -3,7 +3,7 @@
     .flex
       .card-header-image-padding(v-if="(icon && icon.length) || (avatar && avatar.length)")
         h-fa-icon(:icon="icon" textcolor="text-gray")
-        h-avatar(:src="avatar")
+        h-image(avatar :src="avatar")
 
       .row.flex.flex-column
         .title

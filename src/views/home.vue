@@ -26,8 +26,8 @@
           <div class="top-left-absolute flex flex-justify-end h-pa-sm bg-primary" style="left:0; right:0;">
             <h-fa-icon icon="fas fa-times" text-color="text-white" @click="$refs.nav.close()"/>
           </div>
-          <div class="column" style="margin-top: 30px;">
-            <h-avatar src="img/hawk.jpg" size="64px"/>
+          <div class="column align-items-center" style="margin-top: 30px;">
+            <h-image avatar src="img/hawk.jpg" size="64px"/>
             <h3 class="no-padding no-margin">Hawk </h3>
             <h3 class="no-padding no-margin"> Framework</h3>
           </div>
@@ -53,7 +53,7 @@
               </h-collapsible-menu>
 
               <h-collapsible-menu text="Components" icon="fas fa-hdd">
-                <h-collapsible-item text="Avatar" @click="$router.push('/compavatar'), $refs.nav.close()"/>
+                <h-collapsible-item text="Image" @click="$router.push('/compimage'), $refs.nav.close()"/>
                 <h-collapsible-item text="Buttons" @click="$router.push('/buttons'), $refs.nav.close()"/>
                 <h-collapsible-item text="Button Group" @click="$router.push('/buttongroup'), $refs.nav.close()"/>
                 <h-collapsible-item text="Button Dropdown" @click="$router.push('/buttondropdown'), $refs.nav.close()"/>

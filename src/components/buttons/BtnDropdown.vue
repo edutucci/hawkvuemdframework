@@ -14,9 +14,10 @@
         :icon="icon"
         :text-color="textColor"
       )
-      h-avatar(
+      h-image(
         v-else-if="avatar && avatar.length > 0"
         :src="avatar"
+        avatar
       )
       img(v-else-if="img && img.length > 0"
         :src="img" style="width:32px; height:32px;"

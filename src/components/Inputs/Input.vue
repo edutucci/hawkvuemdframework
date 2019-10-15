@@ -107,7 +107,7 @@
             h-list-item-side(v-if="displayMode ==='icon'")
               h-fa-icon(:icon="option.icon")
             h-list-item-side(v-if="displayMode ==='avatar'")
-              h-avatar(:src="option.avatar")
+              h-image(:src="option.avatar" avatar)
             // h-list-item-side(v-if="displayMode ==='image'")
             //   img(:src="option.img" style="width:32px; height:32px;")
             h-list-item-content
@@ -132,7 +132,7 @@
             h-list-item-side.align-items-center(v-if="option.icon && option.icon.length")
               h-fa-icon(:icon="option.icon" size="24px" style="color: gray")
             h-list-item-side.align-items-center(v-else-if="option.avatar && option.avatar.length > 0")
-              h-avatar(:src="option.avatar" size="24px")
+              h-image(:src="option.avatar" size="24px" avatar)
             h-list-item-side.align-items-center(v-else-if="option.img && option.img.length > 0")
               img(:src="option.img" width="24px" height="24px")
             h-list-item-content

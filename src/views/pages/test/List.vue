@@ -18,7 +18,7 @@
         <h-separator/>
         <h-list-item>
           <h-list-item-side>
-            <h-avatar src="avatar/AnaArmas.jpg"/>
+            <h-image avatar src="avatar/AnaArmas.jpg"/>
           </h-list-item-side>
           <h-list-item-content>
             <h-list-item-text title="Ana"/>
@@ -26,7 +26,7 @@
         </h-list-item>
         <h-list-item>
           <h-list-item-side>
-            <h-avatar src="avatar/Eduard.jpg"/>
+            <h-image avatar src="avatar/Eduard.jpg"/>
           </h-list-item-side>
           <h-list-item-content>
             <h-list-item-text title="Eduard"/>
@@ -257,7 +257,7 @@
         <h-list-header text="Today"/>
         <h-list-item>
           <h-list-item-side class="flex-items-center">
-            <h-avatar src="avatar/Eduard.jpg"/>
+            <h-image avatar src="avatar/Eduard.jpg"/>
           </h-list-item-side>
           <h-list-item-content>
             <h-list-item-text title="Brunch this weekend?" caption="I'll be in your neighborhood doing errands this weekend."/>
@@ -265,7 +265,7 @@
         </h-list-item>
         <h-list-item>
           <h-list-item-side class="flex-items-center">
-            <h-avatar src="avatar/AnaArmas.jpg"/>
+            <h-image avatar src="avatar/AnaArmas.jpg"/>
           </h-list-item-side>
           <h-list-item-content>
             <h-list-item-text title="Summer BBQ" caption="Wish I coould come, but I'm out of town this weekend."/>
@@ -273,7 +273,7 @@
         </h-list-item>
         <h-list-item>
           <h-list-item-side class="flex-items-center">
-            <h-avatar src="avatar/Kostenlose.jpg"/>
+            <h-image avatar src="avatar/Kostenlose.jpg"/>
           </h-list-item-side>
           <h-list-item-content>
             <h-list-item-text title="Oui Oui" caption="Do you have Paris recommendations? Have you ever been?."/>
@@ -362,7 +362,7 @@
         <h-list-header text="Today"/>
           <h-list-item>
             <h-list-item-side class="flex-items-center">
-              <h-avatar src="avatar/Eduard.jpg"/>
+              <h-image avatar src="avatar/Eduard.jpg"/>
             </h-list-item-side>
             <h-list-item-content>
               <h-list-item-text title="Brunch this weekend?" caption="I'll be in your neighborhood doing errands this weekend."/>
@@ -373,7 +373,7 @@
           </h-list-item>
           <h-list-item>
             <h-list-item-side class="flex-items-center">
-              <h-avatar src="avatar/AnaArmas.jpg"/>
+              <h-image avatar src="avatar/AnaArmas.jpg"/>
             </h-list-item-side>
             <h-list-item-content>
               <h-list-item-text title="Summer BBQ" caption="Wish I coould come, but I'm out of town this weekend."/>
@@ -384,7 +384,7 @@
           </h-list-item>
           <h-list-item>
             <h-list-item-side class="flex-items-center">
-              <h-avatar src="avatar/Kostenlose.jpg"/>
+              <h-image avatar src="avatar/Kostenlose.jpg"/>
             </h-list-item-side>
             <h-list-item-content>
               <h-list-item-text title="Oui Oui" caption="Do you have Paris recommendations? Have you ever been?."/>

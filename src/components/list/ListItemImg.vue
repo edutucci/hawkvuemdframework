@@ -1,9 +1,9 @@
 <template lang="pug">
-  .overflow-hidden.full-height.flex
-    img(
-      v-if="src && src.length > 0" :src="src"
-      :style="[imageSizeObject]"
-    )
+  h-image(
+    v-if="src && src.length > 0"
+    :src="src"
+    :style="[imageSizeObject]"
+  )
 </template>
 
 <script>
