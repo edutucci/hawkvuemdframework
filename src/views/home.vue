@@ -53,6 +53,7 @@
               </h-collapsible-menu>
 
               <h-collapsible-menu text="Components" icon="fas fa-hdd">
+                <h-collapsible-item text="Avatar" @click="$router.push('/compavatar'), $refs.nav.close()"/>
                 <h-collapsible-item text="Buttons" @click="$router.push('/buttons'), $refs.nav.close()"/>
                 <h-collapsible-item text="Button Group" @click="$router.push('/buttongroup'), $refs.nav.close()"/>
                 <h-collapsible-item text="Button Dropdown" @click="$router.push('/buttondropdown'), $refs.nav.close()"/>

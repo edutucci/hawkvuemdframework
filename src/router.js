@@ -21,6 +21,7 @@ export default new Router({
         { path: '/visibility', component: () => import('./views/css/visibility') },
         { path: '/cssothers', component: () => import('./views/css/others') },
         { path: '/borders', component: () => import('./views/css/borders') },
+        { path: '/compavatar', component: () => import('./views/pages/avatar/avatar.vue') },
         { path: '/buttons', component: () => import('./views/pages/buttons/buttons') },
         { path: '/buttongroup', component: () => import('./views/pages/buttons/buttonGroup') },
         { path: '/buttondropdown', component: () => import('./views/pages/buttons/buttonDropDown') },
@@ -62,7 +63,7 @@ export default new Router({
     },
     {
       path: '/example',
-      component: () => import('./views/examples/appbar.vue')
+      component: () => import('./views/examples/avatar')
     }
   ]
 })

@@ -19,7 +19,6 @@ import HCollapsible from './collapsible/Collapsible.vue'
 import HCollapsibleMenu from './collapsible/CollapsibleMenu.vue'
 import HCollapsibleItem from './collapsible/CollapsibleItem.vue'
 import HChips from './chips/Chips.vue'
-import HInputChips from './chips/InputChips.vue'
 import HCounter from './chips/Counter.vue'
 import HCarousel from './carousel/Carousel.vue'
 import HCarouselSlider from './carousel/CarouselSlider.vue'
@@ -55,7 +54,6 @@ import HModal from './window/HModal'
 import HNavDrawer from '../components/window/HNavDrawer'
 import HRadio from './radio/HRadio.vue'
 import HRating from './rating/Rating.vue'
-import HSearch from './Inputs/HSearch'
 import HTab from './tab/HTab.vue'
 import HTabs from './tab/HTabs.vue'
 import HTable from './table/Table.vue'
@@ -99,7 +97,6 @@ const Components = {
   HChips,
   HCarousel,
   HCarouselSlider,
-  HInputChips,
   HCounter,
   HDatePicker,
   HDateTimeDialog,
@@ -133,7 +130,6 @@ const Components = {
   HNavDrawer,
   HRadio,
   HRating,
-  HSearch,
   HTab,
   HTabs,
   HTable,

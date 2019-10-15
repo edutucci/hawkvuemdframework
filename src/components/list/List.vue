@@ -1,6 +1,7 @@
 <template lang="pug">
-  div.boxshadow2.no-user-select(
-    :class="[ { 'border border-gray border-radius': bordered } ]"
+  div.no-user-select.h-list(
+    :class="[ { 'border border-gray': bordered, 'item-separator': itemSeparator } ]"
+    style="padding: 2px 0px"
   )
     slot
 
@@ -12,6 +13,10 @@ export default {
   name: 'HList',
   props: {
     bordered: {
+      type: Boolean,
+      default: false
+    },
+    itemSeparator: {
       type: Boolean,
       default: false
     }

@@ -1,5 +1,5 @@
 <template lang="pug">
-  .flex.flex-1.list-item-content-padding.overflow-hidden.flex-items-center
+  .flex.flex-1.h-list-item-content.list-item-content-padding.overflow-hidden.flex-items-center
     .flex.flex-column
       slot
     // div.full-with(v-if="separator")

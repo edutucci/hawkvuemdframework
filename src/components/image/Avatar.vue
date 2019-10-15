@@ -1,11 +1,27 @@
 <template lang="pug">
-  div(style="position:relative; display: inline-block;")
-    img.avatar(:src="src" alt="avatar" :style="[imgsize]")
+  .h-avatar-container(
+    :style="[imgsize]"
+  )
+    .h-avatar-content.flex.align-items-center.overflow-hidden(
+      v-if="src && src.length > 0"
+      :class="[bgColor, textColor, { 'square': square, 'border-radius': borderRadius }]"
+    )
+      img(:src="src" alt="avatar")
+    .h-avatar-content.flex.justify-center.align-items-center.overflow-hidden(
+      v-else
+      :class="[bgColor, textColor, { 'square': square, 'border-radius': borderRadius }]"
+    )
+      slot
+
 </template>
 
 <script>
 
+import componentBase from '../componentBase.vue'
+
 export default {
+  name: 'HAvatar',
+  extends: componentBase,
   props: {
     src: {
       type: String,
@@ -13,14 +29,21 @@ export default {
     },
     size: {
       type: String,
-      default: '24px'
+      default: '40px'
+    },
+    square: {
+      type: Boolean,
+      default: false
+    },
+    borderRadius: {
+      type: Boolean,
+      default: false
     }
   },
   data () {
     return {
       imgsize: {
-        width: this.size,
-        height: this.size
+        fontSize: this.size
       }
     }
   },
@@ -34,23 +57,9 @@ export default {
   },
   methods: {
     defineSize () {
-      this.imgsize.width = this.size
-      this.imgsize.height = this.size
+      this.imgsize.fontSize = this.size
     }
   }
 
 }
 </script>
-
-<style scoped>
-/* Rounded avatar */
-.avatar {
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    border-radius: 50%;
-
-    /* -webkit-box-shadow: 0 0 0 3px #fff, 0 0 0 4px #999, 0 2px 5px 4px rgba(0,0,0,.2);
-    -moz-box-shadow: 0 0 0 3px #fff, 0 0 0 4px #999, 0 2px 5px 4px rgba(0,0,0,.2);
-    box-shadow: 0 0 0 3px #fff, 0 0 0 4px #999, 0 2px 5px 4px rgba(0,0,0,.2); */
-}
-</style>
