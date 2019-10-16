@@ -17,6 +17,22 @@
           </h-app-toolbar-action>
         </h-app-toolbar-container>
       </h-app-toolbar>
+      <!-- <h-app-toolbar bg-color="bg-primary">
+        <h-app-toolbar-container>
+          <h-app-toolbar-navigation text-color="text-white" @click="showDrawer = true"/>
+          <h-app-toolbar-title class="text-white">
+            HawkFramework 1.0.12
+          </h-app-toolbar-title>
+          <h-app-toolbar-action>
+            <h-btn fab size="sm" bg-color="bg-transparent">
+              <h-link url="/" icon="fas fa-home" text-color="text-white"/>
+            </h-btn>
+            <h-btn fab size="sm" bg-color="bg-transparent">
+              <h-link url="https://github.com/edutucci/hawkframework" icon="fab fa-github" text-color="text-white" new-window/>
+            </h-btn>
+          </h-app-toolbar-action>
+        </h-app-toolbar-container>
+      </h-app-toolbar> -->
     </h-page-header>
 
     <h-nav-drawer ref="nav" v-model="showDrawer" side="left">

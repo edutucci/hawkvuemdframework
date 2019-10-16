@@ -46,7 +46,7 @@
       </div>
       <div class="avatar_row flex align-items-center">
         <h-image bg-color="bg-red400">1</h-image>
-        <h-image square bg-color="bg-yellow400">A</h-image>
+        <h-image avatar bg-color="bg-yellow400">A</h-image>
         <h-image border-radius bg-color="bg-green400">F</h-image>
       </div>
     </comp-code>
@@ -59,11 +59,10 @@
       </div>
       <div class="avatar_row flex align-items-center">
         <h-image bg-color="bg-red400" size="48px">1</h-image>
-        <h-image square bg-color="bg-yellow400" size="64px">A</h-image>
+        <h-image avatar bg-color="bg-yellow400" size="64px">A</h-image>
         <h-image border-radius bg-color="bg-green400" size="82px">F</h-image>
       </div>
     </comp-code>
-
   </h-page-content>
 </template>
 

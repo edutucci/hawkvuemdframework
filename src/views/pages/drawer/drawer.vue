@@ -1,21 +1,18 @@
 <template>
   <h-page-content padding>
+    111
     <div class="text-h4">Drawer</div>
 
     <!--
       Bugs
       - Allow draws right side screen
     -->
-      <div>
-        <h-btn contained bgcolor="bg-primary" textcolor="text-white" text="Open Drawer Left" @click="showDrawer = true; side='left'"/>
-        <h-btn contained bgcolor="bg-primary" textcolor="text-white" text="Open Drawer Right" @click="showDrawer = true; side='right'"/>
-      </div>
     <comp-code class="h-mt-lg" title="Drawer Left" :code="drawer" :script="drawerScript"
       javascript
     >
       <div>
-        <h-btn contained bgcolor="bg-primary" textcolor="text-white" text="Open Drawer Left" @click="showDrawer = true; side='left'"/>
-        <h-btn contained bgcolor="bg-primary" textcolor="text-white" text="Open Drawer Right" @click="showDrawer = true; side='right'"/>
+        <h-btn contained bg-color="bg-primary" text-color="text-white" text="Open Drawer Left" @click="showDrawer = true; side='left'"/>
+        <h-btn class="h-ml-sm" contained bg-color="bg-primary" text-color="text-white" text="Open Drawer Right" @click="showDrawer = true; side='right'"/>
       </div>
     </comp-code>
 

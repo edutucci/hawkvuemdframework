@@ -4,6 +4,7 @@
     class="flex drawer-animation bg-modal "
     :class="{ 'drawer': value, 'flex-justify-start': side === 'left', 'flex-justify-end': side === 'right' }"
     :style="{ width: activeWidth }"
+    v-resize.initial="onResize"
   >
     <div class="flex flex-column drawer_container position-relative" v-on-clickaway="away">
       <div class="position-relative">
@@ -23,9 +24,13 @@
 <script>
 
 import { mixin as clickaway } from 'vue-clickaway'
+import resize from 'vue-resize-directive'
 
 export default {
   name: 'Drawer',
+  directives: {
+    resize
+  },
   mixins: [ clickaway ],
   props: {
     value: {
@@ -63,6 +68,9 @@ export default {
       if (this.value) {
         this.close()
       }
+    },
+    onResize () {
+      console.log('drawer resize')
     }
   }
 }

@@ -9,7 +9,7 @@
       img.h-avatar-img-content(:src="src" alt="avatar")
     .h-image-content.flex.justify-center.align-items-center.overflow-hidden(
       v-else
-      :class="[bgColor, textColor, { 'square': square, 'border-radius': borderRadius }]"
+      :class="[bgColor, textColor, { 'avatar': avatar, 'border-radius': borderRadius }]"
     )
       slot
 

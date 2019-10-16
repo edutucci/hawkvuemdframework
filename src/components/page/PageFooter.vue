@@ -1,5 +1,5 @@
 <template>
-  <footer class="bottom-left-fixed" style="right:0px; z-index: 1000;">
+  <footer class="bottom-left-fixed" style="right:0px; z-index: 1000;" id="page-footer">
     <slot></slot>
   </footer>
 </template>
