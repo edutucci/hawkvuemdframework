@@ -105,7 +105,7 @@
             @click="onSelectItem(option)"
           )
             h-list-item-side(v-if="displayMode ==='icon'")
-              h-fa-icon(:icon="option.icon")
+              h-icon(:icon="option.icon")
             h-list-item-side(v-if="displayMode ==='avatar'")
               h-image(:src="option.avatar" avatar)
             // h-list-item-side(v-if="displayMode ==='image'")
@@ -130,7 +130,7 @@
             @click="onSelectItem(option)"
           )
             h-list-item-side.align-items-center(v-if="option.icon && option.icon.length")
-              h-fa-icon(:icon="option.icon" size="24px" style="color: gray")
+              h-icon(:icon="option.icon" size="24px" style="color: gray")
             h-list-item-side.align-items-center(v-else-if="option.avatar && option.avatar.length > 0")
               h-image(:src="option.avatar" size="24px" avatar)
             h-list-item-side.align-items-center(v-else-if="option.img && option.img.length > 0")

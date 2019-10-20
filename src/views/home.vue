@@ -85,7 +85,7 @@
                 <h-collapsible-item text="Icons" @click="$router.push('/icon'), $refs.nav.close()"/>
                 <h-collapsible-item text="List" @click="$router.push('/list'), $refs.nav.close()"/>
                 <!-- <h-collapsible-item text="Menu (atualizar help)" @click="$router.push('/menu'), $refs.nav.close()"/> -->
-                <!-- <h-collapsible-item text="MenuSlider (atualizar help)" @click="$router.push('/menuSlider'), $refs.nav.close()"/> -->
+                <h-collapsible-item text="MenuSlider" @click="$router.push('/menuSlider'), $refs.nav.close()"/>
                 <h-collapsible-item text="Mask" @click="$router.push('/mask'), $refs.nav.close()"/>
                 <h-collapsible-item text="Dialog" @click="$router.push('/dialog'), $refs.nav.close()"/>
                 <h-collapsible-item text="Radio" @click="$router.push('/radio'), $refs.nav.close()"/>

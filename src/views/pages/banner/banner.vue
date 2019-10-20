@@ -19,7 +19,7 @@
         <template v-slot:text>
           <div class="row align-items-center">
             <div class="col-auto">
-               <h-md-icon icon="signal_wifi_off"/>
+               <h-icon icon="signal_wifi_off"/>
             </div>
             <div class="col">
               You have lost connection to the internet.This app is offline.
@@ -93,7 +93,7 @@ export default {
   <template v-slot:text>
     <div class="row">
       <div class="col-auto">
-          <h-md-icon icon="signal_wifi_off"/>
+          <h-icon icon="signal_wifi_off"/>
       </div>
       <div class="col">
         You have lost connection to the internet.This app is offline.

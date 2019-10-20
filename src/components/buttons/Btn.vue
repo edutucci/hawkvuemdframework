@@ -11,11 +11,11 @@
     )
       div(v-if="!dropdown" class="full-width flex flex-justify-center flex-items-center full-height" :class="[typography]")
         div(v-if="leftIcon && leftIcon.length > 0" class="flex-align-center")
-          h-fa-icon(class="btn-icon" :text-color="textColor" :icon="leftIcon" size="16px")
+          h-icon(class="btn-icon" :text-color="textColor" :icon="leftIcon" size="16px")
         div(v-if="text && text.length > 0" class="flex flex-align-center h-ml-xs h-mr-xs")
           | {{buttonText}}
         div(v-if="rightIcon && rightIcon.length > 0" class="flex-align-center")
-          h-fa-icon(class="btn-icon" :text-color="textColor" :icon="rightIcon" size="16px")
+          h-icon(class="btn-icon" :text-color="textColor" :icon="rightIcon" size="16px")
         slot
       div(
         v-else
@@ -23,7 +23,7 @@
         :id="containerid"
       )
         .flex.align-items-center.cursor-pointer.full-height
-          h-fa-icon.h-mr-xs(
+          h-icon.h-mr-xs(
             v-if="leftIcon && leftIcon.length > 0"
             :icon="leftIcon"
             :text-color="textColor"
@@ -47,7 +47,7 @@
             div
               slot(name="content")
 
-            h-fa-icon.h-ml-xs(
+            h-icon.h-ml-xs(
               :icon="dropDownIcon"
               :text-color="textColor"
               size="18px"

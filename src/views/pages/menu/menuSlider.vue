@@ -1,24 +1,49 @@
 <template>
-  <div style="min-height: calc(100vh - 97px);">
+  <h-page-content padding>
     <h1>Slide Menu Icons</h1>
 
-    <h-slide-menu-list bgcolor="bg-primary" textcolor="text-white">
-      <h-slide-menu text="Menu Slider" icon='fas fa-user'>
-        <h-slide-menu-item text="this page" url="/menuSlider"/>
-        <h-slide-menu-item text="this page" url="/menuSlider"/>
+    <h-slide-menu-list class="border border-gray border-radius" bg-color="bg-white" text-color="text-black">
+      <h-slide-menu text="User" icon='fas fa-user'>
+        <h-list style="width: 180px">
+          <h-list-item>
+            <h-list-item-content>
+              <h-list-item-text title="Add User"/>
+            </h-list-item-content>
+          </h-list-item>
+          <h-list-item>
+            <h-list-item-content>
+              <h-list-item-text title="Account Settings"/>
+            </h-list-item-content>
+          </h-list-item>
+          <h-list-item>
+            <h-list-item-content>
+              <h-list-item-text title="Profile"/>
+            </h-list-item-content>
+          </h-list-item>
+        </h-list>
       </h-slide-menu>
-      <h-slide-menu text="Github" icon='fab fa-github'>
-        <h-slide-menu-item text="Hawk Framework" @itemClick="itemClick" url="https://github.com/edutucci/hawkframework" new-window/>
-        <h-slide-menu-item text="Starter Kit" @itemClick="itemClick" url="https://github.com/edutucci/hawkframework-starter-kit" new-window/>
+      <h-slide-menu text="Help" icon='far fa-question-circle'>
+        <h-list style="width: 200px">
+          <h-list-item>
+            <h-list-item-content>
+              <h-list-item-text title="About"/>
+            </h-list-item-content>
+          </h-list-item>
+          <h-list-item>
+            <h-list-item-content>
+              <h-list-item-text title="Check for updates"/>
+            </h-list-item-content>
+          </h-list-item>
+          <h-list-item>
+            <h-list-item-content>
+              <h-list-item-text title="View license"/>
+            </h-list-item-content>
+          </h-list-item>
+        </h-list>
       </h-slide-menu>
     </h-slide-menu-list>
 
-    <pre v-highlightjs="menu">
-      <code class="html">
-      </code>
-    </pre>
-
-    <h2 class="text-primary"> Slide Menu List Help</h2>
+    <!-- <h2 class="text-primary"> Slide Menu List Help</h2>
     <h2 class="text-primary"> Vue Properties</h2>
     <hr>
 
@@ -82,9 +107,9 @@
         <div>url or router-link</div>
         <div>if true will open url in new window. Default is <b>false</b></div>
       </div>
-    </div>
+    </div> -->
 
-  </div>
+  </h-page-content>
 </template>
 
 <script>

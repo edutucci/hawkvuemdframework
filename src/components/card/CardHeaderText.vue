@@ -2,7 +2,7 @@
   .row.flex.flex-column.overflow-hidden.card-padding
     .flex
       .card-header-image-padding(v-if="(icon && icon.length) || (avatar && avatar.length)")
-        h-fa-icon(:icon="icon" textcolor="text-gray")
+        h-icon(:icon="icon" textcolor="text-gray")
         h-image(avatar :src="avatar")
 
       .row.flex.flex-column

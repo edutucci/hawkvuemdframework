@@ -4,7 +4,7 @@
       h-btn(v-if="showButtons" text-button fab bg-color="bg-transparent" size="sm" :disabled="!showLeffButton"
         @click="scrollLeft(true)"
       )
-        h-fa-icon(icon="fas fa-arrow-left" :text-color="iconColor")
+        h-icon(icon="fas fa-arrow-left" :text-color="iconColor")
 
       .flex-1.cursor-pointer.overflow-hidden.no-user-select(
         id="scroll" v-resize.initial="onResize" v-dragscroll="true"
@@ -15,7 +15,7 @@
       h-btn(v-if="showButtons" text-button fab bg-color="bg-transparent" size="sm" :disabled="!showRightButton"
         @click="scrollLeft(false)"
       )
-        h-fa-icon(icon="fas fa-arrow-right" :text-color="iconColor")
+        h-icon(icon="fas fa-arrow-right" :text-color="iconColor")
 
  </template>
 

@@ -1,129 +1,60 @@
 <template>
   <div
     class="no-user-select flex flex-column slide-menu-list"
-    :class="bgcolor"
-    v-on-clickaway="closeMenu"
+    :class="bgColor"
+    style="position: relative; display: inline-block;"
   >
-    <div>
-      <slot></slot>
-    </div>
-    <div class="flex flex-column text-center image-list">
-      <h-fa-icon
-        :textcolor="textcolor"
+    <div class="column text-center image-list cursor-pointer">
+      <h-icon
+        :text-color="textColor"
         class="image-item"
-        v-for="(item, index) in menuList"
+        v-for="(menu, index) in menuList"
         :key="index"
         size="20px"
-        :icon="item.icon"
-        @click="selectMenu(item)"
+        :icon="menu.icon"
+        @click="selectMenu(menu)"
       />
     </div>
-    <div  v-if="menuContent && menuContent.items.length" class="slide-menu-container border-radius">
-      <div class="flex flex-column full-width">
-        <div class="flex flex-row" :class="[bgcolor,textcolor]">
-          <div class="flex flex-row flex-items-center flex-1">
-            <div style="margin-left: 8px; margin-top: 4px">
-              <h-fa-icon
-                v-if="menuContent.icon"
-                :icon="menuContent.icon"
-                :class="textcolor"
-                size="18px"
-              />
-              <h-avatar
-                v-else-if="menuContent.menuAvatar"
-                :src="menuContent.menuAvatar"
-                size="32px"
-              />
-            </div>
-            <div class="h-pl-md menu-title flex flex-1 flex-justify-center flex-items-center overflow-hidden" style="padding-top: 4px">
-              <h3>{{menuContent.title}} </h3>
-            </div>
-          </div>
-          <div @click="closeMenu"
-            class="close flex flex-justify-end flex-items-center"
-            style="margin-left:8px; margin-right:8px;"
-          >
-            <h-fa-icon icon="fas fa-times-circle" size="18px" :class="textcolor"/>
-          </div>
-        </div>
-        <div class="flex flex-column"
-          v-if="menuContent && menuContent.items.length"
-        >
-          <div
-            class="flex flex-justify-center bg-white"
-            style="cursor:pointer;"
-            v-for="(item, index) in menuContent.items" :key="index"
-          >
-            <h-btn contained
-              class="full-width"
-            >
-              <h-link :text="item.text" :url="item.url" :new-window="item.newWindow"/>
-            </h-btn>
-          </div>
-        </div>
-      </div>
+    <div style="position:absolute; left: 53px; top: 0px; width: auto;">
+      <slot></slot>
     </div>
-
   </div>
 </template>
 
 <script>
-import { mixin as clickaway } from 'vue-clickaway'
 import componentBase from '../componentBase.vue'
 
 export default {
-  mixins: [ clickaway ],
   extends: componentBase,
-  name: 'SlideMenuList',
+  name: 'HSlideMenuList',
   props: {
   },
   data () {
     return {
       menuList: [],
-      menuContent: {
-        title: '',
-        icon: '',
-        items: []
-      }
+      currentMenu: undefined
     }
   },
   methods: {
-    addSlideMenuList (menu) {
-      if (menu) {
-        this.menuList.push(menu)
-      }
+    addSlideMenu (menu) {
+      this.menuList.push(menu)
     },
-    updateSlideMenuList (menu) {
-      let index = this.menuList.findIndex(item => item.text === menu.textOld)
-      if (index !== -1) {
-        this.$set(this.menuList, index, menu)
-        this.selectMenu(menu)
-      }
-    },
-    selectMenu (item) {
-      this.menuContent = {
-        title: item.text,
-        icon: item.icon,
-        items: []
-      }
-      if (item.menuList) {
-        for (let index = 0; index < item.menuList.length; index++) {
-          this.menuContent.items.push(item.menuList[index])
-        }
-      }
+    selectMenu (menu) {
+      this.closeMenu()
+      this.currentMenu = menu
+      this.currentMenu.setVisible(true)
     },
     closeMenu () {
-      this.menuContent.items = []
+      if (this.currentMenu) {
+        this.currentMenu.setVisible(false)
+        this.currentMenu = undefined
+      }
     }
   }
 }
 </script>
 
 <style scoped>
-.slide-menu-list {
-  position: relative;
-  display: inline-block;
-}
 
 .slide-menu-container {
   position: absolute;

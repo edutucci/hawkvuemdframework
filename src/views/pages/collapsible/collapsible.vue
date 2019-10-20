@@ -36,7 +36,7 @@
         <h-collapsible-menu icon="fa fa-film" text="Letter">
           <div class="flex flex-items-center flex-justify-center">
             <div>
-              <h-image avatar src="img/hawk.png" size="64px"/>
+              <h-image avatar src="img/hawk.jpg" size="64px"/>
             </div>
             <div>
               <h1>Free Framework CSS</h1>

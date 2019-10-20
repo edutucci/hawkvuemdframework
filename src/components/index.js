@@ -25,6 +25,7 @@ import HCarouselSlider from './carousel/CarouselSlider.vue'
 import HDatePicker from './date/HDatePicker.vue'
 import HDateTimeDialog from './date/DateTimeDialog.vue'
 import HTimePicker from './date/HTimePicker.vue'
+import HIcon from './icons/HIcon'
 import HFaIcon from './icons/FaIcon.vue'
 import HMdIcon from './icons/MdIcon.vue'
 import HFileUpload from './fileUpload/fileUpload.vue'
@@ -47,10 +48,9 @@ import HAppToolbarFab from './appBar/HAppToolbarFab'
 import HMenuBar from './menu/HMenuBar.vue'
 import HMenuBarItem from './menu/HMenuBarItem.vue'
 import HSlideMenuList from './menu/SlideMenuList.vue'
-import HSlideMenu from './menu/HSlideMenu.vue'
-import HSlideMenuItem from './menu/HSlideMenuItem.vue'
+import HSlideMenu from './menu/SlideMenu.vue'
 import HModal from './window/HModal'
-import HNavDrawer from '../components/window/HNavDrawer'
+import HNavDrawer from '../components/window/NavDrawer'
 import HRadio from './radio/HRadio.vue'
 import HRating from './rating/Rating.vue'
 import HTab from './tab/HTab.vue'
@@ -100,6 +100,7 @@ const Components = {
   HDatePicker,
   HDateTimeDialog,
   HTimePicker,
+  HIcon,
   HFaIcon,
   HMdIcon,
   HFileUpload,
@@ -123,7 +124,6 @@ const Components = {
   HMenuBarItem,
   HSlideMenuList,
   HSlideMenu,
-  HSlideMenuItem,
   HModal,
   HNavDrawer,
   HRadio,

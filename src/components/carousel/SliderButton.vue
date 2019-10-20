@@ -3,7 +3,7 @@
     .flex.flex-items-center(
       style="diplay:inline-block; min-width: 24px; min-height: 24px;"
     )
-      h-btn(text-button bg-color="bg-primary" fab size="lg")
+      h-btn(bg-color="bg-transparent" fab size="lg")
         h-fa-icon(
           text-color="text-white"
           :icon="icon"

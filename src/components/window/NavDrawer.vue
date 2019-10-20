@@ -70,7 +70,7 @@ export default {
       }
     },
     onResize () {
-      console.log('drawer resize')
+      // console.log('drawer resize')
     }
   }
 }

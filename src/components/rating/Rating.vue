@@ -1,7 +1,7 @@
 <template lang="pug">
   .flex.flex.column(style="display:inline-block;")
     div
-      h-fa-icon.rating-star(
+      h-icon.rating-star(
         v-for="(rat, index) in ratings"
         :key="index"
         :icon="rat.icon"

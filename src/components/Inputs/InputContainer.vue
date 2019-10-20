@@ -8,7 +8,7 @@
           .col-auto(v-if="leadingIcon && leadingIcon.length > 0")
             .row.justify-center.align-items-center.full-height
               .col-auto.h-ml-sm.h-mr-sm
-                h-fa-icon(:icon="leadingIcon" :text-color="iconColor")
+                h-icon(:icon="leadingIcon" :text-color="iconColor")
           .col.position-relative(
           )
             .row
@@ -44,30 +44,30 @@
                       .col-auto
                         .row.justify-center.align-items-center.full-height
                           .col-auto.input-icons-padding(v-if="errorMessage && errorMessage.length > 0")
-                            h-fa-icon(
+                            h-icon(
                               :text-color="iconErrorTextColor"
                               icon="fas fa-exclamation-circle"
                               @click="onClearable"
                             )
                           .col-auto.input-icons-padding(v-if="clearable")
-                            h-fa-icon(
+                            h-icon(
                               :text-color="iconColor"
                               icon="fas fa-times-circle"
                               @click="onClearable"
                             )
                           .col-auto.input-icons-padding(v-if="type === 'password'")
-                            h-fa-icon(
+                            h-icon(
                               :text-color="iconColor"
                               icon="fas fa-eye"
                               @click="onTogglePassword"
                             )
                           .col-auto.input-icons-padding(v-if="trailingIcon && trailingIcon.length > 0")
-                              h-fa-icon(
+                              h-icon(
                                 :icon="trailingIcon"
                                 :text-color="iconColor"
                               )
                           .col-auto.input-icons-padding(v-if="inputDropdown")
-                            h-fa-icon(
+                            h-icon(
                               :text-color="iconDropdownColor"
                               icon="fas fa-caret-down"
                             )

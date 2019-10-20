@@ -1,5 +1,5 @@
 <template lang="pug">
-  div(style="width:350px; position:relative;")
+  div(style="max-width:350px; position:relative;")
     date-panel(
       :week_days="week_days"
       :months="months"

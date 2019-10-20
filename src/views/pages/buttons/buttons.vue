@@ -80,7 +80,7 @@
         </comp-code>
 
         <comp-code class="h-mt-md" title="FAB Buttons" :code="fabButtons">
-          <div class="row">
+          <div>
             <h-btn fab bg-color="bg-primary" size="xl">
               <h-fa-icon icon="fas fa-envelope"  text-color="text-white" size="32px"/>
             </h-btn>
@@ -155,7 +155,7 @@
 
         <comp-code class="h-mt-md" title="DropDown Buttons" :code="dropdownButtons"
         :script="scriptDropdownButtons" javascript >
-          <div class="row">
+          <div class="row wrap">
             <div class="col-auto">
               <h-btn dropdown
                 text="Options"
@@ -326,7 +326,7 @@
         <h2 class="text-primary"> Vue Properties</h2>
         <hr>
 
-        <div class="flex">
+        <div class="row wrap">
           <div>
             <h3>Name</h3>
             <div>bg-color</div>
@@ -368,7 +368,7 @@
         <h2 class="text-primary"> Vue Events</h2>
         <hr>
 
-        <div class="flex">
+        <div class="row wrap">
           <div>
             <h3>Name</h3>
             <div>@click</div>

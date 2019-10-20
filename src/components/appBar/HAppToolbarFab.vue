@@ -5,11 +5,11 @@
     )
       .col-auto(v-if="!inset")
         h-btn.btnfab(fab bg-color="bg-black" size="lg")
-          h-fa-icon(:icon="fabIcon" text-color="text-white" size="24px")
+          h-icon(:icon="fabIcon" text-color="text-white" size="24px")
       .col-auto(v-else)
         div.btnfabinset.bg-white.h-pa-sm(style="border-radius: 50%")
           h-btn(fab bg-color="bg-black" size="lg")
-            h-fa-icon(:icon="fabIcon" text-color="text-white" size="24px")
+            h-icon(:icon="fabIcon" text-color="text-white" size="24px")
 
 </template>
 
