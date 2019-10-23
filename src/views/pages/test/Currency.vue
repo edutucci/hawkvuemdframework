@@ -7,8 +7,18 @@
       />
 
       <h-banner class="h-mt-md">
-
       </h-banner>
+      <!-- <img src="img/landscape1.jpeg"/> -->
+      <h-image src="svg/bag_currency.svg"/>
+      <i class="far fa-address-card"></i>
+      <i class="material-icons">alarm</i>
+      <i class="material-icons">add_shopping_cart</i>
+
+      <h5>Icon Test</h5>
+      <div class="row h-mt-md">
+        <h-icon icon="fas fa-cart-plus"></h-icon>
+        <h-icon icon="add_shopping_cart"></h-icon>
+      </div>
 
   </h-page-content>
 </template>

@@ -5,19 +5,19 @@
         .flex-1.text-bold
           | {{title}}
         .flex
-          h-fa-icon(icon="far fa-file-code" @click="changePage('result')")
-          h-fa-icon.h-ml-sm(icon="fas fa-code" @click="changePage('template')")
-          h-fa-icon.h-ml-sm(v-if="javascript" icon="fab fa-js" @click="changePage('javascript')")
+          h-icon(icon="far fa-file-code" @click="changePage('result')")
+          h-icon.h-ml-sm(icon="fas fa-code" @click="changePage('template')")
+          h-icon.h-ml-sm(v-if="javascript" icon="fab fa-js" @click="changePage('javascript')")
       .flex.flex-column.full-width.bg-white.position-relative
-        div.h-pa-sm(v-if="pageName === 'result'")
+        div.full-width.h-pa-sm(v-if="pageName === 'result'")
           slot
         div.position-relative(v-if="pageName === 'template'" style="min-height: 60px;")
           .top-right-absolute.h-mr-sm.h-mt-md.buttoncopycode
-            h-fa-icon(icon="far fa-copy" text-color="text-primary" @click="copyCodeToClipboard")
+            h-icon(icon="far fa-copy" text-color="text-primary" @click="copyCodeToClipboard")
           prism(language="html" :code="code")
         div.position-relative(v-if="pageName === 'javascript'" style="min-height: 60px;")
           .top-right-absolute.h-mr-sm.h-mt-md.buttoncopycode
-            h-fa-icon(icon="far fa-copy" text-color="text-primary" @click="copyCodeToClipboard")
+            h-icon(icon="far fa-copy" text-color="text-primary" @click="copyCodeToClipboard")
           prism(language="javascript" :code="script")
         .divcopycode.top-left-absolute.full-size.h-mt-sm(
           v-if="pageName === 'template' || pageName === 'javascript'"

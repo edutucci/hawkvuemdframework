@@ -1,6 +1,6 @@
 <template lang="pug">
   .flex.full-height
-    .flex.flex-column
+    .column.full-width
       .text-body1
         | {{title}}
       .text-overline.text-gray.flex.flex-wrap

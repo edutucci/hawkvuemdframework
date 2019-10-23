@@ -4,7 +4,7 @@
       .btn.bg-white.circle.flex.flex-justify-center.flex-items-center(
         style="width:16px;height:16px;"
       )
-        h-fa-icon.text-negative(
+        h-icon.text-negative(
           icon="fas fa-minus-circle"
           size="16px"
           @click="setPlusMinusValue(-1)"
@@ -15,7 +15,7 @@
       .btn.bg-white.circle.flex.flex-justify-center.flex-items-center(
         style="width:16px;height:16px;"
       )
-        h-fa-icon.text-positive(
+        h-icon.text-positive(
           icon="fas fa-plus-circle"
           size="16px"
           @click="setPlusMinusValue(1)"

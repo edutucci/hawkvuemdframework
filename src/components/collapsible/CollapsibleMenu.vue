@@ -8,11 +8,11 @@
         :class="[textColor, compBgColor, compBgColorHover]"
       )
         .flex.flex-items-center(v-if="icon && icon.length" style="padding-left:16px;padding-right:8px;height:40px;")
-          h-fa-icon(:icon="icon" :text-color="textColor")
+          h-icon(:icon="icon" :text-color="textColor")
         .flex.flex-1.flex-items-center.overflow-hidden(style="padding-left:16px;")
           | {{text}}
         .flex.flex-items-center.arrow(style="padding-left:16px;padding-right:16px;")
-          h-fa-icon(
+          h-icon(
             :text-color="textColor"
             :class="{ 'arrow2': !isVisible, 'arrow': isVisible }"
             icon="fas fa-angle-down"

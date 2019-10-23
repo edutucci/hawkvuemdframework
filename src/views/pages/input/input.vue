@@ -9,161 +9,124 @@
       Bugs
     -->
 
-    <div class="text-h4">Input</div>
+    <div class="row">
+      <div class="col">
+        <div class="text-h4">Input</div>
 
-    <comp-code class="h-mt-lg" title="Types" :code="txttypes">
-      <div class="column col-inputs">
-        <h-input v-model="types" label="Outlined"/>
-        <h-input v-model="types" label="Filled" filled/>
+        <div ref="txt-outlined"/>
+        <comp-code class="h-mt-lg" title="Outlined" :code="txtoutlined">
+          <div class="column col-inputs">
+            <h-input v-model="types" label="Outlined"/>
+            <h-input v-model="types" label="Outlined dense" dense/>
+          </div>
+        </comp-code>
+
+        <div ref="txt-filled"/>
+        <comp-code class="h-mt-lg" title="Filled" :code="txtfilled">
+          <div class="column col-inputs">
+            <h-input v-model="types" label="Filled" filled/>
+            <h-input v-model="types" label="Filled dense" filled dense/>
+          </div>
+        </comp-code>
+
+        <div ref="txt-password"/>
+        <comp-code class="h-mt-lg" title="Password" :code="txtpassword">
+          <div class="column col-inputs">
+            <h-input v-model="types" label="Password" dense type="password"/>
+          </div>
+        </comp-code>
+
+        <div ref="txt-icons"/>
+        <comp-code class="h-mt-lg" title="Icons" :code="txticons">
+          <div class="column col-inputs">
+            <h-input v-model="icons" label="Phone" leading-icon="fas fa-phone" clearable/>
+            <h-input v-model="icons" label="E-Mail" filled leading-icon="fas fa-envelope" clearable/>
+          </div>
+        </comp-code>
+
+        <div ref="txt-messages"/>
+        <comp-code class="h-mt-lg" title="Messages" :code="txtmessages">
+          <div class="column col-inputs">
+            <h-input v-model="message" label="Phone" clearable
+              helper-text="Type a phone"
+            />
+            <h-input v-model="message" label="Phone" clearable
+              error-message="Invalid information"
+            />
+            <h-input v-model="message" label="TextCounter" clearable
+              helper-text="Counter:" input-counter :text-counter="60" :maxlength="60"
+            />
+          </div>
+        </comp-code>
+
+        <div ref="txt-prefix-suffix"/>
+        <comp-code class="h-mt-lg" title="Prefix and suffix" :code="txtprefixsuffix">
+          <div class="column col-inputs">
+            <h-input v-model="prefix" label="Price" clearable
+              helper-text="Type a value" prefix="$"
+            />
+            <h-input v-model="suffix" label="E-Mail" leading-icon="fas fa-envelope" clearable
+              helper-text="Type a valid mail" suffix="@gmail.com"
+            />
+          </div>
+        </comp-code>
+
+        <div ref="txt-focus-enter"/>
+        <comp-code class="h-mt-lg" title="Input Focus (Using Enter)" :code="txtfocus">
+          <div class="column col-inputs">
+            <h-input v-model="message" label="Name" ref="name"
+              @onEnter="$refs.email.focus()"
+            />
+            <h-input v-model="message" label="E-Mail" ref="email"
+              @onEnter="$refs.name.focus()"
+            />
+          </div>
+        </comp-code>
+
       </div>
-      <div class="row h-mt-md">
-        <div class="col">
-          <h-input v-model="types" label="Outlined dense" dense/>
-        </div>
-        <div class="col">
-          <h-input v-model="types" label="Filled dense" filled dense/>
-        </div>
+      <div class="col-auto h-pl-xs">
+        <h-list class="sticky">
+          <h-list-header text="Types" class="bg-gray"/>
+          <h-list-item @click="goToElement('txt-outlined')">
+            <h-list-item-content>
+              <h-list-item-text title="Outlined"/>
+            </h-list-item-content>
+          </h-list-item>
+          <h-list-item @click="goToElement('txt-filled')">
+            <h-list-item-content>
+              <h-list-item-text title="Filled"/>
+            </h-list-item-content>
+          </h-list-item>
+          <h-list-header text="Examples" class="bg-gray"/>
+          <h-list-item @click="goToElement('txt-password')">
+            <h-list-item-content>
+              <h-list-item-text title="Password"/>
+            </h-list-item-content>
+          </h-list-item>
+          <h-list-item @click="goToElement('txt-icons')">
+            <h-list-item-content>
+              <h-list-item-text title="Icons"/>
+            </h-list-item-content>
+          </h-list-item>
+          <h-list-item @click="goToElement('txt-messages')">
+            <h-list-item-content>
+              <h-list-item-text title="Messages"/>
+            </h-list-item-content>
+          </h-list-item>
+          <h-list-item @click="goToElement('txt-prefix-suffix')">
+            <h-list-item-content>
+              <h-list-item-text title="Prefix and suffix"/>
+            </h-list-item-content>
+          </h-list-item>
+          <h-list-item @click="goToElement('txt-focus-enter')">
+            <h-list-item-content>
+              <h-list-item-text title="Focus(Enter)"/>
+            </h-list-item-content>
+          </h-list-item>
+          <h-list-header text="Additional Types" class="bg-gray"/>
+        </h-list>
       </div>
-    </comp-code>
-
-    <comp-code class="h-mt-lg" title="Password" :code="txtpassword">
-      <div class="column col-inputs">
-        <h-input v-model="types" label="Password" dense type="password"/>
-      </div>
-    </comp-code>
-
-    <comp-code class="h-mt-lg" title="Icons" :code="txttypes">
-      <div class="column col-inputs">
-        <h-input v-model="icons" label="Phone" leading-icon="fas fa-phone" clearable/>
-        <h-input v-model="icons" label="E-Mail" filled leading-icon="fas fa-envelope" clearable/>
-      </div>
-    </comp-code>
-
-    <comp-code class="h-mt-lg" title="Messages" :code="txttypes">
-      <div class="column col-inputs">
-        <h-input v-model="message" label="Phone" clearable
-          helper-text="Type a phone"
-        />
-        <h-input v-model="message" label="Phone" clearable
-          error-message="Invalid information"
-        />
-        <h-input v-model="message" label="TextCounter" clearable
-          helper-text="Counter:" input-counter :text-counter="60" :maxlength="60"
-        />
-      </div>
-    </comp-code>
-
-    <comp-code class="h-mt-lg" title="Prefix and suffix" :code="txttypes">
-      <div class="column col-inputs">
-        <h-input v-model="prefix" label="Price" clearable
-          helper-text="Type a value" prefix="$"
-        />
-        <h-input v-model="suffix" label="E-Mail" leading-icon="fas fa-envelope" clearable
-          helper-text="Type a valid mail" suffix="@gmail.com"
-        />
-      </div>
-    </comp-code>
-
-    <comp-code class="h-mt-lg" title="Input Focus (Using Enter)" :code="txttypes">
-      <div class="column col-inputs">
-        <h-input v-model="message" label="Name" ref="name"
-          @onEnter="$refs.email.focus()"
-        />
-        <h-input v-model="message" label="E-Mail" ref="email"
-          @onEnter="$refs.name.focus()"
-          @blur="onBlur"
-        />
-      </div>
-    </comp-code>
-
-    <!-- <div class="border border-primary">
-      <div class="column col-inputs">
-        <h-input v-model="icons" label="Phone" leading-icon="fas fa-phone" clearable
-          error-message="Invalid information"
-        />
-      </div>
-    </div> -->
-    <!-- <h-input type="password" v-model="txtName" label="Password"
-      left-icon="fas fa-key" placeholder="type your password" clearable
-      helper-text="Type a text" error-message="Invalid information"/>
-
-    <h-input outlined v-model="txtName" label="Outlined" />
-    <h-input outlined rounded v-model="txtName" label="Outlined and Rounded"/>
-    <h-input filled v-model="txtName" label="Filled" />
-    <h-input filled rounded  v-model="txtName" label="Filled and Rounded"/>
-    <h-input v-model="txtName" label="Messages for validation" clearable
-      helper-text="Type a text" error-message="Invalid information" :maxlength="10" :text-counter="10"
-    />
-    <h-input text-center v-model="txtName" label="Text center"/>
-    <h-input text-center readonly v-model="txtName" label="Readonly"/> -->
-
-    <!-- <h1>Key Events</h1>
-    <h-separator/>
-    <div>
-      <strong>Arrow Down, Tab or Enter. Enter works as tab</strong>
-      <h-input
-        class="full-width"
-        v-model="form.code"
-        label="Code"
-        ref="code"
-        left-icon="fas fa-code"
-        @onKeyDown="$refs.name.focus()"
-        @onEnter="$refs.name.focus()"
-      />
-      <h-input
-        filled
-        class="full-width"
-        v-model="form.name"
-        label="Name"
-        ref="name"
-        left-icon="fas fa-user"
-        @onKeyDown="$refs.name2.focus()"
-        @onTab="onKeyTab"
-        @onEnter="$refs.name2.focus()"
-      />
-      <h-input
-        filled
-        rounded
-        outlined
-        class="full-width"
-        v-model="form.name"
-        label="Name"
-        ref="name2"
-        left-icon="fas fa-user"
-        @onKeyDown="$refs.city.focus()"
-        @onTab="onKeyTab"
-        @onEnter="$refs.city.focus()"
-      />
-      <h-input
-        outlined
-        class="full-width"
-        v-model="form.city"
-        label="City"
-        ref="city"
-        left-icon="fas fa-map-marker-alt"
-        @onKeyDown="$refs.city2.focus()"
-        @onTab="onKeyTab"
-        @onEnter="$refs.city2.focus()"
-        @change="onChange"
-        @blur="onBlur"
-      />
-      <h-input
-        outlined
-        rounded
-        class="full-width"
-        v-model="form.city"
-        label="City"
-        ref="city2"
-        left-icon="fas fa-map-marker-alt"
-        @onKeyDown="onKeyDown"
-        @onTab="onKeyTab"
-        @onEnter="onEnter"
-        @change="onChange"
-        @blur="onBlur"
-      />
-    </div> -->
-
-    <!-- <prism language="html" :code="txtkeys"></prism> -->
+    </div>
 
     <h2 class="text-primary"> Vue Properties</h2>
     <hr>
@@ -255,6 +218,8 @@
 
 <script>
 
+import viewport from '../../../components/others/viewport'
+
 export default {
   components: {
   },
@@ -265,58 +230,62 @@ export default {
       message: '',
       prefix: '',
       suffix: '',
-      txtName: 'Input types',
-      focused: false,
-      form: {
-        code: '',
-        name: '',
-        city: ''
-      },
-      txttypes: `
+      txtoutlined: `
 <div class="column col-inputs">
   <h-input v-model="types" label="Outlined"/>
-  <h-input v-model="types" label="Filled" filled/>
   <h-input v-model="types" label="Outlined dense" dense/>
+</div>
+`,
+      txtfilled: `
+<div class="column col-inputs">
+  <h-input v-model="types" label="Filled" filled/>
   <h-input v-model="types" label="Filled dense" filled dense/>
 </div>
 `,
       txtpassword: `
 <div class="column col-inputs">
   <h-input v-model="types" label="Password" dense type="password"/>
-</div>    
+</div>  
 `,
-      txtkeys: `
-<div class="col-6">
-  <strong>Arrow Down, Tab or Enter. Enter works as tab</strong>
-  <h-input
-    class="full-width"
-    v-model="form.code"
-    float-label="Code"
-    ref="code"
-    @onKeyDown="onKeyDown"
-    @onEnter="$refs.name.focus()"
+      txticons: `
+<div class="column col-inputs">
+  <h-input v-model="icons" label="Phone" leading-icon="fas fa-phone" clearable/>
+  <h-input v-model="icons" label="E-Mail" filled leading-icon="fas fa-envelope" clearable/>
+</div> 
+`,
+      txtmessages: `
+<div class="column col-inputs">
+  <h-input v-model="message" label="Phone" clearable
+    helper-text="Type a phone"
   />
-  <h-input
-    class="full-width"
-    v-model="form.name"
-    float-label="Name"
-    ref="name"
-    @onKeyDown="onKeyDown"
-    @onTab="onKeyTab"
-    @onEnter="$refs.city.focus()"
+  <h-input v-model="message" label="Phone" clearable
+    error-message="Invalid information"
   />
-  <h-input
-    class="full-width"
-    v-model="form.city"
-    float-label="City"
-    ref="city"
-    @onKeyDown="onKeyDown"
-    @onTab="onKeyTab"
-    @onEnter="onEnter"
-    @change="onChange"
+  <h-input v-model="message" label="TextCounter" clearable
+    helper-text="Counter:" input-counter :text-counter="60" :maxlength="60"
   />
 </div>
-      `
+`,
+      txtprefixsuffix: `
+<div class="column col-inputs">
+  <h-input v-model="prefix" label="Price" clearable
+    helper-text="Type a value" prefix="$"
+  />
+  <h-input v-model="suffix" label="E-Mail" leading-icon="fas fa-envelope" clearable
+    helper-text="Type a valid mail" suffix="@gmail.com"
+  />
+</div>
+`,
+      txtfocus: `
+<div class="column col-inputs">
+  <h-input v-model="message" label="Name" ref="name"
+    @onEnter="$refs.email.focus()"
+  />
+  <h-input v-model="message" label="E-Mail" ref="email"
+    @onEnter="$refs.name.focus()"
+  />
+</div>
+`
     }
   },
   methods: {
@@ -331,6 +300,9 @@ export default {
       this.$nextTick(() => {
         this.$refs.name.focus()
       })
+    },
+    goToElement (refName) {
+      viewport.goToElement(this.$refs[refName])
     }
   }
 }

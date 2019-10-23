@@ -1,30 +1,30 @@
 <template lang="pug">
-  <div class="full-width boxshadow" style="background-color:white">
+  <div class="full-width border border-gray" style="background-color:white; max-width:400px">
     <div class=" flex flex-justify-center flex-items-center text-white bg-primary">
-      <div class="btn bg-primary" @click="panelMode= (panelMode === '12h' || panelMode === 'min') ? '24h' : '12h'"><h2 class="no-margin">{{hour}}</h2></div>
+      <div class="btn bg-primary cursor-pointer" @click="panelMode= (panelMode === '12h' || panelMode === 'min') ? '24h' : '12h'"><h2 class="no-margin">{{hour}}</h2></div>
       <div class="h-pl-sm h-pr-sm"><h2 class="no-margin">:</h2></div>
-      <div class="btn bg-primary" @click="panelMode= (panelMode !== 'min') ? 'min' : '12h'"><h2 class="no-margin">{{min}}</h2></div>
+      <div class="btn bg-primary cursor-pointer" @click="panelMode= (panelMode !== 'min') ? 'min' : '12h'"><h2 class="no-margin">{{min}}</h2></div>
       <div class="btn bg-primary"><h2 class="no-margin">{{AMPM}}</h2></div>
     </div>
-    <div class="flex flex-justify-center h-pa-lg">
+    <div class="flex flex-justify-center h-pa-md">
       <div class="clock">
         <div v-if="panelMode==='12h'" class="bg-primary pointer12H" :style="[pointer12H]"></div>
         <div v-if="panelMode==='24h'" class="bg-primary pointer24H" :style="[pointer24H]"></div>
         <div v-if="panelMode==='min' || panelMode==='12h'" class="bg-primary pointerMin" :style="[pointerMin]"></div>
-        <div v-if="panelMode==='12h'" v-for="tH in transforms12Hours" :key="tH.text" class="btn circle text-primary flex flex-justify-center" :style="tH.transform">
-          <div> {{tH.text}} </div>
+        <div v-if="panelMode==='12h'" v-for="tH in transforms12Hours" :key="tH.text" class="pointerNumber flex flex-justify-center" :style="tH.transform">
+          <div>{{tH.text}}</div>
         </div>
-        <div v-if="panelMode==='24h'" v-for="tH in transforms24Hours" :key="tH.text" class="btn circle text-primary flex flex-justify-center" :class="{activehour: tH.text === curHour.toString()}" :style="tH.transform">
-          <div @click="updateHour(tH.text, tH.rotateZ)"> {{tH.text}} </div>
+        <div v-if="panelMode==='24h'" v-for="tH in transforms24Hours" :key="tH.text" class="btn24H circle text-primary flex flex-justify-center" :class="{activehour: tH.text === curHour.toString()}" :style="tH.transform">
+          <h-btn fab bg-color="bg-transparent" @click="updateHour(tH.text, tH.rotateZ)"> {{tH.text}} </h-btn>
         </div>
-        <div v-if="panelMode==='min'" v-for="tMin in transformsMin" :key="tMin.text" class="btn circle text-primary flex flex-justify-center" :class="{activemin: tMin.text === curMin.toString()}" :style="tMin.transform">
-          <div @click="updateMin(tMin.text, tMin.rotateZ, true)">{{tMin.text}}</div>
+        <div v-if="panelMode==='min'" v-for="tMin in transformsMin" :key="tMin.text" class="btnMin circle text-primary flex flex-justify-center" :class="{activemin: tMin.text === curMin.toString()}" :style="tMin.transform">
+          <h-btn fab bg-color="bg-transparent"  @click="updateMin(tMin.text, tMin.rotateZ, true)">{{tMin.text}}</h-btn>
         </div>
       </div>
     </div>
     <div class="flex flex-justify-end h-pa-sm">
-      h-btn(v-if="!pickerMode" outlined text="OK" textcolor="text-primary" class="h-pr-md" @click="onOK")
-      h-btn(v-if="!pickerMode" outlined text="Close" textcolor="text-primary" class="h-pr-md" @click="onClose")
+      h-btn(v-if="!pickerMode" text="OK" text-color="text-primary" class="h-pr-md" @click="onOK")
+      h-btn(v-if="!pickerMode" text="Close" text-color="text-primary" class="h-pr-md" @click="onClose")
     </div>
   </div>
 
@@ -420,10 +420,9 @@ h2,h1 {
 
 .clock {
   position: relative;
-  width: 300px;
-  height: 300px;
+  width: 322px;
+  height: 322px;
   border-radius: 50%;
-  /*border: 1px solid black;*/
   background-color: #E8E8E8;
 }
 
@@ -433,12 +432,17 @@ h2,h1 {
   }
 } */
 
-.clock > .btn {
+.clock > .pointerNumber {
   position:absolute;
-  top: calc(50% - 13px);
+  top: calc(50% - 10px);
+  left: calc(50% - 5px);
+}
+
+.clock > .btn24H,
+.clock > .btnMin {
+  position:absolute;
+  top: calc(50% - 20px);
   left: calc(50% - 20px);
-  width: 26px;
-  height: 26px;
 }
 
 .clock > .pointerMin {

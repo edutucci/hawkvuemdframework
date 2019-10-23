@@ -44,7 +44,6 @@
 .bg-white-flat-hover:hover.color-hover
   background-color $whitehover
 
-.bg-black-hover:hover.color-hover,
 .bg-black-flat-hover:hover.color-hover
   background-color: white
   color: black
@@ -209,13 +208,6 @@ $activeborderflatsize = 2px
 .active-border-right-black
   border-right  $activebordersize solid $black
 
-
-/* Date Picker */
-.btn.circle.activeday, .btn.circle.activehour,
-.btn.circle.activemin
-  background-color: $primary
-  color: white
-
 /*
 TOGGLE
 */
@@ -225,8 +217,8 @@ input:checked + .slider {
 }
 
 input:checked + .slider:before {
-  -webkit-transform: translateX(20px)
-  -ms-transform: translateX(20px)
-  transform: translateX(20px)
+  -webkit-transform: translateX(14px)
+  -ms-transform: translateX(14px)
+  transform: translateX(14px)
   background-color: $primary
 }

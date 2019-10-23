@@ -22,7 +22,7 @@
             icon-color="text-white"
           )
             .flex
-              h-fa-icon.h-mr-lg(
+              h-icon.h-mr-lg(
                 text-color="text-white"
                 v-for="(slider, index) in sliderList"
                 :key="index"

@@ -25,7 +25,7 @@
           <h-tab name="PROFILE">
             <div class="row align-items-center full-height">
               <div class="col-auto h-ma-sm">
-                <h-avatar src="avatar/Penguin.png" size="48px"/>
+                <h-image avatar src="avatar/Penguin.png" size="48px"/>
               </div>
               <div class="col">
                 <div class="text-h5">Profile</div>
@@ -130,7 +130,7 @@
           <h-tab name="PROFILE">
             <div class="row align-items-center full-height">
               <div class="col-auto h-ma-sm">
-                <h-avatar src="avatar/Penguin.png" size="48px"/>
+                <h-image avatar src="avatar/Penguin.png" size="48px"/>
               </div>
               <div class="col">
                 <div class="text-h5">Profile</div>
@@ -308,7 +308,7 @@ export default {
     <h-tab name="PROFILE">
       <div class="row align-items-center full-height">
         <div class="col-auto h-ma-sm">
-          <h-avatar src="avatar/Penguin.png" size="48px"/>
+          <h-image avatar src="avatar/Penguin.png" size="48px"/>
         </div>
         <div class="col">
           <div class="text-h5">Profile</div>
@@ -411,7 +411,7 @@ export default {
     <h-tab name="PROFILE">
       <div class="row align-items-center full-height">
         <div class="col-auto h-ma-sm">
-          <h-avatar src="avatar/Penguin.png" size="48px"/>
+          <h-image avatar src="avatar/Penguin.png" size="48px"/>
         </div>
         <div class="col">
           <div class="text-h5">Profile</div>

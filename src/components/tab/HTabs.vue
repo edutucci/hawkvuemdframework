@@ -14,11 +14,11 @@
                 >
                   <div class="flex flex-justify-center flex-items-center full-height">
                     <div v-if="tab.leftIcon" class="h-pl-sm h-pr-sm">
-                      <h-fa-icon :text-color="textColor" :icon="tab.leftIcon"/>
+                      <h-icon :text-color="textColor" :icon="tab.leftIcon"/>
                     </div>
                     <div class="flex flex-column full-width">
                       <div v-if="tab.topIcon" class="flex flex-justify-center h-pa-xs">
-                        <h-fa-icon :text-color="textColor" :icon="tab.topIcon"/>
+                        <h-icon :text-color="textColor" :icon="tab.topIcon"/>
                       </div>
                       <div class="h-pl-sm flex flex-justify-center flex-items-center">
                         <div class="text-body1">{{tab.name}}</div>
@@ -47,11 +47,11 @@
             >
               <div class="flex flex-items-center">
                 <div>
-                  <h-fa-icon :text-color="textColor" :icon="tab.leftIcon"/>
+                  <h-icon :text-color="textColor" :icon="tab.leftIcon"/>
                 </div>
                 <div class="flex flex-column full-width">
                   <div v-if="tab.topIcon && tab.topIcon.length" class="flex flex-justify-center h-pa-xs">
-                    <h-fa-icon :text-color="textColor" :icon="tab.topIcon"/>
+                    <h-icon :text-color="textColor" :icon="tab.topIcon"/>
                   </div>
                   <div class="h-pl-sm flex flex-justify-center flex-items-center">
                     <div><h5 class="no-margin">{{tab.name}}</h5></div>

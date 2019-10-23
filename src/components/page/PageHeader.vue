@@ -9,6 +9,7 @@
 <script>
 
 import resize from 'vue-resize-directive'
+import viewport from '../others/viewport'
 
 export default {
   name: 'PageHeader',
@@ -27,11 +28,17 @@ export default {
   },
   methods: {
     onResize () {
+      let pageHeaderHeight = viewport.getPageHeaderHeight()
+      let pageFooterHeight = viewport.getPageFooterHeight()
+      let sumHF = pageHeaderHeight + pageFooterHeight
+
       let pageContent = document.getElementById('page-content')
-      let pageHeader = document.getElementById('page-header')
-      if (pageContent && pageHeader) {
-        let rectPageHeader = pageHeader.getClientRects()
-        let pageHeaderHeight = rectPageHeader['0'].height
+      if (pageContent) {
+        let pageContentPadding = Number(pageContent.style['padding'].replace(/px/, ''))
+        if (pageContentPadding > 0) {
+          sumHF += 20
+        }
+        pageContent.style['height'] = 'calc(100vh - ' + sumHF + 'px)'
         pageContent.style['margin-top'] = '' + pageHeaderHeight + 'px'
       }
     }

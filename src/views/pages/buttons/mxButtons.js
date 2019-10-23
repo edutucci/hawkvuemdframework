@@ -204,7 +204,7 @@ const mxButtons = {
     >
       <div class="row align-items-center h-pa-sm" style="min-width:150px">
         <div class="col-auto">
-          <h-avatar src="avatar/AnaArmas.jpg" size="72px"/>
+          <h-image avatar src="avatar/AnaArmas.jpg" size="72px"/>
         </div>
         <div class="col h-ml-sm">
           <h-btn text="Profile" bg-color="bg-primary" text-color="text-white"/>

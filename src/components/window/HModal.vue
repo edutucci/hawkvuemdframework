@@ -5,7 +5,7 @@
           .flex-1
             h3  {{title}}
           div.h-ml-sm.h-mr-sm
-            h-fa-icon(icon="fas fa-times" textcolor="text-white" @click="close")
+            h-icon(icon="fas fa-times" text-color="text-white" @click="close")
         div(v-on-clickaway="away")
           slot
 </template>

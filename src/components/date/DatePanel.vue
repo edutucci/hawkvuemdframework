@@ -1,53 +1,55 @@
 <template lang="pug">
-  .flex.flex-column.boxshadow
-    .flex.full-width
-      .full-width.flex.flex-justify-center.flex-items-center.bg-primary.h-pa-xs
-        div
-          .btn.bg-primary
-            h-fa-icon(textcolor="text-white" icon="fas fa-chevron-left" size="24px" @click="onPrevNextMonth(-1)")
+  .column.border.border-gray(style="max-width:400px")
+    .col.bg-primary.text-white.text-bold(style="padding: 8px 16px")
+      .text-caption SELECT DATE
 
-        .flex-1
-          .flex.flex-column
-            .flex.flex-justify-center
-              .btn.bg-primary.text-white(@click="panelMode= (panelMode === 'years') ? 'days' : 'years'")
-                h3.no-margin {{currentDate.getFullYear().toString()}}
+      .row.h-mt-lg
+        .col.text-h6
+          | {{week_days[currentDate.getDay()]}}, {{months[currentDate.getMonth()]}} {{currentDate.getDate()}}
 
-            .flex.flex-justify-center.text-white
-              .btn.bg-primary.text-white(@click="panelMode= (panelMode === 'months') ? 'days' : 'months'")
-                h3.no-margin {{week_days[currentDate.getDay()]}}, {{months[currentDate.getMonth()]}} {{currentDate.getDate()}}
+      .row(v-if="showTime")
+        .col.text-h6
+          | {{datetime}}
+        .col-auto
+          h-icon(icon="fas fa-clock" text-color="text-white" @click="onShowTime")
 
-        div
-          .btn.bg-primary
-            h-fa-icon(textcolor="text-white" icon="fas fa-chevron-right" size="24px" @click="onPrevNextMonth(1)")
-    .flex.full-width.flex-items-center.bg-primary(v-if="showTime")
-      .full-width.flex.flex-justify-center.text-white
-        h3.no-margin {{datetime}}
-      div.btn.bg-primary
-        h-fa-icon(icon="fas fa-clock" textcolor="text-white" @click="onShowTime")
-    .flex-1.h-pt-md(v-show="panelMode==='days'" style="height:280px")
-      .flex
-        .flex-1.text-center(v-for="day in 7" :key="day")
-          | {{week_days[day-1]}}
+    .col.bg-white(style="padding: 16px;")
+      .col.cursor-pointer
+        .row.align-items-center
+          .col
+            h-btn(@click="panelMode= (panelMode === 'months') ? 'days' : 'months'")
+              | {{months[currentDate.getMonth()]}}
+            h-btn(@click="panelMode= (panelMode === 'years') ? 'days' : 'years'")
+              | {{currentDate.getFullYear().toString()}}
 
-      .flex(v-for="week in Calendar" :key="week.monthDay")
-        .flex-1.flex.flex-justify-center(v-for="day in week" :key="day.monthDay")
-          .btn.bg-white.circle.flex.flex-justify-center.flex-items-center(v-if="day.monthDay > 0"
-            :class="{activeday: day.monthDay === currentDate.getDate()}"
-            @click="applyDay(day.date)"
-            style="width:26px; height:26px;"
-          )
-            | {{day.monthDay}}
+          .col-auto(v-show="panelMode === 'days'")
+            h-btn(fab size="xs")
+              h-icon(icon="fas fa-chevron-left" size="12px" @click="onPrevNextMonth(-1)")
 
-      //- .flex.flex-justify-end.h-mb-sm
-      //-   h-btn(outlined text="OK" textcolor="text-primary" class="h-pr-md" @click="onOK")
-      //-   h-btn(v-if="!pickerMode" outlined text="Close" textcolor="text-primary" class="h-pr-md" @click="onClose")
-    .flex-1.scroll(v-show="panelMode==='years'" style="max-height:280px")
-      .flex.flex-justify-center.btn.bg-white(v-for="year in years" @click="applyYear(year)")
-        | {{year}}
-    .flex-1.scroll(v-show="panelMode==='months'" style="max-height:280px")
-      .flex.flex-justify-center.btn.bg-white(v-for="(month, index) in months" @click="applyMonth(index)")
-        | {{month}}
+            h-btn(fab size="xs")
+              h-icon(icon="fas fa-chevron-right" size="12px" @click="onPrevNextMonth(1)")
+      .col(v-show="panelMode === 'days'" style="padding: 16px 0px;")
+        .row.align-items-center
+          .col.text-center(v-for="day in 7" :key="day")
+            | {{week_days[day-1]}}
 
+      .col(v-show="panelMode === 'days'")
+        .row(v-for="week in Calendar" :key="week.monthDay" style="padding: 3px 0px;")
+          .col-auto.justify-center(v-for="day in week" :key="day.monthDay" style="width:46px; padding: 2px 0px;")
+            h-btn(fab v-if="day.monthDay > 0"
+              :bg-color="(day.monthDay === currentDate.getDate()) ? 'bg-primary' : 'bg-white'"
+              :text-color="(day.monthDay === currentDate.getDate()) ? 'text-white' : 'text-black'"
+              @click="applyDay(day.date)"
+            )
+              | {{day.monthDay}}
+      .col.scroll-y-only(v-show="panelMode==='months'" style="max-height:310px")
+        .row.wrap
+          .col(v-for="(month, index) in months")
+            h-btn(:text="month" @click="applyMonth(index)")
+      .col.scroll-y-only(v-show="panelMode==='years'" style="max-height:310px")
+        .row.wrap
+          .col(v-for="year in years")
+            h-btn(:text="year.toString()" @click="applyYear(year)")
 </template>
 
 <script>
@@ -125,11 +127,11 @@ export default {
     },
     applyYear (year) {
       this.onYearClick(year)
-      this.$emit('dateChanged', this.currentDate)
+      this.$emit('yearMonthChanged', this.currentDate)
     },
     applyMonth (index) {
       this.onMonthClick(index)
-      this.$emit('dateChanged', this.currentDate)
+      this.$emit('yearMonthChanged', this.currentDate)
     },
     onYearClick (year) {
       this.panelMode = 'days'

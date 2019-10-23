@@ -1,12 +1,12 @@
-<template lang="pug">
-  <div class="flex flex-items-center switch-container">
-    <div>
+<template>
+  <div class="flex flex-items-center switch-container h-mr-sm">
+    <div class="h-mt-xs">
       <label class="switch">
         <input type="checkbox"  @click="onChange(this)" :checked="checkboxState" :disabled="readonly">
         <span class="slider round"></span>
       </label>
     </div>
-    <div class="h-pl-sm">{{text}}</div>
+    <div v-if="text && text.length > 0" class="h-pl-xs">{{text}}</div>
   </div>
 </template>
 
@@ -86,7 +86,7 @@ export default {
 .switch {
   position: relative;
   display: inline-block;
-  width: 40px;
+  width: 32px;
   height: 13px;
 }
 
@@ -99,6 +99,7 @@ export default {
   left: 0;
   right: 0;
   bottom: 0;
+  height: 10px;
   background-color: #ccc;
   -webkit-transition: .4s;
   transition: .4s;
@@ -108,8 +109,8 @@ export default {
   position: absolute;
   top: -4px;
   content: "";
-  height: 21px;
-  width: 21px;
+  height: 18px;
+  width: 18px;
   left: 0px;
   bottom: 4px;
   box-shadow:  0 1px 3px rgba(0,0,0,.2),0 1px 1px rgba(0,0,0,.14),0 2px 1px -1px rgba(0,0,0,.12);
@@ -127,9 +128,9 @@ export default {
 } */
 
 /* Rounded sliders */
-.slider.round {
+/* .slider.round {
   border-radius: 34px;
-}
+} */
 
 .slider.round:before {
   border-radius: 50%;

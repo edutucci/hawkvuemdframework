@@ -1,8 +1,9 @@
 <template>
   <h-page-content>
 
+    <h3>Boolean</h3>
     <div class="h-pa-sm border border-gray border-radius">
-      <div class="text-body1 text-bold">Boolean</div>
+      
       <div class="column">
         <div class="col">
           Do you agree to our terms and conditions?
@@ -16,8 +17,8 @@
       </div>
     </div>
 
-    <div class="h-mt-md h-pa-sm border border-gray border-radius">
-      <div class="text-body1 text-bold">Readonly</div>
+    <h3>Readonly</h3>
+    <div class="h-mt-md h-pa-sm border border-gray border-radius">      
       <div class="column">
         <div class="col">
           Checkbox disabled
@@ -28,8 +29,8 @@
       </div>
     </div>
 
+    <h3>Option Checked</h3>
     <div class="h-mt-md h-pa-sm border border-gray border-radius">
-      <div class="text-body1 text-bold">Option Checked</div>
       <div class="column">
         <div class="col">
           <h-checkbox v-model="ckChecked" text="Item checked" :checked="ckChecked"/>
@@ -40,8 +41,8 @@
       </div>
     </div>
 
-    <div class="h-mt-md h-pa-sm border border-gray border-radius">
-      <div class="text-body1 text-bold">List</div>
+    <h3>List</h3>
+    <div class="h-mt-md h-pa-sm border border-gray border-radius">      
       <div class="column">
         <div>
           Select your favorite colors
@@ -58,8 +59,8 @@
       </div>
     </div>
 
-    <div class="h-mt-md h-pa-sm border border-gray border-radius">
-      <div class="text-body1 text-bold">List with numbers</div>
+    <h3>List with numbers</h3>
+    <div class="h-mt-md h-pa-sm border border-gray border-radius"> 
       <div class="column">
         <div class="col">
           Select yours favorite numbers
@@ -76,8 +77,8 @@
       </div>
     </div>
 
+    <h3>List with objects</h3>
     <div class="h-mt-md h-pa-sm border border-gray border-radius">
-      <div class="text-body1 text-bold">List with objects</div>
       <div class="column">
         <div class="col">
           Select yours favorite objects

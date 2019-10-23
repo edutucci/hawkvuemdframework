@@ -1,5 +1,5 @@
 <template lang="pug">
-  main.main-page.flex-1.position-relative(style="z-index: 0;")
+  main.main-page.flex-1.position-relative
     slot
 
 </template>

@@ -6,9 +6,9 @@
             <strong>{{selectedRows.length}} item selected</strong>
           </div>
           <div class="flex flex-justify-end" style="cursor:pointer;">
-            <h-fa-icon icon="fas fa-plus" class="h-pr-md" @click="onAddRow"/>
-            <h-fa-icon v-if="selectedRows.length === 1" icon="fas fa-edit" class="h-pr-md" @click="onEditRow"/>
-            <h-fa-icon icon="fas fa-trash-alt" @click="onDeleteRow"/>
+            <h-icon icon="fas fa-plus" class="h-pr-md" @click="onAddRow"/>
+            <h-icon v-if="selectedRows.length === 1" icon="fas fa-edit" class="h-pr-md" @click="onEditRow"/>
+            <h-icon icon="fas fa-trash-alt" @click="onDeleteRow"/>
           </div>
         </div>
         <div v-else class="flex flex-row">
@@ -47,7 +47,7 @@
               @click="sort(col)"
             >
               {{col.name}}
-              <h-fa-icon class="h-ml-xs" v-if="col.sortable" :icon="colIconName(col, colindex)" text-color="text-red400"/>
+              <h-icon class="h-ml-xs" v-if="col.sortable" :icon="colIconName(col, colindex)" text-color="text-red400"/>
             </div>
             <div class="flex flex-column">
               <div
@@ -82,7 +82,7 @@
             @click="onPreviousPage"
           >
             <h-btn text-button fab text-color="text-white" size="sm">
-              <h-fa-icon icon="fas fa-chevron-left" size="16px"/>
+              <h-icon icon="fas fa-chevron-left" size="16px"/>
             </h-btn>
           </div>
           <div class="btn bg-white circle
@@ -90,7 +90,7 @@
             @click="onNextPage"
             >
               <h-btn text-button fab text-color="text-white" size="sm">
-                <h-fa-icon icon="fas fa-chevron-right" size="16px"/>
+                <h-icon icon="fas fa-chevron-right" size="16px"/>
               </h-btn>
           </div>
         </div>

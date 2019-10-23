@@ -36,7 +36,7 @@
         <h-collapsible-menu icon="fa fa-film" text="Letter">
           <div class="flex flex-items-center flex-justify-center">
             <div>
-              <h-avatar src="img/hawk.png" size="64px"/>
+              <h-image avatar src="img/hawk.jpg" size="64px"/>
             </div>
             <div>
               <h1>Free Framework CSS</h1>
@@ -46,7 +46,7 @@
         <h-collapsible-menu icon="fas fa-utensils" text="Dining">
           <div class="flex flex-items-center flex-justify-center">
             <div>
-              <h-avatar src="img/icons/mstile-150x150.png" size="64px"/>
+              <h-image avatar src="img/icons/mstile-150x150.png" size="64px"/>
             </div>
             <div>
               <h1>Vue JS</h1>
@@ -138,7 +138,7 @@ export default {
   <h-collapsible-menu icon="fa fa-film" text="Letter">
     <div class="flex flex-items-center flex-justify-center">
       <div>
-        <h-avatar src="img/hawk.png" size="64px"/>
+        <h-image avatar src="img/hawk.png" size="64px"/>
       </div>
       <div>
         <h1>Free Framework CSS</h1>
@@ -148,7 +148,7 @@ export default {
   <h-collapsible-menu icon="fas fa-utensils" text="Dining">
     <div class="flex flex-items-center flex-justify-center">
       <div>
-        <h-avatar src="img/icons/mstile-150x150.png" size="64px"/>
+        <h-image avatar src="img/icons/mstile-150x150.png" size="64px"/>
       </div>
       <div>
         <h1>Vue JS</h1>
