@@ -1,13 +1,11 @@
 <template>
-   <div class="full-width h-list-item cursor-pointer">
-    <div
-      class="flex color-hover h-list-item-container h-pa-sm"
-      :class="[textColor, compBgColor, compBgColorHover, {active: active}]"
-      style="min-height: 25px;"
-      @click="onClick"
-    >
-      <slot></slot>
-    </div>
+  <div
+    class="flex color-hover h-list-item cursor-pointer h-pa-sm"
+    :class="[textColor, compBgColor, compBgColorHover, {active: active}]"
+    style="min-height: 25px;"
+    @click="onClick"
+  >
+    <slot></slot>
   </div>
 </template>
 
@@ -19,11 +17,13 @@ export default {
   extends: componentBase,
   name: 'HListItem',
   props: {
-
+    active: {
+      type: Boolean,
+      default: false
+    }
   },
   data () {
     return {
-      active: false
     }
   },
   mounted () {

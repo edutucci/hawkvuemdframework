@@ -17,22 +17,6 @@
           </h-app-toolbar-action>
         </h-app-toolbar-container>
       </h-app-toolbar>
-      <!-- <h-app-toolbar bg-color="bg-primary">
-        <h-app-toolbar-container>
-          <h-app-toolbar-navigation text-color="text-white" @click="showDrawer = true"/>
-          <h-app-toolbar-title class="text-white">
-            HawkFramework 1.0.12
-          </h-app-toolbar-title>
-          <h-app-toolbar-action>
-            <h-btn fab size="sm" bg-color="bg-transparent">
-              <h-link url="/" icon="fas fa-home" text-color="text-white"/>
-            </h-btn>
-            <h-btn fab size="sm" bg-color="bg-transparent">
-              <h-link url="https://github.com/edutucci/hawkframework" icon="fab fa-github" text-color="text-white" new-window/>
-            </h-btn>
-          </h-app-toolbar-action>
-        </h-app-toolbar-container>
-      </h-app-toolbar> -->
     </h-page-header>
 
     <h-nav-drawer ref="nav" v-model="showDrawer" side="left">
@@ -85,7 +69,7 @@
                 <h-collapsible-item text="Icons" @click="$router.push('/icon'), $refs.nav.close()"/>
                 <h-collapsible-item text="List" @click="$router.push('/list'), $refs.nav.close()"/>
                 <!-- <h-collapsible-item text="Menu (atualizar help)" @click="$router.push('/menu'), $refs.nav.close()"/> -->
-                <h-collapsible-item text="MenuSlider" @click="$router.push('/menuSlider'), $refs.nav.close()"/>
+                <h-collapsible-item text="SideBar Menu" @click="$router.push('/sideBarMenu'), $refs.nav.close()"/>
                 <h-collapsible-item text="Mask" @click="$router.push('/mask'), $refs.nav.close()"/>
                 <h-collapsible-item text="Dialog" @click="$router.push('/dialog'), $refs.nav.close()"/>
                 <h-collapsible-item text="Radio" @click="$router.push('/radio'), $refs.nav.close()"/>
@@ -118,9 +102,65 @@
       </div>
     </h-nav-drawer>
 
-    <h-main-page>
-      <router-view/>
-    </h-main-page>
+    <h-side-bar-menu
+      class="h-ml-sm border border-gray border-radius"
+      bg-color="bg-white"
+      text-color="text-gray600"
+      style="width: 200px"
+      fixed
+    >
+      <template v-slot:header>
+        <div class="column align-items-center" style="padding: 10px;">
+          <h-image avatar src="img/hawk.jpg" size="64px"/>
+          <div class="text-h5">Hawk </div>
+          <div class="text-h5"> Framework</div>
+          <div class="text-body1">Sidebar Menu Fixed</div>
+        </div>
+      </template>
+      <h-side-bar-menu-item text="Dashboard" caption="View Data" icon='fas fa-th-large' @click="$router.push('#')"/>
+      <h-side-bar-menu-item text="Tables" caption="View Data Table" icon='fas fa-table' @click="$router.push('#')"/>
+      <h-side-bar-menu-item text="User" caption="User Management" title="User" icon='fas fa-user' use-menu>
+        <h-list style="width: 180px">
+          <h-list-item>
+            <h-list-item-content>
+              <h-list-item-text title="Add User"/>
+            </h-list-item-content>
+          </h-list-item>
+          <h-list-item>
+            <h-list-item-content>
+              <h-list-item-text title="Account Settings"/>
+            </h-list-item-content>
+          </h-list-item>
+          <h-list-item>
+            <h-list-item-content>
+              <h-list-item-text title="Profile"/>
+            </h-list-item-content>
+          </h-list-item>
+        </h-list>
+      </h-side-bar-menu-item>
+      <h-side-bar-menu-item text="Help" caption="Help Topics" title="Help" icon='far fa-question-circle' use-menu>
+        <h-list style="width: 200px">
+          <h-list-item>
+            <h-list-item-content>
+              <h-list-item-text title="About"/>
+            </h-list-item-content>
+          </h-list-item>
+          <h-list-item>
+            <h-list-item-content>
+              <h-list-item-text title="Check for updates"/>
+            </h-list-item-content>
+          </h-list-item>
+          <h-list-item>
+            <h-list-item-content>
+              <h-list-item-text title="View license"/>
+            </h-list-item-content>
+          </h-list-item>
+        </h-list>
+      </h-side-bar-menu-item>
+      <h-side-bar-menu-item text="Notifications" caption="View Nofitications" icon='far fa-bell' @click="$router.push('#')"/>
+    </h-side-bar-menu>
+
+    <router-view/>
 
     <h-page-footer>
       <div class="flex justify-center align-items-center bg-primary text-white" style="height: 60px">

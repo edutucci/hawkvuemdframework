@@ -25,8 +25,10 @@
     :inputDropdown="inputDropdown"
     @onClearable="onClearable"
     @onTogglePassword="togglePassword"
+    :id="containerId"
   )
     .column.full-width(v-on-clickaway="away"
+      @scroll="onResize"
     )
       .col(
         v-if="this.chips"
@@ -94,7 +96,7 @@
             | {{suffix}}
 
       .bg-white.dropdown-content.scroll-y-only.shadow.border-radius(
-        :style="{right: right, bottom: bottom}"
+        :style="[dropdownObject]"
         v-if="showdropdown"
         :id="dropMenuId"
       )
@@ -148,11 +150,15 @@ import _ from 'lodash'
 import uuidv1 from 'uuid/v1'
 import viewport from '../others/viewport'
 import { unformat, format } from './currencyDirective/utils'
+import resize from 'vue-resize-directive'
 
 export default {
   name: 'HInput',
   extends: InputProperties,
   mixins: [focusMixin, clickaway],
+  directives: {
+    resize
+  },
   props: {
     value: {
       type: [String, Array, Number],
@@ -161,6 +167,7 @@ export default {
   },
   data () {
     return {
+      containerId: uuidv1(),
       inputId: uuidv1(),
       dropMenuId: uuidv1(),
       inputDisplay: '',
@@ -178,10 +185,13 @@ export default {
       inputContainerErrorTextColor: '',
       inputContainerIconErrorTextColor: '',
       showdropdown: false,
-      right: '',
-      bottom: '',
       multiselectItem: [],
-      selectChipsValue: []
+      selectChipsValue: [],
+      dropdownObject: {
+        right: '',
+        bottom: '',
+        top: 'inherit'
+      }
     }
   },
   mounted () {
@@ -360,14 +370,14 @@ export default {
     },
     checkViewport () {
       this.showdropdown = true
-      this.bottom = ''
+      this.dropdownObject.bottom = ''
 
       this.$nextTick(() => {
         let input = document.getElementById(this.inputId)
         let dropMenu = document.getElementById(this.dropMenuId)
         if (input && dropMenu) {
           if (viewport.elementBelowOfPage(dropMenu)) {
-            this.bottom = '0px'
+            this.dropdownObject.bottom = '0px'
           }
         }
       })
@@ -462,6 +472,12 @@ export default {
         arrValue.push(chip.value)
       })
       this.$emit('input', arrValue)
+    },
+    onResize () {
+      console.log('input onResize')
+      // if (this.showdropdown) {
+      //   this.checkViewport()
+      // }
     }
   }
 }

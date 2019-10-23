@@ -246,7 +246,7 @@
     </comp-code>
 
     <comp-code class="h-mt-md" title="Three Line Item" :code="lst3Line">
-      <h-list bordered item-separator style="max-width: 400px">
+      <h-list bordered content-separator style="max-width: 400px">
         <h-list-header text="Recipes"/>
         <h-list-item>
           <h-list-item-side>

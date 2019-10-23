@@ -1,15 +1,15 @@
 <template>
     <!-- <div class=" border-radius" style="position:absolute; min-width: 150px; left: 53px; top: 0px; width: auto; padding: 1px;"> -->
 
-  <div v-if="isVisible" v-on-clickaway="closeMenu"
-    class="border border-gray border-radius"
+  <div v-if="isVisible && useMenu" v-on-clickaway="closeMenu"
+    class="bg-white border border-gray border-radius"
     style="padding:1 2px;"
   >
     <div class="column full-width">
       <div class="col bg-primary border-top-radius">
         <div class="row" style="padding: 4px;">
           <div class="col text-white text-body1">
-            {{text}}
+            {{title}}
           </div>
           <div class="col-auto" style="padding: 0px 4px; cursor: pointer;">
             <h-fa-icon icon="fas fa-times-circle" size="18px" text-color="text-white" @click="closeMenu"/>
@@ -28,7 +28,7 @@
 import { mixin as clickaway } from 'vue-clickaway'
 
 export default {
-  name: 'HSlideMenu',
+  name: 'HSideBarMenuItem',
   mixins: [ clickaway ],
   props: {
     text: {
@@ -38,6 +38,18 @@ export default {
     icon: {
       type: String,
       default: ''
+    },
+    title: {
+      type: String,
+      default: ''
+    },
+    caption: {
+      type: String,
+      default: ''
+    },
+    useMenu: {
+      type: Boolean,
+      default: false
     }
   },
   data () {
@@ -57,6 +69,9 @@ export default {
     },
     closeMenu () {
       this.$parent.closeMenu()
+    },
+    onClick () {
+      this.$emit('click')
     }
   }
 }

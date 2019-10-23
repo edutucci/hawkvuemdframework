@@ -47,8 +47,8 @@ import HAppToolbarMenu from './appBar/HAppToolbarMenu.vue'
 import HAppToolbarFab from './appBar/HAppToolbarFab'
 import HMenuBar from './menu/HMenuBar.vue'
 import HMenuBarItem from './menu/HMenuBarItem.vue'
-import HSlideMenuList from './menu/SlideMenuList.vue'
-import HSlideMenu from './menu/SlideMenu.vue'
+import HSideBarMenuItem from './menu/SideBarMenuItem'
+import HSideBarMenu from './menu/SideBarMenu'
 import HModal from './window/HModal'
 import HNavDrawer from '../components/window/NavDrawer'
 import HRadio from './radio/HRadio.vue'
@@ -122,8 +122,8 @@ const Components = {
   HAppToolbarFab,
   HMenuBar,
   HMenuBarItem,
-  HSlideMenuList,
-  HSlideMenu,
+  HSideBarMenu,
+  HSideBarMenuItem,
   HModal,
   HNavDrawer,
   HRadio,

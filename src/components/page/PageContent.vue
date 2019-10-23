@@ -1,12 +1,11 @@
 <template lang="pug">
-  .page-content-container.scroll(
-    :class="{'page-content-container-padding': padding }"
+  .page-content-container.overflow-hidden(
     id="page-content"
     v-resize.initial="onResize"
     :style="[pageContentContainer]"
   )
-    .page-content-web(
-      :class="{'page-content-web-padding': padding }"
+    .page-content-web.full-height.scroll(
+      id="page-content-web"
     )
       slot
 </template>
@@ -27,12 +26,26 @@ export default {
       default: false
     }
   },
+  watch: {
+    padding: function (value) {
+      console.log('mudou padding', value)
+      this.onResize()
+    }
+  },
   data () {
     return {
       pageContentContainer: {
+        position: 'fixed',
+        left: '0px',
+        right: '0px',
+        top: '0px',
         height: 'calc(100vh)',
+        marginLeft: '0px',
         marginTop: '0px',
         padding: '0px'
+      },
+      pageContentContainerWeb: {
+        height: ''
       }
     }
   },
@@ -44,12 +57,22 @@ export default {
       let pageHeaderHeight = viewport.getPageHeaderHeight()
       let pageFooterHeight = viewport.getPageFooterHeight()
       let sumHF = pageHeaderHeight + pageFooterHeight
+      this.pageContentContainer.padding = '0px'
+      this.pageContentContainer.marginLeft = '0px'
+
       if (this.padding) {
         this.pageContentContainer.padding = '10px'
         sumHF += 20
       }
+
       this.pageContentContainer.height = 'calc(100vh - ' + sumHF + 'px)'
       this.pageContentContainer.marginTop = '' + pageHeaderHeight + 'px'
+
+      let sidebarMenuWidth = viewport.getSidebarMenuWidth()
+      if (this.padding) {
+        sidebarMenuWidth += 10
+      }
+      this.pageContentContainer.marginLeft = '' + sidebarMenuWidth + 'px'
     }
   }
 }
@@ -67,5 +90,9 @@ export default {
 
 .page-content-web-padding {
   padding-bottom: 10px;
+}
+
+.page-height {
+  height:calc(100vh - 110px)
 }
 </style>

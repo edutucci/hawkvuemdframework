@@ -9,9 +9,9 @@ export default new Router({
   routes: [
     {
       path: '/',
-      component: () => import('./views/home'),
+      component: () => import('./views/mainLayout'),
       children: [
-        { path: '', component: () => import('./views/main') },
+        { path: '', component: () => import('./views/startPage') },
         { path: '/installation', component: () => import('./views/guide/installation') },
         { path: '/layout', component: () => import('./views/guide/layout') },
         { path: '/spacing', component: () => import('./views/css/spacing') },
@@ -33,7 +33,6 @@ export default new Router({
         { path: '/card', component: () => import('./views/pages/card/card') },
         { path: '/chip', component: () => import('./views/pages/chips/chips') },
         { path: '/menu', component: () => import('./views/pages/menu/menu') },
-        { path: '/menuSlider', component: () => import('./views/pages/menu/menuSlider') },
         { path: '/mask', component: () => import('./views/mask') },
         { path: '/list', component: () => import('./views/pages/list/list') },
         { path: '/collapsible', component: () => import('./views/pages/collapsible/collapsible') },
@@ -55,6 +54,13 @@ export default new Router({
         { path: '/rating', component: () => import('./views/pages/rating/rating') },
         { path: '/palleteColor', component: () => import('./views/guide/MaterialDesignColor') },
         { path: '/scroll', component: () => import('./views/pages/scroll/scroll') }
+      ]
+    },
+    {
+      path: '/sideBarMenu',
+      component: () => import('./views/pages/menu/mainLayout.vue'),
+      children: [
+        { path: '', component: () => import('./views/pages/menu/sideBarMenu.vue') }
       ]
     },
     {

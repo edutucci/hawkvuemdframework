@@ -33,6 +33,16 @@ function getPageHeaderHeight () {
   return pageHeaderHeight
 }
 
+function getPageContentHeight () {
+  let pageContent = document.getElementById('page-content')
+  let pageContentHeight = 0
+  if (pageContent) {
+    let rectPageContent = pageContent.getClientRects()
+    pageContentHeight = rectPageContent['0'].height
+  }
+  return pageContentHeight
+}
+
 function getPageFooterHeight () {
   let pageFooter = document.getElementById('page-footer')
   let pageFooterHeight = 0
@@ -43,10 +53,21 @@ function getPageFooterHeight () {
   return pageFooterHeight
 }
 
+function getSidebarMenuWidth () {
+  let sidebarMenu = document.getElementById('sidebar-menu')
+  let sidebarMenuWidth = 0
+  if (sidebarMenu) {
+    sidebarMenuWidth = sidebarMenu.clientWidth
+  }
+  return sidebarMenuWidth
+}
+
 let viewport = {
   elementBelowOfPage: elementBelowOfPage,
   goToElement: goToElement,
   getPageHeaderHeight: getPageHeaderHeight,
-  getPageFooterHeight: getPageFooterHeight
+  getPageContentHeight: getPageContentHeight,
+  getPageFooterHeight: getPageFooterHeight,
+  getSidebarMenuWidth: getSidebarMenuWidth
 }
 export default viewport

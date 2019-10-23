@@ -256,9 +256,24 @@ LIST
   background-color: white;
 }
 
-.h-list.item-separator > .h-list-item:not(:last-child) > .h-list-item-container > .h-list-item-content{
+.h-list.content-separator > .h-list-item:not(:last-child) > .h-list-item-content {
+  margin-top: 4px;
   border-bottom: 1px solid lightgray;
 }
+
+.h-list.item-separator > .h-list-item:not(:last-child) {
+  margin-top: 4px;
+  border-bottom: 1px solid lightgray;
+}
+
+.slide-menu-list .h-list.item-separator > .h-list-item:first-child {
+  border-top: 1px solid lightgray;
+}
+
+.slide-menu-list .h-list.item-separator > .h-list-item:last-child {
+  border-bottom: 1px solid lightgray;
+}
+
 
 /*
   COLLAPSIBLE
@@ -272,11 +287,11 @@ LIST
 }
 
 .arrow {
-   transform: rotate(0deg);
+  transform: rotate(0deg);
 }
 
 .arrow2 {
-    transform: rotate(180deg);
+  transform: rotate(180deg);
 }
 
 /*
@@ -311,8 +326,8 @@ POPUP MENUS
 }
 
 .dropdown-content {
-  position: absolute;
-  z-index: 3600;
+  position: fixed;
+  z-index: 2500;
   cursor: pointer;
   min-width: 100px;
   max-height: 320px;
@@ -445,8 +460,4 @@ IMAGE
   font-size: 48px;
   height: 1em;
   width: 1em;  
-}
-
-img.rounded {
-  
 }

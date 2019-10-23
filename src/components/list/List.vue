@@ -1,6 +1,6 @@
 <template lang="pug">
   div.no-user-select.h-list(
-    :class="[ { 'border border-gray': bordered, 'item-separator': itemSeparator } ]"
+    :class="[ { 'border border-gray': bordered, 'item-separator': itemSeparator, 'content-separator': contentSeparator } ]"
     style="padding: 2px 0px"
   )
     slot
@@ -17,6 +17,10 @@ export default {
       default: false
     },
     itemSeparator: {
+      type: Boolean,
+      default: false
+    },
+    contentSeparator: {
       type: Boolean,
       default: false
     }

@@ -4,14 +4,14 @@
       :class="[{'borders border border-gray border-radius': borders}]"
     )
       tr
-        th.text-left.h-pa-xs(
+        th.text-left.h-pa-xs.text-body2.text-gray(
           v-for="(col, index) in columns" :key="col"
         )
           | {{col}}
 
-      tr(v-for="(row, index) in rows" :key="`row-$(index)`")
+      tr(v-for="(row, index) in rows" :key="`row-${index}`")
         td.h-pa-xs(
-          v-for="(col, index) in columns" :key="`rowcol-$(index)`"
+          v-for="(col, index) in columns" :key="`rowcol-${index}`"
         )
           | {{row[col]}}
 
