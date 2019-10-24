@@ -1,5 +1,5 @@
 <template lang="pug">
-  .flex.list-item-content-padding.overflow-hidden
+  .flex.h-list-item-side.list-item-content-padding.overflow-hidden
     .flex.flex-column
       slot
 </template>

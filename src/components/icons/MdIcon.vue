@@ -25,7 +25,7 @@ export default {
     },
     size: {
       type: String,
-      default: '20px'
+      default: '16px'
     }
   },
   watch: {
@@ -41,7 +41,7 @@ export default {
       color: '',
       bkgcolor: '',
       styleObject: {
-        fontSize: '24px'
+        fontSize: '16px'
       }
     }
   },

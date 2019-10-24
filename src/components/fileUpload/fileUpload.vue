@@ -6,7 +6,7 @@
       <div>
         <div class="flex bg-primary position-relative overflow-hidden file-upload-container">
           <div class="h-pa-sm flex flex-items-center">
-            <h-fa-icon icon="fas fa-cloud-upload-alt text-white" size="24px"/>
+            <h-icon icon="fas fa-cloud-upload-alt text-white" size="24px"/>
           </div>
           <div class="flex-1 h-pa-sm text-white">
             <div>
@@ -71,7 +71,7 @@
             <img :src="file.imageData" :alt="file.file.name" style="width:150px; height: 100px"/>
           </div>
           <div class="flex flex-items-center h-ma-sm">
-            <h-fa-icon
+            <h-icon
               class="text-negative"
               icon="fas fa-times-circle"
               @click="removeFile(fileIndex)"

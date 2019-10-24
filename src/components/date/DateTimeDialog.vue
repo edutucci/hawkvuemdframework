@@ -1,9 +1,9 @@
 <template lang="pug">
   .flex.flex-column()
     div(v-if="this.mode === 'time' || this.mode === 'date'")
-      h-fa-icon(:icon="componentIcon" @click="showDateTime = true")
+      h-icon.cursor-pointer(:icon="componentIcon" @click="showDateTime = true")
     div(v-else-if="this.mode === 'datetime'")
-      h-img.cursor-pointer(src="/img/icons/datetime.png" width="24px" height="24px" @click="showDateTime = true")
+      h-image.cursor-pointer(src="/img/icons/datetime.png" size="22px" @click="showDateTime = true")
 
     h-modal(v-model="showDateTime")
       .flex.flex.column
@@ -15,10 +15,11 @@
           :date="currentDateTime",
           :pickerMode="false"
           @dateChanged="dateChanged"
+          @yearMonthChanged="yearMonthChanged"
           @onShowTime="panelType = 'time'"
         )
         time-panel(
-          v-if="panelType === 'time' && (this.mode === 'datetime' || this.mode === 'time')"
+          v-else-if="isTimeMode"
           :date="currentDateTime"
           @ok="setTime"
           @cancel="panelType = 'date'"
@@ -84,6 +85,16 @@ export default {
       this.changeComponentIcon(value)
     }
   },
+  computed: {
+    isTimeMode () {
+      let value = false
+      if (this.panelType === 'time' && (this.mode === 'datetime' || this.mode === 'time')) {
+        value = true
+      }
+      console.log('value vale: ', value)
+      return value
+    }
+  },
   methods: {
     changeComponentIcon (value) {
       if (value === 'datetime' || value === 'date') {
@@ -96,17 +107,17 @@ export default {
     dateChanged (date) {
       this.currentDateTime = date
       this.showDateTime = false
-      // this.panelType = 'date'
+      this.$emit('input', date)
+    },
+    yearMonthChanged (date) {
+      this.currentDateTime = date
       this.$emit('input', date)
     },
     ok (date) {
       this.$emit('input', date)
-      // this.currentDateTime = new Date()
       this.showDateTime = false
-      // this.panelType = 'date'
     },
     hidePanel () {
-      // this.panelType = ''
       this.showDateTime = false
     },
     setTime (time) {

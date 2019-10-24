@@ -9,9 +9,9 @@ export default new Router({
   routes: [
     {
       path: '/',
-      component: () => import('./views/home'),
+      component: () => import('./views/mainLayout'),
       children: [
-        { path: '', component: () => import('./views/main') },
+        { path: '', component: () => import('./views/startPage') },
         { path: '/installation', component: () => import('./views/guide/installation') },
         { path: '/layout', component: () => import('./views/guide/layout') },
         { path: '/spacing', component: () => import('./views/css/spacing') },
@@ -21,6 +21,7 @@ export default new Router({
         { path: '/visibility', component: () => import('./views/css/visibility') },
         { path: '/cssothers', component: () => import('./views/css/others') },
         { path: '/borders', component: () => import('./views/css/borders') },
+        { path: '/compimage', component: () => import('./views/pages/image/image') },
         { path: '/buttons', component: () => import('./views/pages/buttons/buttons') },
         { path: '/buttongroup', component: () => import('./views/pages/buttons/buttonGroup') },
         { path: '/buttondropdown', component: () => import('./views/pages/buttons/buttonDropDown') },
@@ -32,7 +33,6 @@ export default new Router({
         { path: '/card', component: () => import('./views/pages/card/card') },
         { path: '/chip', component: () => import('./views/pages/chips/chips') },
         { path: '/menu', component: () => import('./views/pages/menu/menu') },
-        { path: '/menuSlider', component: () => import('./views/pages/menu/menuSlider') },
         { path: '/mask', component: () => import('./views/mask') },
         { path: '/list', component: () => import('./views/pages/list/list') },
         { path: '/collapsible', component: () => import('./views/pages/collapsible/collapsible') },
@@ -42,7 +42,7 @@ export default new Router({
         { path: '/select', component: () => import('./views/pages/select/select') },
         { path: '/tab', component: () => import('./views/pages/tab/tab') },
         { path: '/table', component: () => import('./views/pages/table/table') },
-        { path: '/toolbar', component: () => import('./views/pages/toolbar/toolbar') },
+        { path: '/appbar', component: () => import('./views/pages/appbar/appbar.vue') },
         { path: '/dialog', component: () => import('./views/pages/dialog/dialog') },
         { path: '/datetime', component: () => import('./views/pages/datetime/datetime') },
         { path: '/toggle', component: () => import('./views/pages/toggle/toggle') },
@@ -57,12 +57,19 @@ export default new Router({
       ]
     },
     {
+      path: '/sideBarMenu',
+      component: () => import('./views/pages/menu/mainLayout.vue'),
+      children: [
+        { path: '', component: () => import('./views/pages/menu/sideBarMenu.vue') }
+      ]
+    },
+    {
       path: '/test',
       component: () => import('./views/pages/test/Currency.vue')
     },
     {
       path: '/example',
-      component: () => import('./views/examples/rangeslider')
+      component: () => import('./views/examples/image')
     }
   ]
 })

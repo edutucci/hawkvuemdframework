@@ -19,19 +19,18 @@ import HCollapsible from './collapsible/Collapsible.vue'
 import HCollapsibleMenu from './collapsible/CollapsibleMenu.vue'
 import HCollapsibleItem from './collapsible/CollapsibleItem.vue'
 import HChips from './chips/Chips.vue'
-import HInputChips from './chips/InputChips.vue'
 import HCounter from './chips/Counter.vue'
 import HCarousel from './carousel/Carousel.vue'
 import HCarouselSlider from './carousel/CarouselSlider.vue'
 import HDatePicker from './date/HDatePicker.vue'
 import HDateTimeDialog from './date/DateTimeDialog.vue'
 import HTimePicker from './date/HTimePicker.vue'
+import HIcon from './icons/HIcon'
 import HFaIcon from './icons/FaIcon.vue'
 import HMdIcon from './icons/MdIcon.vue'
 import HFileUpload from './fileUpload/fileUpload.vue'
 import HImageUpload from './fileUpload/ImageUpload.vue'
-import HAvatar from './image/Avatar.vue'
-import HImg from './image/Img.vue'
+import HImage from './image/Image'
 import HList from './list/List.vue'
 import HListItem from './list/ListItem.vue'
 import HListHeader from './list/ListHeader.vue'
@@ -39,23 +38,21 @@ import HListItemContent from './list/ListItemContent'
 import HListItemSide from './list/ListItemSide'
 import HListItemText from './list/ListItemText'
 import HListItemImg from './list/ListItemImg'
-import HAppToolbar from './toolbar/HAppToolbar.vue'
-import HAppToolbarContainer from './toolbar/HAppToolbarContainer.vue'
-import HAppToolbarNavigation from './toolbar/HAppToolbarNavigation.vue'
-import HAppToolbarTitle from './toolbar/HAppToolbarTitle.vue'
-import HAppToolbarAction from './toolbar/HAppToolbarAction.vue'
-import HAppToolbarMenu from './toolbar/HAppToolbarMenu.vue'
-import HAppToolbarFab from './toolbar/HAppToolbarFab'
+import HAppToolbar from './appBar/HAppToolbar.vue'
+import HAppToolbarNavigation from './appBar/HAppToolbarNavigation'
+import HAppToolbarContainer from './appBar/HAppToolbarContainer.vue'
+import HAppToolbarTitle from './appBar/HAppToolbarTitle.vue'
+import HAppToolbarAction from './appBar/HAppToolbarAction.vue'
+import HAppToolbarMenu from './appBar/HAppToolbarMenu.vue'
+import HAppToolbarFab from './appBar/HAppToolbarFab'
 import HMenuBar from './menu/HMenuBar.vue'
 import HMenuBarItem from './menu/HMenuBarItem.vue'
-import HSlideMenuList from './menu/SlideMenuList.vue'
-import HSlideMenu from './menu/HSlideMenu.vue'
-import HSlideMenuItem from './menu/HSlideMenuItem.vue'
+import HSideBarMenuItem from './menu/SideBarMenuItem'
+import HSideBarMenu from './menu/SideBarMenu'
 import HModal from './window/HModal'
-import HNavDrawer from '../components/window/HNavDrawer'
+import HNavDrawer from '../components/window/NavDrawer'
 import HRadio from './radio/HRadio.vue'
 import HRating from './rating/Rating.vue'
-import HSearch from './Inputs/HSearch'
 import HTab from './tab/HTab.vue'
 import HTabs from './tab/HTabs.vue'
 import HTable from './table/Table.vue'
@@ -99,17 +96,16 @@ const Components = {
   HChips,
   HCarousel,
   HCarouselSlider,
-  HInputChips,
   HCounter,
   HDatePicker,
   HDateTimeDialog,
   HTimePicker,
+  HIcon,
   HFaIcon,
   HMdIcon,
   HFileUpload,
   HImageUpload,
-  HAvatar,
-  HImg,
+  HImage,
   HList,
   HListItem,
   HListHeader,
@@ -126,14 +122,12 @@ const Components = {
   HAppToolbarFab,
   HMenuBar,
   HMenuBarItem,
-  HSlideMenuList,
-  HSlideMenu,
-  HSlideMenuItem,
+  HSideBarMenu,
+  HSideBarMenuItem,
   HModal,
   HNavDrawer,
   HRadio,
   HRating,
-  HSearch,
   HTab,
   HTabs,
   HTable,

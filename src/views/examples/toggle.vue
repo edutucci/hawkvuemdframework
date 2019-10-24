@@ -1,8 +1,8 @@
 <template>
   <h-page-content padding>
 
-    <div class="h-pa-sm border border-gray border-radius">
-      <div class="text-body1 text-bold">Boolean</div>
+    <h3>Boolean</h3>
+    <div class="h-pa-sm border border-gray border-radius">      
       <div class="column">
         <div class="col">
           Do you agree terms and conditions?
@@ -16,8 +16,8 @@
       </div>
     </div>
 
-    <div class="h-mt-md h-pa-sm border border-gray border-radius">
-      <div class="text-body1 text-bold">List</div>
+    <h3>List</h3>
+    <div class="h-mt-md h-pa-sm border border-gray border-radius">  
       <div class="column">
         <div class="col">
           Select your favorite colors
@@ -33,8 +33,8 @@
       </div>
     </div>
 
+    <h3>List with numbers</h3>
     <div class="h-mt-md h-pa-sm border border-gray border-radius">
-      <div class="text-body1 text-bold">List with numbers</div>
       <div>
         Select yours favorite numbers
       </div>

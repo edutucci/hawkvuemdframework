@@ -1,4 +1,42 @@
 /*
+OTHERS
+*/
+
+.circle {
+  border-radius: 50%;
+}
+
+.boxshadow {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.bottom_shadow
+  box-shadow: 0px 2px rgba(0,0,0,0.2);
+
+.tab {
+  display:inline-block;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.title-media {
+  color: white;
+}
+
+.subtitle-media {
+  color: white;
+}
+
+hr {
+  background-color:lightgray;
+  height:1px;
+  border: none;
+}
+
+.input-box {
+  padding: 8px;
+}
+
+/*
   INPUT CONTAINER
 */
 
@@ -46,13 +84,22 @@
 }
 
 /*
-  MODAL
+  MODAL/DRAWER
 */
 .drawer {
   height: 100%;
   width: 100%;
   position: fixed;
-  z-index: 1600;
+  z-index: 1200;
+  top: 0;
+  right: 0;
+}
+
+.drawer_page {
+  height: calc(100vh - 60px);
+  min-width: 200px;
+  position: absolute;
+  z-index: 1200;
   top: 0;
   right: 0;
 }
@@ -62,7 +109,7 @@
 }
 
 .drawer_container {
-  z-index: 1610;
+  z-index: 1210;
   overflow-x: hidden;
   overflow-y: auto;
 }
@@ -189,32 +236,8 @@
   padding: 3px;
 
 /*
-END BUTTONS
+LIST
 */
-
-.circle {
-  border-radius: 50%;
-}
-
-.boxshadow {
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-}
-
-.bottom_shadow
-  box-shadow: 0px 2px rgba(0,0,0,0.2);
-
-.tab {
-  display:inline-block;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-}
-
-.title-media {
-  color: white;
-}
-
-.subtitle-media {
-  color: white;
-}
 
 .list-item-padding {
   padding: 13px 0px;
@@ -233,15 +256,24 @@ END BUTTONS
   background-color: white;
 }
 
-hr {
-  background-color:lightgray;
-  height:1px;
-  border: none;
+.h-list.content-separator > .h-list-item:not(:last-child) > .h-list-item-content {
+  margin-top: 4px;
+  border-bottom: 1px solid lightgray;
 }
 
-.input-box {
-  padding: 8px;
+.h-list.item-separator > .h-list-item:not(:last-child) {
+  margin-top: 4px;
+  border-bottom: 1px solid lightgray;
 }
+
+.slide-menu-list .h-list.item-separator > .h-list-item:first-child {
+  border-top: 1px solid lightgray;
+}
+
+.slide-menu-list .h-list.item-separator > .h-list-item:last-child {
+  border-bottom: 1px solid lightgray;
+}
+
 
 /*
   COLLAPSIBLE
@@ -255,11 +287,11 @@ hr {
 }
 
 .arrow {
-   transform: rotate(0deg);
+  transform: rotate(0deg);
 }
 
 .arrow2 {
-    transform: rotate(180deg);
+  transform: rotate(180deg);
 }
 
 /*
@@ -294,11 +326,12 @@ POPUP MENUS
 }
 
 .dropdown-content {
-  position: absolute;
-  z-index: 3600;
+  position: fixed;
+  z-index: 2500;
   cursor: pointer;
   min-width: 100px;
   max-height: 320px;
+  padding: 3px;
 }
 
 .menu-item-padding {
@@ -382,4 +415,49 @@ CHIPS
 .chip {
   border-radius: 50px;
   padding: 2px 4px;
+}
+
+/*
+AVATAR / IMAGE
+*/
+
+.h-image-container {
+  position:relative;
+  display: inline-block;
+  height: 1em;
+  width: 1em;
+}
+
+.h-image-content {
+  width: inherit;
+  height: inherit;
+  border-radius: 0;
+}
+
+.h-avatar-img-content {
+  width: 100%;
+  height: 100%; 
+}
+
+.h-image-content.avatar {
+  border-radius: 50%;
+}
+
+.h-image-content.border-radius {
+  border-radius: 5px;  
+}
+
+/*
+IMAGE
+*/
+.h-image-container {
+  // position:relative;
+  // display: inline-block;
+  position: relative;
+  vertical-align: middle;
+  display: inline-block;
+  border-radius: 50%;
+  font-size: 48px;
+  height: 1em;
+  width: 1em;  
 }

@@ -5,11 +5,11 @@
     <comp-code class="h-mt-lg" title="Date Input" :code="dateInput" :script="dateInputScript"
       javascript
     >
-      <div class="flex flex-column full-width">
-        <div class="flex flex-items-center">
-          <div class="col-6">
-            <h-input v-model="dateInputModel"></h-input>
-          </div>
+      <div class="row wrap align-items-center">
+        <div class="col-auto" style="min-width: 100px; max-width: 400px; ">
+          <h-input dense v-model="dateInputModel"></h-input>
+        </div>
+        <div class="col-auto h-ml-sm">
           <h-date-time-dialog v-model="date" mode="date"/>
         </div>
       </div>
@@ -18,12 +18,12 @@
     <comp-code class="h-mt-lg" title="Time Input" :code="timeInput" :script="timeInputScript"
       javascript
     >
-      <div class="flex flex-column full-width">
-        <div class="flex flex-items-center">
-          <div class="col-6">
-            <h-input v-model="timeInputModel"></h-input>
-          </div>
-          <h-date-time-dialog v-model="time" mode="time"/>
+      <div class="row wrap align-items-center">
+        <div class="col-auto" style="min-width: 100px; max-width: 400px; ">
+          <h-input dense v-model="timeInputModel"></h-input>
+        </div>
+        <div class="col-auto h-ml-sm">
+          <h-date-time-dialog class="h-ml-sm" v-model="time" mode="time"/>
         </div>
       </div>
     </comp-code>
@@ -31,12 +31,12 @@
     <comp-code class="h-mt-lg" title="Date and Time Input" :code="dateTimeInput" :script="dateTimeInputScript"
       javascript
     >
-      <div class="flex flex-column full-width">
-        <div class="flex flex-items-center">
-          <div class="col-6">
-            <h-input v-model="dateTimeInputModel"></h-input>
-          </div>
-          <h-date-time-dialog v-model="datetime" mode="datetime"/>
+      <div class="row wrap align-items-center">
+        <div class="col-auto" style="min-width: 100px; max-width: 400px; ">
+          <h-input dense v-model="dateTimeInputModel"></h-input>
+        </div>
+        <div class="col-auto h-ml-sm">
+          <h-date-time-dialog class="h-ml-sm" v-model="datetime" mode="datetime"/>
         </div>
       </div>
     </comp-code>

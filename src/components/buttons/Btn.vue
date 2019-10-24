@@ -1,5 +1,9 @@
 <template lang="pug">
-  div(class="h-btn btn-container no-user-select" style="display:inline-flex; cursor: pointer;")
+  div(
+    class="h-btn btn-container no-user-select"
+    style="display:inline-flex; cursor: pointer;"
+    :id="containerId"
+  )
     div(
       @click="onClick"
       class="btn btn-content flex flex-items-center full-width color-hover position-relative"
@@ -11,28 +15,28 @@
     )
       div(v-if="!dropdown" class="full-width flex flex-justify-center flex-items-center full-height" :class="[typography]")
         div(v-if="leftIcon && leftIcon.length > 0" class="flex-align-center")
-          h-fa-icon(class="btn-icon" :text-color="textColor" :icon="leftIcon" size="16px")
+          h-icon(class="btn-icon" :text-color="textColor" :icon="leftIcon" size="16px")
         div(v-if="text && text.length > 0" class="flex flex-align-center h-ml-xs h-mr-xs")
           | {{buttonText}}
         div(v-if="rightIcon && rightIcon.length > 0" class="flex-align-center")
-          h-fa-icon(class="btn-icon" :text-color="textColor" :icon="rightIcon" size="16px")
+          h-icon(class="btn-icon" :text-color="textColor" :icon="rightIcon" size="16px")
         slot
       div(
         v-else
         class="no-user-select"
-        :id="containerid"
       )
         .flex.align-items-center.cursor-pointer.full-height
-          h-fa-icon.h-mr-xs(
+          h-icon.h-mr-xs(
             v-if="leftIcon && leftIcon.length > 0"
             :icon="leftIcon"
             :text-color="textColor"
           )
-          h-avatar.h-mr-xs(
+          h-image.h-mr-xs(
             v-else-if="avatar && avatar.length > 0"
             :src="avatar"
+            avatar
           )
-          h-img.h-mr-xs(v-else-if="img && img.length > 0"
+          h-image.h-mr-xs(v-else-if="img && img.length > 0"
             :src="img"
           )
           .btn-dropdown-content.flex.flex-items-center.text-body1(
@@ -46,15 +50,15 @@
             div
               slot(name="content")
 
-            h-fa-icon.h-ml-xs(
-              icon="fas fa-caret-down"
+            h-icon.h-ml-xs(
+              :icon="dropDownIcon"
               :text-color="textColor"
               size="18px"
             )
 
-        .dropdown-content.shadow.bg-white(
+        .dropdown-content.bg-white.border-radius(
           v-if="showdropdown"
-          :style="{left: left, right: right, bottom: bottom}"
+          :style="[dropdownObject]"
           :id="menuid"
           @click="showdropdown = false"
           v-on-clickaway="close"
@@ -68,6 +72,7 @@
 import componentBase from '../componentBase.vue'
 import uuidv1 from 'uuid/v1'
 import { mixin as clickaway } from 'vue-clickaway'
+import viewport from '../others/viewport'
 
 export default {
   name: 'HBtn',
@@ -130,6 +135,10 @@ export default {
     img: {
       type: String,
       default: ''
+    },
+    dropDownIcon: {
+      type: String,
+      default: 'fas fa-caret-down'
     }
   },
   components: {
@@ -141,12 +150,23 @@ export default {
 
       // dropdown button
       menuid: uuidv1(),
-      containerid: uuidv1(),
+      containerId: uuidv1(),
       showdropdown: false,
-      left: '',
-      right: '0',
-      top: '',
-      bottom: ''
+      dropdownObject: {
+        left: '',
+        right: '',
+        bottom: '',
+        top: '0',
+        width: ''
+      },
+      containerRect: {
+        top: 0,
+        left: 0
+      },
+      window: {
+        width: 0,
+        height: 0
+      }
     }
   },
   mounted () {
@@ -262,24 +282,65 @@ export default {
     close () {
       this.$emit('input', false)
     },
-    checkViewport () {
-      this.left = ''
-      this.right = '0'
-      this.top = ''
-      this.bottom = ''
-
-      this.$nextTick(() => {
-        let menu = document.getElementById(this.menuid)
-        let container = document.getElementById(this.containerid)
-        if (container && menu) {
-          let rectMenu = menu.getClientRects()
-          let rectContainer = container.getClientRects()
-          if (rectMenu['0'].width > rectContainer['0'].right) {
-            this.right = ''
-            this.left = '0'
-          }
+    updateDropdownPosition () {
+      if (!this.showdropdown) {
+        return false
+      }
+      let containerElement = document.getElementById(this.containerId)
+      if (containerElement) {
+        let containerRect = containerElement.getClientRects()
+        if (this.containerRect.top !== containerRect[0].top ||
+          this.containerRect.left !== containerRect[0].left ||
+          this.window.width !== window.innerWidth ||
+          this.window.height !== window.innerHeight
+        ) {
+          this.checkViewport()
+        } else {
+          setTimeout(() => {
+            this.updateDropdownPosition()
+          }, 200)
         }
-      })
+      }
+    },
+    updateContainerRect (containerRect) {
+      this.containerRect.top = containerRect[0].top
+      this.containerRect.left = containerRect[0].left
+    },
+    checkViewport () {
+      this.dropdownObject.left = ''
+      this.dropdownObject.right = ''
+      this.dropdownObject.top = ''
+      this.dropdownObject.bottom = ''
+      this.showdropdown = true
+
+      let containerElement = document.getElementById(this.containerId)
+      if (containerElement) {
+        let containerRect = containerElement.getClientRects()
+        this.updateContainerRect(containerRect)
+
+        this.dropdownObject.top = '' + containerRect[0].bottom + 'px'
+        this.dropdownObject.right = '' + (window.innerWidth - containerRect[0].right) + 'px'
+        this.windowWidth = window.innerWidth
+        this.window.height = window.innerHeight
+
+        this.$nextTick(() => {
+          let menu = document.getElementById(this.menuid)
+          if (menu) {
+            if (viewport.elementBelowOfPage(menu)) {
+              let menuHeight = menu.clientHeight
+              this.dropdownObject.top = '' + (this.containerRect.top - menuHeight) + 'px'
+            }
+            let rectMenu = menu.getClientRects()
+            if (rectMenu['0'].width > containerRect['0'].right) {
+              this.dropdownObject.right = ''
+              this.dropdownObject.left = '' + containerRect['0'].left + 'px'
+            }
+          }
+          setTimeout(() => {
+            this.updateDropdownPosition()
+          }, 200)
+        })
+      }
     }
   }
 }

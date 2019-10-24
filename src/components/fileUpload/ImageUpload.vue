@@ -6,7 +6,7 @@
       <div>
         <div class="flex bg-primary position-relative overflow-hidden file-upload-container">
           <div class="h-pa-sm flex flex-items-center">
-            <h-fa-icon icon="fas fa-cloud-upload-alt text-white" size="24px"/>
+            <h-icon icon="fas fa-cloud-upload-alt text-white" size="24px"/>
           </div>
           <div class="flex-1 h-pa-sm text-white">
             <div>

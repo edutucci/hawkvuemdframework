@@ -10,14 +10,25 @@
     <comp-code class="h-mt-lg" title="Icons" :code="selectIcon" :script="selectIconScript"
       javascript
     >
-      <div class="col-6">
-        <h-input dense :options="options"
-          v-model="selectModel"
-          input-select
-          input-icon="fas fa-angle-down"
-          label="Select with icons"
-          display-mode="icon"/>
+      <div class="row">
+        <div class="col-5">
+          <h-input dense :options="options"
+            v-model="selectModel"
+            input-select
+            input-icon="fas fa-angle-down"
+            label="Select with icons"
+            display-mode="icon"/>
+        </div>
+        <div class="col-6">
+          <h-input dense :options="options"
+            v-model="selectModel"
+            input-select
+            input-icon="fas fa-angle-down"
+            label="Select with icons"
+            display-mode="icon"/>
+        </div>
       </div>
+
       <div class="h-mt-md">
         selectModel: {{ selectModel }}
       </div>

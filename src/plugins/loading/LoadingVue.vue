@@ -6,9 +6,9 @@
     <div class="full-width flex flex-justify-center">
       <div class="flex flex-column">
         <div class="text-center">
-            <h-fa-icon :icon="cfg.icon" textcolor="text-white" size="72px" spin/>
+            <h-icon :icon="cfg.icon" text-color="text-white" size="72px" spin/>
         </div>
-        <div v-if="cfg.message" :class="[textcolor]">
+        <div v-if="cfg.message" :class="[textColor]">
           <h2>{{cfg.message}}</h2>
         </div>
       </div>

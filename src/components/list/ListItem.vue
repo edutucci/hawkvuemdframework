@@ -1,14 +1,11 @@
 <template>
-   <div class="full-width  cursor-pointer">
-    <div
-      class="flex color-hover h-pa-sm"
-      :class="[textColor, compBgColor, compBgColorHover, {active: active}]"
-      style="min-height: 25px;"
-      @click="onClick"
-    >
-      <slot></slot>
-    </div>
-    <!-- <html-separator v-if="separator"/> -->
+  <div
+    class="flex color-hover h-list-item cursor-pointer h-pa-sm"
+    :class="[textColor, compBgColor, compBgColorHover, {active: active}]"
+    style="min-height: 25px;"
+    @click="onClick"
+  >
+    <slot></slot>
   </div>
 </template>
 
@@ -20,14 +17,13 @@ export default {
   extends: componentBase,
   name: 'HListItem',
   props: {
-    separator: {
+    active: {
       type: Boolean,
       default: false
     }
   },
   data () {
     return {
-      active: false
     }
   },
   mounted () {

@@ -25,8 +25,10 @@
     :inputDropdown="inputDropdown"
     @onClearable="onClearable"
     @onTogglePassword="togglePassword"
+    :id="containerId"
   )
     .column.full-width(v-on-clickaway="away"
+      @scroll="onResize"
     )
       .col(
         v-if="this.chips"
@@ -42,6 +44,7 @@
         )
       .col(
         v-else-if="selectChips && multiSelect"
+        @click="checkViewport"
       )
         .row.wrap
           .col-auto(
@@ -54,9 +57,7 @@
               closable
               @onClose="closeSelectChip(index)"
             )
-          .col(
-            @click="checkViewport"
-          )
+          .col
             input.full-width.no-border.cursor-pointer(type="text"  @click="checkViewport" readonly)
       .col(
         v-if="!selectChips"
@@ -65,7 +66,7 @@
           .col-auto(v-if="prefix && prefix.length")
             | {{prefix}}
           .col()
-            h-input-field.text-caption(
+            h-input-field.text-caption.cursor-pointer(
               :class="[inputContainerTextColor]"
               :id="inputId"
               v-model="inputDisplay"
@@ -94,7 +95,7 @@
             | {{suffix}}
 
       .bg-white.dropdown-content.scroll-y-only.shadow.border-radius(
-        :style="{right: right, bottom: bottom}"
+        :style="[dropdownObject]"
         v-if="showdropdown"
         :id="dropMenuId"
       )
@@ -105,9 +106,9 @@
             @click="onSelectItem(option)"
           )
             h-list-item-side(v-if="displayMode ==='icon'")
-              h-fa-icon(:icon="option.icon")
+              h-icon(:icon="option.icon")
             h-list-item-side(v-if="displayMode ==='avatar'")
-              h-avatar(:src="option.avatar")
+              h-image(:src="option.avatar" avatar)
             // h-list-item-side(v-if="displayMode ==='image'")
             //   img(:src="option.img" style="width:32px; height:32px;")
             h-list-item-content
@@ -130,9 +131,9 @@
             @click="onSelectItem(option)"
           )
             h-list-item-side.align-items-center(v-if="option.icon && option.icon.length")
-              h-fa-icon(:icon="option.icon" size="24px" style="color: gray")
+              h-icon(:icon="option.icon" size="24px" style="color: gray")
             h-list-item-side.align-items-center(v-else-if="option.avatar && option.avatar.length > 0")
-              h-avatar(:src="option.avatar" size="24px")
+              h-image(:src="option.avatar" size="24px" avatar)
             h-list-item-side.align-items-center(v-else-if="option.img && option.img.length > 0")
               img(:src="option.img" width="24px" height="24px")
             h-list-item-content
@@ -148,11 +149,15 @@ import _ from 'lodash'
 import uuidv1 from 'uuid/v1'
 import viewport from '../others/viewport'
 import { unformat, format } from './currencyDirective/utils'
+import resize from 'vue-resize-directive'
 
 export default {
   name: 'HInput',
   extends: InputProperties,
   mixins: [focusMixin, clickaway],
+  directives: {
+    resize
+  },
   props: {
     value: {
       type: [String, Array, Number],
@@ -161,6 +166,7 @@ export default {
   },
   data () {
     return {
+      containerId: uuidv1(),
       inputId: uuidv1(),
       dropMenuId: uuidv1(),
       inputDisplay: '',
@@ -178,10 +184,22 @@ export default {
       inputContainerErrorTextColor: '',
       inputContainerIconErrorTextColor: '',
       showdropdown: false,
-      right: '',
-      bottom: '',
       multiselectItem: [],
-      selectChipsValue: []
+      selectChipsValue: [],
+      dropdownObject: {
+        left: '',
+        bottom: '',
+        top: '0',
+        width: ''
+      },
+      containerRect: {
+        top: 0,
+        left: 0
+      },
+      window: {
+        width: 0,
+        height: 0
+      }
     }
   },
   mounted () {
@@ -358,19 +376,59 @@ export default {
         }
       }
     },
+    updateDropdownPosition () {
+      if (!this.showdropdown) {
+        return false
+      }
+      let containerElement = document.getElementById(this.containerId)
+      if (containerElement) {
+        let dropMenu = document.getElementById(this.dropMenuId)
+        let containerRect = containerElement.getClientRects()
+        if (this.containerRect.top !== containerRect[0].top ||
+          this.containerRect.left !== containerRect[0].left ||
+          viewport.elementBelowOfPage(dropMenu) ||
+          this.window.width !== window.innerWidth ||
+          this.window.height !== window.innerHeight
+        ) {
+          this.checkViewport()
+        } else {
+          setTimeout(() => {
+            this.updateDropdownPosition()
+          }, 100)
+        }
+      }
+    },
+    updateContainerRect (containerRect) {
+      this.containerRect.top = containerRect[0].top
+      this.containerRect.left = containerRect[0].left
+    },
     checkViewport () {
       this.showdropdown = true
-      this.bottom = ''
 
-      this.$nextTick(() => {
-        let input = document.getElementById(this.inputId)
-        let dropMenu = document.getElementById(this.dropMenuId)
-        if (input && dropMenu) {
-          if (viewport.elementBelowOfPage(dropMenu)) {
-            this.bottom = '0px'
+      let containerElement = document.getElementById(this.containerId)
+      if (containerElement) {
+        let containerRect = containerElement.getClientRects()
+        this.updateContainerRect(containerRect)
+
+        this.dropdownObject.top = '' + containerRect[0].bottom + 'px'
+        this.dropdownObject.width = '' + (containerRect[0].width - 15) + 'px'
+        this.windowWidth = window.innerWidth
+        this.window.height = window.innerHeight
+
+        this.$nextTick(() => {
+          let dropMenu = document.getElementById(this.dropMenuId)
+          if (dropMenu) {
+            if (viewport.elementBelowOfPage(dropMenu)) {
+              let menuHeight = document.getElementById(this.dropMenuId).clientHeight
+              this.dropdownObject.top = '' + (this.containerRect.top - menuHeight) + 'px'
+            }
           }
-        }
-      })
+
+          setTimeout(() => {
+            this.updateDropdownPosition()
+          }, 100)
+        })
+      }
     },
     blur () {
       this.focused = false
@@ -462,6 +520,12 @@ export default {
         arrValue.push(chip.value)
       })
       this.$emit('input', arrValue)
+    },
+    onResize () {
+      console.log('input onResize')
+      // if (this.showdropdown) {
+      //   this.checkViewport()
+      // }
     }
   }
 }
