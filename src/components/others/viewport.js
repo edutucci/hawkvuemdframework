@@ -1,9 +1,10 @@
 function elementBelowOfPage (element) {
   let bool = false
   if (element) {
-    let rectElem = element.getBoundingClientRect()
-
-    if (rectElem.bottom > window.innerHeight) {
+    let rectElem = element.getClientRects()
+    // console.log('rectElem bottom: ', rectElem[0].bottom)
+    // console.log('window height: ', window.innerHeight)
+    if (rectElem[0].bottom > window.innerHeight) {
       bool = true
     } else {
       bool = false
@@ -23,7 +24,6 @@ function goToElement (element) {
 }
 
 function getPageHeaderHeight () {
-  // let pageContent = document.getElementById('page-content')
   let pageHeader = document.getElementById('page-header')
   let pageHeaderHeight = 0
   if (pageHeader) {
@@ -31,6 +31,16 @@ function getPageHeaderHeight () {
     pageHeaderHeight = rectPageHeader['0'].height
   }
   return pageHeaderHeight
+}
+
+function getPageHeaderBottom () {
+  let pageHeader = document.getElementById('page-header')
+  let pageHeaderBottom = 0
+  if (pageHeader) {
+    let rectPageHeader = pageHeader.getClientRects()
+    pageHeaderBottom = rectPageHeader['0'].bottom
+  }
+  return pageHeaderBottom
 }
 
 function getPageContentHeight () {
@@ -66,6 +76,7 @@ let viewport = {
   elementBelowOfPage: elementBelowOfPage,
   goToElement: goToElement,
   getPageHeaderHeight: getPageHeaderHeight,
+  getPageHeaderBottom: getPageHeaderBottom,
   getPageContentHeight: getPageContentHeight,
   getPageFooterHeight: getPageFooterHeight,
   getSidebarMenuWidth: getSidebarMenuWidth

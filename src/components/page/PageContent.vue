@@ -28,14 +28,13 @@ export default {
   },
   watch: {
     padding: function (value) {
-      console.log('mudou padding', value)
       this.onResize()
     }
   },
   data () {
     return {
       pageContentContainer: {
-        position: 'fixed',
+        position: 'relative',
         left: '0px',
         right: '0px',
         top: '0px',
