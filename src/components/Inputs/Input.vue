@@ -44,6 +44,7 @@
         )
       .col(
         v-else-if="selectChips && multiSelect"
+        @click="checkViewport"
       )
         .row.wrap
           .col-auto(
@@ -56,9 +57,7 @@
               closable
               @onClose="closeSelectChip(index)"
             )
-          .col(
-            @click="checkViewport"
-          )
+          .col
             input.full-width.no-border.cursor-pointer(type="text"  @click="checkViewport" readonly)
       .col(
         v-if="!selectChips"
@@ -188,9 +187,18 @@ export default {
       multiselectItem: [],
       selectChipsValue: [],
       dropdownObject: {
-        right: '',
+        left: '',
         bottom: '',
-        top: 'inherit'
+        top: '0',
+        width: ''
+      },
+      containerRect: {
+        top: 0,
+        left: 0
+      },
+      window: {
+        width: 0,
+        height: 0
       }
     }
   },
@@ -368,19 +376,59 @@ export default {
         }
       }
     },
+    updateDropdownPosition () {
+      if (!this.showdropdown) {
+        return false
+      }
+      let containerElement = document.getElementById(this.containerId)
+      if (containerElement) {
+        let dropMenu = document.getElementById(this.dropMenuId)
+        let containerRect = containerElement.getClientRects()
+        if (this.containerRect.top !== containerRect[0].top ||
+          this.containerRect.left !== containerRect[0].left ||
+          viewport.elementBelowOfPage(dropMenu) ||
+          this.window.width !== window.innerWidth ||
+          this.window.height !== window.innerHeight
+        ) {
+          this.checkViewport()
+        } else {
+          setTimeout(() => {
+            this.updateDropdownPosition()
+          }, 100)
+        }
+      }
+    },
+    updateContainerRect (containerRect) {
+      this.containerRect.top = containerRect[0].top
+      this.containerRect.left = containerRect[0].left
+    },
     checkViewport () {
       this.showdropdown = true
-      this.dropdownObject.bottom = ''
 
-      this.$nextTick(() => {
-        let input = document.getElementById(this.inputId)
-        let dropMenu = document.getElementById(this.dropMenuId)
-        if (input && dropMenu) {
-          if (viewport.elementBelowOfPage(dropMenu)) {
-            this.dropdownObject.bottom = '0px'
+      let containerElement = document.getElementById(this.containerId)
+      if (containerElement) {
+        let containerRect = containerElement.getClientRects()
+        this.updateContainerRect(containerRect)
+
+        this.dropdownObject.top = '' + containerRect[0].bottom + 'px'
+        this.dropdownObject.width = '' + (containerRect[0].width - 15) + 'px'
+        this.windowWidth = window.innerWidth
+        this.window.height = window.innerHeight
+
+        this.$nextTick(() => {
+          let dropMenu = document.getElementById(this.dropMenuId)
+          if (dropMenu) {
+            if (viewport.elementBelowOfPage(dropMenu)) {
+              let menuHeight = document.getElementById(this.dropMenuId).clientHeight
+              this.dropdownObject.top = '' + (this.containerRect.top - menuHeight) + 'px'
+            }
           }
-        }
-      })
+
+          setTimeout(() => {
+            this.updateDropdownPosition()
+          }, 100)
+        })
+      }
     },
     blur () {
       this.focused = false
