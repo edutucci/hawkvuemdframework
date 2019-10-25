@@ -2,19 +2,13 @@
   <h-page-content padding>
     <div class="text-h4">Tabs</div>
 
-    <!--
-      ADD
-      - select tab when component mounted
-      - select a tab with default when mounted
-    -->
-
     <comp-code class="h-mt-md" title="Horizontal Tabs" :code="exHorTabs">
       <div class="border border-primary border-radius" style="height: 150px;">
         <h-tabs v-model="horTab" bg-color="bg-primary" text-color="text-white">
-          <h-tab name="HOME">
+          <h-tab name="home" text="HOME">
             <div class="row align-items-center full-height">
               <div class="col-auto h-ma-sm">
-                <h-fa-icon icon="fas fa-home" size="40px"/>
+                <h-icon icon="fas fa-home" size="40px"/>
               </div>
               <div class="col">
                 <div class="text-h5">Home</div>
@@ -22,7 +16,7 @@
               </div>
             </div>
           </h-tab>
-          <h-tab name="PROFILE">
+          <h-tab name="profile" text="PROFILE">
             <div class="row align-items-center full-height">
               <div class="col-auto h-ma-sm">
                 <h-image avatar src="avatar/Penguin.png" size="48px"/>
@@ -33,10 +27,10 @@
               </div>
             </div>
           </h-tab>
-          <h-tab name="SETTINGS">
+          <h-tab name="settings" text="SETTINGS">
             <div class="row align-items-center full-height">
               <div class="col-auto h-ma-sm">
-                <h-fa-icon icon="fas fa-cog" size="40px"/>
+                <h-icon icon="fas fa-cog" size="40px"/>
               </div>
               <div class="col">
                 <div class="text-h5">Settings</div>
@@ -44,10 +38,10 @@
               </div>
             </div>
           </h-tab>
-          <h-tab name="MAIL">
+          <h-tab name="mail" text="MAIL">
             <div class="row align-items-center full-height">
               <div class="col-auto h-ma-sm">
-                <h-fa-icon icon="fas fa-envelope" size="40px"/>
+                <h-icon icon="fas fa-envelope" size="40px"/>
               </div>
               <div class="col">
                 <div class="text-h5">Mail</div>
@@ -59,44 +53,44 @@
       </div>
 
       <div class="border border-primary border-radius h-mt-md" style="height: 200px;">
-        <h-tabs v-model="horTab" bg-color="bg-secondary" text-color="text-white">
-          <h-tab name="GAMES">
+        <h-tabs v-model="horTab1" bg-color="bg-secondary" text-color="text-white">
+          <h-tab name="games" text="GAMES">
             <div class="row align-items-center full-height">
               <div class="col-auto text-center h-ma-sm">
-                <h-fa-icon icon="fas fa-gamepad" size="60px"/>
+                <h-icon icon="fas fa-gamepad" size="60px"/>
                 <div class="text-body1">Games</div>
               </div>
               <div class="col h-pl-sm">
                 <div class="row justify-center">
                   <div class="col-auto">
-                    <h-img src="img/game-soccer.jpeg" width="150px" height="90px"/>
+                    <h-image src="img/game-soccer.jpeg" style="width:150px;height:100px"/>
                   </div>
                   <div class="col-auto h-ml-sm">
-                    <h-img src="img/Rainbow-Six-Siege-3.jpg" width="150px" height="90px"/>
+                    <h-image src="img/Rainbow-Six-Siege-3.jpg" style="width:150px;height:100px"/>
                   </div>
                 </div>
               </div>
             </div>
           </h-tab>
-          <h-tab name="BOOKS">
+          <h-tab name="books" text="BOOKS">
             <div class="row align-items-center full-height">
               <div class="col-auto text-center h-ma-sm">
-                <h-fa-icon icon="fas fa-book" size="60px"/>
+                <h-icon icon="fas fa-book" size="60px"/>
                 <div class="text-body1">Books</div>
               </div>
               <div class="col h-pl-sm">
                 <div class="row justify-center">
                   <div class="col-auto">
-                    <h-img src="img/bookhtmlcss3.jpeg" width="180px" height="120px"/>
+                    <h-image src="img/bookhtmlcss3.jpeg" style="width:150px;height:100px"/>
                   </div>
                 </div>
               </div>
             </div>
           </h-tab>
-          <h-tab name="VIDEOS">
+          <h-tab name="videos" text="VIDEOS">
             <div class="row align-items-center full-height">
               <div class="col-auto text-center h-ma-sm">
-                <h-fa-icon icon="fas fa-video" size="60px"/>
+                <h-icon icon="fas fa-video" size="60px"/>
                 <div class="text-body1">Video</div>
               </div>
               <div class="col h-pl-sm">
@@ -116,10 +110,10 @@
     <comp-code class="h-mt-md" title="Vertical Tabs" :code="exVerTabs">
       <div class="border border-primary border-radius" style="height: 150px;">
         <h-tabs vertical v-model="verTab" bg-color="bg-primary" text-color="text-white">
-          <h-tab name="HOME">
+          <h-tab name="home" text="HOME">
             <div class="row align-items-center full-height">
               <div class="col-auto h-ma-sm">
-                <h-fa-icon icon="fas fa-home" size="40px"/>
+                <h-icon icon="fas fa-home" size="40px"/>
               </div>
               <div class="col">
                 <div class="text-h5">Home</div>
@@ -127,7 +121,7 @@
               </div>
             </div>
           </h-tab>
-          <h-tab name="PROFILE">
+          <h-tab name="profile" text="PROFILE">
             <div class="row align-items-center full-height">
               <div class="col-auto h-ma-sm">
                 <h-image avatar src="avatar/Penguin.png" size="48px"/>
@@ -138,10 +132,10 @@
               </div>
             </div>
           </h-tab>
-          <h-tab name="SETTINGS">
+          <h-tab name="settings" text="SETTINGS">
             <div class="row align-items-center full-height">
               <div class="col-auto h-ma-sm">
-                <h-fa-icon icon="fas fa-cog" size="40px"/>
+                <h-icon icon="fas fa-cog" size="40px"/>
               </div>
               <div class="col">
                 <div class="text-h5">Settings</div>
@@ -149,10 +143,10 @@
               </div>
             </div>
           </h-tab>
-          <h-tab name="MAIL">
+          <h-tab name="mail" text="MAIL">
             <div class="row align-items-center full-height">
               <div class="col-auto h-ma-sm">
-                <h-fa-icon icon="fas fa-envelope" size="40px"/>
+                <h-icon icon="fas fa-envelope" size="40px"/>
               </div>
               <div class="col">
                 <div class="text-h5">Mail</div>
@@ -164,44 +158,44 @@
       </div>
 
       <div class="border border-primary border-radius h-mt-md" style="height: 150px;">
-        <h-tabs vertical v-model="verTab" bg-color="bg-secondary" text-color="text-white">
-          <h-tab name="GAMES">
+        <h-tabs vertical v-model="verTab1" bg-color="bg-secondary" text-color="text-white">
+          <h-tab name="games" text="GAMES">
             <div class="row align-items-center full-height">
               <div class="col-auto text-center h-ma-sm">
-                <h-fa-icon icon="fas fa-gamepad" size="60px"/>
+                <h-icon icon="fas fa-gamepad" size="60px"/>
                 <div class="text-body1">Games</div>
               </div>
               <div class="col h-pl-sm">
                 <div class="row justify-center">
                   <div class="col-auto">
-                    <h-img src="img/game-soccer.jpeg" width="150px" height="90px"/>
+                    <h-image src="img/game-soccer.jpeg" style="width:150px;height:100px"/>
                   </div>
                   <div class="col-auto h-ml-sm">
-                    <h-img src="img/Rainbow-Six-Siege-3.jpg" width="150px" height="90px"/>
+                    <h-image src="img/Rainbow-Six-Siege-3.jpg" style="width:150px;height:100px"/>
                   </div>
                 </div>
               </div>
             </div>
           </h-tab>
-          <h-tab name="BOOKS">
+          <h-tab name="books" text="BOOKS">
             <div class="row align-items-center full-height">
               <div class="col-auto text-center h-ma-sm">
-                <h-fa-icon icon="fas fa-book" size="60px"/>
+                <h-icon icon="fas fa-book" size="60px"/>
                 <div class="text-body1">Books</div>
               </div>
               <div class="col h-pl-sm">
                 <div class="row justify-center">
                   <div class="col-auto">
-                    <h-img src="img/bookhtmlcss3.jpeg" width="180px" height="120px"/>
+                    <h-image src="img/bookhtmlcss3.jpeg" style="width:150px;height:100px"/>
                   </div>
                 </div>
               </div>
             </div>
           </h-tab>
-          <h-tab name="VIDEOS">
+          <h-tab name="videos" text="VIDEOS">
             <div class="row align-items-center full-height">
               <div class="col-auto text-center h-ma-sm">
-                <h-fa-icon icon="fas fa-video" size="60px"/>
+                <h-icon icon="fas fa-video" size="60px"/>
                 <div class="text-body1">Video</div>
               </div>
               <div class="col h-pl-sm">
@@ -259,23 +253,23 @@
       <div>
         <h3>Name</h3>
         <div>name</div>
+        <div>text</div>
         <div>left-icon</div>
         <div>top-icon</div>
-        <div>default</div>
       </div>
       <div class="h-pl-md">
         <h3>Type</h3>
         <div>String</div>
         <div>String</div>
         <div>String</div>
-        <div>Boolean</div>
+        <div>String</div>
       </div>
       <div class="h-pl-md">
         <h3 >Description</h3>
         <div>Sets the tab name</div>
+        <div>Sets the tab text</div>
         <div>Sets the icon before tab name</div>
         <div>Sets the icon above tab name (vertical tab only)</div>
-        <div>Sets the default tab</div>
       </div>
     </div>
 
@@ -289,15 +283,17 @@ export default {
   },
   data () {
     return {
-      horTab: '',
-      verTab: '',
+      horTab: 'profile',
+      horTab1: 'games',
+      verTab: 'profile',
+      verTab1: 'books',
       exHorTabs: `
 <div class="border border-primary border-radius" style="height: 150px;">
   <h-tabs v-model="horTab" bg-color="bg-primary" text-color="text-white">
     <h-tab name="HOME">
       <div class="row align-items-center full-height">
         <div class="col-auto h-ma-sm">
-          <h-fa-icon icon="fas fa-home" size="40px"/>
+          <h-icon icon="fas fa-home" size="40px"/>
         </div>
         <div class="col">
           <div class="text-h5">Home</div>
@@ -319,7 +315,7 @@ export default {
     <h-tab name="SETTINGS">
       <div class="row align-items-center full-height">
         <div class="col-auto h-ma-sm">
-          <h-fa-icon icon="fas fa-cog" size="40px"/>
+          <h-icon icon="fas fa-cog" size="40px"/>
         </div>
         <div class="col">
           <div class="text-h5">Settings</div>
@@ -330,7 +326,7 @@ export default {
     <h-tab name="MAIL">
       <div class="row align-items-center full-height">
         <div class="col-auto h-ma-sm">
-          <h-fa-icon icon="fas fa-envelope" size="40px"/>
+          <h-icon icon="fas fa-envelope" size="40px"/>
         </div>
         <div class="col">
           <div class="text-h5">Mail</div>
@@ -346,16 +342,16 @@ export default {
     <h-tab name="GAMES">
       <div class="row align-items-center full-height">
         <div class="col-auto text-center h-ma-sm">
-          <h-fa-icon icon="fas fa-gamepad" size="60px"/>
+          <h-icon icon="fas fa-gamepad" size="60px"/>
           <div class="text-body1">Games</div>
         </div>
         <div class="col h-pl-sm">
           <div class="row justify-center">
             <div class="col-auto">
-              <h-img src="img/game-soccer.jpeg" width="150px" height="90px"/>
+              <h-image src="img/game-soccer.jpeg" width="150px" height="90px"/>
             </div>
             <div class="col-auto h-ml-sm">
-              <h-img src="img/Rainbow-Six-Siege-3.jpg" width="150px" height="90px"/>
+              <h-image src="img/Rainbow-Six-Siege-3.jpg" width="150px" height="90px"/>
             </div>
           </div>
         </div>
@@ -364,13 +360,13 @@ export default {
     <h-tab name="BOOKS">
       <div class="row align-items-center full-height">
         <div class="col-auto text-center h-ma-sm">
-          <h-fa-icon icon="fas fa-book" size="60px"/>
+          <h-icon icon="fas fa-book" size="60px"/>
           <div class="text-body1">Books</div>
         </div>
         <div class="col h-pl-sm">
           <div class="row justify-center">
             <div class="col-auto">
-              <h-img src="img/bookhtmlcss3.jpeg" width="180px" height="120px"/>
+              <h-image src="img/bookhtmlcss3.jpeg" width="180px" height="120px"/>
             </div>
           </div>
         </div>
@@ -379,7 +375,7 @@ export default {
     <h-tab name="VIDEOS">
       <div class="row align-items-center full-height">
         <div class="col-auto text-center h-ma-sm">
-          <h-fa-icon icon="fas fa-video" size="60px"/>
+          <h-icon icon="fas fa-video" size="60px"/>
           <div class="text-body1">Video</div>
         </div>
         <div class="col h-pl-sm">
@@ -400,7 +396,7 @@ export default {
     <h-tab name="HOME">
       <div class="row align-items-center full-height">
         <div class="col-auto h-ma-sm">
-          <h-fa-icon icon="fas fa-home" size="40px"/>
+          <h-icon icon="fas fa-home" size="40px"/>
         </div>
         <div class="col">
           <div class="text-h5">Home</div>
@@ -422,7 +418,7 @@ export default {
     <h-tab name="SETTINGS">
       <div class="row align-items-center full-height">
         <div class="col-auto h-ma-sm">
-          <h-fa-icon icon="fas fa-cog" size="40px"/>
+          <h-icon icon="fas fa-cog" size="40px"/>
         </div>
         <div class="col">
           <div class="text-h5">Settings</div>
@@ -433,7 +429,7 @@ export default {
     <h-tab name="MAIL">
       <div class="row align-items-center full-height">
         <div class="col-auto h-ma-sm">
-          <h-fa-icon icon="fas fa-envelope" size="40px"/>
+          <h-icon icon="fas fa-envelope" size="40px"/>
         </div>
         <div class="col">
           <div class="text-h5">Mail</div>
@@ -449,16 +445,16 @@ export default {
     <h-tab name="GAMES">
       <div class="row align-items-center full-height">
         <div class="col-auto text-center h-ma-sm">
-          <h-fa-icon icon="fas fa-gamepad" size="60px"/>
+          <h-icon icon="fas fa-gamepad" size="60px"/>
           <div class="text-body1">Games</div>
         </div>
         <div class="col h-pl-sm">
           <div class="row justify-center">
             <div class="col-auto">
-              <h-img src="img/game-soccer.jpeg" width="150px" height="90px"/>
+              <h-image src="img/game-soccer.jpeg" width="150px" height="90px"/>
             </div>
             <div class="col-auto h-ml-sm">
-              <h-img src="img/Rainbow-Six-Siege-3.jpg" width="150px" height="90px"/>
+              <h-image src="img/Rainbow-Six-Siege-3.jpg" width="150px" height="90px"/>
             </div>
           </div>
         </div>
@@ -467,13 +463,13 @@ export default {
     <h-tab name="BOOKS">
       <div class="row align-items-center full-height">
         <div class="col-auto text-center h-ma-sm">
-          <h-fa-icon icon="fas fa-book" size="60px"/>
+          <h-icon icon="fas fa-book" size="60px"/>
           <div class="text-body1">Books</div>
         </div>
         <div class="col h-pl-sm">
           <div class="row justify-center">
             <div class="col-auto">
-              <h-img src="img/bookhtmlcss3.jpeg" width="180px" height="120px"/>
+              <h-image src="img/bookhtmlcss3.jpeg" width="180px" height="120px"/>
             </div>
           </div>
         </div>
@@ -482,7 +478,7 @@ export default {
     <h-tab name="VIDEOS">
       <div class="row align-items-center full-height">
         <div class="col-auto text-center h-ma-sm">
-          <h-fa-icon icon="fas fa-video" size="60px"/>
+          <h-icon icon="fas fa-video" size="60px"/>
           <div class="text-body1">Video</div>
         </div>
         <div class="col h-pl-sm">

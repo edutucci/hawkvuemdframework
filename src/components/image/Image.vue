@@ -21,7 +21,7 @@
 import componentBase from '../componentBase.vue'
 
 export default {
-  name: 'HAvatar',
+  name: 'HImage',
   extends: componentBase,
   props: {
     src: {
