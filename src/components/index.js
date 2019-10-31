@@ -1,6 +1,7 @@
 import Vue from 'vue'
 
 import CompCode from './others/CompCode'
+import ListHelp from './others/ListHelp'
 import HBtn from './buttons/Btn.vue'
 import HBtnFloat from './buttons/BtnFloat.vue'
 import HBtnGroup from './buttons/BtnGroup.vue'
@@ -74,6 +75,7 @@ import HScrollNavigator from './scroll/ScrollNavigator'
 
 const Components = {
   CompCode,
+  ListHelp,
   HBtn,
   HBtnFloat,
   HBtnGroup,

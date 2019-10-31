@@ -5,7 +5,7 @@
     <div class="text-h4 h-mt-lg">Syntax</div>
     <div class="text-body1">H - TYPE + DIRECTION - SIZE</div>
 
-    <html-table borders class="h-mt-md">
+    <html-table bordered class="h-mt-md">
       <tr>
         <th class="text-left">Type</th>
       </tr>
@@ -17,7 +17,7 @@
       </tr>
     </html-table>
 
-    <html-table borders class="h-mt-md">
+    <html-table bordered class="h-mt-md">
       <tr>
         <th class="text-left">DIRECTION</th>
       </tr>
@@ -29,7 +29,7 @@
       </tr>
     </html-table>
 
-    <html-table borders class="h-mt-md">
+    <html-table bordered class="h-mt-md">
       <tr>
         <th class="text-left">SIZE</th>
       </tr>

@@ -82,36 +82,36 @@
         <comp-code class="h-mt-md" title="FAB Buttons" :code="fabButtons">
           <div>
             <h-btn fab bg-color="bg-primary" size="xl">
-              <h-fa-icon icon="fas fa-envelope"  text-color="text-white" size="32px"/>
+              <h-icon icon="fas fa-envelope"  text-color="text-white" size="32px"/>
             </h-btn>
             <h-btn fab bg-color="bg-primary" text-color="text-white" size="xl">
-              <h-fa-icon icon="fab fa-github"  text-color="text-white" size="32px"/>
+              <h-icon icon="fab fa-github"  text-color="text-white" size="32px"/>
             </h-btn>
             <h-btn fab bg-color="bg-primary" text-color="text-white" size="xl">
-              <h-fa-icon icon="fas fa-map-marker-alt"  text-color="text-white" size="32px"/>
+              <h-icon icon="fas fa-map-marker-alt"  text-color="text-white" size="32px"/>
             </h-btn>
             <h-btn fab bg-color="bg-primary" text-color="text-white" size="xl">
-              <h-fa-icon icon="fas fa-shopping-cart"  text-color="text-white" size="32px"/>
+              <h-icon icon="fas fa-shopping-cart"  text-color="text-white" size="32px"/>
             </h-btn>
             <h-btn fab bg-color="bg-primary" text-color="text-white" size="xl">
-              <h-fa-icon icon="fas fa-plane"  text-color="text-white" size="32px"/>
+              <h-icon icon="fas fa-plane"  text-color="text-white" size="32px"/>
             </h-btn>
           </div>
           <div>
             <h-btn fab bg-color="bg-primary" size="sm">
-              <h-fa-icon icon="fas fa-envelope"  text-color="text-white"/>
+              <h-icon icon="fas fa-envelope"  text-color="text-white"/>
             </h-btn>
             <h-btn fab bg-color="bg-primary" text-color="text-white" size="sm">
-              <h-fa-icon icon="fab fa-github"  text-color="text-white"/>
+              <h-icon icon="fab fa-github"  text-color="text-white"/>
             </h-btn>
             <h-btn fab bg-color="bg-primary" text-color="text-white" size="sm">
-              <h-fa-icon icon="fas fa-map-marker-alt"  text-color="text-white"/>
+              <h-icon icon="fas fa-map-marker-alt"  text-color="text-white"/>
             </h-btn>
             <h-btn fab bg-color="bg-primary" text-color="text-white" size="sm">
-              <h-fa-icon icon="fas fa-shopping-cart"  text-color="text-white"/>
+              <h-icon icon="fas fa-shopping-cart"  text-color="text-white"/>
             </h-btn>
             <h-btn fab bg-color="bg-primary" text-color="text-white" size="sm">
-              <h-fa-icon icon="fas fa-plane"  text-color="text-white"/>
+              <h-icon icon="fas fa-plane"  text-color="text-white"/>
             </h-btn>
           </div>
         </comp-code>
@@ -135,19 +135,19 @@
 
           <div>
             <h-btn fab bg-color="bg-primary" size="xs">
-              <h-fa-icon icon="fas fa-envelope"  text-color="text-white"/>
+              <h-icon icon="fas fa-envelope"  text-color="text-white"/>
             </h-btn>
             <h-btn fab bg-color="bg-primary" text-color="text-white" size="sm">
-              <h-fa-icon icon="fab fa-github"  text-color="text-white"/>
+              <h-icon icon="fab fa-github"  text-color="text-white"/>
             </h-btn>
             <h-btn fab bg-color="bg-primary" text-color="text-white" size="md">
-              <h-fa-icon icon="fas fa-map-marker-alt"  text-color="text-white"/>
+              <h-icon icon="fas fa-map-marker-alt"  text-color="text-white"/>
             </h-btn>
             <h-btn fab bg-color="bg-primary" text-color="text-white" size="lg">
-              <h-fa-icon icon="fas fa-shopping-cart"  text-color="text-white"/>
+              <h-icon icon="fas fa-shopping-cart"  text-color="text-white"/>
             </h-btn>
             <h-btn fab bg-color="bg-primary" text-color="text-white" size="xl">
-              <h-fa-icon icon="fas fa-plane"  text-color="text-white" size="32px"/>
+              <h-icon icon="fas fa-plane"  text-color="text-white" size="32px"/>
             </h-btn>
           </div>
 
@@ -379,31 +379,33 @@
           </div>
         </div>
       </div>
-      <div class="col-auto h-pl-xs">
-        <h-list class="sticky">
-          <h-list-header text="Types" class="bg-gray"/>
-          <h-list-item @click="goToElement('btn-contained')">
-            <h-list-item-content>
-              <h-list-item-text title="Contained"/>
-            </h-list-item-content>
-          </h-list-item>
-          <h-list-item @click="goToElement('btn-text')">
-            <h-list-item-content>
-              <h-list-item-text title="Text"/>
-            </h-list-item-content>
-          </h-list-item>
-          <h-list-item @click="goToElement('btn-outlined')">
-            <h-list-item-content>
-              <h-list-item-text title="Outlined"/>
-            </h-list-item-content>
-          </h-list-item>
-          <h-list-item @click="goToElement('btn-rounded')">
-            <h-list-item-content>
-              <h-list-item-text title="Rounded"/>
-            </h-list-item-content>
-          </h-list-item>
-          <h-list-header text="Additional Types" class="bg-gray"/>
-        </h-list>
+      <div class="col-auto">
+        <list-help>
+          <h-list>
+            <h-list-header text="Types"/>
+            <h-list-item @click="goToElement('btn-contained')">
+              <h-list-item-content>
+                <h-list-item-text title="Contained"/>
+              </h-list-item-content>
+            </h-list-item>
+            <h-list-item @click="goToElement('btn-text')">
+              <h-list-item-content>
+                <h-list-item-text title="Text"/>
+              </h-list-item-content>
+            </h-list-item>
+            <h-list-item @click="goToElement('btn-outlined')">
+              <h-list-item-content>
+                <h-list-item-text title="Outlined"/>
+              </h-list-item-content>
+            </h-list-item>
+            <h-list-item @click="goToElement('btn-rounded')">
+              <h-list-item-content>
+                <h-list-item-text title="Rounded"/>
+              </h-list-item-content>
+            </h-list-item>
+            <h-list-header text="Additional Types"/>
+          </h-list>
+        </list-help>
       </div>
     </div>
 

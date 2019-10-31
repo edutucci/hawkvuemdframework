@@ -9,7 +9,7 @@
           h-icon.h-ml-sm(icon="fas fa-code" @click="changePage('template')")
           h-icon.h-ml-sm(v-if="javascript" icon="fab fa-js" @click="changePage('javascript')")
       .flex.flex-column.full-width.bg-white.position-relative
-        div.full-width.h-pa-sm(v-if="pageName === 'result'")
+        div.h-pa-sm(v-if="pageName === 'result'")
           slot
         div.position-relative(v-if="pageName === 'template'" style="min-height: 60px;")
           .top-right-absolute.h-mr-sm.h-mt-md.buttoncopycode

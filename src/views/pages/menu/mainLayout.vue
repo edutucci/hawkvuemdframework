@@ -24,12 +24,12 @@
 
         <div slot="header" class="text-center h-pa-md">
           <div class="top-left-absolute flex flex-justify-end h-pa-sm bg-primary" style="left:0; right:0;">
-            <h-fa-icon icon="fas fa-times" text-color="text-white" @click="$refs.nav.close()"/>
+            <h-icon icon="fas fa-times" text-color="text-white" @click="$refs.nav.close()"/>
           </div>
           <div class="column align-items-center" style="margin-top: 30px;">
             <h-image avatar src="img/hawk.jpg" size="64px"/>
-            <h3 class="no-padding no-margin">Hawk </h3>
-            <h3 class="no-padding no-margin"> Framework</h3>
+            <div class="">Hawk </div>
+            <div class=""> Framework</div>
           </div>
         </div>
 
@@ -107,14 +107,13 @@
       bg-color="bg-white"
       text-color="text-gray600"
       style="width: 200px"
-      fixed
     >
       <template v-slot:header>
-        <div class="column align-items-center" style="padding: 10px;">
+        <div class="column align-items-center" style="margin-top: 30px;">
           <h-image avatar src="img/hawk.jpg" size="64px"/>
           <div class="text-h5">Hawk </div>
           <div class="text-h5"> Framework</div>
-          <div class="text-body1">Sidebar Menu Fixed</div>
+          <div>Sidebar Menu Working</div>
         </div>
       </template>
       <h-side-bar-menu-item text="Dashboard" caption="View Data" icon='fas fa-th-large' @click="$router.push('#')"/>

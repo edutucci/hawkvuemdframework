@@ -195,10 +195,10 @@ export default {
     }
   },
   mounted () {
-    this.loadOptions()
+    this.loadSearchOptions()
   },
   methods: {
-    loadOptions () {
+    loadSearchOptions () {
       this.selectOptions = []
       this.selectOptions.push({ avatar: 'avatar/turtle.png', text: 'Ninja Turtle', desc: 'I kill you', value: 'Ninja Turtle' })
       this.selectOptions.push({ img: 'avatar/folder_open.png', text: 'Photos', desc: 'Dez 12, 2017', value: 'Photos' })

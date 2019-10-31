@@ -24,7 +24,7 @@
 
         <div slot="header" class="text-center h-pa-md">
           <div class="top-left-absolute flex flex-justify-end h-pa-sm bg-primary" style="left:0; right:0;">
-            <h-fa-icon icon="fas fa-times" text-color="text-white" @click="$refs.nav.close()"/>
+            <h-icon icon="fas fa-times" text-color="text-white" @click="$refs.nav.close()"/>
           </div>
           <div class="column align-items-center" style="margin-top: 30px;">
             <h-image avatar src="img/hawk.jpg" size="64px"/>
@@ -78,6 +78,7 @@
                 <h-collapsible-item text="Select" @click="$router.push('/select'), $refs.nav.close()"/>
                 <h-collapsible-item text="Tab" @click="$router.push('/tab'), $refs.nav.close()"/>
                 <h-collapsible-item text="Table" @click="$router.push('/table'), $refs.nav.close()"/>
+                <h-collapsible-item text="HtmlTable" @click="$router.push('/htmltable'), $refs.nav.close()"/>
                 <h-collapsible-item text="Input" @click="$router.push('/input'), $refs.nav.close()"/>
                 <h-collapsible-item text="Appbar" @click="$router.push('/appbar'), $refs.nav.close()"/>
                 <h-collapsible-item text="Toggle" @click="$router.push('/toggle'), $refs.nav.close()"/>
