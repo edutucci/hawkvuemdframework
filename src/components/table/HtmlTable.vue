@@ -1,19 +1,21 @@
 <template lang="pug">
     table.bg-white(
       cellspacing="0"
-      :class="[{'borders border border-gray border-radius': borders}]"
+      class="border-radius"
+      :class="[{'borders border border-gray': bordered, 'shadow-1': shadow, 'cell-separator': cellSeparator}]"
     )
-      tr
-        th.text-left.h-pa-xs.text-body2.text-gray(
-          v-for="(col, index) in columns" :key="col"
-        )
-          | {{col}}
-
-      tr(v-for="(row, index) in rows" :key="`row-${index}`")
-        td.h-pa-xs(
-          v-for="(col, index) in columns" :key="`rowcol-${index}`"
-        )
-          | {{row[col]}}
+      thead
+        tr
+          th.text-left.h-pa-xs.text-body2.text-gray(
+            v-for="(col, index) in columns" :key="col"
+          )
+            | {{col}}
+      tbody
+        tr(v-for="(row, index) in rows" :key="`row-${index}`")
+          td.h-pa-xs(
+            v-for="(col, index) in columns" :key="`rowcol-${index}`"
+          )
+            | {{row[col]}}
 
       slot
 
@@ -31,7 +33,15 @@ export default {
       type: Array,
       default: () => ([])
     },
-    borders: {
+    bordered: {
+      type: Boolean,
+      default: false
+    },
+    shadow: {
+      type: Boolean,
+      default: false
+    },
+    cellSeparator: {
       type: Boolean,
       default: false
     }
@@ -45,22 +55,35 @@ export default {
 </script>
 
 <style scoped>
-table.borders {
+table {
   width: 100%;
   overflow:hidden;
+}
+
+table.borders {
   border-collapse:separate;
 }
 
-table.borders > tr:not(:last-child) > td {
+table.borders > tbody > tr:not(:last-child) > td {
   border-bottom: solid #ccc 1px;
 }
 
 table td, th {
-  padding: 6px;
+  padding: 8px;
 }
 
 table.borders th {
   border-bottom: solid #ccc 1px;
 }
 
+tr > td,
+tr > th {
+  font-size: 14px;
+  letter-spacing: 0.25px;
+}
+
+table.borders.cell-separator > tbody > tr > td:not(:first-child),
+table.borders.cell-separator > thead > tr > th:not(:first-child) {
+  border-left: 1px solid gray;
+}
 </style>

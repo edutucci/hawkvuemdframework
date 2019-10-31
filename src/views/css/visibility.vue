@@ -3,7 +3,7 @@
     <div class="text-h4">Device sizes</div>
 
     <div class="h-mt-md text-h4">Window width</div>
-    <html-table borders>
+    <html-table bordered>
       <tr class="text-left">
         <th>Name</th>
         <th>Description</th>
@@ -36,7 +36,7 @@
     </prism>
 
     <div class="h-mt-md text-h4">Visibility by width</div>
-    <html-table borders class="h-mt-md">
+    <html-table bordered class="h-mt-md">
       <tr>
         <th>Name</th>
         <th>Description</th>

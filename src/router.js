@@ -42,6 +42,7 @@ export default new Router({
         { path: '/select', component: () => import('./views/pages/select/select') },
         { path: '/tab', component: () => import('./views/pages/tab/tab') },
         { path: '/table', component: () => import('./views/pages/table/table') },
+        { path: '/htmltable', component: () => import('./views/pages/table/htmlTable') },
         { path: '/appbar', component: () => import('./views/pages/appbar/appbar.vue') },
         { path: '/dialog', component: () => import('./views/pages/dialog/dialog') },
         { path: '/datetime', component: () => import('./views/pages/datetime/datetime') },
@@ -65,7 +66,7 @@ export default new Router({
     },
     {
       path: '/test',
-      component: () => import('./views/pages/test/Currency.vue')
+      component: () => import('./views/pages/test/shadow.vue')
     },
     {
       path: '/example',

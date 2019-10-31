@@ -38,6 +38,9 @@
             </div>
           </div>
         </h-list-item-content>
+        <h-list-item-side v-if="menu.useMenu">
+          <h-icon icon="fas fa-caret-right" :text-color="textColor"/>
+        </h-list-item-side>
       </h-list-item>
     </h-list>
     <div :style="subMenuObject">
@@ -58,27 +61,22 @@ export default {
   directives: {
     resize
   },
-  props: {
-    fixed: {
-      type: Boolean,
-      default: false
-    }
-  },
   data () {
     return {
       menuListId: uuidv1(),
       menuList: [],
       currentMenu: undefined,
       sideMenuObject: {
-        position: 'relative',
+        position: 'fixed',
         marginTop: '0px',
-        height: ''
+        height: '',
+        zIndex: '1200'
       },
       subMenuObject: {
         position: 'fixed',
         left: '0px',
         top: '0px',
-        zIndex: '1500'
+        zIndex: '1200'
       }
     }
   },
@@ -88,27 +86,29 @@ export default {
     },
     selectMenu (menu) {
       this.closeMenu()
-      this.currentMenu = menu
-      this.currentMenu.setVisible(true)
+      if (menu.useMenu) {
+        this.currentMenu = menu
+        this.currentMenu.setVisible(true)
 
-      this.$nextTick(() => {
-        if (this.currentMenu.useMenu) {
-          let menuListElement = document.getElementById(this.menuListId)
-          let menuElement = document.getElementById('sidebar-menu')
-          let scrollTop = 0
-          if (menuElement) {
-            scrollTop = menuElement.scrollTop
-          }
+        this.$nextTick(() => {
+          if (this.currentMenu.useMenu) {
+            let menuListElement = document.getElementById(this.menuListId)
+            let menuElement = document.getElementById('sidebar-menu')
+            let scrollTop = 0
+            if (menuElement) {
+              scrollTop = menuElement.scrollTop
+            }
 
-          if (menuListElement) {
-            let menuRect = menuListElement.getClientRects()
-            this.subMenuObject.left = '' + (menuRect[0].left + menuRect[0].width + 5) + 'px'
-            this.subMenuObject.top = '' + (menuRect[0].top + scrollTop) + 'px'
+            if (menuListElement) {
+              let menuRect = menuListElement.getClientRects()
+              this.subMenuObject.left = '' + (menuRect[0].left + menuRect[0].width + 5) + 'px'
+              this.subMenuObject.top = '' + (menuRect[0].top + scrollTop) + 'px'
+            }
+          } else {
+            this.currentMenu.onClick()
           }
-        } else {
-          this.currentMenu.onClick()
-        }
-      })
+        })
+      }
     },
     closeMenu () {
       if (this.currentMenu) {
@@ -122,26 +122,22 @@ export default {
       let pageFooterHeight = viewport.getPageFooterHeight()
       let sumHF = pageHeaderHeight + pageFooterHeight + 7
 
-      this.sideMenuObject.position = 'relative'
-      if (this.fixed) {
-        this.sideMenuObject.position = 'fixed'
-        this.sideMenuObject.height = 'calc(100vh - ' + sumHF + 'px)'
-        this.sideMenuObject.marginTop = '' + (pageHeaderHeight + 2) + 'px'
+      this.sideMenuObject.height = 'calc(100vh - ' + sumHF + 'px)'
+      this.sideMenuObject.marginTop = '' + (pageHeaderHeight + 2) + 'px'
 
-        let sidebarMenu = document.getElementById('sidebar-menu')
-        let sidebarMenuWidth = 0
-        if (sidebarMenu) {
-          sidebarMenuWidth = sidebarMenu.clientWidth
-        }
+      let sidebarMenu = document.getElementById('sidebar-menu')
+      let sidebarMenuWidth = 0
+      if (sidebarMenu) {
+        sidebarMenuWidth = sidebarMenu.clientWidth
+      }
 
-        let pageContent = document.getElementById('page-content')
-        if (pageContent) {
-          let pageContentPadding = Number(pageContent.style['padding'].replace(/px/, ''))
-          if (pageContentPadding > 0) {
-            sidebarMenuWidth += 10
-          }
-          pageContent.style['margin-left'] = '' + sidebarMenuWidth + 'px'
+      let pageContent = document.getElementById('page-content')
+      if (pageContent) {
+        let pageContentPadding = Number(pageContent.style['padding'].replace(/px/, ''))
+        if (pageContentPadding > 0) {
+          sidebarMenuWidth += 10
         }
+        pageContent.style['margin-left'] = '' + sidebarMenuWidth + 'px'
       }
     }
   }

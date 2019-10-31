@@ -5,7 +5,7 @@
 
     <div class="text-h4 h-mt-md">Positions</div>
 
-    <html-table borders>
+    <html-table bordered>
       <tr class="text-left">
         <th>Name</th>
         <th>Description</th>
@@ -30,7 +30,7 @@
 
     <div class="text-h4 h-mt-md">Top Positions</div>
 
-    <html-table borders>
+    <html-table bordered>
       <tr class="text-left">
         <th>Name</th>
         <th>Description</th>
@@ -63,7 +63,7 @@
 
     <div class="text-h4 h-mt-md">Bottom Positions</div>
 
-    <html-table borders>
+    <html-table bordered>
       <tr class="text-left">
         <th>Name</th>
         <th>Description</th>

@@ -9,7 +9,7 @@
       :class="[size]"
       @click="onClick"
     )
-      h-fa-icon(
+      h-icon(
         v-if="icon && icon.length"
         :icon="icon"
         :text-color="textColor"
@@ -34,13 +34,13 @@
         div
           slot(name="content")
 
-        h-fa-icon.h-ml-xs(
+        h-icon.h-ml-xs(
           :icon="dropDownIcon"
           :text-color="textColor"
           size="18px"
         )
 
-    .dropdown-content.shadow.bg-white.border-radius(
+    .dropdown-content.shadow-2.bg-white.border-radius(
       v-if="showdropdown"
       :style="{left: left, right: right, bottom: bottom}"
       :id="menuid"

@@ -2,7 +2,7 @@
     <!-- <div class=" border-radius" style="position:absolute; min-width: 150px; left: 53px; top: 0px; width: auto; padding: 1px;"> -->
 
   <div v-if="isVisible && useMenu" v-on-clickaway="closeMenu"
-    class="bg-white border border-gray border-radius"
+    class="border border-gray border-radius"
     style="padding:1 2px;"
   >
     <div class="column full-width">
@@ -12,7 +12,7 @@
             {{title}}
           </div>
           <div class="col-auto" style="padding: 0px 4px; cursor: pointer;">
-            <h-fa-icon icon="fas fa-times-circle" size="18px" text-color="text-white" @click="closeMenu"/>
+            <h-icon icon="fas fa-times-circle" size="18px" text-color="text-white" @click="closeMenu"/>
           </div>
         </div>
       </div>

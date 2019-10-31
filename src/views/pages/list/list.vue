@@ -110,7 +110,7 @@
           <h-separator/>
           <h-list-item>
             <h-list-item-side>
-              <h-fa-icon icon="fas fa-film" size="20px"/>
+              <h-icon icon="fas fa-film" size="20px"/>
             </h-list-item-side>
             <h-list-item-content>
               <h-list-item-text title="Attractions"/>
@@ -118,7 +118,7 @@
           </h-list-item>
           <h-list-item>
             <h-list-item-side>
-              <h-fa-icon icon="fas fa-utensils" size="20px"/>
+              <h-icon icon="fas fa-utensils" size="20px"/>
             </h-list-item-side>
             <h-list-item-content>
               <h-list-item-text title="Dinning"/>
@@ -142,7 +142,7 @@
         <h-separator/>
         <h-list-item>
           <h-list-item-side>
-            <h-fa-icon icon="fas fa-film"/>
+            <h-icon icon="fas fa-film"/>
           </h-list-item-side>
           <h-list-item-content>
             <h-list-item-text title="House in the clouds" caption="Jonathan creates a new world"/>
@@ -150,7 +150,7 @@
         </h-list-item>
         <h-list-item>
           <h-list-item-side>
-            <h-fa-icon icon="fas fa-plane"/>
+            <h-icon icon="fas fa-plane"/>
           </h-list-item-side>
           <h-list-item-content>
             <h-list-item-text title="At the top" caption="Cindy climbs new heights"/>
@@ -204,7 +204,7 @@
             <h-list-item-text title="Photos" caption="Jan 9, 2018"/>
           </h-list-item-content>
           <h-list-item-side class="flex-items-center">
-            <h-fa-icon icon="fas fa-info-circle" text-color="text-gray"/>
+            <h-icon icon="fas fa-info-circle" text-color="text-gray"/>
           </h-list-item-side>
         </h-list-item>
         <h-list-item>
@@ -215,7 +215,7 @@
             <h-list-item-text title="Recipes" caption="Jan"/>
           </h-list-item-content>
           <h-list-item-side class="flex-items-center">
-            <h-fa-icon icon="fas fa-info-circle" text-color="text-gray"/>
+            <h-icon icon="fas fa-info-circle" text-color="text-gray"/>
           </h-list-item-side>
         </h-list-item>
         <h-separator/>
@@ -228,7 +228,7 @@
             <h-list-item-text title="Vacation itinerary" caption="Jan 20, 2018"/>
           </h-list-item-content>
           <h-list-item-side class="flex-items-center">
-            <h-fa-icon icon="fas fa-info-circle" text-color="text-gray"/>
+            <h-icon icon="fas fa-info-circle" text-color="text-gray"/>
           </h-list-item-side>
         </h-list-item>
         <h-list-item>
@@ -239,7 +239,7 @@
             <h-list-item-text title="Kicthen remodel" caption="Jan 10, 2018"/>
           </h-list-item-content>
           <h-list-item-side class="flex-items-center">
-            <h-fa-icon icon="fas fa-info-circle" text-color="text-gray"/>
+            <h-icon icon="fas fa-info-circle" text-color="text-gray"/>
           </h-list-item-side>
         </h-list-item>
       </h-list>
@@ -321,7 +321,7 @@
             </h-list-item-content>
             <h-list-item-side>
               <div class="text-center">
-                <h-fa-icon icon="fas fa-star" text-color="text-yellowA400"/>
+                <h-icon icon="fas fa-star" text-color="text-yellowA400"/>
                 <h-list-item-text title="01"/>
               </div>
             </h-list-item-side>
@@ -335,7 +335,7 @@
               <h-list-item-text title="At the top" caption="Cindy climbs new heights"/>
             </h-list-item-content>
             <h-list-item-side class="flex-justify-end">
-              <div class="text-right"><h-fa-icon icon="fas fa-star" text-color="text-yellowA400"/></div>
+              <div class="text-right"><h-icon icon="fas fa-star" text-color="text-yellowA400"/></div>
               <h-list-item-text title="02" class="flex-justify-end"/>
               <h-list-item-text caption="5 min ago" class="flex-justify-end"/>
             </h-list-item-side>
@@ -491,7 +491,7 @@ export default {
     <h-separator/>
     <h-list-item>
       <h-list-item-side>
-        <h-fa-icon icon="fas fa-film" size="20px"/>
+        <h-icon icon="fas fa-film" size="20px"/>
       </h-list-item-side>
       <h-list-item-content>
         <h-list-item-text title="Attractions"/>
@@ -499,7 +499,7 @@ export default {
     </h-list-item>
     <h-list-item>
       <h-list-item-side>
-        <h-fa-icon icon="fas fa-utensils" size="20px"/>
+        <h-icon icon="fas fa-utensils" size="20px"/>
       </h-list-item-side>
       <h-list-item-content>
         <h-list-item-text title="Dinning"/>
@@ -522,7 +522,7 @@ export default {
   <h-separator/>
   <h-list-item>
     <h-list-item-side>
-      <h-fa-icon icon="fas fa-film"/>
+      <h-icon icon="fas fa-film"/>
     </h-list-item-side>
     <h-list-item-content>
       <h-list-item-text title="House in the clouds" caption="Jonathan creates a new world"/>
@@ -530,7 +530,7 @@ export default {
   </h-list-item>
   <h-list-item>
     <h-list-item-side>
-      <h-fa-icon icon="fas fa-plane"/>
+      <h-icon icon="fas fa-plane"/>
     </h-list-item-side>
     <h-list-item-content>
       <h-list-item-text title="At the top" caption="Cindy climbs new heights"/>
@@ -584,7 +584,7 @@ export default {
       <h-list-item-text title="Photos" caption="Jan 9, 2018"/>
     </h-list-item-content>
     <h-list-item-side class="flex-items-center">
-      <h-fa-icon icon="fas fa-info-circle" text-color="text-gray"/>
+      <h-icon icon="fas fa-info-circle" text-color="text-gray"/>
     </h-list-item-side>
   </h-list-item>
   <h-list-item>
@@ -595,7 +595,7 @@ export default {
       <h-list-item-text title="Recipes" caption="Jan"/>
     </h-list-item-content>
     <h-list-item-side class="flex-items-center">
-      <h-fa-icon icon="fas fa-info-circle" text-color="text-gray"/>
+      <h-icon icon="fas fa-info-circle" text-color="text-gray"/>
     </h-list-item-side>
   </h-list-item>
   <h-separator/>
@@ -608,7 +608,7 @@ export default {
       <h-list-item-text title="Vacation itinerary" caption="Jan 20, 2018"/>
     </h-list-item-content>
     <h-list-item-side class="flex-items-center">
-      <h-fa-icon icon="fas fa-info-circle" text-color="text-gray"/>
+      <h-icon icon="fas fa-info-circle" text-color="text-gray"/>
     </h-list-item-side>
   </h-list-item>
   <h-list-item>
@@ -619,7 +619,7 @@ export default {
       <h-list-item-text title="Kicthen remodel" caption="Jan 10, 2018"/>
     </h-list-item-content>
     <h-list-item-side class="flex-items-center">
-      <h-fa-icon icon="fas fa-info-circle" text-color="text-gray"/>
+      <h-icon icon="fas fa-info-circle" text-color="text-gray"/>
     </h-list-item-side>
   </h-list-item>
 </h-list>
@@ -700,7 +700,7 @@ export default {
       </h-list-item-content>
       <h-list-item-side>
         <div class="text-center">
-          <h-fa-icon icon="fas fa-star" text-color="text-yellowA400"/>
+          <h-icon icon="fas fa-star" text-color="text-yellowA400"/>
           <h-list-item-text title="01"/>
         </div>
       </h-list-item-side>
@@ -714,7 +714,7 @@ export default {
         <h-list-item-text title="At the top" caption="Cindy climbs new heights"/>
       </h-list-item-content>
       <h-list-item-side class="flex-justify-end">
-        <div class="text-right"><h-fa-icon icon="fas fa-star" text-color="text-yellowA400"/></div>
+        <div class="text-right"><h-icon icon="fas fa-star" text-color="text-yellowA400"/></div>
         <h-list-item-text title="02" class="flex-justify-end"/>
         <h-list-item-text caption="5 min ago" class="flex-justify-end"/>
       </h-list-item-side>

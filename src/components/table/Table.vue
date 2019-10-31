@@ -101,6 +101,7 @@
 <script>
 
 export default {
+  name: 'HTable',
   props: {
     title: {
       type: String

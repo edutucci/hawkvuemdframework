@@ -1,98 +1,48 @@
 <template>
     <h-page-content padding>
-      <div class="text-h4">SideBar Menu</div>
+      <div class="row">
+        <div class="col">
+          <div class="text-h4">SideBar Menu</div>
 
-      <comp-code class="h-mt-md" title="Icons">
-          <h-side-bar-menu class="border border-gray border-radius" bg-color="bg-white" text-color="text-gray600" style="width: 70px">
-            <h-side-bar-menu-item icon='fas fa-th-large' @click="$router.push('#')"/>
-            <h-side-bar-menu-item icon='fas fa-table' @click="$router.push('#')"/>
-            <h-side-bar-menu-item icon='fas fa-user' use-menu>
-              <h-list style="width: 180px">
-                <h-list-item>
-                  <h-list-item-content>
-                    <h-list-item-text title="Add User"/>
-                  </h-list-item-content>
-                </h-list-item>
-                <h-list-item>
-                  <h-list-item-content>
-                    <h-list-item-text title="Account Settings"/>
-                  </h-list-item-content>
-                </h-list-item>
-                <h-list-item>
-                  <h-list-item-content>
-                    <h-list-item-text title="Profile"/>
-                  </h-list-item-content>
-                </h-list-item>
-              </h-list>
-            </h-side-bar-menu-item>
-            <h-side-bar-menu-item icon='far fa-question-circle' use-menu>
-              <h-list style="width: 200px">
-                <h-list-item>
-                  <h-list-item-content>
-                    <h-list-item-text title="About"/>
-                  </h-list-item-content>
-                </h-list-item>
-                <h-list-item>
-                  <h-list-item-content>
-                    <h-list-item-text title="Check for updates"/>
-                  </h-list-item-content>
-                </h-list-item>
-                <h-list-item>
-                  <h-list-item-content>
-                    <h-list-item-text title="View license"/>
-                  </h-list-item-content>
-                </h-list-item>
-              </h-list>
-            </h-side-bar-menu-item>
-            <h-side-bar-menu-item icon='far fa-bell' @click="$router.push('#')"/>
-          </h-side-bar-menu>
-      </comp-code>
+          <div ref="sidebarmenu-icons"/>
+          <comp-code class="h-mt-md" title="Icons" :code="icons">
+            <img src="imgsamples/sidebarMenuIcons.png"/>
+          </comp-code>
 
-      <comp-code class="h-mt-md" title="Icons and Text">
-          <h-side-bar-menu class="border border-gray border-radius" bg-color="bg-white" text-color="text-gray600" style="width: 200px;">
-            <h-side-bar-menu-item text="Dashboard" caption="View Data" icon='fas fa-th-large' @click="$router.push('#')"/>
-            <h-side-bar-menu-item text="Tables" caption="View Data Table" icon='fas fa-table' @click="$router.push('#')"/>
-            <h-side-bar-menu-item text="User" caption="User Management" title="User" icon='fas fa-user' use-menu>
-              <h-list style="width: 180px">
-                <h-list-item>
-                  <h-list-item-content>
-                    <h-list-item-text title="Add User"/>
-                  </h-list-item-content>
-                </h-list-item>
-                <h-list-item>
-                  <h-list-item-content>
-                    <h-list-item-text title="Account Settings"/>
-                  </h-list-item-content>
-                </h-list-item>
-                <h-list-item>
-                  <h-list-item-content>
-                    <h-list-item-text title="Profile"/>
-                  </h-list-item-content>
-                </h-list-item>
-              </h-list>
-            </h-side-bar-menu-item>
-            <h-side-bar-menu-item text="Help" caption="Help Topics" title="Help" icon='far fa-question-circle' use-menu>
-              <h-list style="width: 200px">
-                <h-list-item>
-                  <h-list-item-content>
-                    <h-list-item-text title="About"/>
-                  </h-list-item-content>
-                </h-list-item>
-                <h-list-item>
-                  <h-list-item-content>
-                    <h-list-item-text title="Check for updates"/>
-                  </h-list-item-content>
-                </h-list-item>
-                <h-list-item>
-                  <h-list-item-content>
-                    <h-list-item-text title="View license"/>
-                  </h-list-item-content>
-                </h-list-item>
-              </h-list>
-            </h-side-bar-menu-item>
-            <h-side-bar-menu-item text="Notifications" caption="View Nofitications" icon='far fa-bell' @click="$router.push('#')"/>
-          </h-side-bar-menu>
-      </comp-code>
+          <div ref="sidebarmenu-iconstext"/>
+          <comp-code class="h-mt-md" title="Icons and Text" :code="iconsText">
+            <img src="imgsamples/sidebarMenuIconsText.png"/>
+          </comp-code>
+
+          <div ref="sidebarmenu-customcolor"/>
+          <comp-code class="h-mt-md" title="Custom Color" :code="customColor">
+            <img src="imgsamples/sidebarMenuCustomColor.png"/>
+          </comp-code>
+        </div>
+        <div class="col-auto">
+          <list-help>
+            <h-list>
+              <h-list-header text="Styles"/>
+              <h-list-item @click="goToElement('sidebarmenu-icons')">
+                <h-list-item-content>
+                  <h-list-item-text title="Icons"></h-list-item-text>
+                </h-list-item-content>
+              </h-list-item>
+              <h-list-item @click="goToElement('sidebarmenu-iconstext')">
+                <h-list-item-content>
+                  <h-list-item-text title="Icons and Text"></h-list-item-text>
+                </h-list-item-content>
+              </h-list-item>
+              <h-list-item @click="goToElement('sidebarmenu-customcolor')">
+                <h-list-item-content>
+                  <h-list-item-text title="Custom Color"></h-list-item-text>
+                </h-list-item-content>
+              </h-list-item>
+            </h-list>
+          </list-help>
+        </div>
+      </div>
+
     </h-page-content>
 
     <!-- <h2 class="text-primary"> Slide Menu List Help</h2>
@@ -164,34 +114,181 @@
 </template>
 
 <script>
+
+import viewport from '../../../components/others/viewport'
+
 export default {
   name: 'PageSliderMenu',
   data () {
     return {
       showDrawer: false,
-      menu: `
-<h-slide-menu-list bgcolor="bg-primary" textcolor="text-white">
-  <h-slide-menu text="Menu Slider" icon='fas fa-user'>
-    <h-slide-menu-item text="this page" url="/menuSlider"/>
-    <h-slide-menu-item text="this page" url="/menuSlider"/>
-  </h-slide-menu>
-  <h-slide-menu text="Github" icon='fab fa-github'>
-    <h-slide-menu-item text="Hawk Framework" @itemClick="itemClick" url="https://github.com/edutucci/hawkframework" new-window/>
-    <h-slide-menu-item text="Starter Kit" @itemClick="itemClick" url="https://github.com/edutucci/hawkframework-starter-kit" new-window/>
-  </h-slide-menu>
-</h-slide-menu-list>
-      `
+      icons: `
+<h-side-bar-menu class="border border-gray border-radius" bg-color="bg-white" text-color="text-gray600" style="width: 70px">
+  <h-side-bar-menu-item icon='fas fa-th-large' @click="$router.push('#')"/>
+  <h-side-bar-menu-item icon='fas fa-table' @click="$router.push('#')"/>
+  <h-side-bar-menu-item icon='fas fa-user' use-menu>
+    <h-list style="width: 180px">
+      <h-list-item>
+        <h-list-item-content>
+          <h-list-item-text title="Add User"/>
+        </h-list-item-content>
+      </h-list-item>
+      <h-list-item>
+        <h-list-item-content>
+          <h-list-item-text title="Account Settings"/>
+        </h-list-item-content>
+      </h-list-item>
+      <h-list-item>
+        <h-list-item-content>
+          <h-list-item-text title="Profile"/>
+        </h-list-item-content>
+      </h-list-item>
+    </h-list>
+  </h-side-bar-menu-item>
+  <h-side-bar-menu-item icon='far fa-question-circle' use-menu>
+    <h-list style="width: 200px">
+      <h-list-item>
+        <h-list-item-content>
+          <h-list-item-text title="About"/>
+        </h-list-item-content>
+      </h-list-item>
+      <h-list-item>
+        <h-list-item-content>
+          <h-list-item-text title="Check for updates"/>
+        </h-list-item-content>
+      </h-list-item>
+      <h-list-item>
+        <h-list-item-content>
+          <h-list-item-text title="View license"/>
+        </h-list-item-content>
+      </h-list-item>
+    </h-list>
+  </h-side-bar-menu-item>
+  <h-side-bar-menu-item icon='far fa-bell' @click="$router.push('#')"/>
+</h-side-bar-menu>
+`,
+      iconsText: `
+<h-side-bar-menu
+  class="h-ml-sm border border-gray border-radius"
+  bg-color="bg-white"
+  text-color="text-gray600"
+  style="width: 200px"
+>
+  <template v-slot:header>
+    <div class="column align-items-center" style="margin-top: 30px;">
+      <h-image avatar src="img/hawk.jpg" size="64px"/>
+      <div class="text-h5">Hawk </div>
+      <div class="text-h5"> Framework</div>
+      <div>Sidebar Menu Working</div>
+    </div>
+  </template>
+  <h-side-bar-menu-item text="Dashboard" caption="View Data" icon='fas fa-th-large' @click="$router.push('#')"/>
+  <h-side-bar-menu-item text="Tables" caption="View Data Table" icon='fas fa-table' @click="$router.push('#')"/>
+  <h-side-bar-menu-item text="User" caption="User Management" title="User" icon='fas fa-user' use-menu>
+    <h-list style="width: 180px">
+      <h-list-item>
+        <h-list-item-content>
+          <h-list-item-text title="Add User"/>
+        </h-list-item-content>
+      </h-list-item>
+      <h-list-item>
+        <h-list-item-content>
+          <h-list-item-text title="Account Settings"/>
+        </h-list-item-content>
+      </h-list-item>
+      <h-list-item>
+        <h-list-item-content>
+          <h-list-item-text title="Profile"/>
+        </h-list-item-content>
+      </h-list-item>
+    </h-list>
+  </h-side-bar-menu-item>
+  <h-side-bar-menu-item text="Help" caption="Help Topics" title="Help" icon='far fa-question-circle' use-menu>
+    <h-list style="width: 200px">
+      <h-list-item>
+        <h-list-item-content>
+          <h-list-item-text title="About"/>
+        </h-list-item-content>
+      </h-list-item>
+      <h-list-item>
+        <h-list-item-content>
+          <h-list-item-text title="Check for updates"/>
+        </h-list-item-content>
+      </h-list-item>
+      <h-list-item>
+        <h-list-item-content>
+          <h-list-item-text title="View license"/>
+        </h-list-item-content>
+      </h-list-item>
+    </h-list>
+  </h-side-bar-menu-item>
+  <h-side-bar-menu-item text="Notifications" caption="View Nofitications" icon='far fa-bell' @click="$router.push('#')"/>
+</h-side-bar-menu>
+`,
+      customColor: `
+<h-side-bar-menu
+  class="h-ml-sm border border-gray border-radius"
+  bg-color="bg-primary"
+  text-color="text-white"
+  style="width: 200px"
+>
+  <template v-slot:header>
+    <div class="column align-items-center text-white" style="margin-top: 30px;">
+      <h-image avatar src="img/hawk.jpg" size="64px"/>
+      <div class="text-h5">Hawk </div>
+      <div class="text-h5"> Framework</div>
+      <div>Sidebar Menu Working</div>
+    </div>
+  </template>
+  <h-side-bar-menu-item text="Dashboard" caption="View Data" icon='fas fa-th-large' @click="$router.push('#')"/>
+  <h-side-bar-menu-item text="Tables" caption="View Data Table" icon='fas fa-table' @click="$router.push('#')"/>
+  <h-side-bar-menu-item text="User" caption="User Management" title="User" icon='fas fa-user' use-menu>
+    <h-list style="width: 180px">
+      <h-list-item>
+        <h-list-item-content>
+          <h-list-item-text title="Add User"/>
+        </h-list-item-content>
+      </h-list-item>
+      <h-list-item>
+        <h-list-item-content>
+          <h-list-item-text title="Account Settings"/>
+        </h-list-item-content>
+      </h-list-item>
+      <h-list-item>
+        <h-list-item-content>
+          <h-list-item-text title="Profile"/>
+        </h-list-item-content>
+      </h-list-item>
+    </h-list>
+  </h-side-bar-menu-item>
+  <h-side-bar-menu-item text="Help" caption="Help Topics" title="Help" icon='far fa-question-circle' use-menu>
+    <h-list style="width: 200px">
+      <h-list-item>
+        <h-list-item-content>
+          <h-list-item-text title="About"/>
+        </h-list-item-content>
+      </h-list-item>
+      <h-list-item>
+        <h-list-item-content>
+          <h-list-item-text title="Check for updates"/>
+        </h-list-item-content>
+      </h-list-item>
+      <h-list-item>
+        <h-list-item-content>
+          <h-list-item-text title="View license"/>
+        </h-list-item-content>
+      </h-list-item>
+    </h-list>
+  </h-side-bar-menu-item>
+  <h-side-bar-menu-item text="Notifications" caption="View Nofitications" icon='far fa-bell' @click="$router.push('#')"/>
+</h-side-bar-menu>
+`
     }
   },
   methods: {
+    goToElement (refName) {
+      viewport.goToElement(this.$refs[refName])
+    }
   }
 }
 </script>
-
-<style>
-.slide-menu-list .h-list .h-list-item.active {
-  background-color: #EEEEEE;
-  border-left: 3px solid #42A5F5;
-  border-right: 3px solid #42A5F5;
-}
-</style>

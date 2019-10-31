@@ -94,7 +94,7 @@
           .col-auto.text-body2(v-if="suffix && suffix.length")
             | {{suffix}}
 
-      .bg-white.dropdown-content.scroll-y-only.shadow.border-radius(
+      .bg-white.dropdown-content.scroll-y-only.shadow-2.border-radius(
         :style="[dropdownObject]"
         v-if="showdropdown"
         :id="dropMenuId"
@@ -203,6 +203,7 @@ export default {
     }
   },
   mounted () {
+    console.log('mounted input value vale:', this.value)
     this.makeInputValue()
     this.makeInputContainerColors()
     this.inputType = this.type
@@ -220,7 +221,7 @@ export default {
     masked: function (newValue) {
       if (this.inputMask) {
         this.changeModelMask()
-      } else {
+      } else if (this.inputCurrency) {
         this.changeModelCurrencyMask()
       }
     },
@@ -262,9 +263,13 @@ export default {
   methods: {
     makeInputValue () {
       let localInputDisplay = this.value
-      this.inputDisplay = this.value
       if (localInputDisplay) {
-        if (this.inputSelect && (this.options && this.options.length)) {
+        if (this.inputMask) {
+          this.inputDisplay = this.value
+          this.changeModelMask()
+        } else if (this.inputCurrency) {
+          this.changeModelCurrencyMask()
+        } else if (this.inputSelect && (this.options && this.options.length)) {
           let index = this.options.findIndex(item => item.value === this.value)
           if (index !== -1) {
             let option = this.options[index]
@@ -329,14 +334,17 @@ export default {
       }
     },
     changeModelMask () {
+      console.log('this.inputDisplay:', this.inputDisplay)
       let modelValue = this.inputDisplay
       if (!this.masked) {
         let patt = new RegExp('[()-/:._]', 'g')
         modelValue = this.inputDisplay.replace(patt, '')
       }
+      console.log('modeValue:', modelValue)
       this.$emit('input', modelValue)
     },
     changeModelCurrencyMask () {
+      this.formatCurrency(this.inputDisplay)
       let modelValue = (this.masked) ? this.inputDisplay : unformat(this.inputDisplay, this.precision)
       this.$emit('input', modelValue)
     },
@@ -354,7 +362,8 @@ export default {
       }
 
       this.inputDisplay = value
-
+      console.log('onInput value:', value)
+      this.$emit('input', '131268')
       if (this.inputCurrency) {
         this.changeModelCurrencyMask()
       } else if (this.inputMask) {
