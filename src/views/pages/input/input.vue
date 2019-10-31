@@ -13,7 +13,7 @@
       <div class="col">
         <div class="text-h4">Input</div>
 
-        <!-- <div class="text-h6 h-mt-md">Textfield</div>
+        <div class="text-h6 h-mt-md">Textfield</div>
         <h-separator></h-separator>
         <div ref="txt-outlined"/>
         <comp-code class="h-mt-lg" title="Outlined" :code="txtoutlined">
@@ -216,7 +216,7 @@
           <div>
             chipsInput: {{chipsInput}}
           </div>
-        </comp-code> -->
+        </comp-code>
 
         <div class="text-h6 h-mt-md">Masks</div>
         <h-separator></h-separator>
@@ -232,11 +232,11 @@
 
         </comp-code>
 
-        <!-- <div ref="mask-currency"/>
+        <div ref="mask-currency"/>
         <comp-code class="h-mt-lg" title="Currency">
           <h-input input-currency v-model="maskModelCurrency" leading-icon="fas fa-money" :masked="masked" clearable/>
           <span>maskModel: {{maskModelCurrency}}</span>
-        </comp-code> -->
+        </comp-code>
 
         <h2 class="text-primary"> Vue Properties</h2>
         <hr>
@@ -494,7 +494,7 @@ export default {
 
       // mask
       masked: false,
-      maskModelTel: '1111',
+      maskModelTel: '19691967924',
       maskModelCurrency: '20000',
 
       // code preview

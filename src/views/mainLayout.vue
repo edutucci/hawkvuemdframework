@@ -60,7 +60,7 @@
                 <h-collapsible-item text="Banner" @click="$router.push('/banner'), $refs.nav.close()"/>
                 <h-collapsible-item text="Cards" @click="$router.push('/card'), $refs.nav.close()"/>
                 <h-collapsible-item text="Checkbox" @click="$router.push('/checkbox'), $refs.nav.close()"/>
-                <h-collapsible-item text="Chips/InputChips" @click="$router.push('/chip'), $refs.nav.close()"/>
+                <h-collapsible-item text="Chips" @click="$router.push('/chip'), $refs.nav.close()"/>
                 <h-collapsible-item text="Carousel" @click="$router.push('/carousel'), $refs.nav.close()"/>
                 <h-collapsible-item text="Collapsible" @click="$router.push('/collapsible'), $refs.nav.close()"/>
                 <h-collapsible-item text="Date and Time" @click="$router.push('/datetime'), $refs.nav.close()"/>
@@ -70,16 +70,13 @@
                 <h-collapsible-item text="List" @click="$router.push('/list'), $refs.nav.close()"/>
                 <!-- <h-collapsible-item text="Menu (atualizar help)" @click="$router.push('/menu'), $refs.nav.close()"/> -->
                 <h-collapsible-item text="SideBar Menu" @click="$router.push('/sideBarMenu'), $refs.nav.close()"/>
-                <h-collapsible-item text="Mask" @click="$router.push('/mask'), $refs.nav.close()"/>
                 <h-collapsible-item text="Dialog" @click="$router.push('/dialog'), $refs.nav.close()"/>
                 <h-collapsible-item text="Radio" @click="$router.push('/radio'), $refs.nav.close()"/>
                 <h-collapsible-item text="Range Slider" @click="$router.push('/rangeslider'), $refs.nav.close()"/>
-                <h-collapsible-item text="Search" @click="$router.push('/search'), $refs.nav.close()"/>
-                <h-collapsible-item text="Select" @click="$router.push('/select'), $refs.nav.close()"/>
                 <h-collapsible-item text="Tab" @click="$router.push('/tab'), $refs.nav.close()"/>
                 <h-collapsible-item text="Table" @click="$router.push('/table'), $refs.nav.close()"/>
                 <h-collapsible-item text="HtmlTable" @click="$router.push('/htmltable'), $refs.nav.close()"/>
-                <h-collapsible-item text="Input" @click="$router.push('/input'), $refs.nav.close()"/>
+                <h-collapsible-item text="Input Textfield" @click="$router.push('/input'), $refs.nav.close()"/>
                 <h-collapsible-item text="Appbar" @click="$router.push('/appbar'), $refs.nav.close()"/>
                 <h-collapsible-item text="Toggle" @click="$router.push('/toggle'), $refs.nav.close()"/>
                 <h-collapsible-item text="Video" @click="$router.push('/video'), $refs.nav.close()"/>
