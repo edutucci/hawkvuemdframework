@@ -72,8 +72,8 @@ self.__precacheManifest = [
     "url": "/hawkframework/js/chunk-2d0b90ce.b9b6e32d.js"
   },
   {
-    "revision": "524318817bf03b6eb471",
-    "url": "/hawkframework/js/chunk-2d0b9266.fa6f1244.js"
+    "revision": "3c9c0d8a1bc561b1c8ef",
+    "url": "/hawkframework/js/chunk-2d0b9266.9a496d75.js"
   },
   {
     "revision": "0b7950725e09b233022d",
@@ -88,24 +88,24 @@ self.__precacheManifest = [
     "url": "/hawkframework/js/chunk-2d0c1398.597eb45a.js"
   },
   {
-    "revision": "eb1673f151b2405783d9",
-    "url": "/hawkframework/js/chunk-2d0c1b95.dd79d215.js"
+    "revision": "6ce8cf3b04654c00d435",
+    "url": "/hawkframework/js/chunk-2d0c1b95.22bfbd3a.js"
   },
   {
     "revision": "f0e53b54caf12472a12f",
     "url": "/hawkframework/js/chunk-2d0c4c47.5aceb138.js"
   },
   {
-    "revision": "ea22ac5284108d26b0c8",
-    "url": "/hawkframework/js/chunk-2d0c513e.068d2fbc.js"
+    "revision": "fade79eb7fd6cb7430d1",
+    "url": "/hawkframework/js/chunk-2d0c513e.925aee44.js"
   },
   {
     "revision": "a425f96cbdefd1ec91ea",
     "url": "/hawkframework/js/chunk-2d0cebab.2933fd7a.js"
   },
   {
-    "revision": "6bbe9f77b469bef75c2b",
-    "url": "/hawkframework/js/chunk-2d0d5b92.ab881da5.js"
+    "revision": "7685483d853e0b758132",
+    "url": "/hawkframework/js/chunk-2d0d5b92.902cc5ec.js"
   },
   {
     "revision": "7a28d69d8e24eee7f598",
@@ -136,16 +136,16 @@ self.__precacheManifest = [
     "url": "/hawkframework/js/chunk-2d0e48dc.0a2b69ee.js"
   },
   {
-    "revision": "67e7507d05f4432b647d",
-    "url": "/hawkframework/js/chunk-2d0e4a7d.301b3c31.js"
+    "revision": "44bb6626eeb9736cbe14",
+    "url": "/hawkframework/js/chunk-2d0e4a7d.223e48ea.js"
   },
   {
     "revision": "a264ecad0073a63c8fc9",
     "url": "/hawkframework/js/chunk-2d0e6122.5a7974c0.js"
   },
   {
-    "revision": "ae02fd9d5b63097b743c",
-    "url": "/hawkframework/js/chunk-2d2095e7.c31317c5.js"
+    "revision": "06b9c5662ba8104031f8",
+    "url": "/hawkframework/js/chunk-2d2095e7.c6f05880.js"
   },
   {
     "revision": "1df6fef4a08acf682a00",
@@ -164,8 +164,8 @@ self.__precacheManifest = [
     "url": "/hawkframework/js/chunk-2d21da56.ce406b6d.js"
   },
   {
-    "revision": "51f02ab215a9a6bb76bc",
-    "url": "/hawkframework/js/chunk-2d21e072.506af07b.js"
+    "revision": "55a7921169a86c716ac1",
+    "url": "/hawkframework/js/chunk-2d21e072.5ad5d725.js"
   },
   {
     "revision": "928adedd18de39c5e8ad",
@@ -180,16 +180,16 @@ self.__precacheManifest = [
     "url": "/hawkframework/js/chunk-2d2248c2.8edebb91.js"
   },
   {
-    "revision": "9652cf6361f712644e09",
-    "url": "/hawkframework/js/chunk-2d2263c3.f9106b4e.js"
+    "revision": "697d19e1a45dbcae75df",
+    "url": "/hawkframework/js/chunk-2d2263c3.f903df2c.js"
   },
   {
     "revision": "006fab9852d0a3450867",
     "url": "/hawkframework/js/chunk-2d228ff9.6a21b5a7.js"
   },
   {
-    "revision": "6fc9a520dbd648829cef",
-    "url": "/hawkframework/js/chunk-2d22cc16.fec8dad1.js"
+    "revision": "c6ef49f7bc4930ef1fa6",
+    "url": "/hawkframework/js/chunk-2d22cc16.703bf67f.js"
   },
   {
     "revision": "81ab0a62164cd51ef9d6",
@@ -224,24 +224,24 @@ self.__precacheManifest = [
     "url": "/hawkframework/js/chunk-e879bbcc.ccf67dcd.js"
   },
   {
-    "revision": "c38b1d8a3923f2e7bc109f20748f9673",
-    "url": "/hawkframework/img/matchday.png"
+    "revision": "85f6e62467cc2220ef49ea9cff881ace",
+    "url": "/hawkframework/img/bluerun.png"
   },
   {
     "revision": "61929b440dfa2d4760d1",
     "url": "/hawkframework/js/chunk-efa3bc86.55170231.js"
   },
   {
-    "revision": "85f6e62467cc2220ef49ea9cff881ace",
-    "url": "/hawkframework/img/bluerun.png"
+    "revision": "c38b1d8a3923f2e7bc109f20748f9673",
+    "url": "/hawkframework/img/matchday.png"
   },
   {
     "revision": "189a48b4343576d4f796",
     "url": "/hawkframework/js/chunk-vendors.1a9aa510.js"
   },
   {
-    "revision": "f9bb406d86110b8800f0",
-    "url": "/hawkframework/js/app.86ff3e84.js"
+    "revision": "fce32f269596dbb997a2",
+    "url": "/hawkframework/js/app.3b43ac03.js"
   },
   {
     "revision": "adfe4cc59eb56447304d712c9104035d",
@@ -300,7 +300,7 @@ self.__precacheManifest = [
     "url": "/hawkframework/img/fa-solid-900.c2801fb4.svg"
   },
   {
-    "revision": "e59e4b1c717332203947947ed9260a3d",
+    "revision": "f3ac0ec44857041d5122c75e272396bc",
     "url": "/hawkframework/index.html"
   },
   {
@@ -364,8 +364,8 @@ self.__precacheManifest = [
     "url": "/hawkframework/fonts/fa-regular-400.c1a866ec.eot"
   },
   {
-    "revision": "f9bb406d86110b8800f0",
-    "url": "/hawkframework/css/app.a1fc6700.css"
+    "revision": "fce32f269596dbb997a2",
+    "url": "/hawkframework/css/app.437d60e1.css"
   },
   {
     "revision": "95f781404d456da3eaf2",
@@ -380,20 +380,20 @@ self.__precacheManifest = [
     "url": "/hawkframework/css/chunk-2ca94eb0.435145df.css"
   },
   {
-    "revision": "0bff33a5fd7ec390235476b4859747a0",
-    "url": "/hawkframework/fonts/fa-solid-900.0bff33a5.ttf"
-  },
-  {
     "revision": "8e4a6dcc692b3887f9f542cd6894d6d4",
     "url": "/hawkframework/fonts/fa-solid-900.8e4a6dcc.eot"
   },
   {
-    "revision": "06147b6cd88c7346cecd1edd060cd5de",
-    "url": "/hawkframework/fonts/fa-brands-400.06147b6c.ttf"
+    "revision": "0bff33a5fd7ec390235476b4859747a0",
+    "url": "/hawkframework/fonts/fa-solid-900.0bff33a5.ttf"
   },
   {
     "revision": "5063b105c7646c8043d58c5289f02cca",
     "url": "/hawkframework/fonts/fa-brands-400.5063b105.eot"
+  },
+  {
+    "revision": "06147b6cd88c7346cecd1edd060cd5de",
+    "url": "/hawkframework/fonts/fa-brands-400.06147b6c.ttf"
   },
   {
     "revision": "333bae208dc363746961b234ff6c2500",
@@ -404,12 +404,12 @@ self.__precacheManifest = [
     "url": "/hawkframework/fonts/fa-brands-400.c5e0f14f.woff"
   },
   {
-    "revision": "44d537ab79f921fde5a28b2c1636f397",
-    "url": "/hawkframework/fonts/fa-solid-900.44d537ab.woff2"
-  },
-  {
     "revision": "cccc9d29470e879e40eb70249d9a2705",
     "url": "/hawkframework/fonts/fa-brands-400.cccc9d29.woff2"
+  },
+  {
+    "revision": "44d537ab79f921fde5a28b2c1636f397",
+    "url": "/hawkframework/fonts/fa-solid-900.44d537ab.woff2"
   },
   {
     "revision": "8a8d5cf91f3fd3e93cb7",
