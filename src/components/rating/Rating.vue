@@ -2,13 +2,14 @@
   .flex.flex.column(style="display:inline-block;")
     div
       h-icon.rating-star(
+        text-color="text-yellow500"
         v-for="(rat, index) in ratings"
         :key="index"
         :icon="rat.icon"
         @click="setRating(rat, index)"
       )
-    div.text-center(v-if="showmessages")
-      span.text-gray {{currentMessage}}
+    .text-center.text-gray.text-caption(v-if="showmessages")
+      | {{currentMessage}}
 </template>
 
 <script>
@@ -136,9 +137,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-.rating-star {
-  color: #FFEB3B;
-}
-</style>

@@ -9,11 +9,11 @@
             <h-icon icon="fas fa-cloud-upload-alt text-white" size="24px"/>
           </div>
           <div class="flex-1 h-pa-sm text-white">
-            <div>
-              <h3 class="no-margin">Select Files</h3>
+            <div class="text-h6">
+              Select Files
             </div>
-            <div>
-              <p class="no-margin">Add files to upload</p>
+            <div class="text-caption">
+              Add files to upload
             </div>
           </div>
           <input
@@ -28,22 +28,21 @@
 
       <div
         v-if="allowDrop"
-        class="flex flex-1 flex-wrap flex-align-center border-primary border-dashed border-2 h-mt-md"
+        class="column border-primary border-dashed border-2 h-mt-md"
         @drop="dropHandler"
         @dragover="dragOverHandler"
       >
-        <div v-if="multiple" class="row">
+        <div v-if="multiple" class="col">
           <p class="text-center text-primary">Drag one or more files</p>
         </div>
-        <div v-else class="row">
+        <div v-else class="col">
           <p class="text-center text-primary">Drag your file</p>
         </div>
       </div>
 
       <div class="h-mt-md flex flex-justify-end">
         <h-btn
-          contained
-          bgcolor="bg-primary" textcolor="text-white"
+          bg-color="bg-primary" text-color="text-white"
           text="Clear"
           @click="clearFilesList"
         />

@@ -1,5 +1,5 @@
 <template lang="pug">
-  div.no-user-select.h-list(
+  .no-user-select.h-list(
     :class="[ { 'border border-gray': bordered, 'item-separator': itemSeparator, 'content-separator': contentSeparator } ]"
     style="padding: 2px 0px"
   )

@@ -1,73 +1,115 @@
 <template>
   <h-page-content padding>
-    <div class="text-h4">Date and Time</div>
+    <div class="row">
+      <div class="col">
+        <div class="text-h4">Date and Time</div>
 
-    <comp-code class="h-mt-lg" title="Date Input" :code="dateInput" :script="dateInputScript"
-      javascript
-    >
-      <div class="row wrap align-items-center">
-        <div class="col-auto" style="min-width: 100px; max-width: 400px; ">
-          <h-input dense v-model="dateInputModel"></h-input>
-        </div>
-        <div class="col-auto h-ml-sm">
-          <h-date-time-dialog v-model="date" mode="date"/>
-        </div>
-      </div>
-    </comp-code>
+        <div ref="dt-dateinput"/>
+        <comp-code class="h-mt-lg" title="Date Input" :code="dateInput" :script="dateInputScript"
+          javascript
+        >
+          <div class="row wrap align-items-center">
+            <div class="col-auto" style="min-width: 100px; max-width: 400px; ">
+              <h-input dense v-model="dateInputModel"></h-input>
+            </div>
+            <div class="col-auto h-ml-sm">
+              <h-date-time-dialog v-model="date" mode="date"/>
+            </div>
+          </div>
+        </comp-code>
 
-    <comp-code class="h-mt-lg" title="Time Input" :code="timeInput" :script="timeInputScript"
-      javascript
-    >
-      <div class="row wrap align-items-center">
-        <div class="col-auto" style="min-width: 100px; max-width: 400px; ">
-          <h-input dense v-model="timeInputModel"></h-input>
-        </div>
-        <div class="col-auto h-ml-sm">
-          <h-date-time-dialog class="h-ml-sm" v-model="time" mode="time"/>
-        </div>
-      </div>
-    </comp-code>
+        <div ref="dt-timeinput"/>
+        <comp-code class="h-mt-lg" title="Time Input" :code="timeInput" :script="timeInputScript"
+          javascript
+        >
+          <div class="row wrap align-items-center">
+            <div class="col-auto" style="min-width: 100px; max-width: 400px; ">
+              <h-input dense v-model="timeInputModel"></h-input>
+            </div>
+            <div class="col-auto h-ml-sm">
+              <h-date-time-dialog class="h-ml-sm" v-model="time" mode="time"/>
+            </div>
+          </div>
+        </comp-code>
 
-    <comp-code class="h-mt-lg" title="Date and Time Input" :code="dateTimeInput" :script="dateTimeInputScript"
-      javascript
-    >
-      <div class="row wrap align-items-center">
-        <div class="col-auto" style="min-width: 100px; max-width: 400px; ">
-          <h-input dense v-model="dateTimeInputModel"></h-input>
-        </div>
-        <div class="col-auto h-ml-sm">
-          <h-date-time-dialog class="h-ml-sm" v-model="datetime" mode="datetime"/>
-        </div>
-      </div>
-    </comp-code>
+        <div ref="dt-datetimeinput"/>
+        <comp-code class="h-mt-lg" title="Date and Time Input" :code="dateTimeInput" :script="dateTimeInputScript"
+          javascript
+        >
+          <div class="row wrap align-items-center">
+            <div class="col-auto" style="min-width: 100px; max-width: 400px; ">
+              <h-input dense v-model="dateTimeInputModel"></h-input>
+            </div>
+            <div class="col-auto h-ml-sm">
+              <h-date-time-dialog class="h-ml-sm" v-model="datetime" mode="datetime"/>
+            </div>
+          </div>
+        </comp-code>
 
-    <comp-code class="h-mt-lg" title="Date Picker" :code="datepicker" :script="datepickerScript"
-      javascript
-    >
-      <div class="flex flex-column">
-        <h-date-picker v-model="datepickerModel"/>
-        <div class="h-mt-sm">
-          your date is: {{datepickerString}}
-        </div>
-      </div>
-    </comp-code>
+        <div ref="dt-datepicker"/>
+        <comp-code class="h-mt-lg" title="Date Picker" :code="datepicker" :script="datepickerScript"
+          javascript
+        >
+          <div class="flex flex-column">
+            <h-date-picker v-model="datepickerModel"/>
+            <div class="h-mt-sm">
+              your date is: {{datepickerString}}
+            </div>
+          </div>
+        </comp-code>
 
-    <comp-code class="h-mt-lg" title="Time Picker" :code="timepicker" :script="timepickerScript"
-      javascript
-    >
-      <div class="flex flex-column">
-        <h-time-picker v-model="timepickerModel"/>
-        <div class="h-mt-sm">
-          your time is: {{timepickerString}}
-        </div>
+        <div ref="dt-timepicker"/>
+        <comp-code class="h-mt-lg" title="Time Picker" :code="timepicker" :script="timepickerScript"
+          javascript
+        >
+          <div class="flex flex-column">
+            <h-time-picker v-model="timepickerModel"/>
+            <div class="h-mt-sm">
+              your time is: {{timepickerString}}
+            </div>
+          </div>
+        </comp-code>
       </div>
-    </comp-code>
+      <div class="col-auto">
+        <list-help>
+          <h-list>
+            <h-list-header text="Usage"/>
+            <h-list-item @click="goToElement('dt-datetinput')">
+              <h-list-item-content>
+                <h-list-item-text title="Date Input"></h-list-item-text>
+              </h-list-item-content>
+            </h-list-item>
+            <h-list-item @click="goToElement('dt-timeinput')">
+              <h-list-item-content>
+                <h-list-item-text title="Time Input"></h-list-item-text>
+              </h-list-item-content>
+            </h-list-item>
+            <h-list-item @click="goToElement('dt-datetimeinput')">
+              <h-list-item-content>
+                <h-list-item-text title="DateTime Input"></h-list-item-text>
+              </h-list-item-content>
+            </h-list-item>
+            <h-list-item @click="goToElement('dt-datepicker')">
+              <h-list-item-content>
+                <h-list-item-text title="Date Picker"></h-list-item-text>
+              </h-list-item-content>
+            </h-list-item>
+            <h-list-item @click="goToElement('dt-timepicker')">
+              <h-list-item-content>
+                <h-list-item-text title="Time Picker"></h-list-item-text>
+              </h-list-item-content>
+            </h-list-item>
+          </h-list>
+        </list-help>
+      </div>
+    </div>
 
   </h-page-content>
 </template>
 
 <script>
 
+import viewport from '../../../components/others/viewport'
 import moment from 'moment'
 
 export default {
@@ -238,6 +280,9 @@ export default {
     }
   },
   methods: {
+    goToElement (refName) {
+      viewport.goToElement(this.$refs[refName])
+    }
   }
 }
 </script>

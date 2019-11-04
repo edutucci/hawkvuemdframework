@@ -1,5 +1,5 @@
 <template lang="pug">
-  div.list-title.flex
+  .h-list-header.list-title.flex
     .flex.flex-justify-start.title
       h4.no-margin  {{text}}
     .flex.flex-justify-start.title(style="padding-left: 48px;")

@@ -3,7 +3,7 @@
 
     <div class="text-h4">Others css Helpers</div>
 
-    <html-table borders >
+    <html-table bordered >
       <tr class="text-left">
         <th>Name</th>
         <th>Description</th>

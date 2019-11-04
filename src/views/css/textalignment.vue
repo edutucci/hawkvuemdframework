@@ -2,7 +2,7 @@
   <h-page-content padding>
     <div class="text-h4">Text Alignment</div>
 
-    <html-table borders class="h-mt-md">
+    <html-table bordered class="h-mt-md">
       <tr class="text-left">
         <th>Name</th>
         <th>Description</th>

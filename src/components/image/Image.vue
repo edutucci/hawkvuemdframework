@@ -5,12 +5,12 @@
   )
     .h-image-content.flex.justify-center.overflow-hidden(
       v-if="src && src.length > 0"
-      :class="[bgColor, textColor, { 'avatar': avatar, 'border-radius': borderRadius }]"
+      :class="[bgColor, textColor, { 'border-circle': avatar, 'border-radius': borderRadius }]"
     )
       img.h-avatar-img-content(:src="src" alt="avatar")
     .h-image-content.flex.justify-center.align-items-center.overflow-hidden(
       v-else
-      :class="[bgColor, textColor, { 'avatar': avatar, 'border-radius': borderRadius }]"
+      :class="[bgColor, textColor, { 'border-circle': avatar, 'border-radius': borderRadius }]"
     )
       slot
 
@@ -21,7 +21,7 @@
 import componentBase from '../componentBase.vue'
 
 export default {
-  name: 'HAvatar',
+  name: 'HImage',
   extends: componentBase,
   props: {
     src: {

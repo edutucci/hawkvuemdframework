@@ -1,6 +1,7 @@
 import Vue from 'vue'
 
 import CompCode from './others/CompCode'
+import ListHelp from './others/ListHelp'
 import HBtn from './buttons/Btn.vue'
 import HBtnFloat from './buttons/BtnFloat.vue'
 import HBtnGroup from './buttons/BtnGroup.vue'
@@ -26,8 +27,6 @@ import HDatePicker from './date/HDatePicker.vue'
 import HDateTimeDialog from './date/DateTimeDialog.vue'
 import HTimePicker from './date/HTimePicker.vue'
 import HIcon from './icons/HIcon'
-import HFaIcon from './icons/FaIcon.vue'
-import HMdIcon from './icons/MdIcon.vue'
 import HFileUpload from './fileUpload/fileUpload.vue'
 import HImageUpload from './fileUpload/ImageUpload.vue'
 import HImage from './image/Image'
@@ -53,8 +52,8 @@ import HModal from './window/HModal'
 import HNavDrawer from '../components/window/NavDrawer'
 import HRadio from './radio/HRadio.vue'
 import HRating from './rating/Rating.vue'
-import HTab from './tab/HTab.vue'
-import HTabs from './tab/HTabs.vue'
+import HTab from './tab/Tab.vue'
+import HTabs from './tab/Tabs.vue'
 import HTable from './table/Table.vue'
 import HtmlTable from './table/HtmlTable'
 import HInputContainer from './Inputs/InputContainer'
@@ -76,6 +75,7 @@ import HScrollNavigator from './scroll/ScrollNavigator'
 
 const Components = {
   CompCode,
+  ListHelp,
   HBtn,
   HBtnFloat,
   HBtnGroup,
@@ -101,8 +101,6 @@ const Components = {
   HDateTimeDialog,
   HTimePicker,
   HIcon,
-  HFaIcon,
-  HMdIcon,
   HFileUpload,
   HImageUpload,
   HImage,

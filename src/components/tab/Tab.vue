@@ -6,8 +6,13 @@
 
 <script>
 export default {
+  name: 'HTab',
   props: {
     name: {
+      type: String,
+      default: ''
+    },
+    text: {
       type: String,
       default: ''
     },
@@ -18,10 +23,6 @@ export default {
     topIcon: {
       type: String,
       default: ''
-    },
-    default: {
-      type: Boolean,
-      default: false
     }
   },
   data () {

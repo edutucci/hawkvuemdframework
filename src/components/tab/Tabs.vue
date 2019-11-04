@@ -1,15 +1,14 @@
 <template>
    <div v-if="!vertical" class="full-height">
      <div class="column full-height">
-       <div class="col-auto" :class="[bgColor]">
+       <div class="col-auto" :class="[compBgColor]">
          <div>
             <h-scroll-navigator>
-              <div class="flex">
-                <div class="h-pa-sm tab flex flex-justify-center flex-items-center "
-                  :class="[bordercolor[index], bgColor, textColor]"
+              <div class="flex cursor-pointer">
+                <div class="color-hover h-pa-sm tab tab-horizontal flex flex-justify-center flex-items-center "
+                  :class="[compBgColor, compBgColorHover, textColor, { 'active': isActive(index) }]"
                   @click="selectTab(tab, index)"
                   style="min-width:90px;max-width:360px;min-height: 20px;"
-                  :style="bordercolor[index]"
                   v-for="(tab, index) in tabs" :key="index"
                 >
                   <div class="flex flex-justify-center flex-items-center full-height">
@@ -21,7 +20,7 @@
                         <h-icon :text-color="textColor" :icon="tab.topIcon"/>
                       </div>
                       <div class="h-pl-sm flex flex-justify-center flex-items-center">
-                        <div class="text-body1">{{tab.name}}</div>
+                        <div class="text-body1">{{tab.text}}</div>
                       </div>
                     </div>
                   </div>
@@ -37,13 +36,12 @@
    </div>
    <div v-else class="full-height">
      <div class="row full-height">
-       <div class="col-auto" :class="[bgColor]">
+       <div class="col-auto" :class="[compBgColor]">
         <div class="flex flex-column full-height scroll">
           <div v-for="(tab, index) in tabs" :key="index"
-            class="h-pl-sm h-pr-sm h-pt-md h-pb-md tab"
-            :class="[bordercolor[index], bgColor, textColor]"
+            class="color-hover h-pl-sm h-pr-sm h-pt-md h-pb-md tab tab-vertical"
+            :class="[compBgColor, compBgColorHover, textColor, { 'active': isActive(index) }]"
               @click="selectTab(tab, index)"
-              :style="bordercolor[index]"
             >
               <div class="flex flex-items-center">
                 <div>
@@ -54,7 +52,7 @@
                     <h-icon :text-color="textColor" :icon="tab.topIcon"/>
                   </div>
                   <div class="h-pl-sm flex flex-justify-center flex-items-center">
-                    <div><h5 class="no-margin">{{tab.name}}</h5></div>
+                    <div><h5 class="no-margin">{{tab.text}}</h5></div>
                   </div>
                 </div>
               </div>
@@ -73,6 +71,7 @@
 import componentBase from '../componentBase.vue'
 
 export default {
+  name: 'HTabs',
   extends: componentBase,
   props: {
     value: {
@@ -88,50 +87,37 @@ export default {
     return {
       tabs: [],
       currentTab: undefined,
-      selectedIndex: -1,
-      bordercolor: [],
-      tabStyle: {
-        maxHeight: '46px'
-      }
+      selectedIndex: -1
     }
   },
   mounted () {
-    // this.tabStyle.maxHeight = '' + this.tabsHeight + 'px'
+    this.onBackgroundHover()
     this.checkForDefaultTab()
   },
-  computed: {
-    tabsHeight () {
-      // console.log('tabs.length: ' + this.tabs.length)
-      let height = 0
-      if (this.tabs && this.tabs.length > 0) {
-        for (let index = 0; index < this.tabs.length; index++) {
-          height += 46
-          if (this.tabs[index].topicon && this.tabs[index].topicon.length > 0) {
-            height += 29
-          }
-        }
-      }
-      return height
+  watch: {
+    bgColor: function (value) {
+      this.onBackgroundHover()
     }
   },
   methods: {
     addTab: function (tab) {
       this.tabs.push(tab)
     },
+    onBackgroundHover () {
+      this.compBgColor = this.bgColor
+      this.getBackgroundHover(false)
+    },
     isActive (tabIndex) {
       return this.selectedIndex === tabIndex
     },
     checkForDefaultTab () {
-      if (this.tabs && this.tabs.length > 0) {
-        for (let index = 0; index < this.tabs.length; index++) {
-          if (this.tabs[index].default) {
-            this.selectTab(this.tabs[index], index)
-          }
-        }
+      let index = this.tabs.findIndex(tab => tab.name === this.value)
+      if (index !== -1) {
+        let tab = this.tabs[index]
+        this.selectTab(tab, index)
       }
     },
     selectTab (tab, index) {
-      this.$set(this.bordercolor, this.selectedIndex, '')
       if (this.currentTab) {
         this.currentTab.setVisible(false)
       }
@@ -139,21 +125,8 @@ export default {
       this.currentTab.setVisible(true)
       this.selectedIndex = index
 
-      if (this.isActive(index)) {
-        this.$set(this.bordercolor, index, this.tabBorderColor())
-      }
-
       this.$emit('input', tab.name)
       this.$emit('tabChange', tab.name)
-    },
-    tabBorderColor () {
-      let border = ''
-      if (!this.vertical) {
-        border = (this.bgColor === 'bg-white') ? 'active-border-bottom-black' : 'active-border-bottom-white'
-      } else {
-        border = (this.bgColor === 'bg-white') ? 'active-border-right-black' : 'active-border-right-white'
-      }
-      return border
     }
   }
 }
