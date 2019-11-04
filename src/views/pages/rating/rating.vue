@@ -1,57 +1,90 @@
 <template>
   <h-page-content padding>
-    <div class="text-h4">Rating</div>
 
-    <comp-code class="h-mt-lg" title="Normal Point" :code="ex1" :script="ex1Script"
-      javascript
-    >
-      <h-rating v-model="rating1" showmessages/>
-    </comp-code>
+    <div class="row">
+      <div class="col">
+        <div class="text-h4">Rating</div>
 
-    <comp-code class="h-mt-lg" title="Half Point" :code="ex2" :script="ex2Script"
-      javascript
-    >
-      <h-rating v-model="rating2" showmessages halfpoints/>
-    </comp-code>
+        <div ref="rt-normalpoint"/>
+        <comp-code class="h-mt-lg" title="Normal Point" :code="ex1" :script="ex1Script"
+          javascript
+        >
+          <h-rating v-model="rating1" showmessages/>
+        </comp-code>
 
-   <comp-code class="h-mt-lg" title="Custom Messages" :code="ex3" :script="ex3Script"
-    javascript
-   >
-    <h-rating
-      :messages="['1 star', '2 stars', '3 stars', '4 stars', '5 stars']"
-      v-model="rating2"
-      halfpoints
-      showmessages
-    />
-   </comp-code>
+        <div ref="rt-halfpoint"/>
+        <comp-code class="h-mt-lg" title="Half Point" :code="ex2" :script="ex2Script"
+          javascript
+        >
+          <h-rating v-model="rating2" showmessages halfpoints/>
+        </comp-code>
 
-    <h2 class="text-primary"> Vue Properties</h2>
-    <h-separator></h-separator>
+        <div ref="rt-custommessages"/>
+        <comp-code class="h-mt-lg" title="Custom Messages" :code="ex3" :script="ex3Script"
+          javascript
+        >
+          <h-rating
+            :messages="['1 star', '2 stars', '3 stars', '4 stars', '5 stars']"
+            v-model="rating2"
+            halfpoints
+            showmessages
+          />
+        </comp-code>
 
-    <div class="flex">
-      <div>
-        <h3>Name</h3>
-        <div>halfpoints</div>
-        <div>showmessages</div>
-        <div>messages</div>
+        <h2 class="text-primary"> Vue Properties</h2>
+        <h-separator></h-separator>
+
+        <div class="flex">
+          <div>
+            <h3>Name</h3>
+            <div>halfpoints</div>
+            <div>showmessages</div>
+            <div>messages</div>
+          </div>
+          <div class="h-pl-md">
+            <h3>Type</h3>
+            <div>Boolean</div>
+            <div>Boolean</div>
+            <div>Array</div>
+          </div>
+          <div class="h-pl-md">
+            <h3 >Description</h3>
+            <div>if true show stars and half stars for float points</div>
+            <div>if true show messages for each star</div>
+            <div>Array of messages for each star</div>
+          </div>
+        </div>
       </div>
-      <div class="h-pl-md">
-        <h3>Type</h3>
-        <div>Boolean</div>
-        <div>Boolean</div>
-        <div>Array</div>
-      </div>
-      <div class="h-pl-md">
-        <h3 >Description</h3>
-        <div>if true show stars and half stars for float points</div>
-        <div>if true show messages for each star</div>
-        <div>Array of messages for each star</div>
+      <div class="col-auto">
+        <list-help>
+          <h-list>
+            <h-list-header text="Styles"/>
+            <h-list-item @click="goToElement('rt-normalpoint')">
+              <h-list-item-content>
+                <h-list-item-text title="Normal Point"></h-list-item-text>
+              </h-list-item-content>
+            </h-list-item>
+            <h-list-item @click="goToElement('rt-halfpoint')">
+              <h-list-item-content>
+                <h-list-item-text title="Half Point"></h-list-item-text>
+              </h-list-item-content>
+            </h-list-item>
+            <h-list-item @click="goToElement('rt-custommessages')">
+              <h-list-item-content>
+                <h-list-item-text title="Custom Messages"></h-list-item-text>
+              </h-list-item-content>
+            </h-list-item>
+          </h-list>
+        </list-help>
       </div>
     </div>
   </h-page-content>
 </template>
 
 <script>
+
+import viewport from '../../../components/others/viewport'
+
 export default {
   data () {
     return {
@@ -102,6 +135,11 @@ export default {
   }
 }
 `
+    }
+  },
+  methods: {
+    goToElement (refName) {
+      viewport.goToElement(this.$refs[refName])
     }
   }
 }

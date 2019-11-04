@@ -79,6 +79,7 @@
           </div>
         </comp-code>
 
+        <div ref="btn-fab"/>
         <comp-code class="h-mt-md" title="FAB Buttons" :code="fabButtons">
           <div>
             <h-btn fab bg-color="bg-primary" size="xl">
@@ -116,6 +117,7 @@
           </div>
         </comp-code>
 
+        <div ref="btn-sizes"/>
         <comp-code class="h-mt-md" title="Sizes" :code="btnSizes">
           <div>
             <h-btn bg-color="bg-primary" text-color="text-white" text="xs" size="xs"  @click="goToElement('btn-contained')"/>
@@ -153,6 +155,7 @@
 
         </comp-code>
 
+        <div ref="btn-dropdown"/>
         <comp-code class="h-mt-md" title="DropDown Buttons" :code="dropdownButtons"
         :script="scriptDropdownButtons" javascript >
           <div class="row wrap">
@@ -257,6 +260,7 @@
           </div>
         </comp-code>
 
+        <div ref="btn-links"/>
         <comp-code class="h-mt-md" title="Links" :code="linksButtons">
           <h-btn bg-color="bg-primary">
             <h-link icon="fab fa-github" text="github" url="https://github.com/edutucci/hawkframework" text-color="text-white"/>
@@ -279,6 +283,7 @@
           </h-btn>
         </comp-code>
 
+        <div ref="btn-router"/>
         <comp-code class="h-mt-md" title="Router" :code="routerButtons">
           <h-btn bg-color="bg-primary">
             <h-link text="to this page" url="/buttons" text-color="text-white"/>
@@ -301,6 +306,7 @@
           </h-btn>
         </comp-code>
 
+        <div ref="btn-counter"/>
         <comp-code class="h-mt-md" title="Counters" :code="btnCounters">
           <h-btn  bg-color="bg-primary" text-color="text-white" text="warning">
             <h-counter bg-color="bg-negative" text-color="text-white">123</h-counter>
@@ -404,6 +410,36 @@
               </h-list-item-content>
             </h-list-item>
             <h-list-header text="Additional Types"/>
+            <h-list-item @click="goToElement('btn-fab')">
+              <h-list-item-content>
+                <h-list-item-text title="FAB"/>
+              </h-list-item-content>
+            </h-list-item>
+            <h-list-item @click="goToElement('btn-sizes')">
+              <h-list-item-content>
+                <h-list-item-text title="Sizes"/>
+              </h-list-item-content>
+            </h-list-item>
+            <h-list-item @click="goToElement('btn-dropdown')">
+              <h-list-item-content>
+                <h-list-item-text title="Dropdown"/>
+              </h-list-item-content>
+            </h-list-item>
+            <h-list-item @click="goToElement('btn-links')">
+              <h-list-item-content>
+                <h-list-item-text title="Links"/>
+              </h-list-item-content>
+            </h-list-item>
+            <h-list-item @click="goToElement('btn-router')">
+              <h-list-item-content>
+                <h-list-item-text title="Router"/>
+              </h-list-item-content>
+            </h-list-item>
+            <h-list-item @click="goToElement('btn-counter')">
+              <h-list-item-content>
+                <h-list-item-text title="Counter"/>
+              </h-list-item-content>
+            </h-list-item>
           </h-list>
         </list-help>
       </div>
