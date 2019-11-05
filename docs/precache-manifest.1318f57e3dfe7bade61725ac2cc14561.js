@@ -1,7 +1,7 @@
 self.__precacheManifest = [
   {
-    "revision": "f5f2566b93e89391da4db79462b8078b",
-    "url": "/hawkframework/fonts/fa-regular-400.f5f2566b.woff2"
+    "revision": "65b286af947c0d982ca01b40e1fcab38",
+    "url": "/hawkframework/fonts/fa-regular-400.65b286af.ttf"
   },
   {
     "revision": "feb97ae76a86c628ac229b7d774892c6",
@@ -28,8 +28,8 @@ self.__precacheManifest = [
     "url": "/hawkframework/js/chunk-0a0617dd.3ad0b792.js"
   },
   {
-    "revision": "0536c691e356935a2d1f9e403afd146f",
-    "url": "/hawkframework/img/landscape2.jpeg"
+    "revision": "cbd71f58d38b2442ddbab4f1135b5764",
+    "url": "/hawkframework/img/landscape1.jpeg"
   },
   {
     "revision": "e5cb3d1faba524c3aee2",
@@ -60,8 +60,8 @@ self.__precacheManifest = [
     "url": "/hawkframework/js/chunk-2d0b2d82.6d573ab3.js"
   },
   {
-    "revision": "459610066328e23df2e6",
-    "url": "/hawkframework/js/chunk-2d0b6ade.8720ddef.js"
+    "revision": "407751fac739f4276315",
+    "url": "/hawkframework/js/chunk-2d0b6ade.811bce38.js"
   },
   {
     "revision": "252951869d8eef8fe8b9",
@@ -196,12 +196,12 @@ self.__precacheManifest = [
     "url": "/hawkframework/js/chunk-2d237543.19ec68bb.js"
   },
   {
-    "revision": "fadbc5eafd94ae4c3924",
-    "url": "/hawkframework/js/chunk-2d2382c1.49c86490.js"
+    "revision": "09b85acc78ff064ac80b",
+    "url": "/hawkframework/js/chunk-2d2382c1.c0ee7795.js"
   },
   {
-    "revision": "cbd71f58d38b2442ddbab4f1135b5764",
-    "url": "/hawkframework/img/landscape1.jpeg"
+    "revision": "0536c691e356935a2d1f9e403afd146f",
+    "url": "/hawkframework/img/landscape2.jpeg"
   },
   {
     "revision": "8a8d5cf91f3fd3e93cb7",
@@ -224,48 +224,64 @@ self.__precacheManifest = [
     "url": "/hawkframework/js/chunk-e879bbcc.ccf67dcd.js"
   },
   {
-    "revision": "85f6e62467cc2220ef49ea9cff881ace",
-    "url": "/hawkframework/img/bluerun.png"
+    "revision": "c38b1d8a3923f2e7bc109f20748f9673",
+    "url": "/hawkframework/img/matchday.png"
   },
   {
     "revision": "61929b440dfa2d4760d1",
     "url": "/hawkframework/js/chunk-efa3bc86.55170231.js"
   },
   {
-    "revision": "c38b1d8a3923f2e7bc109f20748f9673",
-    "url": "/hawkframework/img/matchday.png"
+    "revision": "85f6e62467cc2220ef49ea9cff881ace",
+    "url": "/hawkframework/img/bluerun.png"
   },
   {
     "revision": "189a48b4343576d4f796",
     "url": "/hawkframework/js/chunk-vendors.1a9aa510.js"
   },
   {
-    "revision": "fce32f269596dbb997a2",
-    "url": "/hawkframework/js/app.3b43ac03.js"
-  },
-  {
     "revision": "adfe4cc59eb56447304d712c9104035d",
     "url": "/hawkframework/img/hawkface.png"
+  },
+  {
+    "revision": "2564f1844350cfab98af7044490c6cb8",
+    "url": "/hawkframework/imgIcons/png/logo_icloud.png"
   },
   {
     "revision": "f657190b21fe88ecd732c18c517f3de0",
     "url": "/hawkframework/img/landscape.jpeg"
   },
   {
+    "revision": "2982ad3bc942da480fdd",
+    "url": "/hawkframework/js/app.f97113be.js"
+  },
+  {
     "revision": "ee1ac904d84563d676d4bc7d2b355e71",
     "url": "/hawkframework/img/music-collection.jpg"
+  },
+  {
+    "revision": "cde544b20885886530256ae7268c86b1",
+    "url": "/hawkframework/imgIcons/png/logo_linux.png"
   },
   {
     "revision": "90d76b2104c252a61fa2e82f24938cdc",
     "url": "/hawkframework/img/kawkfly.png"
   },
   {
+    "revision": "17826a183a0411e5e852d37c5a2b4b4c",
+    "url": "/hawkframework/imgsamples/sidebarMenuCustomColor.png"
+  },
+  {
     "revision": "534a601d248383b8748b75248ec26931",
     "url": "/hawkframework/imgsamples/sidebarMenuIconsText.png"
   },
   {
-    "revision": "17826a183a0411e5e852d37c5a2b4b4c",
-    "url": "/hawkframework/imgsamples/sidebarMenuCustomColor.png"
+    "revision": "7db7e2e64f130e5255f56f26edb5cfdb",
+    "url": "/hawkframework/imgIcons/png/logo_gmail.png"
+  },
+  {
+    "revision": "7b9568e6389b1f8ae0902cd39665fc1e",
+    "url": "/hawkframework/img/fa-regular-400.7b9568e6.svg"
   },
   {
     "revision": "bf6e9bcc2b75923b03a83308e5a94d28",
@@ -276,12 +292,20 @@ self.__precacheManifest = [
     "url": "/hawkframework/img/justify-content.png"
   },
   {
-    "revision": "5f4326b11030516dd09f448abb7cad2c",
-    "url": "/hawkframework/img/align-items.png"
+    "revision": "a9c4bb7348f42626454c988dbde1d0a0",
+    "url": "/hawkframework/img/fa-brands-400.a9c4bb73.svg"
   },
   {
-    "revision": "7b9568e6389b1f8ae0902cd39665fc1e",
-    "url": "/hawkframework/img/fa-regular-400.7b9568e6.svg"
+    "revision": "c2801fb415f03c7b170934769d7b5397",
+    "url": "/hawkframework/img/fa-solid-900.c2801fb4.svg"
+  },
+  {
+    "revision": "163c8e8b8a8d3e92a1e76176038f449c",
+    "url": "/hawkframework/index.html"
+  },
+  {
+    "revision": "5f4326b11030516dd09f448abb7cad2c",
+    "url": "/hawkframework/img/align-items.png"
   },
   {
     "revision": "46564b024a864207d1e67bcf386dcb37",
@@ -292,32 +316,8 @@ self.__precacheManifest = [
     "url": "/hawkframework/img/TangerineSalad.jpg"
   },
   {
-    "revision": "a9c4bb7348f42626454c988dbde1d0a0",
-    "url": "/hawkframework/img/fa-brands-400.a9c4bb73.svg"
-  },
-  {
-    "revision": "c2801fb415f03c7b170934769d7b5397",
-    "url": "/hawkframework/img/fa-solid-900.c2801fb4.svg"
-  },
-  {
-    "revision": "f3ac0ec44857041d5122c75e272396bc",
-    "url": "/hawkframework/index.html"
-  },
-  {
     "revision": "58e2012bf372ceecfd6be07628717609",
     "url": "/hawkframework/img/GrilledEggPlant.jpg"
-  },
-  {
-    "revision": "37c14facc3f4d88f795f7f30532d4026",
-    "url": "/hawkframework/img/clock.png"
-  },
-  {
-    "revision": "20a35d3ca7b00ef66162d1f5244cc405",
-    "url": "/hawkframework/img/bookhtmlcss3.jpeg"
-  },
-  {
-    "revision": "7f7b6246ba6840fb91c5e27530982be8",
-    "url": "/hawkframework/svg/calculator_dollar.svg"
   },
   {
     "revision": "95cde46fda0e3ed922406a3cdf1132d7",
@@ -344,6 +344,26 @@ self.__precacheManifest = [
     "url": "/hawkframework/img/rulers.png"
   },
   {
+    "revision": "88ee4c118eb22097cc22d400e5ec8eb3",
+    "url": "/hawkframework/imgIcons/svg/bag_currency.svg"
+  },
+  {
+    "revision": "7f7b6246ba6840fb91c5e27530982be8",
+    "url": "/hawkframework/imgIcons/svg/calculator_dollar.svg"
+  },
+  {
+    "revision": "566f703c01af2a41aa4ec429a46d2ddd",
+    "url": "/hawkframework/imgIcons/svg/camera-24px.svg"
+  },
+  {
+    "revision": "0bc51c057974cf1e8d1b5d2caecf8f3c",
+    "url": "/hawkframework/imgIcons/svg/laptop.svg"
+  },
+  {
+    "revision": "2b71f8ceb3cbf9058cfe46d7b495d3e8",
+    "url": "/hawkframework/imgIcons/svg/directions_bike-24px.svg"
+  },
+  {
     "revision": "1880d15b9cef14940f1015f3702c462f",
     "url": "/hawkframework/imgsamples/sidebarMenuIcons.png"
   },
@@ -356,16 +376,20 @@ self.__precacheManifest = [
     "url": "/hawkframework/robots.txt"
   },
   {
-    "revision": "88ee4c118eb22097cc22d400e5ec8eb3",
-    "url": "/hawkframework/svg/bag_currency.svg"
+    "revision": "37c14facc3f4d88f795f7f30532d4026",
+    "url": "/hawkframework/img/clock.png"
   },
   {
-    "revision": "c1a866ec0e04a5e1915b41fcf261457c",
-    "url": "/hawkframework/fonts/fa-regular-400.c1a866ec.eot"
+    "revision": "20a35d3ca7b00ef66162d1f5244cc405",
+    "url": "/hawkframework/img/bookhtmlcss3.jpeg"
   },
   {
-    "revision": "fce32f269596dbb997a2",
-    "url": "/hawkframework/css/app.437d60e1.css"
+    "revision": "c4f508e7c4f01a9eeba7f08155cde04e",
+    "url": "/hawkframework/fonts/fa-regular-400.c4f508e7.woff"
+  },
+  {
+    "revision": "2982ad3bc942da480fdd",
+    "url": "/hawkframework/css/app.98084d2c.css"
   },
   {
     "revision": "95f781404d456da3eaf2",
@@ -380,20 +404,20 @@ self.__precacheManifest = [
     "url": "/hawkframework/css/chunk-2ca94eb0.435145df.css"
   },
   {
-    "revision": "8e4a6dcc692b3887f9f542cd6894d6d4",
-    "url": "/hawkframework/fonts/fa-solid-900.8e4a6dcc.eot"
-  },
-  {
     "revision": "0bff33a5fd7ec390235476b4859747a0",
     "url": "/hawkframework/fonts/fa-solid-900.0bff33a5.ttf"
   },
   {
-    "revision": "5063b105c7646c8043d58c5289f02cca",
-    "url": "/hawkframework/fonts/fa-brands-400.5063b105.eot"
+    "revision": "8e4a6dcc692b3887f9f542cd6894d6d4",
+    "url": "/hawkframework/fonts/fa-solid-900.8e4a6dcc.eot"
   },
   {
     "revision": "06147b6cd88c7346cecd1edd060cd5de",
     "url": "/hawkframework/fonts/fa-brands-400.06147b6c.ttf"
+  },
+  {
+    "revision": "5063b105c7646c8043d58c5289f02cca",
+    "url": "/hawkframework/fonts/fa-brands-400.5063b105.eot"
   },
   {
     "revision": "333bae208dc363746961b234ff6c2500",
@@ -404,10 +428,6 @@ self.__precacheManifest = [
     "url": "/hawkframework/fonts/fa-brands-400.c5e0f14f.woff"
   },
   {
-    "revision": "cccc9d29470e879e40eb70249d9a2705",
-    "url": "/hawkframework/fonts/fa-brands-400.cccc9d29.woff2"
-  },
-  {
     "revision": "44d537ab79f921fde5a28b2c1636f397",
     "url": "/hawkframework/fonts/fa-solid-900.44d537ab.woff2"
   },
@@ -416,8 +436,12 @@ self.__precacheManifest = [
     "url": "/hawkframework/css/chunk-6b026e50.c30ef3af.css"
   },
   {
-    "revision": "65b286af947c0d982ca01b40e1fcab38",
-    "url": "/hawkframework/fonts/fa-regular-400.65b286af.ttf"
+    "revision": "cccc9d29470e879e40eb70249d9a2705",
+    "url": "/hawkframework/fonts/fa-brands-400.cccc9d29.woff2"
+  },
+  {
+    "revision": "c1a866ec0e04a5e1915b41fcf261457c",
+    "url": "/hawkframework/fonts/fa-regular-400.c1a866ec.eot"
   },
   {
     "revision": "aa5e5f07dda50f349aae9e8f64e94bf9",
@@ -428,8 +452,8 @@ self.__precacheManifest = [
     "url": "/hawkframework/css/chunk-787d8eae.7804362f.css"
   },
   {
-    "revision": "c4f508e7c4f01a9eeba7f08155cde04e",
-    "url": "/hawkframework/fonts/fa-regular-400.c4f508e7.woff"
+    "revision": "f5f2566b93e89391da4db79462b8078b",
+    "url": "/hawkframework/fonts/fa-regular-400.f5f2566b.woff2"
   },
   {
     "revision": "95a69e22a8171911be7a",
