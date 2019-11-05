@@ -22,7 +22,7 @@
       </div>
 
       <div class="flex-1  table-container" @mouseleave="onMouseOverRow(-1)" style="">
-        <div class="flex flex-row table-row-container">
+        <div class="flex flex-row table-row-container position-relative">
           <div>
             <div v-if="selectable" class="flex flex-column ">
               <div class="flex flex-items-center flex-justify-center" :style="[rowlineheight]">
@@ -65,31 +65,30 @@
         </div>
       </div>
       <div class="">
-        <div class="flex flex-justify-end">
-          <div class="flex flex-items-center h-pr-sm subtitle">
+        <div class="row align-items-center justify-end">
+          <div class="col-auto h-pr-sm text-caption text-gray">
             Rows per page:
           </div>
-          <div class="h-pr-sm h-pb-md flex flex-items-center">
+          <div class="h-pr-sm">
             <h-input
+              dense
               :options="rowsperpage"
               v-model="rowsperpagevalue"
               input-select
               style="width:60px;"
             />
           </div>
-          <div class="btn bg-white circle
-            flex flex-justify-center flex-items-center"
+          <div class="col-auto"
             @click="onPreviousPage"
           >
-            <h-btn text-button fab text-color="text-white" size="sm">
+            <h-btn text-button fab text-color="text-white" size="xs">
               <h-icon icon="fas fa-chevron-left" size="16px"/>
             </h-btn>
           </div>
-          <div class="btn bg-white circle
-            flex flex-justify-center flex-items-center"
+          <div class="col-auto"
             @click="onNextPage"
             >
-              <h-btn text-button fab text-color="text-white" size="sm">
+              <h-btn text-button fab text-color="text-white" size="xs">
                 <h-icon icon="fas fa-chevron-right" size="16px"/>
               </h-btn>
           </div>
