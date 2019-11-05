@@ -1,11 +1,16 @@
 <template lang="pug">
   div.h-icon(style="position:relative; display: inline-block;")
+    h-image(
+      v-if="image"
+      :src="icon"
+      :style="styleObject"
+    )
     i(
       class="h-icon"
       :class="[icon, textColor, {'fa-pulse': pulse, 'fa-spin': spin}]"
       :style="styleObject"
       @click="onClick"
-      v-if="IsFaIcon"
+      v-else-if="IsFaIcon"
     )
     i(
       class="h-icon material-icons"
@@ -42,11 +47,15 @@ export default {
     spin: {
       type: Boolean,
       default: false
+    },
+    image: {
+      type: Boolean,
+      default: false
     }
   },
   watch: {
     size: function (value) {
-      this.styleObject.fontSize = value
+      this.makeIconSize(value)
     }
   },
   computed: {
@@ -59,7 +68,7 @@ export default {
     }
   },
   mounted () {
-    this.styleObject.fontSize = this.size
+    this.makeIconSize(this.size)
   },
   data () {
     return {
@@ -71,6 +80,9 @@ export default {
     }
   },
   methods: {
+    makeIconSize (value) {
+      this.styleObject.fontSize = value
+    },
     onClick () {
       this.$emit('click')
     }
