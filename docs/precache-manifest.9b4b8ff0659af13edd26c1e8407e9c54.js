@@ -1,7 +1,7 @@
 self.__precacheManifest = [
   {
-    "revision": "65b286af947c0d982ca01b40e1fcab38",
-    "url": "/hawkframework/fonts/fa-regular-400.65b286af.ttf"
+    "revision": "cccc9d29470e879e40eb70249d9a2705",
+    "url": "/hawkframework/fonts/fa-brands-400.cccc9d29.woff2"
   },
   {
     "revision": "feb97ae76a86c628ac229b7d774892c6",
@@ -28,8 +28,8 @@ self.__precacheManifest = [
     "url": "/hawkframework/js/chunk-0a0617dd.3ad0b792.js"
   },
   {
-    "revision": "0536c691e356935a2d1f9e403afd146f",
-    "url": "/hawkframework/img/landscape2.jpeg"
+    "revision": "cbd71f58d38b2442ddbab4f1135b5764",
+    "url": "/hawkframework/img/landscape1.jpeg"
   },
   {
     "revision": "e5cb3d1faba524c3aee2",
@@ -60,8 +60,8 @@ self.__precacheManifest = [
     "url": "/hawkframework/js/chunk-2d0b2d82.6d573ab3.js"
   },
   {
-    "revision": "407751fac739f4276315",
-    "url": "/hawkframework/js/chunk-2d0b6ade.811bce38.js"
+    "revision": "435aa489f0de3631d475",
+    "url": "/hawkframework/js/chunk-2d0b6ade.e713cc47.js"
   },
   {
     "revision": "252951869d8eef8fe8b9",
@@ -200,36 +200,36 @@ self.__precacheManifest = [
     "url": "/hawkframework/js/chunk-2d2382c1.c0ee7795.js"
   },
   {
-    "revision": "cbd71f58d38b2442ddbab4f1135b5764",
-    "url": "/hawkframework/img/landscape1.jpeg"
+    "revision": "0536c691e356935a2d1f9e403afd146f",
+    "url": "/hawkframework/img/landscape2.jpeg"
   },
   {
-    "revision": "8a8d5cf91f3fd3e93cb7",
-    "url": "/hawkframework/js/chunk-6b026e50.ee5daa1e.js"
+    "revision": "a818c57cc37954bf071f",
+    "url": "/hawkframework/js/chunk-3e79960c.01be2293.js"
   },
   {
     "revision": "08c9fd016fceacd826c9d3df3ee6702d",
     "url": "/hawkframework/img/hawk.jpg"
   },
   {
-    "revision": "bcc1098f33db4faca76e",
-    "url": "/hawkframework/js/chunk-787d8eae.943f02eb.js"
+    "revision": "8a8d5cf91f3fd3e93cb7",
+    "url": "/hawkframework/js/chunk-6b026e50.ee5daa1e.js"
   },
   {
     "revision": "5643fe9a562e39e7fd0852b56a8dc83c",
     "url": "/hawkframework/img/breakpoint.png"
   },
   {
-    "revision": "95a69e22a8171911be7a",
-    "url": "/hawkframework/js/chunk-e879bbcc.ccf67dcd.js"
+    "revision": "bcc1098f33db4faca76e",
+    "url": "/hawkframework/js/chunk-787d8eae.943f02eb.js"
   },
   {
     "revision": "c38b1d8a3923f2e7bc109f20748f9673",
     "url": "/hawkframework/img/matchday.png"
   },
   {
-    "revision": "61929b440dfa2d4760d1",
-    "url": "/hawkframework/js/chunk-efa3bc86.55170231.js"
+    "revision": "95a69e22a8171911be7a",
+    "url": "/hawkframework/js/chunk-e879bbcc.ccf67dcd.js"
   },
   {
     "revision": "85f6e62467cc2220ef49ea9cff881ace",
@@ -252,12 +252,12 @@ self.__precacheManifest = [
     "url": "/hawkframework/img/landscape.jpeg"
   },
   {
-    "revision": "2982ad3bc942da480fdd",
-    "url": "/hawkframework/js/app.f97113be.js"
-  },
-  {
     "revision": "ee1ac904d84563d676d4bc7d2b355e71",
     "url": "/hawkframework/img/music-collection.jpg"
+  },
+  {
+    "revision": "5a56a595679fac386f97",
+    "url": "/hawkframework/js/app.0cd797ea.js"
   },
   {
     "revision": "cde544b20885886530256ae7268c86b1",
@@ -268,12 +268,12 @@ self.__precacheManifest = [
     "url": "/hawkframework/img/kawkfly.png"
   },
   {
-    "revision": "534a601d248383b8748b75248ec26931",
-    "url": "/hawkframework/imgsamples/sidebarMenuIconsText.png"
-  },
-  {
     "revision": "17826a183a0411e5e852d37c5a2b4b4c",
     "url": "/hawkframework/imgsamples/sidebarMenuCustomColor.png"
+  },
+  {
+    "revision": "534a601d248383b8748b75248ec26931",
+    "url": "/hawkframework/imgsamples/sidebarMenuIconsText.png"
   },
   {
     "revision": "7db7e2e64f130e5255f56f26edb5cfdb",
@@ -300,16 +300,16 @@ self.__precacheManifest = [
     "url": "/hawkframework/img/fa-solid-900.c2801fb4.svg"
   },
   {
-    "revision": "163c8e8b8a8d3e92a1e76176038f449c",
+    "revision": "17e4be2807bd4fb527e69ce50957a0ff",
     "url": "/hawkframework/index.html"
-  },
-  {
-    "revision": "46564b024a864207d1e67bcf386dcb37",
-    "url": "/hawkframework/img/align-content.png"
   },
   {
     "revision": "5f4326b11030516dd09f448abb7cad2c",
     "url": "/hawkframework/img/align-items.png"
+  },
+  {
+    "revision": "46564b024a864207d1e67bcf386dcb37",
+    "url": "/hawkframework/img/align-content.png"
   },
   {
     "revision": "b6dc730dbe0e94af0cc6e7b72134c78d",
@@ -344,8 +344,20 @@ self.__precacheManifest = [
     "url": "/hawkframework/img/rulers.png"
   },
   {
+    "revision": "0b3d427369e37bb3a2efe3a0fb9593c4",
+    "url": "/hawkframework/imgIcons/png/checked.png"
+  },
+  {
+    "revision": "4db4ecf963a4e3a4d32613107fa68964",
+    "url": "/hawkframework/imgIcons/png/warning-shield.png"
+  },
+  {
     "revision": "88ee4c118eb22097cc22d400e5ec8eb3",
     "url": "/hawkframework/imgIcons/svg/bag_currency.svg"
+  },
+  {
+    "revision": "7f7b6246ba6840fb91c5e27530982be8",
+    "url": "/hawkframework/imgIcons/svg/calculator_dollar.svg"
   },
   {
     "revision": "566f703c01af2a41aa4ec429a46d2ddd",
@@ -354,10 +366,6 @@ self.__precacheManifest = [
   {
     "revision": "2b71f8ceb3cbf9058cfe46d7b495d3e8",
     "url": "/hawkframework/imgIcons/svg/directions_bike-24px.svg"
-  },
-  {
-    "revision": "7f7b6246ba6840fb91c5e27530982be8",
-    "url": "/hawkframework/imgIcons/svg/calculator_dollar.svg"
   },
   {
     "revision": "0bc51c057974cf1e8d1b5d2caecf8f3c",
@@ -384,12 +392,12 @@ self.__precacheManifest = [
     "url": "/hawkframework/img/bookhtmlcss3.jpeg"
   },
   {
-    "revision": "0b147322389eb084c6ba474db6d282c1",
-    "url": "/hawkframework/avatar/folder_open.png"
+    "revision": "c4f508e7c4f01a9eeba7f08155cde04e",
+    "url": "/hawkframework/fonts/fa-regular-400.c4f508e7.woff"
   },
   {
-    "revision": "2982ad3bc942da480fdd",
-    "url": "/hawkframework/css/app.98084d2c.css"
+    "revision": "5a56a595679fac386f97",
+    "url": "/hawkframework/css/app.9c43617b.css"
   },
   {
     "revision": "95f781404d456da3eaf2",
@@ -404,12 +412,12 @@ self.__precacheManifest = [
     "url": "/hawkframework/css/chunk-2ca94eb0.435145df.css"
   },
   {
-    "revision": "0bff33a5fd7ec390235476b4859747a0",
-    "url": "/hawkframework/fonts/fa-solid-900.0bff33a5.ttf"
-  },
-  {
     "revision": "8e4a6dcc692b3887f9f542cd6894d6d4",
     "url": "/hawkframework/fonts/fa-solid-900.8e4a6dcc.eot"
+  },
+  {
+    "revision": "0bff33a5fd7ec390235476b4859747a0",
+    "url": "/hawkframework/fonts/fa-solid-900.0bff33a5.ttf"
   },
   {
     "revision": "06147b6cd88c7346cecd1edd060cd5de",
@@ -428,16 +436,16 @@ self.__precacheManifest = [
     "url": "/hawkframework/fonts/fa-brands-400.c5e0f14f.woff"
   },
   {
-    "revision": "8a8d5cf91f3fd3e93cb7",
-    "url": "/hawkframework/css/chunk-6b026e50.c30ef3af.css"
-  },
-  {
     "revision": "44d537ab79f921fde5a28b2c1636f397",
     "url": "/hawkframework/fonts/fa-solid-900.44d537ab.woff2"
   },
   {
-    "revision": "cccc9d29470e879e40eb70249d9a2705",
-    "url": "/hawkframework/fonts/fa-brands-400.cccc9d29.woff2"
+    "revision": "a818c57cc37954bf071f",
+    "url": "/hawkframework/css/chunk-3e79960c.e491fc50.css"
+  },
+  {
+    "revision": "65b286af947c0d982ca01b40e1fcab38",
+    "url": "/hawkframework/fonts/fa-regular-400.65b286af.ttf"
   },
   {
     "revision": "c1a866ec0e04a5e1915b41fcf261457c",
@@ -448,8 +456,8 @@ self.__precacheManifest = [
     "url": "/hawkframework/img/90minute.png"
   },
   {
-    "revision": "c4f508e7c4f01a9eeba7f08155cde04e",
-    "url": "/hawkframework/fonts/fa-regular-400.c4f508e7.woff"
+    "revision": "8a8d5cf91f3fd3e93cb7",
+    "url": "/hawkframework/css/chunk-6b026e50.c30ef3af.css"
   },
   {
     "revision": "f5f2566b93e89391da4db79462b8078b",
@@ -460,16 +468,12 @@ self.__precacheManifest = [
     "url": "/hawkframework/css/chunk-787d8eae.7804362f.css"
   },
   {
-    "revision": "189a48b4343576d4f796",
-    "url": "/hawkframework/css/chunk-vendors.6f15c945.css"
-  },
-  {
     "revision": "95a69e22a8171911be7a",
     "url": "/hawkframework/css/chunk-e879bbcc.699d3078.css"
   },
   {
-    "revision": "61929b440dfa2d4760d1",
-    "url": "/hawkframework/css/chunk-efa3bc86.8609d18e.css"
+    "revision": "189a48b4343576d4f796",
+    "url": "/hawkframework/css/chunk-vendors.6f15c945.css"
   },
   {
     "revision": "04aa34dddca440e54307a0dec0db5e41",
@@ -482,6 +486,10 @@ self.__precacheManifest = [
   {
     "revision": "b7f3560da1363c394df6bcf6c99b69f0",
     "url": "/hawkframework/avatar/rambo.jpg"
+  },
+  {
+    "revision": "0b147322389eb084c6ba474db6d282c1",
+    "url": "/hawkframework/avatar/folder_open.png"
   },
   {
     "revision": "0a62929d2817e6310d6c084a1c902ceb",
