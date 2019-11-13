@@ -27,9 +27,7 @@
     @onTogglePassword="togglePassword"
     :id="containerId"
   )
-    .column.full-width(v-on-clickaway="away"
-      @scroll="onResize"
-    )
+    .column.full-width(v-on-clickaway="away")
       .col(
         v-if="this.chips"
         @click="focus"
@@ -112,7 +110,7 @@
             // h-list-item-side(v-if="displayMode ==='image'")
             //   img(:src="option.img" style="width:32px; height:32px;")
             h-list-item-content
-              h-list-item-text(:title="option.text")
+              h-list-item-text(:title="option.text.toString()")
 
         h-list(v-else-if="multiSelect")
           h-list-item(
@@ -521,6 +519,9 @@ export default {
     },
     onClearable () {
       this.inputDisplay = ''
+      if (this.inputSearch) {
+        this.onInputSearch('')
+      }
     },
     closeSelectChip (index) {
       this.$delete(this.selectChipsValue, index)
@@ -529,12 +530,6 @@ export default {
         arrValue.push(chip.value)
       })
       this.$emit('input', arrValue)
-    },
-    onResize () {
-      console.log('input onResize')
-      // if (this.showdropdown) {
-      //   this.checkViewport()
-      // }
     }
   }
 }

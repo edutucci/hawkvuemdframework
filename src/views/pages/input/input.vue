@@ -7,6 +7,7 @@
       - add rightIcon property
 
       Bugs
+        - model is not working in input-search
     -->
 
     <div class="row">
