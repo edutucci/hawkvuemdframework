@@ -47,7 +47,6 @@
                             h-icon(
                               :text-color="iconErrorTextColor"
                               icon="fas fa-exclamation-circle"
-                              @click="onClearable"
                             )
                           .col-auto.input-icons-padding(v-if="clearable")
                             h-icon(
