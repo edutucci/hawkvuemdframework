@@ -66,7 +66,7 @@ export default new Router({
     },
     {
       path: '/test',
-      component: () => import('./views/pages/test/shadow.vue')
+      component: () => import('./views/pages/test/Parallax/parallax.vue')
     },
     {
       path: '/example',

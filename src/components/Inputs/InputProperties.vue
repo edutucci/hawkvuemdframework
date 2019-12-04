@@ -6,6 +6,7 @@
 
 import componentBase from '../componentBase.vue'
 import defaults from './currencyDirective/options'
+import tokens from './maskDirective/tokens'
 
 export default {
   extends: componentBase,
@@ -124,8 +125,12 @@ export default {
       default: false
     },
     mask: {
-      type: String,
+      type: [String, Array],
       default: ''
+    },
+    tokens: {
+      type: Object,
+      default: () => tokens
     },
     masked: {
       type: Boolean,
@@ -155,6 +160,10 @@ export default {
   data () {
     return {
       inputDisplay: '',
+      inputDisplayMask: {
+        maskedValue: '',
+        unMaskedValued: ''
+      },
       inputType: ''
     }
   }

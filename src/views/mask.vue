@@ -7,17 +7,17 @@
       <h-toggle v-model="masked" text="Masked?"/>
     </div>
 
-    <h-input outlined input-mask mask="(##)#####-####" v-model="maskModelTel" left-icon="fas fa-phone" :masked="masked" clearable/>
-    <span>maskModel: {{maskModelTel}}</span>
+    <!-- <h-input outlined input-mask mask="(##)#####-####" v-model="maskModelTel" left-icon="fas fa-phone" :masked="masked" clearable/>
+    <span>maskModel: {{maskModelTel}}</span> -->
 
     <!-- <h-input outlined input-mask mask="11111-111" v-model="maskModelCep" left-icon="fas fa-home" :masked="masked" clearable/>
     <span>maskModel: {{maskModelCep}}</span> -->
 
     <!-- <input type="text" v-mask="'AAA-####'" v-model="myInputModel2"/> -->
 
-    <h1>Currency Mask</h1>
+    <!-- <h1>Currency Mask</h1>
     <h-input outlined input-currency v-model="maskModelCurrency" left-icon="fas fa-money" :masked="masked" clearable/>
-    <span>maskModel: {{maskModelCurrency}}</span>
+    <span>maskModel: {{maskModelCurrency}}</span> -->
 
   </h-page-content>
 </template>

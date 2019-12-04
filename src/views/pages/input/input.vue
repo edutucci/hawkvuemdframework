@@ -228,16 +228,19 @@
             <h-toggle v-model="masked" text="Masked?"/>
           </div>
 
-          <h-input dense input-mask mask="(##)#####-####" v-model="maskModelTel" leading-icon="fas fa-phone" :masked="masked" clearable/>
+          <h-input dense input-mask :mask="['(##)##-##', '(##)###-##']" v-model="maskModelTel" leading-icon="fas fa-phone" :masked="masked" clearable/>
           <span>maskModel: {{maskModelTel}}</span>
 
         </comp-code>
 
-        <!-- <div ref="mask-currency"/>
+        <div ref="mask-currency"/>
         <comp-code class="h-mt-lg" title="Currency">
-          <h-input input-currency v-model="maskModelCurrency" leading-icon="fas fa-money" :masked="masked" clearable/>
+          <div>
+            <h-toggle v-model="masked" text="Masked?"/>
+          </div>
+          <h-input input-currency v-model="maskModelCurrency" leading-icon="fas fa-money" :masked="masked" clearable decimal="," thousands="."/>
           <span>maskModel: {{maskModelCurrency}}</span>
-        </comp-code> -->
+        </comp-code>
 
         <h2 class="text-primary"> Vue Properties</h2>
         <hr>

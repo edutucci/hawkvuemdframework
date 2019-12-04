@@ -79,6 +79,9 @@
               :input-mask="inputMask"
               :input-currency="inputCurrency"
               :mask="mask"
+              :tokens="tokens"
+              :decimal="decimal"
+              :thousands="thousands"
               @input="onInput"
               @focus="focus"
               @blur="blur"
@@ -148,6 +151,7 @@ import uuidv1 from 'uuid/v1'
 import viewport from '../others/viewport'
 import { unformat, format } from './currencyDirective/utils'
 import resize from 'vue-resize-directive'
+import masker from './maskDirective/masker'
 
 export default {
   name: 'HInput',
@@ -218,7 +222,7 @@ export default {
     },
     masked: function (newValue) {
       if (this.inputMask) {
-        this.changeModelMask()
+        this.changeModelMask(this.inputDisplay)
       } else if (this.inputCurrency) {
         this.changeModelCurrencyMask()
       }
@@ -264,7 +268,7 @@ export default {
       if (localInputDisplay) {
         if (this.inputMask) {
           this.inputDisplay = this.value
-          this.changeModelMask()
+          // this.changeModelMask()
         } else if (this.inputCurrency) {
           this.changeModelCurrencyMask()
         } else if (this.inputSelect && (this.options && this.options.length)) {
@@ -331,15 +335,23 @@ export default {
         this.inputContainerIconErrorTextColor = 'text-white'
       }
     },
-    changeModelMask () {
-      console.log('this.inputDisplay:', this.inputDisplay)
-      let modelValue = this.inputDisplay
-      if (!this.masked) {
-        let patt = new RegExp('[()-/:._]', 'g')
-        modelValue = this.inputDisplay.replace(patt, '')
+    changeModelMask (value) {
+      // console.log('this.inputDisplay:', this.inputDisplay)
+      // let modelValue = this.inputDisplay
+      // if (!this.masked) {
+      //   let patt = new RegExp('[()-/:._]', 'g')
+      //   modelValue = this.inputDisplay.replace(patt, '')
+      // }
+      // console.log('modeValue:', modelValue)
+      // this.$emit('input', modelValue)
+      console.log('changeModelMask:', value)
+      this.inputDisplay = value
+      let localvalue = masker(value, this.mask, this.masked, this.tokens)
+      if (localvalue !== this.lastValue) {
+        this.lastValue = localvalue
+        this.$emit('input', localvalue)
+        // console.log('mask field on input', localvalue)
       }
-      console.log('modeValue:', modelValue)
-      this.$emit('input', modelValue)
     },
     changeModelCurrencyMask () {
       this.formatCurrency(this.inputDisplay)
@@ -354,21 +366,27 @@ export default {
         return
       }
 
-      if (this.inputSearch) {
-        this.onInputSearch(value)
-        return
+      if (this.inputMask) {
+        this.changeModelMask(value)
+      } else if (this.inputCurrency) {
+        this.changeModelCurrencyMask()
       }
 
-      this.inputDisplay = value
-      console.log('onInput value:', value)
-      this.$emit('input', '131268')
-      if (this.inputCurrency) {
-        this.changeModelCurrencyMask()
-      } else if (this.inputMask) {
-        this.changeModelMask()
-      } else if (!this.chips) {
-        this.$emit('input', value)
-      }
+      // if (this.inputSearch) {
+      //   this.onInputSearch(value)
+      //   return
+      // }
+
+      // this.inputDisplay = value
+      // console.log('onInput value:', value)
+      // this.$emit('input', '131268')
+      // if (this.inputCurrency) {
+      //   this.changeModelCurrencyMask()
+      // } else if (this.inputMask) {
+      //   this.changeModelMask()
+      // } else if (!this.chips) {
+      //   this.$emit('input', value)
+      // }
     },
     onInputSearch: _.debounce(function (value) {
       this.$emit('onFilter', value)
