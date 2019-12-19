@@ -29,7 +29,7 @@
   )
     .column.full-width(v-on-clickaway="away")
       .col(
-        v-if="this.chips"
+        v-if="this.chips && type === 'text'"
         @click="focus"
       )
         h-chips.h-pa-xs(
@@ -41,7 +41,7 @@
           @onClose="closeChip(index)"
         )
       .col(
-        v-else-if="selectChips && multiSelect"
+        v-else-if="selectChips && type === 'multi-select'"
         @click="checkViewport"
       )
         .row.wrap
@@ -77,7 +77,6 @@
               :focused="focused"
               :chips="chips"
               :input-mask="inputMask"
-              :input-currency="inputCurrency"
               :mask="mask"
               :tokens="tokens"
               :decimal="decimal"
@@ -100,7 +99,7 @@
         v-if="showdropdown"
         :id="dropMenuId"
       )
-        h-list(v-if="inputSelect")
+        h-list(v-if="type === 'select'")
           h-list-item(
             v-for="(option, index) in options"
             :key="`${dropMenuId}-${index}`"
@@ -115,18 +114,18 @@
             h-list-item-content
               h-list-item-text(:title="option.text.toString()")
 
-        h-list(v-else-if="multiSelect")
+        h-list(v-else-if="type === 'multi-select'")
           h-list-item(
-            v-show="multiSelect"
+            v-show="type === 'multi-select'"
             v-for="(option, index) in options"
             :key="`${dropMenuId}-${index}`"
           )
             h-list-item-side
               h-checkbox(v-model="multiselectItem" :text="option.text" :value="option.value" @change="onSelectItem")
 
-        h-list(v-else-if="inputSearch")
+        h-list(v-else-if="type === 'search'")
           h-list-item(
-            v-show="inputSearch"
+            v-show="type === 'search'"
             v-for="(option, index) in options"
             :key="`${dropMenuId}-${index}`"
             @click="onSelectItem(option)"
@@ -223,12 +222,15 @@ export default {
     masked: function (newValue) {
       if (this.inputMask) {
         this.changeModelMask(this.inputDisplay)
-      } else if (this.inputCurrency) {
+      } else if (this.type === 'currency') {
         this.changeModelCurrencyMask()
       }
     },
     options: function (value) {
       this.checkViewport()
+    },
+    type: function (value) {
+      this.inputType = value
     }
   },
   computed: {
@@ -256,7 +258,7 @@ export default {
     },
     inputDropdown () {
       let value = false
-      if (this.inputSearch || this.inputSelect || this.multiSelect) {
+      if (this.type === 'search' || this.type === 'select' || this.type === 'multi-select') {
         value = true
       }
       return value
@@ -269,9 +271,9 @@ export default {
         if (this.inputMask) {
           this.inputDisplay = this.value
           // this.changeModelMask()
-        } else if (this.inputCurrency) {
+        } else if (this.type === 'currency') {
           this.changeModelCurrencyMask()
-        } else if (this.inputSelect && (this.options && this.options.length)) {
+        } else if (this.type === 'select' && (this.options && this.options.length)) {
           let index = this.options.findIndex(item => item.value === this.value)
           if (index !== -1) {
             let option = this.options[index]
@@ -288,7 +290,7 @@ export default {
             })
           }
           this.inputDisplay = ''
-        } else if (this.multiSelect && (this.options && this.options.length)) {
+        } else if (this.type === 'multi-select' && (this.options && this.options.length)) {
           let multiselectItem = []
           let arrDisp = []
           this.selectChipsValue = []
@@ -362,20 +364,19 @@ export default {
       this.inputDisplay = format(value, this.$props)
     },
     onInput (value) {
-      if (this.inputSelect) {
+      if (this.type === 'select') {
         return
       }
 
       if (this.inputMask) {
         this.changeModelMask(value)
-      } else if (this.inputCurrency) {
+      } else if (this.type === 'currency') {
         this.changeModelCurrencyMask()
       }
 
-      // if (this.inputSearch) {
-      //   this.onInputSearch(value)
-      //   return
-      // }
+      if (this.type === 'search') {
+        this.onInputSearch(value)
+      }
 
       // this.inputDisplay = value
       // console.log('onInput value:', value)
@@ -464,7 +465,7 @@ export default {
       this.inputType = (this.inputType === 'password') ? 'text' : 'password'
     },
     onKeyDown () {
-      if (this.inputSearch) {
+      if (this.type === 'search') {
         this.checkViewport()
       } else {
         this.$emit('onKeyDown')
@@ -489,13 +490,13 @@ export default {
       }
     },
     onEscape () {
-      if (this.inputSelect || this.multiSelect || this.inputSearch) {
+      if (this.type === 'select' || this.type === 'multi-select' || this.type === 'search') {
         this.showdropdown = false
       }
       this.$emit('onEscape')
     },
     onClick () {
-      if (this.inputSelect || this.multiSelect) {
+      if (this.type === 'select' || this.type === 'multi-select') {
         this.checkViewport()
       }
       this.$emit('onClick')
@@ -504,7 +505,7 @@ export default {
       this.showdropdown = false
     },
     onSelectItem (option) {
-      if (!this.multiSelect) {
+      if (this.type === 'select') {
         this.inputDisplay = option.text
         this.$emit('input', option.value)
         this.away()
@@ -537,7 +538,7 @@ export default {
     },
     onClearable () {
       this.inputDisplay = ''
-      if (this.inputSearch) {
+      if (this.type === 'search') {
         this.onInputSearch('')
       }
     },

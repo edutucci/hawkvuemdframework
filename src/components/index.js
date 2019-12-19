@@ -67,6 +67,7 @@ import HMainPage from './page/MainPage.vue'
 import HPageContent from './page/PageContent.vue'
 import HPageHeader from './page/PageHeader.vue'
 import HPageFooter from './page/PageFooter.vue'
+import HParallax from './parallax/Parallax'
 import HYoutubeVideo from './video/YoutubeVideo.vue'
 import HLink from './html/Link.vue'
 import HSeparator from './html/Separator.vue'
@@ -141,6 +142,7 @@ const Components = {
   HPageContent,
   HPageHeader,
   HPageFooter,
+  HParallax,
   HYoutubeVideo,
   HLink,
   HBanner,

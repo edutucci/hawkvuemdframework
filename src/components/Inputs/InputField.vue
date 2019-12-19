@@ -16,7 +16,7 @@
     @click="onClick"
   )
   input.input-field(
-    v-else-if="inputCurrency"
+    v-else-if="type === 'currency'"
     :id="inputId"
     v-focus="inputFocus"
     :class="[{'text-center': textCenter, 'readonly': readonly}, filled]"
@@ -33,7 +33,7 @@
     @click="onClick"
   )
   input.input-field(
-    v-else-if="!this.chips"
+    v-else-if="type === 'text' || type === 'password' || type === 'select' || type === 'multi-select' || type === 'search'"
     :id="inputId"
     v-focus="inputFocus"
     :class="[{'text-center': textCenter, 'readonly': readonly}, filled]"
@@ -53,7 +53,7 @@
     @click="onClick"
   )
   input.input-field(
-    v-else
+    v-else-if="type === 'text' && this.chips"
     :id="inputId"
     v-focus="inputFocus"
     :class="[{'text-center': textCenter, 'readonly': readonly}, filled]"

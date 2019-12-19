@@ -84,23 +84,11 @@ export default {
       type: Boolean,
       default: false
     },
-    inputSelect: {
-      type: Boolean,
-      default: false
-    },
-    multiSelect: {
-      type: Boolean,
-      default: false
-    },
     displayMode: {
       type: String,
       default: ''
     },
     selectChips: {
-      type: Boolean,
-      default: false
-    },
-    inputSearch: {
       type: Boolean,
       default: false
     },

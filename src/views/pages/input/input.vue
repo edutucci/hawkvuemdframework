@@ -14,7 +14,7 @@
       <div class="col">
         <div class="text-h4">Input</div>
 
-        <!-- <div class="text-h6 h-mt-md">Textfield</div>
+        <div class="text-h6 h-mt-md">Textfield</div>
         <h-separator></h-separator>
         <div ref="txt-outlined"/>
         <comp-code class="h-mt-lg" title="Outlined" :code="txtoutlined">
@@ -97,7 +97,7 @@
             <div class="col-6">
               <h-input dense :options="options"
                 v-model="selectModel"
-                input-select
+                type="select"
                 input-icon="fas fa-angle-down"
                 label="Select with icons"
                 display-mode="icon"/>
@@ -114,7 +114,7 @@
           javascript
         >
           <div class="col-6">
-            <h-input dense input-select :options="options" v-model="selectModel1" input-icon="fas fa-angle-down" display-mode="avatar"/>
+            <h-input dense type='select' :options="options" v-model="selectModel1" input-icon="fas fa-angle-down" display-mode="avatar"/>
           </div>
           <div>
             selectModel1: {{ selectModel1 }}
@@ -126,7 +126,8 @@
           javascript
         >
           <div class="col-6">
-            <h-input dense multi-select :options="options"
+            <h-input dense
+            type="multi-select" :options="options"
             v-model="multiselect"
             @changeMultiselect="changeMultiselect"
             />
@@ -141,7 +142,7 @@
           javascript
         >
           <div class="col-6">
-            <h-input dense multi-select select-chips :options="options"
+            <h-input dense type="multi-select" select-chips :options="options"
             v-model="multiselectChip"
             label="select chips"
             />
@@ -160,7 +161,7 @@
         >
           <h-input
             v-model="search1"
-            input-search
+            type="search"
             label="Search"
             trailing-icon="fas fa-search"
             @onFilter="onSearch"
@@ -187,7 +188,7 @@
                 <h-input
                   class="h-mr-xs"
                   v-model="search2"
-                  input-search
+                  type="search"
                   label="Search"
                   trailing-icon="fas fa-search"
                   @onFilter="onSearch2"
@@ -217,7 +218,7 @@
           <div>
             chipsInput: {{chipsInput}}
           </div>
-        </comp-code> -->
+        </comp-code>
 
         <div class="text-h6 h-mt-md">Masks</div>
         <h-separator></h-separator>
@@ -238,7 +239,7 @@
           <div>
             <h-toggle v-model="masked" text="Masked?"/>
           </div>
-          <h-input input-currency v-model="maskModelCurrency" leading-icon="fas fa-money" :masked="masked" clearable decimal="," thousands="."/>
+          <h-input type="currency" dense v-model="maskModelCurrency" leading-icon="fas fa-money" :masked="masked" clearable decimal="," thousands="."/>
           <span>maskModel: {{maskModelCurrency}}</span>
         </comp-code>
 
@@ -957,6 +958,7 @@ export default {
       this.searchOptions.push({ icon: 'fas fa-volleyball-ball', text: 'Attractions 3', desc: 'Lets go to the movie?', value: 'Attractions' })
     },
     onSearch (query) {
+      console.log('query vale:', query)
       this.shoptions = []
       if (query.length === 0) {
         this.shoptions = _.cloneDeep(this.searchOptions)

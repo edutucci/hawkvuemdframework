@@ -54,7 +54,8 @@ export default new Router({
         { path: '/carousel', component: () => import('./views/pages/carousel/carousel') },
         { path: '/rating', component: () => import('./views/pages/rating/rating') },
         { path: '/palleteColor', component: () => import('./views/guide/MaterialDesignColor') },
-        { path: '/scroll', component: () => import('./views/pages/scroll/scroll') }
+        { path: '/scroll', component: () => import('./views/pages/scroll/scroll') },
+        { path: '/parallax', component: () => import('./views/pages/parallax/parallax') }
       ]
     },
     {
@@ -66,7 +67,7 @@ export default new Router({
     },
     {
       path: '/test',
-      component: () => import('./views/pages/test/Parallax/parallax.vue')
+      component: () => import('./views/pages/test/Parallax/parallaxScroll.vue')
     },
     {
       path: '/example',
