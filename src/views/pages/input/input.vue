@@ -19,68 +19,89 @@
         <div ref="txt-outlined"/>
         <comp-code class="h-mt-lg" title="Outlined" :code="txtoutlined">
           <div class="column col-inputs">
-            <h-input v-model="types" label="Outlined"/>
-            <h-input v-model="types" label="Outlined dense" dense/>
+            <h-input v-model="typesModel" label="Outlined"/>
+            <h-input v-model="typesModel" label="Outlined dense" dense/>
+          </div>
+          <div>
+            Model: {{typesModel}}
           </div>
         </comp-code>
 
         <div ref="txt-filled"/>
         <comp-code class="h-mt-lg" title="Filled" :code="txtfilled">
           <div class="column col-inputs">
-            <h-input v-model="types" label="Filled" filled/>
-            <h-input v-model="types" label="Filled dense" filled dense/>
+            <h-input v-model="typesModel" label="Filled" filled/>
+            <h-input v-model="typesModel" label="Filled dense" filled dense/>
+          </div>
+          <div>
+            Model: {{typesModel}}
           </div>
         </comp-code>
 
         <div ref="txt-password"/>
         <comp-code class="h-mt-lg" title="Password" :code="txtpassword">
           <div class="column col-inputs">
-            <h-input v-model="types" label="Password" dense type="password"/>
+            <h-input v-model="passwordModel" label="Password" dense type="password"/>
+          </div>
+          <div>
+            Model: {{passwordModel}}
           </div>
         </comp-code>
 
         <div ref="txt-icons"/>
         <comp-code class="h-mt-lg" title="Icons" :code="txticons">
           <div class="column col-inputs">
-            <h-input v-model="icons" label="Phone" leading-icon="fas fa-phone" clearable/>
-            <h-input v-model="icons" label="E-Mail" filled leading-icon="fas fa-envelope" clearable/>
+            <h-input dense v-model="iconsModel" label="Phone" leading-icon="fas fa-phone" clearable/>
+            <h-input dense v-model="iconsModel" label="E-Mail" filled leading-icon="fas fa-envelope" clearable/>
+          </div>
+          <div>
+            Model: {{iconsModel}}
           </div>
         </comp-code>
 
         <div ref="txt-messages"/>
         <comp-code class="h-mt-lg" title="Messages" :code="txtmessages">
           <div class="column col-inputs">
-            <h-input v-model="message" label="Phone" clearable
+            <h-input dense v-model="messageModel" label="Phone" clearable
               helper-text="Type a phone"
             />
-            <h-input v-model="message" label="Phone" clearable
+            <h-input dense v-model="messageModel" label="Phone" clearable
               error-message="Invalid information"
             />
-            <h-input v-model="message" label="TextCounter" clearable
+            <h-input dense v-model="messageModel" label="TextCounter" clearable
               helper-text="Counter:" input-counter :text-counter="60" :maxlength="60"
             />
+          </div>
+          <div>
+            Model: {{messageModel}}
           </div>
         </comp-code>
 
         <div ref="txt-prefix-suffix"/>
         <comp-code class="h-mt-lg" title="Prefix and suffix" :code="txtprefixsuffix">
           <div class="column col-inputs">
-            <h-input v-model="prefix" label="Price" clearable
+            <h-input dense v-model="prefixModel" label="Price" clearable
               helper-text="Type a value" prefix="$"
             />
-            <h-input v-model="suffix" label="E-Mail" leading-icon="fas fa-envelope" clearable
+            <h-input dense v-model="suffixModel" label="E-Mail" leading-icon="fas fa-envelope" clearable
               helper-text="Type a valid mail" suffix="@gmail.com"
             />
+          </div>
+          <div>
+            Prefix Model: {{prefixModel}}
+          </div>
+          <div>
+            Sufix Model: {{suffixModel}}
           </div>
         </comp-code>
 
         <div ref="txt-focus-enter"/>
         <comp-code class="h-mt-lg" title="Input Focus (Using Enter)" :code="txtfocus">
           <div class="column col-inputs">
-            <h-input v-model="message" label="Name" ref="name"
+            <h-input dense v-model="focusModel" label="Name" ref="name"
               @onEnter="$refs.email.focus()"
             />
-            <h-input v-model="message" label="E-Mail" ref="email"
+            <h-input dense v-model="focusModel" label="E-Mail" ref="email"
               @onEnter="$refs.name.focus()"
             />
           </div>
@@ -437,13 +458,14 @@ export default {
   data () {
     return {
       // textfield
-      types: '',
-      icons: '',
-      message: '',
-      prefix: '',
-      suffix: '',
+      typesModel: '',
+      passwordModel: '',
+      iconsModel: '',
+      messageModel: '',
+      prefixModel: '',
+      suffixModel: '',
+      focusModel: '',
 
-      // select
       selectModel: 'Bluetooth1',
       selectModel1: 'chrome1',
       multiselect: ['heart1', 'discord1'],

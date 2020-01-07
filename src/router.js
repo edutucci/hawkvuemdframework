@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+// import SnackBarVue from './plugins/snackBar/SnackBarVue'
 
 Vue.use(Router)
 
@@ -65,10 +66,19 @@ export default new Router({
         { path: '', component: () => import('./views/pages/menu/sideBarMenu.vue') }
       ]
     },
-    {
-      path: '/test',
-      component: () => import('./views/pages/test/Parallax/parallaxScroll.vue')
-    },
+    // {
+    //   path: '/test',
+    //   beforeEnter (to, from, next) {
+    //     // console.log('before entering in test router')
+    //     // Vue.prototype.$SnackBar.create({
+    //     //   message: 'before entering in test router',
+    //     //   textcolor: 'text-white',
+    //     //   bgcolor: 'bg-positive'
+    //     // })
+    //     SnackBarVue.create()
+    //   },
+    //   component: () => import('./views/pages/test/Parallax/parallaxScroll.vue')
+    // },
     {
       path: '/example',
       component: () => import('./views/examples/image')

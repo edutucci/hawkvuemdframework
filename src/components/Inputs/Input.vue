@@ -364,30 +364,16 @@ export default {
       this.inputDisplay = format(value, this.$props)
     },
     onInput (value) {
-      if (this.type === 'select') {
-        return
-      }
-
-      if (this.inputMask) {
+      if (this.type === 'text' || this.type === 'password') {
+        this.$emit('input', value)
+      } else if (this.type === 'search') {
+        this.$emit('input', value)
+        this.onInputSearch(value)
+      } else if (this.inputMask) {
         this.changeModelMask(value)
       } else if (this.type === 'currency') {
         this.changeModelCurrencyMask()
       }
-
-      if (this.type === 'search') {
-        this.onInputSearch(value)
-      }
-
-      // this.inputDisplay = value
-      // console.log('onInput value:', value)
-      // this.$emit('input', '131268')
-      // if (this.inputCurrency) {
-      //   this.changeModelCurrencyMask()
-      // } else if (this.inputMask) {
-      //   this.changeModelMask()
-      // } else if (!this.chips) {
-      //   this.$emit('input', value)
-      // }
     },
     onInputSearch: _.debounce(function (value) {
       this.$emit('onFilter', value)
