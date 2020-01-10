@@ -61,7 +61,7 @@
         v-if="!selectChips"
       )
         .row.align-items-center
-          .col-auto(v-if="prefix && prefix.length")
+          .col-auto.h-pa-xs.h-ml-sm.bg-gray300.text-body1(v-if="prefix && prefix.length")
             | {{prefix}}
           .col()
             h-input-field.text-caption.cursor-pointer(
@@ -91,7 +91,7 @@
               @onDelete="onDelete"
               @click="onClick"
             )
-          .col-auto.text-body2(v-if="suffix && suffix.length")
+          .col-auto.h-pa-xs.h-ml-md.bg-gray300.text-body1(v-if="suffix && suffix.length")
             | {{suffix}}
 
       .bg-white.dropdown-content.scroll-y-only.shadow-2.border-radius(
@@ -204,7 +204,6 @@ export default {
     }
   },
   mounted () {
-    console.log('mounted input value vale:', this.value)
     this.makeInputValue()
     this.makeInputContainerColors()
     this.inputType = this.type
@@ -267,7 +266,9 @@ export default {
   methods: {
     makeInputValue () {
       let localInputDisplay = this.value
-      if (localInputDisplay) {
+      if (this.type === 'text' || this.type === 'search' || this.type === 'password') {
+        this.inputDisplay = this.value
+      } else if (localInputDisplay) {
         if (this.inputMask) {
           this.inputDisplay = this.value
           // this.changeModelMask()
@@ -365,8 +366,7 @@ export default {
       this.inputDisplay = format(value, this.$props)
     },
     onInput (value) {
-      console.log('this.inputMask:', this.inputMask)
-      console.log('on input:', value)
+      console.log('on input:', value, this.dense)
       if (this.inputMask) {
         this.changeModelMask(value)
       } else if (this.type === 'text' || this.type === 'password') {
@@ -494,7 +494,7 @@ export default {
       this.showdropdown = false
     },
     onSelectItem (option) {
-      if (this.type === 'select') {
+      if (this.type === 'select' || this.type === 'search') {
         this.inputDisplay = option.text
         this.$emit('input', option.value)
         this.away()

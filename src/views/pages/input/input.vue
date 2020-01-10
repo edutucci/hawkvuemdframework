@@ -31,7 +31,7 @@
         <comp-code class="h-mt-lg" title="Filled" :code="txtfilled">
           <div class="column col-inputs">
             <h-input v-model="typesModel" label="Filled" filled/>
-            <h-input v-model="typesModel" label="Filled dense" filled dense/>
+            <h-input v-model="typesModel" label="Filled dense" filled dense clearable/>
           </div>
           <div>
             Model: {{typesModel}}
@@ -51,7 +51,7 @@
         <div ref="txt-icons"/>
         <comp-code class="h-mt-lg" title="Icons" :code="txticons">
           <div class="column col-inputs">
-            <h-input dense v-model="iconsModel" label="Phone" leading-icon="fas fa-phone" clearable/>
+            <!-- <h-input dense v-model="iconsModel" label="Phone" leading-icon="fas fa-phone" clearable/> -->
             <h-input dense v-model="iconsModel" label="E-Mail" filled leading-icon="fas fa-envelope" clearable/>
           </div>
           <div>

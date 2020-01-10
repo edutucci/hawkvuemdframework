@@ -12,21 +12,29 @@
               'border-bottom border-top-radius': filled, 'border-2': filled, \
               }]"
           )
-            .row.align-items-center
-              .col-auto(v-if="leadingIcon && leadingIcon.length > 0")
-                .row.justify-center.align-items-center.full-height
-                  .col-auto.h-ml-sm.h-mr-sm
-                    h-icon(:icon="leadingIcon" :text-color="iconColor")
+            .row(v-if="!filled")
+              .col.text-overline.text-bold.h-ml-sm(
+                  :class="[inputContainerFieldBackgroundColor, labelColor, { 'input-label-outlined': !filled } ]"
+                )
+                  | {{label}}
+            .row.align-items-center(
+              class="input-container"
+              :class="[{ 'dense': dense, 'outlined': !filled, 'filled': filled }]"
+            )
+              //- .col-auto(v-if="leadingIcon && leadingIcon.length > 0")
+              //-   .row.justify-center.align-items-center.full-height
+              //-     .col-auto
+              //-       h-icon(:icon="leadingIcon" :text-color="iconColor")
 
-              .col
+              .col.h-ml-xs.h-mr-xs.overflow-hidden
                 .column
-                  .col.text-overline.text-bold.h-ml-sm(
-                    :class="[inputContainerFieldBackgroundColor, labelColor, { 'input-label-outlined': !filled, } ]"
-                    style="font-size: 10px;"
+                  .col.text-overline.text-bold.h-ml-xs(
+                    v-if="filled"
+                    :class="[inputContainerFieldBackgroundColor, labelColor, { 'h-mt-xs': dense } ]"
                   )
                     | {{label}}
 
-                  .col.h-pb-xs.h-pt-xs
+                  .col
                     slot
               .col-auto
                 .row.justify-center.align-items-center.full-height(
