@@ -338,6 +338,7 @@ export default {
       }
     },
     changeModelMask (value) {
+      console.log('entering changeModelMask:', value)
       // console.log('this.inputDisplay:', this.inputDisplay)
       // let modelValue = this.inputDisplay
       // if (!this.masked) {
@@ -364,13 +365,15 @@ export default {
       this.inputDisplay = format(value, this.$props)
     },
     onInput (value) {
-      if (this.type === 'text' || this.type === 'password') {
+      console.log('this.inputMask:', this.inputMask)
+      console.log('on input:', value)
+      if (this.inputMask) {
+        this.changeModelMask(value)
+      } else if (this.type === 'text' || this.type === 'password') {
         this.$emit('input', value)
       } else if (this.type === 'search') {
         this.$emit('input', value)
         this.onInputSearch(value)
-      } else if (this.inputMask) {
-        this.changeModelMask(value)
       } else if (this.type === 'currency') {
         this.changeModelCurrencyMask()
       }

@@ -260,7 +260,7 @@
           <div>
             <h-toggle v-model="masked" text="Masked?"/>
           </div>
-          <h-input type="currency" dense v-model="maskModelCurrency" leading-icon="fas fa-money" :masked="masked" clearable decimal="," thousands="."/>
+          <h-input type="currency" dense v-model="maskModelCurrency" leading-icon="fas fa-dollar-sign" :masked="masked" clearable decimal="," thousands="."/>
           <span>maskModel: {{maskModelCurrency}}</span>
         </comp-code>
 
