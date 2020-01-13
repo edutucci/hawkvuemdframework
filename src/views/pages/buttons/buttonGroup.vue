@@ -2,7 +2,7 @@
   <h-page-content padding>
     <div class="text-h4">Buttons  Group</div>
 
-    <comp-code class="h-mt-lg" title="Types" :code="ex1"
+    <comp-code class="h-mt-lg" title="Usage" :code="ex1"
       :script="ex1Script" javascript
     >
       <div>

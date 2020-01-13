@@ -11,7 +11,7 @@
         [compBgColor, textColor, size, compBgColorHover, compBorderColor, compActiveClass, \
         { 'btn2': !dropdown, 'active': (isActive || active), 'border': outlined, 'fab': fab, \
           'contained': (!textButton && !outlined), 'btn-dropdown': dropdown, 'textbutton': textButton, 'outlined': outlined, \
-          disabled: disabled, rounded: rounded }]"
+          disabled: (disabled && !((textButton || fab) && bgColor === 'bg-transparent')), rounded: rounded }]"
     )
       div(v-if="!dropdown" class="full-width flex flex-justify-center flex-items-center full-height" :class="[typography]")
         div(v-if="leftIcon && leftIcon.length > 0" class="flex-align-center")
