@@ -400,7 +400,7 @@ export default {
 <h-app-toolbar bg-color="bg-primary" class="h-mt-md">
   <h-app-toolbar-container>
     <h-app-toolbar-navigation text-color="text-white"/>
-    <h-app-toolbar-fab inset/>
+    <h-app-toolbar-fab/>
     <h-app-toolbar-action>
       <h-btn fab size="sm" bg-color="bg-transparent" left-icon="fas fa-heart" text-color="text-white"/>
       <h-btn fab size="sm" bg-color="bg-transparent" left-icon="fas fa-search" text-color="text-white"/>
@@ -418,16 +418,25 @@ export default {
 </h-app-toolbar>
 `,
       tb4: `
-  <h-app-toolbar bg-color="bg-primary" class="h-mt-md">
-    <h-app-toolbar-container>
-      <h-app-toolbar-action>
-        <h-btn fab size="sm" bg-color="bg-transparent" left-icon="fas fa-caret-square-down" text-color="text-white"/>
-        <h-btn fab size="sm" bg-color="bg-transparent" left-icon="fas fa-envelope" text-color="text-white"/>
-        <h-btn fab size="sm" bg-color="bg-transparent" left-icon="fas fa-trash" text-color="text-white"/>
-      </h-app-toolbar-action>
-      <h-app-toolbar-fab align="end" fab-icon="fas fa-undo"/>
-    </h-app-toolbar-container>
-  </h-app-toolbar>
+<h-app-toolbar bg-color="bg-primary" class="h-mt-md">
+  <h-app-toolbar-container>
+    <h-app-toolbar-navigation text-color="text-white"/>
+    <h-app-toolbar-fab/>
+    <h-app-toolbar-action>
+      <h-btn fab size="sm" bg-color="bg-transparent" left-icon="fas fa-heart" text-color="text-white"/>
+      <h-btn fab size="sm" bg-color="bg-transparent" left-icon="fas fa-search" text-color="text-white"/>
+      <h-btn
+        fab
+        size="sm"
+        dropdown
+        drop-down-icon="fas fa-ellipsis-v"
+        bg-color="bg-transparent"
+        text-color="text-white"
+      >
+      </h-btn>
+    </h-app-toolbar-action>
+  </h-app-toolbar-container>
+</h-app-toolbar>
 `,
       tb5: `
 <h-app-toolbar bg-color="bg-primary">

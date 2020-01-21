@@ -162,7 +162,7 @@ export default {
   <template v-slot:buttons>
     <h-btn contained caps text="turn on wifi" text-color="text-white" bg-color="bg-purple600"/>
   </template>
-</h-banner>    
+</h-banner>   
 `
     }
   },
