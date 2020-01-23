@@ -38,8 +38,8 @@
         <div ref="col-customcontent"/>
         <comp-code class="h-mt-md" title="Custom Content" :code="ex3">
           <h-collapsible>
-            <h-collapsible-menu icon="fa fa-film" text="Letter">
-              <div class="flex flex-items-center flex-justify-center">
+            <h-collapsible-menu icon="fa fa-envelope" text="Letter">
+              <div class="row align-items-center justify-center">
                 <div>
                   <h-image avatar src="img/hawk.jpg" size="64px"/>
                 </div>
@@ -49,7 +49,7 @@
               </div>
             </h-collapsible-menu>
             <h-collapsible-menu icon="fas fa-utensils" text="Dining">
-              <div class="flex flex-items-center flex-justify-center">
+              <div class="row align-items-center justify-center">
                 <div>
                   <h-image avatar src="img/icons/mstile-150x150.png" size="64px"/>
                 </div>
@@ -167,8 +167,8 @@ export default {
 `,
       ex3: `
 <h-collapsible>
-  <h-collapsible-menu icon="fa fa-film" text="Letter">
-    <div class="flex flex-items-center flex-justify-center">
+  <h-collapsible-menu icon="fa fa-envelope" text="Letter">
+    <div class="row align-items-center justify-center">
       <div>
         <h-image avatar src="img/hawk.png" size="64px"/>
       </div>
@@ -178,7 +178,7 @@ export default {
     </div>
   </h-collapsible-menu>
   <h-collapsible-menu icon="fas fa-utensils" text="Dining">
-    <div class="flex flex-items-center flex-justify-center">
+    <div class="row align-items-center justify-center">
       <div>
         <h-image avatar src="img/icons/mstile-150x150.png" size="64px"/>
       </div>
