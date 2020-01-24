@@ -4,8 +4,12 @@
       <div class="col">
         <div class="text-h4">Drawer</div>
 
+        <div ref="drawer-example"/>
+        <comp-code class="h-mt-lg" title="Example" :code="drawerExample" page="template">
+        </comp-code>
+
         <div ref="drawer-left"/>
-        <comp-code class="h-mt-lg" title="Drawer Left" :code="drawer" :script="drawerScript"
+        <comp-code class="h-mt-lg" title="Drawer Left" :code="drBtnLeft" :script="drawerScript"
           javascript
         >
           <div>
@@ -14,7 +18,7 @@
         </comp-code>
 
         <div ref="drawer-right"/>
-        <comp-code class="h-mt-lg" title="Drawer Right" :code="drawer" :script="drawerScript"
+        <comp-code class="h-mt-lg" title="Drawer Right" :code="drBtnRight" :script="drawerScript"
           javascript
         >
           <div>
@@ -23,7 +27,7 @@
         </comp-code>
 
           <h-nav-drawer v-model="showDrawer" :side="side">
-            <div class="flex flex-column bg-white full-size" style="display: inline-flex;">
+            <div class="column bg-white full-size" style="display: inline-flex;">
               <div slot="header" class="text-center h-pa-md">
                 <h-image avatar src="img/hawk.jpg" size="64px"/>
                 <h3 class="no-padding no-margin">Hawk </h3>
@@ -81,7 +85,17 @@ export default {
     return {
       side: 'left',
       showDrawer: false,
-      drawer: `
+      drBtnLeft: `
+<div>
+  <h-btn contained bgcolor="bg-primary" textcolor="text-white" text="Open Drawer Left" @click="showDrawer = true; side='left'"/>
+</div>
+`,
+      drBtnRight: `
+<div>
+  <h-btn contained bgcolor="bg-primary" textcolor="text-white" text="Open Drawer Right" @click="showDrawer = true; side='right'"/>
+</div>      
+`,
+      drawerExample: `
 <div>
   <h-btn contained bgcolor="bg-primary" textcolor="text-white" text="Open Drawer Left" @click="showDrawer = true; side='left'"/>
   <h-btn contained bgcolor="bg-primary" textcolor="text-white" text="Open Drawer Right" @click="showDrawer = true; side='right'"/>

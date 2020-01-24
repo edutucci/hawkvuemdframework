@@ -121,7 +121,11 @@ export default {
       fileList: [],
       maxsize: 1024 * 500,
       ex1: `
-<h-file-upload extensions="image/png" :multiple="true" @addFiles="onChange"/>
+<h-file-upload
+  extensions="image/png"
+  :multiple="true"
+  @addFiles="onChange"
+/>
 `,
       ex1Script: `
 export default {
@@ -145,7 +149,11 @@ export default {
 }
 `,
       ex2: `
-<h-image-upload :multiple="true" @addFiles="onChange" :max-size="maxsize"/>
+<h-image-upload
+  :multiple="true"
+  :max-size="maxsize"
+  @addFiles="onChange"
+/>
 `,
       ex2Script: `
 export default {
@@ -170,9 +178,17 @@ export default {
 }
 `,
       ex3: `
-<h-file-upload :multiple="true" @addFiles="onChange" :allow-drop="false" />
-
-<h-image-upload class="h-mt-sm" :multiple="true" @addFiles="onChange" :allow-drop="false" />
+<h-file-upload
+  :multiple="true"
+  @addFiles="onChange"
+  :allow-drop="false"
+/>
+<h-image-upload
+  class="h-mt-sm"
+  :multiple="true"
+  @addFiles="onChange"
+  :allow-drop="false"
+/>
 `,
       ex3Script: `
 export default {

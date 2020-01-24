@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <h1>Dialog</h1>
+  <h-page-content padding>
+    <div class="text-h4">Dialog</div>
 
     <!--
       Bugs
@@ -71,7 +71,7 @@
       </div>
     </div>
 
-  </div>
+  </h-page-content>
 </template>
 
 <script>
