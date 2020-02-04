@@ -2,7 +2,7 @@
   .flex.border.border-gray.border-radius
     .column.full-width
       .flex.h-pa-md.bg-gray100
-        .flex-1.text-bold
+        .flex-1.text-bold(@click="changePage('result')")
           | {{title}}
         .flex
           h-icon(icon="far fa-file-code" @click="changePage('result')")

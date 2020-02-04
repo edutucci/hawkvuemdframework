@@ -190,7 +190,7 @@
           </h-table>
         </comp-code>
 
-        <h2 class="text-primary"> Table Help</h2>
+        <!-- <h2 class="text-primary"> Table Help</h2>
         <h2 class="text-primary"> Vue Properties</h2>
         <hr>
 
@@ -237,7 +237,7 @@
             <div>Triggered when user clicks on edit icon in table header. The selected row is sent.</div>
             <div>Triggered when user clicks on trash icon in table header. The selected rows is sent.</div>
           </div>
-        </div>
+        </div> -->
       </div>
       <div class="col-auto">
         <list-help>

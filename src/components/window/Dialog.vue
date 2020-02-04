@@ -1,7 +1,7 @@
 <template lang="pug">
-    .flex.flex-justify-center.flex-items-center.drawer.bg-modal(v-if="value")
-      .boxshadow.no-user-select.bg-white
-        .bg-primary.text-white.flex.h-pa-sm(v-if="showTitleBar")
+    .row.justify-center.align-items-center.drawer.bg-modal(v-if="value")
+      .boxshadow.no-user-select.bg-white.border-radius
+        .bg-primary.text-white.flex.h-pa-sm.border-top-radius(v-if="showTitleBar")
           .flex-1
             h3  {{title}}
           div.h-ml-sm.h-mr-sm
@@ -29,6 +29,10 @@ export default {
     showTitleBar: {
       type: Boolean,
       default: false
+    },
+    modal: {
+      type: Boolean,
+      default: false
     }
   },
   data () {
@@ -36,13 +40,13 @@ export default {
     }
   },
   methods: {
-    open () {
-    },
     close () {
       this.$emit('input', false)
     },
     away () {
-      this.close()
+      if (!this.modal) {
+        this.close()
+      }
     }
   }
 }

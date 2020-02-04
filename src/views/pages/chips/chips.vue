@@ -118,7 +118,7 @@
           </div>
         </comp-code>
 
-        <h1 class="text-primary"> Chips Help</h1>
+        <!-- <h1 class="text-primary"> Chips Help</h1>
         <h2 class="text-primary"> Vue Properties</h2>
         <hr>
 
@@ -184,7 +184,7 @@
             <div>Triggered when model changes. The model value is sent.</div>
             <div>Triggered chips is removed. The chips value is sent.</div>
           </div>
-        </div>
+        </div> -->
 
       </div>
       <div class="col-auto">

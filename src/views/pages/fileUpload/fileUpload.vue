@@ -70,7 +70,7 @@
           </div>
         </div>
 
-        <h2 class="text-primary"> Vue Events</h2>
+        <!-- <h2 class="text-primary"> Vue Events</h2>
         <hr>
 
         <div class="flex">
@@ -82,7 +82,7 @@
             <h3>Description</h3>
             <div>Triggered when the user finishes with drop files or select files.</div>
           </div>
-        </div>
+        </div> -->
       </div>
       <div class="col-auto">
         <list-help>

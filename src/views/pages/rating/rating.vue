@@ -31,7 +31,7 @@
           />
         </comp-code>
 
-        <h2 class="text-primary"> Vue Properties</h2>
+        <!-- <h2 class="text-primary"> Vue Properties</h2>
         <h-separator></h-separator>
 
         <div class="flex">
@@ -53,7 +53,7 @@
             <div>if true show messages for each star</div>
             <div>Array of messages for each star</div>
           </div>
-        </div>
+        </div> -->
       </div>
       <div class="col-auto">
         <list-help>

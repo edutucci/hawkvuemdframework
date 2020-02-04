@@ -105,7 +105,7 @@
 
         </comp-code>
 
-        <h2 class="text-primary"> Vue Properties</h2>
+        <!-- <h2 class="text-primary"> Vue Properties</h2>
         <hr>
 
         <div class="flex">
@@ -144,7 +144,7 @@
             <h3>Description</h3>
             <div>Triggered immediately on model change</div>
           </div>
-        </div>
+        </div> -->
 
       </div>
       <div class="col-auto">

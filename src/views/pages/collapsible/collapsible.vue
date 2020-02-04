@@ -61,7 +61,7 @@
           </h-collapsible>
         </comp-code>
 
-        <h2 class="text-primary"> Collapsible Menu Help</h2>
+        <!-- <h2 class="text-primary"> Collapsible Menu Help</h2>
         <h2 class="text-primary"> Vue Properties</h2>
         <hr>
 
@@ -107,7 +107,7 @@
             <div>Sets the text of the menu item</div>
 
           </div>
-        </div>
+        </div> -->
       </div>
       <div class="col-auto">
         <list-help>

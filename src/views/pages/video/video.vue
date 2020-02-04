@@ -22,7 +22,7 @@
 
         <!-- <prism language="html" :code="cod1" scroll></prism> -->
 
-        <h2 class="text-primary"> Vue Properties</h2>
+        <!-- <h2 class="text-primary"> Vue Properties</h2>
         <hr>
         <div class="flex">
           <div>
@@ -46,7 +46,7 @@
             <div>Sets the video url.</div>
             <div>Starts the video automatically.</div>
           </div>
-        </div>
+        </div> -->
       </div>
       <div class="col-auto">
         <list-help>
