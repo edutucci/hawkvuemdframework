@@ -25,7 +25,6 @@ export default new Router({
         { path: '/compimage', component: () => import('./views/pages/image/image') },
         { path: '/buttons', component: () => import('./views/pages/buttons/buttons') },
         { path: '/buttongroup', component: () => import('./views/pages/buttons/buttonGroup') },
-        { path: '/buttondropdown', component: () => import('./views/pages/buttons/buttonDropDown') },
         { path: '/banner', component: () => import('./views/pages/banner/banner') },
         { path: '/icon', component: () => import('./views/pages/icon/icon') },
         { path: '/input', component: () => import('./views/pages/input/input') },
