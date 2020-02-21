@@ -50,8 +50,8 @@
       </h-dialog>
     </comp-code>
 
-    <comp-code class="h-mt-lg" title="Components"  :code="modalConfirm" :script="modalConfirmScript"
-      javascript
+    <comp-code class="h-mt-lg" title="Components"  :code="modalComponents"
+      :script="modalComponentsScript" javascript
     >
       <div>
         <h-btn contained text="Radio Button" @click="openModalRadio=true"/>
@@ -93,37 +93,28 @@
 
     </comp-code>
 
-    <!-- <h2 class="text-primary"> Vue Properties</h2>
-    <hr>
-
-    <div class="flex">
-      <div>
-        <h3>Name</h3>
-        <div>title</div>
-        <div>show-title-bar</div>
-      </div>
-      <div class="h-pl-md">
-        <h3>Type</h3>
-        <div>String</div>
-        <div>Boolean</div>
-      </div>
-      <div class="h-pl-md">
-        <h3 >Description</h3>
-        <div>Sets modal title</div>
-        <div>Shows title bar with close button</div>
-      </div>
-    </div> -->
+    <tabs-help
+      class="h-mt-md"
+      :properties="helpTopics.properties"
+      :events="helpTopics.events"
+    />
 
   </h-page-content>
 </template>
 
 <script>
 
+import helpTopics from './help'
+
 export default {
   components: {
   },
   data () {
     return {
+      helpTopics: {
+        properties: [],
+        events: []
+      },
       openModal: false,
       openModal2: false,
       openModalRadio: false,
@@ -183,8 +174,63 @@ export default {
     }
   }
 }
+`,
+      modalComponents: `
+<div>
+  <h-btn contained text="Radio Button" @click="openModalRadio=true"/>
+  <h-btn contained text="Checkbox" @click="openModalCheckbox=true"/>
+</div>
+
+<h-dialog v-model="openModalRadio">
+  <div class="column justify-center h-pa-md">
+    <div class="col text-h6">
+      What type of movies do you like?
+    </div>
+    <div class="column h-mt-sm">
+      <h-radio v-model="typeMovie" text="Comedy" value="Comedy"/>
+      <h-radio v-model="typeMovie" text="Action" value="Action"/>
+      <h-radio v-model="typeMovie" text="Science" value="Science"/>
+      <h-radio v-model="typeMovie" text="Romance" value="Romance"/>
+    </div>
+    <div class="col">
+      I like of: {{ typeMovie }}
+    </div>
+  </div>
+</h-dialog>
+
+<h-dialog v-model="openModalCheckbox">
+  <div class="column justify-center h-pa-md">
+    <div class="col text-h6">
+      Select your favorite colors
+    </div>
+    <div class="column h-mt-sm">
+      <h-checkbox v-model="colors" text="Red" value="Red"/>
+      <h-checkbox v-model="colors" text="Green" value="Green"/>
+      <h-checkbox v-model="colors" text="Blue" value="Blue"/>
+    </div>
+    <div class="col">
+      Your favorites colors: {{ colors }}
+    </div>
+  </div>
+</h-dialog>
+`,
+      modalComponentsScript: `
+export default {
+  data () {
+    return {
+      openModalRadio: false,
+      typeMovie: '',
+      openModalCheckbox: false,
+      colors: []
+    }
+  }
+} 
 `
     }
+  },
+  mounted () {
+    this.helpTopics.properties = helpTopics.properties
+    this.helpTopics.events = helpTopics.events
   }
 }
 </script>

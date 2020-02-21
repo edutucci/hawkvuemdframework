@@ -93,49 +93,11 @@
           </div>
         </comp-code>
 
-        <!-- <h2 class="text-primary"> Vue Properties</h2>
-        <hr>
-
-        <div class="flex">
-          <div>
-            <h3>Name</h3>
-            <div>text-color</div>
-            <div>icon</div>
-            <div>size</div>
-            <div>pulse</div>
-            <div>spin</div>
-          </div>
-          <div class="h-pl-md">
-            <h3>Type</h3>
-            <div>String</div>
-            <div>String</div>
-            <div>String</div>
-            <div>Boolean</div>
-            <div>Boolean</div>
-          </div>
-          <div class="h-pl-md">
-            <h3 >Description</h3>
-            <div>Sets the color of the icon</div>
-            <div>Sets the icon</div>
-            <div>Sets the icon size. Default: '16px'. Example: '24px'</div>
-            <div>Sets to pulse mode</div>
-            <div>Sets to spin mode</div>
-          </div>
-        </div>
-
-        <h2 class="text-primary"> Vue Events</h2>
-        <hr>
-
-        <div class="flex">
-          <div>
-            <h3>Name</h3>
-            <div>@click</div>
-          </div>
-          <div class="h-pl-md">
-            <h3>Description</h3>
-            <div>Triggered on icon click</div>
-          </div>
-        </div> -->
+        <tabs-help
+          class="h-mt-md"
+          :properties="helpTopics.properties"
+          :events="helpTopics.events"
+        />
       </div>
       <div class="col-auto">
         <list-help>
@@ -196,10 +158,15 @@
 <script>
 
 import viewport from '../../../components/others/viewport'
+import helpTopics from './help'
 
 export default {
   data () {
     return {
+      helpTopics: {
+        properties: [],
+        events: []
+      },
       iconColors: `
 <div class="row">
   <h-icon class="bg-primary h-pa-md" icon="fas fa-camera-retro" text-color="text-white"/>
@@ -274,6 +241,10 @@ export default {
 </div>
 `
     }
+  },
+  mounted () {
+    this.helpTopics.properties = helpTopics.properties
+    this.helpTopics.events = helpTopics.events
   },
   methods: {
     goToElement (refName) {

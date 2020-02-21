@@ -341,8 +341,6 @@
           :properties="helpTopics.properties"
           :events="helpTopics.events"
         />
-
-        <div class="text-h4 text-primary">Related</div>
       </div>
       <div class="col-auto">
         <list-help>

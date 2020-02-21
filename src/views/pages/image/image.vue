@@ -70,6 +70,12 @@
             <h-image border-radius bg-color="bg-green400" size="82px">F</h-image>
           </div>
         </comp-code>
+
+        <tabs-help
+          class="h-mt-md"
+          :properties="helpTopics.properties"
+          :events="helpTopics.events"
+        />
       </div>
       <div class="col-auto">
         <list-help>
@@ -122,10 +128,15 @@
 <script>
 
 import viewport from '../../../components/others/viewport'
+import helpTopics from './help'
 
 export default {
   data () {
     return {
+      helpTopics: {
+        properties: [],
+        events: []
+      },
       imgTypes: `
 <div class="avatar_row row wrap align-items-center">
   <div class="col-auto h-mb-sm">
@@ -184,6 +195,10 @@ export default {
 </div>
 `
     }
+  },
+  mounted () {
+    this.helpTopics.properties = helpTopics.properties
+    this.helpTopics.events = helpTopics.events
   },
   methods: {
     goToElement (refName) {

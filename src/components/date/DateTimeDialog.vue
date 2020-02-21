@@ -5,7 +5,7 @@
     div(v-else-if="this.mode === 'datetime'")
       h-image.cursor-pointer(src="/img/icons/datetime.png" size="22px" @click="showDateTime = true")
 
-    h-modal(v-model="showDateTime")
+    h-dialog(v-model="showDateTime")
       .flex.flex.column
         date-panel(
           v-if="panelType === 'date' && (this.mode === 'datetime' || this.mode === 'date')"

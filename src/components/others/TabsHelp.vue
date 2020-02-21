@@ -1,7 +1,7 @@
 <template lang="pug">
   .column(style="min-height: 250px;")
     .col-auto.text-h4.text-primary
-      | Help
+      | {{title}}
       hr.h-mt-sm.h-mb-sm
     .col
       h-tabs(v-model="tabHelp" bg-color="bg-primary" text-color="text-white")
@@ -33,6 +33,10 @@
 <script>
 export default {
   props: {
+    title: {
+      type: String,
+      default: () => 'Help'
+    },
     properties: {
       type: Array,
       default: () => { return [] }

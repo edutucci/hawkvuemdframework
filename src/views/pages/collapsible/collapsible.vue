@@ -61,53 +61,20 @@
           </h-collapsible>
         </comp-code>
 
-        <!-- <h2 class="text-primary"> Collapsible Menu Help</h2>
-        <h2 class="text-primary"> Vue Properties</h2>
-        <hr>
+        <tabs-help
+          class="h-mt-md"
+          title="Collapsible Menu Help"
+          :properties="helpTopics.collapsibleMenuProperties"
+          :events="helpTopics.collapsibleMenuEvents"
+        />
 
-        <div class="flex">
-          <div>
-            <h3>Name</h3>
-            <div>bg-color</div>
-            <div>text-color</div>
-            <div>icon</div>
-            <div>text</div>
-          </div>
-          <div class="h-pl-md">
-            <h3>Type</h3>
-            <div>String</div>
-            <div>String</div>
-            <div>Array</div>
-            <div>String</div>
-          </div>
-          <div class="h-pl-md">
-            <h3 >Description</h3>
-            <div>Sets the background color of the menu</div>
-            <div>Sets the text color of the menu</div>
-            <div>Sets the icon of the menu</div>
-            <div>Sets the text of the menu</div>
-          </div>
-        </div>
+        <tabs-help
+          class="h-mt-md"
+          title="Collapsible Item Help"
+          :properties="helpTopics.collapsibleItemProperties"
+          :events="helpTopics.collapsibleItemEvents"
+        />
 
-        <h2 class="text-primary"> Collapsible Menu Item Help</h2>
-        <h2 class="text-primary"> Vue Properties</h2>
-        <hr>
-
-        <div class="flex">
-          <div>
-            <h3>Name</h3>
-            <div>text</div>
-          </div>
-          <div class="h-pl-md">
-            <h3>Type</h3>
-            <div>String</div>
-          </div>
-          <div class="h-pl-md">
-            <h3 >Description</h3>
-            <div>Sets the text of the menu item</div>
-
-          </div>
-        </div> -->
       </div>
       <div class="col-auto">
         <list-help>
@@ -139,10 +106,17 @@
 <script>
 
 import viewport from '../../../components/others/viewport'
+import helpTopics from './help'
 
 export default {
   data () {
     return {
+      helpTopics: {
+        collapsibleMenuProperties: [],
+        collapsibleMenuEvents: [],
+        collapsibleItemProperties: [],
+        collapsibleItemEvents: []
+      },
       ex1: `
 <h-collapsible>
   <h-collapsible-menu icon="fas fa-film" text="Attractions">
@@ -190,6 +164,12 @@ export default {
 </h-collapsible>
 `
     }
+  },
+  mounted () {
+    this.helpTopics.collapsibleMenuProperties = helpTopics.collapsibleMenuProperties
+    this.helpTopics.collapsibleMenuEvents = helpTopics.collapsibleMenuEvents
+    this.helpTopics.collapsibleItemProperties = helpTopics.collapsibleItemProperties
+    this.helpTopics.collapsibleItemEvents = helpTopics.collapsibleItemEvents
   },
   methods: {
     goToElement (refName) {
