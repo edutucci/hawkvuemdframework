@@ -445,6 +445,36 @@
               </h-list-item>
           </h-list>
         </comp-code>
+
+        <tabs-help
+          class="h-mt-md"
+          :properties="helpTopics.properties"
+          :events="helpTopics.events"
+        />
+
+        <tabs-help
+          class="h-mt-md"
+          title="List Help"
+          :properties="helpTopics.listProperties"
+        />
+
+        <tabs-help
+          class="h-mt-md"
+          title="List Header Help"
+          :properties="helpTopics.listHeaderProperties"
+        />
+
+        <tabs-help
+          class="h-mt-md"
+          title="List Item Image Help"
+          :properties="helpTopics.listItemImageProperties"
+        />
+
+        <tabs-help
+          class="h-mt-md"
+          title="List Help"
+          :properties="helpTopics.list"
+        />
       </div>
       <div class="col-auto">
         <list-help>
@@ -491,10 +521,17 @@
 <script>
 
 import viewport from '../../../components/others/viewport'
+import helpTopics from './help'
 
 export default {
   data () {
     return {
+      helpTopics: {
+        listProperties: [],
+        listHeaderProperties: [],
+        listItemImageProperties: [],
+        listItemTextProperties: []
+      },
       lstBorders: `
 <h-list bordered style="max-width: 350px">
   <h-list-item>
@@ -925,6 +962,12 @@ export default {
 </h-list>
 `
     }
+  },
+  mounted () {
+    this.helpTopics.listProperties = helpTopics.listProperties
+    this.helpTopics.listHeaderProperties = helpTopics.listHeaderProperties
+    this.helpTopics.listItemImageProperties = helpTopics.listItemImageProperties
+    this.helpTopics.listItemTextProperties = helpTopics.listItemTextProperties
   },
   methods: {
     goToElement (refName) {

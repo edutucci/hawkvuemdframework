@@ -220,66 +220,19 @@
 
         </comp-code>
 
-        <!-- <h2 class="h-mt-lg text-primary"> Tabs Help</h2>
-        <h2 class="text-primary"> Vue Properties</h2>
-        <hr>
+        <tabs-help
+          class="h-mt-md"
+          title="Tab Help"
+          :properties="helpTopics.tabProperties"
+          :events="helpTopics.tabEvents"
+        />
 
-        <div class="flex">
-          <div>
-            <h3>Name</h3>
-            <div>vertical</div>
-          </div>
-          <div class="h-pl-md">
-            <h3>Type</h3>
-            <div>Boolean</div>
-          </div>
-          <div class="h-pl-md">
-            <h3 >Description</h3>
-            <div>If true tab is set to vertical mode</div>
-          </div>
-        </div>
-
-        <h2 class="text-primary"> Vue Events</h2>
-        <hr>
-
-        <div class="flex">
-          <div>
-            <h3>Name</h3>
-            <div>@tabChange(value)</div>
-          </div>
-          <div class="h-pl-md">
-            <h3>Description</h3>
-            <div>Triggered when tabs change. The tab name is sent.</div>
-          </div>
-        </div>
-
-        <h2 class="text-primary"> Tab Help</h2>
-        <h2 class="text-primary"> Vue Properties</h2>
-        <hr>
-
-        <div class="flex">
-          <div>
-            <h3>Name</h3>
-            <div>name</div>
-            <div>text</div>
-            <div>left-icon</div>
-            <div>top-icon</div>
-          </div>
-          <div class="h-pl-md">
-            <h3>Type</h3>
-            <div>String</div>
-            <div>String</div>
-            <div>String</div>
-            <div>String</div>
-          </div>
-          <div class="h-pl-md">
-            <h3 >Description</h3>
-            <div>Sets the tab name</div>
-            <div>Sets the tab text</div>
-            <div>Sets the icon before tab name</div>
-            <div>Sets the icon above tab name (vertical tab only)</div>
-          </div>
-        </div> -->
+        <tabs-help
+          class="h-mt-md"
+          title="Tabs Help"
+          :properties="helpTopics.tabsProperties"
+          :events="helpTopics.tabsEvents"
+        />
       </div>
       <div class="col-auto">
         <list-help>
@@ -306,10 +259,17 @@
 <script>
 
 import viewport from '../../../components/others/viewport'
+import helpTopics from './help'
 
 export default {
   data () {
     return {
+      helpTopics: {
+        tabProperties: [],
+        tabEvents: [],
+        tabsProperties: [],
+        tabsEvents: []
+      },
       horTab: 'profile',
       horTab1: 'games',
       verTab: 'profile',
@@ -542,9 +502,15 @@ export default {
 `
     }
   },
+  mounted () {
+    this.helpTopics.tabProperties = helpTopics.tabProperties
+    this.helpTopics.tabEvents = helpTopics.tabEvents
+    this.helpTopics.tabsProperties = helpTopics.tabsProperties
+    this.helpTopics.tabsEvents = helpTopics.tabsEvents
+  },
   methods: {
     tabChange (value) {
-      console.log('tab change name: ' + value)
+      // console.log('tab change name: ' + value)
     },
     goToElement (refName) {
       viewport.goToElement(this.$refs[refName])
