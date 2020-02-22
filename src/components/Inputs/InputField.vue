@@ -5,7 +5,7 @@
     v-focus="inputFocus"
     :class="[{'text-center': textCenter, 'readonly': readonly}, filled]"
     v-model="inputDisplay"
-    v-mask="mask"
+    v-mask="config"
     :readonly="readonly"
     :placeholder="placeholder"
     @input="onInput($event.target.value)"
@@ -16,7 +16,7 @@
     @click="onClick"
   )
   input.input-field(
-    v-else-if="inputCurrency"
+    v-else-if="type === 'currency'"
     :id="inputId"
     v-focus="inputFocus"
     :class="[{'text-center': textCenter, 'readonly': readonly}, filled]"
@@ -33,7 +33,7 @@
     @click="onClick"
   )
   input.input-field(
-    v-else-if="!this.chips"
+    v-else-if="type === 'text' || type === 'password' || type === 'select' || type === 'multi-select' || type === 'search'"
     :id="inputId"
     v-focus="inputFocus"
     :class="[{'text-center': textCenter, 'readonly': readonly}, filled]"
@@ -53,7 +53,7 @@
     @click="onClick"
   )
   input.input-field(
-    v-else
+    v-else-if="type === 'text' && this.chips"
     :id="inputId"
     v-focus="inputFocus"
     :class="[{'text-center': textCenter, 'readonly': readonly}, filled]"
@@ -80,15 +80,16 @@ import uuidv1 from 'uuid/v1'
 import { mixin as focusMixin } from 'vue-focus'
 import InputProperties from './InputProperties'
 import money from './currencyDirective/directive'
+import mask from './maskDirective/directive'
 
 export default {
   extends: InputProperties,
   mixins: [focusMixin],
-  directives: { money },
+  directives: { money, mask },
   name: 'InputField',
   props: {
     value: {
-      type: [String, Array, Number],
+      type: [String, Array, Number, Object],
       default: ''
     },
     focused: {
@@ -103,8 +104,29 @@ export default {
     }
   },
   mounted () {
+    // console.log('tokens:', JSON.stringify(this.tokens))
     this.inputtype = this.type
     this.inputDisplay = this.value
+  },
+  computed: {
+    config () {
+      return {
+        mask: this.mask,
+        tokens: this.tokens,
+        masked: true
+      }
+    },
+    listeners () {
+      var vm = this
+      return Object.assign({},
+        vm.$listeners,
+        {
+          input (e) {
+            vm.onInputMask(e)
+          }
+        }
+      )
+    }
   },
   watch: {
     type: function (value) {
@@ -124,6 +146,10 @@ export default {
       // console.log('value debounce input-field:', value)
       // this.inputDisplay = value
       this.$emit('input', value)
+    },
+    onInputMask (e) {
+      if (e.isTrusted) return // ignore native event
+      this.$emit('input', e.target.value)
     },
     onInputChip (value) {
       // console.log('onInputChip input-field:', value)

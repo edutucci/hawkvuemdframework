@@ -2,6 +2,8 @@ import Vue from 'vue'
 
 import CompCode from './others/CompCode'
 import ListHelp from './others/ListHelp'
+import TabsHelp from './others/TabsHelp'
+
 import HBtn from './buttons/Btn.vue'
 import HBtnFloat from './buttons/BtnFloat.vue'
 import HBtnGroup from './buttons/BtnGroup.vue'
@@ -25,6 +27,7 @@ import HCarousel from './carousel/Carousel.vue'
 import HCarouselSlider from './carousel/CarouselSlider.vue'
 import HDatePicker from './date/HDatePicker.vue'
 import HDateTimeDialog from './date/DateTimeDialog.vue'
+import HDialog from './window/Dialog'
 import HTimePicker from './date/HTimePicker.vue'
 import HIcon from './icons/HIcon'
 import HFileUpload from './fileUpload/fileUpload.vue'
@@ -48,7 +51,6 @@ import HMenuBar from './menu/HMenuBar.vue'
 import HMenuBarItem from './menu/HMenuBarItem.vue'
 import HSideBarMenuItem from './menu/SideBarMenuItem'
 import HSideBarMenu from './menu/SideBarMenu'
-import HModal from './window/HModal'
 import HNavDrawer from '../components/window/NavDrawer'
 import HRadio from './radio/HRadio.vue'
 import HRating from './rating/Rating.vue'
@@ -67,6 +69,7 @@ import HMainPage from './page/MainPage.vue'
 import HPageContent from './page/PageContent.vue'
 import HPageHeader from './page/PageHeader.vue'
 import HPageFooter from './page/PageFooter.vue'
+import HParallax from './parallax/Parallax'
 import HYoutubeVideo from './video/YoutubeVideo.vue'
 import HLink from './html/Link.vue'
 import HSeparator from './html/Separator.vue'
@@ -76,6 +79,7 @@ import HScrollNavigator from './scroll/ScrollNavigator'
 const Components = {
   CompCode,
   ListHelp,
+  TabsHelp,
   HBtn,
   HBtnFloat,
   HBtnGroup,
@@ -122,7 +126,7 @@ const Components = {
   HMenuBarItem,
   HSideBarMenu,
   HSideBarMenuItem,
-  HModal,
+  HDialog,
   HNavDrawer,
   HRadio,
   HRating,
@@ -141,6 +145,7 @@ const Components = {
   HPageContent,
   HPageHeader,
   HPageFooter,
+  HParallax,
   HYoutubeVideo,
   HLink,
   HBanner,

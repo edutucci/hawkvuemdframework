@@ -38,6 +38,15 @@ export default {
     setTimeout(() => {
       this.show = false
     }, 5000)
+  },
+  methods: {
+    create () {
+      // this.$SnackBar.create({
+      //   message: 'before entering in test router',
+      //   textcolor: 'text-white',
+      //   bgcolor: 'bg-positive'
+      // })
+    }
   }
 }
 </script>

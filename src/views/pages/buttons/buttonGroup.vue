@@ -2,11 +2,11 @@
   <h-page-content padding>
     <div class="text-h4">Buttons  Group</div>
 
-    <comp-code class="h-mt-lg" title="Types" :code="ex1"
+    <comp-code class="h-mt-lg" title="Usage" :code="ex1"
       :script="ex1Script" javascript
     >
       <div>
-        <h-btn-group contained>
+        <h-btn-group>
           <h-btn bg-color="bg-primary" text-color="text-white" left-icon="fas fa-bold" text="Bold"/>
           <h-btn bg-color="bg-positive" text-color="text-white" right-icon="fas fa-italic" text="Italic"/>
           <h-btn bg-color="bg-negative" text-color="text-white"  left-icon="fas fa-underline" text="Underline"/>
@@ -94,81 +94,11 @@
       </div>
     </comp-code>
 
-    <h2 class="text-primary">Button Group</h2>
-    <h2 class="text-primary">Vue Properties</h2>
-    <hr>
-
-    <div class="flex">
-      <div>
-        <h3>Name</h3>
-        <div>contained</div>
-        <div>outlined</div>
-      </div>
-      <div class="h-pl-md">
-        <h3>Type</h3>
-        <div>Boolean</div>
-        <div>Boolean</div>
-      </div>
-      <div class="h-pl-md">
-        <h3 >Description</h3>
-        <div>Sets to buttongroup to contained mode</div>
-        <div>Sets to buttongroup to outlined mode</div>
-      </div>
-    </div>
-
-    <h2 class="text-primary">Button Group Item</h2>
-    <h2 class="text-primary">Vue Properties</h2>
-    <hr>
-
-    <div class="flex">
-      <div>
-        <h3>Name</h3>
-        <div>name</div>
-        <div>bg-color</div>
-        <div>text-color</div>
-        <div>text</div>
-        <div>left-icon</div>
-        <div>right-icon</div>
-        <div>disabled</div>
-        <div>transparent</div>
-      </div>
-      <div class="h-pl-md">
-        <h3>Type</h3>
-        <div>String</div>
-        <div>String</div>
-        <div>String</div>
-        <div>String</div>
-        <div>String</div>
-        <div>String</div>
-        <div>Boolean</div>
-        <div>Boolean</div>
-      </div>
-      <div class="h-pl-md">
-        <h3 >Description</h3>
-        <div>Sets the name for the current button and used to set current button</div>
-        <div>Background color of the button</div>
-        <div>Text color of the button</div>
-        <div>Text of the button</div>
-        <div>Sets the icon to left of the button</div>
-        <div>Sets the icon to right of the button</div>
-        <div>Button is disabled</div>
-        <div>Useful for toolbar icons. Removes background and shadow</div>
-      </div>
-    </div>
-
-    <h2 class="text-primary"> Vue Events</h2>
-    <hr>
-
-    <div class="flex">
-      <div>
-        <h3>Name</h3>
-        <div>@click</div>
-      </div>
-      <div class="h-pl-md">
-        <h3>Description</h3>
-        <div>Triggered on button click</div>
-      </div>
-    </div>
+    <tabs-help
+      class="h-mt-md"
+      :properties="helpTopics.properties"
+      :events="helpTopics.events"
+    />
 
   </h-page-content>
 </template>
@@ -176,6 +106,7 @@
 <script>
 
 import mxButtonGroup from './mxButtonGroup'
+import helpTopics from './grouphelp'
 
 export default {
   mixins: [mxButtonGroup],
@@ -187,9 +118,13 @@ export default {
       btnAlign2: false,
       btnAlign3: false,
       btnAlign4: false,
+      helpTopics: {
+        properties: [],
+        events: []
+      },
       ex1: `
 <div>
-  <h-btn-group contained>
+  <h-btn-group>
     <h-btn bg-color="bg-primary" text-color="text-white" left-icon="fas fa-bold" text="Bold"/>
     <h-btn bg-color="bg-positive" text-color="text-white" right-icon="fas fa-italic" text="Italic"/>
     <h-btn bg-color="bg-negative" text-color="text-white"  left-icon="fas fa-underline" text="Underline"/>
@@ -289,6 +224,10 @@ export default {
 }
 `
     }
+  },
+  mounted () {
+    this.helpTopics.properties = helpTopics.properties
+    this.helpTopics.events = helpTopics.events
   }
 }
 </script>

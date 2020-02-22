@@ -1,8 +1,10 @@
 <template lang="pug">
-  .col-auto.h-ml-xs(
-    @click="onClick"
-  )
-    h-btn(fab size="sm" bg-color="bg-transparent" :text-color="textColor" left-icon="fas fa-bars")
+  .col-auto.h-ml-xs
+    h-btn(fab
+      size="sm"
+      bg-color="bg-transparent" :text-color="textColor" left-icon="fas fa-bars"
+      @click="onClick"
+    )
 </template>
 
 <script>

@@ -29,7 +29,7 @@
         </comp-code>
 
         <div ref="icon-md"/>
-        <comp-code class="h-mt-lg" title="Material Design">
+        <comp-code class="h-mt-lg" title="Material Design" :code="iconMaterial">
           <div class="row">
             <h-icon class="h-pa-xs" icon="camera_alt" size="18px"/>
             <h-icon class="h-pa-xs" icon="flip_camera_android" size="18px"/>
@@ -41,7 +41,7 @@
         </comp-code>
 
         <div ref="icon-fa"/>
-        <comp-code class="h-mt-lg" title="Fonte Awesome">
+        <comp-code class="h-mt-lg" title="Fonte Awesome" :code="iconFonteAwesome">
           <div class="row">
             <h-icon class="h-pa-xs" icon="fas fa-camera" size="18px"/>
             <h-icon class="h-pa-xs" icon="dashboard" size="18px"/>
@@ -64,7 +64,7 @@
         </comp-code>
 
         <div ref="icon-svg"/>
-        <comp-code class="h-mt-lg" title="SVG">
+        <comp-code class="h-mt-lg" title="SVG" :code="iconSVG">
           <div class="row">
             <h-icon class="h-pa-xs" image icon="imgIcons/svg/camera-24px.svg" size="24px"/>
             <h-icon class="h-pa-xs" image icon="imgIcons/svg/directions_bike-24px.svg" size="24px"/>
@@ -73,7 +73,7 @@
         </comp-code>
 
         <div ref="icon-png"/>
-        <comp-code class="h-mt-lg" title="PNG">
+        <comp-code class="h-mt-lg" title="PNG" :code="iconPNG">
           <div class="row">
             <h-icon class="h-pa-xs" image icon="imgIcons/png/logo_linux.png" size="24px"/>
             <h-icon class="h-pa-xs" image icon="imgIcons/png/logo_gmail.png" size="24px"/>
@@ -93,49 +93,11 @@
           </div>
         </comp-code>
 
-        <h2 class="text-primary"> Vue Properties</h2>
-        <hr>
-
-        <div class="flex">
-          <div>
-            <h3>Name</h3>
-            <div>text-color</div>
-            <div>icon</div>
-            <div>size</div>
-            <div>pulse</div>
-            <div>spin</div>
-          </div>
-          <div class="h-pl-md">
-            <h3>Type</h3>
-            <div>String</div>
-            <div>String</div>
-            <div>String</div>
-            <div>Boolean</div>
-            <div>Boolean</div>
-          </div>
-          <div class="h-pl-md">
-            <h3 >Description</h3>
-            <div>Sets the color of the icon</div>
-            <div>Sets the icon</div>
-            <div>Sets the icon size. Default: '16px'. Example: '24px'</div>
-            <div>Sets to pulse mode</div>
-            <div>Sets to spin mode</div>
-          </div>
-        </div>
-
-        <h2 class="text-primary"> Vue Events</h2>
-        <hr>
-
-        <div class="flex">
-          <div>
-            <h3>Name</h3>
-            <div>@click</div>
-          </div>
-          <div class="h-pl-md">
-            <h3>Description</h3>
-            <div>Triggered on icon click</div>
-          </div>
-        </div>
+        <tabs-help
+          class="h-mt-md"
+          :properties="helpTopics.properties"
+          :events="helpTopics.events"
+        />
       </div>
       <div class="col-auto">
         <list-help>
@@ -196,10 +158,15 @@
 <script>
 
 import viewport from '../../../components/others/viewport'
+import helpTopics from './help'
 
 export default {
   data () {
     return {
+      helpTopics: {
+        properties: [],
+        events: []
+      },
       iconColors: `
 <div class="row">
   <h-icon class="bg-primary h-pa-md" icon="fas fa-camera-retro" text-color="text-white"/>
@@ -220,6 +187,25 @@ export default {
   <h-icon class="h-pa-xs" icon="fas fa-camera-retro" size="48px"/>
 </div>
 `,
+      iconMaterial: `
+<div class="row">
+  <h-icon class="h-pa-xs" icon="camera_alt" size="18px"/>
+  <h-icon class="h-pa-xs" icon="flip_camera_android" size="18px"/>
+  <h-icon class="h-pa-xs" icon="fas fa-th-large" size="18px"/>
+  <h-icon class="h-pa-xs" icon="surround_sound" size="18px"/>
+  <h-icon class="h-pa-xs" icon="wb_cloudy" size="18px"/>
+  <h-icon class="h-pa-xs" icon="directions_bike" size="18px"/>
+</div>
+`,
+      iconFonteAwesome: `
+<div class="row">
+  <h-icon class="h-pa-xs" icon="fas fa-camera" size="18px"/>
+  <h-icon class="h-pa-xs" icon="dashboard" size="18px"/>
+  <h-icon class="h-pa-xs" icon="fas fa-volume-up" size="18px"/>
+  <h-icon class="h-pa-xs" icon="fas fa-cloud" size="18px"/>
+  <h-icon class="h-pa-xs" icon="fab fa-accessible-icon" size="18px"/>
+</div>
+`,
       iconAnimate: `
 <div class="row">
   <h-icon class="h-pa-xs" icon="fas fa-spinner" spin/>
@@ -228,6 +214,20 @@ export default {
   <h-icon class="h-pa-xs" icon="fas fa-cog" spin/>
   <h-icon class="h-pa-xs" icon="fas fa-spinner" pulse/>
   <h-icon class="h-pa-xs" icon="fas fa-stroopwafel" spin/>
+</div>
+`,
+      iconSVG: `
+<div class="row">
+  <h-icon class="h-pa-xs" image icon="imgIcons/svg/camera-24px.svg" size="24px"/>
+  <h-icon class="h-pa-xs" image icon="imgIcons/svg/directions_bike-24px.svg" size="24px"/>
+  <h-icon class="h-pa-xs" image icon="imgIcons/svg/bag_currency.svg" size="24px"/>
+</div>      
+`,
+      iconPNG: `
+<div class="row">
+  <h-icon class="h-pa-xs" image icon="imgIcons/png/logo_linux.png" size="24px"/>
+  <h-icon class="h-pa-xs" image icon="imgIcons/png/logo_gmail.png" size="24px"/>
+  <h-icon class="h-pa-xs" image icon="imgIcons/png/logo_icloud.png" size="24px"/>
 </div>
 `,
       iconCounter: `
@@ -241,6 +241,10 @@ export default {
 </div>
 `
     }
+  },
+  mounted () {
+    this.helpTopics.properties = helpTopics.properties
+    this.helpTopics.events = helpTopics.events
   },
   methods: {
     goToElement (refName) {

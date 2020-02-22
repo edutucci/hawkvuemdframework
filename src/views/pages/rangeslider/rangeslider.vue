@@ -35,13 +35,26 @@
 
   </comp-code>
 
+  <tabs-help
+    class="h-mt-md"
+    :properties="helpTopics.properties"
+    :events="helpTopics.events"
+  />
+
   </h-page-content>
 </template>
 
 <script>
+
+import helpTopics from './help'
+
 export default {
   data () {
     return {
+      helpTopics: {
+        properties: [],
+        events: []
+      },
       modelRange: 55,
       ex1: `
 <div class="row align-items-center">
@@ -81,6 +94,10 @@ export default {
 }
 `
     }
+  },
+  mounted () {
+    this.helpTopics.properties = helpTopics.properties
+    this.helpTopics.events = helpTopics.events
   }
 }
 </script>

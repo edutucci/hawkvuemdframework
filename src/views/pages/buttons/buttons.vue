@@ -1,5 +1,12 @@
 <template>
   <h-page-content padding>
+
+    <!--
+      BUGS
+      - Quando habilitar outlined junto com rounded remover e a cor de fundo
+        e criar uma borda com a cor de fundo
+    -->
+
     <div class="row">
       <div class="col">
         <div class="text-h4">Buttons</div>
@@ -61,7 +68,7 @@
         </comp-code>
 
         <div ref="btn-rounded"/>
-        <comp-code title="Rounded Buttons" :code="roundedButtons">
+        <comp-code class="h-mt-md" title="Rounded Buttons" :code="roundedButtons">
           <div>
             <h-btn rounded text="disabled" disabled/>
             <h-btn outlined rounded text="disabled" disabled/>
@@ -85,16 +92,16 @@
             <h-btn fab bg-color="bg-primary" size="xl">
               <h-icon icon="fas fa-envelope"  text-color="text-white" size="32px"/>
             </h-btn>
-            <h-btn fab bg-color="bg-primary" text-color="text-white" size="xl">
+            <h-btn fab bg-color="bg-primary" size="xl">
               <h-icon icon="fab fa-github"  text-color="text-white" size="32px"/>
             </h-btn>
-            <h-btn fab bg-color="bg-primary" text-color="text-white" size="xl">
+            <h-btn fab bg-color="bg-primary" size="xl">
               <h-icon icon="fas fa-map-marker-alt"  text-color="text-white" size="32px"/>
             </h-btn>
-            <h-btn fab bg-color="bg-primary" text-color="text-white" size="xl">
+            <h-btn fab bg-color="bg-primary" size="xl">
               <h-icon icon="fas fa-shopping-cart"  text-color="text-white" size="32px"/>
             </h-btn>
-            <h-btn fab bg-color="bg-primary" text-color="text-white" size="xl">
+            <h-btn fab bg-color="bg-primary" size="xl">
               <h-icon icon="fas fa-plane"  text-color="text-white" size="32px"/>
             </h-btn>
           </div>
@@ -102,16 +109,16 @@
             <h-btn fab bg-color="bg-primary" size="sm">
               <h-icon icon="fas fa-envelope"  text-color="text-white"/>
             </h-btn>
-            <h-btn fab bg-color="bg-primary" text-color="text-white" size="sm">
+            <h-btn fab bg-color="bg-primary" size="sm">
               <h-icon icon="fab fa-github"  text-color="text-white"/>
             </h-btn>
-            <h-btn fab bg-color="bg-primary" text-color="text-white" size="sm">
+            <h-btn fab bg-color="bg-primary" size="sm">
               <h-icon icon="fas fa-map-marker-alt"  text-color="text-white"/>
             </h-btn>
-            <h-btn fab bg-color="bg-primary" text-color="text-white" size="sm">
-              <h-icon icon="fas fa-shopping-cart"  text-color="text-white"/>
+            <h-btn fab bg-color="bg-primary" size="sm">
+              <h-icon icon="fas fa-shopping-cart" text-color="text-white"/>
             </h-btn>
-            <h-btn fab bg-color="bg-primary" text-color="text-white" size="sm">
+            <h-btn fab bg-color="bg-primary" size="sm">
               <h-icon icon="fas fa-plane"  text-color="text-white"/>
             </h-btn>
           </div>
@@ -120,7 +127,7 @@
         <div ref="btn-sizes"/>
         <comp-code class="h-mt-md" title="Sizes" :code="btnSizes">
           <div>
-            <h-btn bg-color="bg-primary" text-color="text-white" text="xs" size="xs"  @click="goToElement('btn-contained')"/>
+            <h-btn bg-color="bg-primary" text-color="text-white" text="xs" size="xs"/>
             <h-btn bg-color="bg-primary" text-color="text-white" text="sm" size="sm"/>
             <h-btn bg-color="bg-primary" text-color="text-white" text="md" size="md"/>
             <h-btn bg-color="bg-primary" text-color="text-white" text="lg" size="lg"/>
@@ -139,16 +146,16 @@
             <h-btn fab bg-color="bg-primary" size="xs">
               <h-icon icon="fas fa-envelope"  text-color="text-white"/>
             </h-btn>
-            <h-btn fab bg-color="bg-primary" text-color="text-white" size="sm">
+            <h-btn fab bg-color="bg-primary" size="sm">
               <h-icon icon="fab fa-github"  text-color="text-white"/>
             </h-btn>
-            <h-btn fab bg-color="bg-primary" text-color="text-white" size="md">
+            <h-btn fab bg-color="bg-primary" size="md">
               <h-icon icon="fas fa-map-marker-alt"  text-color="text-white"/>
             </h-btn>
-            <h-btn fab bg-color="bg-primary" text-color="text-white" size="lg">
+            <h-btn fab bg-color="bg-primary" size="lg">
               <h-icon icon="fas fa-shopping-cart"  text-color="text-white"/>
             </h-btn>
-            <h-btn fab bg-color="bg-primary" text-color="text-white" size="xl">
+            <h-btn fab bg-color="bg-primary" size="xl">
               <h-icon icon="fas fa-plane"  text-color="text-white" size="32px"/>
             </h-btn>
           </div>
@@ -274,11 +281,11 @@
             <h-link text="github" url="https://github.com/edutucci/hawkframework"/>
           </h-btn>
 
-          <h-btn outlined>
+          <h-btn outlined bg-color="bg-black">
             <h-link icon="fab fa-github" text="github new window" url="https://github.com/edutucci/hawkframework" new-window/>
           </h-btn>
 
-          <h-btn outlined rounded>
+          <h-btn outlined rounded bg-color="bg-black">
             <h-link icon="fab fa-github" text="github new window" url="https://github.com/edutucci/hawkframework" new-window/>
           </h-btn>
         </comp-code>
@@ -297,11 +304,11 @@
             <h-link text="to this page" url="/buttons"/>
           </h-btn>
 
-          <h-btn outlined>
+          <h-btn outlined bg-color="bg-black">
             <h-link text="to this page" url="/buttons"/>
           </h-btn>
 
-          <h-btn outlined rounded>
+          <h-btn outlined rounded bg-color="bg-black">
             <h-link text="to this page" url="/buttons"/>
           </h-btn>
         </comp-code>
@@ -329,61 +336,11 @@
           </h-btn>
         </comp-code>
 
-        <h2 class="text-primary"> Vue Properties</h2>
-        <hr>
-
-        <div class="row wrap">
-          <div>
-            <h3>Name</h3>
-            <div>bg-color</div>
-            <div>text-color</div>
-            <div>text</div>
-            <div>left-icon</div>
-            <div>right-icon</div>
-            <div>textbutton</div>
-            <div>outlined</div>
-            <div>rounded</div>
-            <div>disabled</div>
-          </div>
-          <div class="h-pl-md">
-            <h3>Type</h3>
-            <div>String</div>
-            <div>String</div>
-            <div>String</div>
-            <div>String</div>
-            <div>String</div>
-            <div>Boolean</div>
-            <div>Boolean</div>
-            <div>Boolean</div>
-            <div>Boolean</div>
-          </div>
-          <div class="h-pl-md">
-            <h3 >Description</h3>
-            <div>Background color of the button</div>
-            <div>Text color of the button</div>
-            <div>Text of the button</div>
-            <div>Sets the icon to left of the button</div>
-            <div>Sets the icon to right of the button</div>
-            <div>Sets to button to textbutton mode</div>
-            <div>Sets to button to outlined mode</div>
-            <div>Sets to button to rounded mode</div>
-            <div>Button is disabled</div>
-          </div>
-        </div>
-
-        <h2 class="text-primary"> Vue Events</h2>
-        <hr>
-
-        <div class="row wrap">
-          <div>
-            <h3>Name</h3>
-            <div>@click</div>
-          </div>
-          <div class="h-pl-md">
-            <h3>Description</h3>
-            <div>Triggered on button click</div>
-          </div>
-        </div>
+        <tabs-help
+          class="h-mt-md"
+          :properties="helpTopics.properties"
+          :events="helpTopics.events"
+        />
       </div>
       <div class="col-auto">
         <list-help>
@@ -452,6 +409,7 @@
 
 import mxButtons from './mxButtons'
 import viewport from '../../../components/others/viewport'
+import helpTopics from './help'
 
 export default {
   mixins: [mxButtons],
@@ -462,13 +420,22 @@ export default {
       text: false,
       icon: false,
       avatar: false,
-      image: false
+      image: false,
+      tabHelpModel: 'prop',
+      helpTopics: {
+        properties: [],
+        events: []
+      }
     }
   },
   methods: {
     goToElement (refName) {
       viewport.goToElement(this.$refs[refName])
     }
+  },
+  mounted () {
+    this.helpTopics.properties = helpTopics.properties
+    this.helpTopics.events = helpTopics.events
   }
 }
 </script>

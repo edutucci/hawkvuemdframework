@@ -11,7 +11,7 @@
       </code>
     </pre> -->
 
-    <h2 class="text-primary"> Vue Properties</h2>
+    <!-- <h2 class="text-primary"> Vue Properties</h2>
     <hr>
 
     <div class="flex">
@@ -33,7 +33,7 @@
         <div>Text color of the SnackBar</div>
         <div>Message of the SnackBar</div>
       </div>
-    </div>
+    </div> -->
 
   </h-page-content>
 </template>

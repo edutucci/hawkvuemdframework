@@ -3,6 +3,7 @@
     <!--
       ADD
       - adicionar a property color para background quando estiver checked
+      - verificar se disabled esta funcionando.
     -->
     <div class="row">
       <div class="col">
@@ -105,29 +106,20 @@
 
         </comp-code>
 
-        <h2 class="text-primary"> Vue Properties</h2>
+        <!-- <h2 class="text-primary"> Vue Properties</h2>
         <hr>
 
         <div class="flex">
           <div>
             <h3>Name</h3>
-            <div>text</div>
-            <div>value</div>
-            <div>checked</div>
             <div>disabled</div>
           </div>
           <div class="h-pl-md">
             <h3>Type</h3>
-            <div>String, Number</div>
-            <div>String, Number</div>
-            <div>Boolean</div>
             <div>Boolean</div>
           </div>
           <div class="h-pl-md">
             <h3 >Description</h3>
-            <div>Sets the text of the radio</div>
-            <div>Sets the value of the radio</div>
-            <div>If true the radio is checked</div>
             <div>if true the radio is disabled</div>
           </div>
         </div>
@@ -144,8 +136,12 @@
             <h3>Description</h3>
             <div>Triggered immediately on model change</div>
           </div>
-        </div>
-
+        </div> -->
+        <tabs-help
+          class="h-mt-md"
+          :properties="helpTopics.properties"
+          :events="helpTopics.events"
+        />
       </div>
       <div class="col-auto">
         <list-help>
@@ -186,10 +182,15 @@
 <script>
 
 import viewport from '../../../components/others/viewport'
+import helpTopics from './help'
 
 export default {
   data () {
     return {
+      helpTopics: {
+        properties: [],
+        events: []
+      },
       typeBoolean: false,
       typeMovie: '',
       typeNumber: 0,
@@ -321,6 +322,10 @@ export default {
 }
 `
     }
+  },
+  mounted () {
+    this.helpTopics.properties = helpTopics.properties
+    // this.helpTopics.events = helpTopics.events
   },
   methods: {
     goToElement (refName) {

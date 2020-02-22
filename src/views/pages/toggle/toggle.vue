@@ -70,7 +70,13 @@
 
         </comp-code>
 
-        <h2 class="text-primary"> Vue Properties</h2>
+        <tabs-help
+          class="h-mt-md"
+          :properties="helpTopics.properties"
+          :events="helpTopics.events"
+        />
+
+        <!-- <h2 class="text-primary"> Vue Properties</h2>
         <hr>
 
         <div class="flex">
@@ -109,7 +115,7 @@
             <h3>Description</h3>
             <div>Triggered immediately on model change</div>
           </div>
-        </div>
+        </div> -->
       </div>
       <div class="col-auto">
         <list-help>
@@ -141,6 +147,7 @@
 <script>
 
 import viewport from '../../../components/others/viewport'
+import helpTopics from './help'
 
 export default {
   data () {
@@ -150,6 +157,10 @@ export default {
       checkedNames2: ['Maça', 'Uva', 'Abacaxi'],
       checkedNumbers: [1, 3],
       checked2: false,
+      helpTopics: {
+        properties: [],
+        events: []
+      },
       ckboolean: `
 <div class="column">
   <div class="col">
@@ -216,6 +227,10 @@ export default {
   }      
 `
     }
+  },
+  mounted () {
+    this.helpTopics.properties = helpTopics.properties
+    this.helpTopics.events = helpTopics.events
   },
   methods: {
     goToElement (refName) {

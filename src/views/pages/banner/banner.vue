@@ -72,6 +72,12 @@
           </h-banner>
 
         </comp-code>
+
+        <tabs-help
+          class="h-mt-md"
+          :properties="helpTopics.properties"
+          :events="helpTopics.events"
+        />
       </div>
       <div class="col-auto">
         <list-help>
@@ -97,10 +103,15 @@
 <script>
 
 import viewport from '../../../components/others/viewport'
+import helpTopics from './help'
 
 export default {
   data () {
     return {
+      helpTopics: {
+        properties: [],
+        events: []
+      },
       ex1: `
 <h-banner class="h-mt-md">
   <template v-slot:text>
@@ -162,9 +173,13 @@ export default {
   <template v-slot:buttons>
     <h-btn contained caps text="turn on wifi" text-color="text-white" bg-color="bg-purple600"/>
   </template>
-</h-banner>    
+</h-banner>   
 `
     }
+  },
+  mounted () {
+    this.helpTopics.properties = helpTopics.properties
+    this.helpTopics.events = helpTopics.events
   },
   methods: {
     goToElement (refName) {

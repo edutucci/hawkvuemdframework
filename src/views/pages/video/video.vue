@@ -6,19 +6,26 @@
 
         <div ref="vd-1"/>
         <comp-code class="h-mt-lg" title="video 1" :code="ex1">
-          <div><h-youtube-video :width="340" :height="220" src="https://www.youtube.com/embed/nSmMkeNjjPg"/></div>
+          <div>
+            <h-youtube-video :width="340" :height="220" src="https://www.youtube.com/embed/nSmMkeNjjPg"/>
+          </div>
         </comp-code>
 
         <div ref="vd-2"/>
         <comp-code class="h-mt-lg" title="video 2" :code="ex2">
-          <div><h-youtube-video :width="340" :height="220" src="https://www.youtube.com/embed/NPjzUyax4tw"/></div>
+          <div>
+            <h-youtube-video :width="340" :height="220" src="https://www.youtube.com/embed/NPjzUyax4tw"/>
+          </div>
         </comp-code>
 
-        <h2 class="text-primary"> How to use</h2>
+        <div class="h-mt-md text-primary text-bold"> How to use </div>
+        <div>
+          <prism language="html" :code="cod1"/>
+        </div>
 
         <!-- <prism language="html" :code="cod1" scroll></prism> -->
 
-        <h2 class="text-primary"> Vue Properties</h2>
+        <!-- <h2 class="text-primary"> Vue Properties</h2>
         <hr>
         <div class="flex">
           <div>
@@ -42,7 +49,7 @@
             <div>Sets the video url.</div>
             <div>Starts the video automatically.</div>
           </div>
-        </div>
+        </div> -->
       </div>
       <div class="col-auto">
         <list-help>
@@ -74,19 +81,27 @@ export default {
   data () {
     return {
       ex1: `
-<div><h-youtube-video :width="340" :height="220" src="https://www.youtube.com/embed/nSmMkeNjjPg"/></div>
+<div>
+  <h-youtube-video :width="340" :height="220" src="https://www.youtube.com/embed/nSmMkeNjjPg"/>
+</div>
 `,
       ex2: `
-<div><h-youtube-video :width="340" :height="220" src="https://www.youtube.com/embed/NPjzUyax4tw"/></div>
+<div>
+  <h-youtube-video :width="340" :height="220" src="https://www.youtube.com/embed/NPjzUyax4tw"/>
+</div>
 `,
       cod1: `
 1. Click right button on youtube video
 2. Copy the iframe code for the video.
-   <iframe width="640" height="360" src="https://www.youtube.com/embed/QD8U483nTIk" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen/>
+   <iframe width="640" height="360"
+    src="https://www.youtube.com/embed/QD8U483nTIk"
+    frameborder="0" allow="autoplay;
+    encrypted-media" allowfullscreen/>
 3. copy the src attributte for the component YoutubeVideo
 
 4. Use the youtube video component.
-  <h-youtube-video :width="340" :height="220" src="https://www.youtube.com/embed/QD8U483nTIk"/>
+  <h-youtube-video :width="340" :height="220"
+    src="https://www.youtube.com/embed/QD8U483nTIk"/>
 `
     }
   },

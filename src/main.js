@@ -12,11 +12,11 @@ import Prism from 'vue-prismjs'
 import './css/prism/prism.css'
 
 // v-mask
-import { VueMaskDirective } from 'v-mask'
+// import { VueMaskDirective } from 'v-mask'
 
 Vue.component('Prism', Prism)
 
-Vue.directive('mask', VueMaskDirective)
+// Vue.directive('mask', VueMaskDirective)
 
 Vue.config.productionTip = false
 

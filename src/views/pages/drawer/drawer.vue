@@ -4,8 +4,12 @@
       <div class="col">
         <div class="text-h4">Drawer</div>
 
+        <div ref="drawer-example"/>
+        <comp-code class="h-mt-lg" title="Example" :code="drawerExample" page="template">
+        </comp-code>
+
         <div ref="drawer-left"/>
-        <comp-code class="h-mt-lg" title="Drawer Left" :code="drawer" :script="drawerScript"
+        <comp-code class="h-mt-lg" title="Drawer Left" :code="drBtnLeft" :script="drawerScript"
           javascript
         >
           <div>
@@ -14,7 +18,7 @@
         </comp-code>
 
         <div ref="drawer-right"/>
-        <comp-code class="h-mt-lg" title="Drawer Right" :code="drawer" :script="drawerScript"
+        <comp-code class="h-mt-lg" title="Drawer Right" :code="drBtnRight" :script="drawerScript"
           javascript
         >
           <div>
@@ -22,33 +26,39 @@
           </div>
         </comp-code>
 
-          <h-nav-drawer v-model="showDrawer" :side="side">
-            <div class="flex flex-column bg-white full-size" style="display: inline-flex;">
-              <div slot="header" class="text-center h-pa-md">
-                <h-image avatar src="img/hawk.jpg" size="64px"/>
-                <h3 class="no-padding no-margin">Hawk </h3>
-                <h3 class="no-padding no-margin"> Framework</h3>
-              </div>
-
-              <div class="flex-1">
-                  <h-collapsible>
-                    <h-collapsible-menu icon="fas fa-question-circle" text="Help">
-                      <h-collapsible-item text="About" @click="showDrawer = false"/>
-                    </h-collapsible-menu>
-
-                    <h-collapsible-menu icon="fas fa-box" text="Contents">
-                      <h-collapsible-item text="Products" @click="showDrawer = false"/>
-                      <h-collapsible-item text="Contact" @click="showDrawer = false"/>
-                    </h-collapsible-menu>
-                  </h-collapsible>
-              </div>
-
-              <div slot="footer" class="text-center  h-pa-md">
-                <h2 class="no-margin">Free Framework</h2>
-                <h2 class="no-margin">Pure CSS</h2>
-              </div>
+        <h-nav-drawer v-model="showDrawer" :side="side">
+          <div class="column bg-white full-size" style="display: inline-flex;">
+            <div slot="header" class="text-center h-pa-md">
+              <h-image avatar src="img/hawk.jpg" size="64px"/>
+              <h3 class="no-padding no-margin">Hawk </h3>
+              <h3 class="no-padding no-margin"> Framework</h3>
             </div>
-          </h-nav-drawer>
+
+            <div class="flex-1">
+                <h-collapsible>
+                  <h-collapsible-menu icon="fas fa-question-circle" text="Help">
+                    <h-collapsible-item text="About" @click="showDrawer = false"/>
+                  </h-collapsible-menu>
+
+                  <h-collapsible-menu icon="fas fa-box" text="Contents">
+                    <h-collapsible-item text="Products" @click="showDrawer = false"/>
+                    <h-collapsible-item text="Contact" @click="showDrawer = false"/>
+                  </h-collapsible-menu>
+                </h-collapsible>
+            </div>
+
+            <div slot="footer" class="text-center  h-pa-md">
+              <h2 class="no-margin">Free Framework</h2>
+              <h2 class="no-margin">Pure CSS</h2>
+            </div>
+          </div>
+        </h-nav-drawer>
+
+        <tabs-help
+          class="h-mt-md"
+          :properties="helpTopics.properties"
+          :events="helpTopics.events"
+        />
       </div>
       <div class="col-auto">
         <list-help>
@@ -75,13 +85,28 @@
 <script>
 
 import viewport from '../../../components/others/viewport'
+import helpTopics from './help'
 
 export default {
   data () {
     return {
+      helpTopics: {
+        properties: [],
+        events: []
+      },
       side: 'left',
       showDrawer: false,
-      drawer: `
+      drBtnLeft: `
+<div>
+  <h-btn contained bgcolor="bg-primary" textcolor="text-white" text="Open Drawer Left" @click="showDrawer = true; side='left'"/>
+</div>
+`,
+      drBtnRight: `
+<div>
+  <h-btn contained bgcolor="bg-primary" textcolor="text-white" text="Open Drawer Right" @click="showDrawer = true; side='right'"/>
+</div>      
+`,
+      drawerExample: `
 <div>
   <h-btn contained bgcolor="bg-primary" textcolor="text-white" text="Open Drawer Left" @click="showDrawer = true; side='left'"/>
   <h-btn contained bgcolor="bg-primary" textcolor="text-white" text="Open Drawer Right" @click="showDrawer = true; side='right'"/>
@@ -125,6 +150,10 @@ export default {
 }      
 `
     }
+  },
+  mounted () {
+    this.helpTopics.properties = helpTopics.properties
+    this.helpTopics.events = helpTopics.events
   },
   methods: {
     goToElement (refName) {

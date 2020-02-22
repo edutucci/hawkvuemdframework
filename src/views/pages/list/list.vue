@@ -6,7 +6,7 @@
         <div class="text-h4">List</div>
 
         <div ref="list-borders"/>
-        <comp-code class="h-mt-md" title="Borders" :code="lst1Line">
+        <comp-code class="h-mt-md" title="Borders" :code="lstBorders">
           <h-list bordered style="max-width: 350px">
             <h-list-item>
               <h-list-item-content>
@@ -445,6 +445,36 @@
               </h-list-item>
           </h-list>
         </comp-code>
+
+        <tabs-help
+          class="h-mt-md"
+          :properties="helpTopics.properties"
+          :events="helpTopics.events"
+        />
+
+        <tabs-help
+          class="h-mt-md"
+          title="List Help"
+          :properties="helpTopics.listProperties"
+        />
+
+        <tabs-help
+          class="h-mt-md"
+          title="List Header Help"
+          :properties="helpTopics.listHeaderProperties"
+        />
+
+        <tabs-help
+          class="h-mt-md"
+          title="List Item Image Help"
+          :properties="helpTopics.listItemImageProperties"
+        />
+
+        <tabs-help
+          class="h-mt-md"
+          title="List Help"
+          :properties="helpTopics.list"
+        />
       </div>
       <div class="col-auto">
         <list-help>
@@ -491,12 +521,80 @@
 <script>
 
 import viewport from '../../../components/others/viewport'
+import helpTopics from './help'
 
 export default {
   data () {
     return {
+      helpTopics: {
+        listProperties: [],
+        listHeaderProperties: [],
+        listItemImageProperties: [],
+        listItemTextProperties: []
+      },
+      lstBorders: `
+<h-list bordered style="max-width: 350px">
+  <h-list-item>
+    <h-list-item-content>
+      <h-list-item-text title="House in the clouds"/>
+    </h-list-item-content>
+  </h-list-item>
+  <h-list-item>
+    <h-list-item-content>
+      <h-list-item-text title="At the top"/>
+    </h-list-item-content>
+  </h-list-item>
+  <h-separator/>
+  <h-list-item>
+    <h-list-item-side>
+      <h-image avatar src="avatar/Konsta.jpg"/>
+    </h-list-item-side>
+    <h-list-item-content>
+      <h-list-item-text title="Konsta"/>
+    </h-list-item-content>
+  </h-list-item>
+  <h-list-item>
+    <h-list-item-side>
+      <h-image avatar src="avatar/Eduard.jpg"/>
+    </h-list-item-side>
+    <h-list-item-content>
+      <h-list-item-text title="Eduard"/>
+    </h-list-item-content>
+  </h-list-item>
+</h-list>
+
+<h-list bordered class="h-mt-sm border-radius" style="max-width: 350px">
+  <h-list-item>
+    <h-list-item-content>
+      <h-list-item-text title="House in the clouds"/>
+    </h-list-item-content>
+  </h-list-item>
+  <h-list-item>
+    <h-list-item-content>
+      <h-list-item-text title="At the top"/>
+    </h-list-item-content>
+  </h-list-item>
+  <h-separator/>
+  <h-list-item>
+    <h-list-item-side>
+      <h-image avatar src="avatar/AnaArmas.jpg"/>
+    </h-list-item-side>
+    <h-list-item-content>
+      <h-list-item-text title="Ana"/>
+    </h-list-item-content>
+  </h-list-item>
+  <h-list-item>
+    <h-list-item-side>
+      <h-image avatar src="avatar/Eduard.jpg"/>
+    </h-list-item-side>
+    <h-list-item-content>
+      <h-list-item-text title="Eduard"/>
+    </h-list-item-content>
+  </h-list-item>
+</h-list>      
+`,
       lst1Line: `
-<h-list style="max-width: 350px">
+<h-list bordered style="max-width: 350px">
   <h-list-item>
     <h-list-item-content>
       <h-list-item-text title="House in the clouds"/>
@@ -526,7 +624,7 @@ export default {
   </h-list-item>
 </h-list>
 
-<h-list class="h-mt-md" style="max-width: 350px">
+<h-list bordered class="h-mt-md" style="max-width: 350px">
     <h-list-item>
       <h-list-item-content>
         <h-list-item-text title="Attractions"/>
@@ -557,7 +655,7 @@ export default {
 </h-list>
 `,
       lst2Line: `
-<h-list style="max-width: 350px">
+<h-list bordered style="max-width: 350px">
   <h-list-item>
     <h-list-item-content>
       <h-list-item-text title="House in the clouds" caption="Jonathan creates a new world"/>
@@ -587,7 +685,7 @@ export default {
   </h-list-item>
 </h-list>
 
-<h-list class="h-mt-md" style="max-width: 350px">
+<h-list bordered class="h-mt-md" style="max-width: 350px">
   <h-list-header text="Today"/>
   <h-list-item>
     <h-list-item-side class="flex-items-center">
@@ -624,10 +722,10 @@ export default {
   </h-list-item>
 </h-list>
 
-<h-list class="h-mt-md" style="width: 350px">
+<h-list bordered class="h-mt-md" style="width: 350px">
   <h-list-item>
     <h-list-item-side>
-      <h-list-item-img src="avatar/folder_open.jpeg"/>
+      <h-list-item-img src="avatar/folder_open.png"/>
     </h-list-item-side>
     <h-list-item-content>
       <h-list-item-text title="Photos" caption="Jan 9, 2018"/>
@@ -638,7 +736,7 @@ export default {
   </h-list-item>
   <h-list-item>
     <h-list-item-side>
-      <h-list-item-img src="avatar/folder_open.jpeg"/>
+      <h-list-item-img src="avatar/folder_open.png"/>
     </h-list-item-side>
     <h-list-item-content>
       <h-list-item-text title="Recipes" caption="Jan"/>
@@ -651,7 +749,7 @@ export default {
   <h-list-header text="Recent files"/>
   <h-list-item>
     <h-list-item-side>
-      <h-list-item-img src="avatar/folder_open.jpeg"/>
+      <h-list-item-img src="avatar/folder_open.png"/>
     </h-list-item-side>
     <h-list-item-content>
       <h-list-item-text title="Vacation itinerary" caption="Jan 20, 2018"/>
@@ -662,7 +760,7 @@ export default {
   </h-list-item>
   <h-list-item>
     <h-list-item-side>
-      <h-list-item-img src="avatar/folder_open.jpeg"/>
+      <h-list-item-img src="avatar/folder_open.png"/>
     </h-list-item-side>
     <h-list-item-content>
       <h-list-item-text title="Kicthen remodel" caption="Jan 10, 2018"/>
@@ -674,7 +772,7 @@ export default {
 </h-list>
 `,
       lst3Line: `
-<h-list style="max-width: 400px">
+<h-list bordered content-separator style="max-width: 400px">
   <h-list-header text="Recipes"/>
   <h-list-item>
     <h-list-item-side>
@@ -711,7 +809,7 @@ export default {
   </h-list-item>
 </h-list>
 
-<h-list class="h-mt-md" style="max-width: 400px">
+<h-list bordered item-separator class="h-mt-md" style="max-width: 400px">
   <h-list-header text="Today"/>
   <h-list-item>
     <h-list-item-side class="flex-items-center">
@@ -739,10 +837,10 @@ export default {
   </h-list-item>
 </h-list>
 
-<h-list class="h-mt-md" style="max-width: 400px">
+<h-list bordered class="h-mt-md" style="max-width: 400px">
     <h-list-item>
       <h-list-item-side>
-        <h-list-item-img src="avatar/folder_open.jpeg"/>
+        <h-list-item-img src="avatar/folder_open.png"/>
       </h-list-item-side>
       <h-list-item-content>
         <h-list-item-text title="At the top" caption="Cindy climbs new heights"/>
@@ -757,7 +855,7 @@ export default {
     <h-separator/>
     <h-list-item>
       <h-list-item-side>
-        <h-list-item-img src="avatar/folder_open.jpeg"/>
+        <h-list-item-img src="avatar/folder_open.png"/>
       </h-list-item-side>
       <h-list-item-content>
         <h-list-item-text title="At the top" caption="Cindy climbs new heights"/>
@@ -771,7 +869,7 @@ export default {
 </h-list>
 `,
       expcol: `
-<h-list class="h-mt-md" style="width: 350px">
+<h-list bordered class="h-mt-md" style="width: 350px">
   <h-collapsible>
     <h-collapsible-menu icon="fas fa-film" text="Attractions">
       <h-list>
@@ -800,7 +898,7 @@ export default {
 </h-list>
 `,
       lstControls: `
-<h-list class="h-mt-md" style="width: 400px">
+<h-list bordered class="h-mt-md" style="width: 400px">
   <h-list-header text="Today"/>
     <h-list-item>
       <h-list-item-side class="flex-items-center">
@@ -864,6 +962,12 @@ export default {
 </h-list>
 `
     }
+  },
+  mounted () {
+    this.helpTopics.listProperties = helpTopics.listProperties
+    this.helpTopics.listHeaderProperties = helpTopics.listHeaderProperties
+    this.helpTopics.listItemImageProperties = helpTopics.listItemImageProperties
+    this.helpTopics.listItemTextProperties = helpTopics.listItemTextProperties
   },
   methods: {
     goToElement (refName) {

@@ -31,29 +31,11 @@
           />
         </comp-code>
 
-        <h2 class="text-primary"> Vue Properties</h2>
-        <h-separator></h-separator>
-
-        <div class="flex">
-          <div>
-            <h3>Name</h3>
-            <div>halfpoints</div>
-            <div>showmessages</div>
-            <div>messages</div>
-          </div>
-          <div class="h-pl-md">
-            <h3>Type</h3>
-            <div>Boolean</div>
-            <div>Boolean</div>
-            <div>Array</div>
-          </div>
-          <div class="h-pl-md">
-            <h3 >Description</h3>
-            <div>if true show stars and half stars for float points</div>
-            <div>if true show messages for each star</div>
-            <div>Array of messages for each star</div>
-          </div>
-        </div>
+        <tabs-help
+          class="h-mt-md"
+          :properties="helpTopics.properties"
+          :events="helpTopics.events"
+        />
       </div>
       <div class="col-auto">
         <list-help>
@@ -84,10 +66,15 @@
 <script>
 
 import viewport from '../../../components/others/viewport'
+import helpTopics from './help'
 
 export default {
   data () {
     return {
+      helpTopics: {
+        properties: [],
+        events: []
+      },
       rating1: 3,
       rating2: 3.5,
       ex1: `
@@ -136,6 +123,10 @@ export default {
 }
 `
     }
+  },
+  mounted () {
+    this.helpTopics.properties = helpTopics.properties
+    this.helpTopics.events = helpTopics.events
   },
   methods: {
     goToElement (refName) {

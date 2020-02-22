@@ -50,7 +50,7 @@
         <comp-code class="h-mt-lg" title="Date Picker" :code="datepicker" :script="datepickerScript"
           javascript
         >
-          <div class="flex flex-column">
+          <div class="column">
             <h-date-picker v-model="datepickerModel"/>
             <div class="h-mt-sm">
               your date is: {{datepickerString}}
@@ -62,7 +62,7 @@
         <comp-code class="h-mt-lg" title="Time Picker" :code="timepicker" :script="timepickerScript"
           javascript
         >
-          <div class="flex flex-column">
+          <div class="column">
             <h-time-picker v-model="timepickerModel"/>
             <div class="h-mt-sm">
               your time is: {{timepickerString}}
@@ -128,11 +128,11 @@ export default {
       timepickerModel: new Date(),
       timepickerString: moment(new Date()).format('HH:mm'),
       dateInput: `
-<div class="flex flex-column full-width">
-  <div class="flex flex-items-center">
-    <div class="col-6">
-      <h-input v-model="dateInputModel"></h-input>
-    </div>
+<div class="row wrap align-items-center">
+  <div class="col-auto" style="min-width: 100px; max-width: 400px; ">
+    <h-input dense v-model="dateInputModel"></h-input>
+  </div>
+  <div class="col-auto h-ml-sm">
     <h-date-time-dialog v-model="date" mode="date"/>
   </div>
 </div>
@@ -155,12 +155,12 @@ export default {
 }
 `,
       timeInput: `
-<div class="flex flex-column full-width">
-  <div class="flex flex-items-center">
-    <div class="col-6">
-      <h-input v-model="timeInputModel"></h-input>
-    </div>
-    <h-date-time-dialog v-model="time" mode="time"/>
+<div class="row wrap align-items-center">
+  <div class="col-auto" style="min-width: 100px; max-width: 400px; ">
+    <h-input dense v-model="timeInputModel"></h-input>
+  </div>
+  <div class="col-auto h-ml-sm">
+    <h-date-time-dialog class="h-ml-sm" v-model="time" mode="time"/>
   </div>
 </div>
 `,
@@ -182,14 +182,14 @@ export default {
 }
 `,
       dateTimeInput: `
-<div class="flex flex-column full-width">
-  <div class="flex flex-items-center">
-    <div class="col-6">
-      <h-input v-model="dateTimeInputModel"></h-input>
-    </div>
-    <h-date-time-dialog v-model="datetime" mode="datetime"/>
+<div class="row wrap align-items-center">
+  <div class="col-auto" style="min-width: 100px; max-width: 400px; ">
+    <h-input dense v-model="dateTimeInputModel"></h-input>
   </div>
-</div>  
+  <div class="col-auto h-ml-sm">
+    <h-date-time-dialog class="h-ml-sm" v-model="datetime" mode="datetime"/>
+  </div>
+</div>
 `,
       dateTimeInputScript: `
 import moment from 'moment'
@@ -209,12 +209,12 @@ export default {
 }
 `,
       datepicker: `
-<div class="flex flex-column">
+<div class="column">
   <h-date-picker v-model="datepickerModel"/>
   <div class="h-mt-sm">
     your date is: {{datepickerString}}
   </div>
-</div>      
+</div>    
 `,
       datepickerScript: `
 import moment from 'moment'
@@ -234,12 +234,12 @@ export default {
 }    
 `,
       timepicker: `
-<div class="flex flex-column">
+<div class="column">
   <h-time-picker v-model="timepickerModel"/>
   <div class="h-mt-sm">
     your time is: {{timepickerString}}
   </div>
-</div>      
+</div>   
 `,
       timepickerScript: `
 import moment from 'moment'

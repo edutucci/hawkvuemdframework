@@ -72,71 +72,71 @@ const mxButtons = {
       fabButtons: `
 <div>
   <h-btn fab bg-color="bg-primary" size="xl">
-    <h-fa-icon icon="fas fa-envelope"  text-color="text-white" size="32px"/>
+    <h-icon icon="fas fa-envelope"  text-color="text-white" size="32px"/>
   </h-btn>
-  <h-btn fab bg-color="bg-primary" text-color="text-white" size="xl">
-    <h-fa-icon icon="fab fa-github"  text-color="text-white" size="32px"/>
+  <h-btn fab bg-color="bg-primary" size="xl">
+    <h-icon icon="fab fa-github"  text-color="text-white" size="32px"/>
   </h-btn>
-  <h-btn fab bg-color="bg-primary" text-color="text-white" size="xl">
-    <h-fa-icon icon="fas fa-map-marker-alt"  text-color="text-white" size="32px"/>
+  <h-btn fab bg-color="bg-primary" size="xl">
+    <h-icon icon="fas fa-map-marker-alt"  text-color="text-white" size="32px"/>
   </h-btn>
-  <h-btn fab bg-color="bg-primary" text-color="text-white" size="xl">
-    <h-fa-icon icon="fas fa-shopping-cart"  text-color="text-white" size="32px"/>
+  <h-btn fab bg-color="bg-primary" size="xl">
+    <h-icon icon="fas fa-shopping-cart"  text-color="text-white" size="32px"/>
   </h-btn>
-  <h-btn fab bg-color="bg-primary" text-color="text-white" size="xl">
-    <h-fa-icon icon="fas fa-plane"  text-color="text-white" size="32px"/>
+  <h-btn fab bg-color="bg-primary" size="xl">
+    <h-icon icon="fas fa-plane"  text-color="text-white" size="32px"/>
   </h-btn>
 </div>
 <div>
   <h-btn fab bg-color="bg-primary" size="sm">
-    <h-fa-icon icon="fas fa-envelope"  text-color="text-white"/>
+    <h-icon icon="fas fa-envelope"  text-color="text-white"/>
   </h-btn>
-  <h-btn fab bg-color="bg-primary" text-color="text-white" size="sm">
-    <h-fa-icon icon="fab fa-github"  text-color="text-white"/>
+  <h-btn fab bg-color="bg-primary" size="sm">
+    <h-icon icon="fab fa-github"  text-color="text-white"/>
   </h-btn>
-  <h-btn fab bg-color="bg-primary" text-color="text-white" size="sm">
-    <h-fa-icon icon="fas fa-map-marker-alt"  text-color="text-white"/>
+  <h-btn fab bg-color="bg-primary" size="sm">
+    <h-icon icon="fas fa-map-marker-alt"  text-color="text-white"/>
   </h-btn>
-  <h-btn fab bg-color="bg-primary" text-color="text-white" size="sm">
-    <h-fa-icon icon="fas fa-shopping-cart"  text-color="text-white"/>
+  <h-btn fab bg-color="bg-primary" size="sm">
+    <h-icon icon="fas fa-shopping-cart" text-color="text-white"/>
   </h-btn>
-  <h-btn fab bg-color="bg-primary" text-color="text-white" size="sm">
-    <h-fa-icon icon="fas fa-plane"  text-color="text-white"/>
+  <h-btn fab bg-color="bg-primary" size="sm">
+    <h-icon icon="fas fa-plane"  text-color="text-white"/>
   </h-btn>
 </div>
 `,
       btnSizes: `
 <div>
-  <h-btn bgcolor="bg-primary" textcolor="text-white" text="xs" size="xs"/>
-  <h-btn bgcolor="bg-primary" textcolor="text-white" text="sm" size="sm"/>
-  <h-btn bgcolor="bg-primary" textcolor="text-white" text="md" size="md"/>
-  <h-btn bgcolor="bg-primary" textcolor="text-white" text="lg" size="lg"/>
-  <h-btn bgcolor="bg-primary" textcolor="text-white" text="xl" size="xl"/>
+  <h-btn bg-color="bg-primary" text-color="text-white" text="xs" size="xs"/>
+  <h-btn bg-color="bg-primary" text-color="text-white" text="sm" size="sm"/>
+  <h-btn bg-color="bg-primary" text-color="text-white" text="md" size="md"/>
+  <h-btn bg-color="bg-primary" text-color="text-white" text="lg" size="lg"/>
+  <h-btn bg-color="bg-primary" text-color="text-white" text="xl" size="xl"/>
 </div>
 
 <div>
-  <h-btn rounded bgcolor="bg-primary" textcolor="text-white" text="xs" size="xs"/>
-  <h-btn rounded bgcolor="bg-primary" textcolor="text-white" text="sm" size="sm"/>
-  <h-btn rounded bgcolor="bg-primary" textcolor="text-white" text="md" size="md"/>
-  <h-btn rounded bgcolor="bg-primary" textcolor="text-white" text="lg" size="lg"/>
-  <h-btn rounded bgcolor="bg-primary" textcolor="text-white" text="xl" size="xl"/>
+  <h-btn rounded bg-color="bg-primary" text-color="text-white" text="xs" size="xs"/>
+  <h-btn rounded bg-color="bg-primary" text-color="text-white" text="sm" size="sm"/>
+  <h-btn rounded bg-color="bg-primary" text-color="text-white" text="md" size="md"/>
+  <h-btn rounded bg-color="bg-primary" text-color="text-white" text="lg" size="lg"/>
+  <h-btn rounded bg-color="bg-primary" text-color="text-white" text="xl" size="xl"/>
 </div>
 
 <div>
-  <h-btn fab bgcolor="bg-primary" size="xs">
-    <h-fa-icon icon="fas fa-envelope"  textcolor="text-white"/>
+  <h-btn fab bg-color="bg-primary" size="xs">
+    <h-icon icon="fas fa-envelope"  text-color="text-white"/>
   </h-btn>
-  <h-btn fab bgcolor="bg-primary" textcolor="text-white" size="sm">
-    <h-fa-icon icon="fab fa-github"  textcolor="text-white"/>
+  <h-btn fab bg-color="bg-primary" size="sm">
+    <h-icon icon="fab fa-github"  text-color="text-white"/>
   </h-btn>
-  <h-btn fab bgcolor="bg-primary" textcolor="text-white" size="md">
-    <h-fa-icon icon="fas fa-map-marker-alt"  textcolor="text-white"/>
+  <h-btn fab bg-color="bg-primary" size="md">
+    <h-icon icon="fas fa-map-marker-alt"  text-color="text-white"/>
   </h-btn>
-  <h-btn fab bgcolor="bg-primary" textcolor="text-white" size="lg">
-    <h-fa-icon icon="fas fa-shopping-cart"  textcolor="text-white"/>
+  <h-btn fab bg-color="bg-primary" size="lg">
+    <h-icon icon="fas fa-shopping-cart"  text-color="text-white"/>
   </h-btn>
-  <h-btn fab bgcolor="bg-primary" textcolor="text-white" size="xl">
-    <h-fa-icon icon="fas fa-plane"  textcolor="text-white" size="32px"/>
+  <h-btn fab bg-color="bg-primary" size="xl">
+    <h-icon icon="fas fa-plane"  text-color="text-white" size="32px"/>
   </h-btn>
 </div>
 `,
@@ -267,11 +267,11 @@ export default {
   <h-link text="github" url="https://github.com/edutucci/hawkframework"/>
 </h-btn>
 
-<h-btn outlined>
+<h-btn outlined bg-color="bg-black">
   <h-link icon="fab fa-github" text="github new window" url="https://github.com/edutucci/hawkframework" new-window/>
 </h-btn>
 
-<h-btn outlined rounded>
+<h-btn outlined rounded bg-color="bg-black">
   <h-link icon="fab fa-github" text="github new window" url="https://github.com/edutucci/hawkframework" new-window/>
 </h-btn>
 `,
@@ -288,11 +288,11 @@ export default {
   <h-link text="to this page" url="/buttons"/>
 </h-btn>
 
-<h-btn outlined>
+<h-btn outlined bg-color="bg-black">
   <h-link text="to this page" url="/buttons"/>
 </h-btn>
 
-<h-btn outlined rounded>
+<h-btn outlined rounded bg-color="bg-black">
   <h-link text="to this page" url="/buttons"/>
 </h-btn>
       `,

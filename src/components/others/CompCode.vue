@@ -1,14 +1,14 @@
 <template lang="pug">
   .flex.border.border-gray.border-radius
-    .flex.flex-column.full-width
+    .column.full-width
       .flex.h-pa-md.bg-gray100
-        .flex-1.text-bold
+        .flex-1.text-bold(@click="changePage('result')")
           | {{title}}
         .flex
           h-icon(icon="far fa-file-code" @click="changePage('result')")
           h-icon.h-ml-sm(icon="fas fa-code" @click="changePage('template')")
           h-icon.h-ml-sm(v-if="javascript" icon="fab fa-js" @click="changePage('javascript')")
-      .flex.flex-column.full-width.bg-white.position-relative
+      .column.full-width.bg-white.position-relative.scroll-x-only
         div.h-pa-sm(v-if="pageName === 'result'")
           slot
         div.position-relative(v-if="pageName === 'template'" style="min-height: 60px;")
@@ -48,6 +48,10 @@ export default {
     javascript: {
       type: Boolean,
       default: false
+    },
+    page: {
+      type: String,
+      default: 'result'
     }
   },
   data () {
@@ -58,6 +62,9 @@ export default {
     }
   },
   watch: {
+    page: function (value) {
+      this.pageName = value
+    },
     pageName: function (value) {
       switch (value) {
         case 'template':
@@ -70,6 +77,9 @@ export default {
           this.textareaCode = ''
       }
     }
+  },
+  mounted () {
+    this.pageName = this.page
   },
   methods: {
     changePage (pageName) {

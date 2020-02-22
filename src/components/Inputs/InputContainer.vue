@@ -5,71 +5,69 @@
     .column
       .col.cursor-pointer
         .row
-          .col-auto(v-if="leadingIcon && leadingIcon.length > 0")
-            .row.justify-center.align-items-center.full-height
-              .col-auto.h-ml-sm.h-mr-sm
-                h-icon(:icon="leadingIcon" :text-color="iconColor")
-          .col.position-relative(
+          .col(
+            :class="[inputContainerFieldBackgroundColor, \
+              inputContainerFieldBottomBorderColor, \
+              {'border border-radius': !filled, \
+              'border-bottom border-top-radius': filled, 'border-2': filled, \
+              }]"
           )
-            .row
-              .col(
-                :class="[inputContainerFieldBackgroundColor, \
-                  inputContainerFieldBottomBorderColor, \
-                  {'border border-radius': !filled, \
-                  'border-bottom border-top-radius': filled, 'border-2': filled, \
-                  }]"
-              )
-                .column.full-height(
-                  class="input-container"
-                  :class="[{ 'dense': dense, 'outlined': !filled, 'filled': filled }]"
+            .row(v-if="!filled")
+              .col.text-overline.text-bold.h-ml-sm(
+                  :class="[inputContainerFieldBackgroundColor, labelColor, { 'input-label-outlined': !filled } ]"
                 )
-                  .col-auto(
-                    v-if="label && label.length > 0"
-                    class="text-black"
-                    :class="[{ }]"
+                  | {{label}}
+            .row.align-items-center(
+              class="input-container"
+              :class="[{ 'dense': dense, 'outlined': !filled, 'filled': filled }]"
+            )
+              //- .col-auto(v-if="leadingIcon && leadingIcon.length > 0")
+              //-   .row.justify-center.align-items-center.full-height
+              //-     .col-auto
+              //-       h-icon(:icon="leadingIcon" :text-color="iconColor")
+
+              .col.h-ml-xs.h-mr-xs.overflow-hidden
+                .column
+                  .col.text-overline.text-bold.h-ml-xs(
+                    v-if="filled"
+                    :class="[inputContainerFieldBackgroundColor, labelColor, { 'h-mt-xs': dense } ]"
                   )
-                    .text-caption.text-bold.h-pr-xs.h-ml-md(
-                      :class="[inputContainerFieldBackgroundColor, labelColor, \
-                       { 'input-label-outlined': !filled }]"
+                    | {{label}}
+
+                  .col
+                    slot
+              .col-auto
+                .row.justify-center.align-items-center.full-height(
+                  :class="[{'input-margin-label-outlined2': !filled}]"
+                )
+                  .col-auto.input-icons-padding(v-if="errorMessage && errorMessage.length > 0")
+                    h-icon(
+                      :text-color="iconErrorTextColor"
+                      icon="fas fa-exclamation-circle"
                     )
-                      | {{label}}
-                  .col.full-height
-                    .row.align-items-center.full-height
-                      .col.h-mr-sm.h-ml-sm(
-                        :class="{ 'h-mt-xs': !filled }"
+                  .col-auto.input-icons-padding(v-if="clearable")
+                    h-icon(
+                      :text-color="iconColor"
+                      icon="fas fa-times-circle"
+                      @click="onClearable"
+                    )
+                  .col-auto.input-icons-padding(v-if="type === 'password'")
+                    h-icon(
+                      :text-color="iconColor"
+                      icon="fas fa-eye"
+                      @click="onTogglePassword"
+                    )
+                  .col-auto.input-icons-padding(v-if="trailingIcon && trailingIcon.length > 0")
+                      h-icon(
+                        :icon="trailingIcon"
+                        :text-color="iconColor"
                       )
-                        .row.align-items-center
-                          .col
-                            slot
-                      .col-auto
-                        .row.justify-center.align-items-center.full-height
-                          .col-auto.input-icons-padding(v-if="errorMessage && errorMessage.length > 0")
-                            h-icon(
-                              :text-color="iconErrorTextColor"
-                              icon="fas fa-exclamation-circle"
-                            )
-                          .col-auto.input-icons-padding(v-if="clearable")
-                            h-icon(
-                              :text-color="iconColor"
-                              icon="fas fa-times-circle"
-                              @click="onClearable"
-                            )
-                          .col-auto.input-icons-padding(v-if="type === 'password'")
-                            h-icon(
-                              :text-color="iconColor"
-                              icon="fas fa-eye"
-                              @click="onTogglePassword"
-                            )
-                          .col-auto.input-icons-padding(v-if="trailingIcon && trailingIcon.length > 0")
-                              h-icon(
-                                :icon="trailingIcon"
-                                :text-color="iconColor"
-                              )
-                          .col-auto.input-icons-padding(v-if="inputDropdown")
-                            h-icon(
-                              :text-color="iconDropdownColor"
-                              icon="fas fa-caret-down"
-                            )
+                  .col-auto.input-icons-padding(v-if="inputDropdown")
+                    h-icon(
+                      :text-color="iconDropdownColor"
+                      icon="fas fa-caret-down"
+                    )
+
       .col
         .column.h-mt-xs(
           :class="[\

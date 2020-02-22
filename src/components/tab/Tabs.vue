@@ -3,7 +3,7 @@
      <div class="column full-height">
        <div class="col-auto" :class="[compBgColor]">
          <div>
-            <h-scroll-navigator>
+            <h-scroll-navigator :icon-color="textColor">
               <div class="flex cursor-pointer">
                 <div class="color-hover h-pa-sm tab tab-horizontal flex flex-justify-center flex-items-center "
                   :class="[compBgColor, compBgColorHover, textColor, { 'active': isActive(index) }]"
