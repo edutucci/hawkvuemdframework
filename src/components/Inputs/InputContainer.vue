@@ -21,10 +21,10 @@
               class="input-container"
               :class="[{ 'dense': dense, 'outlined': !filled, 'filled': filled }]"
             )
-              //- .col-auto(v-if="leadingIcon && leadingIcon.length > 0")
-              //-   .row.justify-center.align-items-center.full-height
-              //-     .col-auto
-              //-       h-icon(:icon="leadingIcon" :text-color="iconColor")
+              .col-auto.h-ml-xs(v-if="leadingIcon && leadingIcon.length > 0")
+                .row.justify-center.align-items-center.full-height
+                  .col-auto
+                    h-icon(:icon="leadingIcon" :text-color="iconColor")
 
               .col.h-ml-xs.h-mr-xs.overflow-hidden
                 .column

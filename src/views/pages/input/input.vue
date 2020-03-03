@@ -160,7 +160,7 @@
           </div>
         </comp-code>
 
-        <div ref="select-multi-chips"/>
+        <!-- <div ref="select-multi-chips"/>
         <comp-code class="h-mt-lg" title="Multi Select Chips" :code="selectMultiChips" :script="selectMultiChipsScript"
           javascript
         >
@@ -173,7 +173,7 @@
           <div>
             chips: {{ multiselectChip }}
           </div>
-        </comp-code>
+        </comp-code> -->
 
         <div class="text-h6 h-mt-md">Search</div>
         <h-separator></h-separator>
@@ -225,7 +225,7 @@
           </h-app-toolbar>
         </comp-code>
 
-        <div class="text-h6 h-mt-md">Chips</div>
+        <!-- <div class="text-h6 h-mt-md">Chips</div>
         <h-separator></h-separator>
 
         <div ref="chip-standard"/>
@@ -242,13 +242,13 @@
           <div>
             chipsInput: {{chipsInput}}
           </div>
-        </comp-code>
+        </comp-code> -->
 
         <div class="text-h6 h-mt-md">Masks</div>
         <h-separator></h-separator>
 
         <div ref="mask-text"/>
-        <comp-code class="h-mt-lg" title="Text">
+        <comp-code class="h-mt-lg" title="Text" :code="extextmask">
           <div>
             <h-toggle v-model="masked" text="Masked?"/>
           </div>
@@ -259,7 +259,7 @@
         </comp-code>
 
         <div ref="mask-currency"/>
-        <comp-code class="h-mt-lg" title="Currency">
+        <comp-code class="h-mt-lg" title="Currency" :code="excurrencymask">
           <div>
             <h-toggle v-model="masked" text="Masked?"/>
           </div>
@@ -267,91 +267,11 @@
           <span>maskModel: {{maskModelCurrency}}</span>
         </comp-code>
 
-        <!-- <h2 class="text-primary"> Vue Properties</h2>
-        <hr>
-
-        <div class="flex">
-          <div>
-            <h3>Name</h3>
-            <div>type</div>
-            <div>placeholder</div>
-            <div>left-icon</div>
-            <div>label</div>
-            <div>error-message</div>
-            <div>helper-text</div>
-            <div>maxlength</div>
-            <div>text-counter</div>
-            <div>text-center</div>
-            <div>outlined</div>
-            <div>clearable</div>
-            <div>readonly</div>
-          </div>
-          <div class="h-pl-md">
-            <h3>Type</h3>
-            <div>String</div>
-            <div>String</div>
-            <div>String</div>
-            <div>String</div>
-            <div>String</div>
-            <div>String</div>
-            <div>Number</div>
-            <div>Number</div>
-            <div>Boolean</div>
-            <div>Boolean</div>
-            <div>Boolean</div>
-            <div>Boolean</div>
-          </div>
-          <div class="h-pl-md">
-            <h3 >Description</h3>
-            <div>Type of input. Available: text and password</div>
-            <div>Sets the placeholder for the input</div>
-            <div>Sets the icon to left of the input</div>
-            <div>Sets the label for the input</div>
-            <div>Sets the error message for the input</div>
-            <div>Sets the helper text for the input</div>
-            <div>Specifies the maximum number of character for an input</div>
-            <div>Specifies the quantity of character of the input</div>
-            <div>Sets the text align to the center</div>
-            <div>Sets the input to outlined mode</div>
-            <div>Shows the icon to clear input on right side</div>
-            <div>Input can not be modified</div>
-          </div>
-        </div>
-
-        <h2 class="text-primary"> Vue Events</h2>
-        <hr>
-
-        <div class="flex">
-          <div>
-            <h3>Name</h3>
-            <div>@onKeyDown</div>
-            <div>@onTab</div>
-            <div>@onEnter</div>
-            <div>@change(text)</div>
-          </div>
-          <div class="h-pl-md">
-            <h3>Description</h3>
-            <div>Triggered on arrow down</div>
-            <div>Triggered on Tab</div>
-            <div>Triggered on Enter</div>
-            <div>Triggered when input changes</div>
-          </div>
-        </div>
-
-        <h2 class="text-primary"> Vue Methods</h2>
-        <hr>
-
-        <div class="flex">
-          <div>
-            <h3>Name</h3>
-            <div>focus</div>
-          </div>
-          <div class="h-pl-md">
-            <h3>Description</h3>
-            <div>The input get focus</div>
-          </div>
-        </div> -->
-
+        <tabs-help
+          class="h-mt-md"
+          :properties="helpTopics.properties"
+          :events="helpTopics.events"
+        />
       </div>
       <div class="col-auto">
         <list-help>
@@ -409,11 +329,11 @@
                 <h-list-item-text title="Multi Select"/>
               </h-list-item-content>
             </h-list-item>
-            <h-list-item @click="goToElement('select-multi-chips')">
+            <!-- <h-list-item @click="goToElement('select-multi-chips')">
               <h-list-item-content>
                 <h-list-item-text title="Multi Select Chips"/>
               </h-list-item-content>
-            </h-list-item>
+            </h-list-item> -->
           </h-list>
           <h-list-header text="Search"/>
           <h-list-item @click="goToElement('search-default')">
@@ -426,12 +346,12 @@
               <h-list-item-text title="Inside Toolbar"/>
             </h-list-item-content>
           </h-list-item>
-          <h-list-header text="Chips"/>
+          <!-- <h-list-header text="Chips"/>
           <h-list-item @click="goToElement('chip-standard')">
             <h-list-item-content>
               <h-list-item-text title="Standard"/>
             </h-list-item-content>
-          </h-list-item>
+          </h-list-item> -->
           <h-list-header text="Mask"/>
           <h-list-item @click="goToElement('mask-text')">
             <h-list-item-content>
@@ -453,6 +373,7 @@
 <script>
 
 import viewport from '../../../components/others/viewport'
+import helpTopics from './help'
 import _ from 'lodash'
 
 export default {
@@ -460,6 +381,12 @@ export default {
   },
   data () {
     return {
+      // help
+      helpTopics: {
+        properties: [],
+        events: []
+      },
+
       // textfield
       typesModel: '',
       passwordModel: '',
@@ -871,7 +798,7 @@ export default {
   mounted () {
     this.loadOptions()
   },
-  methods: {
+  methods: {exsearch2
     loadOptions () {
       this.selectOptions = []
       this.selectOptions.push({ avatar: 'avatar/turtle.png', text: 'Ninja Turtle', desc: 'I kill you', value: 'Ninja Turtle' })
@@ -976,10 +903,20 @@ export default {
     }
   }
 }
+`,
+      extextmask: `
+<h-input dense input-mask :mask="['(##)##-##', '(##)###-##']" v-model="maskModelTel"
+ leading-icon="fas fa-phone" :masked="masked" clearable/>
+`,
+      excurrencymask: `
+<h-input type="currency" dense v-model="maskModelCurrency" leading-icon="fas fa-dollar-sign"
+ :masked="masked" clearable decimal="," thousands="."/>
 `
     }
   },
   mounted () {
+    this.helpTopics.properties = helpTopics.properties
+    this.helpTopics.events = helpTopics.events
     this.loadSearchOptions()
   },
   methods: {
