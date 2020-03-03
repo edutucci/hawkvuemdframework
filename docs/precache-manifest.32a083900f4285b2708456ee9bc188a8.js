@@ -1,7 +1,7 @@
 self.__precacheManifest = [
   {
-    "revision": "c5e0f14f88a828261ba01558ce2bf26f",
-    "url": "/hawkframework/fonts/fa-brands-400.c5e0f14f.woff"
+    "revision": "333bae208dc363746961b234ff6c2500",
+    "url": "/hawkframework/fonts/fa-solid-900.333bae20.woff"
   },
   {
     "revision": "feb97ae76a86c628ac229b7d774892c6",
@@ -14,22 +14,6 @@ self.__precacheManifest = [
   {
     "revision": "b27d074287ad419de299",
     "url": "/hawkframework/js/chunk-00723005.1ea55451.js"
-  },
-  {
-    "revision": "6bd964cada4b625714a53dba86a7f0d2",
-    "url": "/hawkframework/img/Rainbow-Six-Siege-3.jpg"
-  },
-  {
-    "revision": "2814b30075d3f0318322",
-    "url": "/hawkframework/js/chunk-23be55b8.9bb50651.js"
-  },
-  {
-    "revision": "0536c691e356935a2d1f9e403afd146f",
-    "url": "/hawkframework/img/landscape2.jpeg"
-  },
-  {
-    "revision": "e1bd0cd5c8977754db84",
-    "url": "/hawkframework/js/chunk-2ca94eb0.5bfbab0f.js"
   },
   {
     "revision": "4c458ebd6adfad4e06b5",
@@ -192,36 +176,48 @@ self.__precacheManifest = [
     "url": "/hawkframework/js/chunk-2d2382c1.971eec43.js"
   },
   {
-    "revision": "cbd71f58d38b2442ddbab4f1135b5764",
-    "url": "/hawkframework/img/landscape1.jpeg"
+    "revision": "6bd964cada4b625714a53dba86a7f0d2",
+    "url": "/hawkframework/img/Rainbow-Six-Siege-3.jpg"
   },
   {
     "revision": "e054a76a0ac760344b89",
     "url": "/hawkframework/js/chunk-4a687195.d83416eb.js"
   },
   {
-    "revision": "08c9fd016fceacd826c9d3df3ee6702d",
-    "url": "/hawkframework/img/hawk.jpg"
+    "revision": "0536c691e356935a2d1f9e403afd146f",
+    "url": "/hawkframework/img/landscape2.jpeg"
   },
   {
     "revision": "f73fc9f04adf36daff91",
     "url": "/hawkframework/js/chunk-633c985f.9db90e93.js"
   },
   {
-    "revision": "5643fe9a562e39e7fd0852b56a8dc83c",
-    "url": "/hawkframework/img/breakpoint.png"
+    "revision": "cbd71f58d38b2442ddbab4f1135b5764",
+    "url": "/hawkframework/img/landscape1.jpeg"
+  },
+  {
+    "revision": "1a064d0acc244999cfc8",
+    "url": "/hawkframework/js/chunk-d99fc00e.9243c545.js"
+  },
+  {
+    "revision": "08c9fd016fceacd826c9d3df3ee6702d",
+    "url": "/hawkframework/img/hawk.jpg"
   },
   {
     "revision": "419f2177562e3dd1a78a",
     "url": "/hawkframework/js/chunk-e879bbcc.59836671.js"
   },
   {
-    "revision": "c38b1d8a3923f2e7bc109f20748f9673",
-    "url": "/hawkframework/img/matchday.png"
+    "revision": "5643fe9a562e39e7fd0852b56a8dc83c",
+    "url": "/hawkframework/img/breakpoint.png"
   },
   {
     "revision": "70a0f27212d72c6158f1",
     "url": "/hawkframework/js/chunk-vendors.dfa31b7d.js"
+  },
+  {
+    "revision": "c38b1d8a3923f2e7bc109f20748f9673",
+    "url": "/hawkframework/img/matchday.png"
   },
   {
     "revision": "85f6e62467cc2220ef49ea9cff881ace",
@@ -248,8 +244,8 @@ self.__precacheManifest = [
     "url": "/hawkframework/imgIcons/png/logo_linux.png"
   },
   {
-    "revision": "8c660e1602d2b5ab9413",
-    "url": "/hawkframework/js/app.81830c65.js"
+    "revision": "34c7af4da4ea1e45b9ba",
+    "url": "/hawkframework/js/app.69405e50.js"
   },
   {
     "revision": "90d76b2104c252a61fa2e82f24938cdc",
@@ -260,20 +256,16 @@ self.__precacheManifest = [
     "url": "/hawkframework/imgsamples/sidebarMenuIconsText.png"
   },
   {
-    "revision": "17826a183a0411e5e852d37c5a2b4b4c",
-    "url": "/hawkframework/imgsamples/sidebarMenuCustomColor.png"
-  },
-  {
     "revision": "7b9568e6389b1f8ae0902cd39665fc1e",
     "url": "/hawkframework/img/fa-regular-400.7b9568e6.svg"
   },
   {
-    "revision": "7db7e2e64f130e5255f56f26edb5cfdb",
-    "url": "/hawkframework/imgIcons/png/logo_gmail.png"
+    "revision": "17826a183a0411e5e852d37c5a2b4b4c",
+    "url": "/hawkframework/imgsamples/sidebarMenuCustomColor.png"
   },
   {
-    "revision": "bf6e9bcc2b75923b03a83308e5a94d28",
-    "url": "/hawkframework/img/Nallah_Sindh.jpg"
+    "revision": "7db7e2e64f130e5255f56f26edb5cfdb",
+    "url": "/hawkframework/imgIcons/png/logo_gmail.png"
   },
   {
     "revision": "a9c4bb7348f42626454c988dbde1d0a0",
@@ -284,8 +276,12 @@ self.__precacheManifest = [
     "url": "/hawkframework/img/fa-solid-900.c2801fb4.svg"
   },
   {
-    "revision": "21dc4ca41b54b6c4eef0171c02b429d6",
+    "revision": "de6b2df1e246c3cf72ec4994a0719673",
     "url": "/hawkframework/index.html"
+  },
+  {
+    "revision": "bf6e9bcc2b75923b03a83308e5a94d28",
+    "url": "/hawkframework/img/Nallah_Sindh.jpg"
   },
   {
     "revision": "2c90d0ddce551d5b73b617986dbeb5cc",
@@ -298,10 +294,6 @@ self.__precacheManifest = [
   {
     "revision": "46564b024a864207d1e67bcf386dcb37",
     "url": "/hawkframework/img/align-content.png"
-  },
-  {
-    "revision": "b6dc730dbe0e94af0cc6e7b72134c78d",
-    "url": "/hawkframework/img/TangerineSalad.jpg"
   },
   {
     "revision": "95cde46fda0e3ed922406a3cdf1132d7",
@@ -336,12 +328,12 @@ self.__precacheManifest = [
     "url": "/hawkframework/imgIcons/png/warning-shield.png"
   },
   {
-    "revision": "7f7b6246ba6840fb91c5e27530982be8",
-    "url": "/hawkframework/imgIcons/svg/calculator_dollar.svg"
-  },
-  {
     "revision": "88ee4c118eb22097cc22d400e5ec8eb3",
     "url": "/hawkframework/imgIcons/svg/bag_currency.svg"
+  },
+  {
+    "revision": "7f7b6246ba6840fb91c5e27530982be8",
+    "url": "/hawkframework/imgIcons/svg/calculator_dollar.svg"
   },
   {
     "revision": "566f703c01af2a41aa4ec429a46d2ddd",
@@ -368,8 +360,8 @@ self.__precacheManifest = [
     "url": "/hawkframework/robots.txt"
   },
   {
-    "revision": "58e2012bf372ceecfd6be07628717609",
-    "url": "/hawkframework/img/GrilledEggPlant.jpg"
+    "revision": "7186c60cccf73f9f7e91e841e91649e3",
+    "url": "/hawkframework/imgIcons/png/help-icon.png"
   },
   {
     "revision": "20a35d3ca7b00ef66162d1f5244cc405",
@@ -380,11 +372,19 @@ self.__precacheManifest = [
     "url": "/hawkframework/img/clock.png"
   },
   {
-    "revision": "c1a866ec0e04a5e1915b41fcf261457c",
-    "url": "/hawkframework/fonts/fa-regular-400.c1a866ec.eot"
+    "revision": "58e2012bf372ceecfd6be07628717609",
+    "url": "/hawkframework/img/GrilledEggPlant.jpg"
   },
   {
-    "revision": "8c660e1602d2b5ab9413",
+    "revision": "b6dc730dbe0e94af0cc6e7b72134c78d",
+    "url": "/hawkframework/img/TangerineSalad.jpg"
+  },
+  {
+    "revision": "0b147322389eb084c6ba474db6d282c1",
+    "url": "/hawkframework/avatar/folder_open.png"
+  },
+  {
+    "revision": "34c7af4da4ea1e45b9ba",
     "url": "/hawkframework/css/app.d39228dc.css"
   },
   {
@@ -392,12 +392,12 @@ self.__precacheManifest = [
     "url": "/hawkframework/css/chunk-00723005.b4cb591e.css"
   },
   {
-    "revision": "2814b30075d3f0318322",
-    "url": "/hawkframework/css/chunk-23be55b8.35d7bf2e.css"
+    "revision": "e054a76a0ac760344b89",
+    "url": "/hawkframework/css/chunk-4a687195.5dd6d6bc.css"
   },
   {
-    "revision": "e1bd0cd5c8977754db84",
-    "url": "/hawkframework/css/chunk-2ca94eb0.435145df.css"
+    "revision": "f73fc9f04adf36daff91",
+    "url": "/hawkframework/css/chunk-633c985f.464235f7.css"
   },
   {
     "revision": "0bff33a5fd7ec390235476b4859747a0",
@@ -416,16 +416,16 @@ self.__precacheManifest = [
     "url": "/hawkframework/fonts/fa-brands-400.5063b105.eot"
   },
   {
-    "revision": "333bae208dc363746961b234ff6c2500",
-    "url": "/hawkframework/fonts/fa-solid-900.333bae20.woff"
+    "revision": "c5e0f14f88a828261ba01558ce2bf26f",
+    "url": "/hawkframework/fonts/fa-brands-400.c5e0f14f.woff"
+  },
+  {
+    "revision": "1a064d0acc244999cfc8",
+    "url": "/hawkframework/css/chunk-d99fc00e.4b71ad57.css"
   },
   {
     "revision": "44d537ab79f921fde5a28b2c1636f397",
     "url": "/hawkframework/fonts/fa-solid-900.44d537ab.woff2"
-  },
-  {
-    "revision": "e054a76a0ac760344b89",
-    "url": "/hawkframework/css/chunk-4a687195.5dd6d6bc.css"
   },
   {
     "revision": "cccc9d29470e879e40eb70249d9a2705",
@@ -440,12 +440,8 @@ self.__precacheManifest = [
     "url": "/hawkframework/img/90minute.png"
   },
   {
-    "revision": "f73fc9f04adf36daff91",
-    "url": "/hawkframework/css/chunk-633c985f.464235f7.css"
-  },
-  {
-    "revision": "c4f508e7c4f01a9eeba7f08155cde04e",
-    "url": "/hawkframework/fonts/fa-regular-400.c4f508e7.woff"
+    "revision": "c1a866ec0e04a5e1915b41fcf261457c",
+    "url": "/hawkframework/fonts/fa-regular-400.c1a866ec.eot"
   },
   {
     "revision": "419f2177562e3dd1a78a",
@@ -454,6 +450,10 @@ self.__precacheManifest = [
   {
     "revision": "70a0f27212d72c6158f1",
     "url": "/hawkframework/css/chunk-vendors.f62e6726.css"
+  },
+  {
+    "revision": "c4f508e7c4f01a9eeba7f08155cde04e",
+    "url": "/hawkframework/fonts/fa-regular-400.c4f508e7.woff"
   },
   {
     "revision": "f5f2566b93e89391da4db79462b8078b",
@@ -470,10 +470,6 @@ self.__precacheManifest = [
   {
     "revision": "b7f3560da1363c394df6bcf6c99b69f0",
     "url": "/hawkframework/avatar/rambo.jpg"
-  },
-  {
-    "revision": "0b147322389eb084c6ba474db6d282c1",
-    "url": "/hawkframework/avatar/folder_open.png"
   },
   {
     "revision": "0a62929d2817e6310d6c084a1c902ceb",
