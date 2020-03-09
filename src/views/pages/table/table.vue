@@ -1,14 +1,6 @@
 <template>
   <h-page-content padding>
-    <!--
-      ADD
-        - Table titles
-        - Change name for field in column config
-        - Custom text for column name
-        - custom header
-        - sticky header ok
-        - cell separator
-    -->
+
     <div class="row">
       <div class="col">
         <h1>Table</h1>

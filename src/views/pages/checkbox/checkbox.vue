@@ -1,9 +1,5 @@
 <template>
   <h-page-content padding>
-    <!--
-      ADD
-      - adicionar a property color para background quando estiver checked
-    -->
 
     <div class="row">
       <div class="col">
@@ -34,10 +30,10 @@
         >
           <div class="column">
             <div class="col">
-              Checkbox disabled
+              <h-checkbox v-model="termAccepted" text="I agree" readonly/>
             </div>
             <div class="col">
-              <h-checkbox v-model="termAccepted" text="I agree" readonly/>
+              Your model is {{termAccepted}}
             </div>
           </div>
 
@@ -48,9 +44,6 @@
           javascript
         >
           <div class="column">
-            <div class="col">
-              Option checked
-            </div>
             <div class="col">
               <h-checkbox v-model="ckChecked" text="Item checked" :checked="ckChecked"/>
             </div>

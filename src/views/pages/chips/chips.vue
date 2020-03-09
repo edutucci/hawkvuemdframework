@@ -1,11 +1,6 @@
 <template>
   <h-page-content padding>
 
-    <!--
-      BUG
-      - closable nao esta funcionando.
-    -->
-
     <div class="row">
       <div class="col">
         <div class="text-h4">CHIPS</div>

@@ -14,7 +14,7 @@
 import { mixin as clickaway } from 'vue-clickaway'
 
 export default {
-  name: 'Modal',
+  name: 'HDialog',
   mixins: [ clickaway ],
   components: {
   },

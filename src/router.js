@@ -53,7 +53,8 @@ export default new Router({
         { path: '/rating', component: () => import('./views/pages/rating/rating') },
         { path: '/palleteColor', component: () => import('./views/guide/MaterialDesignColor') },
         { path: '/scroll', component: () => import('./views/pages/scroll/scroll') },
-        { path: '/parallax', component: () => import('./views/pages/parallax/parallax') }
+        { path: '/parallax', component: () => import('./views/pages/parallax/parallax') },
+        { path: '/buglist', component: () => import('./views/bugList.vue') }
       ]
     },
     {

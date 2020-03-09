@@ -1,6 +1,6 @@
 <template lang="pug">
   .collapsible-item.flex.flex-1.flex-items-center.flex-wrap(
-    @click="onClick"
+    @click.stop="onClick"
     class="color-hover h-pa-sm"
     :class="[textColor, compBgColor, compBgColorHover]"
   )

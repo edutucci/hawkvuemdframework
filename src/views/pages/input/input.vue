@@ -1,17 +1,6 @@
 <template>
   <h-page-content padding>
 
-    <!--
-      Add
-      - add event @rightIconClick for aditional input icon click
-      - add rightIcon property
-
-      Bugs
-        - model is not working in input-search ok
-        - input chip is not working
-        - input mask for text and search is not working
-    -->
-
     <div class="row">
       <div class="col">
         <div class="text-h4">Input</div>

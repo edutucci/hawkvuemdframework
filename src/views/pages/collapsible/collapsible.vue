@@ -2,11 +2,6 @@
   <h-page-content padding>
     <div class="text-h4">Collapsible</div>
 
-    <!--
-      BUGS
-        - Adicionar evento click no h-collapsible-item
-    -->
-
     <div class="row">
       <div class="col">
         <div ref="col-standard"/>

@@ -1,10 +1,6 @@
 <template>
   <h-page-content padding>
-    <!--
-      ADD
-      - adicionar a property color para background quando estiver checked
-      - verificar se disabled esta funcionando.
-    -->
+
     <div class="row">
       <div class="col">
 
@@ -21,6 +17,22 @@
             <div class="col">
               <h-radio v-model="typeBoolean" text="Yes" :value="true"/>
               <h-radio v-model="typeBoolean" text="No" :value="false"/>
+            </div>
+            <div class="col">
+              I like of: {{ typeBoolean }}
+            </div>
+          </div>
+
+        </comp-code>
+
+        <div ref="rd-readonly"/>
+        <comp-code class="h-mt-lg" title="Readonly" :code="rbboolean" :script="rbbooleanScript"
+          javascript
+        >
+          <div class="column">
+            <div class="col">
+              <h-radio v-model="typeBoolean" text="Disabled" :value="true" readonly/>
+               <h-radio v-model="typeBoolean" text="Active radio" :value="false"/>
             </div>
             <div class="col">
               I like of: {{ typeBoolean }}

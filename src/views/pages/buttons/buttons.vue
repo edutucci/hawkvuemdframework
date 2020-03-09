@@ -1,12 +1,6 @@
 <template>
   <h-page-content padding>
 
-    <!--
-      BUGS
-      - Quando habilitar outlined junto com rounded remover e a cor de fundo
-        e criar uma borda com a cor de fundo
-    -->
-
     <div class="row">
       <div class="col">
         <div class="text-h4">Buttons</div>

@@ -1,11 +1,5 @@
 <template>
   <h-page-content padding>
-    <!--
-      Bugs
-      - property checked has no reactivity
-      - add readonly property
-      - add css for readonly property
-    -->
 
     <div class="row">
       <div class="col">
@@ -27,6 +21,32 @@
             </div>
           </div>
 
+        </comp-code>
+
+        <div ref="tg-readonly"/>
+        <comp-code class="h-mt-lg" title="Readonly" :code="ckboolean" :script="ckbooleanScript"
+          javascript
+        >
+          <div class="column">
+            <div class="col">
+              <h-toggle v-model="termAccepted" text="I agree" readonly/>
+            </div>
+            <div class="col">
+              Your option is: {{ termAccepted }}
+            </div>
+          </div>
+
+        </comp-code>
+
+        <comp-code class="h-mt-lg" title="Option checked">
+          <div class="column">
+            <div class="col">
+              <h-toggle v-model="ckChecked" text="Item checked"/>
+            </div>
+            <div class="col">
+              Your model is {{ckChecked}}
+            </div>
+          </div>
         </comp-code>
 
         <div ref="tg-list"/>
@@ -152,6 +172,7 @@ import helpTopics from './help'
 export default {
   data () {
     return {
+      ckChecked: true,
       termAccepted: false,
       colors: [],
       checkedNames2: ['Maça', 'Uva', 'Abacaxi'],

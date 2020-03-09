@@ -2,12 +2,6 @@
   <h-page-content padding>
     <div class="text-h4">Dialog</div>
 
-    <!--
-      Bugs
-      - change name to dialog
-      - add modal property(dont close dialog if clicks outside)
-    -->
-
     <comp-code class="h-mt-lg" title="Modal Content" :code="modalContent" :script="modalContentScript"
       javascript
     >
@@ -15,7 +9,7 @@
         <h-btn contained text="Modal Content" @click="openModal=true"/>
       </div>
 
-      <h-dialog v-model="openModal" title="Modal Content" show-title-bar>
+      <h-dialog modal v-model="openModal" title="Modal Content" show-title-bar>
         <div class="flex flex-column flex-justify-center" style="width: 400px;">
           <div class="h-pa-sm">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
@@ -126,7 +120,7 @@ export default {
   <h-btn contained text="Modal Content" @click="openModal=true"/>
 </div>
 
-<h-modal v-model="openModal" title="Modal Content" show-title-bar>
+<h-dialog v-model="openModal" title="Modal Content" show-title-bar>
   <div class="flex flex-column flex-justify-center" style="width: 400px;">
     <div class="h-pa-sm">
       Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
@@ -135,7 +129,7 @@ export default {
       <h-btn contained text="Close" @click="openModal=false"/>
     </div>
   </div>
-</h-modal>
+</h-dialog>
 `,
       modalContentScript: `
 export default {
@@ -151,7 +145,7 @@ export default {
   <h-btn contained text="Confirm" @click="openModal2=true"/>
 </div>
 
-<h-modal v-model="openModal2" title="Do you want do delete file" show-title-bar>
+<h-dialog v-model="openModal2" title="Do you want do delete file" show-title-bar>
   <div class="flex flex-column flex-justify-center h-pa-md">
     <div class="flex flex-justify-center">
       If you delete this file. It will not be possible to undo this action.
@@ -164,7 +158,7 @@ export default {
       <h-btn class="h-pl-sm" contained text="Cancel" @click="openModal2=false"/>
     </div>
   </div>
-</h-modal>
+</h-dialog>
 `,
       modalConfirmScript: `
 export default {

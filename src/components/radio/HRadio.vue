@@ -6,9 +6,9 @@
         :name="value"
         :checked="radioState"
         @change="onChange"
-        :disabled="disabled"
+        :disabled="readonly"
       )
-      span.checkmark.border.border-2(:class="[bordercolor, {disabled:disabled}]")
+      span.checkmark.border.border-2(:class="[bordercolor, {disabled:readonly}]")
         .radio-ball(:class="[bgcolor]")
 
 </template>
@@ -28,7 +28,7 @@ export default {
       type: Boolean,
       default: false
     },
-    disabled: {
+    readonly: {
       type: Boolean,
       default: false
     },
