@@ -103,7 +103,7 @@ export default {
         let file = ev.target.files[i]
         await this.addDropFile(file)
       }
-      this.$emit('addFiles', this.fileList)
+      this.emitAddedFiles()
     },
     async dropHandler (ev) {
       // console.log('File(s) dropped')
@@ -135,8 +135,8 @@ export default {
           }
         }
       }
-      console.log('this.fileList.length: ' + this.fileList.length)
-      this.$emit('addFiles', this.fileList)
+      // console.log('this.fileList.length: ' + this.fileList.length)
+      this.emitAddedFiles()
     }
   }
 }

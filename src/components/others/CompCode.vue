@@ -6,7 +6,7 @@
           | {{title}}
         .flex
           h-icon(icon="far fa-file-code" @click="changePage('result')")
-          h-icon.h-ml-sm(icon="fas fa-code" @click="changePage('template')")
+          h-icon.h-ml-sm(v-if="!hideCode" icon="fas fa-code" @click="changePage('template')")
           h-icon.h-ml-sm(v-if="javascript" icon="fab fa-js" @click="changePage('javascript')")
       .column.full-width.bg-white.position-relative.scroll-x-only
         div.h-pa-sm(v-if="pageName === 'result'")
@@ -52,6 +52,10 @@ export default {
     page: {
       type: String,
       default: 'result'
+    },
+    hideCode: {
+      type: Boolean,
+      default: false
     }
   },
   data () {

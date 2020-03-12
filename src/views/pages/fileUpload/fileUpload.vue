@@ -5,13 +5,11 @@
         <div class="text-h4">FILE UPLOAD</div>
 
         <div ref="upload-file"/>
-        <comp-code class="h-mt-lg" title="Files" :code="ex1" :script="ex1Script"
-          javascript
-        >
+        <comp-code class="h-mt-lg" title="Files" :code="ex1">
           <h-file-upload
-            extensions="image/png"
             :multiple="true"
-            @addFiles="onChange"
+            @addFiles="addFiles"
+            @removeFiles="removeFiles"
           />
         </comp-code>
 
@@ -22,25 +20,28 @@
           <h-image-upload
           :multiple="true"
           :max-size="maxsize"
-          @addFiles="onChange"
           />
         </comp-code>
 
         <div ref="upload-nodrop"/>
-        <comp-code class="h-mt-lg" title="Area Drop Hidden" :code="ex3" :script="ex3Script"
-          javascript
-        >
+        <comp-code class="h-mt-lg" title="Area Drop Hidden" :code="ex3">
           <h-file-upload
             :multiple="true"
-            @addFiles="onChange"
             :allow-drop="false"
           />
           <h-image-upload
             class="h-mt-sm"
             :multiple="true"
-            @addFiles="onChange"
             :allow-drop="false"
           />
+        </comp-code>
+
+        <div ref="vuejs-sample"/>
+        <comp-code class="h-mt-lg" title="Vuejs Sample" :code="vuejsSample" page="template" :script="vuejsSampleScript" javascript>
+        </comp-code>
+
+        <div ref="express-server"/>
+        <comp-code class="h-mt-lg" title="Express Server" :script="expressServer" page="javascript" hide-code javascript>
         </comp-code>
 
         <tabs-help
@@ -68,6 +69,17 @@
                 <h-list-item-text title="Area Drop Hidden"></h-list-item-text>
               </h-list-item-content>
             </h-list-item>
+            <h-list-header text="Example"/>
+            <h-list-item @click="goToElement('vuejs-sample')">
+              <h-list-item-content>
+                <h-list-item-text title="Vuejs"></h-list-item-text>
+              </h-list-item-content>
+            </h-list-item>
+            <h-list-item @click="goToElement('express-server')">
+              <h-list-item-content>
+                <h-list-item-text title="Express"></h-list-item-text>
+              </h-list-item-content>
+            </h-list-item>
           </h-list>
         </list-help>
       </div>
@@ -80,6 +92,7 @@
 
 import viewport from '../../../components/others/viewport'
 import helpTopics from './help'
+import axios from 'axios'
 
 export default {
   data () {
@@ -92,57 +105,20 @@ export default {
       maxsize: 1024 * 500,
       ex1: `
 <h-file-upload
-  extensions="image/png"
   :multiple="true"
-  @addFiles="onChange"
 />
-`,
-      ex1Script: `
-export default {
-  data () {
-    return {
-      fileList: []
-    }
-  },
-  methods: {
-    onChange (fileList) {
-      console.log('onChange fired')
-      fileList.forEach(file => {
-        console.log('FileName: ' + file.file.name + ' - FileSize:' + file.file.size)
-        console.log('File Type: ' + file.file.type)
-        console.log('FileSizeString: ' + file.fileSize)
-        let imageInfo = (file.imageData) ? 'has image data' : 'no image data'
-        console.log('ImageData: ' + imageInfo)
-      })
-    }
-  }
-}
 `,
       ex2: `
 <h-image-upload
   :multiple="true"
   :max-size="maxsize"
-  @addFiles="onChange"
 />
 `,
       ex2Script: `
 export default {
   data () {
     return {
-      fileList: [],
       maxsize: 1024 * 500
-    }
-  },
-  methods: {
-    onChange (fileList) {
-      console.log('onChange fired')
-      fileList.forEach(file => {
-        console.log('FileName: ' + file.file.name + ' - FileSize:' + file.file.size)
-        console.log('File Type: ' + file.file.type)
-        console.log('FileSizeString: ' + file.fileSize)
-        let imageInfo = (file.imageData) ? 'has image data' : 'no image data'
-        console.log('ImageData: ' + imageInfo)
-      })
     }
   }
 }
@@ -150,17 +126,33 @@ export default {
       ex3: `
 <h-file-upload
   :multiple="true"
-  @addFiles="onChange"
   :allow-drop="false"
 />
 <h-image-upload
   class="h-mt-sm"
   :multiple="true"
-  @addFiles="onChange"
   :allow-drop="false"
 />
 `,
-      ex3Script: `
+      vuejsSample: `
+<template>
+  <h-page-content padding>
+    <div class="row">
+      <div class="col">
+        <h-file-upload
+          :multiple="true"
+          @addFiles="addFiles"
+          @removeFiles="removeFiles"
+        />
+      </div>
+    </div>
+    <h-btn bg-color="bg-primary" text-color="text-white" text="Submit" @click="submitFile()"/>
+  </h-page-content>
+
+</template>
+`,
+      vuejsSampleScript: `
+import axios from 'axios'
 export default {
   data () {
     return {
@@ -168,18 +160,128 @@ export default {
     }
   },
   methods: {
-    onChange (fileList) {
-      console.log('onChange fired')
-      fileList.forEach(file => {
-        console.log('FileName: ' + file.file.name + ' - FileSize:' + file.file.size)
-        console.log('File Type: ' + file.file.type)
-        console.log('FileSizeString: ' + file.fileSize)
-        let imageInfo = (file.imageData) ? 'has image data' : 'no image data'
-        console.log('ImageData: ' + imageInfo)
+    addFiles (fileList) {
+      this.fileList = fileList
+    },
+    removeFiles (fileList) {
+      this.fileList = fileList
+    },
+    submitFile () {
+      console.log('submit file:', this.fileList.length)
+      if (this.fileList.length > 0) {
+        if (this.fileList.length === 1) {
+          this.uploadSingleFile()
+        } else {
+          this.uploadMultiplesFiles()
+        }
+      }
+    },
+    uploadSingleFile () {
+      let formData = new FormData()
+      formData.append('file', this.fileList[0])
+
+      console.log('upload a single file')
+      axios.post('http://localhost:3000/single-file',
+        formData,
+        { headers: { 'Content-Type': 'multipart/form-data' } }
+      ).then(async function (response) {
+        console.log('SUCCESS!!')
+      }).catch(function () {
+        console.log('FAILURE!!')
+      })
+    },
+    uploadMultiplesFiles () {
+      let formData = new FormData()
+
+      for (var i = 0; i < this.fileList.length; i++) {
+        let file = this.fileList[i]
+        formData.append('files[' + i + ']', file)
+      }
+
+      axios.post('http://localhost:3000/multiple-file',
+        formData,
+        { headers: { 'Content-Type': 'multipart/form-data' } }
+      ).then(async function (response) {
+        console.log('SUCCESS!!')
+      }).catch(function () {
+        console.log('FAILURE!!')
       })
     }
   }
 }
+`,
+      expressServer: `
+const express = require('express');
+const fileUpload = require('express-fileupload');
+const cors = require('cors');
+const bodyParser = require('body-parser');
+const morgan = require('morgan');
+const _ = require('lodash');
+
+const app = express();
+
+// enable files upload
+app.use(fileUpload());
+
+//add other middleware
+app.use(cors());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(morgan('dev'));
+
+// upoad single file
+app.post('/single-file', function(req, res) {
+    try {
+        if (!req.files || Object.keys(req.files).length === 0) {
+          return res.status(400).send('No files were uploaded.');
+        }
+    
+        // The name of the input field (i.e. "sampleFile") is used to retrieve the uploaded file
+        let sampleFile = req.files.file;
+    
+        // Use the mv() method to place the file somewhere on your server
+        sampleFile.mv('./uploads/' + sampleFile.name, function(err) {
+          if (err)
+            return res.status(500).send(err);
+          res.send('File uploaded!');
+        });
+    } catch (err) {
+        res.status(500).send(err);
+    }
+});
+
+// upoad single file
+app.post('/multiple-file', function(req, res) {
+  try {
+      if (!req.files || Object.keys(req.files).length === 0) {
+        return res.status(400).send('No files were uploaded.');
+      }
+  
+      // The name of the input field (i.e. "sampleFile") is used to retrieve the uploaded file
+      Object.keys(req.files).forEach(key => {
+        let file = req.files[key];
+
+        // Use the mv() method to place the file somewhere on your server
+        file.mv('./uploads/' + file.name, function(err) {
+          if (err)
+            return res.status(500).send(err);
+        });
+      });
+      res.send('Files uploaded!');
+  } catch (err) {
+    res.status(500).send(err);
+  }
+});
+
+//make uploads directory static
+app.use(express.static('uploads'));
+
+//start app 
+const port = process.env.PORT || 3000;
+
+app.listen(port, () =>
+  console.log('App is listening on port: ', port)
+);
 `
     }
   },
@@ -191,14 +293,67 @@ export default {
     goToElement (refName) {
       viewport.goToElement(this.$refs[refName])
     },
-    onChange (fileList) {
-      console.log('onChange fired')
-      fileList.forEach(file => {
-        console.log('FileName: ' + file.file.name + ' - FileSize:' + file.file.size)
-        console.log('File Type: ' + file.file.type)
-        console.log('FileSizeString: ' + file.fileSize)
-        let imageInfo = (file.imageData) ? 'has image data' : 'no image data'
-        console.log('ImageData: ' + imageInfo)
+    addFiles (fileList) {
+      console.log('fileList added: ', fileList)
+      this.fileList = fileList
+    },
+    removeFiles (fileList) {
+      console.log('fileList removed: ', fileList)
+      this.fileList = fileList
+    },
+    submitFile () {
+      console.log('submit file:', this.fileList.length)
+      if (this.fileList.length > 0) {
+        if (this.fileList.length === 1) {
+          this.uploadSingleFile()
+        } else {
+          this.uploadMultiplesFiles()
+        }
+      }
+    },
+    uploadSingleFile () {
+      let formData = new FormData()
+      formData.append('file', this.fileList[0])
+
+      console.log('upload a single file')
+      // axios.post('http://localhost:1337/memorialAPI/uploadMemorial',
+      axios.post('http://localhost:3000/single-file',
+        formData,
+        { headers: { 'Content-Type': 'multipart/form-data' } }
+      ).then(async function (response) {
+        console.log('SUCCESS!!')
+      }).catch(function () {
+        console.log('FAILURE!!')
+      })
+    },
+    uploadMultiplesFiles () {
+      let formData = new FormData()
+
+      for (var i = 0; i < this.fileList.length; i++) {
+        let file = this.fileList[i]
+        formData.append('files[' + i + ']', file)
+      }
+
+      axios.post('http://localhost:3000/multiple-file',
+        formData,
+        { headers: { 'Content-Type': 'multipart/form-data' } }
+      ).then(async function (response) {
+        console.log('SUCCESS!!')
+      }).catch(function () {
+        console.log('FAILURE!!')
+      })
+    },
+    uploadMemorial () {
+      let formData = new FormData()
+      formData.append('pdf', this.fileList[0])
+
+      axios.post('http://localhost:1337/memorialAPI/uploadMemorial',
+        formData,
+        { headers: { 'Content-Type': 'multipart/form-data' } }
+      ).then(async function (response) {
+        console.log('SUCCESS!!')
+      }).catch(function () {
+        console.log('FAILURE!!')
       })
     }
   }

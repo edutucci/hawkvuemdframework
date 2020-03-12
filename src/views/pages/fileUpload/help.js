@@ -25,7 +25,11 @@ export default {
   events: [
     {
       name: '@addFiles',
-      description: 'Triggered when the user drag and drop files or select files. A files list is sent.'
+      description: 'Triggered when the user drag and drop files or select files. A file list is sent.'
+    },
+    {
+      name: '@removeFiles',
+      description: 'Triggered when the user removes a file. A file list is sent.'
     }
   ]
 }

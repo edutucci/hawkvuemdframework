@@ -52,6 +52,7 @@ export default {
             imageData: undefined,
             fileSize: fileSize
           })
+          //  this.fileList.push(file)
         }
       }
     },
@@ -75,9 +76,23 @@ export default {
         }
       })
     },
+    emitAddedFiles () {
+      let localFileList = []
+      this.fileList.forEach(element => {
+        localFileList.push(element.file)
+      })
+      this.$emit('addFiles', localFileList)
+    },
+    emitRemovedFiles () {
+      let localFileList = []
+      this.fileList.forEach(element => {
+        localFileList.push(element.file)
+      })
+      this.$emit('removeFiles', localFileList)
+    },
     removeFile (fileIndex) {
       this.$delete(this.fileList, fileIndex)
-      this.$emit('@change', this.fileList)
+      this.emitRemovedFiles()
     },
     calculateFileSize (size) {
       // console.log('size vale: ' + size)
