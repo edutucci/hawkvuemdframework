@@ -63,7 +63,7 @@ export default {
     {
       name: 'use-mask',
       type: 'String',
-      description: 'Allows the user to type text using mask.'
+      description: 'Allows the user to type text using mask. Works with type text and search.'
     }
   ],
 
