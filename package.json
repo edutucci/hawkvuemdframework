@@ -32,7 +32,6 @@
   },
   "dependencies": {
     "axios": "^0.19.2",
-    "inputmask-core": "^2.2.0",
     "lodash": "^4.17.10",
     "moment": "^2.22.2",
     "pug": "^2.0.3",

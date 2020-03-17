@@ -236,23 +236,77 @@
         <div class="text-h6 h-mt-md">Masks</div>
         <h-separator></h-separator>
 
-        <div ref="mask-text"/>
-        <comp-code class="h-mt-lg" title="Text" :code="extextmask">
-          <div>
-            <h-toggle v-model="masked" text="Masked?"/>
-          </div>
+        <html-table class="h-mt-lg" bordered cell-separator>
+          <thead>
+            <tr class="text-left">
+              <th>Token</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>#</td>
+              <td>{pattern: /\d/}</td>
+            </tr>
+            <tr>
+              <td>X</td>
+              <td>{pattern: /[0-9a-zA-Z]/}</td>
+            </tr>
+            <tr>
+              <td>S</td>
+              <td>{pattern: /[a-zA-Z]/}</td>
+            </tr>
+            <tr>
+              <td>A</td>
+              <td>{pattern: /[a-zA-Z]/, transform: v => v.toLocaleUpperCase()}</td>
+            </tr>
+            <tr>
+              <td>a</td>
+              <td>{pattern: /[a-zA-Z]/, transform: v => v.toLocaleLowerCase()}</td>
+            </tr>
+            <tr>
+              <td>!</td>
+              <td>{escape: true}</td>
+            </tr>
+          </tbody>
+        </html-table>
 
-          <h-input dense input-mask :mask="['(##)##-##', '(##)###-##']" v-model="maskModelTel" leading-icon="fas fa-phone" :masked="masked" clearable/>
+        <div>
+          <h-toggle class="h-mt-lg" v-model="masked" text="Masked?"/>
+        </div>
+
+        <div ref="mask-text"/>
+        <comp-code class="h-mt-lg" title="Text (US Phone)" :code="extextmask">
+          <h-input label="US Phone" dense use-mask :mask="'+1 (###) ###-####'"
+            v-model="maskModelTel" leading-icon="fas fa-phone"
+            :masked="masked" clearable/>
           <span>maskModel: {{maskModelTel}}</span>
+
+        </comp-code>
+
+        <div ref="mask-search"/>
+        <comp-code class="h-mt-lg" title="Search(Dynamic Mask)" :code="extextsearch">
+          <h-input class="h-mt-sm"
+            type="search" label="Phone"
+            dense use-mask clearable
+            masked
+            :mask="['###-###-####', '###-####-####']"
+            v-model="searchPhone" leading-icon="fas fa-phone"
+            @onFilter="onSearchPhone"
+            :options="phOptions"
+          />
+          <span>maskModel: {{searchPhone}}</span>
 
         </comp-code>
 
         <div ref="mask-currency"/>
         <comp-code class="h-mt-lg" title="Currency" :code="excurrencymask">
-          <div>
-            <h-toggle v-model="masked" text="Masked?"/>
-          </div>
-          <h-input type="currency" dense v-model="maskModelCurrency" leading-icon="fas fa-dollar-sign" :masked="masked" clearable decimal="," thousands="."/>
+          <h-input type="currency" dense
+            v-model="maskModelCurrency"
+            leading-icon="fas fa-dollar-sign"
+            :masked="masked" clearable
+            decimal="," thousands="."
+          />
           <span>maskModel: {{maskModelCurrency}}</span>
         </comp-code>
 
@@ -344,7 +398,12 @@
           <h-list-header text="Mask"/>
           <h-list-item @click="goToElement('mask-text')">
             <h-list-item-content>
-              <h-list-item-text title="Text"/>
+              <h-list-item-text title="Text(US Phone)"/>
+            </h-list-item-content>
+          </h-list-item>
+          <h-list-item @click="goToElement('mask-search')">
+            <h-list-item-content>
+              <h-list-item-text title="Search(Dynamic Mask)"/>
             </h-list-item-content>
           </h-list-item>
           <h-list-item @click="goToElement('mask-currency')">
@@ -431,16 +490,19 @@ export default {
       // search
       search1: '',
       search2: '',
+      searchPhone: '',
       searchOptions: [],
+      phoneOptions: [],
       shoptions: [],
       shoptions2: [],
+      phOptions: [],
 
       // chips
       chipsInput: ['tucci', 'cleiton', 'carlos', 'pablo', 'luis'],
 
       // mask
       masked: false,
-      maskModelTel: '19691967924',
+      maskModelTel: '+1 (202) 555-0134',
       maskModelCurrency: '20000',
 
       // code preview
@@ -894,8 +956,23 @@ export default {
 }
 `,
       extextmask: `
-<h-input dense input-mask :mask="['(##)##-##', '(##)###-##']" v-model="maskModelTel"
- leading-icon="fas fa-phone" :masked="masked" clearable/>
+<h-input label="US Phone" dense use-mask :mask="['(##)##-##', '(##)###-##']"
+  v-model="maskModelTel" leading-icon="fas fa-phone"
+  :masked="masked" clearable
+/>
+<span>maskModel: {{maskModelTel}}</span>
+`,
+      extextsearch: `
+<h-input class="h-mt-sm"
+  type="search" label="Dynamic Phone"
+  dense use-mask clearable
+  masked
+  :mask="['###-###-####', '###-####-####']"
+  v-model="searchPhone" leading-icon="fas fa-phone"
+  @onFilter="onSearchPhone"
+  :options="phOptions"
+/>
+<span>maskModel: {{searchPhone}}</span>    
 `,
       excurrencymask: `
 <h-input type="currency" dense v-model="maskModelCurrency" leading-icon="fas fa-dollar-sign"
@@ -907,6 +984,7 @@ export default {
     this.helpTopics.properties = helpTopics.properties
     this.helpTopics.events = helpTopics.events
     this.loadSearchOptions()
+    this.loadPhoneOptions()
   },
   methods: {
     goToElement (refName) {
@@ -944,8 +1022,15 @@ export default {
       this.searchOptions.push({ img: 'avatar/folder_open.png', text: 'Photos 3', desc: 'Dez 12, 2017', value: 'Photos' })
       this.searchOptions.push({ icon: 'fas fa-volleyball-ball', text: 'Attractions 3', desc: 'Lets go to the movie?', value: 'Attractions' })
     },
+    loadPhoneOptions () {
+      this.phoneOptions = []
+      this.phoneOptions.push({ icon: 'fas fa-phone', text: '800-713-8353', desc: 'sales 1', value: '800-713-8353' })
+      this.phoneOptions.push({ icon: 'fas fa-phone', text: '972-713-6622', desc: 'sales 2', value: '972-713-6622' })
+      this.phoneOptions.push({ icon: 'fas fa-phone', text: '972-713-8364', desc: 'sales 3', value: '972-713-8364' })
+      this.phoneOptions.push({ icon: 'fas fa-phone', text: '020 7183-8750', desc: 'mobile phone', value: '020 7183-8750' })
+    },
     onSearch (query) {
-      console.log('query vale:', query)
+      // console.log('query vale:', query)
       this.shoptions = []
       if (query.length === 0) {
         this.shoptions = _.cloneDeep(this.searchOptions)
@@ -959,6 +1044,15 @@ export default {
         this.shoptions2 = _.cloneDeep(this.searchOptions)
       } else {
         this.shoptions2 = this.searchOptions.filter(opt => _.includes(opt.text.toLowerCase(), query.toLowerCase()))
+      }
+    },
+    onSearchPhone (query) {
+      // console.log('query phone vale:', query)
+      this.phOptions = []
+      if (query.length === 0) {
+        this.phOptions = _.cloneDeep(this.phoneOptions)
+      } else {
+        this.phOptions = this.phoneOptions.filter(opt => _.includes(opt.text, query))
       }
     }
   }

@@ -76,7 +76,7 @@
               :placeholder="containerPlaceholder"
               :focused="focused"
               :chips="chips"
-              :input-mask="inputMask"
+              :use-mask="useMask"
               :mask="mask"
               :tokens="tokens"
               :decimal="decimal"
@@ -219,7 +219,7 @@ export default {
       this.makeInputContainerColors()
     },
     masked: function (newValue) {
-      if (this.inputMask) {
+      if (this.useMask) {
         this.changeModelMask(this.inputDisplay)
       } else if (this.type === 'currency') {
         this.changeModelCurrencyMask()
@@ -269,7 +269,7 @@ export default {
       if (this.type === 'text' || this.type === 'search' || this.type === 'password') {
         this.inputDisplay = this.value
       } else if (localInputDisplay) {
-        if (this.inputMask) {
+        if (this.useMask) {
           this.inputDisplay = this.value
           // this.changeModelMask()
         } else if (this.type === 'currency') {
@@ -339,7 +339,7 @@ export default {
       }
     },
     changeModelMask (value) {
-      console.log('entering changeModelMask:', value)
+      // console.log('entering changeModelMask:', value)
       // console.log('this.inputDisplay:', this.inputDisplay)
       // let modelValue = this.inputDisplay
       // if (!this.masked) {
@@ -348,13 +348,16 @@ export default {
       // }
       // console.log('modeValue:', modelValue)
       // this.$emit('input', modelValue)
-      console.log('changeModelMask:', value)
+      // console.log('changeModelMask:', value)
       this.inputDisplay = value
       let localvalue = masker(value, this.mask, this.masked, this.tokens)
       if (localvalue !== this.lastValue) {
         this.lastValue = localvalue
         this.$emit('input', localvalue)
         // console.log('mask field on input', localvalue)
+        if (this.type === 'search') {
+          this.onInputSearch(localvalue)
+        }
       }
     },
     changeModelCurrencyMask () {
@@ -366,8 +369,7 @@ export default {
       this.inputDisplay = format(value, this.$props)
     },
     onInput (value) {
-      console.log('on input:', value, this.dense)
-      if (this.inputMask) {
+      if (this.useMask && (this.type === 'text' || this.type === 'search')) {
         this.changeModelMask(value)
       } else if (this.type === 'text' || this.type === 'password') {
         this.$emit('input', value)

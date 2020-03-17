@@ -1,6 +1,6 @@
 <template lang="pug">
   input.input-field(
-    v-if="inputMask"
+    v-if="useMask"
     :id="inputId"
     v-focus="inputFocus"
     :class="[{'text-center': textCenter, 'readonly': readonly}, filled]"
@@ -11,8 +11,11 @@
     @input="onInput($event.target.value)"
     @focus="onInputFocus()"
     @blur="onInputBlur()"
+    @keydown.down="onKeyDown"
     @keydown.tab="onTab"
     @keyup.enter="onEnter"
+    @keyup.esc="onEscape"
+    @keyup.40="onArrowDown"
     @click="onClick"
   )
   input.input-field(

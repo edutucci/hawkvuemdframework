@@ -61,7 +61,7 @@ export default {
       description: 'Adds an text after the input.'
     },
     {
-      name: 'input-mask',
+      name: 'use-mask',
       type: 'String',
       description: 'Allows the user to type text using mask.'
     }

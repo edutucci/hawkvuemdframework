@@ -104,7 +104,7 @@ export default {
       type: Boolean,
       default: false
     },
-    inputMask: {
+    useMask: {
       type: Boolean,
       default: false
     },
