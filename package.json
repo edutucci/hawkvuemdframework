@@ -1,15 +1,48 @@
 {
-  "name": "hawkframework",
-  "version": "0.1.0",
-  "private": true,
+  "name": "hawktest",
+  "version": "0.0.12",
+  "private": false,
+  "main": "./dist/hawktest.common.js",
+  "keywords": [
+    "Vue",
+    "Material",
+    "Vue Components",
+    "Material Design",
+    "Vue Material"
+  ],
+  "license": "MIT",
+  "files": [
+    "dist/*",
+    "src/*",
+    "public/*",
+    "*.json",
+    "*.js"
+  ],
   "scripts": {
-    "serve": "vue-cli-service serve",
+    "dev": "vue-cli-service serve --open",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "build-lib": "vue-cli-service build --target lib --name hawktest ./src/index.js",
+    "lint": "vue-cli-service lint",
+    "copy-unix": "cp ./src/theme/*.* ./dist/",
+    "copy-win": "copy src\\theme\\*.* dist",
+    "build-lib-unix": "yarn build-lib && yarn copy-unix",
+    "build-lib-win:": "yarn build-lib && yarn copy-win"
   },
   "dependencies": {
+    "axios": "^0.19.2",
     "core-js": "^3.6.4",
-    "vue": "^2.6.11"
+    "moment": "^2.24.0",
+    "pug": "^2.0.4",
+    "pug-plain-loader": "^1.0.0",
+    "stylus": "^0.54.7",
+    "stylus-loader": "^3.0.2",
+    "vue": "^2.6.11",
+    "vue-clickaway": "^2.2.2",
+    "vue-dragscroll": "^2.0.1",
+    "vue-focus": "^2.1.0",
+    "vue-prismjs": "^1.2.0",
+    "vue-resize-directive": "^1.2.0",
+    "vue-router": "^3.1.6"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^4.2.0",

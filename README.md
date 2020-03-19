@@ -1,4 +1,4 @@
-# hawkframework
+# vuelibrary
 
 ## Project setup
 ```

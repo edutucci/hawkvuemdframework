@@ -1,0 +1,224 @@
+/*
+  BACKGROUND COLOR
+*/
+
+.bg-transparent
+  background-color transparent
+
+.bg-white
+  background-color $white
+
+.bg-black
+  background-color $black
+
+.bg-primary
+  background-color $primary
+
+.bg-secondary
+  background-color $secondary
+
+.bg-positive
+  background-color $positive
+
+.bg-negative
+  background-color $negative
+
+.bg-info
+  background-color $info
+
+.bg-warning
+  background-color $warning
+
+.bg-gray
+  background-color lightgray
+
+/*
+  BACKGROUND COLOR HOVER
+*/
+
+// .bg-white:hover.btn,
+// .bg-white:hover.tab, .bg-black:hover.tab,
+// .bg-white:hover.menu-item, .bg-black:hover.menu-item,
+// .bg-white:hover.collapsible-item
+.bg-white-hover:hover.color-hover,
+.bg-white-flat-hover:hover.color-hover
+  background-color $whitehover
+
+.bg-black-flat-hover:hover.color-hover
+  background-color: white
+  color: black
+
+.bg-primary-hover:hover.color-hover
+  background-color $primaryhover
+
+.bg-primary-flat-hover:hover.color-hover
+  background-color $primaryflathover
+
+.bg-secondary-hover:hover.color-hover
+  background-color $secondaryhover
+
+.bg-secondary-flat-hover:hover.color-hover
+  background-color $secondaryflathover
+
+.bg-positive-hover:hover.color-hover
+  background-color $positivehover
+
+.bg-positive-flat-hover:hover.color-hover
+  background-color $positiveflathover
+
+.bg-negative-hover:hover.color-hover
+  background-color: $negativehover
+
+.bg-negative-flat-hover:hover.color-hover
+  background-color: $negativeflathover
+
+.bg-info-hover:hover.color-hover
+  background-color $infohover
+
+.bg-info-flat-hover:hover.color-hover
+  background-color $infoflathover
+
+.bg-warning-hover:hover.color-hover
+  background-color $warninghover
+
+.bg-warning-flat-hover:hover.color-hover
+  background-color $warningflathover
+
+/*
+  TEXT COLOR
+*/
+
+.text-white
+  color $white
+
+.text-black
+  color $black
+
+.text-primary
+  color $primary
+
+.text-secondary
+  color $secondary
+
+.text-positive
+  color $positive
+
+.text-negative
+  color $negative
+
+.text-info
+  color $info
+
+.text-warning
+  color $warning
+
+.text-gray
+  color gray
+
+/*
+  COMPONENTS
+*/
+
+/*
+  BUTTON
+*/
+
+.btn.contained.disabled
+  color: gray
+  background-color: lightgray
+
+.btn.textbutton
+  background-color: none
+  border-radius: 5px
+  // border: none;
+
+.btn.textbutton.disabled
+  background-color: lightgray
+  color: gray
+
+.btn.outlined.disabled
+  color: gray
+  border: 1px solid gray
+
+.btngroup.outlinedbtn {
+  border: 1px solid lightgray;
+  border-radius: 5px;
+}
+
+
+/*
+  TEXTFIELD
+*/
+
+$edit-controls-nofocus = gray
+$error-message-text = #E53935
+$input-bg-filled = #F5F5F5
+
+// .input-container.filled,
+input.readonly
+  background-color $input-bg-filled
+
+.input-container.primary.noborder
+  border  none
+
+.input-container.nofocus.noborder
+  border  none
+
+.input-container.primary
+  border-bottom 2px solid $primary
+
+.control-label.primary
+  color $primary
+
+.control-label.nofocus
+  color $edit-controls-nofocus
+
+.input-container-label.nofocus
+  color: #616161
+
+.input-container-label.primary
+  color black
+
+/*
+  ACTIVE ITEM
+*/
+
+.bg-white.menu-item.active, .menu-item.active
+    background-color $whitehover
+
+.bg-modal
+  background-color:  #F2F2F2
+
+/*
+  ACTIVE TAB BORDER COLOR
+*/
+
+$activebordersize = 6px
+$activeborderflatsize = 2px
+
+.tab.tab-horizontal.active
+  border-bottom $activebordersize solid $white
+
+.tab.tab-horizontal.active.bg-white
+  border-bottom $activebordersize solid $black
+
+.tab.tab-vertical.active
+  border-right  $activebordersize solid $white
+
+.tab.tab-vertical.active.bg-white
+  border-right  $activebordersize solid $black
+
+/*
+TOGGLE
+*/
+
+input:checked + .slider {
+  background-color: $primaryhover
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(14px)
+  -ms-transform: translateX(14px)
+  transform: translateX(14px)
+  background-color: $primary
+}
