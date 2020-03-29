@@ -24,21 +24,25 @@
         </comp-code>
 
         <div ref="tg-readonly"/>
-        <comp-code class="h-mt-lg" title="Readonly" :code="ckboolean" :script="ckbooleanScript"
+        <comp-code class="h-mt-lg" title="Readonly" :code="ckreadonly" :script="ckreadonlyScript"
           javascript
         >
           <div class="column">
             <div class="col">
-              <h-toggle v-model="termAccepted" text="I agree" readonly/>
+              <h-toggle v-model="typeReadOnly" text="Disabled" value="ad" readonly/>
+              <h-toggle v-model="typeReadOnly" text="Action1" value="a1"/>
+              <h-toggle v-model="typeReadOnly" text="Action2" value="a2"/>
             </div>
             <div class="col">
-              Your option is: {{ termAccepted }}
+              Model: {{ typeReadOnly }}
             </div>
           </div>
 
         </comp-code>
 
-        <comp-code class="h-mt-lg" title="Option checked">
+        <comp-code class="h-mt-lg" title="Option checked" :code="ckOptChecked" :script="ckOptCheckedScript"
+          javascript
+        >
           <div class="column">
             <div class="col">
               <h-toggle v-model="ckChecked" text="Item checked"/>
@@ -146,6 +150,11 @@
                 <h-list-item-text title="Boolean"></h-list-item-text>
               </h-list-item-content>
             </h-list-item>
+            <h-list-item @click="goToElement('tg-readonly')">
+              <h-list-item-content>
+                <h-list-item-text title="Readonly"></h-list-item-text>
+              </h-list-item-content>
+            </h-list-item>
             <h-list-item @click="goToElement('tg-list')">
               <h-list-item-content>
                 <h-list-item-text title="List"></h-list-item-text>
@@ -174,6 +183,7 @@ export default {
     return {
       ckChecked: true,
       termAccepted: false,
+      typeReadOnly: ['a2'],
       colors: [],
       checkedNames2: ['Maça', 'Uva', 'Abacaxi'],
       checkedNumbers: [1, 3],
@@ -200,7 +210,47 @@ export default {
     return {
       termAccepted: false
     }
-  }    
+  }
+`,
+      ckreadonly: `
+<div class="column">
+  <div class="col">
+    <h-toggle v-model="typeReadOnly" text="Disabled" value="ad" readonly/>
+    <h-toggle v-model="typeReadOnly" text="Action1" value="a1"/>
+    <h-toggle v-model="typeReadOnly" text="Action2" value="a2"/>
+  </div>
+  <div class="col">
+    Model: {{ typeReadOnly }}
+  </div>
+</div>
+`,
+      ckreadonlyScript: `
+export default {
+  data () {
+    return {
+      typeReadOnly: ['a2']
+    }
+  }
+}      
+`,
+      ckOptChecked: `
+<div class="column">
+  <div class="col">
+    <h-toggle v-model="ckChecked" text="Item checked"/>
+  </div>
+  <div class="col">
+    Your model is {{ckChecked}}
+  </div>
+</div>
+`,
+      ckOptCheckedScript: `
+export default {
+  data () {
+    return {
+      ckChecked: true
+    }
+  }
+}
 `,
       cklist: `
 <div class="column">

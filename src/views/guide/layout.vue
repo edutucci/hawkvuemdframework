@@ -5,16 +5,16 @@
     <div class="text-h4 h-mt-md">Defining your layout</div>
 
     <comp-code title="Basic Layout" class="h-mt-md" :code="layout1">
-      <h-app-toolbar>
-        <h-app-toolbar-container bgcolor="bg-primary" textcolor="text-white">
-          <h-app-toolbar-navigation icon="fas fa-bars" textcolor="text-white" @click="showDrawer = true"/>
-          <h-app-toolbar-title title="Basic Layout"/>
+      <h-app-toolbar bg-color="bg-primary">
+        <h-app-toolbar-container>
+          <h-app-toolbar-navigation text-color="text-white"/>
+          <h-app-toolbar-title class="text-white">Basic Layout</h-app-toolbar-title>
           <h-app-toolbar-action>
-            <h-btn contained transparent>
-              <h-link url="/" icon="fas fa-globe" textcolor="text-white"/>
+            <h-btn fab size="sm" bg-color="bg-transparent">
+              <h-link url="#" icon="fas fa-globe" text-color="text-white"/>
             </h-btn>
-            <h-btn contained transparent>
-              <h-link url="https://github.com/edutucci/hawkframework" icon="fab fa-github" textcolor="text-white" new-window/>
+            <h-btn fab size="sm" bg-color="bg-transparent">
+              <h-link url="https://github.com/edutucci/hawkframework" icon="fab fa-github" text-color="text-white" new-window/>
             </h-btn>
           </h-app-toolbar-action>
         </h-app-toolbar-container>
@@ -60,20 +60,20 @@ export default {
       layout1: `
 <h-main-body>
   <h-page-header>
-    <h-app-toolbar>
-      <h-app-toolbar-container bgcolor="bg-primary" textcolor="text-white">
-        <h-app-toolbar-navigation icon="fas fa-bars" textcolor="text-white" @click="showDrawer = true"/>
-        <h-app-toolbar-title title="HawkFramework 1.0.12"/>
-        <h-app-toolbar-action>
-          <h-btn contained transparent>
-            <h-link url="/" icon="fas fa-globe" textcolor="text-white"/>
-          </h-btn>
-          <h-btn contained transparent>
-            <h-link url="https://github.com/edutucci/hawkframework" icon="fab fa-github" textcolor="text-white" new-window/>
-          </h-btn>
-        </h-app-toolbar-action>
-      </h-app-toolbar-container>
-    </h-app-toolbar>
+      <h-app-toolbar bg-color="bg-primary">
+        <h-app-toolbar-container>
+          <h-app-toolbar-navigation text-color="text-white"/>
+          <h-app-toolbar-title class="text-white">Basic Layout</h-app-toolbar-title>
+          <h-app-toolbar-action>
+            <h-btn fab size="sm" bg-color="bg-transparent">
+              <h-link url="#" icon="fas fa-globe" text-color="text-white"/>
+            </h-btn>
+            <h-btn fab size="sm" bg-color="bg-transparent">
+              <h-link url="https://github.com/edutucci/hawkframework" icon="fab fa-github" text-color="text-white" new-window/>
+            </h-btn>
+          </h-app-toolbar-action>
+        </h-app-toolbar-container>
+      </h-app-toolbar>
   </h-page-header>
 
   <h-main-page>

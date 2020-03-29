@@ -324,8 +324,12 @@ export default {
   </h-tabs>
 </div>
 
-<div class="border border-primary border-radius h-mt-md" style="height: 200px;">
-  <h-tabs v-model="horTab1" bg-color="bg-secondary" text-color="text-white">
+<div class="border border-primary border-radius h-mt-md"
+  style="height: 200px;"
+>
+  <h-tabs v-model="horTab1" bg-color="bg-secondary"
+    text-color="text-white"
+  >
     <h-tab name="games" text="GAMES">
       <div class="row align-items-center full-height">
         <div class="col-auto text-center h-ma-sm">
@@ -335,10 +339,12 @@ export default {
         <div class="col h-pl-sm">
           <div class="row justify-center">
             <div class="col-auto">
-              <h-image src="img/game-soccer.jpeg" style="width:150px;height:100px"/>
+              <h-image src="img/game-soccer.jpeg"
+                style="width:150px;height:100px"/>
             </div>
             <div class="col-auto h-ml-sm">
-              <h-image src="img/Rainbow-Six-Siege-3.jpg" style="width:150px;height:100px"/>
+              <h-image src="img/Rainbow-Six-Siege-3.jpg"
+                style="width:150px;height:100px"/>
             </div>
           </div>
         </div>
@@ -353,7 +359,8 @@ export default {
         <div class="col h-pl-sm">
           <div class="row justify-center">
             <div class="col-auto">
-              <h-image src="img/bookhtmlcss3.jpeg" style="width:150px;height:100px"/>
+              <h-image src="img/bookhtmlcss3.jpeg"
+                style="width:150px;height:100px"/>
             </div>
           </div>
         </div>
@@ -368,7 +375,8 @@ export default {
         <div class="col h-pl-sm">
           <div class="row justify-center">
             <div class="col-auto">
-            <h-youtube-video :width="240" :height="140" src="https://www.youtube.com/embed/ZSexhaiMKJE"/>
+            <h-youtube-video :width="240" :height="140"
+              src="https://www.youtube.com/embed/ZSexhaiMKJE"/>
             </div>
           </div>
         </div>
@@ -388,8 +396,12 @@ export default {
 }
 `,
       exVerTabs: `
-<div class="border border-primary border-radius" style="height: 150px;">
-  <h-tabs vertical v-model="verTab" bg-color="bg-primary" text-color="text-white">
+<div class="border border-primary border-radius"
+  style="height: 150px;"
+>
+  <h-tabs vertical v-model="verTab" bg-color="bg-primary"
+    text-color="text-white"
+  >
     <h-tab name="home" text="HOME">
       <div class="row align-items-center full-height">
         <div class="col-auto h-ma-sm">
@@ -437,8 +449,12 @@ export default {
   </h-tabs>
 </div>
 
-<div class="border border-primary border-radius h-mt-md" style="height: 150px;">
-  <h-tabs vertical v-model="verTab1" bg-color="bg-secondary" text-color="text-white">
+<div class="border border-primary border-radius h-mt-md"
+  style="height: 150px;"
+>
+  <h-tabs vertical v-model="verTab1" bg-color="bg-secondary"
+    text-color="text-white"
+  >
     <h-tab name="games" text="GAMES">
       <div class="row align-items-center full-height">
         <div class="col-auto text-center h-ma-sm">
@@ -448,10 +464,12 @@ export default {
         <div class="col h-pl-sm">
           <div class="row justify-center">
             <div class="col-auto">
-              <h-image src="img/game-soccer.jpeg" style="width:150px;height:100px"/>
+              <h-image src="img/game-soccer.jpeg"
+                style="width:150px;height:100px"/>
             </div>
             <div class="col-auto h-ml-sm">
-              <h-image src="img/Rainbow-Six-Siege-3.jpg" style="width:150px;height:100px"/>
+              <h-image src="img/Rainbow-Six-Siege-3.jpg"
+                style="width:150px;height:100px"/>
             </div>
           </div>
         </div>
@@ -466,7 +484,8 @@ export default {
         <div class="col h-pl-sm">
           <div class="row justify-center">
             <div class="col-auto">
-              <h-image src="img/bookhtmlcss3.jpeg" style="width:150px;height:100px"/>
+              <h-image src="img/bookhtmlcss3.jpeg"
+                style="width:150px;height:100px"/>
             </div>
           </div>
         </div>
@@ -481,7 +500,8 @@ export default {
         <div class="col h-pl-sm">
           <div class="row justify-center">
             <div class="col-auto">
-            <h-youtube-video :width="240" :height="140" src="https://www.youtube.com/embed/ZSexhaiMKJE"/>
+            <h-youtube-video :width="240" :height="140"
+              src="https://www.youtube.com/embed/ZSexhaiMKJE"/>
             </div>
           </div>
         </div>

@@ -49,7 +49,7 @@ export default {
     }
   },
   mounted () {
-    this.defineSize()
+    this.defineSize(this.size)
   },
   watch: {
     size: function (value) {

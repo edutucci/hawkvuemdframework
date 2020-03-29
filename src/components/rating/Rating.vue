@@ -48,7 +48,7 @@ export default {
     if (this.currentRating < 0) {
       this.currentRating = 0
     }
-    this.fillRatings(this.currentRating)
+    this.fillRatings(this.currentRating, this.halfpoints)
   },
   watch: {
     messages: function (newValue) {
@@ -131,7 +131,7 @@ export default {
       }
       this.currentRatingIndex = index
       this.clearRatings()
-      this.fillRatings(this.currentRating)
+      this.fillRatings(this.currentRating, this.halfpoints)
       this.$emit('input', this.currentRating)
     }
   }

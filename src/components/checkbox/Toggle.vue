@@ -31,7 +31,7 @@ export default {
       default: false
     },
     model: {
-      type: [String, Array, Boolean],
+      type: [Array, Boolean],
       default: undefined
     }
   },

@@ -44,7 +44,7 @@ export default {
   },
   mounted () {
     this.inputDisplay = this.value || 0
-    this.changeBackgroundColor()
+    this.changeBackgroundColor(this.bgColor)
   },
   methods: {
     changeBackgroundColor (bgColor) {

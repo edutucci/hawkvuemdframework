@@ -258,8 +258,12 @@ export default {
       Page title
     </h-app-toolbar-title>
     <h-app-toolbar-action>
-      <h-btn fab size="sm" bg-color="bg-transparent" left-icon="fas fa-heart" text-color="text-white"/>
-      <h-btn fab size="sm" bg-color="bg-transparent" left-icon="fas fa-search" text-color="text-white"/>
+      <h-btn fab size="sm" bg-color="bg-transparent" 
+        left-icon="fas fa-heart" text-color="text-white"
+      />
+      <h-btn fab size="sm" bg-color="bg-transparent"
+        left-icon="fas fa-search" text-color="text-white"
+      />
       <h-btn
           fab
           size="sm"
@@ -302,8 +306,12 @@ export default {
       My big music collection to sing
     </h-app-toolbar-title>
     <h-app-toolbar-action>
-      <h-btn fab size="sm" bg-color="bg-transparent" left-icon="fas fa-heart" text-color="text-white"/>
-      <h-btn fab size="sm" bg-color="bg-transparent" left-icon="fas fa-search" text-color="text-white"/>
+      <h-btn fab size="sm" bg-color="bg-transparent"
+        left-icon="fas fa-heart" text-color="text-white"
+      />
+      <h-btn fab size="sm" bg-color="bg-transparent"
+       left-icon="fas fa-search" text-color="text-white"
+      />
       <h-btn
         fab
         size="sm"
@@ -324,8 +332,11 @@ export default {
       Page title
     </h-app-toolbar-title>
     <h-app-toolbar-action>
-      <h-btn fab size="sm" bg-color="bg-transparent" left-icon="fas fa-heart" text-color="text-white"/>
-      <h-btn fab size="sm" bg-color="bg-transparent" left-icon="fas fa-search" text-color="text-white"/>
+      <h-btn fab size="sm" bg-color="bg-transparent"
+        left-icon="fas fa-heart" text-color="text-white"
+      />
+      <h-btn fab size="sm" bg-color="bg-transparent"
+        left-icon="fas fa-search" text-color="text-white"/>
       <h-btn
         fab
         size="sm"
@@ -351,8 +362,12 @@ export default {
       </div>
     </h-app-toolbar-title>
     <h-app-toolbar-action>
-      <h-btn fab size="sm" bg-color="bg-transparent" left-icon="fas fa-heart" text-color="text-white"/>
-      <h-btn fab size="sm" bg-color="bg-transparent" left-icon="fas fa-search" text-color="text-white"/>
+      <h-btn fab size="sm" bg-color="bg-transparent"
+        left-icon="fas fa-heart" text-color="text-white"
+      />
+      <h-btn fab size="sm" bg-color="bg-transparent"
+        left-icon="fas fa-search" text-color="text-white"
+      />
       <h-btn
         fab
         size="sm"
@@ -381,8 +396,12 @@ export default {
     <h-app-toolbar-navigation text-color="text-white"/>
     <h-app-toolbar-fab/>
     <h-app-toolbar-action>
-      <h-btn fab size="sm" bg-color="bg-transparent" left-icon="fas fa-heart" text-color="text-white"/>
-      <h-btn fab size="sm" bg-color="bg-transparent" left-icon="fas fa-search" text-color="text-white"/>
+      <h-btn fab size="sm" bg-color="bg-transparent"
+        left-icon="fas fa-heart" text-color="text-white"
+      />
+      <h-btn fab size="sm" bg-color="bg-transparent"
+        left-icon="fas fa-search" text-color="text-white"
+      />
       <h-btn
         fab
         size="sm"
@@ -402,8 +421,12 @@ export default {
     <h-app-toolbar-navigation text-color="text-white"/>
     <h-app-toolbar-fab/>
     <h-app-toolbar-action>
-      <h-btn fab size="sm" bg-color="bg-transparent" left-icon="fas fa-heart" text-color="text-white"/>
-      <h-btn fab size="sm" bg-color="bg-transparent" left-icon="fas fa-search" text-color="text-white"/>
+      <h-btn fab size="sm" bg-color="bg-transparent"
+        left-icon="fas fa-heart" text-color="text-white"
+      />
+      <h-btn fab size="sm" bg-color="bg-transparent"
+        left-icon="fas fa-search" text-color="text-white"
+      />
       <h-btn
         fab
         size="sm"
@@ -423,8 +446,12 @@ export default {
     <h-app-toolbar-navigation text-color="text-white"/>
     <h-app-toolbar-fab/>
     <h-app-toolbar-action>
-      <h-btn fab size="sm" bg-color="bg-transparent" left-icon="fas fa-heart" text-color="text-white"/>
-      <h-btn fab size="sm" bg-color="bg-transparent" left-icon="fas fa-search" text-color="text-white"/>
+      <h-btn fab size="sm" bg-color="bg-transparent"
+        left-icon="fas fa-heart" text-color="text-white"
+      />
+      <h-btn fab size="sm" bg-color="bg-transparent"
+        left-icon="fas fa-search" text-color="text-white"
+      />
       <h-btn
         fab
         size="sm"
@@ -444,9 +471,15 @@ export default {
     <h-app-toolbar-navigation text-color="text-white"/>
     <div class="col-space"></div>
     <h-app-toolbar-action>
-      <h-btn fab size="sm" bg-color="bg-transparent" left-icon="fas fa-caret-square-down" text-color="text-white"/>
-      <h-btn fab size="sm" bg-color="bg-transparent" left-icon="fas fa-envelope" text-color="text-white"/>
-      <h-btn fab size="sm" bg-color="bg-transparent" left-icon="fas fa-trash" text-color="text-white"/>
+      <h-btn fab size="sm" bg-color="bg-transparent"
+        left-icon="fas fa-caret-square-down" text-color="text-white"
+      />
+      <h-btn fab size="sm" bg-color="bg-transparent"
+        left-icon="fas fa-envelope" text-color="text-white"
+      />
+      <h-btn fab size="sm" bg-color="bg-transparent"
+        left-icon="fas fa-trash" text-color="text-white"
+      />
     </h-app-toolbar-action>
   </h-app-toolbar-container>
 </h-app-toolbar>

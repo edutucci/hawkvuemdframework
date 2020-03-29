@@ -12,8 +12,7 @@
             :columns="tableColumns"
             :rows="tableData"
             style="height: 350px"
-          >
-          </h-table>
+          />
         </comp-code>
 
         <div ref="table-customcolumn"/>
@@ -49,35 +48,21 @@
             title="Users"
             :columns="tableColumns"
             :rows="tableData"
+            @selectedRows="selectedRows = $event"
             lineheight="40px"
             @addRows="addRows"
             @editRow="editRow"
             @deleteRows="deleteRows"
             style="height: 350px"
           >
-            <template v-slot:selection-rows>
-              <h-btn text="Export to PDF" bg-color="bg-primary" text-color="text-white"/>
-              <h-btn
-                class="h-ml-sm"
-                dropdown
-                text="View by status"
-                bg-color="bg-primary" text-color="text-white"
-                v-model="btnUserStatus"
-                @click="btnUserStatus = true"
-              >
-                <h-list style="width: 150px;">
-                  <h-list-item>
-                    <h-list-item-content>
-                      <h-list-item-text title="Online"/>
-                    </h-list-item-content>
-                  </h-list-item>
-                  <h-list-item>
-                    <h-list-item-content>
-                      <h-list-item-text title="Offline"/>
-                    </h-list-item-content>
-                  </h-list-item>
-                </h-list>
-              </h-btn>
+            <template v-slot:custom-header>
+              <div class="row">
+                <div class="col-auto">
+                  <h-btn v-if="selectedRows.length === 0" left-icon="fas fa-plus"/>
+                  <h-btn v-if="selectedRows.length === 1" left-icon="fas fa-edit" class="h-pr-md"/>
+                  <h-btn v-if="selectedRows.length > 0"  left-icon="fas fa-trash-alt" class="h-pr-md"/>
+                </div>
+              </div>
             </template>
           </h-table>
         </comp-code>
@@ -97,14 +82,13 @@
         <div ref="table-customheader"/>
         <comp-code class="h-mt-md" title="Custom header" :code="table2" :script="table2Script" javascript>
           <h-table
-            custom-header
             title="Users"
             :columns="tableColumns2"
             :rows="tableData"
             lineheight="40px"
             style="height: 350px"
           >
-            <template slot="custom-header">
+            <template v-slot:custom-header>
               <div class="row">
                 <div class="col-auto">
                   <h-btn
@@ -281,6 +265,7 @@ export default {
   data () {
     return {
       btnUserStatus: false,
+      selectedRows: [],
       tableColumns: [
         {
           field: 'number',
@@ -364,10 +349,9 @@ export default {
 <h-table
   title="Users"
   :columns="tableColumns"
-  :rows="tableDatabase"
-  lineheight="40px"
->
-</h-table>     
+  :rows="tableData"
+  style="height: 350px"
+/>   
 `,
       tableScript: `
 export default {
@@ -428,16 +412,21 @@ export default {
   :columns="tableColumns2"
   :rows="tableData"
   lineheight="40px"
+  style="height: 350px"
 >
   <template slot="number" slot-scope="row">
     {{row.rowData.number}}
   </template>
   <template slot="avatar" slot-scope="row">
-    <img :src="row.rowData.avatar" style="width:40px; height:40px;">
+    <img :src="row.rowData.avatar" style="width:40px; height:40px;"/>
+  </template>
+  <template slot="status" slot-scope="row">
+    <h-icon v-if="row.rowData.status === 'online'" image icon="imgIcons/png/checked.png" size="40px;"> Online </h-icon>
+    <h-icon v-else-if="row.rowData.status === 'offline'" image icon="imgIcons/png/warning-shield.png" size="40px;"> Offline </h-icon>
   </template>
   <template slot="actions" slot-scope="row">
-    <h-fa-icon icon="fas fa-edit" @click="editRow(row)"/>
-    <h-fa-icon class="h-pl-md" icon="fas fa-times-circle" @click="deleteRows(row)"/>
+    <h-icon icon="fas fa-edit" @click="editRow(row)"/>
+    <h-icon class="h-pl-md" icon="fas fa-times-circle" @click="deleteRows(row)"/>
   </template>
 </h-table>
 `,

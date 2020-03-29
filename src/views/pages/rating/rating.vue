@@ -25,7 +25,7 @@
         >
           <h-rating
             :messages="['1 star', '2 stars', '3 stars', '4 stars', '5 stars']"
-            v-model="rating2"
+            v-model="rating3"
             halfpoints
             showmessages
           />
@@ -75,8 +75,9 @@ export default {
         properties: [],
         events: []
       },
-      rating1: 3,
+      rating1: 2,
       rating2: 3.5,
+      rating3: 3.5,
       ex1: `
 <div>
   <h-rating v-model="rating1" showmessages/>
@@ -108,7 +109,7 @@ export default {
       ex3: `
 <h-rating
   :messages="['1 star', '2 stars', '3 stars', '4 stars', '5 stars']"
-  v-model="rating2"
+  v-model="rating3"
   halfpoints
   showmessages
 />
@@ -117,7 +118,7 @@ export default {
 export default {
   data () {
     return {
-      rating2: 3.5
+      rating3: 3.5
     }
   }
 }

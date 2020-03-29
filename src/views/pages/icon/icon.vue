@@ -169,13 +169,20 @@ export default {
       },
       iconColors: `
 <div class="row">
-  <h-icon class="bg-primary h-pa-md" icon="fas fa-camera-retro" text-color="text-white"/>
-  <h-icon class="h-pa-md" icon="fas fa-camera-retro" text-color="text-primary"/>
-  <h-icon class="h-pa-md" icon="fas fa-camera-retro" text-color="text-secondary"/>
-  <h-icon class="h-pa-md" icon="fas fa-camera-retro" text-color="text-positive"/>
-  <h-icon class="h-pa-md" icon="fas fa-camera-retro" text-color="text-negative"/>
-  <h-icon class="h-pa-md" icon="fas fa-camera-retro" text-color="text-info"/>
-  <h-icon class="h-pa-md" icon="fas fa-camera-retro" text-color="text-warning"/>
+  <h-icon class="bg-primary h-pa-md" icon="fas fa-camera-retro"
+    text-color="text-white"/>
+  <h-icon class="h-pa-md" icon="fas fa-camera-retro"
+    text-color="text-primary"/>
+  <h-icon class="h-pa-md" icon="fas fa-camera-retro"
+    text-color="text-secondary"/>
+  <h-icon class="h-pa-md" icon="fas fa-camera-retro"
+    text-color="text-positive"/>
+  <h-icon class="h-pa-md" icon="fas fa-camera-retro"
+    text-color="text-negative"/>
+  <h-icon class="h-pa-md" icon="fas fa-camera-retro"
+    text-color="text-info"/>
+  <h-icon class="h-pa-md" icon="fas fa-camera-retro"
+    text-color="text-warning"/>
 </div>
 `,
       iconSizes: `
@@ -218,25 +225,39 @@ export default {
 `,
       iconSVG: `
 <div class="row">
-  <h-icon class="h-pa-xs" image icon="imgIcons/svg/camera-24px.svg" size="24px"/>
-  <h-icon class="h-pa-xs" image icon="imgIcons/svg/directions_bike-24px.svg" size="24px"/>
-  <h-icon class="h-pa-xs" image icon="imgIcons/svg/bag_currency.svg" size="24px"/>
+  <h-icon class="h-pa-xs" image
+    icon="imgIcons/svg/camera-24px.svg" size="24px"/>
+  <h-icon class="h-pa-xs" image
+    icon="imgIcons/svg/directions_bike-24px.svg" size="24px"/>
+  <h-icon class="h-pa-xs" image
+    icon="imgIcons/svg/bag_currency.svg" size="24px"/>
 </div>      
 `,
       iconPNG: `
 <div class="row">
-  <h-icon class="h-pa-xs" image icon="imgIcons/png/logo_linux.png" size="24px"/>
-  <h-icon class="h-pa-xs" image icon="imgIcons/png/logo_gmail.png" size="24px"/>
-  <h-icon class="h-pa-xs" image icon="imgIcons/png/logo_icloud.png" size="24px"/>
+  <h-icon class="h-pa-xs" image
+    icon="imgIcons/png/logo_linux.png" size="24px"/>
+  <h-icon class="h-pa-xs" image
+    icon="imgIcons/png/logo_gmail.png" size="24px"/>
+  <h-icon class="h-pa-xs" image
+    icon="imgIcons/png/logo_icloud.png" size="24px"/>
 </div>
 `,
       iconCounter: `
 <div class="row">
-  <h-icon class="h-pa-xs" icon="fas fa-stroopwafel" size="24px" text-color="text-primary">
-    <h-counter bgcolor="bg-negative" text-color="text-white">1</h-counter>
+  <h-icon class="h-pa-xs" icon="fas fa-stroopwafel"
+    size="24px" text-color="text-primary"
+  >
+    <h-counter bgcolor="bg-negative" text-color="text-white">
+      1
+    </h-counter>
   </h-icon>
-  <h-icon class="h-pa-xs" icon="fas fa-stroopwafel" size="36px">
-    <h-counter bgcolor="bg-negative" text-color="text-white">12</h-counter>
+  <h-icon class="h-pa-xs" icon="fas fa-stroopwafel"
+    size="36px"
+  >
+    <h-counter bgcolor="bg-negative" text-color="text-white">
+      12
+    </h-counter>
   </h-icon>
 </div>
 `

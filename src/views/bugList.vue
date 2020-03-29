@@ -17,11 +17,17 @@
         h-list-item-content
           .text-body1 model is not working in input-search ok
           .text-body1 input chip is not working
+          .text-body1 placeholder is not working
 
       h-list-header(text="Toggle")
       h-list-item
         h-list-item-content
           .text-body1 property checked has no reactivity. ok
+
+      h-list-header(text="Radio")
+      h-list-item
+        h-list-item-content
+          .text-body1 property value has no reactivity to model/component. ok
 
     .text-h5.h-mt-md.border-top.border-bottom.border-gray IMPLEMENTATIONS
 

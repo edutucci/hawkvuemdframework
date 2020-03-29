@@ -81,7 +81,7 @@ export default {
   mounted () {
     this.changeComponentBackground(this.bgColor, this.outlined)
     this.changeBorderColor()
-    this.changeSizes()
+    this.changeSizes(this.dense)
   },
   watch: {
     bgColor: function (value) {

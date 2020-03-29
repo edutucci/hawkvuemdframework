@@ -658,12 +658,14 @@ export default {
 <h-list bordered style="max-width: 350px">
   <h-list-item>
     <h-list-item-content>
-      <h-list-item-text title="House in the clouds" caption="Jonathan creates a new world"/>
+      <h-list-item-text title="House in the clouds"
+        caption="Jonathan creates a new world"/>
     </h-list-item-content>
   </h-list-item>
   <h-list-item>
     <h-list-item-content>
-        <h-list-item-text title="At the top" caption="Cindy climbs new heights"/>
+        <h-list-item-text title="At the top"
+          caption="Cindy climbs new heights"/>
     </h-list-item-content>
   </h-list-item>
   <h-separator/>
@@ -672,7 +674,8 @@ export default {
       <h-icon icon="fas fa-film"/>
     </h-list-item-side>
     <h-list-item-content>
-      <h-list-item-text title="House in the clouds" caption="Jonathan creates a new world"/>
+      <h-list-item-text title="House in the clouds"
+        caption="Jonathan creates a new world"/>
     </h-list-item-content>
   </h-list-item>
   <h-list-item>
@@ -680,7 +683,8 @@ export default {
       <h-icon icon="fas fa-plane"/>
     </h-list-item-side>
     <h-list-item-content>
-      <h-list-item-text title="At the top" caption="Cindy climbs new heights"/>
+      <h-list-item-text title="At the top"
+        caption="Cindy climbs new heights"/>
     </h-list-item-content>
   </h-list-item>
 </h-list>
@@ -776,10 +780,12 @@ export default {
   <h-list-header text="Recipes"/>
   <h-list-item>
     <h-list-item-side>
-      <h-list-item-img class="flex-items-center" src="img/Crunchy.jpg" large/>
+      <h-list-item-img class="flex-items-center"
+        src="img/Crunchy.jpg" large/>
     </h-list-item-side>
     <h-list-item-content>
-      <h-list-item-text title="Crunchy Croissants" caption="Buttery, flaky pastry named for its crescent shape."/>
+      <h-list-item-text title="Crunchy Croissants"
+        caption="Buttery, flaky pastry named for its crescent shape."/>
     </h-list-item-content>
     <h-list-item-side>
       <h-list-item-text title="01"/>
@@ -787,10 +793,12 @@ export default {
   </h-list-item>
   <h-list-item>
     <h-list-item-side>
-      <h-list-item-img class="flex-items-center" src="img/GrilledEggPlant.jpg" large/>
+      <h-list-item-img class="flex-items-center"
+        src="img/GrilledEggPlant.jpg" large/>
     </h-list-item-side>
     <h-list-item-content>
-      <h-list-item-text title="Grilled Eggplant" caption="Tender with a rich, complex and flavor when cooked."/>
+      <h-list-item-text title="Grilled Eggplant"
+        caption="Tender with a rich, complex and flavor when cooked."/>
     </h-list-item-content>
     <h-list-item-side>
       <h-list-item-text title="02"/>
@@ -798,10 +806,12 @@ export default {
   </h-list-item>
   <h-list-item>
     <h-list-item-side>
-      <h-list-item-img class="flex-items-center" src="img/TangerineSalad.jpg" large/>
+      <h-list-item-img class="flex-items-center"
+        src="img/TangerineSalad.jpg" large/>
     </h-list-item-side>
     <h-list-item-content>
-      <h-list-item-text title="Tangerine Salad" caption="Peak tangerine season lasts from autumn to spring."/>
+      <h-list-item-text title="Tangerine Salad"
+        caption="Peak tangerine season lasts from autumn to spring."/>
     </h-list-item-content>
     <h-list-item-side>
       <h-list-item-text title="03"/>
@@ -816,7 +826,8 @@ export default {
       <h-image avatar src="avatar/Eduard.jpg"/>
     </h-list-item-side>
     <h-list-item-content>
-      <h-list-item-text title="Brunch this weekend?" caption="I'll be in your neighborhood doing errands this weekend."/>
+      <h-list-item-text title="Brunch this weekend?"
+        caption="I'll be in your neighborhood doing errands this weekend."/>
     </h-list-item-content>
   </h-list-item>
   <h-list-item>
@@ -824,7 +835,8 @@ export default {
       <h-image avatar src="avatar/AnaArmas.jpg"/>
     </h-list-item-side>
     <h-list-item-content>
-      <h-list-item-text title="Summer BBQ" caption="Wish I coould come, but I'm out of town this weekend."/>
+      <h-list-item-text title="Summer BBQ"
+        caption="Wish I coould come, but I'm out of town this weekend."/>
     </h-list-item-content>
   </h-list-item>
   <h-list-item>
@@ -832,7 +844,8 @@ export default {
       <h-image avatar src="avatar/Kostenlose.jpg"/>
     </h-list-item-side>
     <h-list-item-content>
-      <h-list-item-text title="Oui Oui" caption="Do you have Paris recommendations? Have you ever been?."/>
+      <h-list-item-text title="Oui Oui"
+        caption="Do you have Paris recommendations? Have you ever been?."/>
     </h-list-item-content>
   </h-list-item>
 </h-list>
@@ -843,7 +856,8 @@ export default {
         <h-list-item-img src="avatar/folder_open.png"/>
       </h-list-item-side>
       <h-list-item-content>
-        <h-list-item-text title="At the top" caption="Cindy climbs new heights"/>
+        <h-list-item-text title="At the top"
+          caption="Cindy climbs new heights"/>
       </h-list-item-content>
       <h-list-item-side>
         <div class="text-center">
@@ -858,10 +872,13 @@ export default {
         <h-list-item-img src="avatar/folder_open.png"/>
       </h-list-item-side>
       <h-list-item-content>
-        <h-list-item-text title="At the top" caption="Cindy climbs new heights"/>
+        <h-list-item-text title="At the top"
+          caption="Cindy climbs new heights"/>
       </h-list-item-content>
       <h-list-item-side class="flex-justify-end">
-        <div class="text-right"><h-icon icon="fas fa-star" text-color="text-yellowA400"/></div>
+        <div class="text-right">
+          <h-icon icon="fas fa-star" text-color="text-yellowA400"/>
+        </div>
         <h-list-item-text title="02" class="flex-justify-end"/>
         <h-list-item-text caption="5 min ago" class="flex-justify-end"/>
       </h-list-item-side>
@@ -905,7 +922,8 @@ export default {
         <h-image avatar src="avatar/Eduard.jpg"/>
       </h-list-item-side>
       <h-list-item-content>
-        <h-list-item-text title="Brunch this weekend?" caption="I'll be in your neighborhood doing errands this weekend."/>
+        <h-list-item-text title="Brunch this weekend?"
+          caption="I'll be in your neighborhood doing errands this weekend."/>
       </h-list-item-content>
       <h-list-item-side class="flex-items-center">
         <h-checkbox/>
@@ -916,7 +934,8 @@ export default {
         <h-image avatar src="avatar/AnaArmas.jpg"/>
       </h-list-item-side>
       <h-list-item-content>
-        <h-list-item-text title="Summer BBQ" caption="Wish I coould come, but I'm out of town this weekend."/>
+        <h-list-item-text title="Summer BBQ"
+          caption="Wish I coould come, but I'm out of town this weekend."/>
       </h-list-item-content>
       <h-list-item-side class="flex-items-center">
         <h-checkbox/>
@@ -927,7 +946,8 @@ export default {
         <h-image avatar src="avatar/Kostenlose.jpg"/>
       </h-list-item-side>
       <h-list-item-content>
-        <h-list-item-text title="Oui Oui" caption="Do you have Paris recommendations? Have you ever been?."/>
+        <h-list-item-text title="Oui Oui"
+          caption="Do you have Paris recommendations? Have you ever been?."/>
       </h-list-item-content>
       <h-list-item-side class="flex-items-center">
         <h-checkbox/>

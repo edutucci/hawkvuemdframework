@@ -519,7 +519,8 @@ export default {
       txtfilled: `
 <div class="column col-inputs">
   <h-input v-model="typesModel" label="Filled" filled/>
-  <h-input v-model="typesModel" label="Filled dense" filled dense clearable/>
+  <h-input v-model="typesModel" label="Filled dense"
+    filled dense clearable/>
 </div>
 <div>
   Model: {{typesModel}}
@@ -527,7 +528,8 @@ export default {
 `,
       txtpassword: `
 <div class="column col-inputs">
-  <h-input v-model="passwordModel" label="Password" dense type="password"/>
+  <h-input v-model="passwordModel" label="Password"
+    dense type="password"/>
 </div>
 <div>
   Model: {{passwordModel}}
@@ -535,8 +537,10 @@ export default {
 `,
       txticons: `
 <div class="column col-inputs">
-  <h-input dense v-model="iconsModel" label="Phone" leading-icon="fas fa-phone" clearable/>
-  <h-input dense v-model="iconsModel" label="E-Mail" filled leading-icon="fas fa-envelope" clearable/>
+  <h-input dense v-model="iconsModel" label="Phone"
+    leading-icon="fas fa-phone" clearable/>
+  <h-input dense v-model="iconsModel" label="E-Mail"
+    filled leading-icon="fas fa-envelope" clearable/>
 </div>
 <div>
   Model: {{iconsModel}}
@@ -550,8 +554,9 @@ export default {
   <h-input dense v-model="messageModel" label="Phone" clearable
     error-message="Invalid information"
   />
-  <h-input dense v-model="messageModel" label="TextCounter" clearable
-    helper-text="Counter:" input-counter :text-counter="60" :maxlength="60"
+  <h-input dense v-model="messageModel" label="TextCounter"
+    clearable helper-text="Counter:" input-counter
+    :text-counter="60" :maxlength="60"
   />
 </div>
 <div>
@@ -563,7 +568,8 @@ export default {
   <h-input dense v-model="prefixModel" label="Price" clearable
     helper-text="Type a value" prefix="$"
   />
-  <h-input dense v-model="suffixModel" label="E-Mail" leading-icon="fas fa-envelope" clearable
+  <h-input dense v-model="suffixModel" label="E-Mail"
+    leading-icon="fas fa-envelope" clearable
     helper-text="Type a valid mail" suffix="@gmail.com"
   />
 </div>
@@ -650,7 +656,12 @@ export default {
 `,
       selectAvatar: `
 <div class="col-6">
-  <h-input dense type='select' :options="options" v-model="selectModel1" input-icon="fas fa-angle-down" display-mode="avatar"/>
+  <h-input dense type='select'
+  :options="options"
+  v-model="selectModel1"
+  input-icon="fas fa-angle-down"
+  display-mode="avatar"
+/>
 </div>
 <div>
   selectModel1: {{ selectModel1 }}

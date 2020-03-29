@@ -123,7 +123,9 @@ export default {
     return {
       showDrawer: false,
       icons: `
-<h-side-bar-menu class="border border-gray border-radius" bg-color="bg-white" text-color="text-gray600" style="width: 70px">
+<h-side-bar-menu class="border border-gray border-radius"
+  bg-color="bg-white" text-color="text-gray600" style="width: 70px"
+>
   <h-side-bar-menu-item icon='fas fa-th-large' @click="$router.push('#')"/>
   <h-side-bar-menu-item icon='fas fa-table' @click="$router.push('#')"/>
   <h-side-bar-menu-item icon='fas fa-user' use-menu>
@@ -175,16 +177,27 @@ export default {
   style="width: 200px"
 >
   <template v-slot:header>
-    <div class="column align-items-center" style="margin-top: 30px;">
+    <div class="column align-items-center"
+      style="margin-top: 30px;"
+    >
       <h-image avatar src="img/hawk.jpg" size="64px"/>
       <div class="text-h5">Hawk </div>
       <div class="text-h5"> Framework</div>
       <div>Sidebar Menu Working</div>
     </div>
   </template>
-  <h-side-bar-menu-item text="Dashboard" caption="View Data" icon='fas fa-th-large' @click="$router.push('#')"/>
-  <h-side-bar-menu-item text="Tables" caption="View Data Table" icon='fas fa-table' @click="$router.push('#')"/>
-  <h-side-bar-menu-item text="User" caption="User Management" title="User" icon='fas fa-user' use-menu>
+  <h-side-bar-menu-item text="Dashboard"
+    caption="View Data" icon='fas fa-th-large'
+    @click="$router.push('#')"
+  />
+  <h-side-bar-menu-item text="Tables"
+    caption="View Data Table"
+    icon='fas fa-table' @click="$router.push('#')"
+  />
+  <h-side-bar-menu-item text="User"
+    caption="User Management"
+    title="User" icon='fas fa-user'
+  use-menu>
     <h-list style="width: 180px">
       <h-list-item>
         <h-list-item-content>
@@ -203,7 +216,10 @@ export default {
       </h-list-item>
     </h-list>
   </h-side-bar-menu-item>
-  <h-side-bar-menu-item text="Help" caption="Help Topics" title="Help" icon='far fa-question-circle' use-menu>
+  <h-side-bar-menu-item text="Help"
+    caption="Help Topics" title="Help"
+    icon='far fa-question-circle'
+  use-menu>
     <h-list style="width: 200px">
       <h-list-item>
         <h-list-item-content>
@@ -222,7 +238,9 @@ export default {
       </h-list-item>
     </h-list>
   </h-side-bar-menu-item>
-  <h-side-bar-menu-item text="Notifications" caption="View Nofitications" icon='far fa-bell' @click="$router.push('#')"/>
+  <h-side-bar-menu-item text="Notifications"
+    caption="View Nofitications"
+    icon='far fa-bell' @click="$router.push('#')"/>
 </h-side-bar-menu>
 `,
       customColor: `
@@ -233,16 +251,29 @@ export default {
   style="width: 200px"
 >
   <template v-slot:header>
-    <div class="column align-items-center text-white" style="margin-top: 30px;">
+    <div class="column align-items-center text-white"
+      style="margin-top: 30px;"
+    >
       <h-image avatar src="img/hawk.jpg" size="64px"/>
       <div class="text-h5">Hawk </div>
       <div class="text-h5"> Framework</div>
       <div>Sidebar Menu Working</div>
     </div>
   </template>
-  <h-side-bar-menu-item text="Dashboard" caption="View Data" icon='fas fa-th-large' @click="$router.push('#')"/>
-  <h-side-bar-menu-item text="Tables" caption="View Data Table" icon='fas fa-table' @click="$router.push('#')"/>
-  <h-side-bar-menu-item text="User" caption="User Management" title="User" icon='fas fa-user' use-menu>
+  <h-side-bar-menu-item text="Dashboard"
+    caption="View Data" icon='fas fa-th-large' 
+    @click="$router.push('#')"
+  />
+  <h-side-bar-menu-item text="Tables"
+    caption="View Data Table" icon='fas fa-table'
+    @click="$router.push('#')"
+  />
+  <h-side-bar-menu-item text="User"
+    caption="User Management"
+    title="User"
+    icon='fas fa-user'
+    use-menu
+  >
     <h-list style="width: 180px">
       <h-list-item>
         <h-list-item-content>
@@ -261,7 +292,12 @@ export default {
       </h-list-item>
     </h-list>
   </h-side-bar-menu-item>
-  <h-side-bar-menu-item text="Help" caption="Help Topics" title="Help" icon='far fa-question-circle' use-menu>
+  <h-side-bar-menu-item text="Help"
+    caption="Help Topics"
+    title="Help"
+    icon='far fa-question-circle'
+    use-menu
+  >
     <h-list style="width: 200px">
       <h-list-item>
         <h-list-item-content>
@@ -280,7 +316,11 @@ export default {
       </h-list-item>
     </h-list>
   </h-side-bar-menu-item>
-  <h-side-bar-menu-item text="Notifications" caption="View Nofitications" icon='far fa-bell' @click="$router.push('#')"/>
+  <h-side-bar-menu-item text="Notifications"
+    caption="View Nofitications"
+    icon='far fa-bell'
+    @click="$router.push('#')"
+  />
 </h-side-bar-menu>
 `
     }

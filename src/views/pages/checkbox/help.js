@@ -2,7 +2,7 @@ export default {
   properties: [
     {
       name: 'v-model',
-      type: 'String, Array or Boolean.',
+      type: 'Array or Boolean.',
       description: 'Model of the component.'
     },
     {

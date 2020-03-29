@@ -43,25 +43,25 @@
               </h-collapsible-menu>
 
               <h-collapsible-menu icon="fab fa-css3" text="CSS">
-                <h-collapsible-item text="Spacing" @click="$router.push('/spacing'), $refs.nav.close()"/>
-                <h-collapsible-item text="Flexbox" @click="$router.push('/flexbox'), $refs.nav.close()"/>
-                <h-collapsible-item text="Text Alignment" @click="$router.push('/textalignment'), $refs.nav.close()"/>
                 <h-collapsible-item text="Borders" @click="$router.push('/borders'), $refs.nav.close()"/>
+                <h-collapsible-item text="Flexbox" @click="$router.push('/flexbox'), $refs.nav.close()"/>
                 <h-collapsible-item text="Positioning" @click="$router.push('/positioning'), $refs.nav.close()"/>
+                <h-collapsible-item text="Spacing" @click="$router.push('/spacing'), $refs.nav.close()"/>
+                <h-collapsible-item text="Text Alignment" @click="$router.push('/textalignment'), $refs.nav.close()"/>
                 <h-collapsible-item text="Visibility" @click="$router.push('/visibility'), $refs.nav.close()"/>
                 <h-collapsible-item text="Others" @click="$router.push('/cssothers'), $refs.nav.close()"/>
               </h-collapsible-menu>
 
               <h-collapsible-menu text="Components" icon="fas fa-hdd">
                 <h-collapsible-item text="Appbar" @click="$router.push('/appbar'), $refs.nav.close()"/>
+                <h-collapsible-item text="Banner" @click="$router.push('/banner'), $refs.nav.close()"/>
                 <h-collapsible-item text="Buttons" @click="$router.push('/buttons'), $refs.nav.close()"/>
                 <h-collapsible-item text="Button Group" @click="$router.push('/buttongroup'), $refs.nav.close()"/>
                 <!-- <h-collapsible-item text="Button Dropdown" @click="$router.push('/buttondropdown'), $refs.nav.close()"/> -->
-                <h-collapsible-item text="Banner" @click="$router.push('/banner'), $refs.nav.close()"/>
                 <h-collapsible-item text="Cards" @click="$router.push('/card'), $refs.nav.close()"/>
+                <h-collapsible-item text="Carousel" @click="$router.push('/carousel'), $refs.nav.close()"/>
                 <h-collapsible-item text="Checkbox" @click="$router.push('/checkbox'), $refs.nav.close()"/>
                 <h-collapsible-item text="Chips" @click="$router.push('/chip'), $refs.nav.close()"/>
-                <h-collapsible-item text="Carousel" @click="$router.push('/carousel'), $refs.nav.close()"/>
                 <h-collapsible-item text="Collapsible" @click="$router.push('/collapsible'), $refs.nav.close()"/>
                 <h-collapsible-item text="Date and Time" @click="$router.push('/datetime'), $refs.nav.close()"/>
                 <h-collapsible-item text="Dialog" @click="$router.push('/dialog'), $refs.nav.close()"/>

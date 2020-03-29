@@ -84,10 +84,10 @@ export default {
       } else {
         this.$emit('change', '')
       }
+    },
+    onChange () {
+      this.$emit('change', this.value)
     }
-    // onChange (event) {
-    //   this.$emit('change', this.value)
-    // }
   }
 }
 </script>

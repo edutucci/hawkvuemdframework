@@ -98,18 +98,24 @@ export default {
       showDrawer: false,
       drBtnLeft: `
 <div>
-  <h-btn contained bgcolor="bg-primary" textcolor="text-white" text="Open Drawer Left" @click="showDrawer = true; side='left'"/>
+  <h-btn contained bgcolor="bg-primary" textcolor="text-white"
+    text="Open Drawer Left" @click="showDrawer = true; side='left'"/>
 </div>
 `,
       drBtnRight: `
 <div>
-  <h-btn contained bgcolor="bg-primary" textcolor="text-white" text="Open Drawer Right" @click="showDrawer = true; side='right'"/>
+  <h-btn contained bgcolor="bg-primary" textcolor="text-white"
+    text="Open Drawer Right" @click="showDrawer = true; side='right'"/>
 </div>      
 `,
       drawerExample: `
 <div>
-  <h-btn contained bgcolor="bg-primary" textcolor="text-white" text="Open Drawer Left" @click="showDrawer = true; side='left'"/>
-  <h-btn contained bgcolor="bg-primary" textcolor="text-white" text="Open Drawer Right" @click="showDrawer = true; side='right'"/>
+  <h-btn contained bgcolor="bg-primary" textcolor="text-white"
+    text="Open Drawer Left" @click="showDrawer = true; side='left'"
+  />
+  <h-btn contained bgcolor="bg-primary" textcolor="text-white"
+    text="Open Drawer Right" @click="showDrawer = true; side='right'"
+  />
 </div>
 <h-nav-drawer v-model="showDrawer" :side="side">
   <div class="flex flex-column bg-white full-size" style="display: inline-flex;">
