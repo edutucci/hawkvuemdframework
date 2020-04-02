@@ -1,7 +1,7 @@
 <template>
   <div
     id="sidebar-menu"
-    class="no-user-select flex flex-column slide-menu-list scroll"
+    class="no-user-select flex flex-column scroll"
     :class="bgColor"
     style="position: relative; left: 0px; display: inline-block; min-width: 60px;"
     :style="[sideMenuObject]"

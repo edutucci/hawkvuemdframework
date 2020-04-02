@@ -84,22 +84,39 @@ hr {
   font-size: 14px;
 }
 
+
 /*
-  MODAL/DRAWER
+  DRAWER
 */
-.drawer {
+
+.drawer_size {
   height: 100%;
-  width: 100%;
+  width: 100%;  
+}
+
+/*
+  DRAWER PAGE
+*/
+
+.drawer_page {
   position: fixed;
-  z-index: 2500;
   top: 0;
+}
+
+.drawer_page_left {
+  left: 0;
+}
+
+.drawer_page_right {
   right: 0;
 }
 
-.drawer_page {
-  height: calc(100vh - 60px);
-  min-width: 200px;
-  position: absolute;
+
+/*
+  DRAWER MOBILE
+*/
+.drawer_mobile {
+  position: fixed;
   z-index: 2500;
   top: 0;
   right: 0;
@@ -457,4 +474,12 @@ IMAGE
   font-size: 48px;
   height: 1em;
   width: 1em;  
+}
+
+/*
+  TABLE
+*/
+
+.tablerows > .tablerow:not(:last-child)  {
+  border-bottom: 1px solid lightgray;
 }

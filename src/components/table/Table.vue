@@ -21,9 +21,9 @@
         .col
           slot(name="custom-header")
 
-    .col.scroll
+    .col.scroll.tablerows
       // body
-      .row.table-column-padding.position-sticky.bg-white(style="z-index: 12;")
+      .row.border-bottom.border-gray.table-column-padding.position-sticky.bg-white(style="z-index: 12;")
         .col-auto(v-if="selectable")
           table-column(
             class="border-right1 border-gray1 "
@@ -35,15 +35,15 @@
           :class = "{ 'cursor-pointer' : col.sortable}"
         )
           table-column(
-            :width="col.width"
+            :width="col.width || '120px'"
             class="border-right1 border-gray1 "
           )
             .row.align-items-center
-              .col.text-overflow-ellipsis(:class="col.alignment")
+              .col.text-gray500.text-bold.text-body2.text-overflow-ellipsis(:class="col.alignment")
                 | {{col.text}}
                 h-icon(class="h-ml-xs" v-if="col.sortable" :icon="colIconName(col)" text-color="text-red400")
 
-      .row.table-row-padding(v-for="(row, rowindex) in tableData.rows" :key="rowindex")
+      .row.table-row-padding.tablerow(v-for="(row, rowindex) in tableData.rows" :key="rowindex")
         .col-auto(v-if="selectable")
           table-column(
           )
@@ -55,17 +55,17 @@
           :class = "{ 'cursor-pointer' : col.sortable}"
         )
           table-column(
-            :width="col.width"
+            :width="col.width || '120px'"
             class="border-right1 border-gray1"
           )
             .row.align-items-center(:style="[rowlineheight]")
               .col.text-overflow-ellipsis(:class="col.alignment")
-                slot(:name="col.field" :rowData="row")
+                slot(:name="col.field" :value="row[col.field]")
                   | {{row[col.field]}}
 
-    .col-auto
+    .col-auto.border-top.border-gray
       // footer
-      .row.align-items-center.justify-end
+      .row.h-mt-sm.align-items-center.justify-end
         .col-auto.h-pr-sm.text-caption.text-gray
           | Rows per page:
         .col-auto.h-pr-sm(style="width:60px;")

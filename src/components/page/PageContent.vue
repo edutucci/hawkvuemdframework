@@ -4,7 +4,7 @@
     v-resize.initial="onResize"
     :style="[pageContentContainer]"
   )
-    .page-content-web.full-height.scroll(
+    .page-content-web.full-height.scroll.bg-gray300(
       id="page-content-web"
     )
       slot
@@ -40,6 +40,7 @@ export default {
         top: '0px',
         height: 'calc(100vh)',
         marginLeft: '0px',
+        marginRight: '0px',
         marginTop: '0px',
         padding: '0px'
       },
@@ -67,11 +68,11 @@ export default {
       this.pageContentContainer.height = 'calc(100vh - ' + sumHF + 'px)'
       this.pageContentContainer.marginTop = '' + pageHeaderHeight + 'px'
 
-      let sidebarMenuWidth = viewport.getSidebarMenuWidth()
-      if (this.padding) {
-        sidebarMenuWidth += 10
-      }
-      this.pageContentContainer.marginLeft = '' + sidebarMenuWidth + 'px'
+      // let sidebarMenuWidth = viewport.getSidebarMenuWidth()
+      // if (this.padding) {
+      //   sidebarMenuWidth += 10
+      // }
+      // this.pageContentContainer.marginLeft = '' + sidebarMenuWidth + 'px'
     }
   }
 }

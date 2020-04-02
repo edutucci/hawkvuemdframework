@@ -63,7 +63,7 @@ export default new Router({
       children: [
         { path: '', component: () => import('./views/pages/menu/sideBarMenu.vue') }
       ]
-    }
+    },
     // {
     //   path: '/test',
     //   beforeEnter (to, from, next) {
@@ -77,10 +77,10 @@ export default new Router({
     //   },
     //   component: () => import('./views/pages/test/Parallax/parallaxScroll.vue')
     // },
-    // {
-    //   path: '/test',
-    //   component: () => import('./views/pages/test/objectTest.vue')
-    // },
+    {
+      path: '/test',
+      component: () => import('./views/pages/test/drawer.vue')
+    }
     // {
     //   path: '/example',
     //   component: () => import('./views/examples/image')

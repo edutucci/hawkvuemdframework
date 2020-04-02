@@ -3,7 +3,6 @@
     .row.justify-center
       .col-auto
         h1 CSS Classes
-    html-separator
     .row.wrap.justify-center
       .col-auto.bg-primary.text-white.h-pa-md.h-mr-md.h-mb-md primary
       .col-auto.bg-secondary.text-white.h-pa-md.h-mr-md.h-mb-md secondary
@@ -15,15 +14,12 @@
     .text-center
       <p>To use the classes use the prefixes <b>bg-, text-, border-</b> before color name.</p> 
 
-    <pre v-highlightjs="classes">
-      <code class="html">
-      </code>
-    </pre>
+    <prism :code="classes" language="html"/>
 
     .row.justify-center
       .col-auto
         h1 Material Design Colors
-    html-separator
+
     .row.flex.flex-justify-center
       .pallet-content.flex.flex-wrap
         .pallete-container.text-bold(
@@ -48,7 +44,7 @@ export default {
   data () {
     return {
       classes: `
-<div class="bg-primary text-white border-black">
+<div class="bg-primary text-white">
   <span>Using the classes</span>
 </div>
       `,
