@@ -1,13 +1,21 @@
 <template lang="pug">
-  .page-content-container.overflow-hidden(
-    id="page-content"
-    v-resize.initial="onResize"
-    :style="[pageContentContainer]"
-  )
-    .page-content-web.full-height.scroll.bg-gray300(
-      id="page-content-web"
-    )
-      slot
+  // .page-content-container.window-height.overflow-hidden(
+  //   id="page-content"
+  // )
+  //   .row.full-height
+  //     .col-auto.position-relative
+  //       slot(name="left")
+  //     .col
+  //       .page-content-web.full-height.scroll(
+  //         id="page-content-web"
+  //         style="padding:10px"
+  //       )
+  //         slot
+  //     .col-auto.position-relative
+  //       slot(name="right")
+  .full-height
+    slot
+
 </template>
 
 <script>
@@ -33,7 +41,7 @@ export default {
   },
   data () {
     return {
-      pageContentContainer: {
+      pageContainer: {
         position: 'relative',
         left: '0px',
         right: '0px',
@@ -42,10 +50,9 @@ export default {
         marginLeft: '0px',
         marginRight: '0px',
         marginTop: '0px',
-        padding: '0px'
       },
-      pageContentContainerWeb: {
-        height: ''
+      pageContent: {
+        margin:'10px'
       }
     }
   },
@@ -57,16 +64,16 @@ export default {
       let pageHeaderHeight = viewport.getPageHeaderHeight()
       let pageFooterHeight = viewport.getPageFooterHeight()
       let sumHF = pageHeaderHeight + pageFooterHeight
-      this.pageContentContainer.padding = '0px'
-      this.pageContentContainer.marginLeft = '0px'
+      this.pageContent.padding = '0px'
+      this.pageContainer.marginLeft = '0px'
 
       if (padding) {
-        this.pageContentContainer.padding = '10px'
+        // this.pageContent.padding = '10px'
         sumHF += 20
       }
 
-      this.pageContentContainer.height = 'calc(100vh - ' + sumHF + 'px)'
-      this.pageContentContainer.marginTop = '' + pageHeaderHeight + 'px'
+      this.pageContainer.height = 'calc(100vh - ' + sumHF + 'px)'
+      this.pageContainer.marginTop = '' + pageHeaderHeight + 'px'
 
       // let sidebarMenuWidth = viewport.getSidebarMenuWidth()
       // if (this.padding) {

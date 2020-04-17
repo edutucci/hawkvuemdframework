@@ -26,15 +26,18 @@
           </div>
         </comp-code>
 
-        <h-nav-drawer v-model="showDrawerMobile" :side="side">
-          <div class="column bg-white full-size" style="display: inline-flex;">
-            <div slot="header" class="text-center h-pa-md">
-              <h-image avatar src="img/hawk.jpg" size="64px"/>
-              <h3 class="no-padding no-margin">Hawk </h3>
-              <h3 class="no-padding no-margin"> Framework</h3>
+        <h-nav-drawer v-model="showDrawerMobile" :side="side" display-mode="window">
+            <div class="col-auto">
+              <div class="text-center h-pa-md">
+                <div class="column align-items-center" style="margin-top: 30px;">
+                  <h-image avatar src="img/hawk.jpg" size="64px"/>
+                  <div class="">Hawk </div>
+                  <div class=""> Framework</div>
+                </div>
+              </div>
             </div>
 
-            <div class="flex-1">
+            <div class="col">
                 <h-collapsible>
                   <h-collapsible-menu icon="fas fa-question-circle" text="Help">
                     <h-collapsible-item text="About" @click="showDrawerMobile = false"/>
@@ -47,39 +50,10 @@
                 </h-collapsible>
             </div>
 
-            <div slot="footer" class="text-center  h-pa-md">
+            <div class="col-auto text-center  h-pa-md">
               <h2 class="no-margin">Free Framework</h2>
               <h2 class="no-margin">Pure CSS</h2>
             </div>
-          </div>
-        </h-nav-drawer>
-
-        <h-nav-drawer v-model="showDrawerPage" :side="side" display-mode="page">
-          <div class="column bg-white full-size" style="display: inline-flex;">
-            <div slot="header" class="text-center h-pa-md">
-              <h-image avatar src="img/hawk.jpg" size="64px"/>
-              <h3 class="no-padding no-margin">Hawk </h3>
-              <h3 class="no-padding no-margin"> Framework</h3>
-            </div>
-
-            <div class="flex-1">
-                <h-collapsible>
-                  <h-collapsible-menu icon="fas fa-question-circle" text="Help">
-                    <h-collapsible-item text="About" @click="showDrawer = false"/>
-                  </h-collapsible-menu>
-
-                  <h-collapsible-menu icon="fas fa-box" text="Contents">
-                    <h-collapsible-item text="Products" @click="showDrawer = false"/>
-                    <h-collapsible-item text="Contact" @click="showDrawer = false"/>
-                  </h-collapsible-menu>
-                </h-collapsible>
-            </div>
-
-            <div slot="footer" class="text-center  h-pa-md">
-              <h2 class="no-margin">Free Framework</h2>
-              <h2 class="no-margin">Pure CSS</h2>
-            </div>
-          </div>
         </h-nav-drawer>
 
         <tabs-help
