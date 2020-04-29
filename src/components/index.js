@@ -31,7 +31,6 @@ import HDialog from './window/Dialog'
 import HTimePicker from './date/HTimePicker.vue'
 import HIcon from './icons/HIcon'
 import HFileUpload from './fileUpload/fileUpload.vue'
-import HImageUpload from './fileUpload/ImageUpload.vue'
 import HImage from './image/Image'
 import HList from './list/List.vue'
 import HListItem from './list/ListItem.vue'
@@ -65,10 +64,7 @@ import HInputPlusMinus from './Inputs/InputPlusMinus.vue'
 import HRangeSlider from './Inputs/RangeSlider'
 import HToggle from './checkbox/Toggle'
 import HMainBody from './page/MainBody.vue'
-import HMainPage from './page/MainPage.vue'
 import HPageContent from './page/PageContent.vue'
-import HPageHeader from './page/PageHeader.vue'
-import HPageFooter from './page/PageFooter.vue'
 import HParallax from './parallax/Parallax'
 import HYoutubeVideo from './video/YoutubeVideo.vue'
 import HLink from './html/Link.vue'
@@ -106,7 +102,6 @@ const Components = {
   HTimePicker,
   HIcon,
   HFileUpload,
-  HImageUpload,
   HImage,
   HList,
   HListItem,
@@ -141,10 +136,7 @@ const Components = {
   HInputPlusMinus,
   HToggle,
   HMainBody,
-  HMainPage,
   HPageContent,
-  HPageHeader,
-  HPageFooter,
   HParallax,
   HYoutubeVideo,
   HLink,

@@ -171,7 +171,6 @@ export default {
       inputId: uuidv1(),
       dropMenuId: uuidv1(),
       inputDisplay: '',
-      inputPlaceholder: '',
       inputLabel: '',
       focused: false,
       inputContainerFieldBottomBorderColor: '',
@@ -243,12 +242,7 @@ export default {
       return value
     },
     containerPlaceholder () {
-      let value = ''
-      if (!this.focused) {
-        if ((!this.inputDisplay) || (this.inputDisplay && this.inputDisplay.length === 0)) {
-          value = this.label
-        }
-      }
+      let value = (this.placeholder && this.placeholder.length > 0) ? this.placeholder : this.label
       return value
     },
     inputTextCounter () {

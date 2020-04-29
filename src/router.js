@@ -46,6 +46,7 @@ export default new Router({
         { path: '/datetime', component: () => import('./views/pages/datetime/datetime') },
         { path: '/toggle', component: () => import('./views/pages/toggle/toggle') },
         { path: '/video', component: () => import('./views/pages/video/video') },
+        { path: '/sideBarMenu', component: () => import('./views/pages/menu/sideBarMenu.vue') },
         { path: '/snack', component: () => import('./views/plugins/snack') },
         { path: '/loading', component: () => import('./views/plugins/loading') },
         { path: '/fileupload', component: () => import('./views/pages/fileUpload/fileUpload') },
@@ -55,13 +56,6 @@ export default new Router({
         { path: '/scroll', component: () => import('./views/pages/scroll/scroll') },
         { path: '/parallax', component: () => import('./views/pages/parallax/parallax') },
         { path: '/buglist', component: () => import('./views/bugList.vue') }
-      ]
-    },
-    {
-      path: '/sideBarMenu',
-      component: () => import('./views/pages/menu/mainLayout.vue'),
-      children: [
-        { path: '', component: () => import('./views/pages/menu/sideBarMenu.vue') }
       ]
     },
     // {
@@ -79,7 +73,7 @@ export default new Router({
     // },
     {
       path: '/test',
-      component: () => import('./views/pages/test/drawer.vue')
+      component: () => import('./views/pages/test/test.vue')
     }
     // {
     //   path: '/example',

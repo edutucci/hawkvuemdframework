@@ -4,6 +4,8 @@
     :class="[textColor, compBgColor, compBgColorHover, {active: active}]"
     style="min-height: 25px;"
     @click="onClick"
+    @mouseover="onMouseover"
+    @mouseleave="onMouseleave"
   >
     <slot></slot>
   </div>
@@ -42,6 +44,12 @@ export default {
     },
     onClick () {
       this.$emit('click')
+    },
+    onMouseover () {
+      this.$emit('mouseover')
+    },
+    onMouseleave () {
+      this.$emit('onmouseleave')
     }
   }
 }

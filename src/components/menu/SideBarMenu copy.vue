@@ -3,7 +3,9 @@
     id="sidebar-menu"
     class="no-user-select flex flex-column scroll"
     :class="bgColor"
-    style="position: relative; display: inline-block;"
+    style="position: relative; left: 0px; display: inline-block; min-width: 60px;"
+    :style="[sideMenuObject]"
+    v-resize.initial="onResize"
   >
     <header>
       <slot name="header"></slot>
@@ -12,7 +14,7 @@
       <h-list-item
         v-for="(menu, index) in menuList"
         :key="index"
-        @mouseover="selectMenu(menu)"
+        @click="selectMenu(menu)"
         :bg-color="bgColor"
         :active="menu.isVisible"
       >
@@ -41,10 +43,7 @@
         </h-list-item-side>
       </h-list-item>
     </h-list>
-    <div :style="subMenuObject" 
-      v-on-clickaway="closeMenu"
-      @click="closeMenu"
-    >
+    <div :style="subMenuObject">
       <slot></slot>
     </div>
   </div>
@@ -53,17 +52,26 @@
 <script>
 import componentBase from '../componentBase.vue'
 import uuidv1 from 'uuid/v1'
-import { mixin as clickaway } from 'vue-clickaway'
+import viewport from '../others/viewport'
+import resize from 'vue-resize-directive'
 
 export default {
   extends: componentBase,
   name: 'HSideBarMenu',
-  mixins: [ clickaway ],
+  directives: {
+    resize
+  },
   data () {
     return {
       menuListId: uuidv1(),
       menuList: [],
       currentMenu: undefined,
+      sideMenuObject: {
+        position: 'fixed',
+        marginTop: '0px',
+        height: '',
+        zIndex: '1200'
+      },
       subMenuObject: {
         position: 'fixed',
         left: '0px',
@@ -106,6 +114,30 @@ export default {
       if (this.currentMenu) {
         this.currentMenu.setVisible(false)
         this.currentMenu = undefined
+      }
+    },
+    onResize () {
+      console.log('sidemenu on resize')
+      let pageHeaderHeight = viewport.getPageHeaderHeight()
+      let pageFooterHeight = viewport.getPageFooterHeight()
+      let sumHF = pageHeaderHeight + pageFooterHeight + 7
+
+      this.sideMenuObject.height = 'calc(100vh - ' + sumHF + 'px)'
+      this.sideMenuObject.marginTop = '' + (pageHeaderHeight + 2) + 'px'
+
+      let sidebarMenu = document.getElementById('sidebar-menu')
+      let sidebarMenuWidth = 0
+      if (sidebarMenu) {
+        sidebarMenuWidth = sidebarMenu.clientWidth
+      }
+
+      let pageContent = document.getElementById('page-content')
+      if (pageContent) {
+        let pageContentPadding = Number(pageContent.style['padding'].replace(/px/, ''))
+        if (pageContentPadding > 0) {
+          sidebarMenuWidth += 10
+        }
+        pageContent.style['margin-left'] = '' + sidebarMenuWidth + 'px'
       }
     }
   }

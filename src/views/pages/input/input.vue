@@ -10,8 +10,8 @@
         <div ref="txt-outlined"/>
         <comp-code class="h-mt-lg" title="Outlined" :code="txtoutlined">
           <div class="column col-inputs">
-            <h-input v-model="typesModel" label="Outlined"/>
-            <h-input v-model="typesModel" label="Outlined dense" dense/>
+            <h-input v-model="typesModel" label="Outlined" placeholder="Outlined"/>
+            <h-input v-model="typesModel" label="Outlined dense" placeholder="Outlined dense" dense/>
           </div>
           <div>
             Model: {{typesModel}}
@@ -21,8 +21,8 @@
         <div ref="txt-filled"/>
         <comp-code class="h-mt-lg" title="Filled" :code="txtfilled">
           <div class="column col-inputs">
-            <h-input v-model="typesModel" label="Filled" filled/>
-            <h-input v-model="typesModel" label="Filled dense" filled dense clearable/>
+            <h-input v-model="typesModel" label="Filled" placeholder="Filled" filled/>
+            <h-input v-model="typesModel" label="Filled dense" placeholder="Filled dense" filled dense clearable/>
           </div>
           <div>
             Model: {{typesModel}}
@@ -310,12 +310,22 @@
           <span>maskModel: {{maskModelCurrency}}</span>
         </comp-code>
 
+        <comp-code class="h-mt-lg" title="CSS" hide-code>
+          <span class="bg-blue300"> 
+            .col-inputs > .main-input-container {
+              margin-top: 10px;
+            }
+          </span>
+        </comp-code>
+
         <tabs-help
           class="h-mt-md"
           :properties="helpTopics.properties"
           :events="helpTopics.events"
         />
       </div>
+
+
       <div class="col-auto">
         <list-help>
           <h-list>
@@ -509,8 +519,10 @@ export default {
       // textfield
       txtoutlined: `
 <div class="column col-inputs">
-  <h-input v-model="typesModel" label="Outlined"/>
-  <h-input v-model="typesModel" label="Outlined dense" dense/>
+  <h-input v-model="typesModel" label="Outlined" 
+    placeholder="Outlined"/>
+  <h-input v-model="typesModel" label="Outlined dense" 
+    placeholder="Outlined dense" dense/>
 </div>
 <div>
   Model: {{typesModel}}
@@ -518,9 +530,10 @@ export default {
 `,
       txtfilled: `
 <div class="column col-inputs">
-  <h-input v-model="typesModel" label="Filled" filled/>
-  <h-input v-model="typesModel" label="Filled dense"
-    filled dense clearable/>
+  <h-input v-model="typesModel" label="Filled"
+    placeholder="Filled" filled/>
+  <h-input v-model="typesModel" label="Filled dense" 
+    placeholder="Filled dense" filled dense clearable/>
 </div>
 <div>
   Model: {{typesModel}}

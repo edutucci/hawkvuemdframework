@@ -10,6 +10,7 @@
             :multiple="true"
             @addFiles="addFiles"
             @removeFiles="removeFiles"
+            extensions=".pdf"
           />
         </comp-code>
 
@@ -17,9 +18,12 @@
         <comp-code class="h-mt-lg" title="Images" :code="ex2" :script="ex2Script"
           javascript
         >
-          <h-image-upload
+          <h-file-upload
           :multiple="true"
           :max-size="maxsize"
+          title="Select Images"
+          subtitle="Click to add images"
+          image-only
           />
         </comp-code>
 
@@ -29,11 +33,11 @@
             :multiple="true"
             :allow-drop="false"
           />
-          <h-image-upload
+          <!-- <h-image-upload
             class="h-mt-sm"
             :multiple="true"
             :allow-drop="false"
-          />
+          /> -->
         </comp-code>
 
         <div ref="vuejs-sample"/>
@@ -102,7 +106,7 @@ export default {
         events: []
       },
       fileList: [],
-      maxsize: 1024 * 500,
+      maxsize: 1024 * 5000,
       ex1: `
 <h-file-upload
   :multiple="true"
