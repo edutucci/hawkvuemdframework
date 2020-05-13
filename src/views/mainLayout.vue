@@ -1,7 +1,7 @@
 <template>
   <h-main-body v-resize.initial="onResize"
-    :show-drawer="showDrawer"
-    @close-drawer="showDrawer = $event"
+    :show-drawer-left="showDrawer"
+    @close-drawer-left="showDrawer = $event"
   >
     <template v-slot:header>
       <h-app-toolbar bg-color="bg-primary">

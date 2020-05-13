@@ -133,6 +133,48 @@
           </div>
         </comp-code>
 
+        <div ref="customs-itens"/>
+        <comp-code class="h-mt-lg" title="Custom Items" :code="selectCustomItem" :script="selectCustomItemScript"
+          javascript
+        >
+          <div class="row">
+            <div class="col-6">
+              <h-input dense :options="options"
+                v-model="selectModel"
+                type="select"
+                input-icon="fas fa-angle-down"
+                label="Select with custom items"
+                display-mode="icon"
+              >
+                <template slot="itemoption" slot-scope="itemoption">
+                  <h-list-item-side class="align-items-center">
+                    <h-icon :icon="itemoption.value.icon"/>
+                  </h-list-item-side>
+                  <h-list-item-content>
+                    <h-list-item-text :title="itemoption.value.text" :caption="itemoption.value.desc" />
+                  </h-list-item-content>
+                  <h-list-item-side v-if="itemoption.value.text === 'music'">
+                    <h-btn bg-color="bg-primary">
+                      <h-link :icon="itemoption.value.icon" text="homepage" text-color="text-white"
+                        url="https://www.jango.com/" new-window/>
+                    </h-btn>
+                  </h-list-item-side>
+                  <h-list-item-side v-if="itemoption.value.text === 'discord'">
+                    <h-btn bg-color="bg-primary">
+                      <h-link :icon="itemoption.value.icon" text="homepage" text-color="text-white"
+                        url="https://discord.com/" new-window/>
+                    </h-btn>
+                  </h-list-item-side>
+                </template>
+              </h-input>
+            </div>
+          </div>
+
+          <div class="h-mt-md">
+            selectModel: {{ selectModel }}
+          </div>
+        </comp-code>
+
         <div ref="select-multi"/>
         <comp-code class="h-mt-lg" title="Multi Select" :code="selectMulti" :script="selectMultiScript"
           javascript
@@ -377,6 +419,11 @@
                 <h-list-item-text title="Avatar"/>
               </h-list-item-content>
             </h-list-item>
+            <h-list-item @click="goToElement('customs-itens')">
+              <h-list-item-content>
+                <h-list-item-text title="Custom Items"/>
+              </h-list-item-content>
+            </h-list-item>
             <h-list-item @click="goToElement('select-multi')">
               <h-list-item-content>
                 <h-list-item-text title="Multi Select"/>
@@ -463,37 +510,43 @@ export default {
           'text': 'Address-book',
           'value': 'address-book1',
           'icon': 'fas fa-address-book',
-          'avatar': 'https://i.pinimg.com/736x/a0/fc/b3/a0fcb3e4cf01dd5832577a0f2c70f5f9--create-your-own-avatar-avatar-maker.jpg'
+          'avatar': 'https://i.pinimg.com/736x/a0/fc/b3/a0fcb3e4cf01dd5832577a0f2c70f5f9--create-your-own-avatar-avatar-maker.jpg',
+          'desc': 'My address list contaning my friends list'
         },
         {
           'text': 'Bluetooth',
           'value': 'Bluetooth1',
           'icon': 'fab fa-bluetooth',
-          'avatar': 'http://autokadabra.ru/system/uploads/users/18/18340/small.png?1318432918'
+          'avatar': 'http://autokadabra.ru/system/uploads/users/18/18340/small.png?1318432918',
+          'desc': 'My Bluetooth'
         },
         {
           'text': 'heart',
           'value': 'heart1',
           'icon': 'fas fa-heart',
-          'avatar': 'http://autokadabra.ru/system/uploads/users/20/20303/small.png?1319912650'
+          'avatar': 'http://autokadabra.ru/system/uploads/users/20/20303/small.png?1319912650',
+          'desc': 'My heart is here.'
         },
         {
           'text': 'chrome',
           'value': 'chrome1',
           'icon': 'fab fa-chrome',
-          'avatar': 'http://autokadabra.ru/system/uploads/users/19/19506/small.png?1318360757'
+          'avatar': 'http://autokadabra.ru/system/uploads/users/19/19506/small.png?1318360757',
+          'desc': 'One of my favorite web browser'
         },
         {
           'text': 'discord',
           'value': 'discord1',
           'icon': 'fab fa-discord',
-          'avatar': 'http://autokadabra.ru/system/uploads/users/20/20303/small.png?1319912650'
+          'avatar': 'http://autokadabra.ru/system/uploads/users/20/20303/small.png?1319912650',
+          'desc': 'My favorite communication software.'
         },
         {
           'text': 'music',
           'value': 'music1',
           'icon': 'fas fa-music',
-          'avatar': 'https://i.pinimg.com/736x/a0/fc/b3/a0fcb3e4cf01dd5832577a0f2c70f5f9--create-your-own-avatar-avatar-maker.jpg'
+          'avatar': 'https://i.pinimg.com/736x/a0/fc/b3/a0fcb3e4cf01dd5832577a0f2c70f5f9--create-your-own-avatar-avatar-maker.jpg',
+          'desc': 'I love  listening to music.'
         }
       ],
 
@@ -727,6 +780,94 @@ export default {
   }
 }
 `,
+      selectCustomItem: `
+<div class="col-6">
+  <h-input dense :options="options"
+    v-model="selectModel"
+    type="select"
+    input-icon="fas fa-angle-down"
+    label="Select with icons"
+    display-mode="icon"
+  >
+    <template slot="itemoption" slot-scope="itemoption">
+      <h-list-item-side class="align-items-center">
+        <h-icon :icon="itemoption.value.icon"/>
+      </h-list-item-side>
+      <h-list-item-content>
+        <h-list-item-text :title="itemoption.value.text" :caption="itemoption.value.desc" />
+      </h-list-item-content>
+      <h-list-item-side v-if="itemoption.value.text === 'music'">
+        <h-btn bg-color="bg-primary">
+          <h-link :icon="itemoption.value.icon" text="homepage" text-color="text-white"
+            url="https://www.jango.com/" new-window/>
+        </h-btn>
+      </h-list-item-side>
+      <h-list-item-side v-if="itemoption.value.text === 'discord'">
+        <h-btn bg-color="bg-primary">
+          <h-link :icon="itemoption.value.icon" text="homepage" text-color="text-white"
+            url="https://discord.com/" new-window/>
+        </h-btn>
+      </h-list-item-side>
+    </template>
+  </h-input>
+</div>
+<div class="h-mt-md">
+  selectModel: {{ selectModel }}
+</div>
+`,
+      selectCustomItemScript: `
+export default {
+  data () {
+    return {
+      selectModel: 'Bluetooth1',
+      options: [
+        {
+          'text': 'Address-book',
+          'value': 'address-book1',
+          'icon': 'fas fa-address-book',
+          'avatar': 'https://i.pinimg.com/736x/a0/fc/b3/a0fcb3e4cf01dd5832577a0f2c70f5f9--create-your-own-avatar-avatar-maker.jpg',
+          'desc': 'My address list contaning my friends list'
+        },
+        {
+          'text': 'Bluetooth',
+          'value': 'Bluetooth1',
+          'icon': 'fab fa-bluetooth',
+          'avatar': 'http://autokadabra.ru/system/uploads/users/18/18340/small.png?1318432918',
+          'desc': 'My Bluetooth'
+        },
+        {
+          'text': 'heart',
+          'value': 'heart1',
+          'icon': 'fas fa-heart',
+          'avatar': 'http://autokadabra.ru/system/uploads/users/20/20303/small.png?1319912650',
+          'desc': 'My heart is here.'
+        },
+        {
+          'text': 'chrome',
+          'value': 'chrome1',
+          'icon': 'fab fa-chrome',
+          'avatar': 'http://autokadabra.ru/system/uploads/users/19/19506/small.png?1318360757',
+          'desc': 'One of my favorite web browser'
+        },
+        {
+          'text': 'discord',
+          'value': 'discord1',
+          'icon': 'fab fa-discord',
+          'avatar': 'http://autokadabra.ru/system/uploads/users/20/20303/small.png?1319912650',
+          'desc': 'My favorite communication software.'
+        },
+        {
+          'text': 'music',
+          'value': 'music1',
+          'icon': 'fas fa-music',
+          'avatar': 'https://i.pinimg.com/736x/a0/fc/b3/a0fcb3e4cf01dd5832577a0f2c70f5f9--create-your-own-avatar-avatar-maker.jpg',
+          'desc': 'I love  listening to music.'
+        }
+      ],
+    }
+  }
+}
+      `,
       selectMulti: `
 <div class="col-6">
   <h-input dense
@@ -789,7 +930,7 @@ export default {
       // console.log('changeMultiselect: ' + value)
     }
   }
-}    
+}
 `,
       selectMultiChips: `
 <div class="col-6">
@@ -808,37 +949,43 @@ options: [
     'text': 'Address-book',
     'value': 'address-book1',
     'icon': 'fas fa-address-book',
-    'avatar': 'https://i.pinimg.com/736x/a0/fc/b3/a0fcb3e4cf01dd5832577a0f2c70f5f9--create-your-own-avatar-avatar-maker.jpg'
+    'avatar': 'https://i.pinimg.com/736x/a0/fc/b3/a0fcb3e4cf01dd5832577a0f2c70f5f9--create-your-own-avatar-avatar-maker.jpg',
+    'desc': 'My address list contaning my friends list'
   },
   {
     'text': 'Bluetooth',
     'value': 'Bluetooth1',
     'icon': 'fab fa-bluetooth',
-    'avatar': 'http://autokadabra.ru/system/uploads/users/18/18340/small.png?1318432918'
+    'avatar': 'http://autokadabra.ru/system/uploads/users/18/18340/small.png?1318432918',
+    'desc': 'My Bluetooth'
   },
   {
     'text': 'heart',
     'value': 'heart1',
     'icon': 'fas fa-heart',
-    'avatar': 'http://autokadabra.ru/system/uploads/users/20/20303/small.png?1319912650'
+    'avatar': 'http://autokadabra.ru/system/uploads/users/20/20303/small.png?1319912650',
+    'desc': 'My heart is here.'
   },
   {
     'text': 'chrome',
     'value': 'chrome1',
     'icon': 'fab fa-chrome',
-    'avatar': 'http://autokadabra.ru/system/uploads/users/19/19506/small.png?1318360757'
+    'avatar': 'http://autokadabra.ru/system/uploads/users/19/19506/small.png?1318360757',
+    'desc': 'One of my favorite web browser'
   },
   {
     'text': 'discord',
     'value': 'discord1',
     'icon': 'fab fa-discord',
-    'avatar': 'http://autokadabra.ru/system/uploads/users/20/20303/small.png?1319912650'
+    'avatar': 'http://autokadabra.ru/system/uploads/users/20/20303/small.png?1319912650',
+    'desc': 'My favorite communication software.'
   },
   {
     'text': 'music',
     'value': 'music1',
     'icon': 'fas fa-music',
-    'avatar': 'https://i.pinimg.com/736x/a0/fc/b3/a0fcb3e4cf01dd5832577a0f2c70f5f9--create-your-own-avatar-avatar-maker.jpg'
+    'avatar': 'https://i.pinimg.com/736x/a0/fc/b3/a0fcb3e4cf01dd5832577a0f2c70f5f9--create-your-own-avatar-avatar-maker.jpg',
+    'desc': 'I love  listening to music.'
   }
 ]
 `,

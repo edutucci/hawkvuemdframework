@@ -74,7 +74,6 @@ export default {
       }
     },
     onResize (size) {
-      // console.log('dd vale: ', size, ' - ', this.displayMode)
       if (size < 961) {
         this.showWindow = 'mobile'
       } else {

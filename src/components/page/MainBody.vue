@@ -1,9 +1,9 @@
 <template lang="pug">
   .row.full-height.scroll(id="mainbody" style="right: 0px; max-height: 100%;" v-resize.initial="onResize")
-    .col-auto
+    .col-auto.full-height.scroll
       h-nav-drawer(
-        v-model="localShowDrawer"
-        ref="nav"
+        v-model="localShowDrawerLeft"
+        ref="navLeft"
       )
         slot(name="left")
     .col
@@ -14,8 +14,13 @@
           slot
         .col-auto
           slot(name="footer")
-    .col-auto
-      slot(name="right")
+    .col-auto.full-height.scroll
+      h-nav-drawer(
+        v-model="localShowDrawerRight"
+        side="right"
+        ref="navRight"
+      )
+        slot(name="right")
 
 </template>
 
@@ -29,7 +34,11 @@ export default {
     resize
   },
   props: {
-    showDrawer: {
+    showDrawerLeft: {
+      type: Boolean,
+      default: false
+    },
+    showDrawerRight: {
       type: Boolean,
       default: false
     }
@@ -37,18 +46,29 @@ export default {
   data () {
     return {
       localDisplayMode: '',
-      localShowDrawer: false
+      localShowDrawerLeft: false,
+      localShowDrawerRight: false
     }
   },
   mounted () {
   },
   watch: {
-    showDrawer: function (show) {
-      this.localShowDrawer = show
+    showDrawerLeft: function (show) {
+      this.localShowDrawerLeft = show
+      this.onResize()
     },
-    localShowDrawer: function (show) {
+    localShowDrawerLeft: function (show) {
       if (!show) {
-        this.$emit('close-drawer', show)
+        this.$emit('close-drawer-left', show)
+      }
+    },
+    showDrawerRight: function (show) {
+      this.localShowDrawerRight = show
+      this.onResize()
+    },
+    localShowDrawerRight: function (show) {
+      if (!show) {
+        this.$emit('close-drawer-right', show)
       }
     }
   },
@@ -62,7 +82,12 @@ export default {
       return value
     },
     onResize () {
-      this.$refs.nav.onResize(this.width())
+      if (this.showDrawerLeft) {
+        this.$refs.navLeft.onResize(this.width())
+      }
+      if (this.showDrawerRight) {
+        this.$refs.navRight.onResize(this.width())
+      }
     }
   }
 }
