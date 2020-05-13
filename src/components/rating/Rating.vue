@@ -48,7 +48,7 @@ export default {
     if (this.currentRating < 0) {
       this.currentRating = 0
     }
-    this.fillRatings(this.currentRating)
+    this.fillRatings(this.currentRating, this.halfpoints)
   },
   watch: {
     messages: function (newValue) {
@@ -72,7 +72,7 @@ export default {
       }
     },
     halfpoints: function (value) {
-      this.fillRatings(this.currentRating)
+      this.fillRatings(this.currentRating, value)
     }
   },
   methods: {
@@ -91,12 +91,12 @@ export default {
         })
       }
     },
-    fillRatings (maxRating) {
+    fillRatings (maxRating, halfpoints) {
       if ((maxRating >= 0) && (maxRating <= this.maxRating)) {
         for (let rat = 0; rat < parseInt(maxRating); rat++) {
           this.ratings[rat].icon = 'fas fa-star'
         }
-        if (this.halfpoints) {
+        if (halfpoints) {
           let decimals = Number(maxRating.toString().split('.')[1]) || 0
           if (decimals > 0) {
             this.ratings[parseInt(maxRating)].icon = 'fas fa-star-half-alt'
@@ -131,7 +131,7 @@ export default {
       }
       this.currentRatingIndex = index
       this.clearRatings()
-      this.fillRatings(this.currentRating)
+      this.fillRatings(this.currentRating, this.halfpoints)
       this.$emit('input', this.currentRating)
     }
   }

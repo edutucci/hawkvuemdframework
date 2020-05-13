@@ -18,6 +18,10 @@ yarn-error.log*
 *.ntvs*
 *.njsproj
 *.sln
+<<<<<<< HEAD
 *.sw*
 
 # Package files
+=======
+*.sw?
+>>>>>>> 84d46abf7b04632c63714a92dc79068807ff2dc1

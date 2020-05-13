@@ -5,14 +5,12 @@
     <div class="text-h4 h-mt-lg">Classes</div>
 
     <html-table
+      bordered cell-separator
       :columns="columns"
       :rows="classesData"
-      borders
     />
 
-    <div class="text-h4 h-mt-lg">Sides</div>
-
-    <comp-code title="Border Sides" :code="bordersides">
+    <comp-code class="h-mt-lg" title="Border Sides" :code="bordersides">
       <div class="row align-items-center">
         <div class="bg-white border border-negative col-auto border-1" style="padding: 4px">
           <span class="text-negative">Border All</span>
@@ -32,9 +30,7 @@
       </div>
     </comp-code>
 
-    <div class="text-h4 h-mt-lg">Colors</div>
-
-    <comp-code title="Border With 1" :code="border1">
+    <comp-code class="h-mt-lg" title="Border With 1" :code="border1">
       <div class="row align-items-center">
         <div class="bg-black col-auto" style="padding: 4px">
           <div class="bg-black border border-white col-auto border-1" style="padding: 4px">
@@ -73,9 +69,7 @@
       </div>
     </comp-code>
 
-    <div class="text-h4 h-mt-lg">Radius</div>
-
-    <comp-code title="Border Radius" :code="borderRadius">
+    <comp-code class="h-mt-lg" title="Border Radius" :code="borderRadius">
       <div class="row">
         <div class="border border-negative col-auto border-2 border-radius" style="padding: 4px">
           <span class="text-negative">Border Negative</span>
@@ -92,9 +86,7 @@
       </div>
     </comp-code>
 
-    <div class="text-h4 h-mt-lg">Styles</div>
-
-    <comp-code title="Border Rounded" :code="borderRounded">
+    <comp-code class="h-mt-lg" title="Border Rounded" :code="borderRounded">
       <div class="row">
         <div class="border border-negative col-auto border-2 border-rounded" style="padding: 4px">
           <span class="text-negative">Border Negative</span>

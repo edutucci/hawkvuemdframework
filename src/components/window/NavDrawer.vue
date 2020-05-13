@@ -1,32 +1,43 @@
 <template>
-  <div
-    v-if="value"
-    class="flex drawer-animation bg-modal "
-    :class="{ 'drawer': value, 'flex-justify-start': side === 'left', 'flex-justify-end': side === 'right' }"
-    :style="{ width: activeWidth }"
-    v-resize.initial="onResize"
-  >
-    <div class="flex flex-column drawer_container position-relative" v-on-clickaway="away">
-      <div class="position-relative">
-        <slot name="header"></slot>
-      </div>
-      <main class="flex-1">
+  <div v-if="value" class="full-height no-user-select">
+    <div
+      ref="divwindow"
+      v-if="(value && displayMode === 'any' && showWindow === 'mobile') || (value && displayMode === 'window')"
+      class="row bg-modal drawer_mobile "
+      :class="{ 'justify-start': side === 'left', 
+        'justify-end': side === 'right'
+      }"
+    >
+      <div
+        class="col-auto bg-white full-height scroll border-left border-right border-gray"
+        v-on-clickaway="away"
+      >
         <slot></slot>
-      </main>
-      <div>
-        <slot name="footer"></slot>
       </div>
     </div>
-
+    <div
+      ref="divpage"
+      v-else-if="(value && displayMode === 'any' && showWindow === 'page')"
+      class="drawer-animation column full-height scroll  border-left border-right border-gray"
+      style="display: inline-box;"
+    >
+      <div class="column drawer_container bg-white full-height scroll">
+        <slot></slot>
+      </div>
+    </div>
   </div>
+
 </template>
 
 <script>
 
 import { mixin as clickaway } from 'vue-clickaway'
+
+import componentBase from '../componentBase.vue'
 import resize from 'vue-resize-directive'
 
 export default {
+  extends: componentBase,
   name: 'Drawer',
   directives: {
     resize
@@ -37,48 +48,38 @@ export default {
       type: Boolean,
       default: false
     },
+    displayMode: {
+      type: String,
+      default: 'any' // page or window
+    },
     side: {
       type: String,
-      default: 'right'
+      default: 'left'
     }
   },
   components: {
   },
   data () {
     return {
-      activeWidth: '0px'
-    }
-  },
-  watch: {
-    value: function (show) {
-      if (show) {
-        this.open()
-      }
+      showWindow: 'mobile'
     }
   },
   methods: {
-    open () {
-      this.activeWidth = '100%'
-    },
-    close () {
-      this.activeWidth = '0px'
+    closeMobile () {
       this.$emit('input', false)
     },
     away () {
-      if (this.value) {
-        this.close()
+      if (this.value && this.displayMode !== 'page') {
+        this.closeMobile()
       }
     },
-    onResize () {
-      // console.log('drawer resize')
-    }
+    onResize (size) {
+      if (size < 961) {
+        this.showWindow = 'mobile'
+      } else {
+        this.showWindow = 'page'
+      }
+    }    
   }
 }
 </script>
-
-<style scoped>
-.side {
-  top: 0;
-  right: 0;
-}
-</style>

@@ -26,16 +26,17 @@
         </comp-code>
 
         <div ref="rd-readonly"/>
-        <comp-code class="h-mt-lg" title="Readonly" :code="rbboolean" :script="rbbooleanScript"
+        <comp-code class="h-mt-lg" title="Readonly" :code="rbreadonly" :script="rbreadonlyScript"
           javascript
         >
           <div class="column">
             <div class="col">
-              <h-radio v-model="typeBoolean" text="Disabled" :value="true" readonly/>
-               <h-radio v-model="typeBoolean" text="Active radio" :value="false"/>
+              <h-radio v-model="typeReadOnly" text="Disabled" value="ad" readonly/>
+              <h-radio v-model="typeReadOnly" text="Action1" value="a1"/>
+              <h-radio v-model="typeReadOnly" text="Action2" value="a2"/>
             </div>
             <div class="col">
-              I like of: {{ typeBoolean }}
+              Model: {{ typeReadOnly }}
             </div>
           </div>
 
@@ -164,6 +165,11 @@
                 <h-list-item-text title="Boolean"></h-list-item-text>
               </h-list-item-content>
             </h-list-item>
+            <h-list-item @click="goToElement('rd-readonly')">
+              <h-list-item-content>
+                <h-list-item-text title="Readonly"></h-list-item-text>
+              </h-list-item-content>
+            </h-list-item>
             <h-list-item @click="goToElement('rd-string')">
               <h-list-item-content>
                 <h-list-item-text title="String"></h-list-item-text>
@@ -204,6 +210,7 @@ export default {
         events: []
       },
       typeBoolean: false,
+      typeReadOnly: 'a2',
       typeMovie: '',
       typeNumber: 0,
       gender: '',
@@ -235,6 +242,27 @@ export default {
     }
   }
 }
+`,
+      rbreadonly: `
+<div class="column">
+  <div class="col">
+    <h-radio v-model="typeReadOnly" text="Disabled" value="ad" readonly/>
+    <h-radio v-model="typeReadOnly" text="Action1" value="a1"/>
+    <h-radio v-model="typeReadOnly" text="Action2" value="a2"/>
+  </div>
+  <div class="col">
+    Model: {{ typeReadOnly }}
+  </div>
+</div>
+`,
+      rbreadonlyScript: `
+export default {
+  data () {
+    return {
+      typeReadOnly: 'a2'
+    }
+  }
+}      
 `,
       rblist: `
 <div class="column">
@@ -312,9 +340,18 @@ export default {
     Select yours favorite objects
   </div>
   <div class="col">
-    <h-radio v-model="radioObjects" :text="radioObjectsOptions[0].name" :value="radioObjectsOptions[0]"/>
-    <h-radio v-model="radioObjects" :text="radioObjectsOptions[1].name" :value="radioObjectsOptions[1]" />
-    <h-radio v-model="radioObjects" :text="radioObjectsOptions[2].name" :value="radioObjectsOptions[2]" />
+    <h-radio v-model="radioObjects"
+      :text="radioObjectsOptions[0].name"
+      :value="radioObjectsOptions[0]"
+    />
+    <h-radio v-model="radioObjects"
+      :text="radioObjectsOptions[1].name"
+      :value="radioObjectsOptions[1]"
+    />
+    <h-radio v-model="radioObjects"
+      :text="radioObjectsOptions[2].name"
+      :value="radioObjectsOptions[2]"
+    />
     <div>Your objects: {{ radioObjects }}</div>
   </div>
 </div>

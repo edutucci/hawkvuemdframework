@@ -10,8 +10,8 @@
         <div ref="txt-outlined"/>
         <comp-code class="h-mt-lg" title="Outlined" :code="txtoutlined">
           <div class="column col-inputs">
-            <h-input v-model="typesModel" label="Outlined"/>
-            <h-input v-model="typesModel" label="Outlined dense" dense/>
+            <h-input v-model="typesModel" label="Outlined" placeholder="Outlined"/>
+            <h-input v-model="typesModel" label="Outlined dense" placeholder="Outlined dense" dense/>
           </div>
           <div>
             Model: {{typesModel}}
@@ -21,8 +21,8 @@
         <div ref="txt-filled"/>
         <comp-code class="h-mt-lg" title="Filled" :code="txtfilled">
           <div class="column col-inputs">
-            <h-input v-model="typesModel" label="Filled" filled/>
-            <h-input v-model="typesModel" label="Filled dense" filled dense clearable/>
+            <h-input v-model="typesModel" label="Filled" placeholder="Filled" filled/>
+            <h-input v-model="typesModel" label="Filled dense" placeholder="Filled dense" filled dense clearable/>
           </div>
           <div>
             Model: {{typesModel}}
@@ -130,6 +130,48 @@
           </div>
           <div>
             selectModel1: {{ selectModel1 }}
+          </div>
+        </comp-code>
+
+        <div ref="customs-itens"/>
+        <comp-code class="h-mt-lg" title="Custom Items" :code="selectCustomItem" :script="selectCustomItemScript"
+          javascript
+        >
+          <div class="row">
+            <div class="col-6">
+              <h-input dense :options="options"
+                v-model="selectModel"
+                type="select"
+                input-icon="fas fa-angle-down"
+                label="Select with custom items"
+                display-mode="icon"
+              >
+                <template slot="itemoption" slot-scope="itemoption">
+                  <h-list-item-side class="align-items-center">
+                    <h-icon :icon="itemoption.value.icon"/>
+                  </h-list-item-side>
+                  <h-list-item-content>
+                    <h-list-item-text :title="itemoption.value.text" :caption="itemoption.value.desc" />
+                  </h-list-item-content>
+                  <h-list-item-side v-if="itemoption.value.text === 'music'">
+                    <h-btn bg-color="bg-primary">
+                      <h-link :icon="itemoption.value.icon" text="homepage" text-color="text-white"
+                        url="https://www.jango.com/" new-window/>
+                    </h-btn>
+                  </h-list-item-side>
+                  <h-list-item-side v-if="itemoption.value.text === 'discord'">
+                    <h-btn bg-color="bg-primary">
+                      <h-link :icon="itemoption.value.icon" text="homepage" text-color="text-white"
+                        url="https://discord.com/" new-window/>
+                    </h-btn>
+                  </h-list-item-side>
+                </template>
+              </h-input>
+            </div>
+          </div>
+
+          <div class="h-mt-md">
+            selectModel: {{ selectModel }}
           </div>
         </comp-code>
 
@@ -310,12 +352,22 @@
           <span>maskModel: {{maskModelCurrency}}</span>
         </comp-code>
 
+        <comp-code class="h-mt-lg" title="CSS" hide-code>
+          <span class="bg-blue300"> 
+            .col-inputs > .main-input-container {
+              margin-top: 10px;
+            }
+          </span>
+        </comp-code>
+
         <tabs-help
           class="h-mt-md"
           :properties="helpTopics.properties"
           :events="helpTopics.events"
         />
       </div>
+
+
       <div class="col-auto">
         <list-help>
           <h-list>
@@ -365,6 +417,11 @@
             <h-list-item @click="goToElement('select-avatar')">
               <h-list-item-content>
                 <h-list-item-text title="Avatar"/>
+              </h-list-item-content>
+            </h-list-item>
+            <h-list-item @click="goToElement('customs-itens')">
+              <h-list-item-content>
+                <h-list-item-text title="Custom Items"/>
               </h-list-item-content>
             </h-list-item>
             <h-list-item @click="goToElement('select-multi')">
@@ -453,37 +510,43 @@ export default {
           'text': 'Address-book',
           'value': 'address-book1',
           'icon': 'fas fa-address-book',
-          'avatar': 'https://i.pinimg.com/736x/a0/fc/b3/a0fcb3e4cf01dd5832577a0f2c70f5f9--create-your-own-avatar-avatar-maker.jpg'
+          'avatar': 'https://i.pinimg.com/736x/a0/fc/b3/a0fcb3e4cf01dd5832577a0f2c70f5f9--create-your-own-avatar-avatar-maker.jpg',
+          'desc': 'My address list contaning my friends list'
         },
         {
           'text': 'Bluetooth',
           'value': 'Bluetooth1',
           'icon': 'fab fa-bluetooth',
-          'avatar': 'http://autokadabra.ru/system/uploads/users/18/18340/small.png?1318432918'
+          'avatar': 'http://autokadabra.ru/system/uploads/users/18/18340/small.png?1318432918',
+          'desc': 'My Bluetooth'
         },
         {
           'text': 'heart',
           'value': 'heart1',
           'icon': 'fas fa-heart',
-          'avatar': 'http://autokadabra.ru/system/uploads/users/20/20303/small.png?1319912650'
+          'avatar': 'http://autokadabra.ru/system/uploads/users/20/20303/small.png?1319912650',
+          'desc': 'My heart is here.'
         },
         {
           'text': 'chrome',
           'value': 'chrome1',
           'icon': 'fab fa-chrome',
-          'avatar': 'http://autokadabra.ru/system/uploads/users/19/19506/small.png?1318360757'
+          'avatar': 'http://autokadabra.ru/system/uploads/users/19/19506/small.png?1318360757',
+          'desc': 'One of my favorite web browser'
         },
         {
           'text': 'discord',
           'value': 'discord1',
           'icon': 'fab fa-discord',
-          'avatar': 'http://autokadabra.ru/system/uploads/users/20/20303/small.png?1319912650'
+          'avatar': 'http://autokadabra.ru/system/uploads/users/20/20303/small.png?1319912650',
+          'desc': 'My favorite communication software.'
         },
         {
           'text': 'music',
           'value': 'music1',
           'icon': 'fas fa-music',
-          'avatar': 'https://i.pinimg.com/736x/a0/fc/b3/a0fcb3e4cf01dd5832577a0f2c70f5f9--create-your-own-avatar-avatar-maker.jpg'
+          'avatar': 'https://i.pinimg.com/736x/a0/fc/b3/a0fcb3e4cf01dd5832577a0f2c70f5f9--create-your-own-avatar-avatar-maker.jpg',
+          'desc': 'I love  listening to music.'
         }
       ],
 
@@ -509,8 +572,10 @@ export default {
       // textfield
       txtoutlined: `
 <div class="column col-inputs">
-  <h-input v-model="typesModel" label="Outlined"/>
-  <h-input v-model="typesModel" label="Outlined dense" dense/>
+  <h-input v-model="typesModel" label="Outlined" 
+    placeholder="Outlined"/>
+  <h-input v-model="typesModel" label="Outlined dense" 
+    placeholder="Outlined dense" dense/>
 </div>
 <div>
   Model: {{typesModel}}
@@ -518,8 +583,10 @@ export default {
 `,
       txtfilled: `
 <div class="column col-inputs">
-  <h-input v-model="typesModel" label="Filled" filled/>
-  <h-input v-model="typesModel" label="Filled dense" filled dense clearable/>
+  <h-input v-model="typesModel" label="Filled"
+    placeholder="Filled" filled/>
+  <h-input v-model="typesModel" label="Filled dense" 
+    placeholder="Filled dense" filled dense clearable/>
 </div>
 <div>
   Model: {{typesModel}}
@@ -527,7 +594,8 @@ export default {
 `,
       txtpassword: `
 <div class="column col-inputs">
-  <h-input v-model="passwordModel" label="Password" dense type="password"/>
+  <h-input v-model="passwordModel" label="Password"
+    dense type="password"/>
 </div>
 <div>
   Model: {{passwordModel}}
@@ -535,8 +603,10 @@ export default {
 `,
       txticons: `
 <div class="column col-inputs">
-  <h-input dense v-model="iconsModel" label="Phone" leading-icon="fas fa-phone" clearable/>
-  <h-input dense v-model="iconsModel" label="E-Mail" filled leading-icon="fas fa-envelope" clearable/>
+  <h-input dense v-model="iconsModel" label="Phone"
+    leading-icon="fas fa-phone" clearable/>
+  <h-input dense v-model="iconsModel" label="E-Mail"
+    filled leading-icon="fas fa-envelope" clearable/>
 </div>
 <div>
   Model: {{iconsModel}}
@@ -550,8 +620,9 @@ export default {
   <h-input dense v-model="messageModel" label="Phone" clearable
     error-message="Invalid information"
   />
-  <h-input dense v-model="messageModel" label="TextCounter" clearable
-    helper-text="Counter:" input-counter :text-counter="60" :maxlength="60"
+  <h-input dense v-model="messageModel" label="TextCounter"
+    clearable helper-text="Counter:" input-counter
+    :text-counter="60" :maxlength="60"
   />
 </div>
 <div>
@@ -563,7 +634,8 @@ export default {
   <h-input dense v-model="prefixModel" label="Price" clearable
     helper-text="Type a value" prefix="$"
   />
-  <h-input dense v-model="suffixModel" label="E-Mail" leading-icon="fas fa-envelope" clearable
+  <h-input dense v-model="suffixModel" label="E-Mail"
+    leading-icon="fas fa-envelope" clearable
     helper-text="Type a valid mail" suffix="@gmail.com"
   />
 </div>
@@ -650,7 +722,12 @@ export default {
 `,
       selectAvatar: `
 <div class="col-6">
-  <h-input dense type='select' :options="options" v-model="selectModel1" input-icon="fas fa-angle-down" display-mode="avatar"/>
+  <h-input dense type='select'
+  :options="options"
+  v-model="selectModel1"
+  input-icon="fas fa-angle-down"
+  display-mode="avatar"
+/>
 </div>
 <div>
   selectModel1: {{ selectModel1 }}
@@ -703,6 +780,94 @@ export default {
   }
 }
 `,
+      selectCustomItem: `
+<div class="col-6">
+  <h-input dense :options="options"
+    v-model="selectModel"
+    type="select"
+    input-icon="fas fa-angle-down"
+    label="Select with icons"
+    display-mode="icon"
+  >
+    <template slot="itemoption" slot-scope="itemoption">
+      <h-list-item-side class="align-items-center">
+        <h-icon :icon="itemoption.value.icon"/>
+      </h-list-item-side>
+      <h-list-item-content>
+        <h-list-item-text :title="itemoption.value.text" :caption="itemoption.value.desc" />
+      </h-list-item-content>
+      <h-list-item-side v-if="itemoption.value.text === 'music'">
+        <h-btn bg-color="bg-primary">
+          <h-link :icon="itemoption.value.icon" text="homepage" text-color="text-white"
+            url="https://www.jango.com/" new-window/>
+        </h-btn>
+      </h-list-item-side>
+      <h-list-item-side v-if="itemoption.value.text === 'discord'">
+        <h-btn bg-color="bg-primary">
+          <h-link :icon="itemoption.value.icon" text="homepage" text-color="text-white"
+            url="https://discord.com/" new-window/>
+        </h-btn>
+      </h-list-item-side>
+    </template>
+  </h-input>
+</div>
+<div class="h-mt-md">
+  selectModel: {{ selectModel }}
+</div>
+`,
+      selectCustomItemScript: `
+export default {
+  data () {
+    return {
+      selectModel: 'Bluetooth1',
+      options: [
+        {
+          'text': 'Address-book',
+          'value': 'address-book1',
+          'icon': 'fas fa-address-book',
+          'avatar': 'https://i.pinimg.com/736x/a0/fc/b3/a0fcb3e4cf01dd5832577a0f2c70f5f9--create-your-own-avatar-avatar-maker.jpg',
+          'desc': 'My address list contaning my friends list'
+        },
+        {
+          'text': 'Bluetooth',
+          'value': 'Bluetooth1',
+          'icon': 'fab fa-bluetooth',
+          'avatar': 'http://autokadabra.ru/system/uploads/users/18/18340/small.png?1318432918',
+          'desc': 'My Bluetooth'
+        },
+        {
+          'text': 'heart',
+          'value': 'heart1',
+          'icon': 'fas fa-heart',
+          'avatar': 'http://autokadabra.ru/system/uploads/users/20/20303/small.png?1319912650',
+          'desc': 'My heart is here.'
+        },
+        {
+          'text': 'chrome',
+          'value': 'chrome1',
+          'icon': 'fab fa-chrome',
+          'avatar': 'http://autokadabra.ru/system/uploads/users/19/19506/small.png?1318360757',
+          'desc': 'One of my favorite web browser'
+        },
+        {
+          'text': 'discord',
+          'value': 'discord1',
+          'icon': 'fab fa-discord',
+          'avatar': 'http://autokadabra.ru/system/uploads/users/20/20303/small.png?1319912650',
+          'desc': 'My favorite communication software.'
+        },
+        {
+          'text': 'music',
+          'value': 'music1',
+          'icon': 'fas fa-music',
+          'avatar': 'https://i.pinimg.com/736x/a0/fc/b3/a0fcb3e4cf01dd5832577a0f2c70f5f9--create-your-own-avatar-avatar-maker.jpg',
+          'desc': 'I love  listening to music.'
+        }
+      ],
+    }
+  }
+}
+      `,
       selectMulti: `
 <div class="col-6">
   <h-input dense
@@ -765,7 +930,7 @@ export default {
       // console.log('changeMultiselect: ' + value)
     }
   }
-}    
+}
 `,
       selectMultiChips: `
 <div class="col-6">
@@ -784,37 +949,43 @@ options: [
     'text': 'Address-book',
     'value': 'address-book1',
     'icon': 'fas fa-address-book',
-    'avatar': 'https://i.pinimg.com/736x/a0/fc/b3/a0fcb3e4cf01dd5832577a0f2c70f5f9--create-your-own-avatar-avatar-maker.jpg'
+    'avatar': 'https://i.pinimg.com/736x/a0/fc/b3/a0fcb3e4cf01dd5832577a0f2c70f5f9--create-your-own-avatar-avatar-maker.jpg',
+    'desc': 'My address list contaning my friends list'
   },
   {
     'text': 'Bluetooth',
     'value': 'Bluetooth1',
     'icon': 'fab fa-bluetooth',
-    'avatar': 'http://autokadabra.ru/system/uploads/users/18/18340/small.png?1318432918'
+    'avatar': 'http://autokadabra.ru/system/uploads/users/18/18340/small.png?1318432918',
+    'desc': 'My Bluetooth'
   },
   {
     'text': 'heart',
     'value': 'heart1',
     'icon': 'fas fa-heart',
-    'avatar': 'http://autokadabra.ru/system/uploads/users/20/20303/small.png?1319912650'
+    'avatar': 'http://autokadabra.ru/system/uploads/users/20/20303/small.png?1319912650',
+    'desc': 'My heart is here.'
   },
   {
     'text': 'chrome',
     'value': 'chrome1',
     'icon': 'fab fa-chrome',
-    'avatar': 'http://autokadabra.ru/system/uploads/users/19/19506/small.png?1318360757'
+    'avatar': 'http://autokadabra.ru/system/uploads/users/19/19506/small.png?1318360757',
+    'desc': 'One of my favorite web browser'
   },
   {
     'text': 'discord',
     'value': 'discord1',
     'icon': 'fab fa-discord',
-    'avatar': 'http://autokadabra.ru/system/uploads/users/20/20303/small.png?1319912650'
+    'avatar': 'http://autokadabra.ru/system/uploads/users/20/20303/small.png?1319912650',
+    'desc': 'My favorite communication software.'
   },
   {
     'text': 'music',
     'value': 'music1',
     'icon': 'fas fa-music',
-    'avatar': 'https://i.pinimg.com/736x/a0/fc/b3/a0fcb3e4cf01dd5832577a0f2c70f5f9--create-your-own-avatar-avatar-maker.jpg'
+    'avatar': 'https://i.pinimg.com/736x/a0/fc/b3/a0fcb3e4cf01dd5832577a0f2c70f5f9--create-your-own-avatar-avatar-maker.jpg',
+    'desc': 'I love  listening to music.'
   }
 ]
 `,
@@ -1006,7 +1177,7 @@ export default {
     },
     // select
     changeMultiselect (value) {
-      // console.log('changeMultiselect: ' + value)
+      console.log('changeMultiselect: ' + value)
     },
 
     // search

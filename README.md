@@ -1,10 +1,5 @@
-<p align="center">
-    <a href="https://vuejs.org/" target="_blank"><img width="100" height="100" src="https://vuejs.org/images/logo.png"/></a>
-    <img width="100" height="100" src="https://github.com/edutucci/hawkframework/blob/master/public/img/hawk.png"/>
-</p>
-
 # Hawk Framework 1.0.12 (Development)
-Project created with vue-cli 3
+Project created with vue-cli 4
 
 Free CSS Library for vuejs 2.x with lightweight components.
 
@@ -15,56 +10,25 @@ Code review, bug fix, better components
 
 <a href="https://edutucci.github.io/hawkframework/" target="_blank"> Hawk Framework </a>
 
-<!---
-## Installation
-
-```bash
-yarn add hawkframework
-```
-
-or
-
-```bash
-npm install hawkframework
-```
--->
-
-<!---
-## Clone the project
-
-Download the project using the git command using the terminal and install all dependences
-
-```bash
-git clone https://github.com/edutucci/hawkframework.git
-```
--->
-
-## Note
-
-When the project is modified it's will be automatically recompiled. Just press <strong>F5</strong> to refresh the page.
-
 ## Project setup
-
 ```
 yarn install
 ```
 
 ### Compiles and hot-reloads for development
-
 ```
-yarn run serve
+yarn dev
 ```
 
-### Compiles and minifies for production
-
+### Compiles and minifies for production UNIX
 ```
-yarn run build
+yarn build-lib-unix
 ```
 
 ### Lints and fixes files
-
 ```
-yarn run lint
+yarn lint
 ```
 
-made with ❤️ 
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).

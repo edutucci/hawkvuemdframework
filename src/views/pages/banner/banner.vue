@@ -119,8 +119,10 @@ export default {
   </template>
 
   <template v-slot:buttons>
-    <h-btn text-button caps text="continue as a guest" text-color="text-primary" bg-color="bg-primary"/>
-    <h-btn text-button caps text="sign in" text-color="text-primary" bg-color="bg-primary"/>
+    <h-btn text-button caps text="continue as a guest"
+      text-color="text-primary" bg-color="bg-primary"/>
+    <h-btn text-button caps text="sign in" text-color="text-primary"
+      bg-color="bg-primary"/>
   </template>
 
 </h-banner>
@@ -138,7 +140,8 @@ export default {
   </template>
 
   <template v-slot:buttons>
-    <h-btn text-button caps text="turn on wifi" text-color="text-primary" bg-color="bg-primary"/>
+    <h-btn text-button caps text="turn on wifi"
+      text-color="text-primary" bg-color="bg-primary"/>
   </template>
 </h-banner>
 
@@ -148,7 +151,8 @@ export default {
   </template>
 
   <template v-slot:buttons>
-    <h-btn text-button caps text="get online" text-color="text-primary" bg-color="bg-primary"/>
+    <h-btn text-button caps text="get online"
+      text-color="text-primary" bg-color="bg-primary"/>
   </template>
 </h-banner>
 `,
@@ -159,19 +163,23 @@ export default {
   </template>
 
   <template v-slot:buttons>
-    <h-btn contained caps text="continue as a guest" text-color="text-white" bg-color="bg-primary"/>
-    <h-btn contained caps text="sign in" text-color="text-white"  bg-color="bg-primary"/>
+    <h-btn contained caps text="continue as a guest"
+      text-color="text-white" bg-color="bg-primary"/>
+    <h-btn contained caps text="sign in"
+      text-color="text-white"  bg-color="bg-primary"/>
   </template>
 
 </h-banner>
 
-<h-banner wide class="h-mt-md bg-purple600 text-white border-radius">
+<h-banner wide class="h-mt-md bg-purple600 text-white
+  border-radius">
   <template v-slot:text>
   Posivibes is offline.
   </template>
 
   <template v-slot:buttons>
-    <h-btn contained caps text="turn on wifi" text-color="text-white" bg-color="bg-purple600"/>
+    <h-btn contained caps text="turn on wifi"
+      text-color="text-white" bg-color="bg-purple600"/>
   </template>
 </h-banner>   
 `

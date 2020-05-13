@@ -91,20 +91,20 @@ export default {
     }
   },
   mounted () {
-    this.onBackgroundHover()
+    this.onBackgroundHover(this.bgColor)
     this.checkForDefaultTab()
   },
   watch: {
     bgColor: function (value) {
-      this.onBackgroundHover()
+      this.onBackgroundHover(value)
     }
   },
   methods: {
     addTab: function (tab) {
       this.tabs.push(tab)
     },
-    onBackgroundHover () {
-      this.compBgColor = this.bgColor
+    onBackgroundHover (bgColor) {
+      this.compBgColor = bgColor
       this.getBackgroundHover(false)
     },
     isActive (tabIndex) {

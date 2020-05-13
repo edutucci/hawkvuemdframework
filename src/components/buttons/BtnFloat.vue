@@ -45,20 +45,20 @@ export default {
   },
   watch: {
     minifloat: function (value) {
-      this.setButtonSize()
-      this.setIconSize()
+      this.setButtonSize(value)
+      this.setIconSize(value)
     }
   },
   methods: {
     onClick () {
       this.$emit('click')
     },
-    setButtonSize () {
-      this.btnSize.width = (this.minifloat) ? '22px' : '40px'
-      this.btnSize.height = (this.minifloat) ? '22px' : '40px'
+    setButtonSize (minifloat) {
+      this.btnSize.width = (minifloat) ? '22px' : '40px'
+      this.btnSize.height = (minifloat) ? '22px' : '40px'
     },
-    setIconSize () {
-      this.iconsize = (this.minifloat) ? '16px' : '20px'
+    setIconSize (minifloat) {
+      this.iconsize = (minifloat) ? '16px' : '20px'
     }
   }
 }

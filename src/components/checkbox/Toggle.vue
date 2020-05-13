@@ -2,7 +2,7 @@
   <div class="flex flex-items-center switch-container h-mr-sm">
     <div class="h-mt-xs">
       <label class="switch">
-        <input type="checkbox"  @click="onChange(this)" :checked="checkboxState" :disabled="readonly">
+        <input type="checkbox"  @click="onChange()" :checked="checkboxState" :disabled="readonly">
         <span class="slider round"></span>
       </label>
     </div>
@@ -31,7 +31,7 @@ export default {
       default: false
     },
     model: {
-      type: [String, Array, Boolean],
+      type: [Array, Boolean],
       default: undefined
     }
   },
@@ -57,7 +57,7 @@ export default {
     }
   },
   methods: {
-    onChange (checkbox) {
+    onChange () {
       let value = this.model
 
       if (Array.isArray(value)) {

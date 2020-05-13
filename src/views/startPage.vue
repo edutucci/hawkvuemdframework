@@ -1,6 +1,12 @@
 <template>
   <h-page-content>
-     <div class="flex flex-justify-center flex-items-center">
+    <!-- <template v-slot:left>
+      slot left
+    </template>
+    <template v-slot:right>
+      slot right
+    </template> -->
+     <div class="flex flex-justify-center flex-items-center full-heigh">
       <div class="flex flex-column">
         <div class="text-center">
           <h1>Hawk Framework</h1>

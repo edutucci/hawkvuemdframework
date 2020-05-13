@@ -407,7 +407,8 @@ export default {
     </div>
   </h-card-section>
   <h-card-media>
-    <h-youtube-video :width="340" :height="220" src="https://www.youtube.com/embed/nSmMkeNjjPg"/>
+    <h-youtube-video :width="340" :height="220"
+      src="https://www.youtube.com/embed/nSmMkeNjjPg"/>
   </h-card-media>
 </h-card>
 `,
@@ -495,31 +496,47 @@ export default {
 </div>
 `,
       cardDistinction: `
-<div class="row justify-center boxshadow h-ma-md" style="width:380px;">
+<div class="row justify-center boxshadow h-ma-md"
+  style="width:380px;"
+>
   <div class="column flex-wrap">
     <div class="h-ma-md" style="width:360px; height: 200px;">
       <h-card>
         <h-card-media>
-          <h-card-media-img style="width:360px; height: 200px;"  img="img/90minute.png">
-            <h-card-media-text class="flex-items-end" text="90th minute" desc="4.31 MB"/>
+          <h-card-media-img style="width:360px; height: 200px;"
+            img="img/90minute.png"
+          >
+            <h-card-media-text class="flex-items-end"
+              text="90th minute" desc="4.31 MB"
+            />
           </h-card-media-img>
         </h-card-media>
       </h-card>
     </div>
 
-    <div class="h-ma-md row align-items-center" style="width:360px; height: 200px;">
+    <div class="h-ma-md row align-items-center"
+      style="width:360px; height: 200px;"
+    >
       <h-card>
         <h-card-media>
-          <h-card-media-img style="width:170px; height: 128px;" img="img/bluerun.png">
-            <h-card-media-text class="flex-items-end" text="Blue run" desc="3.33 MB"/>
+          <h-card-media-img style="width:170px; height: 128px;"
+            img="img/bluerun.png"
+          >
+            <h-card-media-text class="flex-items-end"
+              text="Blue run" desc="3.33 MB"
+            />
           </h-card-media-img>
         </h-card-media>
       </h-card>
 
       <h-card>
         <h-card-media>
-          <h-card-media-img style="width:190px; height: 170px;"  img="img/breakpoint.png">
-            <h-card-media-text class="align-items-end justify-center" text="Break point"  desc="5.12 MB"/>
+          <h-card-media-img style="width:190px; height: 170px;"
+            img="img/breakpoint.png"
+          >
+            <h-card-media-text class="align-items-end justify-center"
+              text="Break point"  desc="5.12 MB"
+            />
           </h-card-media-img>
         </h-card-media>
       </h-card>
@@ -528,8 +545,12 @@ export default {
     <div class="h-ma-md" style="width:360px; height: 200px;">
       <h-card>
         <h-card-media>
-          <h-card-media-img style="width:360px; height: 200px;" img="img/matchday.png">
-            <h-card-media-text class="align-items-center justify-center" text="Match day" desc="2.18 MB"/>
+          <h-card-media-img style="width:360px; height: 200px;"
+            img="img/matchday.png"
+          >
+            <h-card-media-text class="align-items-center justify-center"
+              text="Match day" desc="2.18 MB"
+            />
           </h-card-media-img>
         </h-card-media>
       </h-card>

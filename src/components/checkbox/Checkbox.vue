@@ -33,7 +33,7 @@ export default {
       default: false
     },
     model: {
-      type: [String, Array, Boolean],
+      type: [Array, Boolean],
       default: undefined
     }
   },
@@ -45,7 +45,7 @@ export default {
   },
   mounted () {
     if (this.checked) {
-      this.checkIfValueExists()
+      this.checkIfValueExists(this.checked)
     }
   },
   computed: {
@@ -75,17 +75,17 @@ export default {
   },
   watch: {
     checked: function (value) {
-      this.checkIfValueExists()
+      this.checkIfValueExists(value)
     }
   },
   methods: {
-    checkIfValueExists () {
+    checkIfValueExists (checked) {
       let localModel = this.model
       // console.log('model: ', localModel)
       if (localModel !== undefined) {
         if (Array.isArray(localModel)) {
           let idx = localModel.indexOf(this.value)
-          if (idx !== -1 && !this.checked) {
+          if (idx !== -1 && !checked) {
             // Removes an item when
             // the property checked has been changed to false
             this.$delete(localModel, idx)
@@ -96,7 +96,7 @@ export default {
           }
         } else if (_.isBoolean(localModel)) {
           // console.log('localModel is Boolean')
-          localModel = this.checked
+          localModel = checked
           // console.log('localModel changed in Boolean:', localModel)
           this.$emit('change', localModel)
         }

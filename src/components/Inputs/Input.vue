@@ -96,7 +96,7 @@
 
       .bg-white.dropdown-content.scroll-y-only.shadow-2.border-radius(
         :style="[dropdownObject]"
-        v-if="showdropdown"
+        v-if="showdropdown && options && options.length > 0"
         :id="dropMenuId"
       )
         h-list(v-if="type === 'select'")
@@ -105,14 +105,15 @@
             :key="`${dropMenuId}-${index}`"
             @click="onSelectItem(option)"
           )
-            h-list-item-side(v-if="displayMode ==='icon'")
-              h-icon(:icon="option.icon")
-            h-list-item-side(v-if="displayMode ==='avatar'")
-              h-image(:src="option.avatar" avatar)
-            // h-list-item-side(v-if="displayMode ==='image'")
-            //   img(:src="option.img" style="width:32px; height:32px;")
-            h-list-item-content
-              h-list-item-text(:title="option.text.toString()")
+            slot(name="itemoption" :value="option")
+              h-list-item-side(v-if="displayMode ==='icon'")
+                h-icon(:icon="option.icon")
+              h-list-item-side(v-if="displayMode ==='avatar'")
+                h-image(:src="option.avatar" avatar)
+              // h-list-item-side(v-if="displayMode ==='image'")
+              //   img(:src="option.img" style="width:32px; height:32px;")
+              h-list-item-content
+                h-list-item-text(:title="option.text.toString()")
 
         h-list(v-else-if="type === 'multi-select'")
           h-list-item(
@@ -130,14 +131,15 @@
             :key="`${dropMenuId}-${index}`"
             @click="onSelectItem(option)"
           )
-            h-list-item-side.align-items-center(v-if="option.icon && option.icon.length")
-              h-icon(:icon="option.icon" size="24px" style="color: gray")
-            h-list-item-side.align-items-center(v-else-if="option.avatar && option.avatar.length > 0")
-              h-image(:src="option.avatar" size="24px" avatar)
-            h-list-item-side.align-items-center(v-else-if="option.img && option.img.length > 0")
-              img(:src="option.img" width="24px" height="24px")
-            h-list-item-content
-              h-list-item-text(:title="option.text" :caption="option.desc")
+            slot(name="itemoption" :value="option")
+              h-list-item-side.align-items-center(v-if="option.icon && option.icon.length")
+                h-icon(:icon="option.icon" size="20px" style="color: gray")
+              h-list-item-side.align-items-center(v-else-if="option.avatar && option.avatar.length > 0")
+                h-image(:src="option.avatar" size="24px" avatar)
+              h-list-item-side.align-items-center(v-else-if="option.img && option.img.length > 0")
+                img(:src="option.img" width="24px" height="24px")
+              h-list-item-content
+                h-list-item-text(:title="option.text" :caption="option.desc")
 
 </template>
 
@@ -171,7 +173,6 @@ export default {
       inputId: uuidv1(),
       dropMenuId: uuidv1(),
       inputDisplay: '',
-      inputPlaceholder: '',
       inputLabel: '',
       focused: false,
       inputContainerFieldBottomBorderColor: '',
@@ -209,23 +210,23 @@ export default {
     this.inputType = this.type
   },
   watch: {
-    value: function (value) {
+    value: function () {
       this.makeInputValue()
     },
-    bgColor: function (value) {
+    bgColor: function () {
       this.makeInputContainerColors()
     },
-    textcolor: function (value) {
+    textcolor: function () {
       this.makeInputContainerColors()
     },
-    masked: function (newValue) {
+    masked: function () {
       if (this.useMask) {
         this.changeModelMask(this.inputDisplay)
       } else if (this.type === 'currency') {
         this.changeModelCurrencyMask()
       }
     },
-    options: function (value) {
+    options: function () {
       this.checkViewport()
     },
     type: function (value) {
@@ -243,12 +244,7 @@ export default {
       return value
     },
     containerPlaceholder () {
-      let value = ''
-      if (!this.focused) {
-        if ((!this.inputDisplay) || (this.inputDisplay && this.inputDisplay.length === 0)) {
-          value = this.label
-        }
-      }
+      let value = (this.placeholder && this.placeholder.length > 0) ? this.placeholder : this.label
       return value
     },
     inputTextCounter () {
@@ -428,7 +424,8 @@ export default {
         this.updateContainerRect(containerRect)
 
         this.dropdownObject.top = '' + containerRect[0].bottom + 'px'
-        this.dropdownObject.width = '' + (containerRect[0].width - 15) + 'px'
+        this.dropdownObject.width = '' + (containerRect[0].width) + 'px'
+        this.dropdownObject.left = '' + (containerRect[0].left) + 'px'
         this.windowWidth = window.innerWidth
         this.window.height = window.innerHeight
 

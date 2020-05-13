@@ -1,26 +1,25 @@
 <template lang="pug">
-  div
-    h1 CSS Classes
-    html-separator
-    .row.text-center
-      div.inline-block.bg-primary.text-white.h-pa-md.h-mr-md primary
-      div.inline-block.bg-secondary.text-white.h-pa-md.h-mr-md secondary
-      div.inline-block.bg-positive.text-white.h-pa-md.h-mr-md positive
-      div.inline-block.bg-negative.text-white.h-pa-md.h-mr-md negative
-      div.inline-block.bg-info.text-white.h-pa-md.h-mr-md info
-      div.inline-block.bg-warning.text-white.h-pa-md.h-mr-md warning
+  h-page-content(padding)
+    .row.justify-center
+      .col-auto
+        h1 CSS Classes
+    .row.wrap.justify-center
+      .col-auto.bg-primary.text-white.h-pa-md.h-mr-md.h-mb-md primary
+      .col-auto.bg-secondary.text-white.h-pa-md.h-mr-md.h-mb-md secondary
+      .col-auto.bg-positive.text-white.h-pa-md.h-mr-md.h-mb-md positive
+      .col-auto.bg-negative.text-white.h-pa-md.h-mr-md.h-mb-md negative
+      .col-auto.bg-info.text-white.h-pa-md.h-mr-md.h-mb-md info
+      .col-auto.bg-warning.text-white.h-pa-md.h-mr-md.h-mb-md warning
 
-    .row
-      <p>To use the classes use the prefixes <b>bg-, text-, border-</b> </p>
+    .text-center
+      <p>To use the classes use the prefixes <b>bg-, text-, border-</b> before color name.</p> 
 
-    <pre v-highlightjs="classes">
-      <code class="html">
-      </code>
-    </pre>
+    <prism :code="classes" language="html"/>
 
-    .row
-      h1 Material Design Colors
-    html-separator
+    .row.justify-center
+      .col-auto
+        h1 Material Design Colors
+
     .row.flex.flex-justify-center
       .pallet-content.flex.flex-wrap
         .pallete-container.text-bold(
@@ -45,7 +44,7 @@ export default {
   data () {
     return {
       classes: `
-<div class="bg-primary text-white border-black">
+<div class="bg-primary text-white">
   <span>Using the classes</span>
 </div>
       `,
@@ -1217,4 +1216,5 @@ export default {
  .blueGray900 {
    background-color: #263238
  }
+
 </style>

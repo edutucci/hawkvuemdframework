@@ -87,11 +87,11 @@ export default {
     }
   },
   mounted () {
-    this.setPanelDate()
+    this.setPanelDate(this.date)
   },
   watch: {
     date: function (value) {
-      this.setPanelDate()
+      this.setPanelDate(value)
     }
   },
   computed: {
@@ -100,8 +100,8 @@ export default {
     }
   },
   methods: {
-    setPanelDate () {
-      this.currentDate = this.date
+    setPanelDate (date) {
+      this.currentDate = date
       this.getCalendar()
     },
     onOK () {

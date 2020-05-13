@@ -48,7 +48,7 @@ export default {
   },
   watch: {
     checked: function (value) {
-      this.checkIfValueExists()
+      this.checkIfValueExists(value)
     }
   },
   computed: {
@@ -78,14 +78,14 @@ export default {
     }
   },
   methods: {
-    checkIfValueExists () {
-      if (this.checked) {
+    checkIfValueExists (checked) {
+      if (checked) {
         this.$emit('change', this.value)
       } else {
         this.$emit('change', '')
       }
     },
-    onChange (event) {
+    onChange () {
       this.$emit('change', this.value)
     }
   }

@@ -79,30 +79,30 @@ export default {
     }
   },
   mounted () {
-    this.changeComponentBackground()
+    this.changeComponentBackground(this.bgColor, this.outlined)
     this.changeBorderColor()
-    this.changeSizes()
+    this.changeSizes(this.dense)
   },
   watch: {
     bgColor: function (value) {
-      this.changeComponentBackground()
+      this.changeComponentBackground(value, this.outlined)
       this.changeBorderColor()
     },
     outlined: function (value) {
-      this.changeComponentBackground()
+      this.changeComponentBackground(this.bgColor, value)
       this.changeBorderColor()
     },
     dense: function (value) {
-      this.changeSizes()
+      this.changeSizes(value)
     }
   },
   methods: {
-    changeComponentBackground () {
-      this.compBgColor = this.bgColor
-      if (this.outlined) {
+    changeComponentBackground (bgColor, outlined) {
+      this.compBgColor = bgColor
+      if (outlined) {
         this.compBgColor = 'bg-white'
       } else {
-        if (this.bgColor === 'bg-white') {
+        if (bgColor === 'bg-white') {
           this.compBgColor = 'bg-gray300'
         }
       }
@@ -118,10 +118,10 @@ export default {
         }
       }
     },
-    changeSizes () {
-      this.iconSize = (!this.dense) ? '16px' : '12px'
-      this.avatarSize = (!this.dense) ? '24px' : '16px'
-      this.typography = (!this.dense) ? 'text-body1' : 'text-caption'
+    changeSizes (dense) {
+      this.iconSize = (!dense) ? '16px' : '12px'
+      this.avatarSize = (!dense) ? '24px' : '16px'
+      this.typography = (!dense) ? 'text-body1' : 'text-caption'
     },
     onClick () {
       if (this.filter && this.value !== undefined) {

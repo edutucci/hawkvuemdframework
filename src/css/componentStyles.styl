@@ -32,6 +32,20 @@ hr {
   padding: 8px;
 }
 
+
+/*
+  PAGE CONTENTE
+*/
+
+$page-padding = 10px;
+// $double-padding = 2 * $page-padding
+$page-height = "calc(100% - %s)" % (2* $page-padding);
+
+.page-padding {
+  padding: $page-padding;
+  max-height: $page-height;
+}
+
 /*
   INPUT CONTAINER
 */
@@ -84,35 +98,43 @@ hr {
   font-size: 14px;
 }
 
+
 /*
-  MODAL/DRAWER
+  DRAWER
 */
-.drawer {
+
+.drawer_size {
   height: 100%;
-  width: 100%;
-  position: fixed;
-  z-index: 2500;
-  top: 0;
+  width: 100%;  
+}
+
+/*
+  DRAWER PAGE
+*/
+
+.drawer_page_left {
+  left: 0;
+}
+
+.drawer_page_right {
   right: 0;
 }
 
-.drawer_page {
-  height: calc(100vh - 60px);
-  min-width: 200px;
-  position: absolute;
-  z-index: 2500;
+
+/*
+  DRAWER MOBILE
+*/
+.drawer_mobile {
+  position: fixed;
+  z-index: 1510;
   top: 0;
   right: 0;
+  height: 100%;
+  width: 100%;
 }
 
 .drawer-animation {
   transition: 0.3s;
-}
-
-.drawer_container {
-  z-index: 1210;
-  overflow-x: hidden;
-  overflow-y: auto;
 }
 
 .bg-modal
@@ -329,7 +351,7 @@ POPUP MENUS
   cursor: pointer;
   min-width: 100px;
   max-height: 320px;
-  padding: 3px;
+  padding: 0px;
 }
 
 .menu-item-padding {
@@ -457,4 +479,12 @@ IMAGE
   font-size: 48px;
   height: 1em;
   width: 1em;  
+}
+
+/*
+  TABLE
+*/
+
+.tablerows > .tablerow:not(:last-child)  {
+  border-bottom: 1px solid lightgray;
 }

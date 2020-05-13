@@ -171,7 +171,7 @@ export default {
   },
   mounted () {
     this.onBackgroundHover()
-    this.changeComponentBackground()
+    this.changeComponentBackground(this.bgColor, this.outlined)
     this.changeFontSize()
     this.changeBorderColor()
     this.showdropdown = this.value
@@ -183,24 +183,24 @@ export default {
       if (value) {
         this.onBackgroundHover()
       }
-      this.changeComponentBackground()
+      this.changeComponentBackground(this.bgColor, this.outlined)
     },
     outlined: function (value) {
       this.compBgColorHover = ''
       // console.log('outlined mudou:', value)
       this.onBackgroundHover()
       this.changeBorderColor()
-      this.changeComponentBackground()
+      this.changeComponentBackground(this.bgColor, value)
     },
     bgColor: function (value) {
       // console.log('this.bgColor changed', this.bgColor)
       this.compBgColorHover = ''
       this.onBackgroundHover()
-      this.changeComponentBackground()
+      this.changeComponentBackground(value, this.outlined)
       this.changeBorderColor()
     },
     size: function (value) {
-      this.changeFontSize()
+      this.changeFontSize(value)
     },
     value: function (value) {
       this.showdropdown = value
@@ -222,9 +222,9 @@ export default {
     }
   },
   methods: {
-    changeComponentBackground () {
-      this.compBgColor = this.bgColor
-      if (this.textButton || this.outlined) {
+    changeComponentBackground (bgColor, outlined) {
+      this.compBgColor = bgColor
+      if (this.textButton || outlined) {
         this.compBgColor = 'bg-transparent'
       }
     },
@@ -235,8 +235,8 @@ export default {
         this.compBorderColor = this.compBorderColor.replace(/bg/, 'border')
       }
     },
-    changeFontSize () {
-      switch (this.size) {
+    changeFontSize (size) {
+      switch (size) {
         case 'xs':
           this.typography = 'text-caption'
           break

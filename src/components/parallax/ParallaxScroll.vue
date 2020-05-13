@@ -34,22 +34,22 @@ export default {
   },
   watch: {
     backgroundImage: function (value) {
-      this.changeBackground()
+      this.changeBackground(value)
     },
     height: function (value) {
-      this.changeHeight()
+      this.changeHeight(value)
     }
   },
   mounted () {
-    this.changeBackground()
-    this.changeHeight()
+    this.changeBackground(this.backgroundImage)
+    this.changeHeight(this.height)
   },
   methods: {
-    changeBackground () {
-      this.parallaxObject.backgroundImage = 'url("' + this.backgroundImage + '")'
+    changeBackground (backgroundImage) {
+      this.parallaxObject.backgroundImage = 'url("' + backgroundImage + '")'
     },
-    changeHeight () {
-      this.parallaxObject.minHeight = this.height
+    changeHeight (height) {
+      this.parallaxObject.minHeight = height
     }
   }
 }

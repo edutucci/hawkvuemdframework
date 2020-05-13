@@ -10,11 +10,6 @@ export default {
       type: 'Type of the input',
       description: 'Available: text, password, select, multi-select, search and currency.'
     },
-    // {
-    //   name: 'placeholder',
-    //   type: 'String',
-    //   description: 'Sets the placeholder for the input.'
-    // },
     {
       name: 'filled',
       type: 'Boolean',
@@ -24,6 +19,11 @@ export default {
       name: 'label',
       type: 'String',
       description: 'Label of the input.'
+    },
+    {
+      name: 'placeholder',
+      type: 'String',
+      description: 'Sets the placeholder for the input. If empty or null label will be set.'
     },
     {
       name: 'dense',

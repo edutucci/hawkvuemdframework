@@ -20,12 +20,49 @@ export default {
     allowDrop: {
       type: Boolean,
       default: true
+    },
+    extensions: {
+      type: String,
+      default: '*.*'
+    },
+    audioOnly: {
+      type: Boolean,
+      default: false
+    },
+    videoOnly: {
+      type: Boolean,
+      default: false
+    },
+    imageOnly: {
+      type: Boolean,
+      default: false
+    },
+    title: {
+      type: String,
+      default: 'Select Files'
+    },
+    subtitle: {
+      type: String,
+      default: 'Click to add files'
     }
   },
   data () {
     return {
       fileList: [],
       inputList: []
+    }
+  },
+  computed: {
+    extensionDisplay () {
+      let value = this.extensions
+      if (this.audioOnly) {
+        value = 'audio/*'
+      } else if (this.videoOnly) {
+        value = 'video/*'
+      } else if (this.imageOnly) {
+        value = 'image/*'
+      }
+      return value
     }
   },
   methods: {
@@ -39,27 +76,25 @@ export default {
       ev.preventDefault()
     },
     async addDropFile (file) {
-      if (_.includes(file.type, 'image/')) {
-        if (file.size <= this.maxSize) {
+      if (file.size <= this.maxSize) {
+        if (this.isExtensionAllowed(file)) {
           let fileSize = this.calculateFileSize(file.size)
-          await this.createFile(file, fileSize)
-        }
-      } else {
-        if (file.size <= this.maxSize) {
-          let fileSize = this.calculateFileSize(file.size)
-          this.fileList.push({
-            file: file,
-            imageData: undefined,
-            fileSize: fileSize
-          })
-          //  this.fileList.push(file)
+          if (_.includes(file.type, 'image/')) {
+            await this.createFile(file, fileSize)
+          } else {
+            this.fileList.push({
+              file: file,
+              imageData: undefined,
+              fileSize: fileSize
+            })
+          }
         }
       }
     },
     createFile (file, fileSize) {
       let vm = this
       let reader = new FileReader()
-      return new Promise(function (resolve, reject) {
+      return new Promise(function (resolve) {
         try {
           reader.onload = function (e) {
             vm.fileList.push({
@@ -93,6 +128,39 @@ export default {
     removeFile (fileIndex) {
       this.$delete(this.fileList, fileIndex)
       this.emitRemovedFiles()
+    },
+    isExtensionAllowed (file) {
+      let value = false
+      if (this.audioOnly) {
+        if (file.type.includes('audio/')) {
+          value = true
+        }
+      } else if (this.videoOnly) {
+        if (file.type.includes('video/')) {
+          value = true
+        }
+      } else if (this.imageOnly) {
+        if (file.type.includes('image/')) {
+          value = true
+        }
+      } else {
+        if ( this.extensions.includes('*')
+        ) {
+          value = true
+        } else {
+          let exts = this.extensions.split(",")
+          for (let index = 0; index < exts.length; index++) {
+            let localExt = exts[index].trim()
+            localExt = localExt.replace('*', '')
+            if (file.name.endsWith(localExt)) {
+              value = true
+              break
+            }
+          }        
+        }
+      }
+
+      return value
     },
     calculateFileSize (size) {
       // console.log('size vale: ' + size)

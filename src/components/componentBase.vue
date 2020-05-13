@@ -44,13 +44,13 @@ export default {
           this.compBgColorHover = this.bgColor + '-hover'
           break
         default:
-          this.getBackgroundFromMaterialPallete(flat)
+          this.getBackgroundFromMaterialPallete()
       }
       if (flat) {
         this.compBgColorHover = this.compBgColorHover.replace(/-hover/, '-flat-hover')
       }
     },
-    getBackgroundFromMaterialPallete (flat) {
+    getBackgroundFromMaterialPallete () {
       if (this.bgColor.indexOf('red') !== -1) {
         this.compBgColorHover = 'bg-red-hover'
       } else if (this.bgColor.indexOf('pink') !== -1) {

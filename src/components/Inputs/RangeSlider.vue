@@ -39,19 +39,19 @@ export default {
       this.inputDisplay = value
     },
     bgColor: function (value) {
-      this.changeBackgroundColor()
+      this.changeBackgroundColor(value)
     }
   },
   mounted () {
     this.inputDisplay = this.value || 0
-    this.changeBackgroundColor()
+    this.changeBackgroundColor(this.bgColor)
   },
   methods: {
-    changeBackgroundColor () {
-      if (this.bgColor === 'bg-white') {
+    changeBackgroundColor (bgColor) {
+      if (bgColor === 'bg-white') {
         this.inputBgColor = 'bg-gray'
       } else {
-        this.inputBgColor = this.bgColor
+        this.inputBgColor = bgColor
       }
     },
     showSliderValue () {

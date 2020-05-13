@@ -232,7 +232,8 @@ export default {
     Option checked
   </div>
   <div class="col">
-    <h-checkbox v-model="ckChecked" text="Item checked" :checked="ckChecked"/>
+    <h-checkbox v-model="ckChecked" text="Item checked"
+      :checked="ckChecked"/>
   </div>
   <div class="col">
     Your model is {{ckChecked}}
@@ -305,9 +306,18 @@ export default {
     Select yours favorite objects
   </div>
   <div class="col">
-    <h-checkbox v-model="checkedObjects" :text="checkedObjectsOptions[0].name" :value="checkedObjectsOptions[0]"/>
-    <h-checkbox v-model="checkedObjects" :text="checkedObjectsOptions[1].name" :value="checkedObjectsOptions[1]"/>
-    <h-checkbox v-model="checkedObjects" :text="checkedObjectsOptions[2].name" :value="checkedObjectsOptions[2]"/>
+    <h-checkbox v-model="checkedObjects"
+      :text="checkedObjectsOptions[0].name"
+      :value="checkedObjectsOptions[0]"
+    />
+    <h-checkbox v-model="checkedObjects"
+      :text="checkedObjectsOptions[1].name"
+      :value="checkedObjectsOptions[1]"
+    />
+    <h-checkbox v-model="checkedObjects"
+      :text="checkedObjectsOptions[2].name"
+      :value="checkedObjectsOptions[2]"
+    />
   </div>
   <div class="col">
     <span>Your objects {{ checkedObjects }}</span>

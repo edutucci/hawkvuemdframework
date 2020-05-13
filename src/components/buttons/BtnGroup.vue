@@ -32,24 +32,24 @@ export default {
     }
   },
   mounted () {
-    this.changeComponentBackground()
+    this.changeComponentBackground(this.bgColor, this.outlined)
     this.changeBorderColor()
   },
   watch: {
     bgColor: function (value) {
       this.compBgColorHover = ''
-      this.changeComponentBackground()
+      this.changeComponentBackground(value, this.outlined)
       this.changeBorderColor()
     },
     outlined: function (value) {
       this.changeBorderColor()
-      this.changeComponentBackground()
+      this.changeComponentBackground(this.bgColor, value)
     }
   },
   methods: {
-    changeComponentBackground () {
-      this.compBgColor = this.bgColor
-      if (this.outlined) {
+    changeComponentBackground (bgColor, outlined) {
+      this.compBgColor = bgColor
+      if (outlined) {
         this.compBgColor = 'bg-transparent'
       }
     },

@@ -18,7 +18,32 @@ export default {
     {
       name: 'extensions',
       type: 'String',
-      description: 'File Upload only. Default is "*.*". Sets the extensions for the files.'
+      description: 'Sets the extensions for the files for File Upload. Default is all files types. Accepts single extension: ".doc" or multiple extension: ".gif,.jpg,.png,.doc".'
+    },
+    {
+      name: 'audio-only',
+      type: 'Boolean',
+      description: 'Default is false. If true accepts audio file only.'
+    },
+    {
+      name: 'video-only',
+      type: 'Boolean',
+      description: 'Default is false. If true accepts video file only.'
+    },
+    {
+      name: 'image-only',
+      type: 'Boolean',
+      description: 'Default is false. If true accepts image file only.'
+    },
+    {
+      name: 'title',
+      type: 'String',
+      description: 'Sets title for file Upload.'
+    },
+    {
+      name: 'subtitle',
+      type: 'String',
+      description: 'Sets subtitle for file Upload.'
     }
   ],
 

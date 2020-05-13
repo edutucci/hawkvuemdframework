@@ -327,7 +327,7 @@ export default {
     }
   },
   mounted () {
-    this.setTimePanel()
+    this.setTimePanel(this.date)
   },
   computed: {
     hour () {
@@ -342,7 +342,7 @@ export default {
   },
   watch: {
     date: function (value) {
-      this.setTimePanel()
+      this.setTimePanel(value)
     }
   },
   methods: {
@@ -350,8 +350,8 @@ export default {
       // console.log('configtime:' + hour + ':' + min)
       this.currentDate = new Date(0, 0, 0, hour, min, 0)
     },
-    setTimePanel () {
-      this.currentDate = this.date
+    setTimePanel (date) {
+      this.currentDate = date
       this.curHour = this.currentDate.getHours()
       this.curMin = this.currentDate.getMinutes()
       this.configTime(this.curHour, this.curMin)

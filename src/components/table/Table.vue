@@ -9,7 +9,7 @@
         .col
           h-input(
             dense
-            input-search
+            type="search"
             clearable
             label="Filter"
             v-model="inputFilter"
@@ -17,23 +17,13 @@
             @onFilter="filterRows"
           )
 
-      .column.table-padding(v-if="selectedRows.length > 0")
-        .col
-          .row.align-items-center
-            .col-auto
-              h-icon(icon="fas fa-plus" class="h-pr-md" @click="onAddRow")
-              h-icon(v-if="selectedRows.length === 1" icon="fas fa-edit" class="h-pr-md" @click="onEditRow")
-              h-icon(icon="fas fa-trash-alt" @click="onDeleteRow")
-
-            .col(style="margin-left: 8px")
-              slot(name="selection-rows")
-      .column(v-else :class="[{ 'table-customheader-padding': customHeader }]")
+      .row.table-padding
         .col
           slot(name="custom-header")
 
-    .col.scroll
+    .col.scroll.tablerows
       // body
-      .row.table-column-padding.position-sticky.bg-white(style="z-index: 12;")
+      .row.border-bottom.border-gray.table-column-padding.position-sticky.bg-white(style="z-index: 12;")
         .col-auto(v-if="selectable")
           table-column(
             class="border-right1 border-gray1 "
@@ -45,15 +35,15 @@
           :class = "{ 'cursor-pointer' : col.sortable}"
         )
           table-column(
-            :width="col.width"
+            :width="col.width || '120px'"
             class="border-right1 border-gray1 "
           )
             .row.align-items-center
-              .col.text-overflow-ellipsis(:class="col.alignment")
+              .col.text-gray500.text-bold.text-body2.text-overflow-ellipsis(:class="col.alignment")
                 | {{col.text}}
-                h-icon(class="h-ml-xs" v-if="col.sortable" :icon="colIconName(col, colindex)" text-color="text-red400")
+                h-icon(class="h-ml-xs" v-if="col.sortable" :icon="colIconName(col)" text-color="text-red400")
 
-      .row.table-row-padding(v-for="(row, rowindex) in tableData.rows" :key="rowindex")
+      .row.table-row-padding.tablerow(v-for="(row, rowindex) in tableData.rows" :key="rowindex")
         .col-auto(v-if="selectable")
           table-column(
           )
@@ -65,17 +55,17 @@
           :class = "{ 'cursor-pointer' : col.sortable}"
         )
           table-column(
-            :width="col.width"
+            :width="col.width || '120px'"
             class="border-right1 border-gray1"
           )
             .row.align-items-center(:style="[rowlineheight]")
               .col.text-overflow-ellipsis(:class="col.alignment")
-                slot(:name="col.field" :rowData="row")
+                slot(:name="col.field" :value="row[col.field]")
                   | {{row[col.field]}}
 
-    .col-auto
+    .col-auto.border-top.border-gray
       // footer
-      .row.align-items-center.justify-end
+      .row.h-mt-sm.align-items-center.justify-end
         .col-auto.h-pr-sm.text-caption.text-gray
           | Rows per page:
         .col-auto.h-pr-sm(style="width:60px;")
@@ -83,7 +73,7 @@
             dense
             :options="rowsperpage"
             v-model="rowsperpagevalue"
-            input-select
+            type="select"
           )
         .col-auto.h-pl-sm.h-pr-sm.text-caption.text-gray
           | {{rowsPerPageDetails}}
@@ -134,10 +124,6 @@ export default {
       type: Boolean,
       default: false
     },
-    customHeader: {
-      type: Boolean,
-      default: false
-    },
     startWithAllRows: {
       type: Boolean,
       default: false
@@ -157,6 +143,7 @@ export default {
       rowbackgroundColor: [],
       activeClass: 'rowcolor',
       tableRows: [],
+      tableSelectedRows: [],
       selectedRows: [],
       selectedAllRows: false,
       rowsperpage: [
@@ -230,18 +217,21 @@ export default {
   },
   watch: {
     rows: function (val) {
-      this.setTableRows()
+      if (val.length > 0) {
+        this.setTableRows(this.rowsperpagevalue)
+      }
     },
     selectedRows: function (value) {
-      this.selectedAllRows = this.tableData.rows.length === this.selectedRows.length
+      this.selectedAllRows = this.tableData.rows.length === value.length
+      this.updateTableSelectedRows(value)
     },
-    rowsperpagevalue: function (val) {
+    rowsperpagevalue: function (value) {
       this.currentPage = 1
-      this.setTableRows()
+      this.setTableRows(value)
     }
   },
   methods: {
-    colIconName (col, index) {
+    colIconName (col) {
       let name = ''
 
       if (col.type === undefined) {
@@ -266,10 +256,10 @@ export default {
 
       return name
     },
-    setTableRows () {
-      if (this.rowsperpagevalue > -1) {
-        let max = (this.rowsperpagevalue * this.currentPage)
-        let min = (max - this.rowsperpagevalue)
+    setTableRows (rowsperpagevalue) {
+      if (rowsperpagevalue > -1) {
+        let max = (rowsperpagevalue * this.currentPage)
+        let min = (max - rowsperpagevalue)
         if (max > this.rows.length) {
           max = this.rows.length
         }
@@ -305,6 +295,14 @@ export default {
           this.selectedRows.push(rowindex)
         }
       }
+      this.updateTableSelectedRows(this.selectedRows)
+    },
+    updateTableSelectedRows (selectedRows) {
+      this.tableSelectedRows = []
+      selectedRows.forEach(rowIndex => {
+        this.tableSelectedRows.push(this.tableData.rows[rowIndex])
+      })
+      this.$emit('selectedRows', this.tableSelectedRows)
     },
     getSelectedRows () {
       let rows = []
@@ -333,14 +331,14 @@ export default {
       this.selectedRows = []
       if (this.currentPage > 1) {
         this.currentPage -= 1
-        this.setTableRows()
+        this.setTableRows(this.rowsperpagevalue)
       }
     },
     onNextPage () {
       this.selectedRows = []
       if (this.currentPage < this.maxPage) {
         this.currentPage += 1
-        this.setTableRows()
+        this.setTableRows(this.rowsperpagevalue)
       }
     },
     sort (col) {
@@ -366,7 +364,7 @@ export default {
     },
     filterRows (query) {
       if (!query || query.length === 0) {
-        this.setTableRows()
+        this.setTableRows(this.rowsperpagevalue)
       } else {
         this.tableData.rows = []
         for (var rowIndex = 0; rowIndex < this.tableRows.length; ++rowIndex) { // this.tableData.rows.forEach(row => {
@@ -389,10 +387,6 @@ export default {
 </script>
 
 <style scoped>
-.table-customheader-padding {
-  padding: 0px 8px;
-}
-
 .table-padding {
   padding: 8px;
 }

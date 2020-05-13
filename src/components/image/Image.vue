@@ -49,16 +49,16 @@ export default {
     }
   },
   mounted () {
-    this.defineSize()
+    this.defineSize(this.size)
   },
   watch: {
     size: function (value) {
-      this.defineSize()
+      this.defineSize(value)
     }
   },
   methods: {
-    defineSize () {
-      this.imgsize.fontSize = this.size
+    defineSize (size) {
+      this.imgsize.fontSize = size
     },
     onClick () {
       this.$emit('click')

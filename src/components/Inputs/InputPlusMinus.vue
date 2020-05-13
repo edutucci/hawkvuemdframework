@@ -59,29 +59,29 @@ export default {
   },
   watch: {
     min: function (value) {
-      this.adjustModel()
+      this.adjustModel(value, this.max)
     },
     max: function (value) {
-      this.adjustModel()
+      this.adjustModel(this.min, value)
     },
-    value: function (value) {
-      this.adjustModel()
-    },
+    // value: function (value) {
+    //   this.adjustModel()
+    // },
     circlebuttons: function (value) {
-      this.ajustContainerObejct()
+      this.ajustContainerObejct(value)
     }
   },
   methods: {
-    adjustModel () {
-      if (this.plusMinusModel < this.min) {
-        this.plusMinusModel = this.min
+    adjustModel (min, max) {
+      if (this.plusMinusModel < min) {
+        this.plusMinusModel = min
       }
-      if (this.plusMinusModel > this.max) {
-        this.plusMinusModel = this.max
+      if (this.plusMinusModel > max) {
+        this.plusMinusModel = max
       }
     },
-    ajustContainerObejct () {
-      this.containerObject.width = (this.circlebuttons) ? '135px' : '120px'
+    ajustContainerObejct (circlebuttons) {
+      this.containerObject.width = (circlebuttons) ? '135px' : '120px'
     },
     setPlusMinusValue (value) {
       this.plusMinusModel += value

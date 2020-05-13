@@ -1,13 +1,11 @@
 {
-  "name": "hawkframework",
-  "version": "1.0.11",
-  "description": "Free Material Framework with lightweight vue components.",
-  "author": "Eduardo Tucci",
+  "name": "hawktest",
+  "version": "0.0.12",
   "private": false,
-  "main": "./dist/hawkframework.common.js",
-  "homepage": "https://github.com/edutucci/hawkframework",
+  "main": "./dist/hawktest.common.js",
   "keywords": [
     "Vue",
+    "Material",
     "Vue Components",
     "Material Design",
     "Vue Material"
@@ -23,38 +21,54 @@
   "scripts": {
     "dev": "vue-cli-service serve --open",
     "build": "vue-cli-service build",
-    "build-lib": "vue-cli-service build --target lib --name hawkframework ./src/index.js",
+    "build-lib": "vue-cli-service build --target lib --name hawktest ./src/index.js",
     "lint": "vue-cli-service lint",
-    "copy-unix": "cp ./src/theme/components.styl ./dist/",
-    "copy-win": "copy src\\theme\\components.styl dist",
+    "copy-unix": "cp ./src/theme/*.* ./dist/",
+    "copy-win": "copy src\\theme\\*.* dist",
     "build-lib-unix": "yarn build-lib && yarn copy-unix",
     "build-lib-win:": "yarn build-lib && yarn copy-win"
   },
   "dependencies": {
     "axios": "^0.19.2",
-    "lodash": "^4.17.10",
-    "moment": "^2.22.2",
-    "pug": "^2.0.3",
+    "core-js": "^3.6.4",
+    "moment": "^2.24.0",
+    "pug": "^2.0.4",
     "pug-plain-loader": "^1.0.0",
-    "register-service-worker": "^1.0.0",
-    "stylus": "^0.54.5",
+    "stylus": "^0.54.7",
     "stylus-loader": "^3.0.2",
-    "uuid": "^3.3.2",
-    "vue": "^2.5.16",
+    "vue": "^2.6.11",
     "vue-clickaway": "^2.2.2",
-    "vue-dragscroll": "^1.10.0",
+    "vue-dragscroll": "^2.0.1",
     "vue-focus": "^2.1.0",
     "vue-prismjs": "^1.2.0",
     "vue-resize-directive": "^1.2.0",
-    "vue-router": "^3.0.1",
-    "vuex": "^3.0.1"
+    "vue-router": "^3.1.6"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^3.0.0-rc.10",
-    "@vue/cli-plugin-eslint": "^3.0.0-rc.10",
-    "@vue/cli-plugin-pwa": "^3.0.0-rc.10",
-    "@vue/cli-service": "^3.0.0-rc.10",
-    "@vue/eslint-config-standard": "^3.0.0-rc.10",
-    "vue-template-compiler": "^2.5.16"
-  }
+    "@vue/cli-plugin-babel": "^4.2.0",
+    "@vue/cli-plugin-eslint": "^4.2.0",
+    "@vue/cli-service": "^4.2.0",
+    "babel-eslint": "^10.0.3",
+    "eslint": "^6.7.2",
+    "eslint-plugin-vue": "^6.1.2",
+    "vue-template-compiler": "^2.6.11"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ],
+    "parserOptions": {
+      "parser": "babel-eslint"
+    },
+    "rules": {}
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ]
 }

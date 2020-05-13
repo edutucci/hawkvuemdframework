@@ -39,7 +39,9 @@ export default {
   },
   watch: {
     autoplay: function (value) {
-      this.makevideosrc()
+      if (value) {
+         this.makevideosrc()
+      }
     }
   },
   methods: {

@@ -55,7 +55,7 @@ export default {
   watch: {
     bgColor: function (value) {
       this.onBackgroundHover()
-      this.compBgColor = this.bgColor
+      this.compBgColor = value
     }
   },
   methods: {

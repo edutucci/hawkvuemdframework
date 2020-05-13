@@ -125,12 +125,19 @@ export default {
 `,
       ex2: `
 <h-collapsible>
-  <h-collapsible-menu icon="fa fa-film" text="Attractions" bg-color="bg-primary" text-color="text-white">
-    <h-collapsible-item text="Shopping" bg-color="bg-primary" text-color="text-white"></h-collapsible-item>
-    <h-collapsible-item text="Museum" bg-color="bg-primary" text-color="text-white"></h-collapsible-item>
+  <h-collapsible-menu icon="fa fa-film" text="Attractions"
+    bg-color="bg-primary" text-color="text-white"
+  >
+    <h-collapsible-item text="Shopping" bg-color="bg-primary"
+      text-color="text-white"></h-collapsible-item>
+    <h-collapsible-item text="Museum" bg-color="bg-primary"
+      text-color="text-white"></h-collapsible-item>
   </h-collapsible-menu>
-  <h-collapsible-menu icon="fas fa-utensils" text="Dining" bg-color="bg-primary" text-color="text-white">
-    <h-collapsible-item text="Restaurants" bg-color="bg-primary" text-color="text-white"></h-collapsible-item>
+  <h-collapsible-menu icon="fas fa-utensils" text="Dining"
+    bg-color="bg-primary" text-color="text-white"
+  >
+    <h-collapsible-item text="Restaurants" bg-color="bg-primary"
+      text-color="text-white"></h-collapsible-item>
   </h-collapsible-menu>
 </h-collapsible>
 `,

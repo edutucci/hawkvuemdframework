@@ -12,7 +12,8 @@
       <h-dialog modal v-model="openModal" title="Modal Content" show-title-bar>
         <div class="flex flex-column flex-justify-center" style="width: 400px;">
           <div class="h-pa-sm">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.
           </div>
           <div class="flex flex-justify-center h-pa-md">
             <h-btn contained text="Close" @click="openModal=false"/>
@@ -123,7 +124,8 @@ export default {
 <h-dialog v-model="openModal" title="Modal Content" show-title-bar>
   <div class="flex flex-column flex-justify-center" style="width: 400px;">
     <div class="h-pa-sm">
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.
     </div>
     <div class="flex flex-justify-center h-pa-md">
       <h-btn contained text="Close" @click="openModal=false"/>
