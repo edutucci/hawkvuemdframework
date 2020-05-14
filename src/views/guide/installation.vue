@@ -8,11 +8,12 @@
     <prism :code="defTheme" language="stylus"/>
 
     <div class="text-h4">Defining the theme</div>
-    <div class="text-body1">1.Add a theme folder in src folder.Create a file named variables.styl with the following code:</div>
+    <div class="text-body1">1.Create a file named customStyle.styl at same folder that main.js:</div>
+    <div class="text-body1">2.Add a folder named theme inside src folder and create a file named user.styl with the following code:</div>
 
     <prism :code="theme" language="stylus"/>
 
-    <div class="text-body1"> 2. Create a file named index.styl with the following code:</div>
+    <div class="text-body1"> 2. For the file customStyle.styl add the following code:</div>
     <prism :code="theme2" language="stylus"/>
 
     <div class="text-body1">3. In your project add the code below in your <b>main.js</b>.</div>
@@ -33,7 +34,7 @@ yarn add hawkframework
 `,
       defTheme: `
 import 'hawkframework'
-import 'hawkframework/dist/index.styl'
+import 'hawkframework/dist/hawk_default_stylus.styl'
 import 'hawkframework/dist/hawkframework.css'
 `,
       theme: `
@@ -65,12 +66,16 @@ $infoflathover = #a7f3f9
 $warningflathover = #FFF9C4
       `,
       theme2: `
-@import './variables.styl'
-@import '~hawkframework/dist/customTheme.styl'
+@import './theme/hawk_main_stylus_variables.styl'
+
+// User styles
+@import './user.styl'
+
+@import './theme/hawk_main_stylus.styl'
       `,
       mainjs: `
 import 'hawkframework'
-import './theme/index.styl'
+import './customStyle.styl'
 import 'hawkframework/dist/hawkframework.css'
       `,
       starterkit: `

@@ -6,13 +6,13 @@ import router from './router'
 import Prism from 'vue-prismjs'
 import './css/prism/prism.css'
 
-// library styles
-import './theme/index.styl'
-// import './custom.styl'
-import './index.js'
+// main library styles
+// import './theme/hawk_default_stylus.styl'
 
-// pages styles
-import './app.styl'
+// custom styles
+import './customStyle.styl'
+
+import './index.js'
 
 Vue.component('Prism', Prism)
 
