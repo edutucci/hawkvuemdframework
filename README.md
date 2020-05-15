@@ -1,11 +1,11 @@
-# Hawk Framework 1.0.12-rc.0
+# HawkVueMd Framework 1.0.12-rc.0
 Project created with vue-cli 4
 
 Free CSS Library for vuejs 2.x with lightweight components.
 
 # Site and Documentation
 
-<a href="https://edutucci.github.io/hawkframework/" target="_blank"> Hawk Framework </a>
+<a href="https://edutucci.github.io/hawkframework/" target="_blank"> HawkVueMd Framework </a>
 
 ## Project setup
 ```
