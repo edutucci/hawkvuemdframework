@@ -1,15 +1,15 @@
-import SnackBar from '../../plugins'
+import Vue from 'vue'
 
 function showSnack () {
-  SnackBar.create({
+  Vue.prototype.$SnackBar.create({
     message: 'Download Completed',
     textcolor: 'text-white',
     bgcolor: 'bg-positive'
   })
 }
 
-let teste = {
+let test = {
   showSnack: showSnack
 }
 
-export default teste
+export default test

@@ -8,7 +8,7 @@
         <div class="text-center">
             <h-icon :icon="cfg.icon" text-color="text-white" size="72px" spin/>
         </div>
-        <div v-if="cfg.message" :class="[textColor]">
+        <div v-if="cfg.message" :class="[textcolor]">
           <h2>{{cfg.message}}</h2>
         </div>
       </div>

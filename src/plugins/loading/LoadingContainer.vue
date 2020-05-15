@@ -32,14 +32,14 @@ export default {
     },
     show (cfg) {
       this.limparCfg()
-      console.log('veio cfg:' + JSON.stringify(cfg))
+      // console.log('veio cfg:' + JSON.stringify(cfg))
       if (cfg) {
         if (cfg.message) {
           this.cfg.message = cfg.message
         }
 
         if (cfg.icon) {
-          console.log('veio icon: ' + cfg.icon)
+          // console.log('veio icon: ' + cfg.icon)
           this.cfg.icon = cfg.icon
         }
       }

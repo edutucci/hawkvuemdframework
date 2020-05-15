@@ -1,10 +1,7 @@
-# Hawk Framework 1.0.12 (Development)
+# Hawk Framework 1.0.12-rc.0
 Project created with vue-cli 4
 
 Free CSS Library for vuejs 2.x with lightweight components.
-
-### Hawk Framework 1.0.12 (Development)
-Code review, bug fix, better components
 
 # Site and Documentation
 

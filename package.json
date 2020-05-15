@@ -1,6 +1,6 @@
 {
-  "name": "hawktest",
-  "version": "0.0.14",
+  "name": "hawkvuemd",
+  "version": "1.0.12-rc.0",
   "private": false,
   "main": "./dist/hawkvuemd.common.js",
   "keywords": [
