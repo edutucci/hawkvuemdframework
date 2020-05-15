@@ -8,7 +8,7 @@
         <h-app-toolbar-container>
           <h-app-toolbar-navigation text-color="text-white" @click="showDrawer = !showDrawer"/>
           <h-app-toolbar-title class="text-white">
-            HawkFramework 1.0.12
+            HawkVueMD Framework 1.0.12
           </h-app-toolbar-title>
           <h-app-toolbar-action>
             <h-btn fab size="sm" bg-color="bg-transparent">
@@ -96,7 +96,7 @@
 
     <template v-slot:footer>
       <div class="flex justify-center align-items-center bg-primary text-white" style="height: 60px">
-        <div class="text-h6">HawkFramework Page Footer</div>
+        <div class="text-h6">HawkVueMD Page Footer</div>
       </div>
     </template>
 

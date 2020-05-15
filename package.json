@@ -1,8 +1,8 @@
 {
-  "name": "hawkvue",
-  "version": "1.0.12",
+  "name": "hawktest",
+  "version": "0.0.14",
   "private": false,
-  "main": "./dist/hawktest.common.js",
+  "main": "./dist/hawkvuemd.common.js",
   "keywords": [
     "Vue",
     "Material",
@@ -13,7 +13,6 @@
   "license": "MIT",
   "files": [
     "dist/*",
-    "src/*",
     "public/*",
     "*.json",
     "*.js"
@@ -21,12 +20,12 @@
   "scripts": {
     "dev": "vue-cli-service serve --open",
     "build": "vue-cli-service build",
-    "build-lib": "vue-cli-service build --target lib --name hawkframework ./src/index.js",
+    "build-lib": "vue-cli-service build --target lib --name hawkvuemd ./src/index.js",
     "lint": "vue-cli-service lint",
     "copy-unix": "cp ./src/theme/*.* ./dist/",
     "copy-win": "copy src\\theme\\*.* dist",
     "build-lib-npm-unix": "yarn build-lib && yarn copy-unix",
-    "build-lib-npm-win:": "yarn build-lib && yarn copy-win"
+    "build-lib-npm-win": "yarn build-lib && yarn copy-win"
   },
   "dependencies": {
     "axios": "^0.19.2",

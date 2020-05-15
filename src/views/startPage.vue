@@ -9,7 +9,7 @@
      <div class="flex flex-justify-center flex-items-center full-heigh">
       <div class="flex flex-column">
         <div class="text-center">
-          <h1>Hawk Framework</h1>
+          <h1>HawkVueMD Framework</h1>
           <h-image avatar src="img/hawk.jpg" size="256px"/>
         </div>
         <div class="flex h-pt-md">
