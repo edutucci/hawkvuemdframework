@@ -15,6 +15,7 @@ export default new Router({
         { path: '', component: () => import('./views/startPage') },
         { path: '/installation', component: () => import('./views/guide/installation') },
         { path: '/layout', component: () => import('./views/guide/layout') },
+        { path: '/page', component: () => import('./views/guide/page') },
         { path: '/spacing', component: () => import('./views/css/spacing') },
         { path: '/flexbox', component: () => import('./views/css/flexbox') },
         { path: '/textalignment', component: () => import('./views/css/textalignment') },

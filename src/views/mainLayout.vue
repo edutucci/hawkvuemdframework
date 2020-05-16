@@ -1,5 +1,5 @@
 <template>
-  <h-main-body v-resize.initial="onResize"
+  <h-main-body
     :show-drawer-left="showDrawer"
     @close-drawer-left="showDrawer = $event"
   >
@@ -15,7 +15,7 @@
               <h-link url="/" icon="fas fa-home" text-color="text-white"/>
             </h-btn>
             <h-btn fab size="sm" bg-color="bg-transparent">
-              <h-link url="https://github.com/edutucci/hawkframework" icon="fab fa-github" text-color="text-white" new-window/>
+              <h-link url="https://github.com/edutucci/hawkvuemdframework" icon="fab fa-github" text-color="text-white" new-window/>
             </h-btn>
           </h-app-toolbar-action>
         </h-app-toolbar-container>
@@ -36,6 +36,7 @@
           <h-collapsible-menu icon="fas fa-question-circle" text="Guide">
             <h-collapsible-item text="Installation" @click="$router.push('/installation'), showDrawer = false"/>
             <h-collapsible-item text="Layout" @click="$router.push('/layout'), showDrawer = false"/>
+            <h-collapsible-item text="Page" @click="$router.push('/page'), showDrawer = false"/>
             <h-collapsible-item text="Pallete Color" @click="$router.push('/palleteColor'), showDrawer = false"/>
           </h-collapsible-menu>
 
@@ -106,30 +107,10 @@
 
 <script>
 
-import resize from 'vue-resize-directive'
-
 export default {
-  directives: {
-    resize
-  },
   data () {
     return {
-      showtb: false,
-      showDrawer: false,
-      tt: 0,
-      dd: 'page'
-    }
-  },
-  created () {
-  },
-  methods: {
-    tamtela () {
-      let elem = document.getElementById('mainbody')
-      this.tt = elem.clientWidth
-    },
-    onResize () {
-      let elem = document.getElementById('app')
-      this.tt = elem.clientWidth
+      showDrawer: false
     }
   }
 }
