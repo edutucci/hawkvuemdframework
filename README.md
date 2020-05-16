@@ -5,7 +5,7 @@ Free CSS Library for vuejs 2.x with lightweight components.
 
 # Site and Documentation
 
-<a href="https://edutucci.github.io/hawkframework/" target="_blank"> HawkVueMd Framework </a>
+<a href="https://edutucci.github.io/hawkvuemdframework/" target="_blank"> HawkVueMd Framework </a>
 
 ## Project setup
 ```
