@@ -19,7 +19,7 @@
     <div class="text-body1">3. In your project add the code below in your <b>main.js</b>.</div>
     <prism :code="mainjs" language="javascript"/>
 
-    <div class="text-h4">Project start-kit</div>
+    <div class="text-h4">Project starter-kit</div>
     <prism :code="starterkit" language="javascript"/>
 
   </h-page-content>
@@ -33,9 +33,9 @@ export default {
 yarn add hawkframework
 `,
       defTheme: `
-import 'hawkframework'
-import 'hawkframework/dist/hawk_default_stylus.styl'
-import 'hawkframework/dist/hawkframework.css'
+import 'hawkvuemd'
+import 'hawkvuemd/dist/hawk_default_stylus.styl'
+import 'hawkvuemd/dist/hawkvuemd.css'
 `,
       theme: `
 // defining theme
@@ -66,21 +66,21 @@ $infoflathover = #a7f3f9
 $warningflathover = #FFF9C4
       `,
       theme2: `
-@import './theme/hawk_main_stylus_variables.styl'
+@import '~hawkvuemd/dist/hawk_main_stylus_variables.styl'
 
 // User styles
-@import './user.styl'
+@import './theme/user.styl'
 
-@import './theme/hawk_main_stylus.styl'
+@import '~hawkvuemd/dist/hawk_main_stylus.styl'
       `,
       mainjs: `
-import 'hawkframework'
+import 'hawkvuemd'
 import './customStyle.styl'
-import 'hawkframework/dist/hawkframework.css'
+import 'hawkvuemd/dist/hawkvuemd.css'
       `,
       starterkit: `
-https://github.com/edutucci/hawkframework-starter-kit
-      `
+https://github.com/edutucci/hawkvuemd-framework-starter-kit
+`
     }
   }
 }
