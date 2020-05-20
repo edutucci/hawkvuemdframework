@@ -25,6 +25,15 @@ function goToElement (element) {
   }
 }
 
+function mainBodyWidth () {
+  let value = 0
+  let elemmainbody = document.getElementById('mainbody')
+  if (elemmainbody) {
+    value = elemmainbody.clientWidth
+  }
+  return value
+}
+
 // function getPageHeaderHeight () {
 //   let pageHeader = document.getElementById('page-header')
 //   let pageHeaderHeight = 0
@@ -86,6 +95,7 @@ function goToElement (element) {
 
 let viewport = {
   elementBelowOfPage: elementBelowOfPage,
-  goToElement: goToElement
+  goToElement: goToElement,
+  mainBodyWidth: mainBodyWidth
 }
 export default viewport

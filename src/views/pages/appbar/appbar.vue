@@ -1,8 +1,18 @@
 <template>
-  <h-page-content padding>
-    <div class="row">
+  <h-page-content padding
+    @onResize="pageResize"
+  >
+    <div class="row ">
       <div class="col">
-        <div  class="text-h4">Appbar Top </div>
+        <div class="row">
+          <div class="col text-h4">
+            Appbar Top 
+          </div>
+          <div class="col-auto">
+            <h-image src="imgIcons/png/icon-help.png" @click="showDrawer = true"/>
+          </div>
+        </div>
+
 
         <div ref="appbar-styles"/>
         <comp-code class="h-mt-lg" title="Styles" :code="tb1" :script="scripttb1" javascript>
@@ -201,7 +211,10 @@
         </comp-code>
 
       </div>
-      <div class="col-auto">
+    </div>
+
+    <template v-slot:right>
+      <h-nav-drawer ref="navHelp" v-model="showDrawer" side="right">
         <list-help>
           <h-list>
             <h-list-header text="Appbar Top"/>
@@ -233,9 +246,8 @@
             </h-list-item>
           </h-list>
         </list-help>
-      </div>
-    </div>
-
+      </h-nav-drawer>
+    </template>
   </h-page-content>
 
 </template>
@@ -249,6 +261,7 @@ export default {
   },
   data () {
     return {
+      showDrawer: true,
       drpmenu: false,
       tb1: `
 <h-app-toolbar bg-color="bg-primary">
@@ -489,6 +502,9 @@ export default {
   methods: {
     goToElement (refName) {
       viewport.goToElement(this.$refs[refName])
+    },
+    pageResize (value) {
+      this.$refs.navHelp.onResize(value)
     }
   }
 }

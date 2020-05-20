@@ -1,5 +1,7 @@
 <template lang="pug">
-  .row.full-height.scroll(id="mainbody" style="right: 0px; max-height: 100%;" v-resize.initial="onResize")
+  .row.full-height.scroll(id="mainbody" style="right: 0px; max-height: 100%;"
+    v-resize.initial="onResize"
+  )
     .col-auto.full-height.scroll
       h-nav-drawer(
         v-model="localShowDrawerLeft"
@@ -27,6 +29,7 @@
 <script>
 
 import resize from 'vue-resize-directive'
+import viewport from '../others/viewport'
 
 export default {
   name: 'MainBody',
@@ -59,7 +62,7 @@ export default {
     },
     localShowDrawerLeft: function (show) {
       if (!show) {
-        this.$emit('close-drawer-left', show)
+        this.$emit('closeDrawerLeft', show)
       }
     },
     showDrawerRight: function (show) {
@@ -68,17 +71,14 @@ export default {
     },
     localShowDrawerRight: function (show) {
       if (!show) {
-        this.$emit('close-drawer-right', show)
+        this.$emit('closeDrawerRight', show)
       }
     }
   },
   methods: {
     width () {
       let value = 0
-      let elemmainbody = document.getElementById('mainbody')
-      if (elemmainbody) {
-        value = elemmainbody.clientWidth
-      }
+      value = viewport.mainBodyWidth()
       return value
     },
     onResize () {

@@ -120,7 +120,7 @@ export default {
       layout3: `
 <h-main-body
   :show-drawer-left="showDrawer"
-  @close-drawer-left="showDrawer = $event"
+  @closeDrawerLeft="showDrawer = $event"
 >
   <template v-slot:header>
     <h-app-toolbar bg-color="bg-primary">

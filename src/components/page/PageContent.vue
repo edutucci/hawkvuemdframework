@@ -1,5 +1,7 @@
 <template>
-  <div class="row full-height position-relative">
+  <div class="row full-height position-relative"
+    v-resize.initial="onResize"
+  >
     <div class="col-auto full-height scroll">
       <slot name="left"></slot>
     </div>
@@ -19,8 +21,14 @@
 
 <script>
 
+import resize from 'vue-resize-directive'
+import viewport from '../others/viewport'
+
 export default {
   name: 'HPageContent',
+  directives: {
+    resize
+  },
   props: {
     padding: {
       type: Boolean,
@@ -34,6 +42,9 @@ export default {
   mounted () {
   },
   methods: {
+    onResize () {
+      this.$emit('onResize', viewport.mainBodyWidth())
+    }
   }
 }
 </script>

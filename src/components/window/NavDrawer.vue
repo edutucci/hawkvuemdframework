@@ -21,7 +21,7 @@
       class="drawer-animation column full-height scroll  border-left border-right border-gray"
       style="display: inline-box;"
     >
-      <div class="column drawer_container bg-white full-height scroll">
+      <div class="column bg-white full-height scroll">
         <slot></slot>
       </div>
     </div>
@@ -34,14 +34,10 @@
 import { mixin as clickaway } from 'vue-clickaway'
 
 import componentBase from '../componentBase.vue'
-import resize from 'vue-resize-directive'
 
 export default {
   extends: componentBase,
   name: 'Drawer',
-  directives: {
-    resize
-  },
   mixins: [ clickaway ],
   props: {
     value: {
