@@ -23,7 +23,7 @@
 
     .col.scroll.tablerows
       // body
-      .row.border-bottom.border-gray.table-column-padding.position-sticky.bg-white(style="z-index: 12;")
+      .row.border-bottom.border-gray.table-column-padding.position-sticky.bg-white
         .col-auto(v-if="selectable")
           table-column(
             class="border-right1 border-gray1 "

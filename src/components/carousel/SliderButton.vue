@@ -4,7 +4,7 @@
       style="diplay:inline-block; min-width: 24px; min-height: 24px;"
     )
       h-btn(bg-color="bg-transparent" fab size="lg")
-        h-fa-icon(
+        h-icon(
           text-color="text-white"
           :icon="icon"
           @click="onClick"
