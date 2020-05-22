@@ -2,21 +2,15 @@
   <h-page-content padding @onResize="pageResize">
     <div class="row">
       <div class="col">
-<<<<<<< HEAD
-        <div class="row">
-          <div class="col text-h4">Appbar Top</div>
-=======
         <div class="row position-sticky bg-white">
           <div class="col text-h4">
-            Appbar Top 
+            Appbar Top
           </div>
->>>>>>> 5c55ea0c04c0fe3b5827664c4843fef9ba4dbf76
           <div class="col-auto">
             <h-image src="imgIcons/png/icon-help.png" @click="showDrawer = !showDrawer" />
           </div>
         </div>
 
-<<<<<<< HEAD
         <div ref="appbar-styles" />
         <comp-code class="h-mt-lg" title="Styles" :code="tb1" :script="scripttb1" javascript>
           <h-app-toolbar bg-color="bg-primary">
@@ -306,7 +300,6 @@
             </h-app-toolbar-container>
           </h-app-toolbar>
         </comp-code>
-=======
         <div>
           <div ref="appbar-styles"/>
           <comp-code class="h-mt-lg" title="Styles" :code="tb1" :script="scripttb1" javascript>
@@ -506,7 +499,6 @@
 
         </div>
 
->>>>>>> 5c55ea0c04c0fe3b5827664c4843fef9ba4dbf76
       </div>
     </div>
 

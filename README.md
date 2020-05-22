@@ -6,33 +6,42 @@
 
 ![Hawk](https://user-images.githubusercontent.com/3237047/82332324-9ff83780-99bb-11ea-9e84-e29a17133854.jpg)
 </h4>
+
 <h4 align="center">
-  🚀  Site &nbsp;and &nbsp;documentation: &nbsp;<a href="https://edutucci.github.io/hawkframework/" target="_blank">HawkVueMd &nbsp;Framework </a>
+  🚀  Documentation: <a href="https://edutucci.github.io/hawkframework/" target="_blank">HawkVueMd &nbsp;Framework </a>
 </h4>
 
 <h4 align="center">
-
+Vue &nbsp;Material &nbsp;Framework, lightweight components for Vue js 2.x. 😍
 </h4>
-
-<h4 align="center">
-Vue &nbsp;Material &nbsp;Framework &nbsp;Lightweight &nbsp;components &nbsp;for &nbsp;vuejs &nbsp;2.x.
-</h4>
-
+<br/>
 <p align="center">
-  <img alt="License" src="https://img.shields.io/badge/license-MIT-brightgreen">
-</p>
 
-<p align="center">
-  <a href="#technologies">Tecnologies</a> |
-  <a href="#how-to-contribute">How to contribute</a>&nbsp;|
-  <a href="#memo-license">License</a> |
-  <a href="#project-install"> Project install</a>
-</p>
+   <a href="#rocket-technologies">
+   <img alt="technologies" src= "https://img.shields.io/badge/Tecnologies-Front--end-blue">
+   </a>
+   <a href="#nerd_face-rocket-how-to-contribute">
+    <img alt="Contribute" src= "https://img.shields.io/badge/Contribute-how%20to%20contribute-green">
+  </a>
+  <a href="#construction_worker-project-install">
+        <img alt="Start" src= "https://img.shields.io/badge/Start-Install-red" >
+    </a>
+  <a href = "#seat-official-example">
+    <img alt = "Start kit" src ="https://img.shields.io/badge/Starter%20Kit-KIT-yellowgreen">
+  </a>
 
-<br>
+  <a href = "#steam_locomotive-telegram">
+    <img alt = "telegram" src="https://img.shields.io/badge/Community-Telegram-blue">
+  </a>
+  <a href="#page_facing_up-license"><img alt="License" src="https://img.shields.io/badge/license-MIT-brightgreen">
+  </a>
+
+
+
+</p>
 
 ## :rocket: Technologies
-<b>Developed with:</b>
+###### :nerd_face: Developed with:
 
 ![vue](https://user-images.githubusercontent.com/3237047/82362961-8d91f400-99e3-11ea-8b60-694eb62c1ac4.png) Vue Js
 
@@ -42,41 +51,32 @@ Vue &nbsp;Material &nbsp;Framework &nbsp;Lightweight &nbsp;components &nbsp;for 
 
 ![promotions](https://user-images.githubusercontent.com/3237047/82362960-8cf95d80-99e3-11ea-9d08-2c6092ed5d15.png) Components
 
-## 🤔 :rocket: How to contribute
+### :nerd_face: :rocket: How to contribute
 
-- Faça um fork;
-- Crie um branck com sua "feature": `git checkout -b my-feature`;
-- Comitar mudanças: `git commit -m 'feat: My new feature'`;
-- Para fazer push de seu branch: `git push origin my-feature`.
+Do the fork; :white_check_mark:
+create the branch with your "feature": `git checkout -b my-feature`; :white_check_mark:
+commit changes: `git commit -m 'feat: My new feature'`; :white_check_mark:
+ Do push the branch: `git push origin my-feature` :white_check_mark:
 
-## Project install
+### :steam_locomotive: Telegram:
+ ##### Community: https://cutt.ly/VyOoN5c
+
+
+### :construction_worker: Project install
+
 ```
 yarn install
 ```
+### :orange_book: [Configuration Reference](https://cli.vuejs.org/config/).
 
-### Compiles and hot-reloads for development
-```
-yarn dev
-```
+### :construction_worker: Sub projects
 
-### Compiles and minifies for production UNIX
-```
-yarn build-lib-unix
-```
+##### :seat: Official Example:
 
-### Lints and fixes files
-```
-yarn lint
-```
+##### Start Kit: https://cutt.ly/yyOyM10
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
-
-## :memo: License
-
-This project is under the MIT license. See the [LICENSE](LICENSE.md) for details.
-
-<b> With &nbsp;love ♥ &nbsp;and &nbsp;dedication, &nbsp;by &nbsp;Eduardo Tucci 👋
+#### :page_facing_up: License
+This project is under the MIT license, made with love and care :hearts: by Eduardo Tucci, for details, see the [LICENSE](LICENSE.md) 👋
 
 
 
