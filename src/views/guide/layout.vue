@@ -143,34 +143,35 @@ export default {
   </template>
 
 <template v-slot:left>
-  <div class="col-auto text-center h-pa-md">
-    <div class="column align-items-center">
-      <h-image avatar src="img/hawk.jpg" size="64px"/>
-      <div class="">Hawk </div>
-      <div class=""> Framework</div>
+  <div class="column full-height">
+    <div class="col-auto text-center h-pa-md">
+      <div class="column align-items-center">
+        <h-image avatar src="img/hawk.jpg" size="64px"/>
+        <div class="">Hawk </div>
+        <div class=""> Framework</div>
+      </div>
+    </div>
+    <div class="col">
+      <h-list>
+        <h-list-item @click="$router.push('/home')">
+          <h-list-item-content>
+            <h-list-item-text title="Home Page" caption="Main page"/>
+          </h-list-item-content>
+        </h-list-item>
+        <h-list-item @click="openURL('https://github.com/edutucci/hawkvuemdframework')">
+          <h-list-item-content>
+            <h-list-item-text title="Github" caption="Framework repository"/>
+          </h-list-item-content>
+        </h-list-item>
+      </h-list>
+    </div>
+    <div class="col-auto">
+      <div class="text-center h-pa-md">
+        <h2 class="no-margin">Free Framework</h2>
+        <h2 class="no-margin">Pure CSS</h2>
+      </div>
     </div>
   </div>
-  <div class="col">
-    <h-list>
-      <h-list-item @click="$router.push('/home')">
-        <h-list-item-content>
-          <h-list-item-text title="Home Page" caption="Main page"/>
-        </h-list-item-content>
-      </h-list-item>
-      <h-list-item @click="openURL('https://github.com/edutucci/hawkvuemdframework')">
-        <h-list-item-content>
-          <h-list-item-text title="Github" caption="Framework repository"/>
-        </h-list-item-content>
-      </h-list-item>
-    </h-list>
-  </div>
-  <div class="col-auto">
-    <div class="text-center h-pa-md">
-      <h2 class="no-margin">Free Framework</h2>
-      <h2 class="no-margin">Pure CSS</h2>
-    </div>
-  </div>
-
 </template>
 
 <router-view/>

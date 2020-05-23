@@ -1,11 +1,20 @@
 <template>
-  <h-page-content padding @onResize="pageResize">
+  <h-page-content padding
+    @onResize="pageResize"
+    @mainLayoutDrawerIsOpened="showDrawer = false"
+  >
     <div class="row">
       <div class="col">
-        <div class="row">
+        <div class="row position-sticky bg-white">
           <div class="col text-h4">Buttons</div>
           <div class="col-auto">
             <h-image src="imgIcons/png/icon-help.png" @click="showDrawer = !showDrawer" />
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+
           </div>
         </div>
        

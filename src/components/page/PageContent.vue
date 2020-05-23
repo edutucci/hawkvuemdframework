@@ -43,7 +43,15 @@ export default {
   },
   methods: {
     onResize () {
-      this.$emit('onResize', viewport.mainBodyWidth())
+      let size = viewport.mainBodyWidth()
+      this.$emit('onResize', size)
+      if (size < 961) {
+        let mld = document.getElementById('mainbody-left-drawer')
+        let mrd = document.getElementById('mainbody-right-drawer')
+        if (mld || mrd) {
+          this.$emit('mainLayoutDrawerIsOpened')
+        }
+      }
     }
   }
 }

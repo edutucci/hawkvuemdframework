@@ -6,7 +6,7 @@
     )
       thead
         tr
-          th.text-left.h-pa-xs.text-body2.text-gray(
+          th.text-left.h-pa-xs.text-body2(
             v-for="(col, index) in columns" :key="col"
           )
             | {{col}}
@@ -56,7 +56,6 @@ export default {
 
 <style scoped>
 table {
-  width: 100%;
   overflow:hidden;
 }
 
@@ -80,10 +79,17 @@ tr > td,
 tr > th {
   font-size: 14px;
   letter-spacing: 0.25px;
+  width: 1px;
+  white-space: nowrap;
+}
+
+tr > th {
+  color: gray;
 }
 
 table.borders.cell-separator > tbody > tr > td:not(:first-child),
 table.borders.cell-separator > thead > tr > th:not(:first-child) {
   border-left: 1px solid gray;
 }
+
 </style>

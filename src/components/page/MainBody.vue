@@ -4,6 +4,7 @@
   )
     .col-auto.full-height.scroll
       h-nav-drawer(
+        id="mainbody-left-drawer"
         v-model="localShowDrawerLeft"
         ref="navLeft"
       )
@@ -18,6 +19,7 @@
           slot(name="footer")
     .col-auto.full-height.scroll
       h-nav-drawer(
+        id="mainbody-right-drawer"
         v-model="localShowDrawerRight"
         side="right"
         ref="navRight"
