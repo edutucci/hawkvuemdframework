@@ -13,7 +13,7 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-auto">
+          <div class="col">
             <div ref="card-header-image-text"/>
             <comp-code class="h-mt-lg" title="Header, Image and Text" :code="card1"
               javascript :script="cardScript"
