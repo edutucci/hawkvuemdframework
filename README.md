@@ -49,7 +49,7 @@ Vue &nbsp;Material &nbsp;Framework, lightweight components for Vue js 2.x. 😍
 
 ![node](https://user-images.githubusercontent.com/3237047/82362958-8cf95d80-99e3-11ea-870a-aeb1a046b8d8.png) Node Js 12
 
-![promotions](https://user-images.githubusercontent.com/3237047/82362960-8cf95d80-99e3-11ea-9d08-2c6092ed5d15.png) Components
+![promotions](https://user-images.githubusercontent.com/3237047/82362960-8cf95d80-99e3-11ea-9d08-2c6092ed5d15.png) Components Google Material Design
 
 ### :nerd_face: :rocket: How to contribute
 
