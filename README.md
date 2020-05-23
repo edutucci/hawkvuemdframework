@@ -4,7 +4,7 @@
 
 🚀 Free CSS Library for vuejs 2.x with lightweight components.
 
-![Hawk](https://user-images.githubusercontent.com/3237047/82332324-9ff83780-99bb-11ea-9e84-e29a17133854.jpg)
+![haw](https://user-images.githubusercontent.com/3237047/82716586-90544980-9c6e-11ea-91e6-cd89f9af1f02.png)
 </h4>
 
 <h4 align="center">
@@ -23,7 +23,7 @@ Vue &nbsp;Material &nbsp;Framework, lightweight components for Vue js 2.x. 😍
    <a href="#nerd_face-rocket-how-to-contribute">
     <img alt="Contribute" src= "https://img.shields.io/badge/Contribute-how%20to%20contribute-green">
   </a>
-  <a href="#construction_worker-project-install">
+  <a href="#construction_worker-installation">
         <img alt="Start" src= "https://img.shields.io/badge/Start-Install-red" >
     </a>
   <a href = "#seat-official-example">
@@ -61,19 +61,50 @@ commit changes: `git commit -m 'feat: My new feature'`; :white_check_mark:
 ### :steam_locomotive: Telegram:
  ##### Community: https://cutt.ly/VyOoN5c
 
-
-### :construction_worker: Project install
-
-```
-yarn install
-```
-### :orange_book: [Configuration Reference](https://cli.vuejs.org/config/).
-
 ### :construction_worker: Sub projects
 
 ##### :seat: Official Example:
 
+
 ##### Start Kit: https://cutt.ly/yyOyM10
+
+
+### :construction_worker: Installation
+
+```
+yarn add hawkvuemd
+```
+### :construction_worker: Project setup
+```
+yarn install
+```
+### :construction_worker: Compiles and hot-reloads for development
+```
+yarn dev
+```
+
+### :construction_worker: Compiles and minifies for production (UNIX and MAC)
+```
+yarn build-lib-unix
+```
+
+### :construction_worker: Compiles and minifies for production Windows
+```
+build-lib-npm-win
+```
+
+### :construction_worker: Lints and fixes files
+```
+yarn lint
+```
+
+### Customize configuration
+
+ :orange_book: See: [Configuration Reference](https://cli.vuejs.org/config/).
+
+
+
+
 
 #### :page_facing_up: License
 This project is under the MIT license, made with love and care :hearts: by Eduardo Tucci, for details, see the [LICENSE](LICENSE.md) 👋
