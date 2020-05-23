@@ -74,7 +74,7 @@ export default new Router({
     // },
     {
       path: '/test',
-      component: () => import('./views/pageTest.vue') // import('./views/pages/test/test.vue')
+      component: () => import('./views/pages/test/visibility.vue')
     }
     // {
     //   path: '/example',

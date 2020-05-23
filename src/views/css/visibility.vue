@@ -13,19 +13,19 @@
       <tbody>
         <tr>
           <td>xs (extra small)</td>
-          <td>600px</td>
+          <td>An element is visible when the screen width is less or equal 640px</td>
         </tr>
         <tr>
           <td>sm (small)</td>
-          <td>1200px</td>
+          <td>An element is visible when the screen width is less or equal 960px</td>
         </tr>
         <tr>
           <td>md (medium)</td>
-          <td>1600px</td>
+          <td>An element is visible when the screen width is less or equal 1440px</td>
         </tr>
         <tr>
           <td>lg (large)</td>
-          <td>1920px</td>
+          <td>An element is visible when the screen width is less or equal 1920px</td>
         </tr>
         <tr>
           <td>xl (extra large)</td>
@@ -47,37 +47,33 @@
       </thead>
       <tbody>
         <tr>
-          <td>xs-only</td>
-          <td>An element is visible when then screen width is less or equal 600px</td>
+          <td>gt-xs</td>
+          <td> An element is visible when the screen width is higher than 640px</td>
         </tr>
         <tr>
-          <td>hidden-xs</td>
-          <td> An element is visible when then screen width is higher than 600px</td>
+          <td>gt-sm</td>
+          <td>An element is visible when the screen width is higher than 960px</td>
         </tr>
         <tr>
-          <td>sm-only</td>
-          <td>An element is visible when then screen width is less or equal 1200px</td>
+          <td>gt-lg</td>
+          <td>An element is visible when the screen width is higher than 1440px</td>
         </tr>
         <tr>
-          <td>hidden-sm</td>
-          <td>An element is visible when then screen width is higher than 1200px</td>
+          <td>gt-xl</td>
+          <td>An element is visible when the screen width is higher than 1920px</td>
         </tr>
-        <tr>
-          <td>md-only</td>
-          <td>An element is visible when then screen width is less or equal 1600px</td>
-        </tr>
-        <tr>
+        <!-- <tr>
           <td>hidden-md</td>
-          <td>An element is visible when then screen width is higher than 1600px</td>
+          <td>An element is visible when the screen width is higher than 1600px</td>
         </tr>
         <tr>
           <td>lg-only</td>
-          <td>An element is visible when then screen width is less or equal 1920px</td>
+          <td>An element is visible when the screen width is less or equal 1920px</td>
         </tr>
         <tr>
           <td>hidden-lg</td>
-          <td>An element is visible when then screen width is higher than 1920px</td>
-        </tr>        
+          <td>An element is visible when the screen width is higher than 1920px</td>
+        </tr>         -->
       </tbody>
     </html-table>
 
