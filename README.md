@@ -41,43 +41,42 @@ Vue &nbsp;Material &nbsp;Framework, lightweight components for Vue js 2.x. 😍
 </p>
 
 ## :rocket: Technologies
-###### :nerd_face: Developed with:
 
-![vue](https://user-images.githubusercontent.com/3237047/82362961-8d91f400-99e3-11ea-8b60-694eb62c1ac4.png) Vue Js
+![vue](https://user-images.githubusercontent.com/3237047/82362961-8d91f400-99e3-11ea-8b60-694eb62c1ac4.png) Vue Js &nbsp; ![css](https://user-images.githubusercontent.com/3237047/82362957-8bc83080-99e3-11ea-8ed0-f998118a4600.png) Pure Css &nbsp; ![node](https://user-images.githubusercontent.com/3237047/82362958-8cf95d80-99e3-11ea-870a-aeb1a046b8d8.png) Node Js 12 &nbsp; ![promotions](https://user-images.githubusercontent.com/3237047/82362960-8cf95d80-99e3-11ea-9d08-2c6092ed5d15.png) Google Material Design
 
-![css](https://user-images.githubusercontent.com/3237047/82362957-8bc83080-99e3-11ea-8ed0-f998118a4600.png) Pure Css
+## :computer: Installation
+**yarn**
 
-![node](https://user-images.githubusercontent.com/3237047/82362958-8cf95d80-99e3-11ea-870a-aeb1a046b8d8.png) Node Js 12
+```bash
+yarn add hawkvuemd
+```
 
-![promotions](https://user-images.githubusercontent.com/3237047/82362960-8cf95d80-99e3-11ea-9d08-2c6092ed5d15.png) Components Google Material Design
+**npm**
+```bash
+npm install hawkvuemd
+```
+# Usage
+In your project add the code below in your main.js
 
-### :nerd_face: :rocket: How to contribute
+```js
+import 'hawkvuemd'
+import 'hawkvuemd/dist/hawk_default_stylus.styl'
+import 'hawkvuemd/dist/hawkvuemd.css'
+```
+
+## :nerd_face: :rocket: How to contribute
 
 Do the fork; :white_check_mark:
 create the branch with your "feature": `git checkout -b my-feature`; :white_check_mark:
 commit changes: `git commit -m 'feat: My new feature'`; :white_check_mark:
  Do push the branch: `git push origin my-feature` :white_check_mark:
 
-### :steam_locomotive: Telegram:
+## :steam_locomotive: Telegram:
  ##### Community: https://cutt.ly/VyOoN5c
 
-### :construction_worker: Sub projects
+## :construction_worker: Repositories working with this framework
+##### Starter Kit: https://cutt.ly/yyOyM10
 
-##### :seat: Official Example:
-
-
-##### Start Kit: https://cutt.ly/yyOyM10
-
-
-### :construction_worker: Installation
-
-```
-yarn add hawkvuemd
-```
-### :construction_worker: Project setup
-```
-yarn install
-```
 ### :construction_worker: Compiles and hot-reloads for development
 ```
 yarn dev
