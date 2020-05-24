@@ -8,7 +8,7 @@
 </h4>
 
 <h4 align="center">
-  🚀  Documentation: <a href="https://edutucci.github.io/hawkframework/" target="_blank">HawkVueMd &nbsp;Framework </a>
+  🚀  Documentation: <a href="https://edutucci.github.io/hawkvuemdframework/" target="_blank">HawkVueMd &nbsp;Framework </a>
 </h4>
 
 <h4 align="center">
