@@ -71,8 +71,8 @@ create the branch with your "feature": `git checkout -b my-feature`; :white_chec
 commit changes: `git commit -m 'feat: My new feature'`; :white_check_mark:
  Do push the branch: `git push origin my-feature` :white_check_mark:
 
-## :steam_locomotive: Telegram:
- ##### Community: https://cutt.ly/VyOoN5c
+### :construction_worker: Telegram Community
+ ##### https://cutt.ly/VyOoN5c
 
 ## :construction_worker: Repositories working with this framework
 ##### Starter Kit: https://cutt.ly/yyOyM10
@@ -100,9 +100,6 @@ yarn lint
 ### Customize configuration
 
  :orange_book: See: [Configuration Reference](https://cli.vuejs.org/config/).
-
-
-
 
 
 #### :page_facing_up: License
