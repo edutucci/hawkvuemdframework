@@ -10,6 +10,7 @@
     "Material Design",
     "Vue Material"
   ],
+  "homepage": "https://edutucci.github.io/hawkvuemdframework/",
   "license": "MIT",
   "files": [
     "dist/*",
@@ -17,6 +18,10 @@
     "*.json",
     "*.js"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/edutucci/hawkvuemdframework"
+  },
   "scripts": {
     "dev": "vue-cli-service serve --open",
     "build": "vue-cli-service build",
