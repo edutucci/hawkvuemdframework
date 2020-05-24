@@ -42,7 +42,7 @@ Vue &nbsp;Material &nbsp;Framework, lightweight components for Vue js 2.x. 😍
 
 ## :rocket: Technologies
 
-![vue](https://user-images.githubusercontent.com/3237047/82362961-8d91f400-99e3-11ea-8b60-694eb62c1ac4.png) Vue Js &nbsp; ![css](https://user-images.githubusercontent.com/3237047/82362957-8bc83080-99e3-11ea-8ed0-f998118a4600.png) Pure Css &nbsp; ![node](https://user-images.githubusercontent.com/3237047/82362958-8cf95d80-99e3-11ea-870a-aeb1a046b8d8.png) Node Js 12 &nbsp; ![promotions](https://user-images.githubusercontent.com/3237047/82362960-8cf95d80-99e3-11ea-9d08-2c6092ed5d15.png) Google Material Design
+![vue](https://user-images.githubusercontent.com/3237047/82362961-8d91f400-99e3-11ea-8b60-694eb62c1ac4.png) Vue Js &nbsp; ![css](https://user-images.githubusercontent.com/3237047/82362957-8bc83080-99e3-11ea-8ed0-f998118a4600.png) Pure Css &nbsp; ![node](https://user-images.githubusercontent.com/3237047/82362958-8cf95d80-99e3-11ea-870a-aeb1a046b8d8.png) Node Js 12 &nbsp; ![mdlogo](https://user-images.githubusercontent.com/22483609/82763275-d9c2a700-9ddc-11ea-8da0-d7e1918ccdc4.png) Google Material Design
 
 ## :computer: Installation
 **yarn**
