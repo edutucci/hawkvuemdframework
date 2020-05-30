@@ -1,131 +1,147 @@
 <template>
-  <h-page-content padding>
-
+  <h-page-content padding @onResize="pageResize" @mainLayoutDrawerIsOpened="showDrawer = false">
     <div class="row">
       <div class="col">
-        <div class="text-h4">Checkbox</div>
-
-        <div ref="ck-boolean"/>
-        <comp-code
-          title="Boolean" :code="ckboolean" :script="ckbooleanScript"
-          javascript
-        >
-          <div class="column">
-            <div class="col">
-              Do you agree to our terms and conditions?
-            </div>
-            <div class="col">
-              <h-checkbox v-model="termAccepted" text="I agree"/>
-            </div>
-            <div class="col">
-              Your option is: {{ termAccepted }}
-            </div>
+        <div class="row position-sticky bg-white">
+          <div class="col text-h4">Checkbox</div>
+          <div class="col-auto">
+            <h-image src="imgIcons/png/icon-help.png" @click="showDrawer = !showDrawer" />
           </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div ref="ck-boolean" />
+            <comp-code title="Boolean" :code="ckboolean" :script="ckbooleanScript" javascript>
+              <div class="column">
+                <div class="col">Do you agree to our terms and conditions?</div>
+                <div class="col">
+                  <h-checkbox v-model="termAccepted" text="I agree" />
+                </div>
+                <div class="col">Your option is: {{ termAccepted }}</div>
+              </div>
+            </comp-code>
 
-        </comp-code>
+            <div ref="ck-readonly" />
+            <comp-code
+              class="h-mt-md"
+              title="Readonly"
+              :code="ckdisabled"
+              :script="ckbooleanScript"
+              javascript
+            >
+              <div class="column">
+                <div class="col">
+                  <h-checkbox v-model="termAccepted" text="I agree" readonly />
+                </div>
+                <div class="col">Your model is {{termAccepted}}</div>
+              </div>
+            </comp-code>
 
-        <div ref="ck-readonly"/>
-        <comp-code class="h-mt-md" title="Readonly" :code="ckdisabled" :script="ckbooleanScript"
-          javascript
-        >
-          <div class="column">
-            <div class="col">
-              <h-checkbox v-model="termAccepted" text="I agree" readonly/>
-            </div>
-            <div class="col">
-              Your model is {{termAccepted}}
-            </div>
+            <div ref="ck-checked" />
+            <comp-code
+              class="h-mt-md"
+              title="Option checked"
+              :code="itemChecked"
+              :script="itemCheckedScript"
+              javascript
+            >
+              <div class="column">
+                <div class="col">
+                  <h-checkbox v-model="ckChecked" text="Item checked" :checked="ckChecked" />
+                </div>
+                <div class="col">Your model is {{ckChecked}}</div>
+              </div>
+            </comp-code>
+
+            <div ref="ck-list" />
+            <comp-code
+              class="h-mt-md"
+              title="List"
+              :code="cklist"
+              :script="cklistScript"
+              javascript
+            >
+              <div class="column">
+                <div>Select your favorite colors</div>
+                <div>
+                  <h-checkbox v-model="colors" text="Red" value="Red" />
+                  <h-checkbox v-model="colors" text="Green" value="Green" />
+                  <h-checkbox v-model="colors" text="Blue" value="Blue" />
+                </div>
+
+                <div>Your favorites colors: {{ colors }}</div>
+              </div>
+            </comp-code>
+
+            <div ref="ck-listnumbers" />
+            <comp-code
+              class="h-mt-md"
+              title="List with numbers"
+              :code="cklistnumbers"
+              :script="checkedNumbersScript"
+              javascript
+            >
+              <div class="column">
+                <div class="col">Select yours favorite numbers</div>
+                <div class="col">
+                  <h-checkbox v-model="checkedNumbers" text="1" :value="1" />
+                  <h-checkbox v-model="checkedNumbers" text="2" :value="2" />
+                  <h-checkbox v-model="checkedNumbers" text="3" :value="3" />
+                  <h-checkbox v-model="checkedNumbers" text="4" :value="4" />
+                </div>
+                <div class="col">
+                  <span>Favorite numbers {{ checkedNumbers }}</span>
+                </div>
+              </div>
+            </comp-code>
+
+            <div ref="ck-listobjects" />
+            <comp-code
+              class="h-mt-md"
+              title="List with objects"
+              :code="cklistobjects"
+              :script="cklistobjectsScript"
+              javascript
+            >
+              <div class="column">
+                <div class="col">Select yours favorite objects</div>
+                <div class="col">
+                  <h-checkbox
+                    v-model="checkedObjects"
+                    :text="checkedObjectsOptions[0].name"
+                    :value="checkedObjectsOptions[0]"
+                  />
+                  <h-checkbox
+                    v-model="checkedObjects"
+                    :text="checkedObjectsOptions[1].name"
+                    :value="checkedObjectsOptions[1]"
+                  />
+                  <h-checkbox
+                    v-model="checkedObjects"
+                    :text="checkedObjectsOptions[2].name"
+                    :value="checkedObjectsOptions[2]"
+                  />
+                </div>
+                <div class="col">
+                  <span>Your objects {{ checkedObjects }}</span>
+                </div>
+              </div>
+            </comp-code>
+            <tabs-help
+              class="h-mt-md"
+              :properties="helpTopics.properties"
+              :events="helpTopics.events"
+            />
           </div>
-
-        </comp-code>
-
-        <div ref="ck-checked"/>
-        <comp-code class="h-mt-md" title="Option checked" :code="itemChecked" :script="itemCheckedScript"
-          javascript
-        >
-          <div class="column">
-            <div class="col">
-              <h-checkbox v-model="ckChecked" text="Item checked" :checked="ckChecked"/>
-            </div>
-            <div class="col">
-              Your model is {{ckChecked}}
-            </div>
-          </div>
-
-        </comp-code>
-
-        <div ref="ck-list"/>
-        <comp-code class="h-mt-md" title="List" :code="cklist" :script="cklistScript"
-          javascript
-        >
-          <div class="column">
-            <div>
-              Select your favorite colors
-            </div>
-            <div>
-              <h-checkbox v-model="colors" text="Red" value="Red"/>
-              <h-checkbox v-model="colors" text="Green" value="Green"/>
-              <h-checkbox v-model="colors" text="Blue" value="Blue"/>
-            </div>
-
-            <div>
-              Your favorites colors: {{ colors }}
-            </div>
-          </div>
-
-        </comp-code>
-
-        <div ref="ck-listnumbers"/>
-        <comp-code class="h-mt-md" title="List with numbers" :code="cklistnumbers" :script="checkedNumbersScript"
-          javascript
-        >
-          <div class="column">
-            <div class="col">
-              Select yours favorite numbers
-            </div>
-            <div class="col">
-              <h-checkbox v-model="checkedNumbers" text="1" :value="1"/>
-              <h-checkbox v-model="checkedNumbers" text="2" :value="2"/>
-              <h-checkbox v-model="checkedNumbers" text="3" :value="3"/>
-              <h-checkbox v-model="checkedNumbers" text="4" :value="4"/>
-            </div>
-            <div class="col">
-              <span>Favorite numbers {{ checkedNumbers }}</span>
-            </div>
-          </div>
-
-        </comp-code>
-
-        <div ref="ck-listobjects"/>
-        <comp-code class="h-mt-md" title="List with objects" :code="cklistobjects" :script="cklistobjectsScript"
-          javascript
-        >
-          <div class="column">
-            <div class="col">
-              Select yours favorite objects
-            </div>
-            <div class="col">
-              <h-checkbox v-model="checkedObjects" :text="checkedObjectsOptions[0].name" :value="checkedObjectsOptions[0]"/>
-              <h-checkbox v-model="checkedObjects" :text="checkedObjectsOptions[1].name" :value="checkedObjectsOptions[1]"/>
-              <h-checkbox v-model="checkedObjects" :text="checkedObjectsOptions[2].name" :value="checkedObjectsOptions[2]"/>
-            </div>
-            <div class="col">
-              <span>Your objects {{ checkedObjects }}</span>
-            </div>
-          </div>
-
-        </comp-code>
-
-        <tabs-help
-          class="h-mt-md"
-          :properties="helpTopics.properties"
-          :events="helpTopics.events"
-        />
+        </div>
       </div>
-      <div class="col-auto">
+    </div>
+
+    <template v-slot:right>
+      <h-nav-drawer ref="navHelp" v-model="showDrawer" side="right">
         <list-help>
           <h-list>
-            <h-list-header text="Usage"/>
+            <h-list-header text="Usage" />
             <h-list-item @click="goToElement('ck-boolean')">
               <h-list-item-content>
                 <h-list-item-text title="Boolean"></h-list-item-text>
@@ -158,37 +174,34 @@
             </h-list-item>
           </h-list>
         </list-help>
-      </div>
-    </div>
-
+      </h-nav-drawer>
+    </template>
   </h-page-content>
-
 </template>
 
 <script>
-
-import viewport from '../../../components/others/viewport'
-import helpTopics from './help'
+import viewport from "../../../components/others/viewport";
+import helpTopics from "./help";
 
 export default {
-  components: {
+  components: {},
+  mounted() {
+    this.helpTopics.properties = helpTopics.properties;
+    this.helpTopics.events = helpTopics.events;
+    this.checkedObjects.push(this.checkedObjectsOptions[1]);
   },
-  mounted () {
-    this.helpTopics.properties = helpTopics.properties
-    this.helpTopics.events = helpTopics.events
-    this.checkedObjects.push(this.checkedObjectsOptions[1])
-  },
-  data () {
+  data() {
     return {
+      showDrawer: true,
       ckChecked: true,
       termAccepted: false,
       colors: [],
       checkedNumbers: [1, 3],
       checkedObjects: [],
       checkedObjectsOptions: [
-        { id: 1, name: 'html' },
-        { id: 2, name: 'css' },
-        { id: 3, name: 'vuejs' }
+        { id: 1, name: "html" },
+        { id: 2, name: "css" },
+        { id: 3, name: "vuejs" }
       ],
       helpTopics: {
         properties: [],
@@ -273,7 +286,7 @@ export default {
       colors: []
     }
   }
-}    
+}
 `,
       cklistnumbers: `
 <div class="column">
@@ -298,7 +311,7 @@ export default {
       checkedNumbers: [1, 3]
     }
   }
-}    
+}
 `,
       cklistobjects: `
 <div class="column">
@@ -336,14 +349,17 @@ export default {
       ]
     }
   }
-}    
+}
 `
-    }
+    };
   },
   methods: {
-    goToElement (refName) {
-      viewport.goToElement(this.$refs[refName])
+    goToElement(refName) {
+      viewport.goToElement(this.$refs[refName]);
+    },
+    pageResize(value) {
+      this.$refs.navHelp.onResize(value);
     }
   }
-}
+};
 </script>

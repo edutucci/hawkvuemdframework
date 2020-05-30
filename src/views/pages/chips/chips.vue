@@ -1,147 +1,120 @@
 <template>
-  <h-page-content padding>
-
+  <h-page-content padding @onResize="pageResize" @mainLayoutDrawerIsOpened="showDrawer = false">
     <div class="row">
       <div class="col">
-        <div class="text-h4">CHIPS</div>
-
-        <div ref="chip-standard"/>
-        <comp-code class="h-mt-lg" title="Standard" :code="chipStandard">
-          <div class="row">
-            <div class="col">
-              <h-chips text="Peyton Smith"/>
-              <h-chips text="Jonas Eckhart"/>
-              <h-chips text="John Pella"/>
-              <h-chips text="Francis Pernille"/>
-            </div>
+        <div class="row position-sticky bg-white">
+          <div class="col text-h4">CHIPS</div>
+          <div class="col-auto">
+            <h-image src="imgIcons/png/icon-help.png" @click="showDrawer = !showDrawer" />
           </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div ref="chip-standard" />
+            <comp-code class="h-mt-lg" title="Standard" :code="chipStandard">
+              <div class="row">
+                <div class="col">
+                  <h-chips text="Peyton Smith" />
+                  <h-chips text="Jonas Eckhart" />
+                  <h-chips text="John Pella" />
+                  <h-chips text="Francis Pernille" />
+                </div>
+              </div>
 
-          <div class="row h-mt-md">
-            <div class="col">
-              <h-chips outlined text="Peyton Smith"/>
-              <h-chips outlined text="Jonas Eckhart"/>
-              <h-chips outlined text="John Pella"/>
-              <h-chips outlined text="Francis Pernille"/>
-            </div>
+              <div class="row h-mt-md">
+                <div class="col">
+                  <h-chips outlined text="Peyton Smith" />
+                  <h-chips outlined text="Jonas Eckhart" />
+                  <h-chips outlined text="John Pella" />
+                  <h-chips outlined text="Francis Pernille" />
+                </div>
+              </div>
+
+              <div class="row h-mt-md">
+                <div class="col">
+                  <h-chips dense text="Peyton Smith" />
+                  <h-chips dense text="Jonas Eckhart" />
+                  <h-chips dense text="John Pella" />
+                  <h-chips dense text="Francis Pernille" />
+                </div>
+              </div>
+
+              <div class="row h-mt-md">
+                <div class="col">
+                  <h-chips dense outlined text="Peyton Smith" />
+                  <h-chips dense outlined text="Jonas Eckhart" />
+                  <h-chips dense outlined text="John Pella" />
+                  <h-chips dense outlined text="Francis Pernille" />
+                </div>
+              </div>
+            </comp-code>
+            <div ref="chip-icons" />
+            <comp-code class="h-mt-lg" title="Icons" :code="chipIcons">
+              <div class="row">
+                <div class="col">
+                  <h-chips text="Portland" icon="fas fa-map-marker-alt" />
+                  <h-chips text="Biking" icon="fas fa-biking" />
+                  <h-chips outlined text="Portland" icon="fas fa-map-marker-alt" />
+                  <h-chips outlined text="Biking" icon="fas fa-biking" />
+                </div>
+              </div>
+
+              <div class="row h-mt-md">
+                <div class="col">
+                  <h-chips dense text="Portland" icon="fas fa-map-marker-alt" />
+                  <h-chips dense text="Biking" icon="fas fa-biking" />
+                  <h-chips dense outlined text="Portland" icon="fas fa-map-marker-alt" />
+                  <h-chips dense outlined text="Biking" icon="fas fa-biking" />
+                </div>
+              </div>
+            </comp-code>
+
+            <div ref="chip-avatar" />
+            <comp-code class="h-mt-lg" title="Avatar" :code="chipAvatar">
+              <div class="row">
+                <div class="col">
+                  <h-chips text="Kostenlose" avatar="avatar/Kostenlose.jpg" />
+                  <h-chips text="Eduard" avatar="avatar/Eduard.jpg" />
+                  <h-chips outlined text="Kostenlose" avatar="avatar/Kostenlose.jpg" />
+                  <h-chips outlined text="Eduard" avatar="avatar/Eduard.jpg" />
+                </div>
+              </div>
+
+              <div class="row h-mt-md">
+                <div class="col">
+                  <h-chips dense text="Kostenlose" avatar="avatar/Kostenlose.jpg" />
+                  <h-chips dense text="Eduard" avatar="avatar/Eduard.jpg" />
+                  <h-chips dense outlined text="Kostenlose" avatar="avatar/Kostenlose.jpg" />
+                  <h-chips dense outlined text="Eduard" avatar="avatar/Eduard.jpg" />
+                </div>
+              </div>
+            </comp-code>
+
+            <div ref="chip-select" />
+            <comp-code class="h-mt-lg" title="Select" :code="chipSelect">
+              <div class="row">
+                <div class="col">
+                  <h-chips filter v-model="chipsFilter.travel" text="Travel" icon="fas fa-plane" />
+                  <h-chips filter v-model="chipsFilter.movies" text="Movies" icon="fas fa-film" />
+                  <h-chips filter v-model="chipsFilter.food" text="Food" icon="fas fa-utensils" />
+                </div>
+              </div>
+            </comp-code>
+            <tabs-help
+              class="h-mt-md"
+              :properties="helpTopics.properties"
+              :events="helpTopics.events"
+            />
           </div>
-
-          <div class="row h-mt-md">
-            <div class="col">
-              <h-chips dense text="Peyton Smith"/>
-              <h-chips dense text="Jonas Eckhart"/>
-              <h-chips dense text="John Pella"/>
-              <h-chips dense text="Francis Pernille"/>
-            </div>
-          </div>
-
-          <div class="row h-mt-md">
-            <div class="col">
-              <h-chips dense outlined text="Peyton Smith"/>
-              <h-chips dense outlined text="Jonas Eckhart"/>
-              <h-chips dense outlined text="John Pella"/>
-              <h-chips dense outlined text="Francis Pernille"/>
-            </div>
-          </div>
-
-        </comp-code>
-
-        <div ref="chip-icons"/>
-        <comp-code class="h-mt-lg" title="Icons" :code="chipIcons">
-          <div class="row">
-            <div class="col">
-              <h-chips text="Portland" icon="fas fa-map-marker-alt"/>
-              <h-chips text="Biking" icon="fas fa-biking"/>
-              <h-chips outlined text="Portland" icon="fas fa-map-marker-alt"/>
-              <h-chips outlined text="Biking" icon="fas fa-biking"/>
-            </div>
-          </div>
-
-          <div class="row h-mt-md">
-            <div class="col">
-              <h-chips dense text="Portland" icon="fas fa-map-marker-alt"/>
-              <h-chips dense text="Biking" icon="fas fa-biking"/>
-              <h-chips dense outlined text="Portland" icon="fas fa-map-marker-alt"/>
-              <h-chips dense outlined text="Biking" icon="fas fa-biking"/>
-            </div>
-          </div>
-        </comp-code>
-
-        <div ref="chip-avatar"/>
-        <comp-code class="h-mt-lg" title="Avatar" :code="chipAvatar">
-          <div class="row">
-            <div class="col">
-              <h-chips text="Kostenlose" avatar="avatar/Kostenlose.jpg"/>
-              <h-chips text="Eduard" avatar="avatar/Eduard.jpg"/>
-              <h-chips outlined text="Kostenlose" avatar="avatar/Kostenlose.jpg"/>
-              <h-chips outlined text="Eduard" avatar="avatar/Eduard.jpg"/>
-            </div>
-          </div>
-
-          <div class="row h-mt-md">
-            <div class="col">
-              <h-chips dense text="Kostenlose" avatar="avatar/Kostenlose.jpg"/>
-              <h-chips dense text="Eduard" avatar="avatar/Eduard.jpg"/>
-              <h-chips dense outlined text="Kostenlose" avatar="avatar/Kostenlose.jpg"/>
-              <h-chips dense outlined text="Eduard" avatar="avatar/Eduard.jpg"/>
-            </div>
-          </div>
-        </comp-code>
-
-        <!-- <div ref="chip-closable"/>
-        <comp-code class="h-mt-lg" title="Closable" :code="chipClosable">
-          <div class="row">
-            <div class="col">
-              <h-chips closable text="Portland" icon="fas fa-map-marker-alt"/>
-              <h-chips closable text="Kostenlose" avatar="avatar/Kostenlose.jpg"/>
-              <h-chips closable outlined text="Portland" icon="fas fa-map-marker-alt"/>
-              <h-chips closable outlined text="Kostenlose" avatar="avatar/Kostenlose.jpg"/>
-            </div>
-          </div>
-
-          <div class="row h-mt-md">
-            <div class="col">
-              <h-chips dense closable text="Portland" icon="fas fa-map-marker-alt"/>
-              <h-chips dense closable text="Kostenlose" avatar="avatar/Kostenlose.jpg"/>
-              <h-chips dense outlined closable text="Portland" icon="fas fa-map-marker-alt"/>
-              <h-chips dense outlined closable text="Kostenlose" avatar="avatar/Kostenlose.jpg"/>
-            </div>
-          </div>
-        </comp-code> -->
-
-        <div ref="chip-select"/>
-        <comp-code class="h-mt-lg" title="Select" :code="chipSelect">
-          <div class="row">
-            <div class="col">
-              <h-chips filter v-model="chipsFilter.travel" text="Travel" icon="fas fa-plane"/>
-              <h-chips filter v-model="chipsFilter.movies" text="Movies" icon="fas fa-film"/>
-              <h-chips filter v-model="chipsFilter.food" text="Food" icon="fas fa-utensils"/>
-            </div>
-          </div>
-        </comp-code>
-
-        <!-- <h2 class="text-primary"> Vue Events</h2>
-        <hr>
-
-        <div class="flex">
-          <div>
-            <h3>Name</h3>
-            <div>@onClose</div>
-          </div>
-          <div class="h-pl-md">
-            <h3>Description</h3>
-            <div>Triggered on icon close click. This is available if hide-on-close is disabled.</div>
-          </div>
-        </div> -->
-        <tabs-help
-          class="h-mt-md"
-          :properties="helpTopics.properties"
-          :events="helpTopics.events"
-        />
+        </div>
       </div>
-      <div class="col-auto">
+    </div>
+
+    <template v-slot:right>
+      <h-nav-drawer ref="navHelp" v-model="showDrawer" side="right">
         <list-help>
           <h-list>
-            <h-list-header text="Styles"/>
+            <h-list-header text="Styles" />
             <h-list-item @click="goToElement('chip-standard')">
               <h-list-item-content>
                 <h-list-item-text title="Standard"></h-list-item-text>
@@ -161,7 +134,7 @@
               <h-list-item-content>
                 <h-list-item-text title="Closable"></h-list-item-text>
               </h-list-item-content>
-            </h-list-item> -->
+            </h-list-item>-->
             <h-list-item @click="goToElement('chip-select')">
               <h-list-item-content>
                 <h-list-item-text title="Select"></h-list-item-text>
@@ -169,19 +142,17 @@
             </h-list-item>
           </h-list>
         </list-help>
-      </div>
-    </div>
+      </h-nav-drawer>
+    </template>
   </h-page-content>
 </template>
-
 <script>
-
-import viewport from '../../../components/others/viewport'
-import helpTopics from './help'
-
+import viewport from "../../../components/others/viewport";
+import helpTopics from "./help";
 export default {
-  data () {
+  data() {
     return {
+      showDrawer: true,
       helpTopics: {
         properties: [],
         events: []
@@ -200,7 +171,6 @@ export default {
     <h-chips text="Francis Pernille"/>
   </div>
 </div>
-
 <div class="row h-mt-md">
   <div class="col">
     <h-chips outlined text="Peyton Smith"/>
@@ -209,7 +179,6 @@ export default {
     <h-chips outlined text="Francis Pernille"/>
   </div>
 </div>
-
 <div class="row h-mt-md">
   <div class="col">
     <h-chips dense text="Peyton Smith"/>
@@ -218,7 +187,6 @@ export default {
     <h-chips dense text="Francis Pernille"/>
   </div>
 </div>
-
 <div class="row h-mt-md">
   <div class="col">
     <h-chips dense outlined text="Peyton Smith"/>
@@ -226,7 +194,7 @@ export default {
     <h-chips dense outlined text="John Pella"/>
     <h-chips dense outlined text="Francis Pernille"/>
   </div>
-</div>      
+</div>
 `,
       chipIcons: `
 <div class="row">
@@ -237,7 +205,6 @@ export default {
     <h-chips outlined text="Biking" icon="fas fa-biking"/>
   </div>
 </div>
-
 <div class="row h-mt-md">
   <div class="col">
     <h-chips dense text="Portland" icon="fas fa-map-marker-alt"/>
@@ -245,7 +212,7 @@ export default {
     <h-chips dense outlined text="Portland" icon="fas fa-map-marker-alt"/>
     <h-chips dense outlined text="Biking" icon="fas fa-biking"/>
   </div>
-</div>      
+</div>
 `,
       chipAvatar: `
 <div class="row">
@@ -256,7 +223,6 @@ export default {
     <h-chips outlined text="Eduard" avatar="avatar/Eduard.jpg"/>
   </div>
 </div>
-
 <div class="row h-mt-md">
   <div class="col">
     <h-chips dense text="Kostenlose" avatar="avatar/Kostenlose.jpg"/>
@@ -264,7 +230,7 @@ export default {
     <h-chips dense outlined text="Kostenlose" avatar="avatar/Kostenlose.jpg"/>
     <h-chips dense outlined text="Eduard" avatar="avatar/Eduard.jpg"/>
   </div>
-</div>      
+</div>
 `,
       chipClosable: `
 <div class="row">
@@ -275,7 +241,6 @@ export default {
     <h-chips closable outlined text="Kostenlose" avatar="avatar/Kostenlose.jpg"/>
   </div>
 </div>
-
 <div class="row h-mt-md">
   <div class="col">
     <h-chips dense closable text="Portland" icon="fas fa-map-marker-alt"/>
@@ -283,7 +248,7 @@ export default {
     <h-chips dense outlined closable text="Portland" icon="fas fa-map-marker-alt"/>
     <h-chips dense outlined closable text="Kostenlose" avatar="avatar/Kostenlose.jpg"/>
   </div>
-</div>      
+</div>
 `,
       chipSelect: `
 <div class="row">
@@ -307,16 +272,19 @@ export default {
   }
 }
 `
-    }
+    };
   },
-  mounted () {
-    this.helpTopics.properties = helpTopics.properties
-    this.helpTopics.events = helpTopics.events
+  mounted() {
+    this.helpTopics.properties = helpTopics.properties;
+    this.helpTopics.events = helpTopics.events;
   },
   methods: {
-    goToElement (refName) {
-      viewport.goToElement(this.$refs[refName])
+    goToElement(refName) {
+      viewport.goToElement(this.$refs[refName]);
+    },
+    pageResize(value) {
+      this.$refs.navHelp.onResize(value);
     }
   }
-}
+};
 </script>

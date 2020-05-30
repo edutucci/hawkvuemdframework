@@ -29,12 +29,11 @@
 </template>
 
 <script>
-
-import resize from 'vue-resize-directive'
-import viewport from '../others/viewport'
+import resize from "vue-resize-directive";
+import viewport from "../others/viewport";
 
 export default {
-  name: 'MainBody',
+  name: "MainBody",
   directives: {
     resize
   },
@@ -48,49 +47,48 @@ export default {
       default: false
     }
   },
-  data () {
+  data() {
     return {
-      localDisplayMode: '',
+      localDisplayMode: "",
       localShowDrawerLeft: false,
       localShowDrawerRight: false
-    }
+    };
   },
-  mounted () {
-  },
+  mounted() {},
   watch: {
-    showDrawerLeft: function (show) {
-      this.localShowDrawerLeft = show
-      this.onResize()
+    showDrawerLeft: function(show) {
+      this.localShowDrawerLeft = show;
+      this.onResize();
     },
-    localShowDrawerLeft: function (show) {
+    localShowDrawerLeft: function(show) {
       if (!show) {
-        this.$emit('closeDrawerLeft', show)
+        this.$emit("closeDrawerLeft", show);
       }
     },
-    showDrawerRight: function (show) {
-      this.localShowDrawerRight = show
-      this.onResize()
+    showDrawerRight: function(show) {
+      this.localShowDrawerRight = show;
+      this.onResize();
     },
-    localShowDrawerRight: function (show) {
+    localShowDrawerRight: function(show) {
       if (!show) {
-        this.$emit('closeDrawerRight', show)
+        this.$emit("closeDrawerRight", show);
       }
     }
   },
   methods: {
-    width () {
-      let value = 0
-      value = viewport.mainBodyWidth()
-      return value
+    width() {
+      let value = 0;
+      value = viewport.mainBodyWidth();
+      return value;
     },
-    onResize () {
+    onResize() {
       if (this.showDrawerLeft) {
-        this.$refs.navLeft.onResize(this.width())
+        this.$refs.navLeft.onResize(this.width());
       }
       if (this.showDrawerRight) {
-        this.$refs.navRight.onResize(this.width())
+        this.$refs.navRight.onResize(this.width());
       }
     }
   }
-}
+};
 </script>

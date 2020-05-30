@@ -1,8 +1,5 @@
 <template>
-  <h-page-content padding
-    @onResize="pageResize"
-    @mainLayoutDrawerIsOpened="showDrawer = false"
-  >
+  <h-page-content padding @onResize="pageResize" @mainLayoutDrawerIsOpened="showDrawer = false">
     <div class="row">
       <div class="col">
         <div class="row position-sticky bg-white">
@@ -11,9 +8,9 @@
             <h-image src="imgIcons/png/icon-help.png" @click="showDrawer = !showDrawer" />
           </div>
         </div>
-
         <div class="row">
           <div class="col">
+            <div ref="btn-contained" />
             <comp-code class="h-mt-md" title="Contained Buttons" :code="containedButtons">
               <div>
                 <div>
@@ -63,7 +60,6 @@
                 </div>
               </div>
             </comp-code>
-
             <div ref="btn-text" />
             <comp-code class="h-mt-md" title="Text Buttons" :code="textbuttons">
               <div>
@@ -81,8 +77,18 @@
                   text-color="text-secondary"
                   text="secondary"
                 />
-                <h-btn text-button bg-color="bg-positive" text-color="text-positive" text="positive" />
-                <h-btn text-button bg-color="bg-negative" text-color="text-negative" text="negative" />
+                <h-btn
+                  text-button
+                  bg-color="bg-positive"
+                  text-color="text-positive"
+                  text="positive"
+                />
+                <h-btn
+                  text-button
+                  bg-color="bg-negative"
+                  text-color="text-negative"
+                  text="negative"
+                />
                 <h-btn text-button bg-color="bg-info" text-color="text-info" text="info" />
                 <h-btn text-button bg-color="bg-warning" text-color="text-warning" text="warning" />
               </div>
@@ -109,7 +115,12 @@
               <div>
                 <h-btn outlined text="disabled" disabled />
                 <h-btn bg-color="bg-primary" outlined text-color="text-primary" text="primary" />
-                <h-btn bg-color="bg-secondary" outlined text-color="text-secondary" text="secondary" />
+                <h-btn
+                  bg-color="bg-secondary"
+                  outlined
+                  text-color="text-secondary"
+                  text="secondary"
+                />
                 <h-btn bg-color="bg-positive" outlined text-color="text-positive" text="positive" />
                 <h-btn bg-color="bg-negative" outlined text-color="text-negative" text="negative" />
                 <h-btn bg-color="bg-info" outlined text-color="text-info" text="info" />
@@ -338,7 +349,10 @@
                     v-model="image"
                     @click="image = true"
                   >
-                    <div class="row align-items-center justify-center h-pa-sm" style="min-width:150px">
+                    <div
+                      class="row align-items-center justify-center h-pa-sm"
+                      style="min-width:150px"
+                    >
                       <div class="col-auto">
                         <div class="column">
                           <div class="col">
@@ -352,9 +366,109 @@
                 </div>
               </div>
             </comp-code>
+
+            <div ref="btn-links" />
+            <comp-code class="h-mt-md" title="Links" :code="linksButtons">
+              <h-btn bg-color="bg-primary">
+                <h-link
+                  icon="fab fa-github"
+                  text="github"
+                  url="https://github.com/edutucci/hawkframework"
+                  text-color="text-white"
+                />
+              </h-btn>
+
+              <h-btn rounded bg-color="bg-primary">
+                <h-link
+                  icon="fab fa-github"
+                  text="github"
+                  url="https://github.com/edutucci/hawkframework"
+                  text-color="text-white"
+                />
+              </h-btn>
+
+              <h-btn text-button>
+                <h-link text="github" url="https://github.com/edutucci/hawkframework" />
+              </h-btn>
+
+              <h-btn outlined bg-color="bg-black">
+                <h-link
+                  icon="fab fa-github"
+                  text="github new window"
+                  url="https://github.com/edutucci/hawkframework"
+                  new-window
+                />
+              </h-btn>
+
+              <h-btn outlined rounded bg-color="bg-black">
+                <h-link
+                  icon="fab fa-github"
+                  text="github new window"
+                  url="https://github.com/edutucci/hawkframework"
+                  new-window
+                />
+              </h-btn>
+            </comp-code>
+
+            <div ref="btn-router" />
+            <comp-code class="h-mt-md" title="Router" :code="routerButtons">
+              <h-btn bg-color="bg-primary">
+                <h-link text="to this page" url="/buttons" text-color="text-white" />
+              </h-btn>
+
+              <h-btn rounded bg-color="bg-primary">
+                <h-link text="to this page" url="/buttons" text-color="text-white" />
+              </h-btn>
+
+              <h-btn text-button>
+                <h-link text="to this page" url="/buttons" />
+              </h-btn>
+
+              <h-btn outlined bg-color="bg-black">
+                <h-link text="to this page" url="/buttons" />
+              </h-btn>
+
+              <h-btn outlined rounded bg-color="bg-black">
+                <h-link text="to this page" url="/buttons" />
+              </h-btn>
+            </comp-code>
+
+            <div ref="btn-counter" />
+            <comp-code class="h-mt-md" title="Counters" :code="btnCounters">
+              <h-btn bg-color="bg-primary" text-color="text-white" text="warning">
+                <h-counter bg-color="bg-negative" text-color="text-white">123</h-counter>
+              </h-btn>
+
+              <h-btn rounded bg-color="bg-primary" text-color="text-white" text="warning">
+                <h-counter bg-color="bg-negative" text-color="text-white">123</h-counter>
+              </h-btn>
+
+              <h-btn text-button text-color="text-primary" bg-color="bg-primary" text="primary">
+                <h-counter bg-color="bg-negative" text-color="text-white">12</h-counter>
+              </h-btn>
+
+              <h-btn outlined text-color="text-primary" bg-color="bg-primary" text="primary">
+                <h-counter bg-color="bg-negative" text-color="text-white">12</h-counter>
+              </h-btn>
+
+              <h-btn
+                outlined
+                rounded
+                text-color="text-primary"
+                bg-color="bg-primary"
+                text="primary"
+              >
+                <h-counter bg-color="bg-negative" text-color="text-white">12</h-counter>
+              </h-btn>
+            </comp-code>
+
+            <tabs-help
+              class="h-mt-md"
+              :properties="helpTopics.properties"
+              :events="helpTopics.events"
+            />
           </div>
         </div>
-
       </div>
     </div>
 
@@ -363,66 +477,55 @@
         <list-help>
           <h-list>
             <h-list-header text="Types" />
-            <h-list-item @click="goToElement('appbar-centerfab')">
+            <h-list-item @click="goToElement('btn-contained')">
               <h-list-item-content>
-                <h-list-item-text title="Contained"></h-list-item-text>
+                <h-list-item-text title="Contained" />
               </h-list-item-content>
             </h-list-item>
-            <h-list-item @click="goToElement('appbar-fabinset')">
+            <h-list-item @click="goToElement('btn-text')">
               <h-list-item-content>
-                <h-list-item-text title="Text"></h-list-item-text>
+                <h-list-item-text title="Text" />
               </h-list-item-content>
             </h-list-item>
-
-            <h-list-item @click="goToElement('appbar-centerfab')">
+            <h-list-item @click="goToElement('btn-outlined')">
               <h-list-item-content>
-                <h-list-item-text title="Outlined"></h-list-item-text>
+                <h-list-item-text title="Outlined" />
               </h-list-item-content>
             </h-list-item>
-            <h-list-item @click="goToElement('appbar-fabinset')">
+            <h-list-item @click="goToElement('btn-rounded')">
               <h-list-item-content>
-                <h-list-item-text title="Rounded"></h-list-item-text>
+                <h-list-item-text title="Rounded" />
               </h-list-item-content>
             </h-list-item>
-            <h-list-header text=" Additional Types" />
-            <h-list-item @click="goToElement('appbar-endfab')">
+            <h-list-header text="Additional Types" />
+            <h-list-item @click="goToElement('btn-fab')">
               <h-list-item-content>
-                <h-list-item-text title="Fab"></h-list-item-text>
+                <h-list-item-text title="FAB" />
               </h-list-item-content>
             </h-list-item>
-            <h-list-item @click="goToElement('appbar-nofab')">
+            <h-list-item @click="goToElement('btn-sizes')">
               <h-list-item-content>
-                <h-list-item-text title="No Fab"></h-list-item-text>
+                <h-list-item-text title="Sizes" />
               </h-list-item-content>
             </h-list-item>
-
-            <h-list-item @click="goToElement('appbar-nofab')">
+            <h-list-item @click="goToElement('btn-dropdown')">
               <h-list-item-content>
-                <h-list-item-text title="Sizes"></h-list-item-text>
+                <h-list-item-text title="Dropdown" />
               </h-list-item-content>
             </h-list-item>
-
-            <h-list-item @click="goToElement('appbar-nofab')">
+            <h-list-item @click="goToElement('btn-links')">
               <h-list-item-content>
-                <h-list-item-text title="Dropdown"></h-list-item-text>
+                <h-list-item-text title="Links" />
               </h-list-item-content>
             </h-list-item>
-
-            <h-list-item @click="goToElement('appbar-nofab')">
+            <h-list-item @click="goToElement('btn-router')">
               <h-list-item-content>
-                <h-list-item-text title="Links"></h-list-item-text>
+                <h-list-item-text title="Router" />
               </h-list-item-content>
             </h-list-item>
-
-            <h-list-item @click="goToElement('appbar-nofab')">
+            <h-list-item @click="goToElement('btn-counter')">
               <h-list-item-content>
-                <h-list-item-text title="Router"></h-list-item-text>
-              </h-list-item-content>
-            </h-list-item>
-
-            <h-list-item @click="goToElement('appbar-nofab')">
-              <h-list-item-content>
-                <h-list-item-text title="Counter"></h-list-item-text>
+                <h-list-item-text title="Counter" />
               </h-list-item-content>
             </h-list-item>
           </h-list>
@@ -431,251 +534,26 @@
     </template>
   </h-page-content>
 </template>
-
-
 <script>
+import mxButtons from "./mxButtons";
 import viewport from "../../../components/others/viewport";
+import helpTopics from "./help";
 
 export default {
+  mixins: [mxButtons],
   components: {},
   data() {
     return {
       showDrawer: true,
-      drpmenu: false,
-      tb1: `
-<h-app-toolbar bg-color="bg-primary">
-  <h-app-toolbar-container>
-    <h-app-toolbar-navigation text-color="text-white"/>
-    <h-app-toolbar-title class="text-white">
-      Page title
-    </h-app-toolbar-title>
-    <h-app-toolbar-action>
-      <h-btn fab size="sm" bg-color="bg-transparent"
-        left-icon="fas fa-heart" text-color="text-white"
-      />
-      <h-btn fab size="sm" bg-color="bg-transparent"
-        left-icon="fas fa-search" text-color="text-white"
-      />
-      <h-btn
-          fab
-          size="sm"
-          dropdown
-          drop-down-icon="fas fa-ellipsis-v"
-          bg-color="bg-transparent"
-          text-color="text-white"
-          v-model="drpmenu"
-          @click="drpmenu = true"
-        >
-          <div class="flex flex-column">
-            <h-list style="width: 150px">
-              <h-list-item>
-                <h-list-item-content>
-                  <h-list-item-text title="Item 1"/>
-                </h-list-item-content>
-              </h-list-item>
-              <h-list-item>
-                <h-list-item-content>
-                  <h-list-item-text title="Item 2"/>
-                </h-list-item-content>
-              </h-list-item>
-              <h-list-item>
-                <h-list-item-content>
-                  <h-list-item-text title="Item 3"/>
-                </h-list-item-content>
-              </h-list-item>
-            </h-list>
-          </div>
-      </h-btn>
-    </h-app-toolbar-action>
-  </h-app-toolbar-container>
-</h-app-toolbar>
-
-<h-app-toolbar bg-color="bg-deepOrange600">
-  <h-app-toolbar-container>
-    <h-app-toolbar-navigation text-color="text-white"/>
-    <h-image avatar src="img/music-collection.jpg" size="42px"/>
-    <h-app-toolbar-title class="text-white">
-      My big music collection to sing
-    </h-app-toolbar-title>
-    <h-app-toolbar-action>
-      <h-btn fab size="sm" bg-color="bg-transparent"
-        left-icon="fas fa-heart" text-color="text-white"
-      />
-      <h-btn fab size="sm" bg-color="bg-transparent"
-       left-icon="fas fa-search" text-color="text-white"
-      />
-      <h-btn
-        fab
-        size="sm"
-        dropdown
-        drop-down-icon="fas fa-ellipsis-v"
-        bg-color="bg-transparent"
-        text-color="text-white"
-      >
-      </h-btn>
-    </h-app-toolbar-action>
-  </h-app-toolbar-container>
-</h-app-toolbar>
-
-<h-app-toolbar bg-color="bg-brown500">
-  <h-app-toolbar-container>
-    <h-app-toolbar-navigation text-color="text-white"/>
-    <h-app-toolbar-title inset class="text-white">
-      Page title
-    </h-app-toolbar-title>
-    <h-app-toolbar-action>
-      <h-btn fab size="sm" bg-color="bg-transparent"
-        left-icon="fas fa-heart" text-color="text-white"
-      />
-      <h-btn fab size="sm" bg-color="bg-transparent"
-        left-icon="fas fa-search" text-color="text-white"/>
-      <h-btn
-        fab
-        size="sm"
-        dropdown
-        drop-down-icon="fas fa-ellipsis-v"
-        bg-color="bg-transparent"
-        text-color="text-white"
-      >
-      </h-btn>
-    </h-app-toolbar-action>
-  </h-app-toolbar-container>
-</h-app-toolbar>
-
-<h-app-toolbar bg-color="bg-secondary">
-  <h-app-toolbar-container>
-    <h-app-toolbar-navigation text-color="text-white"/>
-    <h-app-toolbar-title inset class="text-white">
-      <div class="col-auto">
-        <h-image avatar src="img/music-collection.jpg" size="42px"/>
-      </div>
-      <div class="col h-mt-sm h-ml-sm">
-        My big music collection to sing
-      </div>
-    </h-app-toolbar-title>
-    <h-app-toolbar-action>
-      <h-btn fab size="sm" bg-color="bg-transparent"
-        left-icon="fas fa-heart" text-color="text-white"
-      />
-      <h-btn fab size="sm" bg-color="bg-transparent"
-        left-icon="fas fa-search" text-color="text-white"
-      />
-      <h-btn
-        fab
-        size="sm"
-        dropdown
-        drop-down-icon="fas fa-ellipsis-v"
-        bg-color="bg-transparent"
-        text-color="text-white"
-      >
-      </h-btn>
-    </h-app-toolbar-action>
-  </h-app-toolbar-container>
-</h-app-toolbar>
-`,
-      scripttb1: `
-export default {
-  data () {
-    return {
-      drpmenu: false
-    }
-  }
-}
-`,
-      tb2: `
-<h-app-toolbar bg-color="bg-primary" class="h-mt-md">
-  <h-app-toolbar-container>
-    <h-app-toolbar-navigation text-color="text-white"/>
-    <h-app-toolbar-fab/>
-    <h-app-toolbar-action>
-      <h-btn fab size="sm" bg-color="bg-transparent"
-        left-icon="fas fa-heart" text-color="text-white"
-      />
-      <h-btn fab size="sm" bg-color="bg-transparent"
-        left-icon="fas fa-search" text-color="text-white"
-      />
-      <h-btn
-        fab
-        size="sm"
-        dropdown
-        drop-down-icon="fas fa-ellipsis-v"
-        bg-color="bg-transparent"
-        text-color="text-white"
-      >
-      </h-btn>
-    </h-app-toolbar-action>
-  </h-app-toolbar-container>
-</h-app-toolbar>
-`,
-      tb3: `
-<h-app-toolbar bg-color="bg-primary" class="h-mt-md">
-  <h-app-toolbar-container>
-    <h-app-toolbar-navigation text-color="text-white"/>
-    <h-app-toolbar-fab/>
-    <h-app-toolbar-action>
-      <h-btn fab size="sm" bg-color="bg-transparent"
-        left-icon="fas fa-heart" text-color="text-white"
-      />
-      <h-btn fab size="sm" bg-color="bg-transparent"
-        left-icon="fas fa-search" text-color="text-white"
-      />
-      <h-btn
-        fab
-        size="sm"
-        dropdown
-        drop-down-icon="fas fa-ellipsis-v"
-        bg-color="bg-transparent"
-        text-color="text-white"
-      >
-      </h-btn>
-    </h-app-toolbar-action>
-  </h-app-toolbar-container>
-</h-app-toolbar>
-`,
-      tb4: `
-<h-app-toolbar bg-color="bg-primary" class="h-mt-md">
-  <h-app-toolbar-container>
-    <h-app-toolbar-navigation text-color="text-white"/>
-    <h-app-toolbar-fab/>
-    <h-app-toolbar-action>
-      <h-btn fab size="sm" bg-color="bg-transparent"
-        left-icon="fas fa-heart" text-color="text-white"
-      />
-      <h-btn fab size="sm" bg-color="bg-transparent"
-        left-icon="fas fa-search" text-color="text-white"
-      />
-      <h-btn
-        fab
-        size="sm"
-        dropdown
-        drop-down-icon="fas fa-ellipsis-v"
-        bg-color="bg-transparent"
-        text-color="text-white"
-      >
-      </h-btn>
-    </h-app-toolbar-action>
-  </h-app-toolbar-container>
-</h-app-toolbar>
-`,
-      tb5: `
-<h-app-toolbar bg-color="bg-primary">
-  <h-app-toolbar-container>
-    <h-app-toolbar-navigation text-color="text-white"/>
-    <div class="col-space"></div>
-    <h-app-toolbar-action>
-      <h-btn fab size="sm" bg-color="bg-transparent"
-        left-icon="fas fa-caret-square-down" text-color="text-white"
-      />
-      <h-btn fab size="sm" bg-color="bg-transparent"
-        left-icon="fas fa-envelope" text-color="text-white"
-      />
-      <h-btn fab size="sm" bg-color="bg-transparent"
-        left-icon="fas fa-trash" text-color="text-white"
-      />
-    </h-app-toolbar-action>
-  </h-app-toolbar-container>
-</h-app-toolbar>
-`
+      text: false,
+      icon: false,
+      avatar: false,
+      image: false,
+      tabHelpModel: "prop",
+      helpTopics: {
+        properties: [],
+        events: []
+      }
     };
   },
   methods: {
@@ -685,12 +563,10 @@ export default {
     pageResize(value) {
       this.$refs.navHelp.onResize(value);
     }
+  },
+  mounted() {
+    this.helpTopics.properties = helpTopics.properties;
+    this.helpTopics.events = helpTopics.events;
   }
 };
 </script>
-
-<style scoped>
-div > .h-app-toolbar:not(:first-child) {
-  margin-top: 10px;
-}
-</style>

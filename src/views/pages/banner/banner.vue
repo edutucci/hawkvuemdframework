@@ -1,8 +1,5 @@
 <template>
-  <h-page-content padding
-    @onResize="pageResize"
-    @mainLayoutDrawerIsOpened="showDrawer = false"
-  >
+  <h-page-content padding @onResize="pageResize" @mainLayoutDrawerIsOpened="showDrawer = false">
     <div class="row">
       <div class="col">
         <div class="row position-sticky bg-white">
@@ -17,7 +14,9 @@
             <div ref="banner-standard" />
             <comp-code class="h-mt-md" title="Standard" :code="ex1">
               <h-banner class="h-mt-md">
-                <template v-slot:text>Your password was updated on your other device. Please sign again.</template>
+                <template
+                  v-slot:text
+                >Your password was updated on your other device. Please sign again.</template>
 
                 <template v-slot:buttons>
                   <h-btn
@@ -86,7 +85,13 @@
                     text-color="text-white"
                     bg-color="bg-primary"
                   />
-                  <h-btn contained caps text="sign in" text-color="text-white" bg-color="bg-primary" />
+                  <h-btn
+                    contained
+                    caps
+                    text="sign in"
+                    text-color="text-white"
+                    bg-color="bg-primary"
+                  />
                 </template>
               </h-banner>
 
@@ -104,6 +109,11 @@
                 </template>
               </h-banner>
             </comp-code>
+            <tabs-help
+              class="h-mt-md"
+              :properties="helpTopics.properties"
+              :events="helpTopics.events"
+            />
           </div>
         </div>
       </div>
