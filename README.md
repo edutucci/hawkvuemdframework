@@ -84,7 +84,7 @@ yarn dev
 
 ### :construction_worker: Compiles and minifies for production (UNIX and MAC)
 ```
-yarn build-lib-unix
+yarn build-lib-npm-unix
 ```
 
 ### :construction_worker: Compiles and minifies for production Windows
