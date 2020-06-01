@@ -189,6 +189,7 @@ export default {
     this.helpTopics.properties = helpTopics.properties;
     this.helpTopics.events = helpTopics.events;
     this.checkedObjects.push(this.checkedObjectsOptions[1]);
+    this.checkMainBodyWidth()
   },
   data() {
     return {
@@ -354,6 +355,12 @@ export default {
     };
   },
   methods: {
+    checkMainBodyWidth () {
+      let value = viewport.mainBodyWidth()
+      if (value < 961) {
+        this.showDrawer = false
+      }
+    },
     goToElement(refName) {
       viewport.goToElement(this.$refs[refName]);
     },

@@ -1,11 +1,21 @@
 <template>
-  <h-page-content padding>
-
-    <div class="row">
+  <h-page-content padding
+    @onResize="pageResize"
+    @mainLayoutDrawerIsOpened="showDrawer = false"
+  >
+    <div class="row ">
       <div class="col">
-
-        <div class="text-h4"> Radio Buttons </div>
-
+        <div class="row position-sticky bg-white">
+          <div class="col text-h4">
+            Radio Buttons
+          </div>
+          <div class="col-auto">
+            <h-image src="imgIcons/png/icon-help.png" @click="showDrawer = !showDrawer"/>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="col">
         <div ref="rd-boolean"/>
         <comp-code class="h-mt-lg" title="Boolean" :code="rbboolean" :script="rbbooleanScript"
           javascript
@@ -118,45 +128,19 @@
           </div>
 
         </comp-code>
-
-        <!-- <h2 class="text-primary"> Vue Properties</h2>
-        <hr>
-
-        <div class="flex">
-          <div>
-            <h3>Name</h3>
-            <div>disabled</div>
-          </div>
-          <div class="h-pl-md">
-            <h3>Type</h3>
-            <div>Boolean</div>
-          </div>
-          <div class="h-pl-md">
-            <h3 >Description</h3>
-            <div>if true the radio is disabled</div>
-          </div>
-        </div>
-
-        <h2 class="text-primary"> Vue Events</h2>
-        <hr>
-
-        <div class="flex">
-          <div>
-            <h3>Name</h3>
-            <div>@change(value)</div>
-          </div>
-          <div class="h-pl-md">
-            <h3>Description</h3>
-            <div>Triggered immediately on model change</div>
-          </div>
-        </div> -->
-        <tabs-help
+            </div>
+            <tabs-help
           class="h-mt-md"
           :properties="helpTopics.properties"
           :events="helpTopics.events"
         />
+          </div>
+         </div>
       </div>
-      <div class="col-auto">
+    </div>
+
+    <template v-slot:right>
+      <h-nav-drawer ref="navHelp" v-model="showDrawer" side="right">
         <list-help>
           <h-list>
             <h-list-header text="Usage"/>
@@ -192,9 +176,10 @@
             </h-list-item>
           </h-list>
         </list-help>
-      </div>
-    </div>
+      </h-nav-drawer>
+    </template>
   </h-page-content>
+
 </template>
 
 <script>
@@ -205,6 +190,7 @@ import helpTopics from './help'
 export default {
   data () {
     return {
+      showDrawer :  true,
       helpTopics: {
         properties: [],
         events: []
@@ -262,7 +248,7 @@ export default {
       typeReadOnly: 'a2'
     }
   }
-}      
+}
 `,
       rblist: `
 <div class="column">
@@ -311,7 +297,7 @@ export default {
       typeNumber: 0
     }
   }
-}    
+}
 `,
       rbchecked: `
 <div class="column">
@@ -375,11 +361,21 @@ export default {
   mounted () {
     this.helpTopics.properties = helpTopics.properties
     // this.helpTopics.events = helpTopics.events
+    this.checkMainBodyWidth()
   },
   methods: {
     goToElement (refName) {
       viewport.goToElement(this.$refs[refName])
+    },
+    pageResize (value) {
+      this.$refs.navHelp.onResize(value)
+    },
+    checkMainBodyWidth () {
+      let value = viewport.mainBodyWidth()
+      if (value < 961) {
+        this.showDrawer = false
     }
+  },
   }
 }
 </script>

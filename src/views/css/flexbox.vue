@@ -1,9 +1,23 @@
-<template lang="pug">
-  h-page-content(padding)
-    .text-h4 Flexbox and GridSystem (row and column)
-    .text-body1 The flex-direction property defines in which direction the container wants to stack the flex items.
-
-    <comp-code class="h-mt-md" title="Grid row" :code="flexgridrow">
+<template>
+  <h-page-content padding
+    @onResize="pageResize"
+    @mainLayoutDrawerIsOpened="showDrawer = false"
+  >
+    <div class="row ">
+      <div class="col">
+        <div ref="btn-types" />
+        <div class="row position-sticky bg-white">
+          <div class="col text-h4">
+          Flexbox and GridSystem (row and column)
+          <div class="text-body1">The flex-direction property defines in which direction the container wants to stack the flex items.</div>
+          </div>
+          <div class="col-auto">
+            <h-image src="imgIcons/png/icon-help.png" @click="showDrawer = !showDrawer"/>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <comp-code class="h-mt-md" title="Grid row" :code="flexgridrow">
       <div class="row flex-container" style="background-color: DodgerBlue;">
         <div class="col">1</div>
         <div class="col">2</div>
@@ -36,7 +50,7 @@
         </div>
       </div>
     </comp-code>
-
+    <div ref="btn-columns" />
     <comp-code class="h-mt-md" title="row-reverse" :code="flexrowreverse">
       <div class="row row-reverse flex-container" style="background-color: DodgerBlue;">
         <div class="col-auto">1</div>
@@ -52,7 +66,7 @@
         <div class="col">3</div>
       </div>
     </comp-code>
-
+  <div ref="btn-wrap" />
     <comp-code class="h-mt-md" title="column reverse" :code="flexcolumnreverse" >
       <div class="column-reverse flex-container-column" style="background-color: DodgerBlue;">
         <div class="col">1</div>
@@ -68,6 +82,7 @@
         .text-body1 By default row is <b>nowrap.</b>
 
     <comp-code class="h-mt-md" title="wrap" :code="flexwrap" >
+
       <div class="row wrap flex-container" style="background-color: DodgerBlue;">
         <div class="col-auto">1</div>
         <div class="col-auto">2</div>
@@ -94,6 +109,7 @@
         <div class="col-auto">2</div>
         <div class="col-auto">3</div>
       </div>
+
     </comp-code>
 
     <comp-code class="h-mt-md" title="justify-center(center)" :code="flexjustifycenter">
@@ -260,60 +276,68 @@
         <div class="col-auto">2</div>
       </div>
     </comp-code>
+          </div>
+         </div>
+      </div>
+    </div>
 
-    //- .col-6.boxshadow
-    //-   h1 Flex property
-    //-   p.desc  Let all the flexible items be the same length, regardless of its content.
+    <template v-slot:right>
+      <h-nav-drawer ref="navHelp" v-model="showDrawer" side="right">
 
-    //-   h3  Activating flex property
-    //-   <pre v-highlightjs="flex1">
-    //-     <code class="javascript">
-    //-     </code>
-    //-   </pre>
+        <list-help>
+           <div ref="btn-wrap" />
+          <h-list>
+            <h-list-header text="Types" />
+            <h-list-item @click="goToElement('btn-types')">
+              <h-list-item-content>
+                <h-list-item-text title=" Grid and Rows " />
+              </h-list-item-content>
+            </h-list-item>
 
-    //-   .flex.flex-column
-    //-     div(style="background-color: DodgerBlue;")
-    //-       <div class="flex flex-container">
-    //-         <div class="flex-1" style="background-color:coral;">1</div>
-    //-         <div class="flex-1" style="background-color:lightblue;">2</div>
-    //-         <div class="flex-1" style="background-color:lightgreen;">3</div>
-    //-       </div>
-    //-     div(style="background-color: #F0F0F0;")
-    //-       <pre v-highlightjs="f1">
-    //-         <code class="javascript">
-    //-         </code>
-    //-       </pre>
+            <h-list-header text="Columns" />
+            <h-list-item @click="goToElement('btn-columns')">
+              <h-list-item-content>
+                <h-list-item-text title="column" />
+              </h-list-item-content>
+            </h-list-item>
+            <h-list-item @click="goToElement('btn-columns')">
+              <h-list-item-content>
+                <h-list-item-text title="Column reverse" />
+              </h-list-item-content>
+            </h-list-item>
 
-    //-   h3 Using flex to grow a flex item
-    //-   p.desc If you to use flex-1 to one flex item only, this flex item will grow by having the rest of space remaining.
+            <h-list-item @click="goToElement('btn-columns')">
+              <h-list-item-content>
+                <h-list-item-text title="Column" />
+              </h-list-item-content>
+            </h-list-item>
+            <h-list-item @click="goToElement('btn-wrap')">
+              <h-list-item-content>
+                <h-list-item-text title=" wrap" />
+              </h-list-item-content>
+            </h-list-item>
 
-    //-   .flex.flex-column
-    //-     div(style="background-color: DodgerBlue;")
-    //-       <div class="flex flex-container">
-    //-         <div style="background-color:coral;">1</div>
-    //-         <div class="flex-1" style="background-color:lightblue;">2</div>
-    //-       </div>
-    //-       <div class="flex flex-container">
-    //-         <div style="background-color:coral;">1</div>
-    //-         <div class="flex-1" style="background-color:lightblue;">2</div>
-    //-         <div style="background-color:lightgreen;">3</div>
-    //-       </div>
-    //-     div(style="background-color: #F0F0F0;")
-    //-       <pre v-highlightjs="f2">
-    //-         <code class="javascript">
-    //-         </code>
-    //-       </pre>
+          </h-list>
+        </list-help>
+
+      </h-nav-drawer>
+
+    </template>
+  </h-page-content>
 
 </template>
 
 <script>
 
+import  viewport from '../../components/others/viewport'
+
 export default {
   name: 'Flexbox',
-  components: {
-  },
+
   data () {
     return {
+
+      showDrawer: true,
       flexgridrow: `
 <div class="row flex-container" style="background-color: DodgerBlue;">
   <div class="col">1</div>
@@ -532,28 +556,28 @@ export default {
 <div class="flex flex-column flex-container">
   <div>1</div>
   <div>2</div>
-  <div>3</div>  
+  <div>3</div>
 </div>
       `,
       columnreverse: `
 <div class="flex flex-column-reverse flex-container">
   <div>1</div>
   <div>2</div>
-  <div>3</div>  
+  <div>3</div>
 </div>
       `,
       row: `
 <div class="flex flex-container">
   <div>1</div>
   <div>2</div>
-  <div>3</div>  
+  <div>3</div>
 </div>
       `,
       rowreverse: `
 <div class="flex flex-row-reverse flex-container">
   <div>1</div>
   <div>2</div>
-  <div>3</div>  
+  <div>3</div>
 </div>
       `,
       wrap: `
@@ -566,7 +590,7 @@ export default {
   <div>6</div>
   <div>7</div>
   <div>8</div>
-  <div>9</div> 
+  <div>9</div>
 </div>
       `,
       nowrap: `
@@ -579,21 +603,21 @@ export default {
   <div>6</div>
   <div>7</div>
   <div>8</div>
-  <div>9</div> 
+  <div>9</div>
 </div>
       `,
       justifystart: `
 <div class="flex flex-container">
   <div>1</div>
   <div>2</div>
-  <div>3</div>  
+  <div>3</div>
 </div>
       `,
       justifycenter: `
 <div class="flex flex-justify-center flex-container">
   <div>1</div>
   <div>2</div>
-  <div>3</div>  
+  <div>3</div>
 </div>
       `,
       justifyend: `
@@ -621,35 +645,35 @@ export default {
 <div class="flex flex-items-start flex-container2">
   <div>1</div>
   <div>2</div>
-  <div>3</div>  
+  <div>3</div>
 </div>
       `,
       itemscenter: `
 <div class="flex flex-items-center flex-container2">
   <div>1</div>
   <div>2</div>
-  <div>3</div>  
+  <div>3</div>
 </div>
       `,
       itemsend: `
 <div class="flex flex-items-end flex-container2">
   <div>1</div>
   <div>2</div>
-  <div>3</div>  
+  <div>3</div>
 </div>
       `,
       itemsstretch: `
 <div class="flex flex-items-stretch flex-container2">
   <div>1</div>
   <div>2</div>
-  <div>3</div>  
+  <div>3</div>
 </div>
       `,
       itemsbaseline: `
 <div class="flex flex-items-baseline flex-container2">
   <div><h1>1</h1></div>
   <div><h6>2</h6></div>
-  <div><h3>3</h3></div>  
+  <div><h3>3</h3></div>
   <div><small>4</small></div>
 </div>
       `,
@@ -670,7 +694,7 @@ export default {
     <div>3</div>
     <div>4</div>
     <div>5</div>
-    <div>6</div> 
+    <div>6</div>
 </div>
       `,
       alignend: `
@@ -690,7 +714,7 @@ export default {
     <div>3</div>
     <div>4</div>
     <div>5</div>
-    <div>6</div>  
+    <div>6</div>
 </div>
       `,
       alignspacebetween: `
@@ -782,9 +806,29 @@ export default {
 </style>
       `
     }
+  },
+  mounted() {
+    this.checkMainBodyWidth()
+  },
+
+  methods: {
+    goToElement(refName) {
+       viewport.goToElement(this.$refs[refName])
+    },
+    checkMainBodyWidth () {
+      let value = viewport.mainBodyWidth()
+      if (value < 961) {
+        this.showDrawer = false
+      }
+    },
+    pageResize (value) {
+      this.$refs.navHelp.onResize(value)
+    }
+
   }
 }
 </script>
+
 
 <style>
 .flex-container {

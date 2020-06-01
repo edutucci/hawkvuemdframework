@@ -1,11 +1,21 @@
 <template>
-  <h-page-content padding>
-
-    <div class="row">
+  <h-page-content padding
+    @onResize="pageResize"
+    @mainLayoutDrawerIsOpened="showDrawer = false"
+  >
+    <div class="row ">
       <div class="col">
-        <div class="text-h4">Toggle</div>
-
-        <div ref="tg-boolean"/>
+        <div class="row position-sticky bg-white">
+          <div class="col text-h4">
+           Toogle
+          </div>
+          <div class="col-auto">
+            <h-image src="imgIcons/png/icon-help.png" @click="showDrawer = !showDrawer"/>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div ref="tg-boolean"/>
         <comp-code class="h-mt-lg" title="Boolean" :code="ckboolean" :script="ckbooleanScript"
           javascript
         >
@@ -99,49 +109,13 @@
           :properties="helpTopics.properties"
           :events="helpTopics.events"
         />
-
-        <!-- <h2 class="text-primary"> Vue Properties</h2>
-        <hr>
-
-        <div class="flex">
-          <div>
-            <h3>Name</h3>
-            <div>text</div>
-            <div>value</div>
-            <div>checked</div>
-            <div>disabled</div>
           </div>
-          <div class="h-pl-md">
-            <h3>Type</h3>
-            <div>String, Number</div>
-            <div>String, Number, Object</div>
-            <div>Boolean</div>
-            <div>Boolean</div>
-          </div>
-          <div class="h-pl-md">
-            <h3 >Description</h3>
-            <div>Sets the text of the toggle</div>
-            <div>Sets the value of the toggle</div>
-            <div>If true the toggle is on</div>
-            <div>if true the toggle is disabled</div>
-          </div>
-        </div>
-
-        <h2 class="text-primary"> Vue Events</h2>
-        <hr>
-
-        <div class="flex">
-          <div>
-            <h3>Name</h3>
-            <div>@change(value)</div>
-          </div>
-          <div class="h-pl-md">
-            <h3>Description</h3>
-            <div>Triggered immediately on model change</div>
-          </div>
-        </div> -->
+         </div>
       </div>
-      <div class="col-auto">
+    </div>
+
+    <template v-slot:right>
+      <h-nav-drawer ref="navHelp" v-model="showDrawer" side="right">
         <list-help>
           <h-list>
             <h-list-header text="Styles"/>
@@ -167,10 +141,10 @@
             </h-list-item>
           </h-list>
         </list-help>
-      </div>
-    </div>
-
+      </h-nav-drawer>
+    </template>
   </h-page-content>
+
 </template>
 
 <script>
@@ -182,6 +156,7 @@ export default {
   data () {
     return {
       ckChecked: true,
+      showDrawer: true,
       termAccepted: false,
       typeReadOnly: ['a2'],
       colors: [],
@@ -231,7 +206,7 @@ export default {
       typeReadOnly: ['a2']
     }
   }
-}      
+}
 `,
       ckOptChecked: `
 <div class="column">
@@ -272,7 +247,7 @@ export default {
     return {
       colors: []
     }
-  }    
+  }
 `,
       cklistnumbers: `
 <div class="column">
@@ -295,18 +270,30 @@ export default {
     return {
       checkedNumbers: [1, 3]
     }
-  }      
+  }
 `
     }
   },
   mounted () {
     this.helpTopics.properties = helpTopics.properties
     this.helpTopics.events = helpTopics.events
+    this.checkMainBodyWidth()
   },
   methods: {
     goToElement (refName) {
       viewport.goToElement(this.$refs[refName])
-    }
+    },
+
+    checkMainBodyWidth() {
+      let value = viewport.mainBodyWidth()
+      if (value < 961) {
+        this.showDrawer = false
+      }
+    },
+
+    pageResize (value) {
+    this.$refs.navHelp.onResize(value)
+  }
   }
 }
 </script>

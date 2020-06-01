@@ -537,7 +537,7 @@
 <script>
 import mxButtons from "./mxButtons";
 import viewport from "../../../components/others/viewport";
-import helpTopics from "./help";
+// import helpTopics from "./help";
 
 export default {
   mixins: [mxButtons],
@@ -573,9 +573,9 @@ export default {
       this.$refs.navHelp.onResize(value);
     }
   },
-  mounted() {
-    this.helpTopics.properties = helpTopics.properties;
-    this.helpTopics.events = helpTopics.events;
-  }
+  // mounted() {
+  //   this.helpTopics.properties = helpTopics.properties;
+  //   this.helpTopics.events = helpTopics.events;
+  // }
 };
 </script>

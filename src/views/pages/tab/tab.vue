@@ -518,7 +518,7 @@ export default {
       verTab1: 'books'
     }
   }
-}      
+}
 `
     }
   },

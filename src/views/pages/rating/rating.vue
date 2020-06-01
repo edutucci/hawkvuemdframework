@@ -1,11 +1,21 @@
 <template>
-  <h-page-content padding>
-
-    <div class="row">
+  <h-page-content padding
+    @onResize="pageResize"
+    @mainLayoutDrawerIsOpened="showDrawer = false"
+  >
+    <div class="row ">
       <div class="col">
-        <div class="text-h4">Rating</div>
-
-        <div ref="rt-normalpoint"/>
+        <div class="row position-sticky bg-white">
+          <div class="col text-h4">
+           Rating
+          </div>
+          <div class="col-auto">
+            <h-image src="imgIcons/png/icon-help.png" @click="showDrawer = !showDrawer"/>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div ref="rt-normalpoint"/>
         <comp-code class="h-mt-lg" title="Normal Point" :code="ex1" :script="ex1Script"
           javascript
         >
@@ -36,8 +46,13 @@
           :properties="helpTopics.properties"
           :events="helpTopics.events"
         />
+          </div>
+         </div>
       </div>
-      <div class="col-auto">
+    </div>
+
+    <template v-slot:right>
+      <h-nav-drawer ref="navHelp" v-model="showDrawer" side="right">
         <list-help>
           <h-list>
             <h-list-header text="Styles"/>
@@ -58,9 +73,10 @@
             </h-list-item>
           </h-list>
         </list-help>
-      </div>
-    </div>
+      </h-nav-drawer>
+    </template>
   </h-page-content>
+
 </template>
 
 <script>
@@ -71,6 +87,7 @@ import helpTopics from './help'
 export default {
   data () {
     return {
+      showDrawer: true,
       helpTopics: {
         properties: [],
         events: []
@@ -128,10 +145,20 @@ export default {
   mounted () {
     this.helpTopics.properties = helpTopics.properties
     this.helpTopics.events = helpTopics.events
+    this.checkMainBodyWidth()
   },
   methods: {
-    goToElement (refName) {
-      viewport.goToElement(this.$refs[refName])
+    checkMainBodyWidth () {
+      let value = viewport.mainBodyWidth()
+      if (value < 961) {
+        this.showDrawer = false
+      }
+    },
+    goToElement(refName) {
+      viewport.goToElement(this.$refs[refName]);
+    },
+    pageResize(value) {
+      this.$refs.navHelp.onResize(value);
     }
   }
 }

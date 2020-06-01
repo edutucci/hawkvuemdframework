@@ -98,4 +98,5 @@ let viewport = {
   goToElement: goToElement,
   mainBodyWidth: mainBodyWidth
 }
+
 export default viewport
