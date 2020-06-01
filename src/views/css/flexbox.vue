@@ -8,7 +8,9 @@
       <div class="col">
         <div class="row position-sticky bg-white">
           <div class="col text-h4">
-            ... Page Title
+            Flexbox and GridSystem (row and column)
+           <div class="text-h6" >The flex-direction property defines in which direction the container wants to stack the flex items.
+          </div>
           </div>
           <div class="col-auto">
             <h-image src="imgIcons/png/icon-help.png" @click="showDrawer = !showDrawer"/>
@@ -65,7 +67,7 @@
         <div class="col">3</div>
       </div>
     </comp-code>
-
+  <div ref="btn-wrap" />
     <comp-code class="h-mt-md" title="column reverse" :code="flexcolumnreverse" >
       <div class="column-reverse flex-container-column" style="background-color: DodgerBlue;">
         <div class="col">1</div>
@@ -278,10 +280,34 @@
 
     <template v-slot:right>
       <h-nav-drawer ref="navHelp" v-model="showDrawer" side="right">
-        // menu help
         <list-help>
-          ... itens menu help
+          <h-list>
+            <div ref="btn-classes" />
+            <h-list-header text="Types" />
+
+            <h-list-item @click="goToElement('btn-classes')">
+
+              <h-list-item-content>
+
+                <h-list-item-text title="Grids" />
+              </h-list-item-content>
+            </h-list-item>
+
+            <h-list-item @click="goToElement('btn-column')">
+              <h-list-item-content>
+                <h-list-item-text title="Column"/>
+              </h-list-item-content>
+            </h-list-item>
+
+            <h-list-item @click="goToElement('btn-wrap')">
+              <h-list-item-content>
+                <h-list-item-text title="Wrap"/>
+              </h-list-item-content>
+            </h-list-item>
+
+          </h-list>
         </list-help>
+        <div ref="btn-column" />
       </h-nav-drawer>
     </template>
   </h-page-content>
