@@ -2,7 +2,7 @@
   <div v-if="value" class="full-height no-user-select">
     <div
       ref="divwindow"
-      v-if="(value && displayMode === 'any' && showWindow === 'mobile') || (value && displayMode === 'window')"
+      v-if="(value && (showWindow === 'any' || showWindow === 'mobile')) || (value && displayMode === 'window')"
       class="row bg-modal drawer_mobile "
       :class="{ 'justify-start': side === 'left', 
         'justify-end': side === 'right'
@@ -17,7 +17,7 @@
     </div>
     <div
       ref="divpage"
-      v-else-if="(value && displayMode === 'any' && showWindow === 'page')"
+      v-else-if="(value && (showWindow === 'any' || showWindow === 'page'))"
       class="drawer-animation column full-height scroll  border-left border-right border-gray"
       style="display: inline-box;"
     >
@@ -55,25 +55,35 @@ export default {
   },
   components: {
   },
+  watch: {
+    displayMode: function(value) {
+      this.showWindow = value
+    }
+  },
   data () {
     return {
       showWindow: 'mobile'
     }
   },
+  mounted () {
+    this.showWindow = this.displayMode
+  },
   methods: {
-    closeMobile () {
+    close () {
       this.$emit('input', false)
     },
     away () {
       if (this.value && this.displayMode !== 'page') {
-        this.closeMobile()
+        this.close()
       }
     },
     onResize (size) {
-      if (size < 961) {
-        this.showWindow = 'mobile'
-      } else {
-        this.showWindow = 'page'
+      if (this.displayMode === 'any') {
+        if (size < 961) {
+          this.showWindow = 'mobile'
+        } else {
+          this.showWindow = 'page'
+        }
       }
     }    
   }

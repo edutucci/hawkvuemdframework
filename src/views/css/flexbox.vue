@@ -1,312 +1,300 @@
-<template lang="pug">
-  h-page-content(padding)
-    .text-h4 Flexbox and GridSystem (row and column)
-    .text-body1 The flex-direction property defines in which direction the container wants to stack the flex items.
 
-    <comp-code class="h-mt-md" title="Grid row" :code="flexgridrow">
-      <div class="row flex-container" style="background-color: DodgerBlue;">
-        <div class="col">1</div>
-        <div class="col">2</div>
-        <div class="col">3</div>
-      </div>
-    </comp-code>
-
-    <comp-code class="h-mt-md" title="Grid row with column space" :code="flexgridrowcolspace">
-      <div class="column" style="background-color: DodgerBlue;">
-        <div class="row flex-container">
-          <div class="col-auto">1</div>
-          <div class="col-space">2</div>
-        </div>
-        <div class="row flex-container">
-          <div class="col-auto">1</div>
-          <div class="col-space">2</div>
-          <div class="col-auto">3</div>
-        </div>
-      </div>
-    </comp-code>
-
-    <comp-code class="h-mt-md" title="row" :code="flexrow" >
-      <div class="row">
-        <div class="col" style="background-color: DodgerBlue;">
-          <div class="row flex-container">
-            <div class="col-auto">1</div>
-            <div class="col-auto">2</div>
-            <div class="col-auto">3</div>
+<template>
+  <h-page-content padding
+    @onResize="pageResize"
+    @mainLayoutDrawerIsOpened="showDrawer = false"
+  >
+    <div class="row ">
+      <div class="col">
+        <div class="row position-sticky bg-white">
+          <div class="col text-h4">
+            Flexbox and GridSystem (row and column)
+          </div>
+          <div class="col-auto">
+            <h-image src="imgIcons/png/icon-help.png" @click="showDrawer = !showDrawer"/>
           </div>
         </div>
+        <div class="row">
+          <div class="col">
+
+            <comp-code class="h-mt-md" title="Grid row" :code="flexgridrow">
+              <div class="row flex-container" style="background-color: DodgerBlue;">
+                <div class="col">1</div>
+                <div class="col">2</div>
+                <div class="col">3</div>
+              </div>
+            </comp-code>
+
+            <comp-code class="h-mt-md" title="Grid row with column space" :code="flexgridrowcolspace">
+              <div class="column" style="background-color: DodgerBlue;">
+                <div class="row flex-container">
+                  <div class="col-auto">1</div>
+                  <div class="col-space">2</div>
+                </div>
+                <div class="row flex-container">
+                  <div class="col-auto">1</div>
+                  <div class="col-space">2</div>
+                  <div class="col-auto">3</div>
+                </div>
+              </div>
+            </comp-code>
+
+            <comp-code class="h-mt-md" title="row" :code="flexrow" >
+              <div class="row">
+                <div class="col" style="background-color: DodgerBlue;">
+                  <div class="row flex-container">
+                    <div class="col-auto">1</div>
+                    <div class="col-auto">2</div>
+                    <div class="col-auto">3</div>
+                  </div>
+                </div>
+              </div>
+            </comp-code>
+
+            <comp-code class="h-mt-md" title="row-reverse" :code="flexrowreverse">
+              <div class="row row-reverse flex-container" style="background-color: DodgerBlue;">
+                <div class="col-auto">1</div>
+                <div class="col-auto">2</div>
+                <div class="col-auto">3</div>
+              </div>
+            </comp-code>
+
+            <comp-code class="h-mt-md" title="column" :code="flexcolumn" >
+              <div class="column flex-container-column" style="background-color: DodgerBlue;">
+                <div class="col">1</div>
+                <div class="col">2</div>
+                <div class="col">3</div>
+              </div>
+            </comp-code>
+
+            <comp-code class="h-mt-md" title="column reverse" :code="flexcolumnreverse" >
+              <div class="column-reverse flex-container-column" style="background-color: DodgerBlue;">
+                <div class="col">1</div>
+                <div class="col">2</div>
+                <div class="col">3</div>
+              </div>
+            </comp-code>
+
+            .row.h-mt-md
+              .col
+                .text-h4 Flex wrap or nowrap
+                .text-body1 The flex-wrap property specifies whether the flex items should wrap or not.
+                .text-body1 By default row is <b>nowrap.</b>
+
+            <comp-code class="h-mt-md" title="wrap" :code="flexwrap" >
+              <div class="row wrap flex-container" style="background-color: DodgerBlue;">
+                <div class="col-auto">1</div>
+                <div class="col-auto">2</div>
+                <div class="col-auto">3</div>
+                <div class="col-auto">4</div>
+                <div class="col-auto">5</div>
+                <div class="col-auto">6</div>
+                <div class="col-auto">7</div>
+                <div class="col-auto">8</div>
+                <div class="col-auto">9</div>
+                <div class="col-auto">10</div>
+              </div>
+            </comp-code>
+
+            .row
+              .col
+                .text-h4 Justify-content
+                .text-body1 The justify-content property is used to align the flex items.
+                .text-body1 Default <b>flex-start</b>. But the class will be <b>justify-start</b>.
+
+            <comp-code class="h-mt-md" title="justify-start(flex-start)" :code="flexjustifystart">
+              <div class="row flex-container" style="background-color: DodgerBlue;">
+                <div class="col-auto">1</div>
+                <div class="col-auto">2</div>
+                <div class="col-auto">3</div>
+              </div>
+            </comp-code>
+
+            <comp-code class="h-mt-md" title="justify-center(center)" :code="flexjustifycenter">
+              <div class="row justify-center flex-container" style="background-color: DodgerBlue;">
+                <div class="col-auto">1</div>
+                <div class="col-auto">2</div>
+                <div class="col-auto">3</div>
+              </div>
+            </comp-code>
+
+            <comp-code class="h-mt-md" title="justify-end(flex-end)" :code="flexjustifyend">
+              <div class="row justify-end flex-container" style="background-color: DodgerBlue;">
+                <div class="col-auto">1</div>
+                <div class="col-auto">2</div>
+                <div class="col-auto">3</div>
+              </div>
+            </comp-code>
+
+            <comp-code class="h-mt-md" title="justify-between(space-between)" :code="flexjustifybetween">
+              <div class="row justify-between flex-container" style="background-color: DodgerBlue;">
+                <div class="col-auto">1</div>
+                <div class="col-auto">2</div>
+                <div class="col-auto">3</div>
+              </div>
+            </comp-code>
+
+            <comp-code class="h-mt-md" title="justify-around(space-around)" :code="flexjustifyaround">
+              <div class="row justify-around flex-container" style="background-color: DodgerBlue;">
+                <div class="col-auto">1</div>
+                <div class="col-auto">2</div>
+                <div class="col-auto">3</div>
+              </div>
+            </comp-code>
+
+            .row
+              .col
+                .text-h4 Align-items
+                .text-body1 The align-items property is used to align the flex items vertically.
+                //- img.full-width(src="img/align-items.png")
+
+            <comp-code class="h-mt-md" title="align-items-start" :code="flexitemsstart">
+              <div class="row align-items-start flex-container2" style="background-color: DodgerBlue;">
+                <div class="col-auto">1</div>
+                <div class="col-auto">2</div>
+                <div class="col-auto">3</div>
+              </div>
+            </comp-code>
+
+            <comp-code class="h-mt-md" title="align-items-center" :code="flexitemscenter">
+              <div class="row align-items-center flex-container2" style="background-color: DodgerBlue;">
+                <div class="col-auto">1</div>
+                <div class="col-auto">2</div>
+                <div class="col-auto">3</div>
+              </div>
+            </comp-code>
+
+            <comp-code class="h-mt-md" title="align-items-end" :code="flexitemsend">
+              <div class="row align-items-end flex-container2" style="background-color: DodgerBlue;">
+                <div class="col-auto">1</div>
+                <div class="col-auto">2</div>
+                <div class="col-auto">3</div>
+              </div>
+            </comp-code>
+
+            <comp-code class="h-mt-md" title="align-items-stretch(default)" :code="flexitemsstretch">
+              <div class="row align-items-stretch flex-container2" style="background-color: DodgerBlue;">
+                <div class="col-auto">1</div>
+                <div class="col-auto">2</div>
+                <div class="col-auto">3</div>
+              </div>
+            </comp-code>
+
+            <comp-code class="h-mt-md" title="align-items-baseline" :code="flexitemsbaseline">
+              <div class="row align-items-baseline flex-container2" style="background-color: DodgerBlue;">
+                <div class="col-auto"><h1>1</h1></div>
+                <div class="col-auto"><h6>2</h6></div>
+                <div class="col-auto"><h3>3</h3></div>
+                <div class="col-auto"><small>4</small></div>
+              </div>
+            </comp-code>
+
+            .row
+              .col
+                .text-h4 Align-content
+                .text-body1 The align-content property property is used to align the flex lines.
+                //- img.full-width(src="img/align-content.png")
+
+            <comp-code class="h-mt-md" title="align-content-start" :code="flexalignstart">
+              <div class="row wrap align-content-start flex-container3" style="background-color: DodgerBlue;">
+                <div class="col-auto">1</div>
+                <div class="col-auto">2</div>
+                <div class="col-auto">3</div>
+                <div class="col-auto">4</div>
+                <div class="col-auto">5</div>
+                <div class="col-auto">6</div>
+              </div>
+            </comp-code>
+
+            <comp-code class="h-mt-md" title="align-content-center" :code="flexaligncenter">
+              <div class="row wrap align-content-center flex-container3" style="background-color: DodgerBlue;">
+                <div class="col-auto">1</div>
+                <div class="col-auto">2</div>
+                <div class="col-auto">3</div>
+                <div class="col-auto">4</div>
+                <div class="col-auto">5</div>
+                <div class="col-auto">6</div>
+              </div>
+            </comp-code>
+
+            <comp-code class="h-mt-md" title="align-content-end" :code="flexalignend">
+              <div class="row wrap align-content-end flex-container3" style="background-color: DodgerBlue;">
+                <div class="col-auto">1</div>
+                <div class="col-auto">2</div>
+                <div class="col-auto">3</div>
+                <div class="col-auto">4</div>
+                <div class="col-auto">5</div>
+                <div class="col-auto">6</div>
+              </div>
+            </comp-code>
+
+            <comp-code class="h-mt-md" title="align-content-stretch" :code="flexalignstretch">
+              <div class="row wrap align-content-stretch flex-container3" style="background-color: DodgerBlue;">
+                <div class="col-auto">1</div>
+                <div class="col-auto">2</div>
+                <div class="col-auto">3</div>
+                <div class="col-auto">4</div>
+                <div class="col-auto">5</div>
+                <div class="col-auto">6</div>
+                <div class="col-auto">7</div>
+              </div>
+            </comp-code>
+
+            <comp-code class="h-mt-md" title="align-content-around" :code="flexalignspacearound">
+              <div class="row wrap align-content-around flex-container3" style="background-color: DodgerBlue;">
+                <div class="col-auto">1</div>
+                <div class="col-auto">2</div>
+                <div class="col-auto">3</div>
+                <div class="col-auto">4</div>
+                <div class="col-auto">5</div>
+                <div class="col-auto">6</div>
+                <div class="col-auto">7</div>
+              </div>
+            </comp-code>
+
+            <comp-code class="h-mt-md" title="align-content-between" :code="flexalignspacebetween">
+              <div class="row wrap align-content-between flex-container3" style="background-color: DodgerBlue;">
+                <div class="col-auto">1</div>
+                <div class="col-auto">2</div>
+                <div class="col-auto">3</div>
+                <div class="col-auto">4</div>
+                <div class="col-auto">5</div>
+                <div class="col-auto">6</div>
+                <div class="col-auto">7</div>
+              </div>
+            </comp-code>
+
+            .row
+              .col
+                .text-h4 Perfect Centering
+
+            <comp-code class="h-mt-md" title="Perfect center" :code="flexcentering">
+              <div class="row justify-center align-items-center flex-container2" style="background-color: DodgerBlue;">
+                <div class="col-auto">1</div>
+                <div class="col-auto">2</div>
+              </div>
+            </comp-code>
+
+          </div>
+         </div>
       </div>
-    </comp-code>
+    </div>
 
-    <comp-code class="h-mt-md" title="row-reverse" :code="flexrowreverse">
-      <div class="row row-reverse flex-container" style="background-color: DodgerBlue;">
-        <div class="col-auto">1</div>
-        <div class="col-auto">2</div>
-        <div class="col-auto">3</div>
-      </div>
-    </comp-code>
-
-    <comp-code class="h-mt-md" title="column" :code="flexcolumn" >
-      <div class="column flex-container-column" style="background-color: DodgerBlue;">
-        <div class="col">1</div>
-        <div class="col">2</div>
-        <div class="col">3</div>
-      </div>
-    </comp-code>
-
-    <comp-code class="h-mt-md" title="column reverse" :code="flexcolumnreverse" >
-      <div class="column-reverse flex-container-column" style="background-color: DodgerBlue;">
-        <div class="col">1</div>
-        <div class="col">2</div>
-        <div class="col">3</div>
-      </div>
-    </comp-code>
-
-    .row.h-mt-md
-      .col
-        .text-h4 Flex wrap or nowrap
-        .text-body1 The flex-wrap property specifies whether the flex items should wrap or not.
-        .text-body1 By default row is <b>nowrap.</b>
-
-    <comp-code class="h-mt-md" title="wrap" :code="flexwrap" >
-      <div class="row wrap flex-container" style="background-color: DodgerBlue;">
-        <div class="col-auto">1</div>
-        <div class="col-auto">2</div>
-        <div class="col-auto">3</div>
-        <div class="col-auto">4</div>
-        <div class="col-auto">5</div>
-        <div class="col-auto">6</div>
-        <div class="col-auto">7</div>
-        <div class="col-auto">8</div>
-        <div class="col-auto">9</div>
-        <div class="col-auto">10</div>
-      </div>
-    </comp-code>
-
-    .row
-      .col
-        .text-h4 Justify-content
-        .text-body1 The justify-content property is used to align the flex items.
-        .text-body1 Default <b>flex-start</b>. But the class will be <b>justify-start</b>.
-
-    <comp-code class="h-mt-md" title="justify-start(flex-start)" :code="flexjustifystart">
-      <div class="row flex-container" style="background-color: DodgerBlue;">
-        <div class="col-auto">1</div>
-        <div class="col-auto">2</div>
-        <div class="col-auto">3</div>
-      </div>
-    </comp-code>
-
-    <comp-code class="h-mt-md" title="justify-center(center)" :code="flexjustifycenter">
-      <div class="row justify-center flex-container" style="background-color: DodgerBlue;">
-        <div class="col-auto">1</div>
-        <div class="col-auto">2</div>
-        <div class="col-auto">3</div>
-      </div>
-    </comp-code>
-
-    <comp-code class="h-mt-md" title="justify-end(flex-end)" :code="flexjustifyend">
-      <div class="row justify-end flex-container" style="background-color: DodgerBlue;">
-        <div class="col-auto">1</div>
-        <div class="col-auto">2</div>
-        <div class="col-auto">3</div>
-      </div>
-    </comp-code>
-
-    <comp-code class="h-mt-md" title="justify-between(space-between)" :code="flexjustifybetween">
-      <div class="row justify-between flex-container" style="background-color: DodgerBlue;">
-        <div class="col-auto">1</div>
-        <div class="col-auto">2</div>
-        <div class="col-auto">3</div>
-      </div>
-    </comp-code>
-
-    <comp-code class="h-mt-md" title="justify-around(space-around)" :code="flexjustifyaround">
-      <div class="row justify-around flex-container" style="background-color: DodgerBlue;">
-        <div class="col-auto">1</div>
-        <div class="col-auto">2</div>
-        <div class="col-auto">3</div>
-      </div>
-    </comp-code>
-
-    .row
-      .col
-        .text-h4 Align-items
-        .text-body1 The align-items property is used to align the flex items vertically.
-        //- img.full-width(src="img/align-items.png")
-
-    <comp-code class="h-mt-md" title="align-items-start" :code="flexitemsstart">
-      <div class="row align-items-start flex-container2" style="background-color: DodgerBlue;">
-        <div class="col-auto">1</div>
-        <div class="col-auto">2</div>
-        <div class="col-auto">3</div>
-      </div>
-    </comp-code>
-
-    <comp-code class="h-mt-md" title="align-items-center" :code="flexitemscenter">
-      <div class="row align-items-center flex-container2" style="background-color: DodgerBlue;">
-        <div class="col-auto">1</div>
-        <div class="col-auto">2</div>
-        <div class="col-auto">3</div>
-      </div>
-    </comp-code>
-
-    <comp-code class="h-mt-md" title="align-items-end" :code="flexitemsend">
-      <div class="row align-items-end flex-container2" style="background-color: DodgerBlue;">
-        <div class="col-auto">1</div>
-        <div class="col-auto">2</div>
-        <div class="col-auto">3</div>
-      </div>
-    </comp-code>
-
-    <comp-code class="h-mt-md" title="align-items-stretch(default)" :code="flexitemsstretch">
-      <div class="row align-items-stretch flex-container2" style="background-color: DodgerBlue;">
-        <div class="col-auto">1</div>
-        <div class="col-auto">2</div>
-        <div class="col-auto">3</div>
-      </div>
-    </comp-code>
-
-    <comp-code class="h-mt-md" title="align-items-baseline" :code="flexitemsbaseline">
-      <div class="row align-items-baseline flex-container2" style="background-color: DodgerBlue;">
-        <div class="col-auto"><h1>1</h1></div>
-        <div class="col-auto"><h6>2</h6></div>
-        <div class="col-auto"><h3>3</h3></div>
-        <div class="col-auto"><small>4</small></div>
-      </div>
-    </comp-code>
-
-    .row
-      .col
-        .text-h4 Align-content
-        .text-body1 The align-content property property is used to align the flex lines.
-        //- img.full-width(src="img/align-content.png")
-
-    <comp-code class="h-mt-md" title="align-content-start" :code="flexalignstart">
-      <div class="row wrap align-content-start flex-container3" style="background-color: DodgerBlue;">
-        <div class="col-auto">1</div>
-        <div class="col-auto">2</div>
-        <div class="col-auto">3</div>
-        <div class="col-auto">4</div>
-        <div class="col-auto">5</div>
-        <div class="col-auto">6</div>
-      </div>
-    </comp-code>
-
-    <comp-code class="h-mt-md" title="align-content-center" :code="flexaligncenter">
-      <div class="row wrap align-content-center flex-container3" style="background-color: DodgerBlue;">
-        <div class="col-auto">1</div>
-        <div class="col-auto">2</div>
-        <div class="col-auto">3</div>
-        <div class="col-auto">4</div>
-        <div class="col-auto">5</div>
-        <div class="col-auto">6</div>
-      </div>
-    </comp-code>
-
-    <comp-code class="h-mt-md" title="align-content-end" :code="flexalignend">
-      <div class="row wrap align-content-end flex-container3" style="background-color: DodgerBlue;">
-        <div class="col-auto">1</div>
-        <div class="col-auto">2</div>
-        <div class="col-auto">3</div>
-        <div class="col-auto">4</div>
-        <div class="col-auto">5</div>
-        <div class="col-auto">6</div>
-      </div>
-    </comp-code>
-
-    <comp-code class="h-mt-md" title="align-content-stretch" :code="flexalignstretch">
-      <div class="row wrap align-content-stretch flex-container3" style="background-color: DodgerBlue;">
-        <div class="col-auto">1</div>
-        <div class="col-auto">2</div>
-        <div class="col-auto">3</div>
-        <div class="col-auto">4</div>
-        <div class="col-auto">5</div>
-        <div class="col-auto">6</div>
-        <div class="col-auto">7</div>
-      </div>
-    </comp-code>
-
-    <comp-code class="h-mt-md" title="align-content-around" :code="flexalignspacearound">
-      <div class="row wrap align-content-around flex-container3" style="background-color: DodgerBlue;">
-        <div class="col-auto">1</div>
-        <div class="col-auto">2</div>
-        <div class="col-auto">3</div>
-        <div class="col-auto">4</div>
-        <div class="col-auto">5</div>
-        <div class="col-auto">6</div>
-        <div class="col-auto">7</div>
-      </div>
-    </comp-code>
-
-    <comp-code class="h-mt-md" title="align-content-between" :code="flexalignspacebetween">
-      <div class="row wrap align-content-between flex-container3" style="background-color: DodgerBlue;">
-        <div class="col-auto">1</div>
-        <div class="col-auto">2</div>
-        <div class="col-auto">3</div>
-        <div class="col-auto">4</div>
-        <div class="col-auto">5</div>
-        <div class="col-auto">6</div>
-        <div class="col-auto">7</div>
-      </div>
-    </comp-code>
-
-    .row
-      .col
-        .text-h4 Perfect Centering
-
-    <comp-code class="h-mt-md" title="Perfect center" :code="flexcentering">
-      <div class="row justify-center align-items-center flex-container2" style="background-color: DodgerBlue;">
-        <div class="col-auto">1</div>
-        <div class="col-auto">2</div>
-      </div>
-    </comp-code>
-
-    //- .col-6.boxshadow
-    //-   h1 Flex property
-    //-   p.desc  Let all the flexible items be the same length, regardless of its content.
-
-    //-   h3  Activating flex property
-    //-   <pre v-highlightjs="flex1">
-    //-     <code class="javascript">
-    //-     </code>
-    //-   </pre>
-
-    //-   .flex.flex-column
-    //-     div(style="background-color: DodgerBlue;")
-    //-       <div class="flex flex-container">
-    //-         <div class="flex-1" style="background-color:coral;">1</div>
-    //-         <div class="flex-1" style="background-color:lightblue;">2</div>
-    //-         <div class="flex-1" style="background-color:lightgreen;">3</div>
-    //-       </div>
-    //-     div(style="background-color: #F0F0F0;")
-    //-       <pre v-highlightjs="f1">
-    //-         <code class="javascript">
-    //-         </code>
-    //-       </pre>
-
-    //-   h3 Using flex to grow a flex item
-    //-   p.desc If you to use flex-1 to one flex item only, this flex item will grow by having the rest of space remaining.
-
-    //-   .flex.flex-column
-    //-     div(style="background-color: DodgerBlue;")
-    //-       <div class="flex flex-container">
-    //-         <div style="background-color:coral;">1</div>
-    //-         <div class="flex-1" style="background-color:lightblue;">2</div>
-    //-       </div>
-    //-       <div class="flex flex-container">
-    //-         <div style="background-color:coral;">1</div>
-    //-         <div class="flex-1" style="background-color:lightblue;">2</div>
-    //-         <div style="background-color:lightgreen;">3</div>
-    //-       </div>
-    //-     div(style="background-color: #F0F0F0;")
-    //-       <pre v-highlightjs="f2">
-    //-         <code class="javascript">
-    //-         </code>
-    //-       </pre>
+    <template v-slot:right>
+      <h-nav-drawer ref="navHelp" v-model="showDrawer" side="right">
+        // menu help
+        <list-help>
+          ... itens menu help
+        </list-help>
+      </h-nav-drawer>
+    </template>
+  </h-page-content>
 
 </template>
 
 <script>
+
+import viewport from "../../components/others/viewport"
 
 export default {
   name: 'Flexbox',
@@ -314,6 +302,7 @@ export default {
   },
   data () {
     return {
+      showDrawer: true,
       flexgridrow: `
 <div class="row flex-container" style="background-color: DodgerBlue;">
   <div class="col">1</div>
@@ -782,6 +771,23 @@ export default {
 </style>
       `
     }
+  },
+  mounted () {
+    this.checkMainBodyWidth()
+  },
+  methods: {
+    goToElement (refName) {
+      viewport.goToElement(this.$refs[refName])
+    },
+    checkMainBodyWidth () {
+      let value = viewport.mainBodyWidth()
+      if (value < 961) {
+        this.showDrawer = false
+      }
+    },
+    pageResize (value) {
+      this.$refs.navHelp.onResize(value)
+    }  
   }
 }
 </script>

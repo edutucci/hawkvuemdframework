@@ -1,60 +1,73 @@
 <template>
-  <h-page-content padding>
-    <div class="row">
+  <h-page-content padding
+    @onResize="pageResize"
+    @mainLayoutDrawerIsOpened="showDrawer = false"
+  >
+    <div class="row ">
       <div class="col">
-        <div class="text-h4">FILE UPLOAD</div>
+        <div class="row position-sticky bg-white">
+          <div class="col text-h4">
+            File Upload
+          </div>
+          <div class="col-auto">
+            <h-image src="imgIcons/png/icon-help.png" @click="showDrawer = !showDrawer"/>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
 
-        <div ref="upload-file"/>
-        <comp-code class="h-mt-lg" title="Files" :code="ex1">
-          <h-file-upload
-            :multiple="true"
-            @addFiles="addFiles"
-            @removeFiles="removeFiles"
-            extensions=".pdf"
-          />
-        </comp-code>
+            <div ref="upload-file"/>
+            <comp-code class="h-mt-lg" title="Files" :code="ex1">
+              <h-file-upload
+                :multiple="true"
+                @addFiles="addFiles"
+                @removeFiles="removeFiles"
+                extensions=".pdf"
+              />
+            </comp-code>
 
-        <div ref="upload-image"/>
-        <comp-code class="h-mt-lg" title="Images" :code="ex2" :script="ex2Script"
-          javascript
-        >
-          <h-file-upload
-          :multiple="true"
-          :max-size="maxsize"
-          title="Select Images"
-          subtitle="Click to add images"
-          image-only
-          />
-        </comp-code>
+            <div ref="upload-image"/>
+            <comp-code class="h-mt-lg" title="Images" :code="ex2" :script="ex2Script"
+              javascript
+            >
+              <h-file-upload
+              :multiple="true"
+              :max-size="maxsize"
+              title="Select Images"
+              subtitle="Click to add images"
+              image-only
+              />
+            </comp-code>
 
-        <div ref="upload-nodrop"/>
-        <comp-code class="h-mt-lg" title="Area Drop Hidden" :code="ex3">
-          <h-file-upload
-            :multiple="true"
-            :allow-drop="false"
-          />
-          <!-- <h-image-upload
-            class="h-mt-sm"
-            :multiple="true"
-            :allow-drop="false"
-          /> -->
-        </comp-code>
+            <div ref="upload-nodrop"/>
+            <comp-code class="h-mt-lg" title="Area Drop Hidden" :code="ex3">
+              <h-file-upload
+                :multiple="true"
+                :allow-drop="false"
+              />
+            </comp-code>
 
-        <div ref="vuejs-sample"/>
-        <comp-code class="h-mt-lg" title="Vuejs Sample" :code="vuejsSample" page="template" :script="vuejsSampleScript" javascript>
-        </comp-code>
+            <div ref="vuejs-sample"/>
+            <comp-code class="h-mt-lg" title="Vuejs Sample" :code="vuejsSample" page="template" :script="vuejsSampleScript" javascript>
+            </comp-code>
 
-        <div ref="express-server"/>
-        <comp-code class="h-mt-lg" title="Express Server" :script="expressServer" page="javascript" hide-code javascript>
-        </comp-code>
+            <div ref="express-server"/>
+            <comp-code class="h-mt-lg" title="Express Server" :script="expressServer" page="javascript" hide-code javascript>
+            </comp-code>
 
-        <tabs-help
-          class="h-mt-md"
-          :properties="helpTopics.properties"
-          :events="helpTopics.events"
-        />
+            <tabs-help
+              class="h-mt-md"
+              :properties="helpTopics.properties"
+              :events="helpTopics.events"
+            />
+
+          </div>
+         </div>
       </div>
-      <div class="col-auto">
+    </div>
+
+    <template v-slot:right>
+      <h-nav-drawer ref="navHelp" v-model="showDrawer" side="right">
         <list-help>
           <h-list>
             <h-list-header text="Upload"/>
@@ -86,10 +99,10 @@
             </h-list-item>
           </h-list>
         </list-help>
-      </div>
-    </div>
-
+      </h-nav-drawer>
+    </template>
   </h-page-content>
+
 </template>
 
 <script>
@@ -107,6 +120,7 @@ export default {
       },
       fileList: [],
       maxsize: 1024 * 5000,
+      showDrawer: true,
       ex1: `
 <h-file-upload
   :multiple="true"
@@ -150,7 +164,8 @@ export default {
         />
       </div>
     </div>
-    <h-btn bg-color="bg-primary" text-color="text-white" text="Submit" @click="submitFile()"/>
+    <h-btn bg-color="bg-primary" text-color="text-white" text="Submit"
+      @click="submitFile()"/>
   </h-page-content>
 
 </template>
@@ -240,7 +255,8 @@ app.post('/single-file', function(req, res) {
           return res.status(400).send('No files were uploaded.');
         }
     
-        // The name of the input field (i.e. "sampleFile") is used to retrieve the uploaded file
+        // The name of the input field (i.e. "sampleFile") is used
+        // to retrieve the uploaded file
         let sampleFile = req.files.file;
     
         // Use the mv() method to place the file somewhere on your server
@@ -261,7 +277,8 @@ app.post('/multiple-file', function(req, res) {
         return res.status(400).send('No files were uploaded.');
       }
   
-      // The name of the input field (i.e. "sampleFile") is used to retrieve the uploaded file
+      // The name of the input field (i.e. "sampleFile") is used
+      // to retrieve the uploaded file
       Object.keys(req.files).forEach(key => {
         let file = req.files[key];
 
@@ -292,10 +309,20 @@ app.listen(port, () =>
   mounted () {
     this.helpTopics.properties = helpTopics.properties
     this.helpTopics.events = helpTopics.events
+    this.checkMainBodyWidth()
   },
   methods: {
     goToElement (refName) {
       viewport.goToElement(this.$refs[refName])
+    },
+    checkMainBodyWidth () {
+      let value = viewport.mainBodyWidth()
+      if (value < 961) {
+        this.showDrawer = false
+      }
+    },
+    pageResize (value) {
+      this.$refs.navHelp.onResize(value)
     },
     addFiles (fileList) {
       console.log('fileList added: ', fileList)

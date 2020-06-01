@@ -3,7 +3,8 @@ export default {
     {
       name: 'v-model',
       type: 'Boolean',
-      description: 'Default is true. Allow select multiple files. If false in drop mode the first file is selected.'
+      description: 'If true allows select or drop multiple files',
+      description2: 'Default is true. Allow select multiple files. If false in drop mode the first file is selected.'
     },
     {
       name: 'max-size',
@@ -18,7 +19,8 @@ export default {
     {
       name: 'extensions',
       type: 'String',
-      description: 'Sets the extensions for the files for File Upload. Default is all files types. Accepts single extension: ".doc" or multiple extension: ".gif,.jpg,.png,.doc".'
+      description: 'Sets the extensions. Ex.: ".doc" or ".gif,.jpg,.png,.doc".',
+      description2: 'Sets the extensions for the files for File Upload. Default is all files types. Accepts single extension: ".doc" or multiple extension: ".gif,.jpg,.png,.doc".'
     },
     {
       name: 'audio-only',

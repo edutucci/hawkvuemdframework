@@ -1,133 +1,149 @@
 <template>
-  <h-page-content padding>
-
-    <div class="row">
+  <h-page-content padding
+    @onResize="pageResize"
+    @mainLayoutDrawerIsOpened="showDrawer = false"
+  >
+    <div class="row ">
       <div class="col">
-        <div class="text-h4">Html Table</div>
+        <div class="row position-sticky bg-white">
+          <div class="col text-h4">
+            Html Table
+          </div>
+          <div class="col-auto">
+            <h-image src="imgIcons/png/icon-help.png" @click="showDrawer = !showDrawer"/>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
 
-        <div ref="table-bordered"/>
-        <comp-code title="Bordered" :code="tbEx1">
-          <html-table bordered>
-            <thead>
-              <tr class="text-left">
-                <th>Name</th>
-                <th>Description</th>
-                <th>Name</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>no-user-select</td>
-                <td> The user can not select text of an element</td>
-                <td>no-user-select</td>
-                <td> The user can not select text of an element</td>
-              </tr>
-              <tr>
-                <td>cursor-pointer</td>
-                <td>The cursor is a pointer and indicates a link</td>
-                <td>cursor-pointer</td>
-                <td>The cursor is a pointer and indicates a link</td>
-              </tr>
-              <tr>
-                <td>text-white</td>
-                <td>text of an element becomes white</td>
-                <td>text-white</td>
-                <td>text of an element becomes white</td>
-              </tr>
-              <tr>
-                <td>text-bold</td>
-                <td>text of an element becomes bold</td>
-                <td>text-bold</td>
-                <td>text of an element becomes bold</td>
-              </tr>
-            </tbody>
-          </html-table>
-        </comp-code>
+            <div ref="table-bordered"/>
+            <comp-code title="Bordered" :code="tbEx1">
+              <html-table bordered>
+                <thead>
+                  <tr class="text-left">
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>no-user-select</td>
+                    <td> The user can not select text of an element</td>
+                    <td>no-user-select</td>
+                    <td> The user can not select text of an element</td>
+                  </tr>
+                  <tr>
+                    <td>cursor-pointer</td>
+                    <td>The cursor is a pointer and indicates a link</td>
+                    <td>cursor-pointer</td>
+                    <td>The cursor is a pointer and indicates a link</td>
+                  </tr>
+                  <tr>
+                    <td>text-white</td>
+                    <td>text of an element becomes white</td>
+                    <td>text-white</td>
+                    <td>text of an element becomes white</td>
+                  </tr>
+                  <tr>
+                    <td>text-bold</td>
+                    <td>text of an element becomes bold</td>
+                    <td>text-bold</td>
+                    <td>text of an element becomes bold</td>
+                  </tr>
+                </tbody>
+              </html-table>
+            </comp-code>
 
-        <div ref="table-bordered-cellseparator"/>
-        <comp-code class="h-mt-md" title="Bordered and Cell Separator" :code="tbEx2">
-          <html-table bordered cell-separator>
-            <thead>
-              <tr class="text-left">
-                <th>Name</th>
-                <th>Description</th>
-                <th>Name</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>no-user-select</td>
-                <td> The user can not select text of an element</td>
-                <td>no-user-select</td>
-                <td> The user can not select text of an element</td>
-              </tr>
-              <tr>
-                <td>cursor-pointer</td>
-                <td>The cursor is a pointer and indicates a link</td>
-                <td>cursor-pointer</td>
-                <td>The cursor is a pointer and indicates a link</td>
-              </tr>
-              <tr>
-                <td>text-white</td>
-                <td>text of an element becomes white</td>
-                <td>text-white</td>
-                <td>text of an element becomes white</td>
-              </tr>
-              <tr>
-                <td>text-bold</td>
-                <td>text of an element becomes bold</td>
-                <td>text-bold</td>
-                <td>text of an element becomes bold</td>
-              </tr>
-            </tbody>
-          </html-table>
-        </comp-code>
+            <div ref="table-bordered-cellseparator"/>
+            <comp-code class="h-mt-md" title="Bordered and Cell Separator" :code="tbEx2">
+              <html-table bordered cell-separator>
+                <thead>
+                  <tr class="text-left">
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>no-user-select</td>
+                    <td> The user can not select text of an element</td>
+                    <td>no-user-select</td>
+                    <td> The user can not select text of an element</td>
+                  </tr>
+                  <tr>
+                    <td>cursor-pointer</td>
+                    <td>The cursor is a pointer and indicates a link</td>
+                    <td>cursor-pointer</td>
+                    <td>The cursor is a pointer and indicates a link</td>
+                  </tr>
+                  <tr>
+                    <td>text-white</td>
+                    <td>text of an element becomes white</td>
+                    <td>text-white</td>
+                    <td>text of an element becomes white</td>
+                  </tr>
+                  <tr>
+                    <td>text-bold</td>
+                    <td>text of an element becomes bold</td>
+                    <td>text-bold</td>
+                    <td>text of an element becomes bold</td>
+                  </tr>
+                </tbody>
+              </html-table>
+            </comp-code>
 
-        <div ref="table-shadow"/>
-        <comp-code class="h-mt-md" title="Shadow" :code="tbEx3">
-          <html-table shadow >
-            <tr class="text-left">
-              <th>Name</th>
-              <th>Description</th>
-            </tr>
-            <tr>
-              <td>no-user-select</td>
-              <td> The user can not select text of an element</td>
-            </tr>
-            <tr>
-              <td>cursor-pointer</td>
-              <td>The cursor is a pointer and indicates a link</td>
-            </tr>
-            <tr>
-              <td>text-white</td>
-              <td>text of an element becomes white</td>
-            </tr>
-            <tr>
-              <td>text-bold</td>
-              <td>text of an element becomes bold</td>
-            </tr>
-            <tr>
-              <td>scroll</td>
-              <td>auto scrollbars to element</td>
-            </tr>
-            <tr>
-              <td>no-margin</td>
-              <td>removes margins</td>
-            </tr>
-            <tr>
-              <td>no-padding</td>
-              <td>removes padding</td>
-            </tr>
-            <tr>
-              <td>overflow-hidden</td>
-              <td>sets overflow-hidden to element</td>
-            </tr>
-          </html-table>
-        </comp-code>
+            <div ref="table-shadow"/>
+            <comp-code class="h-mt-md" title="Shadow" :code="tbEx3">
+              <html-table shadow >
+                <tr class="text-left">
+                  <th>Name</th>
+                  <th>Description</th>
+                </tr>
+                <tr>
+                  <td>no-user-select</td>
+                  <td> The user can not select text of an element</td>
+                </tr>
+                <tr>
+                  <td>cursor-pointer</td>
+                  <td>The cursor is a pointer and indicates a link</td>
+                </tr>
+                <tr>
+                  <td>text-white</td>
+                  <td>text of an element becomes white</td>
+                </tr>
+                <tr>
+                  <td>text-bold</td>
+                  <td>text of an element becomes bold</td>
+                </tr>
+                <tr>
+                  <td>scroll</td>
+                  <td>auto scrollbars to element</td>
+                </tr>
+                <tr>
+                  <td>no-margin</td>
+                  <td>removes margins</td>
+                </tr>
+                <tr>
+                  <td>no-padding</td>
+                  <td>removes padding</td>
+                </tr>
+                <tr>
+                  <td>overflow-hidden</td>
+                  <td>sets overflow-hidden to element</td>
+                </tr>
+              </html-table>
+            </comp-code>
+          </div>
+         </div>
       </div>
-      <div class="col-auto">
+    </div>
+
+    <template v-slot:right>
+      <h-nav-drawer ref="navHelp" v-model="showDrawer" side="right">
         <list-help>
           <h-list>
             <h-list-header text="Usage"/>
@@ -148,10 +164,10 @@
             </h-list-item>
           </h-list>
         </list-help>
-      </div>
-    </div>
-
+      </h-nav-drawer>
+    </template>
   </h-page-content>
+
 </template>
 
 <script>
@@ -161,6 +177,7 @@ import viewport from '../../../components/others/viewport'
 export default {
   data () {
     return {
+      showDrawer: true,
       tbEx1: `
 <html-table bordered>
   <thead>
@@ -279,9 +296,21 @@ export default {
 `
     }
   },
+  mounted () {
+    this.checkMainBodyWidth()
+  },
   methods: {
     goToElement (refName) {
       viewport.goToElement(this.$refs[refName])
+    },
+    checkMainBodyWidth () {
+      let value = viewport.mainBodyWidth()
+      if (value < 961) {
+        this.showDrawer = false
+      }
+    },
+    pageResize (value) {
+      this.$refs.navHelp.onResize(value)
     }
   }
 }
