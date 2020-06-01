@@ -1,3 +1,4 @@
+
 <template>
   <h-page-content padding
     @onResize="pageResize"
@@ -5,11 +6,9 @@
   >
     <div class="row ">
       <div class="col">
-        <div ref="btn-types" />
         <div class="row position-sticky bg-white">
           <div class="col text-h4">
-          Flexbox and GridSystem (row and column)
-          <div class="text-body1">The flex-direction property defines in which direction the container wants to stack the flex items.</div>
+            ... Page Title
           </div>
           <div class="col-auto">
             <h-image src="imgIcons/png/icon-help.png" @click="showDrawer = !showDrawer"/>
@@ -50,7 +49,7 @@
         </div>
       </div>
     </comp-code>
-    <div ref="btn-columns" />
+
     <comp-code class="h-mt-md" title="row-reverse" :code="flexrowreverse">
       <div class="row row-reverse flex-container" style="background-color: DodgerBlue;">
         <div class="col-auto">1</div>
@@ -66,7 +65,7 @@
         <div class="col">3</div>
       </div>
     </comp-code>
-  <div ref="btn-wrap" />
+
     <comp-code class="h-mt-md" title="column reverse" :code="flexcolumnreverse" >
       <div class="column-reverse flex-container-column" style="background-color: DodgerBlue;">
         <div class="col">1</div>
@@ -82,7 +81,6 @@
         .text-body1 By default row is <b>nowrap.</b>
 
     <comp-code class="h-mt-md" title="wrap" :code="flexwrap" >
-
       <div class="row wrap flex-container" style="background-color: DodgerBlue;">
         <div class="col-auto">1</div>
         <div class="col-auto">2</div>
@@ -109,7 +107,6 @@
         <div class="col-auto">2</div>
         <div class="col-auto">3</div>
       </div>
-
     </comp-code>
 
     <comp-code class="h-mt-md" title="justify-center(center)" :code="flexjustifycenter">
@@ -149,7 +146,6 @@
         .text-h4 Align-items
         .text-body1 The align-items property is used to align the flex items vertically.
         //- img.full-width(src="img/align-items.png")
-
     <comp-code class="h-mt-md" title="align-items-start" :code="flexitemsstart">
       <div class="row align-items-start flex-container2" style="background-color: DodgerBlue;">
         <div class="col-auto">1</div>
@@ -196,7 +192,6 @@
         .text-h4 Align-content
         .text-body1 The align-content property property is used to align the flex lines.
         //- img.full-width(src="img/align-content.png")
-
     <comp-code class="h-mt-md" title="align-content-start" :code="flexalignstart">
       <div class="row wrap align-content-start flex-container3" style="background-color: DodgerBlue;">
         <div class="col-auto">1</div>
@@ -283,51 +278,18 @@
 
     <template v-slot:right>
       <h-nav-drawer ref="navHelp" v-model="showDrawer" side="right">
-
+        // menu help
         <list-help>
-           <div ref="btn-wrap" />
-          <h-list>
-            <h-list-header text="Types" />
-            <h-list-item @click="goToElement('btn-types')">
-              <h-list-item-content>
-                <h-list-item-text title=" Grid and Rows " />
-              </h-list-item-content>
-            </h-list-item>
-
-            <h-list-header text="Columns" />
-            <h-list-item @click="goToElement('btn-columns')">
-              <h-list-item-content>
-                <h-list-item-text title="column" />
-              </h-list-item-content>
-            </h-list-item>
-            <h-list-item @click="goToElement('btn-columns')">
-              <h-list-item-content>
-                <h-list-item-text title="Column reverse" />
-              </h-list-item-content>
-            </h-list-item>
-
-            <h-list-item @click="goToElement('btn-columns')">
-              <h-list-item-content>
-                <h-list-item-text title="Column" />
-              </h-list-item-content>
-            </h-list-item>
-            <h-list-item @click="goToElement('btn-wrap')">
-              <h-list-item-content>
-                <h-list-item-text title=" wrap" />
-              </h-list-item-content>
-            </h-list-item>
-
-          </h-list>
+          ... itens menu help
         </list-help>
-
       </h-nav-drawer>
-
     </template>
   </h-page-content>
 
 </template>
 
 <script>
+
 
 import  viewport from '../../components/others/viewport'
 
@@ -807,6 +769,7 @@ export default {
       `
     }
   },
+
   mounted() {
     this.checkMainBodyWidth()
   },
@@ -815,6 +778,10 @@ export default {
     goToElement(refName) {
        viewport.goToElement(this.$refs[refName])
     },
+  mounted () {
+    this.checkMainBodyWidth()
+  },
+
     checkMainBodyWidth () {
       let value = viewport.mainBodyWidth()
       if (value < 961) {
@@ -823,12 +790,13 @@ export default {
     },
     pageResize (value) {
       this.$refs.navHelp.onResize(value)
+
     }
 
-  }
+
+    }
 }
 </script>
-
 
 <style>
 .flex-container {
