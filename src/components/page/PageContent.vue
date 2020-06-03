@@ -8,8 +8,11 @@
     <div class="col page-content full-height scroll"
       :class="[{'page-padding': padding}]"
     >
-      <div id="page-content-slot" class="full-height scroll">
+      <div id="page-content-slot" class="full-height scroll" :style="[pageObject]">
         <slot></slot>
+      </div>
+      <div class="col-auto">
+        <slot name="extra-body"></slot>
       </div>
     </div>
     <div class="col-auto full-height scroll">
@@ -33,15 +36,48 @@ export default {
     padding: {
       type: Boolean,
       default: false
+    },
+    backgroundImage: {
+      type: String,
+      default: ''
+    },
+    backgroundImageOpacity: {
+      type: Number,
+      default: 1
     }
   },
   data () {
     return {
+      pageObject: {
+        backgroundImage: 'url("")',
+        maxHeight: '100%',
+        backgroundPosition: 'center', // efeito parallax
+        backgroundAttachment: 'fixed', // efeito parallax
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover',
+        opacity: '0.8'
+      }
+    }
+  },
+  watch: {
+    backgroundImage: function (value) {
+      this.changeBackground(value)
+    },
+    backgroundImageOpacity: function (value) {
+      this.changeBackgroundOpacity(value)
     }
   },
   mounted () {
+    this.changeBackground(this.backgroundImage)
+    this.changeBackgroundOpacity(this.backgroundImageOpacity)
   },
   methods: {
+    changeBackground (backgroundImage) {
+      this.pageObject.backgroundImage = 'url("' + backgroundImage + '")'
+    },
+    changeBackgroundOpacity (backgroundImageOpacity) {
+      this.pageObject.opacity = '' + backgroundImageOpacity + ''
+    },
     onResize () {
       let size = viewport.mainBodyWidth()
       this.$emit('onResize', size)

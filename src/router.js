@@ -10,9 +10,16 @@ export default new Router({
   routes: [
     {
       path: '/',
-      component: () => import('./views/mainLayout'),
+      component: () => import('./views/layouts/mainLayout'),
       children: [
-        { path: '', component: () => import('./views/startPage') },
+        { path: '', component: () => import('./views/startPage') }
+      ]
+    },
+    {
+      path: '/docs',
+      component: () => import('./views/layouts/docLayout.vue'),
+      children: [
+        { path: '', component: () => import('./views/startPageDocs') },
         { path: '/installation', component: () => import('./views/guide/installation') },
         { path: '/layout', component: () => import('./views/guide/layout') },
         { path: '/page', component: () => import('./views/guide/page') },
