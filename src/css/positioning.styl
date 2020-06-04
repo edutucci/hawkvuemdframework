@@ -1,116 +1,112 @@
+
 /*
   POSITIONS
 */
-.position-static
-  position static
+$zero-position 0 // For spacing and zero margins
 
-.position-relative
-  position  relative
+$rel = relative
+$sta = static
+$abs = absolute
+$fix = fixed
+$stk = sticky
+$ps = static
 
-.position-absolute
-  position absolute
+.position-static, .h-pos-st
+  position $ps
 
-.position-fixed
-  position fixed
+.position-relative, .h-pos-rl
+  position  $rel
 
-.position-sticky
+.position-absolute, .h-pos-abs
+  position $abs
+
+.position-fixed, .h-pos-fix
+  position $fix
+
+.position-sticky, .h-pos-stk
   position -webkit-sticky
-  position sticky
-  top: 0px
-  z-index: 100
+  position $stk
+  top $zero-position
+  z-index 100
 
 /*
 LEFT AND RIGHT POSITIONS
 */
 
-.left-absolute {
-  position: absolute;
-  left: 0px;
-}
+.left-absolute, .h-pos-abs-lf
+  position $abs
+  left $zero-position
 
-.right-absolute {
-  position:  absolute;
-  right: 0px;
-}
+
+.right-absolute, .h-pos-abs-rt
+  position  $abs
+  right $zero-position
 
 /*
   TOP POSITIONS
 */
 
-.top-left {
-  top: 0px;
-  left: 0px;
-}
+.top-left, .h-pos-tl
+  top $zero-position
+  left $zero-position
 
-.top-left-relative {
-  position: relative;
-  top: 0px;
-  left: 0px;
-}
+.top-left-relative, .h-pos-rl-tl
+  position $rel;
+  top $zero-position
+  left $zero-position
 
-.top-left-absolute {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-}
+.top-left-absolute, .h-pos-abs-tl
+  position $abs;
+  top $zero-position
+  left $zero-position
 
-.top-left-fixed {
-  position: fixed;
-  top: 0px;
-  left: 0px;
-}
+.top-left-fixed, .h-pos-fix-tl
+  position $fix;
+  top $zero-position
+  left $zero-position
 
-.top-right {
-  top: 0px;
-  right: 0px;
-}
+.top-right, .h-pos-tr
+  top $zero-position
+  right $zero-position
 
-.top-right-absolute {
-  position:  absolute;
-  top: 0px;
-  right: 0px;
-}
+.top-right-absolute, .h-pos-abs-tr
+  position  $abs
+  top $zero-position
+  right $zero-position
 
-.top-right-fixed {
-  position: fixed;
-  top: 0px;
-  right: 0px;
-}
+.top-right-fixed, .h-fix-tr
+  position $fix;
+  top $zero-position
+  right $zero-position
 
 /*
   BOTTOM POSITIONS
 */
 
-.bottom-left {
-  bottom: 0px;
-  left: 0px;
-}
+.bottom-left, .h-pos-bl
+  bottom $zero-position
+  left $zero-position
 
-.bottom-left-absolute {
-  position: absolute;
-  bottom: 0px;
-  left: 0px;
-}
+.bottom-left-absolute, .h-pos-abs-bl
+  position $abs
+  bottom $zero-position
+  left $zero-position
 
-.bottom-left-fixed {
-  position: fixed;
-  bottom: 0px;
-  left: 0px;
-}
+.bottom-left-fixed, .h-pos-fix-bl
+  position  $fix
+  bottom $zero-position
+  left  $zero-position
 
-.bottom-right {
-  bottom: 0px;
-  right: 0px;
-}
+.bottom-right, .h-pos-br
+  bottom $zero-position
+  right $zero-position
 
-.bottom-right-absolute {
-  position:  absolute;
-  bottom: 0px;
-  right: 0px;
-}
+.bottom-right-absolute, .h-pos-abs-br
+  position  $abs
+  bottom $zero-position
+  right $zero-position
 
-.bottom-right-fixed {
-  position: fixed;
-  bottom: 0px;
-  right: 0px;
-}
+.bottom-right-fixed, .h-pos-fix-br
+  position $fix
+  bottom $zero-position
+  right $zero-position

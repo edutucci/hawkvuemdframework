@@ -20,26 +20,28 @@
             <h-image src="imgIcons/png/icon-help.png" @click="showDrawer = !showDrawer"/>
           </div>
         </div>
+
         <div class="row">
           <div class="col">
+
             <comp-code class="h-mt-lg" title="Border Sides" :code="bordersides">
-      <div class="row align-items-center">
-        <div class="bg-white border border-negative col-auto border-1" style="padding: 4px">
-          <span class="text-negative">Border All</span>
+              <div class="row align-items-center">
+                <div class="bg-white border border-negative col-auto border-1" style="padding: 4px">
+                  <span class="text-negative">Border All</span>
+                </div>
+                <div class="bg-white border-left border-black col-auto border-1 h-ml-sm" style="padding: 4px">
+                  <span class="text-black">Border Left</span>
+                </div>
+                <div class="bg-white border-right border-primary col-auto border-1 h-ml-sm" style="padding: 4px">
+                  <span class="text-primary">Border Right</span>
+                </div>
+                <div class="bg-white border-top border-secondary col-auto border-1 h-ml-sm" style="padding: 4px">
+                  <span class="text-secondary">Border Top</span>
+                </div>
+                <div class="bg-white border-bottom border-positive col-auto border-1 h-ml-sm" style="padding: 4px">
+                  <span class="text-positive">Border Bottom</span>
+                </div>
         </div>
-        <div class="bg-white border-left border-black col-auto border-1 h-ml-sm" style="padding: 4px">
-          <span class="text-black">Border Left</span>
-        </div>
-        <div class="bg-white border-right border-primary col-auto border-1 h-ml-sm" style="padding: 4px">
-          <span class="text-primary">Border Right</span>
-        </div>
-        <div class="bg-white border-top border-secondary col-auto border-1 h-ml-sm" style="padding: 4px">
-          <span class="text-secondary">Border Top</span>
-        </div>
-        <div class="bg-white border-bottom border-positive col-auto border-1 h-ml-sm" style="padding: 4px">
-          <span class="text-positive">Border Bottom</span>
-        </div>
-      </div>
     </comp-code>
 
     <comp-code class="h-mt-lg" title="Border With 1" :code="border1">
@@ -147,35 +149,216 @@
          </div>
       </div>
     </div>
-    <div ref="btn-classes" />
 
 
     <template v-slot:right>
       <h-nav-drawer ref="navHelp" v-model="showDrawer" side="right">
+        
         <div ref="btn-sides" />
        <list-help>
           <h-list>
-            <h-list-header text="Types" />
+            <h-list-header text="Classes" />
 
             <h-list-item @click="goToElement('btn-classes')">
               <h-list-item-content>
-                <h-list-item-text title="Classes" />
+                <h-list-item-text title="Border-all" />
               </h-list-item-content>
             </h-list-item>
 
-            <h-list-item @click="goToElement('btn-sides')">
+            <h-list-item @click="goToElement('btn-classes')">
               <h-list-item-content>
-                <h-list-item-text title="Border Sides"/>
+                <h-list-item-text title="Border-left"/>
+              </h-list-item-content>
+            </h-list-item>
+
+            <h-list-item @click="goToElement('btn-classes')">
+              <h-list-item-content>
+                <h-list-item-text title=" Border-right"/>
+              </h-list-item-content>
+            </h-list-item>
+
+            <h-list-item @click="goToElement('btn-classes')">
+              <h-list-item-content>
+                <h-list-item-text title=" Border-top"/>
+              </h-list-item-content>
+            </h-list-item>
+
+            <h-list-item @click="goToElement('btn-classes')">
+              <h-list-item-content>
+                <h-list-item-text title=" Border-bottom"/>
+              </h-list-item-content>
+            </h-list-item>
+
+
+            <h-list-item @click="goToElement('btn-classes')">
+              <h-list-item-content>
+                <h-list-item-text title=" No-border"/>
+              </h-list-item-content>
+            </h-list-item>
+              <div ref="btn-sides" />
+             <h-list-header text="Border Sides" />
+
+              <h-list-item @click="goToElement('btn-sides')">
+              <h-list-item-content>
+                <h-list-item-text title=" Border-All"/>
+              </h-list-item-content>
+            </h-list-item>
+
+             <h-list-item @click="goToElement('btn-sides')">
+              <h-list-item-content>
+                <h-list-item-text title=" Border-Left"/>
+              </h-list-item-content>
+            </h-list-item>
+
+            <h-list-item @click="goToElement('btn-classes')">
+              <h-list-item-content>
+                <h-list-item-text title=" Border-Right"/>
+              </h-list-item-content>
+            </h-list-item>
+
+            <h-list-item @click="goToElement('btn-classes')">
+              <h-list-item-content>
+                <h-list-item-text title=" Border-Top"/>
+              </h-list-item-content>
+            </h-list-item>
+
+            <h-list-item @click="goToElement('btn-classes')">
+              <h-list-item-content>
+                <h-list-item-text title=" Border-Bottom"/>
+              </h-list-item-content>
+            </h-list-item>
+
+            <h-list-header text="Border With" />
+
+             <h-list-item @click="goToElement('btn-classes')">
+              <h-list-item-content>
+                <h-list-item-text title=" Border With 1"/>
+              </h-list-item-content>
+            </h-list-item>
+
+            <h-list-item @click="goToElement('btn-classes')">
+              <h-list-item-content>
+                <h-list-item-text title=" Border With 2"/>
+              </h-list-item-content>
+            </h-list-item>
+
+            <h-list-header text="Border Radius" />
+
+              <h-list-item @click="goToElement('btn-classes')">
+              <h-list-item-content>
+                <h-list-item-text title=" Border Negative"/>
+              </h-list-item-content>
+            </h-list-item>
+
+             <h-list-item @click="goToElement('btn-classes')">
+              <h-list-item-content>
+                <h-list-item-text title=" Border Info"/>
+              </h-list-item-content>
+            </h-list-item>
+
+            <h-list-item @click="goToElement('btn-classes')">
+              <h-list-item-content>
+                <h-list-item-text title=" Border Primary"/>
               </h-list-item-content>
             </h-list-item>
 
             <h-list-item @click="goToElement('btn-types')">
               <h-list-item-content>
-                <h-list-item-text title="Border types"/>
+                <h-list-item-text title=" Border Primary"/>
               </h-list-item-content>
             </h-list-item>
 
-          </h-list>
+            <h-list-item @click="goToElement('btn-types')">
+              <h-list-item-content>
+                <h-list-item-text title=" Border Warning"/>
+              </h-list-item-content>
+            </h-list-item>
+
+            <div ref="btn-sides" />
+            <h-list-header text="Border Rounded" />
+
+              <h-list-item @click="goToElement('btn-types')">
+              <h-list-item-content>
+                <h-list-item-text title=" Border Negative"/>
+              </h-list-item-content>
+            </h-list-item>
+
+             <h-list-item @click="goToElement('btn-types')">
+              <h-list-item-content>
+                <h-list-item-text title=" Border Info"/>
+              </h-list-item-content>
+            </h-list-item>
+
+            <h-list-item @click="goToElement('btn-types')">
+              <h-list-item-content>
+                <h-list-item-text title=" Border Primary"/>
+              </h-list-item-content>
+            </h-list-item>
+
+            <h-list-item @click="goToElement('btn-types')">
+              <h-list-item-content>
+                <h-list-item-text title=" Border Primary"/>
+              </h-list-item-content>
+            </h-list-item>
+
+            <h-list-item @click="goToElement('btn-types')">
+              <h-list-item-content>
+                <h-list-item-text title=" Border Warning"/>
+              </h-list-item-content>
+            </h-list-item>
+
+
+            <h-list-header text="Types" />
+
+              <h-list-item @click="goToElement('btn-types')">
+              <h-list-item-content>
+                <h-list-item-text title=" border-dotted"/>
+              </h-list-item-content>
+            </h-list-item>
+
+             <h-list-item @click="goToElement('btn-types')">
+              <h-list-item-content>
+                <h-list-item-text title=" border-dashed"/>
+              </h-list-item-content>
+            </h-list-item>
+
+            <h-list-item @click="goToElement('btn-types')">
+              <h-list-item-content>
+                <h-list-item-text title=" border-solid"/>
+              </h-list-item-content>
+            </h-list-item>
+
+            <h-list-item @click="goToElement('btn-types')">
+              <h-list-item-content>
+                <h-list-item-text title=" border-double"/>
+              </h-list-item-content>
+            </h-list-item>
+
+            <h-list-item @click="goToElement('btn-types')">
+              <h-list-item-content>
+                <h-list-item-text title=" border-groove"/>
+              </h-list-item-content>
+            </h-list-item>
+
+            <h-list-item @click="goToElement('btn-types')">
+              <h-list-item-content>
+                <h-list-item-text title=" border-ridge"/>
+              </h-list-item-content>
+            </h-list-item>
+
+            <h-list-item @click="goToElement('btn-types')">
+              <h-list-item-content>
+                <h-list-item-text title=" border-inset"/>
+              </h-list-item-content>
+            </h-list-item>
+
+            <h-list-item @click="goToElement('btn-types')">
+              <h-list-item-content>
+                <h-list-item-text title=" border-outset"/>
+              </h-list-item-content>
+            </h-list-item>
+            </h-list>
+
         </list-help>
       </h-nav-drawer>
     </template>
