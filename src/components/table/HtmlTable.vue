@@ -1,4 +1,5 @@
 <template lang="pug">
+  .scroll
     table.bg-white(
       cellspacing="0"
       class="border-radius"

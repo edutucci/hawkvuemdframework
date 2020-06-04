@@ -9,8 +9,8 @@
         ref="navLeft"
       )
         slot(name="left")
-    .col
-      .column.full-height
+    .col.scroll
+      .column.full-height.scroll
         .col-auto
           slot(name="header")
         .col.scroll

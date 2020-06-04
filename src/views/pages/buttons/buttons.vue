@@ -1,15 +1,15 @@
 <template>
   <h-page-content padding @onResize="pageResize" @mainLayoutDrawerIsOpened="showDrawer = false">
-    <div class="row">
-      <div class="col">
+    <div class="row scroll">
+      <div class="col scroll">
         <div class="row position-sticky bg-white">
           <div class="col text-h4">Buttons</div>
           <div class="col-auto">
             <h-image src="imgIcons/png/icon-help.png" @click="showDrawer = !showDrawer" />
           </div>
         </div>
-        <div class="row">
-          <div class="col">
+        <div class="row scroll">
+          <div class="col scroll">
             <div ref="btn-contained" />
             <comp-code class="h-mt-md" title="Contained Buttons" :code="containedButtons">
               <div>
@@ -537,7 +537,7 @@
 <script>
 import mxButtons from "./mxButtons";
 import viewport from "../../../components/others/viewport";
-// import helpTopics from "./help";
+import helpTopics from "./help";
 
 export default {
   mixins: [mxButtons],
@@ -553,10 +553,15 @@ export default {
       helpTopics: {
         properties: [],
         events: []
-      }
+      },
+      code: `
+<h-link icon="fab fa-github" text="github" url="https://github.com/edutucci/hawkframework" text-color="text-white"/> 
+`
     };
   },
   mounted () {
+    this.helpTopics.properties = helpTopics.properties;
+    this.helpTopics.events = helpTopics.events;
     this.checkMainBodyWidth()
   },
   methods: {
@@ -572,10 +577,6 @@ export default {
     pageResize(value) {
       this.$refs.navHelp.onResize(value);
     }
-  },
-  // mounted() {
-  //   this.helpTopics.properties = helpTopics.properties;
-  //   this.helpTopics.events = helpTopics.events;
-  // }
+  }
 };
 </script>
