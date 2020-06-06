@@ -57,7 +57,9 @@ export default {
 
 <style scoped>
 table {
-  overflow:hidden;
+  table-layout: auto;
+  margin: 20px auto;
+  width: 100%;
 }
 
 table.borders {
@@ -80,12 +82,12 @@ tr > td,
 tr > th {
   font-size: 14px;
   letter-spacing: 0.25px;
-  width: 1px;
-  white-space: nowrap;
+  width: auto !important;
 }
 
 tr > th {
   color: gray;
+  width: 30px;
 }
 
 table.borders.cell-separator > tbody > tr > td:not(:first-child),

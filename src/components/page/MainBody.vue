@@ -1,21 +1,21 @@
 <template lang="pug">
-  .row.full-height.scroll(id="mainbody" style="right: 0px; max-height: 100%;"
+  .row.full-height(id="mainbody" style="right: 0px; max-height: 100%;"
     v-resize.initial="onResize"
   )
-    .col-auto.full-height.scroll
+    .col-auto.full-height
       h-nav-drawer(
         id="mainbody-left-drawer"
         v-model="localShowDrawerLeft"
         ref="navLeft"
       )
         slot(name="left")
-    .col.scroll
-      .column.full-height.scroll
-        .col-auto
+    .col
+      .column.full-height
+        .col-auto.scroll
           slot(name="header")
         .col.scroll
           slot
-        .col-auto
+        .col-auto.scroll
           slot(name="footer")
     .col-auto.full-height.scroll
       h-nav-drawer(

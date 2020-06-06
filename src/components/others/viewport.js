@@ -25,6 +25,16 @@ function goToElement (element) {
   }
 }
 
+function subtractPageScroll (element) {
+  if (element) {
+    let height = element.clientHeight
+    let pageContent = document.getElementById('page-content-slot')
+    if (pageContent) {
+      pageContent.scrollTop -= height
+    }
+  }
+}
+
 function mainBodyWidth () {
   let value = 0
   let elemmainbody = document.getElementById('mainbody')
@@ -96,6 +106,7 @@ function mainBodyWidth () {
 let viewport = {
   elementBelowOfPage: elementBelowOfPage,
   goToElement: goToElement,
+  subtractPageScroll: subtractPageScroll,
   mainBodyWidth: mainBodyWidth
 }
 

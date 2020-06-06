@@ -27,14 +27,12 @@
                     new-window
                   )        
       .col
-        .row.full-height.justify-center.align-items-center
-          .col-auto.text-white.text-center
-            .text-h6 HAWKVUEMD FRAMEWORK
-            .text-h1 MADE FOR YOU
+        .column.full-height.justify-center.align-items-center.text-white
+          .text-h6.text-center HAWKVUEMD FRAMEWORK
+          .text-h1.text-center MADE FOR YOU
 
-            .row.h-mt-md.justify-center
-              .col-auto
-                h-btn(rounded bg-color="bg-pink400" text-color="text-white" text="Enter" @click="$router.push('/docs')")
+          .col-auto
+            h-btn(rounded bg-color="bg-pink400" text-color="text-white" text="Enter" @click="$router.push('/docs')")
 
     template(v-slot:extra-body)
 

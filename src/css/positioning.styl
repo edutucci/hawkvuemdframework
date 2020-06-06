@@ -2,111 +2,109 @@
 /*
   POSITIONS
 */
-$zero-position 0 // For spacing and zero margins
 
-$rel = relative
-$sta = static
-$abs = absolute
-$fix = fixed
-$stk = sticky
-$ps = static
+:root {
+  --zero-position: 0;
+  --rel: relative;
+  --sta: static;
+  --abs: absolute;
+  --fix: fixed;
+  --stk: sticky;
+}
 
 .position-static, .h-pos-st
-  position $ps
+  position var(--sta)
 
-.position-relative, .h-pos-rl
-  position  $rel
+.position-relative, .h-pos-rel
+  position  var(--rel)
 
 .position-absolute, .h-pos-abs
-  position $abs
+  position var(--abs)
 
 .position-fixed, .h-pos-fix
-  position $fix
+  position var(--fix)
 
 .position-sticky, .h-pos-stk
   position -webkit-sticky
-  position $stk
-  top $zero-position
-  z-index 100
+  position var(--stk)
+  top var(--zero-position)
 
 /*
 LEFT AND RIGHT POSITIONS
 */
 
-.left-absolute, .h-pos-abs-lf
-  position $abs
-  left $zero-position
+.left-absolute, .h-pos-abs-l
+  position var(--abs)
+  left var(--zero-position)
 
 
-.right-absolute, .h-pos-abs-rt
-  position  $abs
-  right $zero-position
+.right-absolute, .h-pos-abs-r
+  position  var(--abs)
+  right var(--zero-position)
 
 /*
   TOP POSITIONS
 */
 
-.top-left, .h-pos-tl
-  top $zero-position
-  left $zero-position
-
-.top-left-relative, .h-pos-rl-tl
-  position $rel;
-  top $zero-position
-  left $zero-position
+.top-left-relative, .h-pos-rel-tl
+  position var(--rel);
+  top var(--zero-position)
+  left var(--zero-position)
 
 .top-left-absolute, .h-pos-abs-tl
-  position $abs;
-  top $zero-position
-  left $zero-position
+  position var(--abs);
+  top var(--zero-position)
+  left var(--zero-position)
 
 .top-left-fixed, .h-pos-fix-tl
-  position $fix;
-  top $zero-position
-  left $zero-position
+  position var(--fix);
+  top var(--zero-position)
+  left var(--zero-position)
 
-.top-right, .h-pos-tr
-  top $zero-position
-  right $zero-position
+.top-right-relative, .h-pos-rel-tr
+  top var(--zero-position)
+  right var(--zero-position)
 
 .top-right-absolute, .h-pos-abs-tr
-  position  $abs
-  top $zero-position
-  right $zero-position
+  position  var(--abs)
+  top var(--zero-position)
+  right var(--zero-position)
 
-.top-right-fixed, .h-fix-tr
-  position $fix;
-  top $zero-position
-  right $zero-position
+.top-right-fixed, .h-pos-fix-tr
+  position var(--fix);
+  top var(--zero-position)
+  right var(--zero-position)
 
 /*
   BOTTOM POSITIONS
 */
 
-.bottom-left, .h-pos-bl
-  bottom $zero-position
-  left $zero-position
+.bottom-left-relative, .h-pos-rel-bl
+  position var(--rel)
+  bottom var(--zero-position)
+  left var(--zero-position)
 
 .bottom-left-absolute, .h-pos-abs-bl
-  position $abs
-  bottom $zero-position
-  left $zero-position
+  position var(--abs)
+  bottom var(--zero-position)
+  left var(--zero-position)
 
 .bottom-left-fixed, .h-pos-fix-bl
-  position  $fix
-  bottom $zero-position
-  left  $zero-position
+  position  var(--fix)
+  bottom var(--zero-position)
+  left  var(--zero-position)
 
-.bottom-right, .h-pos-br
-  bottom $zero-position
-  right $zero-position
+.bottom-right-relative, .h-pos-rel-br
+  position var(--rel)
+  bottom var(--zero-position)
+  right var(--zero-position)
 
 .bottom-right-absolute, .h-pos-abs-br
-  position  $abs
-  bottom $zero-position
-  right $zero-position
+  position var(--abs)
+  bottom var(--zero-position)
+  right var(--zero-position)
 
 .bottom-right-fixed, .h-pos-fix-br
-  position $fix
-  bottom $zero-position
-  right $zero-position
+  position var(--fix)
+  bottom var(--zero-position)
+  right var(--zero-position)

@@ -1,11 +1,11 @@
 <template>
-  <div class="row scroll full-height position-relative"
+  <div class="row full-height position-relative"
     v-resize.initial="onResize"
   >
     <div class="col-auto full-height scroll">
       <slot name="left"></slot>
     </div>
-    <div class="col scroll page-content full-height scroll"
+    <div class="col page-content full-height scroll"
       :class="[{'page-padding': padding}]"
     >
       <div id="page-content-slot" class="full-height scroll" :style="[pageObject]">
