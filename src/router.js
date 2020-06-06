@@ -40,7 +40,6 @@ export default new Router({
         { path: '/card', component: () => import('./views/pages/card/card') },
         { path: '/chip', component: () => import('./views/pages/chips/chips') },
         { path: '/menu', component: () => import('./views/pages/menu/menu') },
-        { path: '/mask', component: () => import('./views/mask') },
         { path: '/list', component: () => import('./views/pages/list/list') },
         { path: '/collapsible', component: () => import('./views/pages/collapsible/collapsible') },
         { path: '/checkbox', component: () => import('./views/pages/checkbox/checkbox') },
