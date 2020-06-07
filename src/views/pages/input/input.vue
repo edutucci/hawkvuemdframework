@@ -1,380 +1,360 @@
 <template>
-  <h-page-content padding
-    @onResize="pageResize"
-    @mainLayoutDrawerIsOpened="showDrawer = false"
-  >
-    <div class="row ">
-      <div class="col">
-        <div class="row position-sticky bg-white">
-          <div class="col text-h4">
-            Input Textfield
-          </div>
-          <div class="col-auto">
-            <h-image src="imgIcons/png/icon-help.png" @click="showDrawer = !showDrawer"/>
+  <page-layout ref="pl" title="Input Textfield">
+    <template v-slot:components>
+      <div ref="txt-outlined"/>
+      <comp-code class="h-mt-lg" title="Outlined" :code="txtoutlined">
+        <div class="column col-inputs">
+          <h-input v-model="typesModel" label="Outlined" placeholder="Outlined"/>
+          <h-input v-model="typesModel" label="Outlined dense" placeholder="Outlined dense" dense/>
+        </div>
+        <div>
+          Model: {{typesModel}}
+        </div>
+      </comp-code>
+
+      <div ref="txt-filled"/>
+      <comp-code class="h-mt-lg" title="Filled" :code="txtfilled">
+        <div class="column col-inputs">
+          <h-input v-model="typesModel" label="Filled" placeholder="Filled" filled/>
+          <h-input v-model="typesModel" label="Filled dense" placeholder="Filled dense" filled dense clearable/>
+        </div>
+        <div>
+          Model: {{typesModel}}
+        </div>
+      </comp-code>
+
+      <div ref="txt-password"/>
+      <comp-code class="h-mt-lg" title="Password" :code="txtpassword">
+        <div class="column col-inputs">
+          <h-input v-model="passwordModel" label="Password" dense type="password"/>
+        </div>
+        <div>
+          Model: {{passwordModel}}
+        </div>
+      </comp-code>
+
+      <div ref="txt-icons"/>
+      <comp-code class="h-mt-lg" title="Icons" :code="txticons">
+        <div class="column col-inputs">
+          <h-input dense v-model="iconsModel" label="Phone" leading-icon="fas fa-phone" clearable/>
+          <h-input dense v-model="iconsModel" label="E-Mail" filled leading-icon="fas fa-envelope" clearable/>
+        </div>
+        <div>
+          Model: {{iconsModel}}
+        </div>
+      </comp-code>
+
+      <div ref="txt-messages"/>
+      <comp-code class="h-mt-lg" title="Messages" :code="txtmessages">
+        <div class="column col-inputs">
+          <h-input dense v-model="messageModel" label="Phone" clearable
+            helper-text="Type a phone"
+          />
+          <h-input dense v-model="messageModel" label="Phone" clearable
+            error-message="Invalid information"
+          />
+          <h-input dense v-model="messageModel" label="TextCounter" clearable
+            helper-text="Counter:" input-counter :text-counter="60" :maxlength="60"
+          />
+        </div>
+        <div>
+          Model: {{messageModel}}
+        </div>
+      </comp-code>
+
+      <div ref="txt-prefix-suffix"/>
+      <comp-code class="h-mt-lg" title="Prefix and suffix" :code="txtprefixsuffix">
+        <div class="column col-inputs">
+          <h-input dense v-model="prefixModel" label="Price" clearable
+            helper-text="Type a value" prefix="$"
+          />
+          <h-input dense v-model="suffixModel" label="E-Mail" leading-icon="fas fa-envelope" clearable
+            helper-text="Type a valid mail" suffix="@gmail.com"
+          />
+        </div>
+        <div>
+          Prefix Model: {{prefixModel}}
+        </div>
+        <div>
+          Sufix Model: {{suffixModel}}
+        </div>
+      </comp-code>
+
+      <div ref="txt-focus-enter"/>
+      <comp-code class="h-mt-lg" title="Input Focus (Using Enter)" :code="txtfocus">
+        <div class="column col-inputs">
+          <h-input dense v-model="focusModel" label="Name" ref="name"
+            @onEnter="$refs.email.focus()"
+          />
+          <h-input dense v-model="focusModel" label="E-Mail" ref="email"
+            @onEnter="$refs.name.focus()"
+          />
+        </div>
+      </comp-code>
+
+      <div class="text-h6 h-mt-md">Select</div>
+      <h-separator></h-separator>
+
+      <div ref="select-icons"/>
+      <comp-code class="h-mt-lg" title="Icons" :code="selectIcon" :script="selectIconScript" javascript>
+        <div class="row">
+          <div class="col-6">
+            <h-input dense :options="options"
+              v-model="selectModel"
+              type="select"
+              input-icon="fas fa-angle-down"
+              label="Select with icons"
+              display-mode="icon"/>
           </div>
         </div>
+
+        <div class="h-mt-md">
+          selectModel: {{ selectModel }}
+        </div>
+      </comp-code>
+
+      <div ref="select-avatar"/>
+      <comp-code class="h-mt-lg" title="Avatar" :code="selectAvatar" :script="selectAvatarScript"
+        javascript>
+        <div class="col-6">
+          <h-input dense type='select' :options="options" v-model="selectModel1" input-icon="fas fa-angle-down" display-mode="avatar"/>
+        </div>
+        <div>
+          selectModel1: {{ selectModel1 }}
+        </div>
+      </comp-code>
+
+      <div ref="customs-itens"/>
+      <comp-code class="h-mt-lg" title="Custom Items" :code="selectCustomItem" :script="selectCustomItemScript"
+        javascript>
         <div class="row">
-          <div class="col">
-
-            <div ref="txt-outlined"/>
-            <comp-code class="h-mt-lg" title="Outlined" :code="txtoutlined">
-              <div class="column col-inputs">
-                <h-input v-model="typesModel" label="Outlined" placeholder="Outlined"/>
-                <h-input v-model="typesModel" label="Outlined dense" placeholder="Outlined dense" dense/>
-              </div>
-              <div>
-                Model: {{typesModel}}
-              </div>
-            </comp-code>
-
-            <div ref="txt-filled"/>
-            <comp-code class="h-mt-lg" title="Filled" :code="txtfilled">
-              <div class="column col-inputs">
-                <h-input v-model="typesModel" label="Filled" placeholder="Filled" filled/>
-                <h-input v-model="typesModel" label="Filled dense" placeholder="Filled dense" filled dense clearable/>
-              </div>
-              <div>
-                Model: {{typesModel}}
-              </div>
-            </comp-code>
-
-            <div ref="txt-password"/>
-            <comp-code class="h-mt-lg" title="Password" :code="txtpassword">
-              <div class="column col-inputs">
-                <h-input v-model="passwordModel" label="Password" dense type="password"/>
-              </div>
-              <div>
-                Model: {{passwordModel}}
-              </div>
-            </comp-code>
-
-            <div ref="txt-icons"/>
-            <comp-code class="h-mt-lg" title="Icons" :code="txticons">
-              <div class="column col-inputs">
-                <h-input dense v-model="iconsModel" label="Phone" leading-icon="fas fa-phone" clearable/>
-                <h-input dense v-model="iconsModel" label="E-Mail" filled leading-icon="fas fa-envelope" clearable/>
-              </div>
-              <div>
-                Model: {{iconsModel}}
-              </div>
-            </comp-code>
-
-            <div ref="txt-messages"/>
-            <comp-code class="h-mt-lg" title="Messages" :code="txtmessages">
-              <div class="column col-inputs">
-                <h-input dense v-model="messageModel" label="Phone" clearable
-                  helper-text="Type a phone"
-                />
-                <h-input dense v-model="messageModel" label="Phone" clearable
-                  error-message="Invalid information"
-                />
-                <h-input dense v-model="messageModel" label="TextCounter" clearable
-                  helper-text="Counter:" input-counter :text-counter="60" :maxlength="60"
-                />
-              </div>
-              <div>
-                Model: {{messageModel}}
-              </div>
-            </comp-code>
-
-            <div ref="txt-prefix-suffix"/>
-            <comp-code class="h-mt-lg" title="Prefix and suffix" :code="txtprefixsuffix">
-              <div class="column col-inputs">
-                <h-input dense v-model="prefixModel" label="Price" clearable
-                  helper-text="Type a value" prefix="$"
-                />
-                <h-input dense v-model="suffixModel" label="E-Mail" leading-icon="fas fa-envelope" clearable
-                  helper-text="Type a valid mail" suffix="@gmail.com"
-                />
-              </div>
-              <div>
-                Prefix Model: {{prefixModel}}
-              </div>
-              <div>
-                Sufix Model: {{suffixModel}}
-              </div>
-            </comp-code>
-
-            <div ref="txt-focus-enter"/>
-            <comp-code class="h-mt-lg" title="Input Focus (Using Enter)" :code="txtfocus">
-              <div class="column col-inputs">
-                <h-input dense v-model="focusModel" label="Name" ref="name"
-                  @onEnter="$refs.email.focus()"
-                />
-                <h-input dense v-model="focusModel" label="E-Mail" ref="email"
-                  @onEnter="$refs.name.focus()"
-                />
-              </div>
-            </comp-code>
-
-            <div class="text-h6 h-mt-md">Select</div>
-            <h-separator></h-separator>
-
-            <div ref="select-icons"/>
-            <comp-code class="h-mt-lg" title="Icons" :code="selectIcon" :script="selectIconScript" javascript>
-              <div class="row">
-                <div class="col-6">
-                  <h-input dense :options="options"
-                    v-model="selectModel"
-                    type="select"
-                    input-icon="fas fa-angle-down"
-                    label="Select with icons"
-                    display-mode="icon"/>
-                </div>
-              </div>
-
-              <div class="h-mt-md">
-                selectModel: {{ selectModel }}
-              </div>
-            </comp-code>
-
-            <div ref="select-avatar"/>
-            <comp-code class="h-mt-lg" title="Avatar" :code="selectAvatar" :script="selectAvatarScript"
-              javascript>
-              <div class="col-6">
-                <h-input dense type='select' :options="options" v-model="selectModel1" input-icon="fas fa-angle-down" display-mode="avatar"/>
-              </div>
-              <div>
-                selectModel1: {{ selectModel1 }}
-              </div>
-            </comp-code>
-
-            <div ref="customs-itens"/>
-            <comp-code class="h-mt-lg" title="Custom Items" :code="selectCustomItem" :script="selectCustomItemScript"
-              javascript>
-              <div class="row">
-                <div class="col-6">
-                  <h-input dense :options="options"
-                    v-model="selectModel"
-                    type="select"
-                    input-icon="fas fa-angle-down"
-                    label="Select with custom items"
-                    display-mode="icon"
-                  >
-                    <template slot="itemoption" slot-scope="itemoption">
-                      <h-list-item-side class="align-items-center">
-                        <h-icon :icon="itemoption.value.icon"/>
-                      </h-list-item-side>
-                      <h-list-item-content>
-                        <h-list-item-text :title="itemoption.value.text" :caption="itemoption.value.desc" />
-                      </h-list-item-content>
-                      <h-list-item-side v-if="itemoption.value.text === 'music'">
-                        <h-btn bg-color="bg-primary">
-                          <h-link :icon="itemoption.value.icon" text="homepage" text-color="text-white"
-                            url="https://www.jango.com/" new-window/>
-                        </h-btn>
-                      </h-list-item-side>
-                      <h-list-item-side v-if="itemoption.value.text === 'discord'">
-                        <h-btn bg-color="bg-primary">
-                          <h-link :icon="itemoption.value.icon" text="homepage" text-color="text-white"
-                            url="https://discord.com/" new-window/>
-                        </h-btn>
-                      </h-list-item-side>
-                    </template>
-                  </h-input>
-                </div>
-              </div>
-
-              <div class="h-mt-md">
-                selectModel: {{ selectModel }}
-              </div>
-            </comp-code>
-
-            <div ref="select-multi"/>
-            <comp-code class="h-mt-lg" title="Multi Select" :code="selectMulti" :script="selectMultiScript"
-              javascript>
-              <div class="col-6">
-                <h-input dense
-                type="multi-select" :options="options"
-                v-model="multiselect"
-                @changeMultiselect="changeMultiselect"
-                />
-              </div>
-              <div>
-                multiselect: {{ multiselect }}
-              </div>
-            </comp-code>
-
-            <!-- <div ref="select-multi-chips"/>
-            <comp-code class="h-mt-lg" title="Multi Select Chips" :code="selectMultiChips" :script="selectMultiChipsScript"
-              javascript
+          <div class="col-6">
+            <h-input dense :options="options"
+              v-model="selectModel"
+              type="select"
+              input-icon="fas fa-angle-down"
+              label="Select with custom items"
+              display-mode="icon"
             >
-              <div class="col-6">
-                <h-input dense type="multi-select" select-chips :options="options"
-                v-model="multiselectChip"
-                label="select chips"
-                />
-              </div>
-              <div>
-                chips: {{ multiselectChip }}
-              </div>
-            </comp-code> -->
+              <template slot="itemoption" slot-scope="itemoption">
+                <h-list-item-side class="align-items-center">
+                  <h-icon :icon="itemoption.value.icon"/>
+                </h-list-item-side>
+                <h-list-item-content>
+                  <h-list-item-text :title="itemoption.value.text" :caption="itemoption.value.desc" />
+                </h-list-item-content>
+                <h-list-item-side v-if="itemoption.value.text === 'music'">
+                  <h-btn bg-color="bg-primary">
+                    <h-link :icon="itemoption.value.icon" text="homepage" text-color="text-white"
+                      url="https://www.jango.com/" new-window/>
+                  </h-btn>
+                </h-list-item-side>
+                <h-list-item-side v-if="itemoption.value.text === 'discord'">
+                  <h-btn bg-color="bg-primary">
+                    <h-link :icon="itemoption.value.icon" text="homepage" text-color="text-white"
+                      url="https://discord.com/" new-window/>
+                  </h-btn>
+                </h-list-item-side>
+              </template>
+            </h-input>
+          </div>
+        </div>
 
-            <div class="text-h6 h-mt-md">Search</div>
-            <h-separator></h-separator>
+        <div class="h-mt-md">
+          selectModel: {{ selectModel }}
+        </div>
+      </comp-code>
 
-            <div ref="search-default"/>
-            <comp-code class="h-mt-lg" title="Standard" :code="exsearch" :script="exsearchScript"
-              javascript>
+      <div ref="select-multi"/>
+      <comp-code class="h-mt-lg" title="Multi Select" :code="selectMulti" :script="selectMultiScript"
+        javascript>
+        <div class="col-6">
+          <h-input dense
+          type="multi-select" :options="options"
+          v-model="multiselect"
+          @changeMultiselect="changeMultiselect"
+          />
+        </div>
+        <div>
+          multiselect: {{ multiselect }}
+        </div>
+      </comp-code>
+
+      <!-- <div ref="select-multi-chips"/>
+      <comp-code class="h-mt-lg" title="Multi Select Chips" :code="selectMultiChips" :script="selectMultiChipsScript"
+        javascript
+      >
+        <div class="col-6">
+          <h-input dense type="multi-select" select-chips :options="options"
+          v-model="multiselectChip"
+          label="select chips"
+          />
+        </div>
+        <div>
+          chips: {{ multiselectChip }}
+        </div>
+      </comp-code> -->
+
+      <div class="text-h6 h-mt-md">Search</div>
+      <h-separator></h-separator>
+
+      <div ref="search-default"/>
+      <comp-code class="h-mt-lg" title="Standard" :code="exsearch" :script="exsearchScript"
+        javascript>
+        <h-input
+          v-model="search1"
+          type="search"
+          label="Search"
+          trailing-icon="fas fa-search"
+          @onFilter="onSearch"
+          dense
+          clearable
+          :options="shoptions"
+        />
+
+        <div>
+          model: {{search1}}
+        </div>
+      </comp-code>
+
+      <div ref="search-toolbar"/>
+      <comp-code class="h-mt-lg" title="Inside Toolbar" :code="exsearch2" :script="exsearchScript2"
+        javascript>
+        <h-app-toolbar bg-color="bg-primary" text-color="text-white">
+          <h-app-toolbar-container>
+            <h-app-toolbar-title class="text-body1">
+              Collection
+            </h-app-toolbar-title>
+            <h-app-toolbar-action>
               <h-input
-                v-model="search1"
+                class="h-mr-xs"
+                v-model="search2"
                 type="search"
                 label="Search"
                 trailing-icon="fas fa-search"
-                @onFilter="onSearch"
+                @onFilter="onSearch2"
                 dense
+                bg-color="bg-primary"
                 clearable
-                :options="shoptions"
+                :options="shoptions2"
               />
+            </h-app-toolbar-action>
+          </h-app-toolbar-container>
+        </h-app-toolbar>
+      </comp-code>
 
-              <div>
-                model: {{search1}}
-              </div>
-            </comp-code>
+      <!-- <div class="text-h6 h-mt-md">Chips</div>
+      <h-separator></h-separator>
 
-            <div ref="search-toolbar"/>
-            <comp-code class="h-mt-lg" title="Inside Toolbar" :code="exsearch2" :script="exsearchScript2"
-              javascript>
-              <h-app-toolbar bg-color="bg-primary" text-color="text-white">
-                <h-app-toolbar-container>
-                  <h-app-toolbar-title class="text-body1">
-                    Collection
-                  </h-app-toolbar-title>
-                  <h-app-toolbar-action>
-                    <h-input
-                      class="h-mr-xs"
-                      v-model="search2"
-                      type="search"
-                      label="Search"
-                      trailing-icon="fas fa-search"
-                      @onFilter="onSearch2"
-                      dense
-                      bg-color="bg-primary"
-                      clearable
-                      :options="shoptions2"
-                    />
-                  </h-app-toolbar-action>
-                </h-app-toolbar-container>
-              </h-app-toolbar>
-            </comp-code>
+      <div ref="chip-standard"/>
+      <comp-code class="h-mt-lg" title="Standard"  :code="inputchip" :script="inputchipScript" javascript>
+        <div class="h-mt-md">
+          <h-input
+            dense
+            label="Type your chips"
+            chips
+            v-model="chipsInput"
+            type="text"
+          />
+        </div>
+        <div>
+          chipsInput: {{chipsInput}}
+        </div>
+      </comp-code> -->
 
-            <!-- <div class="text-h6 h-mt-md">Chips</div>
-            <h-separator></h-separator>
+      <div class="text-h6 h-mt-md">Masks</div>
+      <h-separator></h-separator>
 
-            <div ref="chip-standard"/>
-            <comp-code class="h-mt-lg" title="Standard"  :code="inputchip" :script="inputchipScript" javascript>
-              <div class="h-mt-md">
-                <h-input
-                  dense
-                  label="Type your chips"
-                  chips
-                  v-model="chipsInput"
-                  type="text"
-                />
-              </div>
-              <div>
-                chipsInput: {{chipsInput}}
-              </div>
-            </comp-code> -->
+      <html-table class="h-mt-lg" bordered cell-separator>
+        <thead>
+          <tr class="text-left">
+            <th>Token</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>#</td>
+            <td>{pattern: /\d/}</td>
+          </tr>
+          <tr>
+            <td>X</td>
+            <td>{pattern: /[0-9a-zA-Z]/}</td>
+          </tr>
+          <tr>
+            <td>S</td>
+            <td>{pattern: /[a-zA-Z]/}</td>
+          </tr>
+          <tr>
+            <td>A</td>
+            <td>{pattern: /[a-zA-Z]/, transform: v => v.toLocaleUpperCase()}</td>
+          </tr>
+          <tr>
+            <td>a</td>
+            <td>{pattern: /[a-zA-Z]/, transform: v => v.toLocaleLowerCase()}</td>
+          </tr>
+          <tr>
+            <td>!</td>
+            <td>{escape: true}</td>
+          </tr>
+        </tbody>
+      </html-table>
 
-            <div class="text-h6 h-mt-md">Masks</div>
-            <h-separator></h-separator>
-
-            <html-table class="h-mt-lg" bordered cell-separator>
-              <thead>
-                <tr class="text-left">
-                  <th>Token</th>
-                  <th>Description</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>#</td>
-                  <td>{pattern: /\d/}</td>
-                </tr>
-                <tr>
-                  <td>X</td>
-                  <td>{pattern: /[0-9a-zA-Z]/}</td>
-                </tr>
-                <tr>
-                  <td>S</td>
-                  <td>{pattern: /[a-zA-Z]/}</td>
-                </tr>
-                <tr>
-                  <td>A</td>
-                  <td>{pattern: /[a-zA-Z]/, transform: v => v.toLocaleUpperCase()}</td>
-                </tr>
-                <tr>
-                  <td>a</td>
-                  <td>{pattern: /[a-zA-Z]/, transform: v => v.toLocaleLowerCase()}</td>
-                </tr>
-                <tr>
-                  <td>!</td>
-                  <td>{escape: true}</td>
-                </tr>
-              </tbody>
-            </html-table>
-
-            <div>
-              <h-toggle class="h-mt-lg" v-model="masked" text="Masked?"/>
-            </div>
-
-            <div ref="mask-text"/>
-            <comp-code class="h-mt-lg" title="Text (US Phone)" :code="extextmask">
-              <h-input label="US Phone" dense use-mask :mask="'+1 (###) ###-####'"
-                v-model="maskModelTel" leading-icon="fas fa-phone"
-                :masked="masked" clearable/>
-              <span>maskModel: {{maskModelTel}}</span>
-
-            </comp-code>
-
-            <div ref="mask-search"/>
-            <comp-code class="h-mt-lg" title="Search(Dynamic Mask)" :code="extextsearch">
-              <h-input class="h-mt-sm"
-                type="search" label="Phone"
-                dense use-mask clearable
-                masked
-                :mask="['###-###-####', '###-####-####']"
-                v-model="searchPhone" leading-icon="fas fa-phone"
-                @onFilter="onSearchPhone"
-                :options="phOptions"
-              />
-              <span>maskModel: {{searchPhone}}</span>
-
-            </comp-code>
-
-            <div ref="mask-currency"/>
-            <comp-code class="h-mt-lg" title="Currency" :code="excurrencymask">
-              <h-input type="currency" dense
-                v-model="maskModelCurrency"
-                leading-icon="fas fa-dollar-sign"
-                :masked="masked" clearable
-                decimal="," thousands="."
-              />
-              <span>maskModel: {{maskModelCurrency}}</span>
-            </comp-code>
-
-            <comp-code class="h-mt-lg" title="CSS" hide-code>
-              <span class="bg-blue300"> 
-                .col-inputs > .main-input-container {
-                  margin-top: 10px;
-                }
-              </span>
-            </comp-code>
-
-            <tabs-help
-              class="h-mt-md"
-              :properties="helpTopics.properties"
-              :events="helpTopics.events"
-            />
-
-          </div>
-         </div>
+      <div>
+        <h-toggle class="h-mt-lg" v-model="masked" text="Masked?"/>
       </div>
-    </div>
 
-    <template v-slot:right>
-      <h-nav-drawer ref="navHelp" v-model="showDrawer" side="right">
+      <div ref="mask-text"/>
+      <comp-code class="h-mt-lg" title="Text (US Phone)" :code="extextmask">
+        <h-input label="US Phone" dense use-mask :mask="'+1 (###) ###-####'"
+          v-model="maskModelTel" leading-icon="fas fa-phone"
+          :masked="masked" clearable/>
+        <span>maskModel: {{maskModelTel}}</span>
+
+      </comp-code>
+
+      <div ref="mask-search"/>
+      <comp-code class="h-mt-lg" title="Search(Dynamic Mask)" :code="extextsearch">
+        <h-input class="h-mt-sm"
+          type="search" label="Phone"
+          dense use-mask clearable
+          masked
+          :mask="['###-###-####', '###-####-####']"
+          v-model="searchPhone" leading-icon="fas fa-phone"
+          @onFilter="onSearchPhone"
+          :options="phOptions"
+        />
+        <span>maskModel: {{searchPhone}}</span>
+
+      </comp-code>
+
+      <div ref="mask-currency"/>
+      <comp-code class="h-mt-lg" title="Currency" :code="excurrencymask">
+        <h-input type="currency" dense
+          v-model="maskModelCurrency"
+          leading-icon="fas fa-dollar-sign"
+          :masked="masked" clearable
+          decimal="," thousands="."
+        />
+        <span>maskModel: {{maskModelCurrency}}</span>
+      </comp-code>
+
+      <comp-code class="h-mt-lg" title="CSS" hide-code>
+        <span class="bg-blue300"> 
+          .col-inputs > .main-input-container {
+            margin-top: 10px;
+          }
+        </span>
+      </comp-code>
+
+      <tabs-help
+        class="h-mt-md"
+        :properties="helpTopics.properties"
+        :events="helpTopics.events"
+      />
+    </template>
+
+    <template v-slot:help>
         <list-help>
           <h-list>
             <h-list-header text="Types"/>
@@ -475,25 +455,23 @@
             </h-list-item-content>
           </h-list-item>
         </list-help>
-      </h-nav-drawer>
     </template>
-  </h-page-content>
+  </page-layout>
 
 </template>
 
 <script>
 
-import viewport from '../../../components/others/viewport'
+import PageLayout from '../pageLayout'
 import helpTopics from './help'
 import _ from 'lodash'
 
 export default {
   components: {
+    PageLayout
   },
   data () {
     return {
-      showDrawer: true,
-
       // help
       helpTopics: {
         properties: [],
@@ -1162,22 +1140,12 @@ export default {
   mounted () {
     this.helpTopics.properties = helpTopics.properties
     this.helpTopics.events = helpTopics.events
-    this.checkMainBodyWidth()
     this.loadSearchOptions()
     this.loadPhoneOptions()
   },
   methods: {
     goToElement (refName) {
-      viewport.goToElement(this.$refs[refName])
-    },
-    checkMainBodyWidth () {
-      let value = viewport.mainBodyWidth()
-      if (value < 961) {
-        this.showDrawer = false
-      }
-    },
-    pageResize (value) {
-      this.$refs.navHelp.onResize(value)
+      this.$refs.pl.goToElement(this.$refs[refName])
     },
     // input
     onKeyTab () {

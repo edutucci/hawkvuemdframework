@@ -1,117 +1,99 @@
 <template>
-  <h-page-content padding
-    @onResize="pageResize"
-    @mainLayoutDrawerIsOpened="showDrawer = false"
-  >
-    <div class="row ">
-      <div class="col">
-        <div class="row position-sticky bg-white">
-          <div class="col text-h4">
-            File Upload
-          </div>
-          <div class="col-auto">
-            <h-image src="imgIcons/png/icon-help.png" @click="showDrawer = !showDrawer"/>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col">
+  <page-layout ref="pl" title="File Upload">
+    <template v-slot:components>
+      <div ref="upload-file"/>
+      <comp-code class="h-mt-lg" title="Files" :code="ex1">
+        <h-file-upload
+          :multiple="true"
+          @addFiles="addFiles"
+          @removeFiles="removeFiles"
+          extensions=".pdf"
+        />
+      </comp-code>
 
-            <div ref="upload-file"/>
-            <comp-code class="h-mt-lg" title="Files" :code="ex1">
-              <h-file-upload
-                :multiple="true"
-                @addFiles="addFiles"
-                @removeFiles="removeFiles"
-                extensions=".pdf"
-              />
-            </comp-code>
+      <div ref="upload-image"/>
+      <comp-code class="h-mt-lg" title="Images" :code="ex2" :script="ex2Script"
+        javascript
+      >
+        <h-file-upload
+        :multiple="true"
+        :max-size="maxsize"
+        title="Select Images"
+        subtitle="Click to add images"
+        image-only
+        />
+      </comp-code>
 
-            <div ref="upload-image"/>
-            <comp-code class="h-mt-lg" title="Images" :code="ex2" :script="ex2Script"
-              javascript
-            >
-              <h-file-upload
-              :multiple="true"
-              :max-size="maxsize"
-              title="Select Images"
-              subtitle="Click to add images"
-              image-only
-              />
-            </comp-code>
+      <div ref="upload-nodrop"/>
+      <comp-code class="h-mt-lg" title="Area Drop Hidden" :code="ex3">
+        <h-file-upload
+          :multiple="true"
+          :allow-drop="false"
+        />
+      </comp-code>
 
-            <div ref="upload-nodrop"/>
-            <comp-code class="h-mt-lg" title="Area Drop Hidden" :code="ex3">
-              <h-file-upload
-                :multiple="true"
-                :allow-drop="false"
-              />
-            </comp-code>
+      <div ref="vuejs-sample"/>
+      <comp-code class="h-mt-lg" title="Vuejs Sample" :code="vuejsSample" page="template" :script="vuejsSampleScript" javascript>
+      </comp-code>
 
-            <div ref="vuejs-sample"/>
-            <comp-code class="h-mt-lg" title="Vuejs Sample" :code="vuejsSample" page="template" :script="vuejsSampleScript" javascript>
-            </comp-code>
+      <div ref="express-server"/>
+      <comp-code class="h-mt-lg" title="Express Server" :script="expressServer" page="javascript" hide-code javascript>
+      </comp-code>
 
-            <div ref="express-server"/>
-            <comp-code class="h-mt-lg" title="Express Server" :script="expressServer" page="javascript" hide-code javascript>
-            </comp-code>
-
-            <tabs-help
-              class="h-mt-md"
-              :properties="helpTopics.properties"
-              :events="helpTopics.events"
-            />
-
-          </div>
-         </div>
-      </div>
-    </div>
-
-    <template v-slot:right>
-      <h-nav-drawer ref="navHelp" v-model="showDrawer" side="right">
-        <list-help>
-          <h-list>
-            <h-list-header text="Upload"/>
-            <h-list-item @click="goToElement('upload-file')">
-              <h-list-item-content>
-                <h-list-item-text title="Files"></h-list-item-text>
-              </h-list-item-content>
-            </h-list-item>
-            <h-list-item @click="goToElement('upload-image')">
-              <h-list-item-content>
-                <h-list-item-text title="Image"></h-list-item-text>
-              </h-list-item-content>
-            </h-list-item>
-            <h-list-item @click="goToElement('upload-nodrop')">
-              <h-list-item-content>
-                <h-list-item-text title="Area Drop Hidden"></h-list-item-text>
-              </h-list-item-content>
-            </h-list-item>
-            <h-list-header text="Example"/>
-            <h-list-item @click="goToElement('vuejs-sample')">
-              <h-list-item-content>
-                <h-list-item-text title="Vuejs"></h-list-item-text>
-              </h-list-item-content>
-            </h-list-item>
-            <h-list-item @click="goToElement('express-server')">
-              <h-list-item-content>
-                <h-list-item-text title="Express"></h-list-item-text>
-              </h-list-item-content>
-            </h-list-item>
-          </h-list>
-        </list-help>
-      </h-nav-drawer>
+      <tabs-help
+        class="h-mt-md"
+        :properties="helpTopics.properties"
+        :events="helpTopics.events"
+      />
     </template>
-  </h-page-content>
+
+    <template v-slot:help>
+      <list-help>
+        <h-list>
+          <h-list-header text="Upload"/>
+          <h-list-item @click="goToElement('upload-file')">
+            <h-list-item-content>
+              <h-list-item-text title="Files"></h-list-item-text>
+            </h-list-item-content>
+          </h-list-item>
+          <h-list-item @click="goToElement('upload-image')">
+            <h-list-item-content>
+              <h-list-item-text title="Image"></h-list-item-text>
+            </h-list-item-content>
+          </h-list-item>
+          <h-list-item @click="goToElement('upload-nodrop')">
+            <h-list-item-content>
+              <h-list-item-text title="Area Drop Hidden"></h-list-item-text>
+            </h-list-item-content>
+          </h-list-item>
+          <h-list-header text="Example"/>
+          <h-list-item @click="goToElement('vuejs-sample')">
+            <h-list-item-content>
+              <h-list-item-text title="Vuejs"></h-list-item-text>
+            </h-list-item-content>
+          </h-list-item>
+          <h-list-item @click="goToElement('express-server')">
+            <h-list-item-content>
+              <h-list-item-text title="Express"></h-list-item-text>
+            </h-list-item-content>
+          </h-list-item>
+        </h-list>
+      </list-help>
+    </template>
+  </page-layout>
 
 </template>
 
 <script>
 
-import viewport from '../../../components/others/viewport'
+import PageLayout from '../pageLayout'
 import helpTopics from './help'
 import axios from 'axios'
 
 export default {
+  components: {
+    PageLayout
+  },
   data () {
     return {
       helpTopics: {
@@ -309,20 +291,10 @@ app.listen(port, () =>
   mounted () {
     this.helpTopics.properties = helpTopics.properties
     this.helpTopics.events = helpTopics.events
-    this.checkMainBodyWidth()
   },
   methods: {
     goToElement (refName) {
-      viewport.goToElement(this.$refs[refName])
-    },
-    checkMainBodyWidth () {
-      let value = viewport.mainBodyWidth()
-      if (value < 961) {
-        this.showDrawer = false
-      }
-    },
-    pageResize (value) {
-      this.$refs.navHelp.onResize(value)
+      this.$refs.pl.goToElement(this.$refs[refName])
     },
     addFiles (fileList) {
       console.log('fileList added: ', fileList)

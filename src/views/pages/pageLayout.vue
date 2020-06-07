@@ -5,25 +5,18 @@
   >
     <div class="row">
       <div class="col">
-        <div class="column">
-          <div class="col-auto">
-            <div class="row position-sticky bg-white" style="top: 0; z-index: 100;">
-              <div class="col text-h4">Buttons</div>
-              <div class="col-auto">
-                <h-image src="imgIcons/png/icon-help.png" @click="showDrawer = !showDrawer" />
-              </div>
+          <div class="row position-sticky bg-white" style="top: 0; z-index: 100;">
+            <div class="col text-h4">{{title}}</div>
+            <div class="col-auto">
+              <h-image src="imgIcons/png/icon-help.png" @click="showDrawer = !showDrawer" />
             </div>
           </div>
 
-          <div class="col-auto">
-            <div class="row">
-              <div class="col scroll">
-                <slot name="components"/>
-              </div>
+          <div class="row">
+            <div class="col">
+              <slot name="components"/>
             </div>
           </div>
-
-        </div>
       </div>
     </div>
 
@@ -69,8 +62,8 @@ export default {
     
   },
   methods: {
-    goToElement(refName) {
-      viewport.goToElement(this.$refs[refName]);
+    goToElement(element) {
+      viewport.goToElement(element);
     },
     pageResize(value) {
       this.showDrawer = true
