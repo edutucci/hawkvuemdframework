@@ -3,6 +3,10 @@
     @onResize="pageResize"
     @mainLayoutDrawerIsOpened="showDrawer = false"
   >
+    <template v-slot:left>
+      <slot name="left"/>
+    </template>
+
     <div class="row">
       <div class="col">
           <div class="row position-sticky bg-white" style="top: 0; z-index: 100;">

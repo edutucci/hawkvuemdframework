@@ -1,481 +1,433 @@
 
 <template>
-  <h-page-content padding
-    @onResize="pageResize"
-    @mainLayoutDrawerIsOpened="showDrawer = false"
-  >
-    <div class="row ">
-      <div class="col">
-        <div class="row position-sticky bg-white">
-          <div class="col ">
-            <div class="text-h4">Flexbox and GridSystem (row and column)</div>
-              <div class="col  text-h4-xs" >The flex-direction property defines in which direction the    container wants to stack the flex items.
-              </div>
-          </div>
-
-          <div class="col-auto">
-            <h-image src="imgIcons/png/icon-help.png" @click="showDrawer = !showDrawer"/>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col">
-            <comp-code class="h-mt-md" title="Grid row" :code="flexgridrow">
+  <page-layout ref="pl" title="Flexbox and GridSystem (row and column)">
+    <template v-slot:components>
+      <comp-code class="h-mt-md" title="Grid row" :code="flexgridrow">
       <div class="row flex-container" style="background-color: DodgerBlue;">
         <div class="col">1</div>
         <div class="col">2</div>
         <div class="col">3</div>
       </div>
-    </comp-code>
+      </comp-code>
 
-    <comp-code class="h-mt-md" title="Grid row with column space" :code="flexgridrowcolspace">
-      <div class="column" style="background-color: DodgerBlue;">
-        <div class="row flex-container">
-          <div class="col-auto">1</div>
-          <div class="col-space">2</div>
-        </div>
-        <div class="row flex-container">
-          <div class="col-auto">1</div>
-          <div class="col-space">2</div>
-          <div class="col-auto">3</div>
-        </div>
-      </div>
-    </comp-code>
-
-    <comp-code class="h-mt-md" title="Row" :code="flexrow" >
-      <div class="row">
-        <div class="col" style="background-color: DodgerBlue;">
+      <comp-code class="h-mt-md" title="Grid row with column space" :code="flexgridrowcolspace">
+        <div class="column" style="background-color: DodgerBlue;">
           <div class="row flex-container">
             <div class="col-auto">1</div>
-            <div class="col-auto">2</div>
+            <div class="col-space">2</div>
+          </div>
+          <div class="row flex-container">
+            <div class="col-auto">1</div>
+            <div class="col-space">2</div>
             <div class="col-auto">3</div>
           </div>
         </div>
-      </div>
-    </comp-code>
+      </comp-code>
 
-    <comp-code class="h-mt-md" title="Row-reverse" :code="flexrowreverse">
-      <div class="row row-reverse flex-container" style="background-color: DodgerBlue;">
-        <div class="col-auto">1</div>
-        <div class="col-auto">2</div>
-        <div class="col-auto">3</div>
-      </div>
-    </comp-code>
-
-    <comp-code class="h-mt-md" title="Column" :code="flexcolumn" >
-      <div class="column flex-container-column" style="background-color: DodgerBlue;">
-        <div class="col">1</div>
-        <div class="col">2</div>
-        <div class="col">3</div>
-      </div>
-    </comp-code>
-  <div ref="btn-wrap" />
-    <comp-code class="h-mt-md" title="Column reverse" :code="flexcolumnreverse" >
-      <div class="column-reverse flex-container-column" style="background-color: DodgerBlue;">
-        <div class="col">1</div>
-        <div class="col">2</div>
-        <div class="col">3</div>
-      </div>
-    </comp-code>
-
-    .row.h-mt-md
-      .col
-        .text-h4 Flex wrap or nowrap
-        .text-body1 The flex-wrap property specifies whether the flex items should wrap or not.
-        .text-body1 By default row is <b>nowrap.</b>
-
-    <comp-code class="h-mt-md" title="Wrap" :code="flexwrap" >
-      <div class="row wrap flex-container" style="background-color: DodgerBlue;">
-        <div class="col-auto">1</div>
-        <div class="col-auto">2</div>
-        <div class="col-auto">3</div>
-        <div class="col-auto">4</div>
-        <div class="col-auto">5</div>
-        <div class="col-auto">6</div>
-        <div class="col-auto">7</div>
-        <div class="col-auto">8</div>
-        <div class="col-auto">9</div>
-        <div class="col-auto">10</div>
-      </div>
-
-    </comp-code>
-
-    .row
-      .col
-        .text-h4 Justify-content
-        .text-body1 The justify-content property is used to align the flex items.
-        .text-body1 Default <b>flex-start</b>. But the class will be <b>justify-start</b>.
-
-    <comp-code class="h-mt-md" title="justify-start(flex-start)" :code="flexjustifystart">
-      <div class="row flex-container" style="background-color: DodgerBlue;">
-        <div class="col-auto">1</div>
-        <div class="col-auto">2</div>
-        <div class="col-auto">3</div>
-      </div>
-    </comp-code>
-
-    <comp-code class="h-mt-md" title="justify-center(center)" :code="flexjustifycenter">
-      <div class="row justify-center flex-container" style="background-color: DodgerBlue;">
-        <div class="col-auto">1</div>
-        <div class="col-auto">2</div>
-        <div class="col-auto">3</div>
-      </div>
-    </comp-code>
-
-    <comp-code class="h-mt-md" title="justify-end(flex-end)" :code="flexjustifyend">
-      <div class="row justify-end flex-container" style="background-color: DodgerBlue;">
-        <div class="col-auto">1</div>
-        <div class="col-auto">2</div>
-        <div class="col-auto">3</div>
-      </div>
-    </comp-code>
-
-    <comp-code class="h-mt-md" title="justify-between(space-between)" :code="flexjustifybetween">
-      <div class="row justify-between flex-container" style="background-color: DodgerBlue;">
-        <div class="col-auto">1</div>
-        <div class="col-auto">2</div>
-        <div class="col-auto">3</div>
-      </div>
-    </comp-code>
-
-
-    <comp-code class="h-mt-md" title="justify-around(space-around)" :code="flexjustifyaround">
-      <div class="row justify-around flex-container" style="background-color: DodgerBlue;">
-        <div class="col-auto">1</div>
-        <div class="col-auto">2</div>
-        <div class="col-auto">3</div>
-      </div>
-    </comp-code>
-
-    .row
-      .col
-        .text-h4 Align-items
-        .text-body1 The align-items property is used to align the flex items vertically.
-        //- img.full-width(src="img/align-items.png")
-    <comp-code class="h-mt-md" title="align-items-start" :code="flexitemsstart">
-      <div class="row align-items-start flex-container2" style="background-color: DodgerBlue;">
-        <div class="col-auto">1</div>
-        <div class="col-auto">2</div>
-        <div class="col-auto">3</div>
-      </div>
-    </comp-code>
-
-    <comp-code class="h-mt-md" title="align-items-center" :code="flexitemscenter">
-      <div class="row align-items-center flex-container2" style="background-color: DodgerBlue;">
-        <div class="col-auto">1</div>
-        <div class="col-auto">2</div>
-        <div class="col-auto">3</div>
-      </div>
-    </comp-code>
-
-    <comp-code class="h-mt-md" title="align-items-end" :code="flexitemsend">
-      <div class="row align-items-end flex-container2" style="background-color: DodgerBlue;">
-        <div class="col-auto">1</div>
-        <div class="col-auto">2</div>
-        <div class="col-auto">3</div>
-      </div>
-    </comp-code>
-
-    <comp-code class="h-mt-md" title="align-items-stretch(default)" :code="flexitemsstretch">
-      <div class="row align-items-stretch flex-container2" style="background-color: DodgerBlue;">
-        <div class="col-auto">1</div>
-        <div class="col-auto">2</div>
-        <div class="col-auto">3</div>
-      </div>
-    </comp-code>
-
-    <comp-code class="h-mt-md" title="align-items-baseline" :code="flexitemsbaseline">
-      <div class="row align-items-baseline flex-container2" style="background-color: DodgerBlue;">
-        <div class="col-auto"><h1>1</h1></div>
-        <div class="col-auto"><h6>2</h6></div>
-        <div class="col-auto"><h3>3</h3></div>
-        <div class="col-auto"><small>4</small></div>
-      </div>
-    </comp-code>
-
-    .row
-      .col
-        .text-h4 Align-content
-        .text-body1 The align-content property property is used to align the flex lines.
-        //- img.full-width(src="img/align-content.png")
-    <comp-code class="h-mt-md" title="align-content-start" :code="flexalignstart">
-      <div class="row wrap align-content-start flex-container3" style="background-color: DodgerBlue;">
-        <div class="col-auto">1</div>
-        <div class="col-auto">2</div>
-        <div class="col-auto">3</div>
-        <div class="col-auto">4</div>
-        <div class="col-auto">5</div>
-        <div class="col-auto">6</div>
-      </div>
-    </comp-code>
-
-    <comp-code class="h-mt-md" title="align-content-center" :code="flexaligncenter">
-      <div class="row wrap align-content-center flex-container3" style="background-color: DodgerBlue;">
-        <div class="col-auto">1</div>
-        <div class="col-auto">2</div>
-        <div class="col-auto">3</div>
-        <div class="col-auto">4</div>
-        <div class="col-auto">5</div>
-        <div class="col-auto">6</div>
-      </div>
-    </comp-code>
-
-    <comp-code class="h-mt-md" title="align-content-end" :code="flexalignend">
-      <div class="row wrap align-content-end flex-container3" style="background-color: DodgerBlue;">
-        <div class="col-auto">1</div>
-        <div class="col-auto">2</div>
-        <div class="col-auto">3</div>
-        <div class="col-auto">4</div>
-        <div class="col-auto">5</div>
-        <div class="col-auto">6</div>
-      </div>
-    </comp-code>
-
-    <comp-code class="h-mt-md" title="align-content-stretch" :code="flexalignstretch">
-      <div class="row wrap align-content-stretch flex-container3" style="background-color: DodgerBlue;">
-        <div class="col-auto">1</div>
-        <div class="col-auto">2</div>
-        <div class="col-auto">3</div>
-        <div class="col-auto">4</div>
-        <div class="col-auto">5</div>
-        <div class="col-auto">6</div>
-        <div class="col-auto">7</div>
-      </div>
-    </comp-code>
-
-    <comp-code class="h-mt-md" title="align-content-around" :code="flexalignspacearound">
-      <div class="row wrap align-content-around flex-container3" style="background-color: DodgerBlue;">
-        <div class="col-auto">1</div>
-        <div class="col-auto">2</div>
-        <div class="col-auto">3</div>
-        <div class="col-auto">4</div>
-        <div class="col-auto">5</div>
-        <div class="col-auto">6</div>
-        <div class="col-auto">7</div>
-      </div>
-    </comp-code>
-    <div ref="btn-perfect" />
-    <comp-code class="h-mt-md" title="align-content-between" :code="flexalignspacebetween">
-      <div class="row wrap align-content-between flex-container3" style="background-color: DodgerBlue;">
-        <div class="col-auto">1</div>
-        <div class="col-auto">2</div>
-        <div class="col-auto">3</div>
-        <div class="col-auto">4</div>
-        <div class="col-auto">5</div>
-        <div class="col-auto">6</div>
-        <div class="col-auto">7</div>
-      </div>
-    </comp-code>
-
-    .row
-      .col
-        .text-h4 Perfect Centering
-
-    <comp-code class="h-mt-md" title="Perfect center" :code="flexcentering">
-      <div class="row justify-center align-items-center flex-container2" style="background-color: DodgerBlue;">
-        <div class="col-auto">1</div>
-        <div class="col-auto">2</div>
-      </div>
-    </comp-code>
+      <comp-code class="h-mt-md" title="Row" :code="flexrow" >
+        <div class="row">
+          <div class="col" style="background-color: DodgerBlue;">
+            <div class="row flex-container">
+              <div class="col-auto">1</div>
+              <div class="col-auto">2</div>
+              <div class="col-auto">3</div>
+            </div>
           </div>
-         </div>
-      </div>
-    </div>
+        </div>
+      </comp-code>
 
-    <template v-slot:right>
-      <h-nav-drawer ref="navHelp" v-model="showDrawer" side="right">
-        <list-help>
-          <h-list>
+      <comp-code class="h-mt-md" title="Row-reverse" :code="flexrowreverse">
+        <div class="row row-reverse flex-container" style="background-color: DodgerBlue;">
+          <div class="col-auto">1</div>
+          <div class="col-auto">2</div>
+          <div class="col-auto">3</div>
+        </div>
+      </comp-code>
 
-            <div ref="btn-grids" />
-            <h-list-header text="Grids" />
+      <comp-code class="h-mt-md" title="Column" :code="flexcolumn" >
+        <div class="column flex-container-column" style="background-color: DodgerBlue;">
+          <div class="col">1</div>
+          <div class="col">2</div>
+          <div class="col">3</div>
+        </div>
+      </comp-code>
 
-            <h-list-item @click="goToElement('btn-grids')">
+      <div ref="btn-wrap" />
+      <comp-code class="h-mt-md" title="Column reverse" :code="flexcolumnreverse" >
+        <div class="column-reverse flex-container-column" style="background-color: DodgerBlue;">
+          <div class="col">1</div>
+          <div class="col">2</div>
+          <div class="col">3</div>
+        </div>
+      </comp-code>
 
-              <h-list-item-content>
+      <!-- .row.h-mt-md
+        .col
+          .text-h4 Flex wrap or nowrap
+          .text-body1 The flex-wrap property specifies whether the flex items should wrap or not.
+          .text-body1 By default row is <b>nowrap.</b> -->
 
-                <h-list-item-text title="grid row" />
-              </h-list-item-content>
-            </h-list-item>
+      <comp-code class="h-mt-md" title="Wrap" :code="flexwrap" >
+        <div class="row wrap flex-container" style="background-color: DodgerBlue;">
+          <div class="col-auto">1</div>
+          <div class="col-auto">2</div>
+          <div class="col-auto">3</div>
+          <div class="col-auto">4</div>
+          <div class="col-auto">5</div>
+          <div class="col-auto">6</div>
+          <div class="col-auto">7</div>
+          <div class="col-auto">8</div>
+          <div class="col-auto">9</div>
+          <div class="col-auto">10</div>
+        </div>
 
-            <h-list-item @click="goToElement('btn-grids')">
-              <h-list-item-content>
-                <h-list-item-text title="grid row with column space"/>
-              </h-list-item-content>
-            </h-list-item>
+      </comp-code>
 
-             <div ref="btn-perfect" />
-             <h-list-header text="Row" />
-            <h-list-item @click="goToElement('btn-row')">
-              <h-list-item-content>
-                <h-list-item-text title="row"/>
-              </h-list-item-content>
-            </h-list-item>
+      <!-- .row
+        .col
+          .text-h4 Justify-content
+          .text-body1 The justify-content property is used to align the flex items.
+          .text-body1 Default <b>flex-start</b>. But the class will be <b>justify-start</b>. -->
 
+      <comp-code class="h-mt-md" title="justify-start(flex-start)" :code="flexjustifystart">
+        <div class="row flex-container" style="background-color: DodgerBlue;">
+          <div class="col-auto">1</div>
+          <div class="col-auto">2</div>
+          <div class="col-auto">3</div>
+        </div>
+      </comp-code>
 
-            <h-list-item @click="goToElement('btn-row')">
-              <h-list-item-content>
-                <h-list-item-text title="row-reverse"/>
-              </h-list-item-content>
-            </h-list-item>
+      <comp-code class="h-mt-md" title="justify-center(center)" :code="flexjustifycenter">
+        <div class="row justify-center flex-container" style="background-color: DodgerBlue;">
+          <div class="col-auto">1</div>
+          <div class="col-auto">2</div>
+          <div class="col-auto">3</div>
+        </div>
+      </comp-code>
 
-              <h-list-header text="Column" />
-              <h-list-item @click="goToElement('btn-row')">
-                <h-list-item-content>
-                  <h-list-item-text title="column"/>
-                </h-list-item-content>
-            </h-list-item>
+      <comp-code class="h-mt-md" title="justify-end(flex-end)" :code="flexjustifyend">
+        <div class="row justify-end flex-container" style="background-color: DodgerBlue;">
+          <div class="col-auto">1</div>
+          <div class="col-auto">2</div>
+          <div class="col-auto">3</div>
+        </div>
+      </comp-code>
 
-            <div ref="btn-row" />
-
-            <h-list-item @click="goToElement('btn-wrap')">
-              <h-list-item-content>
-                <h-list-item-text title="column reverse"/>
-              </h-list-item-content>
-            </h-list-item>
-
-              
-              <h-list-header text="Wrap" />
-                <h-list-item @click="goToElement('btn-wrap')">
-                  <h-list-item-content>
-                    <h-list-item-text title="wrap"/>
-                  </h-list-item-content>
-                </h-list-item>
-
-            <h-list-item @click="goToElement('btn-wrap')">
-              <h-list-item-content>
-                <h-list-item-text title="justify-start(flex-start)"/>
-              </h-list-item-content>
-            </h-list-item>
-
-
-             <h-list-item @click="goToElement('btn-wrap')">
-              <h-list-item-content>
-                <h-list-item-text title="justify-center(center)"/>
-              </h-list-item-content>
-
-            </h-list-item>
-
-
-             <h-list-item @click="goToElement('btn-wrap')">
-              <h-list-item-content>
-                <h-list-item-text title="justify-end(flex-end)"/>
-              </h-list-item-content>
-
-            </h-list-item>
-
-            <h-list-item @click="goToElement('btn-wrap')">
-              <h-list-item-content>
-                <h-list-item-text title="justify-between(space-between)"/>
-              </h-list-item-content>
-
-            </h-list-item>
+      <comp-code class="h-mt-md" title="justify-between(space-between)" :code="flexjustifybetween">
+        <div class="row justify-between flex-container" style="background-color: DodgerBlue;">
+          <div class="col-auto">1</div>
+          <div class="col-auto">2</div>
+          <div class="col-auto">3</div>
+        </div>
+      </comp-code>
 
 
-            <h-list-item @click="goToElement('btn-wrap')">
-              <h-list-item-content>
-                <h-list-item-text title="justify-around(space-around)"/>
-              </h-list-item-content>
+      <comp-code class="h-mt-md" title="justify-around(space-around)" :code="flexjustifyaround">
+        <div class="row justify-around flex-container" style="background-color: DodgerBlue;">
+          <div class="col-auto">1</div>
+          <div class="col-auto">2</div>
+          <div class="col-auto">3</div>
+        </div>
+      </comp-code>
 
-            </h-list-item>
+      <!-- .row
+        .col
+          .text-h4 Align-items
+          .text-body1 The align-items property is used to align the flex items vertically.
+          //- img.full-width(src="img/align-items.png") -->
+      <comp-code class="h-mt-md" title="align-items-start" :code="flexitemsstart">
+        <div class="row align-items-start flex-container2" style="background-color: DodgerBlue;">
+          <div class="col-auto">1</div>
+          <div class="col-auto">2</div>
+          <div class="col-auto">3</div>
+        </div>
+      </comp-code>
 
-            <h-list-item @click="goToElement('btn-wrap')">
-              <h-list-item-content>
-                <h-list-item-text title="align-items-start"/>
-              </h-list-item-content>
+      <comp-code class="h-mt-md" title="align-items-center" :code="flexitemscenter">
+        <div class="row align-items-center flex-container2" style="background-color: DodgerBlue;">
+          <div class="col-auto">1</div>
+          <div class="col-auto">2</div>
+          <div class="col-auto">3</div>
+        </div>
+      </comp-code>
 
-            </h-list-item>
+      <comp-code class="h-mt-md" title="align-items-end" :code="flexitemsend">
+        <div class="row align-items-end flex-container2" style="background-color: DodgerBlue;">
+          <div class="col-auto">1</div>
+          <div class="col-auto">2</div>
+          <div class="col-auto">3</div>
+        </div>
+      </comp-code>
 
-            <h-list-item @click="goToElement('btn-wrap')">
-              <h-list-item-content>
-                <h-list-item-text title="align-items-center"/>
-              </h-list-item-content>
-            </h-list-item>
+      <comp-code class="h-mt-md" title="align-items-stretch(default)" :code="flexitemsstretch">
+        <div class="row align-items-stretch flex-container2" style="background-color: DodgerBlue;">
+          <div class="col-auto">1</div>
+          <div class="col-auto">2</div>
+          <div class="col-auto">3</div>
+        </div>
+      </comp-code>
 
-            <h-list-item @click="goToElement('btn-wrap')">
-              <h-list-item-content>
-                <h-list-item-text title="align-items-end"/>
-              </h-list-item-content>
-            </h-list-item>
+      <comp-code class="h-mt-md" title="align-items-baseline" :code="flexitemsbaseline">
+        <div class="row align-items-baseline flex-container2" style="background-color: DodgerBlue;">
+          <div class="col-auto"><h1>1</h1></div>
+          <div class="col-auto"><h6>2</h6></div>
+          <div class="col-auto"><h3>3</h3></div>
+          <div class="col-auto"><small>4</small></div>
+        </div>
+      </comp-code>
 
+      <!-- .row
+        .col
+          .text-h4 Align-content
+          .text-body1 The align-content property property is used to align the flex lines.
+          //- img.full-width(src="img/align-content.png") -->
+      <comp-code class="h-mt-md" title="align-content-start" :code="flexalignstart">
+        <div class="row wrap align-content-start flex-container3" style="background-color: DodgerBlue;">
+          <div class="col-auto">1</div>
+          <div class="col-auto">2</div>
+          <div class="col-auto">3</div>
+          <div class="col-auto">4</div>
+          <div class="col-auto">5</div>
+          <div class="col-auto">6</div>
+        </div>
+      </comp-code>
 
-            <h-list-item @click="goToElement('btn-wrap')">
-              <h-list-item-content>
-                <h-list-item-text title="align-items-stretch(default)"/>
-              </h-list-item-content>
-            </h-list-item>
+      <comp-code class="h-mt-md" title="align-content-center" :code="flexaligncenter">
+        <div class="row wrap align-content-center flex-container3" style="background-color: DodgerBlue;">
+          <div class="col-auto">1</div>
+          <div class="col-auto">2</div>
+          <div class="col-auto">3</div>
+          <div class="col-auto">4</div>
+          <div class="col-auto">5</div>
+          <div class="col-auto">6</div>
+        </div>
+      </comp-code>
 
+      <comp-code class="h-mt-md" title="align-content-end" :code="flexalignend">
+        <div class="row wrap align-content-end flex-container3" style="background-color: DodgerBlue;">
+          <div class="col-auto">1</div>
+          <div class="col-auto">2</div>
+          <div class="col-auto">3</div>
+          <div class="col-auto">4</div>
+          <div class="col-auto">5</div>
+          <div class="col-auto">6</div>
+        </div>
+      </comp-code>
 
-            <h-list-item @click="goToElement('btn-wrap')">
-              <h-list-item-content>
-                <h-list-item-text title="align-items-baseline"/>
-              </h-list-item-content>
-            </h-list-item>
+      <comp-code class="h-mt-md" title="align-content-stretch" :code="flexalignstretch">
+        <div class="row wrap align-content-stretch flex-container3" style="background-color: DodgerBlue;">
+          <div class="col-auto">1</div>
+          <div class="col-auto">2</div>
+          <div class="col-auto">3</div>
+          <div class="col-auto">4</div>
+          <div class="col-auto">5</div>
+          <div class="col-auto">6</div>
+          <div class="col-auto">7</div>
+        </div>
+      </comp-code>
 
+      <comp-code class="h-mt-md" title="align-content-around" :code="flexalignspacearound">
+        <div class="row wrap align-content-around flex-container3" style="background-color: DodgerBlue;">
+          <div class="col-auto">1</div>
+          <div class="col-auto">2</div>
+          <div class="col-auto">3</div>
+          <div class="col-auto">4</div>
+          <div class="col-auto">5</div>
+          <div class="col-auto">6</div>
+          <div class="col-auto">7</div>
+        </div>
+      </comp-code>
+      <div ref="btn-perfect" />
+      <comp-code class="h-mt-md" title="align-content-between" :code="flexalignspacebetween">
+        <div class="row wrap align-content-between flex-container3" style="background-color: DodgerBlue;">
+          <div class="col-auto">1</div>
+          <div class="col-auto">2</div>
+          <div class="col-auto">3</div>
+          <div class="col-auto">4</div>
+          <div class="col-auto">5</div>
+          <div class="col-auto">6</div>
+          <div class="col-auto">7</div>
+        </div>
+      </comp-code>
 
-            <h-list-item @click="goToElement('btn-wrap')">
-              <h-list-item-content>
-                <h-list-item-text title="align-content-start"/>
-              </h-list-item-content>
-            </h-list-item>
+      <!-- .row
+        .col
+          .text-h4 Perfect Centering -->
 
-            <div ref="btn-wrap" />
-            <h-list-item @click="goToElement('btn-wrap')">
-              <h-list-item-content>
-                <h-list-item-text title="align-content-center"/>
-              </h-list-item-content>
-            </h-list-item>
+      <comp-code class="h-mt-md" title="Perfect center" :code="flexcentering">
+        <div class="row justify-center align-items-center flex-container2" style="background-color: DodgerBlue;">
+          <div class="col-auto">1</div>
+          <div class="col-auto">2</div>
+        </div>
+      </comp-code>
 
-
-            <h-list-item @click="goToElement('btn-wrap')">
-              <h-list-item-content>
-                <h-list-item-text title="align-content-end"/>
-              </h-list-item-content>
-            </h-list-item>
-
-
-             <h-list-item @click="goToElement('btn-wrap')">
-              <h-list-item-content>
-                <h-list-item-text title="align-content-stretch"/>
-              </h-list-item-content>
-            </h-list-item>
-
-             <h-list-item @click="goToElement('btn-wrap')">
-              <h-list-item-content>
-                <h-list-item-text title="align-content-around"/>
-              </h-list-item-content>
-            </h-list-item>
-
-
-
-            <h-list-item @click="goToElement('btn-perfect')">
-              <h-list-item-content>
-                <h-list-item-text title="perfect center"/>
-              </h-list-item-content>
-            </h-list-item>
-
-          </h-list>
-
-        </list-help>
-
-        <div ref="btn-column" />
-      </h-nav-drawer>
     </template>
-  </h-page-content>
+  
+    <template v-slot:help>
+      <list-help>
+        <h-list>
+          <h-list-header text="Grids" />
+
+          <h-list-item @click="goToElement('btn-grids')">
+            <h-list-item-content>
+              <h-list-item-text title="grid row" />
+            </h-list-item-content>
+          </h-list-item>
+
+          <h-list-item @click="goToElement('btn-grids')">
+            <h-list-item-content>
+              <h-list-item-text title="grid row with column space"/>
+            </h-list-item-content>
+          </h-list-item>
+
+          <h-list-header text="Row" />
+          <h-list-item @click="goToElement('btn-row')">
+            <h-list-item-content>
+              <h-list-item-text title="row"/>
+            </h-list-item-content>
+          </h-list-item>
+
+          <h-list-item @click="goToElement('btn-row')">
+            <h-list-item-content>
+              <h-list-item-text title="row-reverse"/>
+            </h-list-item-content>
+          </h-list-item>
+
+          <h-list-header text="Column" />
+          <h-list-item @click="goToElement('btn-row')">
+            <h-list-item-content>
+              <h-list-item-text title="column"/>
+            </h-list-item-content>
+          </h-list-item>
+
+          <h-list-item @click="goToElement('btn-wrap')">
+            <h-list-item-content>
+              <h-list-item-text title="column reverse"/>
+            </h-list-item-content>
+          </h-list-item>
+
+          <h-list-header text="Wrap" />
+          <h-list-item @click="goToElement('btn-wrap')">
+            <h-list-item-content>
+              <h-list-item-text title="wrap"/>
+            </h-list-item-content>
+          </h-list-item>
+
+          <h-list-item @click="goToElement('btn-wrap')">
+            <h-list-item-content>
+              <h-list-item-text title="justify-start(flex-start)"/>
+            </h-list-item-content>
+          </h-list-item>
+
+          <h-list-item @click="goToElement('btn-wrap')">
+            <h-list-item-content>
+              <h-list-item-text title="justify-center(center)"/>
+            </h-list-item-content>
+          </h-list-item>
+
+          <h-list-item @click="goToElement('btn-wrap')">
+            <h-list-item-content>
+              <h-list-item-text title="justify-end(flex-end)"/>
+            </h-list-item-content>
+          </h-list-item>
+
+          <h-list-item @click="goToElement('btn-wrap')">
+            <h-list-item-content>
+              <h-list-item-text title="justify-between(space-between)"/>
+            </h-list-item-content>
+          </h-list-item>
+
+          <h-list-item @click="goToElement('btn-wrap')">
+            <h-list-item-content>
+              <h-list-item-text title="justify-around(space-around)"/>
+            </h-list-item-content>
+          </h-list-item>
+
+          <h-list-item @click="goToElement('btn-wrap')">
+            <h-list-item-content>
+              <h-list-item-text title="align-items-start"/>
+            </h-list-item-content>
+          </h-list-item>
+
+          <h-list-item @click="goToElement('btn-wrap')">
+            <h-list-item-content>
+              <h-list-item-text title="align-items-center"/>
+            </h-list-item-content>
+          </h-list-item>
+
+          <h-list-item @click="goToElement('btn-wrap')">
+            <h-list-item-content>
+              <h-list-item-text title="align-items-end"/>
+            </h-list-item-content>
+          </h-list-item>
+
+          <h-list-item @click="goToElement('btn-wrap')">
+            <h-list-item-content>
+              <h-list-item-text title="align-items-stretch(default)"/>
+            </h-list-item-content>
+          </h-list-item>
+
+          <h-list-item @click="goToElement('btn-wrap')">
+            <h-list-item-content>
+              <h-list-item-text title="align-items-baseline"/>
+            </h-list-item-content>
+          </h-list-item>
+
+          <h-list-item @click="goToElement('btn-wrap')">
+            <h-list-item-content>
+              <h-list-item-text title="align-content-start"/>
+            </h-list-item-content>
+          </h-list-item>
+
+          <h-list-item @click="goToElement('btn-wrap')">
+            <h-list-item-content>
+              <h-list-item-text title="align-content-center"/>
+            </h-list-item-content>
+          </h-list-item>
+
+          <h-list-item @click="goToElement('btn-wrap')">
+            <h-list-item-content>
+              <h-list-item-text title="align-content-end"/>
+            </h-list-item-content>
+          </h-list-item>
+
+          <h-list-item @click="goToElement('btn-wrap')">
+            <h-list-item-content>
+              <h-list-item-text title="align-content-stretch"/>
+            </h-list-item-content>
+          </h-list-item>
+
+          <h-list-item @click="goToElement('btn-wrap')">
+            <h-list-item-content>
+              <h-list-item-text title="align-content-around"/>
+            </h-list-item-content>
+          </h-list-item>
+
+          <h-list-item @click="goToElement('btn-perfect')">
+            <h-list-item-content>
+              <h-list-item-text title="perfect center"/>
+            </h-list-item-content>
+          </h-list-item>
+
+        </h-list>
+      </list-help>
+    </template>
+  </page-layout>
 
 </template>
 
 <script>
 
 
-import  viewport from '../../components/others/viewport'
+import  PageLayout from '../pages/pageLayout'
 
 export default {
   name: 'Flexbox',
-
+  components: {
+    PageLayout
+  },
   data () {
     return {
-
-      showDrawer: true,
       flexgridrow: `
 <div class="row flex-container" style="background-color: DodgerBlue;">
   <div class="col">1</div>
@@ -945,32 +897,13 @@ export default {
       `
     }
   },
-
   mounted() {
-    this.checkMainBodyWidth()
   },
-
   methods: {
     goToElement(refName) {
-       viewport.goToElement(this.$refs[refName])
-    },
-  mounted () {
-    this.checkMainBodyWidth()
-  },
-
-    checkMainBodyWidth () {
-      let value = viewport.mainBodyWidth()
-      if (value < 961) {
-        this.showDrawer = false
-      }
-    },
-    pageResize (value) {
-      this.$refs.navHelp.onResize(value)
-
+      this.$refs.pl.goToElement(this.$refs[refName])
     }
-
-
-    }
+  }
 }
 </script>
 

@@ -1,8 +1,5 @@
 <template>
-  <h-page-content padding
-    @onResize="pageResize"
-    @mainLayoutDrawerIsOpened="showDrawer = false"
-  >
+  <page-layout ref="vl" title="Sidebar Menu">
     <template v-slot:left>
       <h-side-bar-menu
         class="h-ml-sm border border-gray border-radius"
@@ -62,64 +59,47 @@
       </h-side-bar-menu>
     </template>
 
-    <div class="row ">
-      <div class="col">
-        <div class="row position-sticky bg-white">
-          <div class="col text-h4">
-            Sidebar Menu
-          </div>
-          <div class="col-auto">
-            <h-image src="imgIcons/png/icon-help.png" @click="showDrawer = !showDrawer"/>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col">
+    <template v-slot:components>
+      <div ref="sidebarmenu-icons"/>
+      <comp-code class="h-mt-md" title="Icons" :code="icons">
+        <img src="imgsamples/sidebarMenuIcons.png"/>
+      </comp-code>
 
-            <div ref="sidebarmenu-icons"/>
-            <comp-code class="h-mt-md" title="Icons" :code="icons">
-              <img src="imgsamples/sidebarMenuIcons.png"/>
-            </comp-code>
+      <div ref="sidebarmenu-iconstext"/>
+      <comp-code class="h-mt-md" title="Icons and Text" :code="iconsText">
+        <img src="imgsamples/sidebarMenuIconsText.png"/>
+      </comp-code>
 
-            <div ref="sidebarmenu-iconstext"/>
-            <comp-code class="h-mt-md" title="Icons and Text" :code="iconsText">
-              <img src="imgsamples/sidebarMenuIconsText.png"/>
-            </comp-code>
+      <div ref="sidebarmenu-customcolor"/>
+      <comp-code class="h-mt-md" title="Custom Color" :code="customColor">
+        <img src="imgsamples/sidebarMenuCustomColor.png"/>
+      </comp-code>
 
-            <div ref="sidebarmenu-customcolor"/>
-            <comp-code class="h-mt-md" title="Custom Color" :code="customColor">
-              <img src="imgsamples/sidebarMenuCustomColor.png"/>
-            </comp-code>
-
-          </div>
-         </div>
-      </div>
-    </div>
-
-    <template v-slot:right>
-      <h-nav-drawer ref="navHelp" v-model="showDrawer" side="right">
-        <list-help>
-          <h-list>
-            <h-list-header text="Styles"/>
-            <h-list-item @click="goToElement('sidebarmenu-icons')">
-              <h-list-item-content>
-                <h-list-item-text title="Icons"></h-list-item-text>
-              </h-list-item-content>
-            </h-list-item>
-            <h-list-item @click="goToElement('sidebarmenu-iconstext')">
-              <h-list-item-content>
-                <h-list-item-text title="Icons and Text"></h-list-item-text>
-              </h-list-item-content>
-            </h-list-item>
-            <h-list-item @click="goToElement('sidebarmenu-customcolor')">
-              <h-list-item-content>
-                <h-list-item-text title="Custom Color"></h-list-item-text>
-              </h-list-item-content>
-            </h-list-item>
-          </h-list>
-        </list-help>
-      </h-nav-drawer>
     </template>
-  </h-page-content>
+
+    <template v-slot:help>
+      <list-help>
+        <h-list>
+          <h-list-header text="Styles"/>
+          <h-list-item @click="goToElement('sidebarmenu-icons')">
+            <h-list-item-content>
+              <h-list-item-text title="Icons"></h-list-item-text>
+            </h-list-item-content>
+          </h-list-item>
+          <h-list-item @click="goToElement('sidebarmenu-iconstext')">
+            <h-list-item-content>
+              <h-list-item-text title="Icons and Text"></h-list-item-text>
+            </h-list-item-content>
+          </h-list-item>
+          <h-list-item @click="goToElement('sidebarmenu-customcolor')">
+            <h-list-item-content>
+              <h-list-item-text title="Custom Color"></h-list-item-text>
+            </h-list-item-content>
+          </h-list-item>
+        </h-list>
+      </list-help>
+    </template>
+  </page-layout>
 
     <!-- <h2 class="text-primary"> Slide Menu List Help</h2>
     <h2 class="text-primary"> Vue Properties</h2>
@@ -191,13 +171,15 @@
 
 <script>
 
-import viewport from '../../../components/others/viewport'
+import PageLayout from '../pageLayout'
 
 export default {
   name: 'PageSliderMenu',
+  components: {
+    PageLayout
+  },
   data () {
     return {
-      showDrawer: true,
       icons: `
 <h-side-bar-menu class="border border-gray border-radius"
   bg-color="bg-white" text-color="text-gray600" style="width: 70px"
@@ -402,20 +384,10 @@ export default {
     }
   },
   mounted () {
-    this.checkMainBodyWidth()
   },
   methods: {
     goToElement (refName) {
-      viewport.goToElement(this.$refs[refName])
-    },
-    checkMainBodyWidth () {
-      let value = viewport.mainBodyWidth()
-      if (value < 961) {
-        this.showDrawer = false
-      }
-    },
-    pageResize (value) {
-      this.$refs.navHelp.onResize(value)
+      this.$refs.pl.goToElement(this.$refs[refName])
     }
   }
 }
