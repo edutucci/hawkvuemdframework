@@ -1,87 +1,68 @@
 <template>
-  <h-page-content padding
-    @onResize="pageResize"
-    @mainLayoutDrawerIsOpened="showDrawer = false"
-  >
-    <div class="row ">
-      <div class="col">
-        <div class="row position-sticky bg-white">
-          <div class="col text-h4">
-            Layout
-          </div>
-          <div class="col-auto">
-            <h-image src="imgIcons/png/icon-help.png" @click="showDrawer = !showDrawer"/>
+  <page-layout ref="pl" title="Layout">
+    <template v-slot:components>
+      <div ref="usage"/>
+      <comp-code title="Usage" class="h-mt-md" :code="layout1" page="template">
+      </comp-code>
+
+      <div ref="basicLayout"/>
+      <comp-code title="Basic Layout" class="h-mt-md" :code="layout2">
+        <div class="row justify-center">
+          <div class="col-auto h-pa-sm">
+            <h-image src="imgsamples/basicLayout.png" style="width:600px; height: 400px;"/>
           </div>
         </div>
-        <div class="row">
-          <div class="col">
+      </comp-code>
 
-            <div ref="usage"/>
-            <comp-code title="Usage" class="h-mt-md" :code="layout1" page="template">
-            </comp-code>
-
-            <div ref="basicLayout"/>
-            <comp-code title="Basic Layout" class="h-mt-md" :code="layout2">
-              <div class="row justify-center">
-                <div class="col-auto h-pa-sm">
-                  <h-image src="imgsamples/basicLayout.png" style="width:600px; height: 400px;"/>
-                </div>
-              </div>
-            </comp-code>
-
-            <div ref="layoutDrawerLeft"/>
-            <comp-code title="Layout Drawer Left" class="h-mt-md" :code="layout3"
-              :script="layout3Script" javascript
-            >
-              <div class="row justify-center">
-                <div class="col-auto h-pa-sm">
-                  <h-image src="imgsamples/layoutDrawer.png" style="width:600px; height: 400px;"/>
-                </div>
-              </div>
-            </comp-code>
-
+      <div ref="layoutDrawerLeft"/>
+      <comp-code title="Layout Drawer Left" class="h-mt-md" :code="layout3"
+        :script="layout3Script" javascript
+      >
+        <div class="row justify-center">
+          <div class="col-auto h-pa-sm">
+            <h-image src="imgsamples/layoutDrawer.png" style="width:600px; height: 400px;"/>
           </div>
-         </div>
-      </div>
-    </div>
-
-    <template v-slot:right>
-      <h-nav-drawer ref="navHelp" v-model="showDrawer" side="right">
-        <list-help>
-          <h-list>
-            <h-list-header text="Layout"/>
-            <h-list-item @click="goToElement('usage')">
-              <h-list-item-content>
-                <h-list-item-text title="Usage"></h-list-item-text>
-              </h-list-item-content>
-            </h-list-item>
-            <h-list-item @click="goToElement('basicLayout')">
-              <h-list-item-content>
-                <h-list-item-text title="Basic Layout"></h-list-item-text>
-              </h-list-item-content>
-            </h-list-item>
-            <h-list-item @click="goToElement('layoutDrawerLeft')">
-              <h-list-item-content>
-                <h-list-item-text title="Drawer Left"></h-list-item-text>
-              </h-list-item-content>
-            </h-list-item>
-          </h-list>
-        </list-help>
-      </h-nav-drawer>
+        </div>
+      </comp-code>
     </template>
-  </h-page-content>
+
+    <template v-slot:help>
+      <list-help>
+        <h-list>
+          <h-list-header text="Layout"/>
+          <h-list-item @click="goToElement('usage')">
+            <h-list-item-content>
+              <h-list-item-text title="Usage"></h-list-item-text>
+            </h-list-item-content>
+          </h-list-item>
+          <h-list-item @click="goToElement('basicLayout')">
+            <h-list-item-content>
+              <h-list-item-text title="Basic Layout"></h-list-item-text>
+            </h-list-item-content>
+          </h-list-item>
+          <h-list-item @click="goToElement('layoutDrawerLeft')">
+            <h-list-item-content>
+              <h-list-item-text title="Drawer Left"></h-list-item-text>
+            </h-list-item-content>
+          </h-list-item>
+        </h-list>
+      </list-help>
+    </template>
+  </page-layout>
 
 </template>
 
 <script>
 
-import viewport from '../../components/others/viewport'
+import PageLayout from '../pages/pageLayout'
 
 export default {
   name: 'Layout',
+  components: {
+    PageLayout
+  },
   data () {
     return {
-      showDrawer: true,
       layout1: `
 <h-main-body>
   <template v-slot:header>
@@ -210,20 +191,10 @@ export default {
     }
   },
   mounted () {
-    this.checkMainBodyWidth()
   },
   methods: {
     goToElement (refName) {
-      viewport.goToElement(this.$refs[refName])
-    },
-    checkMainBodyWidth () {
-      let value = viewport.mainBodyWidth()
-      if (value < 961) {
-        this.showDrawer = false
-      }
-    },
-    pageResize (value) {
-      this.$refs.navHelp.onResize(value)
+      this.$refs.pl.goToElement(this.$refs[refName])
     }
   }
 }
