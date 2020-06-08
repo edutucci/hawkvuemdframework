@@ -1,21 +1,7 @@
 <template>
-  <h-page-content padding
-    @onResize="pageResize"
-    @mainLayoutDrawerIsOpened="showDrawer = false"
-  >
-    <div class="row ">
-      <div class="col">
-        <div class="row position-sticky bg-white">
-          <div class="col text-h4">
-           Toogle
-          </div>
-          <div class="col-auto">
-            <h-image src="imgIcons/png/icon-help.png" @click="showDrawer = !showDrawer"/>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col">
-            <div ref="tg-boolean"/>
+  <page-layout ref="pl" title="Toogle">
+      <template v-slot:components>
+      <div ref="tg-boolean"/>
         <comp-code class="h-mt-lg" title="Boolean" :code="ckboolean" :script="ckbooleanScript"
           javascript
         >
@@ -109,13 +95,11 @@
           :properties="helpTopics.properties"
           :events="helpTopics.events"
         />
-          </div>
-         </div>
-      </div>
-    </div>
+      </template>
 
-    <template v-slot:right>
-      <h-nav-drawer ref="navHelp" v-model="showDrawer" side="right">
+
+    <template v-slot:help>
+
         <list-help>
           <h-list>
             <h-list-header text="Styles"/>
@@ -141,9 +125,9 @@
             </h-list-item>
           </h-list>
         </list-help>
-      </h-nav-drawer>
+      
     </template>
-  </h-page-content>
+  </page-layout>
 
 </template>
 

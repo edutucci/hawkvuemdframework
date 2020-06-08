@@ -1,15 +1,7 @@
 <template>
-  <h-page-content padding @onResize="pageResize" @mainLayoutDrawerIsOpened="showDrawer = false">
-    <div class="row">
-      <div class="col">
-        <div class="row position-sticky bg-white">
-          <div class="col text-h4">Collapsible</div>
-          <div class="col-auto">
-            <h-image src="imgIcons/png/icon-help.png" @click="showDrawer = !showDrawer" />
-          </div>
-        </div>
-        <div class="row">
-          <div class="col">
+  <page-layout ref="pl" title="Colapsible">
+
+            <template v-slot:components>
             <div ref="col-standard" />
             <comp-code title="standard" :code="ex1">
               <h-collapsible>
@@ -82,13 +74,10 @@
               :properties="helpTopics.collapsibleMenuProperties"
               :events="helpTopics.collapsibleMenuEvents"
             />
-          </div>
-        </div>
-      </div>
-    </div>
 
-    <template v-slot:right>
-      <h-nav-drawer ref="navHelp" v-model="showDrawer" side="right">
+      </template>
+    <template v-slot:help>
+
         <list-help>
           <h-list>
             <h-list-header text="Styles" />
@@ -109,14 +98,17 @@
             </h-list-item>
           </h-list>
         </list-help>
-      </h-nav-drawer>
+
     </template>
-  </h-page-content>
+  </page-layout>
 </template>
 <script>
 import viewport from "../../../components/others/viewport";
 import helpTopics from "./help";
+import PageLayout from '../pageLayout'
+
 export default {
+  components: {PageLayout},
   data() {
     return {
       showDrawer: true,
@@ -199,6 +191,8 @@ export default {
     },
     goToElement(refName) {
       viewport.goToElement(this.$refs[refName]);
+      this.$refs.pl.goToElement(this.$refs[refName]);
+
     },
     pageResize(value) {
       this.$refs.navHelp.onResize(value);

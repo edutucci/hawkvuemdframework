@@ -1,16 +1,7 @@
 <template>
-  <h-page-content padding @onResize="pageResize" @mainLayoutDrawerIsOpened="showDrawer = false">
-    <div class="row">
-      <div class="col">
-        <div class="row position-sticky bg-white">
-          <div class="col text-h4">Checkbox</div>
-          <div class="col-auto">
-            <h-image src="imgIcons/png/icon-help.png" @click="showDrawer = !showDrawer" />
-          </div>
-        </div>
-        <div class="row">
-          <div class="col">
-            <div ref="ck-boolean" />
+  <page-layout ref="pl" title="Checkbox">
+    <template v-slot:components>
+      <div ref="ck-boolean" />
             <comp-code title="Boolean" :code="ckboolean" :script="ckbooleanScript" javascript>
               <div class="column">
                 <div class="col">Do you agree to our terms and conditions?</div>
@@ -132,13 +123,10 @@
               :properties="helpTopics.properties"
               :events="helpTopics.events"
             />
-          </div>
-        </div>
-      </div>
-    </div>
+    </template>
 
-    <template v-slot:right>
-      <h-nav-drawer ref="navHelp" v-model="showDrawer" side="right">
+    <template v-slot:help>
+
         <list-help>
           <h-list>
             <h-list-header text="Usage" />
@@ -174,17 +162,20 @@
             </h-list-item>
           </h-list>
         </list-help>
-      </h-nav-drawer>
+
     </template>
-  </h-page-content>
+  </page-layout>
 </template>
 
 <script>
-import viewport from "../../../components/others/viewport";
 import helpTopics from "./help";
+import PageLayout from "../pageLayout"
+import viewport from "../../../components/others/viewport";
+
 
 export default {
-  components: {},
+  components: {PageLayout},
+
   mounted() {
     this.helpTopics.properties = helpTopics.properties;
     this.helpTopics.events = helpTopics.events;
@@ -363,6 +354,7 @@ export default {
     },
     goToElement(refName) {
       viewport.goToElement(this.$refs[refName]);
+      this.$refs.pl.goToElement(this.$refs[refName]);
     },
     pageResize(value) {
       this.$refs.navHelp.onResize(value);

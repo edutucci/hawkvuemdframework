@@ -1,5 +1,5 @@
 <template>
-  <h-page-content padding 
+  <h-page-content padding
     @onResize="pageResize"
     @mainLayoutDrawerIsOpened="showDrawer = false"
   >
@@ -19,7 +19,7 @@
           </div>
       </div>
     </div>
-
+  
     <template v-slot:right>
       <h-nav-drawer ref="navHelp" v-model="showDrawer" side="right">
         <slot name="help"/>
@@ -59,7 +59,7 @@ export default {
   //   this.helpTopics.events = helpTopics.events;
   // },
   watch: {
-    
+
   },
   methods: {
     goToElement(element) {
