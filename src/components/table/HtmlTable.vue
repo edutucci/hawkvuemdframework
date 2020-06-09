@@ -1,4 +1,5 @@
 <template lang="pug">
+  .scroll
     table.bg-white(
       cellspacing="0"
       class="border-radius"
@@ -6,7 +7,7 @@
     )
       thead
         tr
-          th.text-left.h-pa-xs.text-body2.text-gray(
+          th.text-left.h-pa-xs.text-body2(
             v-for="(col, index) in columns" :key="col"
           )
             | {{col}}
@@ -56,8 +57,9 @@ export default {
 
 <style scoped>
 table {
+  table-layout: auto;
+  margin: 20px auto;
   width: 100%;
-  overflow:hidden;
 }
 
 table.borders {
@@ -80,10 +82,17 @@ tr > td,
 tr > th {
   font-size: 14px;
   letter-spacing: 0.25px;
+  width: auto !important;
+}
+
+tr > th {
+  color: gray;
+  width: 30px;
 }
 
 table.borders.cell-separator > tbody > tr > td:not(:first-child),
 table.borders.cell-separator > thead > tr > th:not(:first-child) {
   border-left: 1px solid gray;
 }
+
 </style>

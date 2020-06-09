@@ -25,6 +25,25 @@ function goToElement (element) {
   }
 }
 
+function subtractPageScroll (element) {
+  if (element) {
+    let height = element.clientHeight
+    let pageContent = document.getElementById('page-content-slot')
+    if (pageContent) {
+      pageContent.scrollTop -= height
+    }
+  }
+}
+
+function mainBodyWidth () {
+  let value = 0
+  let elemmainbody = document.getElementById('mainbody')
+  if (elemmainbody) {
+    value = elemmainbody.clientWidth
+  }
+  return value
+}
+
 // function getPageHeaderHeight () {
 //   let pageHeader = document.getElementById('page-header')
 //   let pageHeaderHeight = 0
@@ -86,6 +105,9 @@ function goToElement (element) {
 
 let viewport = {
   elementBelowOfPage: elementBelowOfPage,
-  goToElement: goToElement
+  goToElement: goToElement,
+  subtractPageScroll: subtractPageScroll,
+  mainBodyWidth: mainBodyWidth
 }
+
 export default viewport

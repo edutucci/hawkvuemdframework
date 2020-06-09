@@ -1,85 +1,86 @@
 <template>
-  <h-page-content padding>
-    <div class="row">
-      <div class="col">
-        <div class="text-h4">Youtube Video</div>
-
-        <div ref="vd-1"/>
-        <comp-code class="h-mt-lg" title="video 1" :code="ex1">
-          <div>
-            <h-youtube-video :width="340" :height="220" src="https://www.youtube.com/embed/nSmMkeNjjPg"/>
-          </div>
-        </comp-code>
-
-        <div ref="vd-2"/>
-        <comp-code class="h-mt-lg" title="video 2" :code="ex2">
-          <div>
-            <h-youtube-video :width="340" :height="220" src="https://www.youtube.com/embed/NPjzUyax4tw"/>
-          </div>
-        </comp-code>
-
-        <div class="h-mt-md text-primary text-bold"> How to use </div>
+  <page-layout ref="pl" title="Youtube Video">
+    <template v-slot:components>
+      <div ref="vd-1"/>
+      <comp-code class="h-mt-lg" title="video 1" :code="ex1">
         <div>
-          <prism language="html" :code="cod1"/>
+          <h-youtube-video :width="340" :height="220" src="https://www.youtube.com/embed/nSmMkeNjjPg"/>
         </div>
+      </comp-code>
 
-        <!-- <prism language="html" :code="cod1" scroll></prism> -->
+      <div ref="vd-2"/>
+      <comp-code class="h-mt-lg" title="video 2" :code="ex2">
+        <div>
+          <h-youtube-video :width="340" :height="220" src="https://www.youtube.com/embed/NPjzUyax4tw"/>
+        </div>
+      </comp-code>
 
-        <!-- <h2 class="text-primary"> Vue Properties</h2>
-        <hr>
-        <div class="flex">
-          <div>
-            <h3>Name</h3>
-            <div>width</div>
-            <div>height</div>
-            <div>src</div>
-            <div>autoplay</div>
-          </div>
-          <div class="h-pl-md">
-            <h3>Type</h3>
-            <div>Number</div>
-            <div>Number</div>
-            <div>String</div>
-            <div>Boolean</div>
-          </div>
-          <div class="h-pl-md">
-            <h3 >Description</h3>
-            <div>Width of the video</div>
-            <div>Height of the video</div>
-            <div>Sets the video url.</div>
-            <div>Starts the video automatically.</div>
-          </div>
-        </div> -->
+      <div class="h-mt-md text-primary text-bold"> How to use </div>
+      <div>
+        <prism language="html" :code="cod1"/>
       </div>
-      <div class="col-auto">
-        <list-help>
-          <h-list>
-            <h-list-header text="Youtube Video"/>
-            <h-list-item @click="goToElement('vd-1')">
-              <h-list-item-content>
-                <h-list-item-text title="Video 1"></h-list-item-text>
-              </h-list-item-content>
-            </h-list-item>
-            <h-list-item @click="goToElement('vd-2')">
-              <h-list-item-content>
-                <h-list-item-text title="Video 2"></h-list-item-text>
-              </h-list-item-content>
-            </h-list-item>
-          </h-list>
-        </list-help>
-      </div>
-    </div>
 
-  </h-page-content>
+      <!-- <prism language="html" :code="cod1" scroll></prism> -->
+
+      <!-- <h2 class="text-primary"> Vue Properties</h2>
+      <hr>
+      <div class="flex">
+        <div>
+          <h3>Name</h3>
+          <div>width</div>
+          <div>height</div>
+          <div>src</div>
+          <div>autoplay</div>
+        </div>
+        <div class="h-pl-md">
+          <h3>Type</h3>
+          <div>Number</div>
+          <div>Number</div>
+          <div>String</div>
+          <div>Boolean</div>
+        </div>
+        <div class="h-pl-md">
+          <h3 >Description</h3>
+          <div>Width of the video</div>
+          <div>Height of the video</div>
+          <div>Sets the video url.</div>
+          <div>Starts the video automatically.</div>
+        </div>
+      </div> -->
+    </template>
+
+    <template v-slot:help>
+      <list-help>
+        <h-list>
+          <h-list-header text="Youtube Video"/>
+          <h-list-item @click="goToElement('vd-1')">
+            <h-list-item-content>
+              <h-list-item-text title="Video 1"></h-list-item-text>
+            </h-list-item-content>
+          </h-list-item>
+          <h-list-item @click="goToElement('vd-2')">
+            <h-list-item-content>
+              <h-list-item-text title="Video 2"></h-list-item-text>
+            </h-list-item-content>
+          </h-list-item>
+        </h-list>
+      </list-help>
+    </template>
+  </page-layout>
+
 </template>
 
 <script>
 
-import viewport from '../../../components/others/viewport'
+import PageLayout from '../pageLayout'
 
 export default {
+  components: {
+    PageLayout
+  },
   data () {
     return {
+      showDrawer: true,
       ex1: `
 <div>
   <h-youtube-video :width="340" :height="220" src="https://www.youtube.com/embed/nSmMkeNjjPg"/>
@@ -105,9 +106,11 @@ export default {
 `
     }
   },
+  mounted () {
+  },
   methods: {
     goToElement (refName) {
-      viewport.goToElement(this.$refs[refName])
+      this.$refs.pl.goToElement(this.$refs[refName])
     }
   }
 }

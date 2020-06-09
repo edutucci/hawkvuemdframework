@@ -1,11 +1,7 @@
 <template>
-  <h-page-content padding>
-
-    <div class="row">
-      <div class="col">
-        <div class="text-h4">Rating</div>
-
-        <div ref="rt-normalpoint"/>
+  <page-layout ref="pl" title="Rating">
+        <template v-slot:components>
+      <div ref="rt-normalpoint"/>
         <comp-code class="h-mt-lg" title="Normal Point" :code="ex1" :script="ex1Script"
           javascript
         >
@@ -36,8 +32,10 @@
           :properties="helpTopics.properties"
           :events="helpTopics.events"
         />
-      </div>
-      <div class="col-auto">
+
+      </template>
+    <template v-slot:help>
+     
         <list-help>
           <h-list>
             <h-list-header text="Styles"/>
@@ -58,19 +56,25 @@
             </h-list-item>
           </h-list>
         </list-help>
-      </div>
-    </div>
-  </h-page-content>
+
+    </template>
+  </page-layout>
+
 </template>
 
 <script>
 
 import viewport from '../../../components/others/viewport'
 import helpTopics from './help'
+import PageLayout from '../pageLayout';
 
 export default {
+
+  components: {PageLayout},
+
   data () {
     return {
+      showDrawer: true,
       helpTopics: {
         properties: [],
         events: []
@@ -128,10 +132,21 @@ export default {
   mounted () {
     this.helpTopics.properties = helpTopics.properties
     this.helpTopics.events = helpTopics.events
+    this.checkMainBodyWidth()
   },
   methods: {
-    goToElement (refName) {
-      viewport.goToElement(this.$refs[refName])
+    checkMainBodyWidth () {
+      let value = viewport.mainBodyWidth()
+      if (value < 961) {
+        this.showDrawer = false
+      }
+    },
+    goToElement(refName) {
+      viewport.goToElement(this.$refs[refName]);
+      this.$refs.pl.goToElement(this.$refs[refName]);
+    },
+    pageResize(value) {
+      this.$refs.navHelp.onResize(value);
     }
   }
 }

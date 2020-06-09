@@ -1,11 +1,6 @@
 <template>
-  <h-page-content padding>
-
-    <div class="row">
-      <div class="col">
-
-        <div class="text-h4"> Radio Buttons </div>
-
+  <page-layout ref="pl" title="Radio">
+      <template v-slot:components>
         <div ref="rd-boolean"/>
         <comp-code class="h-mt-lg" title="Boolean" :code="rbboolean" :script="rbbooleanScript"
           javascript
@@ -119,44 +114,16 @@
 
         </comp-code>
 
-        <!-- <h2 class="text-primary"> Vue Properties</h2>
-        <hr>
-
-        <div class="flex">
-          <div>
-            <h3>Name</h3>
-            <div>disabled</div>
-          </div>
-          <div class="h-pl-md">
-            <h3>Type</h3>
-            <div>Boolean</div>
-          </div>
-          <div class="h-pl-md">
-            <h3 >Description</h3>
-            <div>if true the radio is disabled</div>
-          </div>
-        </div>
-
-        <h2 class="text-primary"> Vue Events</h2>
-        <hr>
-
-        <div class="flex">
-          <div>
-            <h3>Name</h3>
-            <div>@change(value)</div>
-          </div>
-          <div class="h-pl-md">
-            <h3>Description</h3>
-            <div>Triggered immediately on model change</div>
-          </div>
-        </div> -->
-        <tabs-help
+            <tabs-help
           class="h-mt-md"
           :properties="helpTopics.properties"
           :events="helpTopics.events"
         />
-      </div>
-      <div class="col-auto">
+
+
+      </template>
+    <template v-slot:help>
+
         <list-help>
           <h-list>
             <h-list-header text="Usage"/>
@@ -192,19 +159,23 @@
             </h-list-item>
           </h-list>
         </list-help>
-      </div>
-    </div>
-  </h-page-content>
+      
+    </template>
+  </page-layout>
+
 </template>
 
 <script>
 
 import viewport from '../../../components/others/viewport'
 import helpTopics from './help'
+import PageLayout from '../pageLayout';
 
 export default {
+  components: {PageLayout},
   data () {
     return {
+      showDrawer :  true,
       helpTopics: {
         properties: [],
         events: []
@@ -262,7 +233,7 @@ export default {
       typeReadOnly: 'a2'
     }
   }
-}      
+}
 `,
       rblist: `
 <div class="column">
@@ -311,7 +282,7 @@ export default {
       typeNumber: 0
     }
   }
-}    
+}
 `,
       rbchecked: `
 <div class="column">
@@ -375,11 +346,21 @@ export default {
   mounted () {
     this.helpTopics.properties = helpTopics.properties
     // this.helpTopics.events = helpTopics.events
+    this.checkMainBodyWidth()
   },
   methods: {
     goToElement (refName) {
       viewport.goToElement(this.$refs[refName])
+    },
+    pageResize (value) {
+      this.$refs.navHelp.onResize(value)
+    },
+    checkMainBodyWidth () {
+      let value = viewport.mainBodyWidth()
+      if (value < 961) {
+        this.showDrawer = false
     }
+  },
   }
 }
 </script>

@@ -5,19 +5,19 @@
     <h-separator></h-separator>
 
     <div class="xs bg-primary">
-      my content page xs (max 640px)
+      my content page xs (equal 640px)
     </div>
 
     <div class="sm bg-negative">
-      my content page sm (max 960px)
+      my content page sm (equal 960px)
     </div>
 
     <div class="md bg-positive">
-      my content page md (max 1440px)
+      my content page md (equal 1440px)
     </div>
 
     <div class="lg bg-info">
-      my content page lg (max 1920px)
+      my content page lg (equal 1920px)
     </div>
 
     <div class="text-h4">Higher</div>

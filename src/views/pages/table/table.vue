@@ -1,263 +1,264 @@
 <template>
-  <h-page-content padding>
+  <page-layout ref="pl" title="Table">
+    <template v-slot:components>
+      <div class="text-h5">The Column Configuration</div>
+      <prism :code="columnObj"></prism>
 
-    <div class="row">
-      <div class="col">
-        <h1>Table</h1>
+      <div ref="table-sample"/>
+      <comp-code title="Table Sample" :code="table" :script="tableScript" javascript>
+        <h-table
+          title="Users"
+          :columns="tableColumns"
+          :rows="tableData"
+          style="height: 350px"
+        />
+      </comp-code>
 
-        <div class="text-h5">The Column Configuration</div>
-        <prism :code="columnObj"></prism>
+      <div ref="table-customcolumn"/>
+      <comp-code class="h-mt-md" title="Custom columns" :code="table2" :script="table2Script" javascript>
+        <h-table
+          title="Users"
+          :columns="tableColumns2"
+          :rows="tableData"
+          lineheight="40px"
+          style="height: 350px"
+        >
+          <template slot="avatar" slot-scope="avatar">
+            <img :src="avatar.value" style="width:40px; height:40px;"/>
+          </template>
+          <template slot="status" slot-scope="status">
+            <h-icon v-if="status.value === 'online'" image icon="imgIcons/png/checked.png" size="40px;"> Online </h-icon>
+            <h-icon v-else-if="status.value === 'offline'" image icon="imgIcons/png/warning-shield.png" size="40px;"> Offline </h-icon>
+          </template>
+          <template slot="actions" slot-scope="row">
+            <h-icon icon="fas fa-edit" @click="editRow(row)"/>
+            <h-icon class="h-pl-md" icon="fas fa-times-circle" @click="deleteRows(row)"/>
+          </template>
+        </h-table>
+      </comp-code>
 
-        <div ref="table-sample"/>
-        <comp-code title="Table Sample" :code="table" :script="tableScript" javascript>
-          <h-table
-            title="Users"
-            :columns="tableColumns"
-            :rows="tableData"
-            style="height: 350px"
-          />
-        </comp-code>
+      <div ref="table-selectable"/>
+      <comp-code class="h-mt-md" title="Selectable" :code="table3" :script="table3Script" javascript>
+        <h-table
+          selectable
+          title="Users"
+          :columns="tableColumns"
+          :rows="tableData"
+          @selectedRows="selectedRows = $event"
+          lineheight="40px"
+          @addRows="addRows"
+          @editRow="editRow"
+          @deleteRows="deleteRows"
+          style="height: 350px"
+        >
+          <template v-slot:custom-header>
+            <div class="row">
+              <div class="col-auto">
+                <h-btn v-if="selectedRows.length === 0" left-icon="fas fa-plus"/>
+                <h-btn v-if="selectedRows.length === 1" left-icon="fas fa-edit" class="h-pr-md"/>
+                <h-btn v-if="selectedRows.length > 0"  left-icon="fas fa-trash-alt" class="h-pr-md"/>
+              </div>
+            </div>
+          </template>
+        </h-table>
+      </comp-code>
 
-        <div ref="table-customcolumn"/>
-        <comp-code class="h-mt-md" title="Custom columns" :code="table2" :script="table2Script" javascript>
-          <h-table
-            title="Users"
-            :columns="tableColumns2"
-            :rows="tableData"
-            lineheight="40px"
-            style="height: 350px"
-          >
-            <template slot="avatar" slot-scope="avatar">
-              <img :src="avatar.value" style="width:40px; height:40px;"/>
-            </template>
-            <template slot="status" slot-scope="status">
-              <h-icon v-if="status.value === 'online'" image icon="imgIcons/png/checked.png" size="40px;"> Online </h-icon>
-              <h-icon v-else-if="status.value === 'offline'" image icon="imgIcons/png/warning-shield.png" size="40px;"> Offline </h-icon>
-            </template>
-            <template slot="actions" slot-scope="row">
-              <h-icon icon="fas fa-edit" @click="editRow(row)"/>
-              <h-icon class="h-pl-md" icon="fas fa-times-circle" @click="deleteRows(row)"/>
-            </template>
-          </h-table>
-        </comp-code>
+      <div ref="table-filter"/>
+      <comp-code class="h-mt-md" title="Filter" :code="table4" :script="tableScript" javascript>
+        <h-table
+          filter
+          title="Users"
+          :columns="tableColumns"
+          :rows="tableData"
+          style="height: 350px"
+        >
+        </h-table>
+      </comp-code>
 
-        <div ref="table-selectable"/>
-        <comp-code class="h-mt-md" title="Selectable" :code="table3" :script="table3Script" javascript>
-          <h-table
-            selectable
-            title="Users"
-            :columns="tableColumns"
-            :rows="tableData"
-            @selectedRows="selectedRows = $event"
-            lineheight="40px"
-            @addRows="addRows"
-            @editRow="editRow"
-            @deleteRows="deleteRows"
-            style="height: 350px"
-          >
-            <template v-slot:custom-header>
-              <div class="row">
-                <div class="col-auto">
-                  <h-btn v-if="selectedRows.length === 0" left-icon="fas fa-plus"/>
-                  <h-btn v-if="selectedRows.length === 1" left-icon="fas fa-edit" class="h-pr-md"/>
-                  <h-btn v-if="selectedRows.length > 0"  left-icon="fas fa-trash-alt" class="h-pr-md"/>
+      <div ref="table-customheader"/>
+      <comp-code class="h-mt-md" title="Custom header" :code="tableCustomHeader" :script="table2Script" javascript>
+        <h-table
+          title="Users"
+          :columns="tableColumns2"
+          :rows="tableData"
+          lineheight="40px"
+          style="height: 350px"
+        >
+          <template v-slot:custom-header>
+            <div class="row">
+              <div class="col-auto">
+                <h-btn
+                  dropdown
+                  text="View by status"
+                  bg-color="bg-primary" text-color="text-white"
+                  v-model="btnUserStatus"
+                  @click="btnUserStatus = true"
+                >
+                  <h-list style="width: 150px;">
+                    <h-list-item>
+                      <h-list-item-content>
+                        <h-list-item-text title="Online"/>
+                      </h-list-item-content>
+                    </h-list-item>
+                    <h-list-item>
+                      <h-list-item-content>
+                        <h-list-item-text title="Offline"/>
+                      </h-list-item-content>
+                    </h-list-item>
+                  </h-list>
+                </h-btn>
+              </div>
+              <div class="col">
+                <div class="row justify-end">
+                  <h-btn text="New User" bg-color="bg-primary" text-color="text-white"/>
+                  <h-btn class="h-ml-xs" text="Export to PDF" bg-color="bg-primary" text-color="text-white"/>
                 </div>
               </div>
-            </template>
-          </h-table>
-        </comp-code>
 
-        <div ref="table-filter"/>
-        <comp-code class="h-mt-md" title="Filter" :code="table4" :script="tableScript" javascript>
-          <h-table
-            filter
-            title="Users"
-            :columns="tableColumns"
-            :rows="tableData"
-            style="height: 350px"
-          >
-          </h-table>
-        </comp-code>
+            </div>
+          </template>
 
-        <div ref="table-customheader"/>
-        <comp-code class="h-mt-md" title="Custom header" :code="tableCustomHeader" :script="table2Script" javascript>
-          <h-table
-            title="Users"
-            :columns="tableColumns2"
-            :rows="tableData"
-            lineheight="40px"
-            style="height: 350px"
-          >
-            <template v-slot:custom-header>
-              <div class="row">
-                <div class="col-auto">
-                  <h-btn
-                    dropdown
-                    text="View by status"
-                    bg-color="bg-primary" text-color="text-white"
-                    v-model="btnUserStatus"
-                    @click="btnUserStatus = true"
-                  >
-                    <h-list style="width: 150px;">
-                      <h-list-item>
-                        <h-list-item-content>
-                          <h-list-item-text title="Online"/>
-                        </h-list-item-content>
-                      </h-list-item>
-                      <h-list-item>
-                        <h-list-item-content>
-                          <h-list-item-text title="Offline"/>
-                        </h-list-item-content>
-                      </h-list-item>
-                    </h-list>
-                  </h-btn>
-                </div>
-                <div class="col">
-                  <div class="row justify-end">
-                    <h-btn text="New User" bg-color="bg-primary" text-color="text-white"/>
-                    <h-btn class="h-ml-xs" text="Export to PDF" bg-color="bg-primary" text-color="text-white"/>
-                  </div>
-                </div>
+          <template slot="avatar" slot-scope="avatar">
+            <img :src="avatar.value" style="width:40px; height:40px;"/>
+          </template>
+          <template slot="status" slot-scope="status">
+            <h-icon v-if="status.value === 'online'" image icon="imgIcons/png/checked.png" size="40px;"> Online </h-icon>
+            <h-icon v-else-if="status.value === 'offline'" image icon="imgIcons/png/warning-shield.png" size="40px;"> Offline </h-icon>
+          </template>
+          <template slot="actions" slot-scope="row">
+            <h-icon icon="fas fa-edit" @click="editRow(row)"/>
+            <h-icon class="h-pl-md" icon="fas fa-times-circle" @click="deleteRows(row)"/>
+          </template>
+        </h-table>
+      </comp-code>
 
-              </div>
-            </template>
+      <div ref="table-startallrows"/>
+      <comp-code class="h-mt-md" title="Start With All Rows" :code="tableStartAllRows" :script="table2Script" javascript>
+        <h-table
+          start-with-all-rows
+          title="Users"
+          :columns="tableColumns2"
+          :rows="tableData"
+          lineheight="40px"
+          style="max-height: 750px"
+        >
+          <template slot="avatar" slot-scope="avatar">
+            <img :src="avatar.value" style="width:40px; height:40px;"/>
+          </template>
+          <template slot="status" slot-scope="status">
+            <h-icon v-if="status.value === 'online'" image icon="imgIcons/png/checked.png" size="40px;"> Online </h-icon>
+            <h-icon v-else-if="status.value === 'offline'" image icon="imgIcons/png/warning-shield.png" size="40px;"> Offline </h-icon>
+          </template>
+          <template slot="actions" slot-scope="row">
+            <h-icon icon="fas fa-edit" @click="editRow(row)"/>
+            <h-icon class="h-pl-md" icon="fas fa-times-circle" @click="deleteRows(row)"/>
+          </template>
+        </h-table>
+      </comp-code>
 
-            <template slot="avatar" slot-scope="avatar">
-              <img :src="avatar.value" style="width:40px; height:40px;"/>
-            </template>
-            <template slot="status" slot-scope="status">
-              <h-icon v-if="status.value === 'online'" image icon="imgIcons/png/checked.png" size="40px;"> Online </h-icon>
-              <h-icon v-else-if="status.value === 'offline'" image icon="imgIcons/png/warning-shield.png" size="40px;"> Offline </h-icon>
-            </template>
-            <template slot="actions" slot-scope="row">
-              <h-icon icon="fas fa-edit" @click="editRow(row)"/>
-              <h-icon class="h-pl-md" icon="fas fa-times-circle" @click="deleteRows(row)"/>
-            </template>
-          </h-table>
-        </comp-code>
+      <!-- <h2 class="text-primary"> Table Help</h2>
+      <h2 class="text-primary"> Vue Properties</h2>
+      <hr>
 
-        <div ref="table-startallrows"/>
-        <comp-code class="h-mt-md" title="Start With All Rows" :code="tableStartAllRows" :script="table2Script" javascript>
-          <h-table
-            start-with-all-rows
-            title="Users"
-            :columns="tableColumns2"
-            :rows="tableData"
-            lineheight="40px"
-            style="max-height: 750px"
-          >
-            <template slot="avatar" slot-scope="avatar">
-              <img :src="avatar.value" style="width:40px; height:40px;"/>
-            </template>
-            <template slot="status" slot-scope="status">
-              <h-icon v-if="status.value === 'online'" image icon="imgIcons/png/checked.png" size="40px;"> Online </h-icon>
-              <h-icon v-else-if="status.value === 'offline'" image icon="imgIcons/png/warning-shield.png" size="40px;"> Offline </h-icon>
-            </template>
-            <template slot="actions" slot-scope="row">
-              <h-icon icon="fas fa-edit" @click="editRow(row)"/>
-              <h-icon class="h-pl-md" icon="fas fa-times-circle" @click="deleteRows(row)"/>
-            </template>
-          </h-table>
-        </comp-code>
-
-        <!-- <h2 class="text-primary"> Table Help</h2>
-        <h2 class="text-primary"> Vue Properties</h2>
-        <hr>
-
-        <div class="flex">
-          <div>
-            <h3>Name</h3>
-            <div>title</div>
-            <div>columns</div>
-            <div>rows</div>
-            <div>lineheight</div>
-            <div>selectable</div>
-          </div>
-          <div class="h-pl-md">
-            <h3>Type</h3>
-            <div>String</div>
-            <div>Array</div>
-            <div>Array</div>
-            <div>String</div>
-            <div>Booelan</div>
-          </div>
-          <div class="h-pl-md">
-            <h3 >Description</h3>
-            <div>Sets the table title</div>
-            <div>Array of object for each column data</div>
-            <div>Array of object with table rows data</div>
-            <div>Sets the line for each table row. Ex: lineheight="40px"</div>
-            <div>Add checkbox to each row</div>
-          </div>
+      <div class="flex">
+        <div>
+          <h3>Name</h3>
+          <div>title</div>
+          <div>columns</div>
+          <div>rows</div>
+          <div>lineheight</div>
+          <div>selectable</div>
         </div>
-
-        <h2 class="text-primary"> Vue Events</h2>
-        <hr>
-
-        <div class="flex">
-          <div>
-            <h3>Name</h3>
-            <div>@addRows(value)</div>
-            <div>@editRow(value)</div>
-            <div>@deleteRows(value)</div>
-          </div>
-          <div class="h-pl-md">
-            <h3>Description</h3>
-            <div>Triggered when user clicks on plus icon in table header. The selected rows is sent.</div>
-            <div>Triggered when user clicks on edit icon in table header. The selected row is sent.</div>
-            <div>Triggered when user clicks on trash icon in table header. The selected rows is sent.</div>
-          </div>
-        </div> -->
+        <div class="h-pl-md">
+          <h3>Type</h3>
+          <div>String</div>
+          <div>Array</div>
+          <div>Array</div>
+          <div>String</div>
+          <div>Booelan</div>
+        </div>
+        <div class="h-pl-md">
+          <h3 >Description</h3>
+          <div>Sets the table title</div>
+          <div>Array of object for each column data</div>
+          <div>Array of object with table rows data</div>
+          <div>Sets the line for each table row. Ex: lineheight="40px"</div>
+          <div>Add checkbox to each row</div>
+        </div>
       </div>
-      <div class="col-auto">
-        <list-help>
-          <h-list>
-            <h-list-header text="Usage"/>
-            <h-list-item @click="goToElement('table-sample')">
-              <h-list-item-content>
-                <h-list-item-text title="Example"></h-list-item-text>
-              </h-list-item-content>
-            </h-list-item>
-            <h-list-item @click="goToElement('table-customcolumn')">
-              <h-list-item-content>
-                <h-list-item-text title="Custom Column"></h-list-item-text>
-              </h-list-item-content>
-            </h-list-item>
-            <h-list-item @click="goToElement('table-selectable')">
-              <h-list-item-content>
-                <h-list-item-text title="Selectable"></h-list-item-text>
-              </h-list-item-content>
-            </h-list-item>
-            <h-list-item @click="goToElement('table-filter')">
-              <h-list-item-content>
-                <h-list-item-text title="Filter"></h-list-item-text>
-              </h-list-item-content>
-            </h-list-item>
-            <h-list-item @click="goToElement('table-customheader')">
-              <h-list-item-content>
-                <h-list-item-text title="Custom Header"></h-list-item-text>
-              </h-list-item-content>
-            </h-list-item>
-            <h-list-item @click="goToElement('table-startallrows')">
-              <h-list-item-content>
-                <h-list-item-text title="Start All Rows"></h-list-item-text>
-              </h-list-item-content>
-            </h-list-item>
-          </h-list>
-        </list-help>
-      </div>
-    </div>
 
-  </h-page-content>
+      <h2 class="text-primary"> Vue Events</h2>
+      <hr>
+
+      <div class="flex">
+        <div>
+          <h3>Name</h3>
+          <div>@addRows(value)</div>
+          <div>@editRow(value)</div>
+          <div>@deleteRows(value)</div>
+        </div>
+        <div class="h-pl-md">
+          <h3>Description</h3>
+          <div>Triggered when user clicks on plus icon in table header. The selected rows is sent.</div>
+          <div>Triggered when user clicks on edit icon in table header. The selected row is sent.</div>
+          <div>Triggered when user clicks on trash icon in table header. The selected rows is sent.</div>
+        </div>
+      </div> -->
+
+    </template>
+
+    <template v-slot:help>
+      <list-help>
+        <h-list>
+          <h-list-header text="Usage"/>
+          <h-list-item @click="goToElement('table-sample')">
+            <h-list-item-content>
+              <h-list-item-text title="Example"></h-list-item-text>
+            </h-list-item-content>
+          </h-list-item>
+          <h-list-item @click="goToElement('table-customcolumn')">
+            <h-list-item-content>
+              <h-list-item-text title="Custom Column"></h-list-item-text>
+            </h-list-item-content>
+          </h-list-item>
+          <h-list-item @click="goToElement('table-selectable')">
+            <h-list-item-content>
+              <h-list-item-text title="Selectable"></h-list-item-text>
+            </h-list-item-content>
+          </h-list-item>
+          <h-list-item @click="goToElement('table-filter')">
+            <h-list-item-content>
+              <h-list-item-text title="Filter"></h-list-item-text>
+            </h-list-item-content>
+          </h-list-item>
+          <h-list-item @click="goToElement('table-customheader')">
+            <h-list-item-content>
+              <h-list-item-text title="Custom Header"></h-list-item-text>
+            </h-list-item-content>
+          </h-list-item>
+          <h-list-item @click="goToElement('table-startallrows')">
+            <h-list-item-content>
+              <h-list-item-text title="Start All Rows"></h-list-item-text>
+            </h-list-item-content>
+          </h-list-item>
+        </h-list>
+      </list-help>
+    </template>
+  </page-layout>
+
 </template>
 
 <script>
 
-import viewport from '../../../components/others/viewport'
+import PageLayout from '../pageLayout'
 
 export default {
+  components: {
+    PageLayout
+  },
   data () {
     return {
+      showDrawer: true,
       btnUserStatus: false,
       selectedRows: [],
       tableColumns: [
@@ -926,7 +927,7 @@ export default {
   },
   methods: {
     goToElement (refName) {
-      viewport.goToElement(this.$refs[refName])
+      this.$refs.pl.goToElement(this.$refs[refName])
     },
     addTableRows () {
       this.tableData = []

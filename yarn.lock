@@ -4102,6 +4102,26 @@ hash.js@^1.0.0, hash.js@^1.0.3:
     inherits "^2.0.3"
     minimalistic-assert "^1.0.1"
 
+hawkvuemd@^1.0.12-rc.0:
+  version "1.0.12-rc.0"
+  resolved "https://registry.yarnpkg.com/hawkvuemd/-/hawkvuemd-1.0.12-rc.0.tgz#f2b082986dea37e9461aaac32c9f5d85e051af6c"
+  integrity sha512-dzi3gw1sjVy3FXv3wf0YA7KGmcQWEMHfhxTC6H75dJrUxe5hmAq8yy25m1P9DqWwsKRq/LDdbOSyyeeDOTykrw==
+  dependencies:
+    axios "^0.19.2"
+    core-js "^3.6.4"
+    moment "^2.24.0"
+    pug "^2.0.4"
+    pug-plain-loader "^1.0.0"
+    stylus "^0.54.7"
+    stylus-loader "^3.0.2"
+    vue "^2.6.11"
+    vue-clickaway "^2.2.2"
+    vue-dragscroll "^2.0.1"
+    vue-focus "^2.1.0"
+    vue-prismjs "^1.2.0"
+    vue-resize-directive "^1.2.0"
+    vue-router "^3.1.6"
+
 he@1.2.x, he@^1.1.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/he/-/he-1.2.0.tgz#84ae65fa7eafb165fddb61566ae14baf05664f0f"
