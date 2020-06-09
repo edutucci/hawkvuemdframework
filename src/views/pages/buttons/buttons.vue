@@ -457,7 +457,7 @@
         class="h-mt-md"
         :properties="helpTopics.properties"
         :events="helpTopics.events"
-      />      
+      />
     </template>
 
     <template v-slot:help>
@@ -522,12 +522,11 @@
 </template>
 
 <script>
-import mxButtons from "./mxButtons";
-import helpTopics from "./help";
+
 import PageLayout from "../pageLayout"
 
 export default {
-  mixins: [mxButtons],
+
   components: {
     PageLayout
   },
@@ -545,10 +544,7 @@ export default {
       image: false
     };
   },
-  mounted () {
-    this.helpTopics.properties = helpTopics.properties;
-    this.helpTopics.events = helpTopics.events;
-  },
+  
   methods: {
     goToElement(refName) {
       this.$refs.pl.goToElement(this.$refs[refName]);

@@ -125,7 +125,7 @@
             </h-list-item>
           </h-list>
         </list-help>
-      
+
     </template>
   </page-layout>
 
@@ -133,14 +133,13 @@
 
 <script>
 
-import viewport from '../../../components/others/viewport'
-import helpTopics from './help'
+import PageLayout from '../pageLayout';
 
 export default {
+  components: {PageLayout},
   data () {
     return {
       ckChecked: true,
-      showDrawer: true,
       termAccepted: false,
       typeReadOnly: ['a2'],
       colors: [],
@@ -258,26 +257,12 @@ export default {
 `
     }
   },
-  mounted () {
-    this.helpTopics.properties = helpTopics.properties
-    this.helpTopics.events = helpTopics.events
-    this.checkMainBodyWidth()
-  },
+
   methods: {
     goToElement (refName) {
-      viewport.goToElement(this.$refs[refName])
+        this.$refs.pl.goToElement(this.$refs[refName]);
     },
 
-    checkMainBodyWidth() {
-      let value = viewport.mainBodyWidth()
-      if (value < 961) {
-        this.showDrawer = false
-      }
-    },
-
-    pageResize (value) {
-    this.$refs.navHelp.onResize(value)
-  }
   }
 }
 </script>

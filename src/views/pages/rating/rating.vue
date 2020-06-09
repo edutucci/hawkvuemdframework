@@ -1,41 +1,41 @@
 <template>
   <page-layout ref="pl" title="Rating">
         <template v-slot:components>
-      <div ref="rt-normalpoint"/>
-        <comp-code class="h-mt-lg" title="Normal Point" :code="ex1" :script="ex1Script"
-          javascript
-        >
-          <h-rating v-model="rating1" showmessages/>
-        </comp-code>
+          <div ref="rt-normalpoint"/>
+            <comp-code class="h-mt-lg" title="Normal Point" :code="ex1" :script="ex1Script"
+              javascript
+            >
+              <h-rating v-model="rating1" showmessages/>
+            </comp-code>
 
-        <div ref="rt-halfpoint"/>
-        <comp-code class="h-mt-lg" title="Half Point" :code="ex2" :script="ex2Script"
-          javascript
-        >
-          <h-rating v-model="rating2" showmessages halfpoints/>
-        </comp-code>
+            <div ref="rt-halfpoint"/>
+            <comp-code class="h-mt-lg" title="Half Point" :code="ex2" :script="ex2Script"
+              javascript
+            >
+              <h-rating v-model="rating2" showmessages halfpoints/>
+            </comp-code>
 
-        <div ref="rt-custommessages"/>
-        <comp-code class="h-mt-lg" title="Custom Messages" :code="ex3" :script="ex3Script"
-          javascript
-        >
-          <h-rating
-            :messages="['1 star', '2 stars', '3 stars', '4 stars', '5 stars']"
-            v-model="rating3"
-            halfpoints
-            showmessages
-          />
-        </comp-code>
+            <div ref="rt-custommessages"/>
+            <comp-code class="h-mt-lg" title="Custom Messages" :code="ex3" :script="ex3Script"
+              javascript
+            >
+              <h-rating
+                :messages="['1 star', '2 stars', '3 stars', '4 stars', '5 stars']"
+                v-model="rating3"
+                halfpoints
+                showmessages
+              />
+            </comp-code>
 
-        <tabs-help
-          class="h-mt-md"
-          :properties="helpTopics.properties"
-          :events="helpTopics.events"
-        />
+            <tabs-help
+              class="h-mt-md"
+              :properties="helpTopics.properties"
+              :events="helpTopics.events"
+            />
 
-      </template>
+        </template>
+
     <template v-slot:help>
-     
         <list-help>
           <h-list>
             <h-list-header text="Styles"/>
@@ -64,8 +64,7 @@
 
 <script>
 
-import viewport from '../../../components/others/viewport'
-import helpTopics from './help'
+
 import PageLayout from '../pageLayout';
 
 export default {
@@ -74,7 +73,7 @@ export default {
 
   data () {
     return {
-      showDrawer: true,
+
       helpTopics: {
         properties: [],
         events: []
@@ -129,25 +128,13 @@ export default {
 `
     }
   },
-  mounted () {
-    this.helpTopics.properties = helpTopics.properties
-    this.helpTopics.events = helpTopics.events
-    this.checkMainBodyWidth()
-  },
+
   methods: {
-    checkMainBodyWidth () {
-      let value = viewport.mainBodyWidth()
-      if (value < 961) {
-        this.showDrawer = false
-      }
-    },
     goToElement(refName) {
-      viewport.goToElement(this.$refs[refName]);
+
       this.$refs.pl.goToElement(this.$refs[refName]);
     },
-    pageResize(value) {
-      this.$refs.navHelp.onResize(value);
-    }
+
   }
 }
 </script>

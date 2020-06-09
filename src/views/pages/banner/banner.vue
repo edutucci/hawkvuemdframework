@@ -1,5 +1,5 @@
 <template>
-  <page-layout ref="pl" title="Banners">
+   <page-layout ref="pl" title="Banner">
             <template v-slot:components>
             <div ref="banner-standard" />
             <comp-code class="h-mt-md" title="Standard" :code="ex1">
@@ -128,8 +128,8 @@
 </template>
 
 <script>
-import viewport from "../../../components/others/viewport"
-import helpTopics from "./help";
+
+// import helpTopics from "./help";
 
 import PageLayout from '../pageLayout';
 
@@ -137,7 +137,7 @@ export default {
   components: {PageLayout},
   data() {
     return {
-      showDrawer: true,
+
       helpTopics: {
         properties: [],
         events: []
@@ -215,25 +215,10 @@ export default {
 `
     };
   },
-  mounted() {
-    this.helpTopics.properties = helpTopics.properties;
-    this.helpTopics.events = helpTopics.events;
-
-    this.checkMainBodyWidth()
-  },
+  
   methods: {
-    checkMainBodyWidth () {
-      let value = viewport.mainBodyWidth()
-      if (value < 961) {
-        this.showDrawer = false
-      }
-    },
-    goToElement(refName) {
-      viewport.goToElement(this.$refs[refName]);
-      this.$refs.pl.goToElement(this.$refs[refName]);
-    },
-    pageResize(value) {
-      this.$refs.navHelp.onResize(value);
+    goToElement (refName) {
+      this.$refs.pl.goToElement(this.$refs[refName])
     }
   }
 };

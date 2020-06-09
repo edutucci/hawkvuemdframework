@@ -103,15 +103,14 @@
   </page-layout>
 </template>
 <script>
-import viewport from "../../../components/others/viewport";
-import helpTopics from "./help";
+
 import PageLayout from '../pageLayout'
 
 export default {
   components: {PageLayout},
   data() {
     return {
-      showDrawer: true,
+
       helpTopics: {
         collapsibleMenuProperties: [],
         collapsibleMenuEvents: [],
@@ -173,30 +172,12 @@ export default {
 `
     };
   },
-  mounted() {
-    this.helpTopics.collapsibleMenuProperties =
-      helpTopics.collapsibleMenuProperties;
-    this.helpTopics.collapsibleMenuEvents = helpTopics.collapsibleMenuEvents;
-    this.helpTopics.collapsibleItemProperties =
-      helpTopics.collapsibleItemProperties;
-    this.helpTopics.collapsibleItemEvents = helpTopics.collapsibleItemEvents;
-    this.checkMainBodyWidth()
-  },
   methods: {
-    checkMainBodyWidth () {
-      let value = viewport.mainBodyWidth()
-      if (value < 961) {
-        this.showDrawer = false
-      }
-    },
     goToElement(refName) {
-      viewport.goToElement(this.$refs[refName]);
+
       this.$refs.pl.goToElement(this.$refs[refName]);
 
     },
-    pageResize(value) {
-      this.$refs.navHelp.onResize(value);
-    }
   }
 };
 </script>

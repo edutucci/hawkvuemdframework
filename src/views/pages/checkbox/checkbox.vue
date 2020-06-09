@@ -168,23 +168,15 @@
 </template>
 
 <script>
-import helpTopics from "./help";
+
 import PageLayout from "../pageLayout"
-import viewport from "../../../components/others/viewport";
 
 
 export default {
   components: {PageLayout},
 
-  mounted() {
-    this.helpTopics.properties = helpTopics.properties;
-    this.helpTopics.events = helpTopics.events;
-    this.checkedObjects.push(this.checkedObjectsOptions[1]);
-    this.checkMainBodyWidth()
-  },
   data() {
     return {
-      showDrawer: true,
       ckChecked: true,
       termAccepted: false,
       colors: [],
@@ -346,19 +338,12 @@ export default {
     };
   },
   methods: {
-    checkMainBodyWidth () {
-      let value = viewport.mainBodyWidth()
-      if (value < 961) {
-        this.showDrawer = false
-      }
-    },
-    goToElement(refName) {
-      viewport.goToElement(this.$refs[refName]);
+
+    goToElement (refName)  {
+
       this.$refs.pl.goToElement(this.$refs[refName]);
     },
-    pageResize(value) {
-      this.$refs.navHelp.onResize(value);
-    }
+
   }
 };
 </script>

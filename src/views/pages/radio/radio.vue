@@ -159,7 +159,7 @@
             </h-list-item>
           </h-list>
         </list-help>
-      
+
     </template>
   </page-layout>
 
@@ -167,15 +167,13 @@
 
 <script>
 
-import viewport from '../../../components/others/viewport'
-import helpTopics from './help'
 import PageLayout from '../pageLayout';
 
 export default {
   components: {PageLayout},
   data () {
     return {
-      showDrawer :  true,
+
       helpTopics: {
         properties: [],
         events: []
@@ -343,24 +341,12 @@ export default {
 `
     }
   },
-  mounted () {
-    this.helpTopics.properties = helpTopics.properties
-    // this.helpTopics.events = helpTopics.events
-    this.checkMainBodyWidth()
-  },
   methods: {
     goToElement (refName) {
-      viewport.goToElement(this.$refs[refName])
+        this.$refs.pl.goToElement(this.$refs[refName]);
     },
-    pageResize (value) {
-      this.$refs.navHelp.onResize(value)
-    },
-    checkMainBodyWidth () {
-      let value = viewport.mainBodyWidth()
-      if (value < 961) {
-        this.showDrawer = false
-    }
+
   },
   }
-}
+
 </script>

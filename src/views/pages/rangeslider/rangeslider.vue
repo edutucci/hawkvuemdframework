@@ -71,12 +71,10 @@
 
 <script>
 
-import helpTopics from './help'
-
 export default {
   data () {
     return {
-       showDrawer: true,
+
       helpTopics: {
         properties: [],
         events: []
@@ -122,14 +120,14 @@ export default {
     }
   },
 
-  methods: {
-    pageResize (value) {
-        this.$refs.navHelp.onResize(value);
-    }
-  },
-  mounted () {
-    this.helpTopics.properties = helpTopics.properties
-    this.helpTopics.events = helpTopics.events
-  }
+  // methods: {
+  //   pageResize (value) {
+  //       this.$refs.navHelp.onResize(value);
+  //   }
+  // },
+  // mounted () {
+  //   this.helpTopics.properties = helpTopics.properties
+  //   this.helpTopics.events = helpTopics.events
+  // }
 }
 </script>
