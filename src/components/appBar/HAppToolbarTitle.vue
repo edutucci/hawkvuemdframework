@@ -1,7 +1,7 @@
 <template lang="pug">
   .col-space.text-bold
-    .row.full-height.align-items-start.h-app-toolbar-title.text-h6.h-mt-xs.h-ml-xs(
-      :class="{ 'h-mt-xl': inset }"
+    .row.align-items-center.h-app-toolbar-title.text-h6.h-ml-xs(
+      :class="{ 'h-mt-xl': inset, 'full-height h-mb-2': !inset}"
     )
       slot
 
