@@ -68,7 +68,7 @@
               :class="[inputContainerTextColor]"
               :id="inputId"
               v-model="inputDisplay"
-              :type="inputType"
+              :type="compInputType"
               :maxlength="maxlength"
               :readonly="readonly"
               :filled="filled"
@@ -255,6 +255,17 @@ export default {
       let value = false
       if (this.type === 'search' || this.type === 'select' || this.type === 'multi-select') {
         value = true
+      }
+      return value
+    },
+    compInputType () {
+      let value = ''
+      switch (this.inputType) {
+        case 'password':
+          value = 'password'
+          break
+        default:
+          value = 'text'
       }
       return value
     }
@@ -526,9 +537,6 @@ export default {
     },
     onClearable () {
       this.inputDisplay = ''
-      if (this.type === 'search') {
-        this.onInputSearch('')
-      }
     },
     closeSelectChip (index) {
       this.$delete(this.selectChipsValue, index)

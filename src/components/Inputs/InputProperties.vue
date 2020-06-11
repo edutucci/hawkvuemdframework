@@ -1,7 +1,3 @@
-<template lang="pug">
-  div
-</template>
-
 <script>
 
 import componentBase from '../componentBase.vue'
