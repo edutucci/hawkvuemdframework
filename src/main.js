@@ -14,6 +14,9 @@ import './customStyle.styl'
 
 import './index.js'
 
+// local instances
+import './boot/index'
+
 Vue.component('Prism', Prism)
 
 Vue.config.productionTip = false

@@ -1,15 +1,19 @@
 <template lang="pug">
-  .h-list-header.list-title.flex
+  .h-list-header.list-title.flex(:class="[bgColor]")
     .flex.flex-justify-start.title
-      h4.no-margin  {{text}}
+      .text-body1(:class="[textColor]")  {{text}}
     .flex.flex-justify-start.title(style="padding-left: 48px;")
-      h3  {{middletext}}
+      .text-body1(:class="[textColor]")  {{middletext}}
     div
       slot
 </template>
 
 <script>
+
+import componentBase from '../componentBase'
+
 export default {
+  extends: componentBase,
   name: 'HListHeader',
   props: {
     text: {

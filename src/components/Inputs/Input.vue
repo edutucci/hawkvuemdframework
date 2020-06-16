@@ -124,22 +124,24 @@
             h-list-item-side
               h-checkbox(v-model="multiselectItem" :text="option.text" :value="option.value" @change="onSelectItem")
 
-        h-list(v-else-if="type === 'search'")
-          h-list-item(
-            v-show="type === 'search'"
+        .dropdown-item-container(v-else-if="type === 'search'")
+          .dropdown-item-section(
             v-for="(option, index) in options"
             :key="`${dropMenuId}-${index}`"
-            @click="onSelectItem(option)"
           )
             slot(name="itemoption" :value="option")
-              h-list-item-side.align-items-center(v-if="option.icon && option.icon.length")
-                h-icon(:icon="option.icon" size="20px" style="color: gray")
-              h-list-item-side.align-items-center(v-else-if="option.avatar && option.avatar.length > 0")
-                h-image(:src="option.avatar" size="24px" avatar)
-              h-list-item-side.align-items-center(v-else-if="option.img && option.img.length > 0")
-                img(:src="option.img" width="24px" height="24px")
-              h-list-item-content
-                h-list-item-text(:title="option.text" :caption="option.desc")
+              h-list
+                h-list-item(
+                  @click="onSelectItem(option)"
+                )
+                  h-list-item-side.align-items-center(v-if="option.icon && option.icon.length")
+                    h-icon(:icon="option.icon" size="20px" style="color: gray")
+                  h-list-item-side.align-items-center(v-else-if="option.avatar && option.avatar.length > 0")
+                    h-image(:src="option.avatar" size="24px" avatar)
+                  h-list-item-side.align-items-center(v-else-if="option.img && option.img.length > 0")
+                    img(:src="option.img" width="24px" height="24px")
+                  h-list-item-content
+                    h-list-item-text(:title="option.text" :caption="option.desc")
 
 </template>
 

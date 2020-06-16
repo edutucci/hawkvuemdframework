@@ -11,6 +11,69 @@
             HawkVueMD Framework 1.0.12-rc.0
           </h-app-toolbar-title>
           <h-app-toolbar-action>
+            <h-input
+              v-model="search"
+              type="search"
+              label="Search"
+              trailing-icon="fas fa-search"
+              @onFilter="onSearchSite"
+              dense
+              bg-color="bg-primary"
+              clearable
+              :options="webSearchOptions"
+            >
+              <template slot="itemoption" slot-scope="itemoption">
+                <div class="column full-width">
+                  <h-list-header
+                    :text="itemoption.value.parent"
+                    bg-color="bg-primary"
+                    text-color="text-white"
+                    class="full-width"                  
+                  />
+                  <div class="h-ml-sm h-mr-sm" 
+                    v-if="itemoption.value.topics && itemoption.value.topics.length"
+                  >
+                    <html-table bordered cell-separator>
+                      <thead>
+                        <tr class="text-left">
+                          <th>Page</th>
+                          <th>Topic</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr
+                          v-for="(topic, index) in itemoption.value.topics"
+                          :key="index"
+                        >
+                          <td>{{topic.text}}</td>
+                          <td>{{topic.topic}}</td>
+                        </tr>
+                      </tbody>
+                    </html-table>
+                  </div>
+                  <!-- <div class="row"
+                    v-for="(topic, index) in itemoption.value.topics"
+                    :key="index"
+                  >
+                    <div class="col-auto text-body1 h-pa-sm border-right border-gray">{{topic.text}}</div>
+                    <div class="col text-body1 h-pa-sm">{{topic.topic}}</div>
+                  </div> -->
+                </div>
+                <!-- <h-list-item
+                  v-for="(topic, index) in itemoption.value.topics"
+                  :key="index"
+                >
+                  <h-list-item-side class="align-items-center">
+                    <div class="text-h6">{{topic.name}}</div>
+                  </h-list-item-side>
+                  <h-list-item-content>
+                    <h-list-item-text :title="topic.topic" />
+                  </h-list-item-content>                  
+                </h-list-item> -->
+
+              </template>
+            </h-input>
+
             <h-btn fab size="sm" bg-color="bg-transparent">
               <h-link url="/" icon="fas fa-home" text-color="text-white"/>
             </h-btn>
@@ -108,10 +171,48 @@
 
 <script>
 
+import _ from 'lodash'
+
 export default {
   data () {
     return {
-      showDrawer: false
+      showDrawer: false,
+      search: '',
+      webSearchOptions: [],
+      searchModel: []
+    }
+  },
+  mounted () {
+    this.searchModel = this.$webSearch.searchTopics
+    // console.log('this.searchModel: ', JSON.stringify(this.searchModel))
+  },
+  methods: {
+    onSearchSite (query) {
+      this.webSearchOptions = []
+      // let localSearchOptions = []
+      if (query.length === 0) {
+        this.webSearchOptions = [] // _.cloneDeep(this.searchModel)
+      } else {
+        this.searchModel.forEach(model => {
+          let name = model.text
+          let topic = model.topic
+
+          if (_.includes(name.toLowerCase(), query.toLowerCase()) ||
+            _.includes(topic.toLowerCase(), query.toLowerCase())
+          ) {
+            let index = this.webSearchOptions.findIndex(wso => wso.parent === model.parent)
+            if (index === -1) {
+               this.webSearchOptions.push({
+                 parent: model.parent,
+                 topics: []
+               })
+            }
+            this.webSearchOptions[this.webSearchOptions.length - 1].topics.push(
+              { text: model.text, topic: model.topic },
+            )
+          }
+        })
+      }
     }
   }
 }
