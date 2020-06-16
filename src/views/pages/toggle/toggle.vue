@@ -84,7 +84,11 @@
         </div>
       </comp-code>
 
-      <tabs-help class="h-mt-md" :properties="helpTopics.properties" :events="helpTopics.events" />
+      <tabs-help
+        class="h-mt-md"
+        :properties="helpTopics.properties"
+        :events="helpTopics.events"
+        />
     </template>
 
     <template v-slot:help>
@@ -119,6 +123,7 @@
 
 <script>
 import PageLayout from "../pageLayout";
+import helpTopics from "./help"
 
 export default {
   components: { PageLayout },
@@ -242,7 +247,10 @@ export default {
 `
     };
   },
-
+  mounted () {
+    this.helpTopics.properties = helpTopics.properties
+    this.helpTopics.events = helpTopics.events
+  },
   methods: {
     goToElement(refName) {
       this.$refs.pl.goToElement(this.$refs[refName]);

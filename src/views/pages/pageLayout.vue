@@ -11,7 +11,7 @@
       <div class="col">
           <div class="row position-sticky bg-white" style="top: 0; z-index: 100;">
             <div class="col text-h4">{{title}}</div>
-            <div class="col-auto">
+            <div v-if="useHelp" class="col-auto">
               <h-image src="imgIcons/png/icon-help.png" @click="showDrawer = !showDrawer" />
             </div>
           </div>
@@ -41,6 +41,10 @@ export default {
     title: {
       type: String,
       default: ''
+    },
+    useHelp: {
+      type: Boolean,
+      default: true
     }
   },
   components: {},

@@ -1,5 +1,5 @@
 <template>
-  <page-layout ref="pl" title="Colapsible">
+  <page-layout ref="pl" title="Collapsible">
 
             <template v-slot:components>
             <div ref="col-standard" />
@@ -75,6 +75,12 @@
               :events="helpTopics.collapsibleMenuEvents"
             />
 
+            <tabs-help
+              class="h-mt-md"
+              title="Collapsible Item Help"
+              :properties="helpTopics.collapsibleItemProperties"
+              :events="helpTopics.collapsibleItemEvents"
+            />
       </template>
     <template v-slot:help>
 
@@ -105,6 +111,7 @@
 <script>
 
 import PageLayout from '../pageLayout'
+import helpTopics from './help'
 
 export default {
   components: {PageLayout},
@@ -171,6 +178,10 @@ export default {
 </h-collapsible>
 `
     };
+  },
+  mounted () {
+    this.helpTopics.collapsibleMenuProperties = helpTopics.collapsibleMenuProperties
+    this.helpTopics.collapsibleItemProperties = helpTopics.collapsibleItemProperties
   },
   methods: {
     goToElement(refName) {

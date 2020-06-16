@@ -157,6 +157,7 @@
 
 <script>
 import PageLayout from "../pageLayout";
+import helpTopics from './help'
 
 export default {
   components: { PageLayout },
@@ -322,6 +323,9 @@ export default {
 }
 `
     };
+  },
+  mounted () {
+    this.helpTopics.properties = helpTopics.properties
   },
   methods: {
     goToElement(refName) {

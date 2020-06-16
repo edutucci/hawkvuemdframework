@@ -129,15 +129,13 @@
 
 <script>
 
-// import helpTopics from "./help";
-
 import PageLayout from '../pageLayout';
+import helpTopics from "./help";
 
 export default {
   components: {PageLayout},
   data() {
     return {
-
       helpTopics: {
         properties: [],
         events: []
@@ -215,7 +213,10 @@ export default {
 `
     };
   },
-  
+  mounted () {
+    this.helpTopics.properties = helpTopics.properties
+    this.helpTopics.events = helpTopics.events
+  },
   methods: {
     goToElement (refName) {
       this.$refs.pl.goToElement(this.$refs[refName])

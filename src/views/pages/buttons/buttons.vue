@@ -524,9 +524,11 @@
 <script>
 
 import PageLayout from "../pageLayout"
+import mxButtons from './mxButtons'
+import helpTopics from './help'
 
 export default {
-
+   mixins: [mxButtons],
   components: {
     PageLayout
   },
@@ -541,10 +543,15 @@ export default {
       text: false,
       icon: false,
       avatar: false,
-      image: false
+      image: false,
+      tabHelpModel: 'prop'
+
     };
   },
-  
+  mounted () {
+    this.helpTopics.properties = helpTopics.properties
+    this.helpTopics.events = helpTopics.events
+  },
   methods: {
     goToElement(refName) {
       this.$refs.pl.goToElement(this.$refs[refName]);

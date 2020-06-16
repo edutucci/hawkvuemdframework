@@ -16,7 +16,7 @@ export default {
     },
     progressBarColor: {
       type: String,
-      default: 'bg-primary'
+      default: 'primary'
     }
   },
   data () {

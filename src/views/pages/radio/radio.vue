@@ -120,7 +120,11 @@
         </div>
       </comp-code>
 
-      <tabs-help class="h-mt-md" :properties="helpTopics.properties" :events="helpTopics.events" />
+      <tabs-help class="h-mt-md"
+        title="Help"
+        :properties="helpTopics.properties" 
+        :events="helpTopics.events"
+      />
     </template>
     <template v-slot:help>
       <list-help>
@@ -164,6 +168,7 @@
 
 <script>
 import PageLayout from "../pageLayout";
+import helpTopics from "./help"
 
 export default {
   components: { PageLayout },
@@ -335,6 +340,9 @@ export default {
 }
 `
     };
+  },
+  mounted () {
+    this.helpTopics.properties = helpTopics.properties
   },
   methods: {
     goToElement(refName) {
