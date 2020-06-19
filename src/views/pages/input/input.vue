@@ -210,6 +210,7 @@
           dense
           clearable
           :options="shoptions"
+          @clearSearch="shoptions = []"
         />
 
         <div>
@@ -237,6 +238,7 @@
                 bg-color="bg-primary"
                 clearable
                 :options="shoptions2"
+                @clearSearch="shoptions2 = []"
               />
             </h-app-toolbar-action>
           </h-app-toolbar-container>

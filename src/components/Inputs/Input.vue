@@ -547,6 +547,9 @@ export default {
     },
     onClearable () {
       this.inputDisplay = ''
+      if (this.inputType === 'search') {
+        this.$emit('clearSearch')
+      }
     },
     closeSelectChip (index) {
       this.$delete(this.selectChipsValue, index)
