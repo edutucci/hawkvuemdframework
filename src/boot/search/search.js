@@ -1,5 +1,6 @@
-import appBarSearch from '../../views/pages/appbar/search'
-import bannerSearch from '../../views/pages/banner/search'
+import appBarSearch from '../../views/search/appbar'
+import bannerSearch from '../../views/search/banner'
+import borderSearch from '../../views/search/border'
 
 export default class WebSiteSearch {
   constructor () {
@@ -10,12 +11,15 @@ export default class WebSiteSearch {
   createHelpTopics() {
     this.searchTopics = []
 
-    bannerSearch.searchTopics.forEach(topic => {
-      this.searchTopics.push(topic)
-    })
+    this.addTopics(borderSearch.searchTopics)
 
-    appBarSearch.searchTopics.forEach(topic => {
+    this.addTopics(bannerSearch.searchTopics)
+    this.addTopics(appBarSearch.searchTopics)
+  }
+
+  addTopics (topics) {
+    topics.forEach(topic => {
       this.searchTopics.push(topic)
-    })    
+    })  
   }
 }

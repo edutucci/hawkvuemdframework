@@ -66,6 +66,7 @@
                     h-icon(
                       :text-color="iconDropdownColor"
                       icon="fas fa-caret-down"
+                      @click="onIconDropDownClick"
                     )
 
       .col
@@ -164,6 +165,10 @@ export default {
     containerClick () {
       console.log('container click')
       // @click="checkViewport"
+    },
+    onIconDropDownClick () {
+      console.log('onIconDropDownClick')
+      this.$emit('onIconDropDownClick')
     }
   }
 }

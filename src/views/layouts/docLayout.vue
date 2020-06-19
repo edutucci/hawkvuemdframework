@@ -12,6 +12,7 @@
           </h-app-toolbar-title>
           <h-app-toolbar-action>
             <h-input
+              class="gt-xs"
               v-model="search"
               type="search"
               label="Search"
@@ -21,56 +22,24 @@
               bg-color="bg-primary"
               clearable
               :options="webSearchOptions"
+              style="width: 350px"
             >
               <template slot="itemoption" slot-scope="itemoption">
-                <div class="column full-width">
-                  <h-list-header
-                    :text="itemoption.value.parent"
-                    bg-color="bg-primary"
-                    text-color="text-white"
-                    class="full-width"                  
-                  />
-                  <div class="h-ml-sm h-mr-sm" 
-                    v-if="itemoption.value.topics && itemoption.value.topics.length"
-                  >
-                    <html-table bordered cell-separator>
-                      <thead>
-                        <tr class="text-left">
-                          <th>Page</th>
-                          <th>Topic</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr
-                          v-for="(topic, index) in itemoption.value.topics"
-                          :key="index"
-                        >
-                          <td>{{topic.text}}</td>
-                          <td>{{topic.topic}}</td>
-                        </tr>
-                      </tbody>
-                    </html-table>
+                <div v-if="itemoption.value.topics && itemoption.value.topics.length"
+                  class="column full-width"
+                >
+                  <div class="text-body1 bg-primary text-white h-pa-sm text-bold">
+                    {{itemoption.value.parent}}
                   </div>
-                  <!-- <div class="row"
+                  <div class="row align-items-center"
                     v-for="(topic, index) in itemoption.value.topics"
                     :key="index"
                   >
-                    <div class="col-auto text-body1 h-pa-sm border-right border-gray">{{topic.text}}</div>
-                    <div class="col text-body1 h-pa-sm">{{topic.topic}}</div>
-                  </div> -->
+                    <div class="col-auto text-body2 h-pr-sm text-right border-right border-gray bg-gray200 border-bottom -border-gray" style="width: 130px;line-height: 40px;">
+                      <span></span>{{topic.text}}</div>
+                    <div class="col text-body2 h-ml-sm ">{{topic.topic}}</div>
+                  </div>
                 </div>
-                <!-- <h-list-item
-                  v-for="(topic, index) in itemoption.value.topics"
-                  :key="index"
-                >
-                  <h-list-item-side class="align-items-center">
-                    <div class="text-h6">{{topic.name}}</div>
-                  </h-list-item-side>
-                  <h-list-item-content>
-                    <h-list-item-text :title="topic.topic" />
-                  </h-list-item-content>                  
-                </h-list-item> -->
-
               </template>
             </h-input>
 

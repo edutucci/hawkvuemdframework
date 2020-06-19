@@ -25,9 +25,11 @@
     :inputDropdown="inputDropdown"
     @onClearable="onClearable"
     @onTogglePassword="togglePassword"
+    @onIconDropDownClick="onIconDropDownClick"
     :id="containerId"
+    v-on-clickaway="away"
   )
-    .column.full-width(v-on-clickaway="away")
+    .column.full-width()
       .col(
         v-if="this.chips && type === 'text'"
         @click="focus"
@@ -42,7 +44,7 @@
         )
       .col(
         v-else-if="selectChips && type === 'multi-select'"
-        @click="checkViewport"
+        @click="onShowDropdown"
       )
         .row.wrap
           .col-auto(
@@ -56,7 +58,7 @@
               @onClose="closeSelectChip(index)"
             )
           .col
-            input.full-width.no-border.cursor-pointer(type="text"  @click="checkViewport" readonly)
+            input.full-width.no-border.cursor-pointer(type="text"  @click="onShowDropdown" readonly)
       .col(
         v-if="!selectChips"
       )
@@ -229,7 +231,7 @@ export default {
       }
     },
     options: function () {
-      this.checkViewport()
+      this.onShowDropdown()
     },
     type: function (value) {
       this.inputType = value
@@ -416,7 +418,7 @@ export default {
           this.window.width !== window.innerWidth ||
           this.window.height !== window.innerHeight
         ) {
-          this.checkViewport()
+          this.onShowDropdown()
         } else {
           setTimeout(() => {
             this.updateDropdownPosition()
@@ -428,7 +430,7 @@ export default {
       this.containerRect.top = containerRect[0].top
       this.containerRect.left = containerRect[0].left
     },
-    checkViewport () {
+    onShowDropdown () {
       this.showdropdown = true
 
       let containerElement = document.getElementById(this.containerId)
@@ -466,8 +468,8 @@ export default {
       this.inputType = (this.inputType === 'password') ? 'text' : 'password'
     },
     onKeyDown () {
-      if (this.type === 'search') {
-        this.checkViewport()
+      if (this.inputDropdown) {
+        this.onShowDropdown()
       } else {
         this.$emit('onKeyDown')
       }
@@ -497,10 +499,16 @@ export default {
       this.$emit('onEscape')
     },
     onClick () {
-      if (this.type === 'select' || this.type === 'multi-select') {
-        this.checkViewport()
+      if (this.inputDropdown) {
+        this.onShowDropdown()
       }
       this.$emit('onClick')
+    },
+    onIconDropDownClick () {
+      this.onClick()
+      this.$nextTick(() => {
+        this.focus()
+      })
     },
     away () {
       this.showdropdown = false
