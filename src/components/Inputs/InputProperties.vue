@@ -139,6 +139,10 @@ export default {
     currencysuffix: {
       type: String,
       default: () => defaults.suffix
+    },
+    loading: {
+      type: Boolean,
+      default: false
     }
   },
   data () {

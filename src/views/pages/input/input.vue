@@ -92,6 +92,20 @@
         </div>
       </comp-code>
 
+      <div ref="txt-loading"/>
+      <comp-code class="h-mt-lg" title="Loading (readonly)" :code="txtloading" :script="txtloadingScript" javascript>
+        <div class="row col-inputs">
+          <div class="col">
+            <h-input dense v-model="focusModel" label="Loading" :loading="loading"
+              trailing-icon="fas fa-search" clearable readonly/>
+          </div>
+          <div class="col-auto h-pl-xs">
+            <h-btn v-if="!loading" bg-color="bg-primary" text-color="text-white" text="Start" @click="loading = true"/>
+            <h-btn v-else bg-color="bg-primary" text-color="text-white" text="Stop" @click="loading = false"/>
+          </div>
+        </div>
+      </comp-code>
+
       <div class="text-h6 h-mt-md">Select</div>
       <h-separator></h-separator>
 
@@ -210,7 +224,7 @@
           dense
           clearable
           :options="shoptions"
-          @clearSearch="shoptions = []"
+          @clear="shoptions = []"
         />
 
         <div>
@@ -238,7 +252,7 @@
                 bg-color="bg-primary"
                 clearable
                 :options="shoptions2"
-                @clearSearch="shoptions2 = []"
+                @clear="shoptions2 = []"
               />
             </h-app-toolbar-action>
           </h-app-toolbar-container>
@@ -396,6 +410,11 @@
                 <h-list-item-text title="Focus(Enter)"/>
               </h-list-item-content>
             </h-list-item>
+            <h-list-item @click="goToElement('txt-loading')">
+              <h-list-item-content>
+                <h-list-item-text title="Loading"/>
+              </h-list-item-content>
+            </h-list-item>
             <h-list-header text="Select"/>
             <h-list-item @click="goToElement('select-icons')">
               <h-list-item-content>
@@ -488,6 +507,7 @@ export default {
       prefixModel: '',
       suffixModel: '',
       focusModel: '',
+      loading: false,
 
       selectModel: 'Bluetooth1',
       selectModel1: 'chrome1',
@@ -643,6 +663,30 @@ export default {
     @onEnter="$refs.name.focus()"
   />
 </div>
+`,
+      txtloading: `
+<div class="row col-inputs">
+  <div class="col">
+    <h-input dense v-model="focusModel" label="Loading"
+    :loading="loading"/>
+  </div>
+  <div class="col-auto h-pl-xs">
+    <h-btn v-if="!loading" bg-color="bg-primary"
+      text-color="text-white" text="Start"
+      @click="loading = true"/>
+    <h-btn v-else bg-color="bg-primary" text-color="text-white"
+      text="Stop" @click="loading = false"/>
+  </div>
+</div>      
+`,
+      txtloadingScript: `
+export default {
+  data () {
+    return {
+      loading: false
+    }
+  }
+}
 `,
       // select
       selectIcon: `

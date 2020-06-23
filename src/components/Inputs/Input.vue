@@ -23,6 +23,7 @@
     :clearable="clearable"
     :type="type"
     :inputDropdown="inputDropdown"
+    :loading="loading"
     @onClearable="onClearable"
     @onTogglePassword="togglePassword"
     @onIconDropDownClick="onIconDropDownClick"
@@ -547,9 +548,7 @@ export default {
     },
     onClearable () {
       this.inputDisplay = ''
-      if (this.inputType === 'search') {
-        this.$emit('clearSearch')
-      }
+      this.$emit('clear')
     },
     closeSelectChip (index) {
       this.$delete(this.selectChipsValue, index)

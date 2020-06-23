@@ -4,7 +4,16 @@
   )
     .column
       .col.cursor-pointer
-        .row
+        .row.h-pos-rel
+          .h-pos-abs.bg-modal.full-width.full-height(
+            v-if="loading"
+            style="z-index: 100"
+          )
+            .row.justify-center.align-items-center.full-height
+              .col-auto
+                h-icon.h-pa-xs(icon="fas fa-spinner" spin)
+              .col-auto
+                | Loading
           .col(
             :class="[inputContainerFieldBackgroundColor, \
               inputContainerFieldBottomBorderColor, \
