@@ -388,7 +388,7 @@
                 <h-list-item-text title="Brunch this weekend?" caption="I'll be in your neighborhood doing errands this weekend."/>
               </h-list-item-content>
               <h-list-item-side class="flex-items-center">
-                <h-checkbox/>
+                <h-checkbox v-model="modelLstControls" text="" value="Brunch"/>
               </h-list-item-side>
             </h-list-item>
             <h-list-item>
@@ -399,7 +399,7 @@
                 <h-list-item-text title="Summer BBQ" caption="Wish I coould come, but I'm out of town this weekend."/>
               </h-list-item-content>
               <h-list-item-side class="flex-items-center">
-                <h-checkbox/>
+                <h-checkbox v-model="modelLstControls" text="" value="Summer"/>
               </h-list-item-side>
             </h-list-item>
             <h-list-item>
@@ -410,7 +410,7 @@
                 <h-list-item-text title="Oui Oui" caption="Do you have Paris recommendations? Have you ever been?."/>
               </h-list-item-content>
               <h-list-item-side class="flex-items-center">
-                <h-checkbox/>
+                <h-checkbox v-model="modelLstControls" text="" value="Oui"/>
               </h-list-item-side>
             </h-list-item>
             <h-separator/>
@@ -526,6 +526,7 @@ export default {
         listItemImageProperties: [],
         listItemTextProperties: []
       },
+      modelLstControls: [],
       lstBorders: `
 <h-list bordered style="max-width: 350px">
   <h-list-item>

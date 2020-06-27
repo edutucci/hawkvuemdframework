@@ -54,32 +54,45 @@
         <h-progress-circular v-model="pCircular4" progress-bar-color="orange500"/>
       </div>
 
-      <div class="row q-mt-md">
+      <div class="row h-mt-sm">
         <h-progress-circular v-model="pCircular1" animated/>
         <h-progress-circular v-model="pCircular2" animated progress-bar-color="pink500"/>
         <h-progress-circular v-model="pCircular3" animated progress-bar-color="green500"/>
         <h-progress-circular v-model="pCircular4" animated progress-bar-color="orange500"/>
       </div>
 
-      <div class="row q-mt-md align-items-center">
+      <div class="row h-mt-sm align-items-center">
         <h-progress-circular v-model="pCircular1" animated/>
         <h-progress-circular v-model="pCircular2" font-size="65px" animated progress-bar-color="pink500"/>
         <h-progress-circular v-model="pCircular3" font-size="75px" animated progress-bar-color="green500"/>
         <h-progress-circular v-model="pCircular4" font-size="85px" animated progress-bar-color="orange500"/>
       </div>
 
-      <div class="row q-mt-md align-items-center">
+      <div class="row h-mt-sm align-items-center">
         <h-progress-circular v-model="pCircular1" animated/>
         <h-progress-circular v-model="pCircular2" bg-color="bg-pink300" text-color="text-white" font-size="65px" animated progress-bar-color="pink500"/>
         <h-progress-circular v-model="pCircular3" bg-color="bg-green300" text-color="text-white"  font-size="75px" animated progress-bar-color="green500"/>
         <h-progress-circular v-model="pCircular4" bg-color="bg-orange300" text-color="text-white"  font-size="85px" animated progress-bar-color="orange500"/>
       </div>
 
-      <div class="text-h4 h-mt-lg"> Progress Linear</div>
+      <div class="text-h4 h-mt-md"> Progress Linear</div>
       <h-progress-linear v-model="pLinear1"/>
-      <!-- <h-progress-linear v-model="pLinear1" stripes/>
-      <h-progress-linear v-model="pLinear1" stripes animated/>
-      <h-progress-linear v-model="pLinear1" stripes stripes-animated animated/> -->
+      <h-progress-linear class="h-mt-sm" v-model="pLinear2" stripes/>
+      <h-progress-linear class="h-mt-sm" v-model="pLinear1" stripes animated/>
+      <h-progress-linear class="h-mt-sm" v-model="pLinear2" stripes stripes-animated animated/>
+
+      <h-progress-linear class="h-mt-sm" v-model="pLinear1" height="25px" text-color="text-white"/>
+      <h-progress-linear class="h-mt-sm" v-model="pLinear2" height="35px" stripes progress-bar-color="pink300"/>
+      <h-progress-linear class="h-mt-sm" v-model="pLinear1" height="45px" stripes animated progress-bar-color="green300"/>
+      <h-progress-linear class="h-mt-sm" v-model="pLinear2" height="60px" stripes stripes-animated animated progress-bar-color="orange300"/>
+
+      <h-progress-linear class="h-mt-sm" v-model="pLinear1" height="25px" text-color="text-white">
+        <template v-slot:text> <div class="text-black">{{pLinear1}}%</div></template>
+      </h-progress-linear>
+      <h-progress-linear class="h-mt-sm" v-model="pLinear2" height="35px" stripes progress-bar-color="pink300">
+        <template v-slot:text> <div class="text-white">{{pLinear2}}%</div></template>
+      </h-progress-linear>
+
 
     </div>
 
@@ -91,7 +104,8 @@
 export default {
   data() {
     return {
-      pLinear1: 73,
+      pLinear1: 35,
+      pLinear2: 50,
       pLinear1Animated: false,
       pCircular1: 25,
       pCircular2: 50,
