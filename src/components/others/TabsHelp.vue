@@ -3,7 +3,7 @@
     .col-auto.text-h4.text-primary
       | {{title}}
       hr.h-mt-sm.h-mb-sm
-    .col
+    .col.scroll
       h-tabs(v-model="tabHelp" bg-color="bg-primary" text-color="text-white")
         h-tab(name="properties" text="PROPERTIES")
           html-table(bordered cell-separator)
@@ -16,7 +16,8 @@
               tr(v-for="(prop, index) in properties" :key="`prop-${index}`")
                 td {{prop.name}}
                 td {{prop.type}}
-                td {{prop.description}}
+                td
+                  span {{prop.description}}
         h-tab(v-if="events && events.length > 0" name="events" text="EVENTS")
           html-table(bordered cell-separator)
             thead
@@ -26,7 +27,8 @@
             tbody
               tr(v-for="(evt, index) in events" :key="`event-${index}`")
                 td {{evt.name}}
-                td {{evt.description}}
+                td 
+                  span {{evt.description}}
 
 </template>
 

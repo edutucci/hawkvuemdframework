@@ -1,13 +1,13 @@
 <template lang="pug">
-    .row.justify-center.align-items-center.drawer.bg-modal(v-if="value")
-      .boxshadow.no-user-select.bg-white.border-radius
-        .bg-primary.text-white.flex.h-pa-sm.border-top-radius(v-if="showTitleBar")
-          .flex-1
-            h3  {{title}}
-          div.h-ml-sm.h-mr-sm
-            h-icon(icon="fas fa-times" text-color="text-white" @click="close")
-        div(v-on-clickaway="away")
-          slot
+  .row.justify-center.align-items-center.drawer_mobile.bg-modal(v-if="value")
+    .boxshadow.no-user-select.bg-white.border-radius
+      .bg-primary.text-white.flex.h-pa-sm.border-top-radius(v-if="showTitleBar")
+        .flex-1
+          h3  {{title}}
+        div.h-ml-sm.h-mr-sm
+          h-icon(icon="fas fa-times" text-color="text-white" @click="close")
+      div(v-on-clickaway="away")
+        slot
 </template>
 
 <script>

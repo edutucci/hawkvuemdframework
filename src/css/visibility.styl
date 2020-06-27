@@ -1,41 +1,67 @@
-/* show an element when screen are 640px or less */
-@media screen and (min-width: 0px) and (max-width: 640px) {
+$xs = 640px
+$sm = 960px
+$md = 1440px
+$lg = 1920px
+
+/* show an element when screen size is 640px*/
+@media screen and (width: $xs) {
   .xs { display: block; }
   #xs { display: block; }
 }
 
-/* hide an element when screen are 641px or higher */
-@media screen and (min-width: 641px) {
+/* hide an element when screen size is lower than 640px */
+@media screen and (max-width: ($xs - 1)){
   #xs { display: none; }
   .xs { display: none; }
 }
 
-@media screen and (min-width: 0px) and (max-width: 960px) {
+/* hide an element when screen size is higher than 640px */
+@media screen and (min-width: $xs + 1) {
+  #xs { display: none; }
+  .xs { display: none; }
+}
+
+@media screen and (width: $sm) {
   #sm { display: block; }
   .sm { display: block; }
 }
 
-@media screen and (min-width: 961px) {
+@media screen and (max-width: $sm - 1) {
   #sm { display: none; }
   .sm { display: none; }
 }
 
-@media screen and (min-width: 0px) and (max-width: 1440px) {
+@media screen and (min-width: $sm + 1) {
+  #sm { display: none; }
+  .sm { display: none; }
+}
+
+@media screen and (width: $md) {
   #md { display: block; }
   .md { display: block; }
 }
 
-@media screen and (min-width: 1441px) {
+@media screen and (max-width: $md - 1) {
   #md { display: none; }
   .md { display: none; }
 }
 
-@media screen and (min-width: 0px) and (max-width: 1920px) {
+@media screen and (min-width: $md + 1) {
+  #md { display: none; }
+  .md { display: none; }
+}
+
+@media screen and (width: $lg) {
   #lg { display: block; }
   .lg { display: block; }
 }
 
-@media screen and (min-width: 1921px) {
+@media screen and (max-width: $lg - 1) {
+  #lg { display: none; }
+  .lg { display: none; }
+}
+
+@media screen and (min-width: $lg + 1) {
   #lg { display: none; }
   .lg { display: none; }
 }
@@ -44,42 +70,42 @@
   HIGHER THAN
 */
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: $xs) {
   .gt-xs { display: none; }
   #gt-xs { display: none; }
 }
 
-@media screen and (min-width: 641px) {
+@media screen and (min-width: $xs + 1) {
   .gt-xs { display: block; }
   #gt-xs { display: block; }
 }
 
-@media screen and (max-width: 960px) {
+@media screen and (max-width: $sm) {
   #gt-sm { display: none; }
   .gt-sm { display: none; }
 }
 
-@media screen and (min-width: 961px) {
+@media screen and (min-width: $sm + 1) {
   #gt-sm { display: block; }
   .gt-sm { display: block; }
 }
 
-@media screen and (max-width: 1440px) {
+@media screen and (max-width: $md) {
   #gt-md { display: none; }
   .gt-md { display: none; }
 }
 
-@media screen and (min-width: 1441px) {
+@media screen and (min-width: $md + 1) {
   .gt-md { display: block; }
   #gt-md { display: block; }
 }
 
-@media screen and (max-width: 1920px) {
+@media screen and (max-width: $lg) {
   #gt-lg { display: none; }
   .gt-lg { display: none; }
 }
 
-@media screen and (min-width: 1921px) {
+@media screen and (min-width: $lg + 1) {
   #gt-lg { display: block; }
   .gt-lg { display: block; }
 }
@@ -88,48 +114,48 @@
  LESS THAN
 */
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: $xs) {
   .lt-sm { display: block; }
   #lt-sm { display: block; }
 }
 
-@media screen and (min-width: 641px) {
+@media screen and (min-width: $xs + 1) {
   .lt-sm { display: none; }
   #lt-sm { display: none; }
 }
 
-@media screen and (max-width: 960px) {
+@media screen and (max-width: $sm) {
   #lt-md { display: block; }
   .lt-md { display: block; }
 }
 
-@media screen and (min-width: 961px) {
+@media screen and (min-width: $sm + 1) {
   #lt-md { display: none; }
   .lt-md { display: none; }
 }
 
-@media screen and (max-width: 1440px) {
+@media screen and (max-width: $md) {
   #lt-lg { display: block; }
   .lt-lg { display: block; }
 }
 
-@media screen and (min-width: 1441px) {
+@media screen and (min-width: $md + 1) {
   .lt-lg { display: none; }
   #lt-lg { display: none; }
 }
 
-@media screen and (max-width: 1920px) {
+@media screen and (max-width: $lg) {
   #lt-xl { display: block; }
   .lt-xl { display: block; }
 }
 
-@media screen and (min-width: 1921px) {
+@media screen and (min-width: $lg + 1) {
   #lt-xl { display: none; }
   .lt-xl { display: none; }
 }
 
 /* XS */
-@media screen and (max-width: 640px) {
+@media screen and (max-width: $xs) {
   .col-xs-1 {width: 8.33%;}
   .col-xs-2 {width: 16.66%;}
   .col-xs-3 {width: 25%;}
@@ -145,7 +171,7 @@
 }
 
 /* SM */
-@media screen and (min-width: 641px) and (max-width: 960px) {
+@media screen and (min-width: $xs + 1) and (max-width: $sm) {
   .col-sm-1 {width: 8.33%;}
   .col-sm-2 {width: 16.66%;}
   .col-sm-3 {width: 25%;}
@@ -161,7 +187,7 @@
 }
 
 /* MD */
-@media screen and (min-width: 961px) and (max-width: 1440px) {
+@media screen and (min-width: $sm + 1) and (max-width: $md) {
   .col-md-1 {width: 8.33%;}
   .col-md-2 {width: 16.66%;}
   .col-md-3 {width: 25%;}
@@ -177,7 +203,7 @@
 }
 
 /* LG */
-@media screen and (min-width: 1441px) and (max-width: 1920px) {
+@media screen and (min-width: $md + 1) and (max-width: $lg) {
   .col-lg-1 {width: 8.33%;}
   .col-lg-2 {width: 16.66%;}
   .col-lg-3 {width: 25%;}
@@ -193,7 +219,7 @@
 }
 
 /* XL */
-@media screen and (min-width: 1921px) {
+@media screen and (min-width: $lg + 1) {
   .col-xl-1 {width: 8.33%;}
   .col-xl-2 {width: 16.66%;}
   .col-xl-3 {width: 25%;}
@@ -207,3 +233,4 @@
   .col-xl-11 {width: 91.66%;}
   .col-xl-12 {width: 100%;}
 }
+

@@ -71,6 +71,8 @@ import HLink from './html/Link.vue'
 import HSeparator from './html/Separator.vue'
 import HBanner from './banner/Banner'
 import HScrollNavigator from './scroll/ScrollNavigator'
+import HProgressCircular from './progress/ProgressCircular'
+import HProgressLinear from './progress/ProgressLinear'
 
 const Components = {
   CompCode,
@@ -142,7 +144,9 @@ const Components = {
   HLink,
   HBanner,
   HSeparator,
-  HScrollNavigator
+  HScrollNavigator,
+  HProgressCircular,
+  HProgressLinear
 }
 
 Object.keys(Components).forEach(name => {

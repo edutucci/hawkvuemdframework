@@ -1,65 +1,66 @@
 <template>
-  <h-page-content padding>
-    <div class="row">
-      <div class="col">
-        <div class="text-h4">Layout</div>
+  <page-layout ref="pl" title="Layout">
+    <template v-slot:components>
+      <div ref="usage"/>
+      <comp-code title="Usage" class="h-mt-md" :code="layout1" page="template">
+      </comp-code>
 
-         <div ref="usage"/>
-        <comp-code title="Usage" class="h-mt-md" :code="layout1" page="template">
-        </comp-code>
-
-         <div ref="basicLayout"/>
-        <comp-code title="Basic Layout" class="h-mt-md" :code="layout2">
-          <div class="row justify-center">
-            <div class="col-auto h-pa-sm">
-              <h-image src="imgsamples/basicLayout.png" style="width:600px; height: 400px;"/>
-            </div>
+      <div ref="basicLayout"/>
+      <comp-code title="Basic Layout" class="h-mt-md" :code="layout2">
+        <div class="row justify-center">
+          <div class="col-auto h-pa-sm">
+            <h-image src="imgsamples/basicLayout.png" style="width:600px; height: 400px;"/>
           </div>
-        </comp-code>
+        </div>
+      </comp-code>
 
-         <div ref="layoutDrawerLeft"/>
-        <comp-code title="Layout Drawer Left" class="h-mt-md" :code="layout3"
-          :script="layout3Script" javascript
-        >
-          <div class="row justify-center">
-            <div class="col-auto h-pa-sm">
-              <h-image src="imgsamples/layoutDrawer.png" style="width:600px; height: 400px;"/>
-            </div>
+      <div ref="layoutDrawerLeft"/>
+      <comp-code title="Layout Drawer Left" class="h-mt-md" :code="layout3"
+        :script="layout3Script" javascript
+      >
+        <div class="row justify-center">
+          <div class="col-auto h-pa-sm">
+            <h-image src="imgsamples/layoutDrawer.png" style="width:600px; height: 400px;"/>
           </div>
-        </comp-code>
-      </div>
-      <div class="col-auto">
-        <list-help>
-          <h-list>
-            <h-list-header text="Layout"/>
-            <h-list-item @click="goToElement('usage')">
-              <h-list-item-content>
-                <h-list-item-text title="Usage"></h-list-item-text>
-              </h-list-item-content>
-            </h-list-item>
-            <h-list-item @click="goToElement('basicLayout')">
-              <h-list-item-content>
-                <h-list-item-text title="Basic Layout"></h-list-item-text>
-              </h-list-item-content>
-            </h-list-item>
-            <h-list-item @click="goToElement('layoutDrawerLeft')">
-              <h-list-item-content>
-                <h-list-item-text title="Drawer Left"></h-list-item-text>
-              </h-list-item-content>
-            </h-list-item>
-          </h-list>
-        </list-help>
-      </div>
-    </div>
-  </h-page-content>
+        </div>
+      </comp-code>
+    </template>
+
+    <template v-slot:help>
+      <list-help>
+        <h-list>
+          <h-list-header text="Layout"/>
+          <h-list-item @click="goToElement('usage')">
+            <h-list-item-content>
+              <h-list-item-text title="Usage"></h-list-item-text>
+            </h-list-item-content>
+          </h-list-item>
+          <h-list-item @click="goToElement('basicLayout')">
+            <h-list-item-content>
+              <h-list-item-text title="Basic Layout"></h-list-item-text>
+            </h-list-item-content>
+          </h-list-item>
+          <h-list-item @click="goToElement('layoutDrawerLeft')">
+            <h-list-item-content>
+              <h-list-item-text title="Drawer Left"></h-list-item-text>
+            </h-list-item-content>
+          </h-list-item>
+        </h-list>
+      </list-help>
+    </template>
+  </page-layout>
+
 </template>
 
 <script>
 
-import viewport from '../../components/others/viewport'
+import PageLayout from '../pages/pageLayout'
 
 export default {
   name: 'Layout',
+  components: {
+    PageLayout
+  },
   data () {
     return {
       layout1: `
@@ -120,7 +121,7 @@ export default {
       layout3: `
 <h-main-body
   :show-drawer-left="showDrawer"
-  @close-drawer-left="showDrawer = $event"
+  @closeDrawerLeft="showDrawer = $event"
 >
   <template v-slot:header>
     <h-app-toolbar bg-color="bg-primary">
@@ -143,34 +144,35 @@ export default {
   </template>
 
 <template v-slot:left>
-  <div class="col-auto text-center h-pa-md">
-    <div class="column align-items-center">
-      <h-image avatar src="img/hawk.jpg" size="64px"/>
-      <div class="">Hawk </div>
-      <div class=""> Framework</div>
+  <div class="column full-height">
+    <div class="col-auto text-center h-pa-md">
+      <div class="column align-items-center">
+        <h-image avatar src="img/hawk.jpg" size="64px"/>
+        <div class="">Hawk </div>
+        <div class=""> Framework</div>
+      </div>
+    </div>
+    <div class="col">
+      <h-list>
+        <h-list-item @click="$router.push('/home')">
+          <h-list-item-content>
+            <h-list-item-text title="Home Page" caption="Main page"/>
+          </h-list-item-content>
+        </h-list-item>
+        <h-list-item @click="openURL('https://github.com/edutucci/hawkvuemdframework')">
+          <h-list-item-content>
+            <h-list-item-text title="Github" caption="Framework repository"/>
+          </h-list-item-content>
+        </h-list-item>
+      </h-list>
+    </div>
+    <div class="col-auto">
+      <div class="text-center h-pa-md">
+        <h2 class="no-margin">Free Framework</h2>
+        <h2 class="no-margin">Pure CSS</h2>
+      </div>
     </div>
   </div>
-  <div class="col">
-    <h-list>
-      <h-list-item @click="$router.push('/home')">
-        <h-list-item-content>
-          <h-list-item-text title="Home Page" caption="Main page"/>
-        </h-list-item-content>
-      </h-list-item>
-      <h-list-item @click="openURL('https://github.com/edutucci/hawkvuemdframework')">
-        <h-list-item-content>
-          <h-list-item-text title="Github" caption="Framework repository"/>
-        </h-list-item-content>
-      </h-list-item>
-    </h-list>
-  </div>
-  <div class="col-auto">
-    <div class="text-center h-pa-md">
-      <h2 class="no-margin">Free Framework</h2>
-      <h2 class="no-margin">Pure CSS</h2>
-    </div>
-  </div>
-
 </template>
 
 <router-view/>
@@ -188,9 +190,11 @@ export default {
 `
     }
   },
+  mounted () {
+  },
   methods: {
     goToElement (refName) {
-      viewport.goToElement(this.$refs[refName])
+      this.$refs.pl.goToElement(this.$refs[refName])
     }
   }
 }

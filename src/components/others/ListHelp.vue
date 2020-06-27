@@ -1,5 +1,5 @@
 <template lang="pug">
-  .position-sticky.list-help.scroll
+  .list-help.scroll
     slot
 </template>
 

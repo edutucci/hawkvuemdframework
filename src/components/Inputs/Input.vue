@@ -23,11 +23,14 @@
     :clearable="clearable"
     :type="type"
     :inputDropdown="inputDropdown"
+    :loading="loading"
     @onClearable="onClearable"
     @onTogglePassword="togglePassword"
+    @onIconDropDownClick="onIconDropDownClick"
     :id="containerId"
+    v-on-clickaway="away"
   )
-    .column.full-width(v-on-clickaway="away")
+    .column.full-width()
       .col(
         v-if="this.chips && type === 'text'"
         @click="focus"
@@ -42,7 +45,7 @@
         )
       .col(
         v-else-if="selectChips && type === 'multi-select'"
-        @click="checkViewport"
+        @click="onShowDropdown"
       )
         .row.wrap
           .col-auto(
@@ -56,7 +59,7 @@
               @onClose="closeSelectChip(index)"
             )
           .col
-            input.full-width.no-border.cursor-pointer(type="text"  @click="checkViewport" readonly)
+            input.full-width.no-border.cursor-pointer(type="text"  @click="onShowDropdown" readonly)
       .col(
         v-if="!selectChips"
       )
@@ -68,7 +71,7 @@
               :class="[inputContainerTextColor]"
               :id="inputId"
               v-model="inputDisplay"
-              :type="inputType"
+              :type="compInputType"
               :maxlength="maxlength"
               :readonly="readonly"
               :filled="filled"
@@ -124,22 +127,24 @@
             h-list-item-side
               h-checkbox(v-model="multiselectItem" :text="option.text" :value="option.value" @change="onSelectItem")
 
-        h-list(v-else-if="type === 'search'")
-          h-list-item(
-            v-show="type === 'search'"
+        .dropdown-item-container(v-else-if="type === 'search'")
+          .dropdown-item-section(
             v-for="(option, index) in options"
             :key="`${dropMenuId}-${index}`"
-            @click="onSelectItem(option)"
           )
             slot(name="itemoption" :value="option")
-              h-list-item-side.align-items-center(v-if="option.icon && option.icon.length")
-                h-icon(:icon="option.icon" size="20px" style="color: gray")
-              h-list-item-side.align-items-center(v-else-if="option.avatar && option.avatar.length > 0")
-                h-image(:src="option.avatar" size="24px" avatar)
-              h-list-item-side.align-items-center(v-else-if="option.img && option.img.length > 0")
-                img(:src="option.img" width="24px" height="24px")
-              h-list-item-content
-                h-list-item-text(:title="option.text" :caption="option.desc")
+              h-list
+                h-list-item(
+                  @click="onSelectItem(option)"
+                )
+                  h-list-item-side.align-items-center(v-if="option.icon && option.icon.length")
+                    h-icon(:icon="option.icon" size="20px" style="color: gray")
+                  h-list-item-side.align-items-center(v-else-if="option.avatar && option.avatar.length > 0")
+                    h-image(:src="option.avatar" size="24px" avatar)
+                  h-list-item-side.align-items-center(v-else-if="option.img && option.img.length > 0")
+                    img(:src="option.img" width="24px" height="24px")
+                  h-list-item-content
+                    h-list-item-text(:title="option.text" :caption="option.desc")
 
 </template>
 
@@ -227,7 +232,7 @@ export default {
       }
     },
     options: function () {
-      this.checkViewport()
+      this.onShowDropdown()
     },
     type: function (value) {
       this.inputType = value
@@ -255,6 +260,17 @@ export default {
       let value = false
       if (this.type === 'search' || this.type === 'select' || this.type === 'multi-select') {
         value = true
+      }
+      return value
+    },
+    compInputType () {
+      let value = ''
+      switch (this.inputType) {
+        case 'password':
+          value = 'password'
+          break
+        default:
+          value = 'text'
       }
       return value
     }
@@ -403,7 +419,7 @@ export default {
           this.window.width !== window.innerWidth ||
           this.window.height !== window.innerHeight
         ) {
-          this.checkViewport()
+          this.onShowDropdown()
         } else {
           setTimeout(() => {
             this.updateDropdownPosition()
@@ -415,7 +431,7 @@ export default {
       this.containerRect.top = containerRect[0].top
       this.containerRect.left = containerRect[0].left
     },
-    checkViewport () {
+    onShowDropdown () {
       this.showdropdown = true
 
       let containerElement = document.getElementById(this.containerId)
@@ -453,8 +469,8 @@ export default {
       this.inputType = (this.inputType === 'password') ? 'text' : 'password'
     },
     onKeyDown () {
-      if (this.type === 'search') {
-        this.checkViewport()
+      if (this.inputDropdown) {
+        this.onShowDropdown()
       } else {
         this.$emit('onKeyDown')
       }
@@ -484,10 +500,16 @@ export default {
       this.$emit('onEscape')
     },
     onClick () {
-      if (this.type === 'select' || this.type === 'multi-select') {
-        this.checkViewport()
+      if (this.inputDropdown) {
+        this.onShowDropdown()
       }
       this.$emit('onClick')
+    },
+    onIconDropDownClick () {
+      this.onClick()
+      this.$nextTick(() => {
+        this.focus()
+      })
     },
     away () {
       this.showdropdown = false
@@ -526,9 +548,7 @@ export default {
     },
     onClearable () {
       this.inputDisplay = ''
-      if (this.type === 'search') {
-        this.onInputSearch('')
-      }
+      this.$emit('clear')
     },
     closeSelectChip (index) {
       this.$delete(this.selectChipsValue, index)

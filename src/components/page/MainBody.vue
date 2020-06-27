@@ -1,21 +1,25 @@
 <template lang="pug">
-  .row.full-height.scroll(id="mainbody" style="right: 0px; max-height: 100%;" v-resize.initial="onResize")
-    .col-auto.full-height.scroll
+  .row.full-height(id="mainbody" style="right: 0px; max-height: 100%;"
+    v-resize.initial="onResize"
+  )
+    .col-auto.full-height
       h-nav-drawer(
+        id="mainbody-left-drawer"
         v-model="localShowDrawerLeft"
         ref="navLeft"
       )
         slot(name="left")
     .col
       .column.full-height
-        .col-auto
+        .col-auto.scroll
           slot(name="header")
         .col.scroll
           slot
-        .col-auto
+        .col-auto.scroll
           slot(name="footer")
     .col-auto.full-height.scroll
       h-nav-drawer(
+        id="mainbody-right-drawer"
         v-model="localShowDrawerRight"
         side="right"
         ref="navRight"
@@ -25,11 +29,11 @@
 </template>
 
 <script>
-
-import resize from 'vue-resize-directive'
+import resize from "vue-resize-directive";
+import viewport from "../others/viewport";
 
 export default {
-  name: 'MainBody',
+  name: "MainBody",
   directives: {
     resize
   },
@@ -43,52 +47,48 @@ export default {
       default: false
     }
   },
-  data () {
+  data() {
     return {
-      localDisplayMode: '',
+      localDisplayMode: "",
       localShowDrawerLeft: false,
       localShowDrawerRight: false
-    }
+    };
   },
-  mounted () {
-  },
+  mounted() {},
   watch: {
-    showDrawerLeft: function (show) {
-      this.localShowDrawerLeft = show
-      this.onResize()
+    showDrawerLeft: function(show) {
+      this.localShowDrawerLeft = show;
+      this.onResize();
     },
-    localShowDrawerLeft: function (show) {
+    localShowDrawerLeft: function(show) {
       if (!show) {
-        this.$emit('close-drawer-left', show)
+        this.$emit("closeDrawerLeft", show);
       }
     },
-    showDrawerRight: function (show) {
-      this.localShowDrawerRight = show
-      this.onResize()
+    showDrawerRight: function(show) {
+      this.localShowDrawerRight = show;
+      this.onResize();
     },
-    localShowDrawerRight: function (show) {
+    localShowDrawerRight: function(show) {
       if (!show) {
-        this.$emit('close-drawer-right', show)
+        this.$emit("closeDrawerRight", show);
       }
     }
   },
   methods: {
-    width () {
-      let value = 0
-      let elemmainbody = document.getElementById('mainbody')
-      if (elemmainbody) {
-        value = elemmainbody.clientWidth
-      }
-      return value
+    width() {
+      let value = 0;
+      value = viewport.mainBodyWidth();
+      return value;
     },
-    onResize () {
+    onResize() {
       if (this.showDrawerLeft) {
-        this.$refs.navLeft.onResize(this.width())
+        this.$refs.navLeft.onResize(this.width());
       }
       if (this.showDrawerRight) {
-        this.$refs.navRight.onResize(this.width())
+        this.$refs.navRight.onResize(this.width());
       }
     }
   }
-}
+};
 </script>

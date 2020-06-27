@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex color-hover h-list-item cursor-pointer h-pa-sm"
+    class="row color-hover h-list-item cursor-pointer h-pa-sm"
     :class="[textColor, compBgColor, compBgColorHover, {active: active}]"
     style="min-height: 25px;"
     @click="onClick"

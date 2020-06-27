@@ -68,10 +68,14 @@ export default {
   ],
 
   events: [
-    // {
-    //   name: '@click',
-    //   description: 'Triggered on icon click.'
-    // }
+    {
+      name: '@click',
+      description: 'Triggered on icon click.'
+    },
+    {
+      name: '@clearSearch',
+      description: 'Triggered on icon clear click when is search mode.'
+    }
   ]
 }
 

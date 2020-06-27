@@ -1,104 +1,99 @@
 <template>
-  <h-page-content padding>
-    <div class="row">
-      <div class="col">
-        <div class="text-h4">FILE UPLOAD</div>
-
-        <div ref="upload-file"/>
-        <comp-code class="h-mt-lg" title="Files" :code="ex1">
-          <h-file-upload
-            :multiple="true"
-            @addFiles="addFiles"
-            @removeFiles="removeFiles"
-            extensions=".pdf"
-          />
-        </comp-code>
-
-        <div ref="upload-image"/>
-        <comp-code class="h-mt-lg" title="Images" :code="ex2" :script="ex2Script"
-          javascript
-        >
-          <h-file-upload
+  <page-layout ref="pl" title="File Upload">
+    <template v-slot:components>
+      <div ref="upload-file"/>
+      <comp-code class="h-mt-lg" title="Files" :code="ex1">
+        <h-file-upload
           :multiple="true"
-          :max-size="maxsize"
-          title="Select Images"
-          subtitle="Click to add images"
-          image-only
-          />
-        </comp-code>
-
-        <div ref="upload-nodrop"/>
-        <comp-code class="h-mt-lg" title="Area Drop Hidden" :code="ex3">
-          <h-file-upload
-            :multiple="true"
-            :allow-drop="false"
-          />
-          <!-- <h-image-upload
-            class="h-mt-sm"
-            :multiple="true"
-            :allow-drop="false"
-          /> -->
-        </comp-code>
-
-        <div ref="vuejs-sample"/>
-        <comp-code class="h-mt-lg" title="Vuejs Sample" :code="vuejsSample" page="template" :script="vuejsSampleScript" javascript>
-        </comp-code>
-
-        <div ref="express-server"/>
-        <comp-code class="h-mt-lg" title="Express Server" :script="expressServer" page="javascript" hide-code javascript>
-        </comp-code>
-
-        <tabs-help
-          class="h-mt-md"
-          :properties="helpTopics.properties"
-          :events="helpTopics.events"
+          @addFiles="addFiles"
+          @removeFiles="removeFiles"
+          extensions=".pdf"
         />
-      </div>
-      <div class="col-auto">
-        <list-help>
-          <h-list>
-            <h-list-header text="Upload"/>
-            <h-list-item @click="goToElement('upload-file')">
-              <h-list-item-content>
-                <h-list-item-text title="Files"></h-list-item-text>
-              </h-list-item-content>
-            </h-list-item>
-            <h-list-item @click="goToElement('upload-image')">
-              <h-list-item-content>
-                <h-list-item-text title="Image"></h-list-item-text>
-              </h-list-item-content>
-            </h-list-item>
-            <h-list-item @click="goToElement('upload-nodrop')">
-              <h-list-item-content>
-                <h-list-item-text title="Area Drop Hidden"></h-list-item-text>
-              </h-list-item-content>
-            </h-list-item>
-            <h-list-header text="Example"/>
-            <h-list-item @click="goToElement('vuejs-sample')">
-              <h-list-item-content>
-                <h-list-item-text title="Vuejs"></h-list-item-text>
-              </h-list-item-content>
-            </h-list-item>
-            <h-list-item @click="goToElement('express-server')">
-              <h-list-item-content>
-                <h-list-item-text title="Express"></h-list-item-text>
-              </h-list-item-content>
-            </h-list-item>
-          </h-list>
-        </list-help>
-      </div>
-    </div>
+      </comp-code>
 
-  </h-page-content>
+      <div ref="upload-image"/>
+      <comp-code class="h-mt-lg" title="Images" :code="ex2" :script="ex2Script"
+        javascript
+      >
+        <h-file-upload
+        :multiple="true"
+        :max-size="maxsize"
+        title="Select Images"
+        subtitle="Click to add images"
+        image-only
+        />
+      </comp-code>
+
+      <div ref="upload-nodrop"/>
+      <comp-code class="h-mt-lg" title="Area Drop Hidden" :code="ex3">
+        <h-file-upload
+          :multiple="true"
+          :allow-drop="false"
+        />
+      </comp-code>
+
+      <div ref="vuejs-sample"/>
+      <comp-code class="h-mt-lg" title="Vuejs Sample" :code="vuejsSample" page="template" :script="vuejsSampleScript" javascript>
+      </comp-code>
+
+      <div ref="express-server"/>
+      <comp-code class="h-mt-lg" title="Express Server" :script="expressServer" page="javascript" hide-code javascript>
+      </comp-code>
+
+      <tabs-help
+        class="h-mt-md"
+        :properties="helpTopics.properties"
+        :events="helpTopics.events"
+      />
+    </template>
+
+    <template v-slot:help>
+      <list-help>
+        <h-list>
+          <h-list-header text="Upload"/>
+          <h-list-item @click="goToElement('upload-file')">
+            <h-list-item-content>
+              <h-list-item-text title="Files"></h-list-item-text>
+            </h-list-item-content>
+          </h-list-item>
+          <h-list-item @click="goToElement('upload-image')">
+            <h-list-item-content>
+              <h-list-item-text title="Image"></h-list-item-text>
+            </h-list-item-content>
+          </h-list-item>
+          <h-list-item @click="goToElement('upload-nodrop')">
+            <h-list-item-content>
+              <h-list-item-text title="Area Drop Hidden"></h-list-item-text>
+            </h-list-item-content>
+          </h-list-item>
+          <h-list-header text="Example"/>
+          <h-list-item @click="goToElement('vuejs-sample')">
+            <h-list-item-content>
+              <h-list-item-text title="Vuejs"></h-list-item-text>
+            </h-list-item-content>
+          </h-list-item>
+          <h-list-item @click="goToElement('express-server')">
+            <h-list-item-content>
+              <h-list-item-text title="Express"></h-list-item-text>
+            </h-list-item-content>
+          </h-list-item>
+        </h-list>
+      </list-help>
+    </template>
+  </page-layout>
+
 </template>
 
 <script>
 
-import viewport from '../../../components/others/viewport'
+import PageLayout from '../pageLayout'
 import helpTopics from './help'
 import axios from 'axios'
 
 export default {
+  components: {
+    PageLayout
+  },
   data () {
     return {
       helpTopics: {
@@ -107,6 +102,7 @@ export default {
       },
       fileList: [],
       maxsize: 1024 * 5000,
+      showDrawer: true,
       ex1: `
 <h-file-upload
   :multiple="true"
@@ -150,7 +146,8 @@ export default {
         />
       </div>
     </div>
-    <h-btn bg-color="bg-primary" text-color="text-white" text="Submit" @click="submitFile()"/>
+    <h-btn bg-color="bg-primary" text-color="text-white" text="Submit"
+      @click="submitFile()"/>
   </h-page-content>
 
 </template>
@@ -240,7 +237,8 @@ app.post('/single-file', function(req, res) {
           return res.status(400).send('No files were uploaded.');
         }
     
-        // The name of the input field (i.e. "sampleFile") is used to retrieve the uploaded file
+        // The name of the input field (i.e. "sampleFile") is used
+        // to retrieve the uploaded file
         let sampleFile = req.files.file;
     
         // Use the mv() method to place the file somewhere on your server
@@ -261,7 +259,8 @@ app.post('/multiple-file', function(req, res) {
         return res.status(400).send('No files were uploaded.');
       }
   
-      // The name of the input field (i.e. "sampleFile") is used to retrieve the uploaded file
+      // The name of the input field (i.e. "sampleFile") is used
+      // to retrieve the uploaded file
       Object.keys(req.files).forEach(key => {
         let file = req.files[key];
 
@@ -295,7 +294,7 @@ app.listen(port, () =>
   },
   methods: {
     goToElement (refName) {
-      viewport.goToElement(this.$refs[refName])
+      this.$refs.pl.goToElement(this.$refs[refName])
     },
     addFiles (fileList) {
       console.log('fileList added: ', fileList)
