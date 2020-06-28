@@ -7,10 +7,10 @@ import Prism from 'vue-prismjs'
 import './css/prism/prism.css'
 
 // main library styles
-// import './theme/hawk_default_stylus.styl'
+import './theme/hawk_default_stylus.styl'
 
 // custom styles
-import './customStyle.styl'
+// import './customStyle.styl'
 
 import './index.js'
 

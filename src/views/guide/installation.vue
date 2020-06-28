@@ -30,7 +30,7 @@ export default {
   data () {
     return {
       install: `
-yarn add hawkframework
+yarn add hawkvuemd
 `,
       defTheme: `
 import 'hawkvuemd'
