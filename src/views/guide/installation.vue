@@ -30,12 +30,12 @@ export default {
   data () {
     return {
       install: `
-yarn add hawkframework
+yarn add hawkvuemd
 `,
       defTheme: `
-import 'hawkframework'
-import 'hawkframework/dist/hawk_default_stylus.styl'
-import 'hawkframework/dist/hawkframework.css'
+import 'hawkvuemd'
+import 'hawkvuemd/dist/hawk_default_stylus.styl'
+import 'hawkvuemd/dist/hawkvuemd.css'
 `,
       theme: `
 // defining theme

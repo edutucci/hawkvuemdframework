@@ -1,6 +1,6 @@
 {
   "name": "hawkvuemd",
-  "version": "1.0.12-beta.0",
+  "version": "1.0.12-beta.1",
   "private": false,
   "main": "./dist/hawkvuemd.common.js",
   "keywords": [
@@ -10,7 +10,7 @@
     "Material Design",
     "Vue Material"
   ],
-  "homepage": "https://edutucci.github.io/hawkvuemdframework/",
+  "homepage": "https://hawkvuemd.herokuapp.com/",
   "license": "MIT",
   "files": [
     "dist/*",

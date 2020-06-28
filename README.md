@@ -1,4 +1,4 @@
-<h2 align="center"> HawkVueMd Framework 1.0.12-rc.0 </h2>
+<h2 align="center"> HawkVueMd Framework </h2>
 
 <h4 align="center">
 
@@ -8,7 +8,7 @@
 </h4>
 
 <h4 align="center">
-  🚀  Documentation: <a href="https://edutucci.github.io/hawkvuemdframework/" target="_blank">HawkVueMd &nbsp;Framework </a>
+  🚀  Documentation: <a href="https://hawkvuemd.herokuapp.com/" target="_blank">HawkVueMd &nbsp;Framework </a>
 </h4>
 
 <h4 align="center">
