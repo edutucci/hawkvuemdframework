@@ -12,7 +12,7 @@
           <div class="row position-sticky bg-white" style="top: 0; z-index: 100;">
             <div class="col text-h4">{{title}}</div>
             <div v-if="useHelp" class="col-auto">
-              <h-image src="imgIcons/png/icon-help.png" @click="showDrawer = !showDrawer" />
+              <h-image src="/imgIcons/png/icon-help.png" @click="showDrawer = !showDrawer" />
             </div>
           </div>
 

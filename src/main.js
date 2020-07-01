@@ -8,6 +8,7 @@ import './css/prism/prism.css'
 
 // main library styles
 import './theme/hawk_default_stylus.styl'
+import './app.styl'
 
 // custom styles
 // import './customStyle.styl'

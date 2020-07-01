@@ -64,19 +64,19 @@
       <comp-code class="h-mt-lg" title="Avatar" :code="chipAvatar">
         <div class="row">
           <div class="col">
-            <h-chips text="Kostenlose" avatar="avatar/Kostenlose.jpg" />
-            <h-chips text="Eduard" avatar="avatar/Eduard.jpg" />
-            <h-chips outlined text="Kostenlose" avatar="avatar/Kostenlose.jpg" />
-            <h-chips outlined text="Eduard" avatar="avatar/Eduard.jpg" />
+            <h-chips text="Kostenlose" avatar="/avatar/Kostenlose.jpg" />
+            <h-chips text="Eduard" avatar="/avatar/Eduard.jpg" />
+            <h-chips outlined text="Kostenlose" avatar="/avatar/Kostenlose.jpg" />
+            <h-chips outlined text="Eduard" avatar="/avatar/Eduard.jpg" />
           </div>
         </div>
 
         <div class="row h-mt-md">
           <div class="col">
-            <h-chips dense text="Kostenlose" avatar="avatar/Kostenlose.jpg" />
-            <h-chips dense text="Eduard" avatar="avatar/Eduard.jpg" />
-            <h-chips dense outlined text="Kostenlose" avatar="avatar/Kostenlose.jpg" />
-            <h-chips dense outlined text="Eduard" avatar="avatar/Eduard.jpg" />
+            <h-chips dense text="Kostenlose" avatar="/avatar/Kostenlose.jpg" />
+            <h-chips dense text="Eduard" avatar="/avatar/Eduard.jpg" />
+            <h-chips dense outlined text="Kostenlose" avatar="/avatar/Kostenlose.jpg" />
+            <h-chips dense outlined text="Eduard" avatar="/avatar/Eduard.jpg" />
           </div>
         </div>
       </comp-code>
@@ -126,6 +126,7 @@
 
 <script>
 import PageLayout from "../pageLayout";
+import helpTopics from "./help";
 
 export default {
   components: { PageLayout },
@@ -251,6 +252,10 @@ export default {
 }
 `
     };
+  },
+  mounted () {
+    this.helpTopics.properties = helpTopics.properties
+    this.helpTopics.events = helpTopics.events
   },
   methods: {
     goToElement(refName) {
