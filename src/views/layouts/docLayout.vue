@@ -58,7 +58,7 @@
       <div class="column full-height">
         <div class="col-auto text-center h-pa-md">
           <div class="column align-items-center">
-            <h-image avatar src="img/hawk.jpg" size="64px"/>
+            <h-image avatar src="/img/hawk.jpg" size="64px"/>
             <div class="">Hawk </div>
             <div class=""> Framework</div>
           </div>
@@ -67,54 +67,54 @@
           <h-collapsible>
 
             <h-collapsible-menu icon="fas fa-question-circle" text="Guide">
-              <h-collapsible-item text="Installation" @click="$router.push('/installation'), showDrawer = false"/>
-              <h-collapsible-item text="Layout" @click="$router.push('/layout'), showDrawer = false"/>
-              <h-collapsible-item text="Page" @click="$router.push('/page'), showDrawer = false"/>
-              <h-collapsible-item text="Pallete Color" @click="$router.push('/palleteColor'), showDrawer = false"/>
+              <h-collapsible-item text="Installation" @click="$router.push('/docs/installation'), showDrawer = false"/>
+              <h-collapsible-item text="Layout" @click="$router.push('/docs/layout'), showDrawer = false"/>
+              <h-collapsible-item text="Page" @click="$router.push('/docs/page'), showDrawer = false"/>
+              <h-collapsible-item text="Pallete Color" @click="$router.push('/docs/palleteColor'), showDrawer = false"/>
             </h-collapsible-menu>
 
             <h-collapsible-menu icon="fab fa-css3" text="CSS">
-              <h-collapsible-item text="Borders" @click="$router.push('/borders'), showDrawer = false"/>
-              <h-collapsible-item text="Flexbox" @click="$router.push('/flexbox'), showDrawer = false"/>
-              <h-collapsible-item text="Positioning" @click="$router.push('/positioning'), showDrawer = false"/>
-              <h-collapsible-item text="Spacing" @click="$router.push('/spacing'), showDrawer = false"/>
-              <h-collapsible-item text="Text Alignment" @click="$router.push('/textalignment'), showDrawer = false"/>
-              <h-collapsible-item text="Visibility" @click="$router.push('/visibility'), showDrawer = false"/>
-              <h-collapsible-item text="Others" @click="$router.push('/cssothers'), showDrawer = false"/>
+              <h-collapsible-item text="Borders" @click="$router.push('/docs/borders'), showDrawer = false"/>
+              <h-collapsible-item text="Flexbox" @click="$router.push('/docs/flexbox'), showDrawer = false"/>
+              <h-collapsible-item text="Positioning" @click="$router.push('/docs/positioning'), showDrawer = false"/>
+              <h-collapsible-item text="Spacing" @click="$router.push('/docs/spacing'), showDrawer = false"/>
+              <h-collapsible-item text="Text Alignment" @click="$router.push('/docs/textalignment'), showDrawer = false"/>
+              <h-collapsible-item text="Visibility" @click="$router.push('/docs/visibility'), showDrawer = false"/>
+              <h-collapsible-item text="Others" @click="$router.push('/docs/cssothers'), showDrawer = false"/>
             </h-collapsible-menu>
 
             <h-collapsible-menu text="Components" icon="fas fa-hdd">
-              <h-collapsible-item text="Appbar" @click="$router.push('/appbar'), showDrawer = false"/>
-              <h-collapsible-item text="Banner" @click="$router.push('/banner'), showDrawer = false"/>
-              <h-collapsible-item text="Buttons" @click="$router.push('/buttons'), showDrawer = false"/>
-              <h-collapsible-item text="Button Group" @click="$router.push('/buttongroup'), showDrawer = false"/>
-              <h-collapsible-item text="Cards" @click="$router.push('/card'), showDrawer = false"/>
-              <h-collapsible-item text="Carousel" @click="$router.push('/carousel'), showDrawer = false"/>
-              <h-collapsible-item text="Checkbox" @click="$router.push('/checkbox'), showDrawer = false"/>
-              <h-collapsible-item text="Chips" @click="$router.push('/chip'), showDrawer = false"/>
-              <h-collapsible-item text="Collapsible" @click="$router.push('/collapsible'), showDrawer = false"/>
-              <h-collapsible-item text="Date and Time" @click="$router.push('/datetime'), showDrawer = false"/>
-              <h-collapsible-item text="Dialog" @click="$router.push('/dialog'), showDrawer = false"/>
-              <h-collapsible-item text="Drawer" @click="$router.push('/drawer'), showDrawer = false"/>
-              <h-collapsible-item text="File Upload" @click="$router.push('/fileupload'), showDrawer = false"/>
-              <h-collapsible-item text="HtmlTable" @click="$router.push('/htmltable'), showDrawer = false"/>
-              <h-collapsible-item text="Icons" @click="$router.push('/icon'), showDrawer = false"/>
-              <h-collapsible-item text="Image" @click="$router.push('/compimage'), showDrawer = false"/>
-              <h-collapsible-item text="Input Textfield" @click="$router.push('/input'), showDrawer = false"/>
-              <h-collapsible-item text="List" @click="$router.push('/list'), showDrawer = false"/>
-              <h-collapsible-item text="Radio" @click="$router.push('/radio'), showDrawer = false"/>
-              <h-collapsible-item text="Range Slider" @click="$router.push('/rangeslider'), showDrawer = false"/>
-              <h-collapsible-item text="Rating" @click="$router.push('/rating'), showDrawer = false"/>
-              <h-collapsible-item text="SideBar Menu" @click="$router.push('/sideBarMenu'), showDrawer = false"/>
-              <h-collapsible-item text="Tab" @click="$router.push('/tab'), showDrawer = false"/>
-              <h-collapsible-item text="Table" @click="$router.push('/table'), showDrawer = false"/>
-              <h-collapsible-item text="Toggle" @click="$router.push('/toggle'), showDrawer = false"/>
-              <h-collapsible-item text="Video" @click="$router.push('/video'), showDrawer = false"/>
+              <h-collapsible-item text="Appbar" @click="$router.push('/docs/appbar'), showDrawer = false"/>
+              <h-collapsible-item text="Banner" @click="$router.push('/docs/banner'), showDrawer = false"/>
+              <h-collapsible-item text="Buttons" @click="$router.push('/docs/buttons'), showDrawer = false"/>
+              <h-collapsible-item text="Button Group" @click="$router.push('/docs/buttongroup'), showDrawer = false"/>
+              <h-collapsible-item text="Cards" @click="$router.push('/docs/card'), showDrawer = false"/>
+              <h-collapsible-item text="Carousel" @click="$router.push('/docs/carousel'), showDrawer = false"/>
+              <h-collapsible-item text="Checkbox" @click="$router.push('/docs/checkbox'), showDrawer = false"/>
+              <h-collapsible-item text="Chips" @click="$router.push('/docs/chip'), showDrawer = false"/>
+              <h-collapsible-item text="Collapsible" @click="$router.push('/docs/collapsible'), showDrawer = false"/>
+              <h-collapsible-item text="Date and Time" @click="$router.push('/docs/datetime'), showDrawer = false"/>
+              <h-collapsible-item text="Dialog" @click="$router.push('/docs/dialog'), showDrawer = false"/>
+              <h-collapsible-item text="Drawer" @click="$router.push('/docs/drawer'), showDrawer = false"/>
+              <h-collapsible-item text="File Upload" @click="$router.push('/docs/fileupload'), showDrawer = false"/>
+              <h-collapsible-item text="HtmlTable" @click="$router.push('/docs/htmltable'), showDrawer = false"/>
+              <h-collapsible-item text="Icons" @click="$router.push('/docs/icon'), showDrawer = false"/>
+              <h-collapsible-item text="Image" @click="$router.push('/docs/compimage'), showDrawer = false"/>
+              <h-collapsible-item text="Input Textfield" @click="$router.push('/docs/input'), showDrawer = false"/>
+              <h-collapsible-item text="List" @click="$router.push('/docs/list'), showDrawer = false"/>
+              <h-collapsible-item text="Radio" @click="$router.push('/docs/radio'), showDrawer = false"/>
+              <h-collapsible-item text="Range Slider" @click="$router.push('/docs/rangeslider'), showDrawer = false"/>
+              <h-collapsible-item text="Rating" @click="$router.push('/docs/rating'), showDrawer = false"/>
+              <h-collapsible-item text="SideBar Menu" @click="$router.push('/docs/sideBarMenu'), showDrawer = false"/>
+              <h-collapsible-item text="Tab" @click="$router.push('/docs/tab'), showDrawer = false"/>
+              <h-collapsible-item text="Table" @click="$router.push('/docs/table'), showDrawer = false"/>
+              <h-collapsible-item text="Toggle" @click="$router.push('/docs/toggle'), showDrawer = false"/>
+              <h-collapsible-item text="Video" @click="$router.push('/docs/video'), showDrawer = false"/>
             </h-collapsible-menu>
 
             <h-collapsible-menu icon="fas fa-plug" text="Plugins">
-              <h-collapsible-item text="Loading" @click="$router.push('/loading'), showDrawer = false"/>
-              <h-collapsible-item text="SnackBar" @click="$router.push('/snack'), showDrawer = false"/>
+              <h-collapsible-item text="Loading" @click="$router.push('/docs/loading'), showDrawer = false"/>
+              <h-collapsible-item text="SnackBar" @click="$router.push('/docs/snack'), showDrawer = false"/>
             </h-collapsible-menu>
 
           </h-collapsible>

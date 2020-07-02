@@ -21,7 +21,7 @@
             <h-tab name="profile" text="PROFILE">
               <div class="row align-items-center full-height">
                 <div class="col-auto h-ma-sm">
-                  <h-image avatar src="avatar/Penguin.png" size="48px"/>
+                  <h-image avatar src="/avatar/Penguin.png" size="48px"/>
                 </div>
                 <div class="col">
                   <div class="text-h5">Profile</div>
@@ -65,10 +65,10 @@
                 <div class="col h-pl-sm">
                   <div class="row justify-center">
                     <div class="col-auto">
-                      <h-image src="img/game-soccer.jpeg" style="width:150px;height:100px"/>
+                      <h-image src="/img/game-soccer.jpeg" style="width:150px;height:100px"/>
                     </div>
                     <div class="col-auto h-ml-sm">
-                      <h-image src="img/Rainbow-Six-Siege-3.jpg" style="width:150px;height:100px"/>
+                      <h-image src="/img/Rainbow-Six-Siege-3.jpg" style="width:150px;height:100px"/>
                     </div>
                   </div>
                 </div>
@@ -83,7 +83,7 @@
                 <div class="col h-pl-sm">
                   <div class="row justify-center">
                     <div class="col-auto">
-                      <h-image src="img/bookhtmlcss3.jpeg" style="width:150px;height:100px"/>
+                      <h-image src="/img/bookhtmlcss3.jpeg" style="width:150px;height:100px"/>
                     </div>
                   </div>
                 </div>
@@ -129,7 +129,7 @@
             <h-tab name="profile" text="PROFILE">
               <div class="row align-items-center full-height">
                 <div class="col-auto h-ma-sm">
-                  <h-image avatar src="avatar/Penguin.png" size="48px"/>
+                  <h-image avatar src="/avatar/Penguin.png" size="48px"/>
                 </div>
                 <div class="col">
                   <div class="text-h5">Profile</div>
@@ -173,10 +173,10 @@
                 <div class="col h-pl-sm">
                   <div class="row justify-center">
                     <div class="col-auto">
-                      <h-image src="img/game-soccer.jpeg" style="width:150px;height:100px"/>
+                      <h-image src="/img/game-soccer.jpeg" style="width:150px;height:100px"/>
                     </div>
                     <div class="col-auto h-ml-sm">
-                      <h-image src="img/Rainbow-Six-Siege-3.jpg" style="width:150px;height:100px"/>
+                      <h-image src="/img/Rainbow-Six-Siege-3.jpg" style="width:150px;height:100px"/>
                     </div>
                   </div>
                 </div>
@@ -191,7 +191,7 @@
                 <div class="col h-pl-sm">
                   <div class="row justify-center">
                     <div class="col-auto">
-                      <h-image src="img/bookhtmlcss3.jpeg" style="width:150px;height:100px"/>
+                      <h-image src="/img/bookhtmlcss3.jpeg" style="width:150px;height:100px"/>
                     </div>
                   </div>
                 </div>

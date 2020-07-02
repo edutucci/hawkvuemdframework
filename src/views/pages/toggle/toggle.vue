@@ -36,6 +36,7 @@
         </div>
       </comp-code>
 
+      <div ref="tg-checked" />
       <comp-code
         class="h-mt-lg"
         title="Option checked"
@@ -103,6 +104,11 @@
           <h-list-item @click="goToElement('tg-readonly')">
             <h-list-item-content>
               <h-list-item-text title="Readonly"></h-list-item-text>
+            </h-list-item-content>
+          </h-list-item>
+          <h-list-item @click="goToElement('tg-checked')">
+            <h-list-item-content>
+              <h-list-item-text title="Checked"></h-list-item-text>
             </h-list-item-content>
           </h-list-item>
           <h-list-item @click="goToElement('tg-list')">

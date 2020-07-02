@@ -1,14 +1,17 @@
 export default {
-  searchTopics: [
-    {
-      parent: 'Components',
-      text: 'Banner',
-      topic: 'Standard'
-    },
-    {
-      parent: 'Components',
-      text: 'Banner',
-      topic: 'Background Color'
-    }
-  ]
+  searchObject: {
+    parent: 'Components',
+    url: '/docs/banner',
+    topics: [
+      {
+        text: 'Banner',
+        topic: 'Standard'
+      },
+      {
+        text: 'Banner',
+        topic: 'Background Color'
+      }
+    ]    
+  }
+
 }

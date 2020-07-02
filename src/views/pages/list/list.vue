@@ -17,7 +17,7 @@
           <h-separator/>
           <h-list-item>
             <h-list-item-side>
-              <h-image avatar src="avatar/Konsta.jpg"/>
+              <h-image avatar src="/avatar/Konsta.jpg"/>
             </h-list-item-side>
             <h-list-item-content>
               <h-list-item-text title="Konsta"/>
@@ -25,7 +25,7 @@
           </h-list-item>
           <h-list-item>
             <h-list-item-side>
-              <h-image avatar src="avatar/Eduard.jpg"/>
+              <h-image avatar src="/avatar/Eduard.jpg"/>
             </h-list-item-side>
             <h-list-item-content>
               <h-list-item-text title="Eduard"/>
@@ -47,7 +47,7 @@
           <h-separator/>
           <h-list-item>
             <h-list-item-side>
-              <h-image avatar src="avatar/AnaArmas.jpg"/>
+              <h-image avatar src="/avatar/AnaArmas.jpg"/>
             </h-list-item-side>
             <h-list-item-content>
               <h-list-item-text title="Ana"/>
@@ -55,7 +55,7 @@
           </h-list-item>
           <h-list-item>
             <h-list-item-side>
-              <h-image avatar src="avatar/Eduard.jpg"/>
+              <h-image avatar src="/avatar/Eduard.jpg"/>
             </h-list-item-side>
             <h-list-item-content>
               <h-list-item-text title="Eduard"/>
@@ -80,7 +80,7 @@
           <h-separator/>
           <h-list-item>
             <h-list-item-side>
-              <h-image avatar src="avatar/AnaArmas.jpg"/>
+              <h-image avatar src="/avatar/AnaArmas.jpg"/>
             </h-list-item-side>
             <h-list-item-content>
               <h-list-item-text title="Ana"/>
@@ -88,7 +88,7 @@
           </h-list-item>
           <h-list-item>
             <h-list-item-side>
-              <h-image avatar src="avatar/Eduard.jpg"/>
+              <h-image avatar src="/avatar/Eduard.jpg"/>
             </h-list-item-side>
             <h-list-item-content>
               <h-list-item-text title="Eduard"/>
@@ -163,7 +163,7 @@
           <h-list-header text="Today"/>
           <h-list-item>
             <h-list-item-side class="flex-items-center">
-              <h-list-item-img class="flex-items-center" src="img/pencil.png"/>
+              <h-list-item-img class="flex-items-center" src="/img/pencil.png"/>
             </h-list-item-side>
             <h-list-item-content>
               <h-list-item-text title="Pencil" caption="in stock"/>
@@ -174,7 +174,7 @@
           </h-list-item>
           <h-list-item>
             <h-list-item-side class="flex-items-center">
-              <h-list-item-img class="flex-items-center" src="img/rubberbands.png"/>
+              <h-list-item-img class="flex-items-center" src="/img/rubberbands.png"/>
             </h-list-item-side>
             <h-list-item-content>
               <h-list-item-text title="Hubberbands" caption="in stock"/>
@@ -185,7 +185,7 @@
           </h-list-item>
           <h-list-item>
             <h-list-item-side class="flex-items-center">
-              <h-list-item-img class="flex-items-center" src="img/rulers.png"/>
+              <h-list-item-img class="flex-items-center" src="/img/rulers.png"/>
             </h-list-item-side>
             <h-list-item-content>
               <h-list-item-text title="Rulers" caption="only 1 left in stock"/>
@@ -199,7 +199,7 @@
         <h-list bordered class="h-mt-md" style="width: 350px">
           <h-list-item>
             <h-list-item-side>
-              <h-list-item-img src="avatar/folder_open.png"/>
+              <h-list-item-img src="/avatar/folder_open.png"/>
             </h-list-item-side>
             <h-list-item-content>
               <h-list-item-text title="Photos" caption="Jan 9, 2018"/>
@@ -210,7 +210,7 @@
           </h-list-item>
           <h-list-item>
             <h-list-item-side>
-              <h-list-item-img src="avatar/folder_open.png"/>
+              <h-list-item-img src="/avatar/folder_open.png"/>
             </h-list-item-side>
             <h-list-item-content>
               <h-list-item-text title="Recipes" caption="Jan"/>
@@ -223,7 +223,7 @@
           <h-list-header text="Recent files"/>
           <h-list-item>
             <h-list-item-side>
-              <h-list-item-img src="avatar/folder_open.png"/>
+              <h-list-item-img src="/avatar/folder_open.png"/>
             </h-list-item-side>
             <h-list-item-content>
               <h-list-item-text title="Vacation itinerary" caption="Jan 20, 2018"/>
@@ -234,7 +234,7 @@
           </h-list-item>
           <h-list-item>
             <h-list-item-side>
-              <h-list-item-img src="avatar/folder_open.png"/>
+              <h-list-item-img src="/avatar/folder_open.png"/>
             </h-list-item-side>
             <h-list-item-content>
               <h-list-item-text title="Kicthen remodel" caption="Jan 10, 2018"/>
@@ -252,7 +252,7 @@
           <h-list-header text="Recipes"/>
           <h-list-item>
             <h-list-item-side>
-              <h-list-item-img class="flex-items-center" src="img/Crunchy.jpg" large/>
+              <h-list-item-img class="flex-items-center" src="/img/Crunchy.jpg" large/>
             </h-list-item-side>
             <h-list-item-content>
               <h-list-item-text title="Crunchy Croissants" caption="Buttery, flaky pastry named for its crescent shape."/>
@@ -263,7 +263,7 @@
           </h-list-item>
           <h-list-item>
             <h-list-item-side>
-              <h-list-item-img class="flex-items-center" src="img/GrilledEggPlant.jpg" large/>
+              <h-list-item-img class="flex-items-center" src="/img/GrilledEggPlant.jpg" large/>
             </h-list-item-side>
             <h-list-item-content>
               <h-list-item-text title="Grilled Eggplant" caption="Tender with a rich, complex and flavor when cooked."/>
@@ -274,7 +274,7 @@
           </h-list-item>
           <h-list-item>
             <h-list-item-side>
-              <h-list-item-img class="flex-items-center" src="img/TangerineSalad.jpg" large/>
+              <h-list-item-img class="flex-items-center" src="/img/TangerineSalad.jpg" large/>
             </h-list-item-side>
             <h-list-item-content>
               <h-list-item-text title="Tangerine Salad" caption="Peak tangerine season lasts from autumn to spring."/>
@@ -289,7 +289,7 @@
           <h-list-header text="Today"/>
           <h-list-item>
             <h-list-item-side class="flex-items-center">
-              <h-image avatar src="avatar/Eduard.jpg"/>
+              <h-image avatar src="/avatar/Eduard.jpg"/>
             </h-list-item-side>
             <h-list-item-content>
               <h-list-item-text title="Brunch this weekend?" caption="I'll be in your neighborhood doing errands this weekend."/>
@@ -297,7 +297,7 @@
           </h-list-item>
           <h-list-item>
             <h-list-item-side class="flex-items-center">
-              <h-image avatar src="avatar/AnaArmas.jpg"/>
+              <h-image avatar src="/avatar/AnaArmas.jpg"/>
             </h-list-item-side>
             <h-list-item-content>
               <h-list-item-text title="Summer BBQ" caption="Wish I coould come, but I'm out of town this weekend."/>
@@ -305,7 +305,7 @@
           </h-list-item>
           <h-list-item>
             <h-list-item-side class="flex-items-center">
-              <h-image avatar src="avatar/Kostenlose.jpg"/>
+              <h-image avatar src="/avatar/Kostenlose.jpg"/>
             </h-list-item-side>
             <h-list-item-content>
               <h-list-item-text title="Oui Oui" caption="Do you have Paris recommendations? Have you ever been?."/>
@@ -316,7 +316,7 @@
         <h-list bordered class="h-mt-md" style="max-width: 400px">
             <h-list-item>
               <h-list-item-side>
-                <h-list-item-img src="avatar/folder_open.png"/>
+                <h-list-item-img src="/avatar/folder_open.png"/>
               </h-list-item-side>
               <h-list-item-content>
                 <h-list-item-text title="At the top" caption="Cindy climbs new heights"/>
@@ -331,7 +331,7 @@
             <h-separator/>
             <h-list-item>
               <h-list-item-side>
-                <h-list-item-img src="avatar/folder_open.png"/>
+                <h-list-item-img src="/avatar/folder_open.png"/>
               </h-list-item-side>
               <h-list-item-content>
                 <h-list-item-text title="At the top" caption="Cindy climbs new heights"/>
@@ -382,7 +382,7 @@
           <h-list-header text="Today"/>
             <h-list-item>
               <h-list-item-side class="flex-items-center">
-                <h-image avatar src="avatar/Eduard.jpg"/>
+                <h-image avatar src="/avatar/Eduard.jpg"/>
               </h-list-item-side>
               <h-list-item-content>
                 <h-list-item-text title="Brunch this weekend?" caption="I'll be in your neighborhood doing errands this weekend."/>
@@ -393,7 +393,7 @@
             </h-list-item>
             <h-list-item>
               <h-list-item-side class="flex-items-center">
-                <h-image avatar src="avatar/AnaArmas.jpg"/>
+                <h-image avatar src="/avatar/AnaArmas.jpg"/>
               </h-list-item-side>
               <h-list-item-content>
                 <h-list-item-text title="Summer BBQ" caption="Wish I coould come, but I'm out of town this weekend."/>
@@ -404,7 +404,7 @@
             </h-list-item>
             <h-list-item>
               <h-list-item-side class="flex-items-center">
-                <h-image avatar src="avatar/Kostenlose.jpg"/>
+                <h-image avatar src="/avatar/Kostenlose.jpg"/>
               </h-list-item-side>
               <h-list-item-content>
                 <h-list-item-text title="Oui Oui" caption="Do you have Paris recommendations? Have you ever been?."/>

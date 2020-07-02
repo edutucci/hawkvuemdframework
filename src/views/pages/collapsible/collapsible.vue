@@ -48,7 +48,7 @@
                 <h-collapsible-menu icon="fa fa-envelope" text="Letter">
                   <div class="row align-items-center justify-center">
                     <div>
-                      <h-image avatar src="img/hawk.jpg" size="64px" />
+                      <h-image avatar src="/img/hawk.jpg" size="64px" />
                     </div>
                     <div>
                       <h1>Free Framework CSS</h1>
@@ -58,7 +58,7 @@
                 <h-collapsible-menu icon="fas fa-utensils" text="Dining">
                   <div class="row align-items-center justify-center">
                     <div>
-                      <h-image avatar src="img/icons/mstile-150x150.png" size="64px" />
+                      <h-image avatar src="/img/icons/mstile-150x150.png" size="64px" />
                     </div>
                     <div>
                       <h1>Vue JS</h1>
@@ -99,7 +99,7 @@
             </h-list-item>
             <h-list-item @click="goToElement('col-customcontent')">
               <h-list-item-content>
-                <h-list-item-text title="Custom content"></h-list-item-text>
+                <h-list-item-text title="Custom Content"></h-list-item-text>
               </h-list-item-content>
             </h-list-item>
           </h-list>

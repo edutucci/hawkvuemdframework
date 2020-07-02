@@ -63,18 +63,18 @@
       <div ref="icon-svg"/>
       <comp-code class="h-mt-lg" title="SVG" :code="iconSVG">
         <div class="row">
-          <h-icon class="h-pa-xs" image icon="imgIcons/svg/camera-24px.svg" size="24px"/>
-          <h-icon class="h-pa-xs" image icon="imgIcons/svg/directions_bike-24px.svg" size="24px"/>
-          <h-icon class="h-pa-xs" image icon="imgIcons/svg/bag_currency.svg" size="24px"/>
+          <h-icon class="h-pa-xs" image icon="/imgIcons/svg/camera-24px.svg" size="24px"/>
+          <h-icon class="h-pa-xs" image icon="/imgIcons/svg/directions_bike-24px.svg" size="24px"/>
+          <h-icon class="h-pa-xs" image icon="/imgIcons/svg/bag_currency.svg" size="24px"/>
         </div>
       </comp-code>
 
       <div ref="icon-png"/>
       <comp-code class="h-mt-lg" title="PNG" :code="iconPNG">
         <div class="row">
-          <h-icon class="h-pa-xs" image icon="imgIcons/png/logo_linux.png" size="24px"/>
-          <h-icon class="h-pa-xs" image icon="imgIcons/png/logo_gmail.png" size="24px"/>
-          <h-icon class="h-pa-xs" image icon="imgIcons/png/logo_icloud.png" size="24px"/>
+          <h-icon class="h-pa-xs" image icon="/imgIcons/png/logo_linux.png" size="24px"/>
+          <h-icon class="h-pa-xs" image icon="/imgIcons/png/logo_gmail.png" size="24px"/>
+          <h-icon class="h-pa-xs" image icon="/imgIcons/png/logo_icloud.png" size="24px"/>
         </div>
       </comp-code>
 

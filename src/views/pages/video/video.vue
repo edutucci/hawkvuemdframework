@@ -83,12 +83,14 @@ export default {
       showDrawer: true,
       ex1: `
 <div>
-  <h-youtube-video :width="340" :height="220" src="https://www.youtube.com/embed/nSmMkeNjjPg"/>
+  <h-youtube-video :width="340" :height="220"
+    src="https://www.youtube.com/embed/nSmMkeNjjPg"/>
 </div>
 `,
       ex2: `
 <div>
-  <h-youtube-video :width="340" :height="220" src="https://www.youtube.com/embed/NPjzUyax4tw"/>
+  <h-youtube-video :width="340" :height="220"
+    src="https://www.youtube.com/embed/NPjzUyax4tw"/>
 </div>
 `,
       cod1: `
