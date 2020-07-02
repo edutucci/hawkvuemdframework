@@ -15,6 +15,16 @@ import fileUploadSearch from '../../views/search/fileUpload'
 import htmltableSearch from '../../views/search/htmlTable'
 import iconsSearch from '../../views/search/icons'
 import imageSearch from '../../views/search/image'
+import listSearch from '../../views/search/list'
+import radioSearch from '../../views/search/radio'
+import rangeSliderSearch from '../../views/search/rangeslider'
+import ratingSearch from '../../views/search/rating'
+import sideBarMenuSearch from '../../views/search/sidebarmenu'
+import tabSearch from '../../views/search/tab'
+import tableSearch from '../../views/search/table'
+import textfieldSearch from '../../views/search/textfield'
+import toogleSearch from '../../views/search/toggle'
+import videoSearch from '../../views/search/video'
 
 export default class WebSiteSearch {
   constructor () {
@@ -43,6 +53,16 @@ export default class WebSiteSearch {
     this.addTopics(htmltableSearch.searchObject)
     this.addTopics(iconsSearch.searchObject)
     this.addTopics(imageSearch.searchObject)
+    this.addTopics(listSearch.searchObject)
+    this.addTopics(radioSearch.searchObject)
+    this.addTopics(rangeSliderSearch.searchObject)
+    this.addTopics(ratingSearch.searchObject)
+    this.addTopics(sideBarMenuSearch.searchObject)
+    this.addTopics(tabSearch.searchObject)
+    this.addTopics(tableSearch.searchObject)
+    this.addTopics(textfieldSearch.searchObject)
+    this.addTopics(toogleSearch.searchObject)
+    this.addTopics(videoSearch.searchObject)
   }
 
   addTopics (searchObject) {

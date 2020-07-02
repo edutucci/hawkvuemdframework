@@ -20,7 +20,7 @@ export default {
         topic: 'Avatar Styles'
       },
       {
-        text: 'Icon',
+        text: 'Image',
         topic: 'Custom Sizes Avatar'
       }
     ]

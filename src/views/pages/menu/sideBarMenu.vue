@@ -9,7 +9,7 @@
       >
         <template v-slot:header>
           <div class="column align-items-center" style="margin-top: 30px;">
-            <h-image avatar src="img/hawk.jpg" size="64px"/>
+            <h-image avatar src="/img/hawk.jpg" size="64px"/>
             <div class="text-h5">Hawk </div>
             <div class="text-h5"> Framework</div>
             <div>Sidebar Menu Working</div>
@@ -62,17 +62,17 @@
     <template v-slot:components>
       <div ref="sidebarmenu-icons"/>
       <comp-code class="h-mt-md" title="Icons" :code="icons">
-        <img src="imgsamples/sidebarMenuIcons.png"/>
+        <img src="/imgsamples/sidebarMenuIcons.png"/>
       </comp-code>
 
       <div ref="sidebarmenu-iconstext"/>
       <comp-code class="h-mt-md" title="Icons and Text" :code="iconsText">
-        <img src="imgsamples/sidebarMenuIconsText.png"/>
+        <img src="/imgsamples/sidebarMenuIconsText.png"/>
       </comp-code>
 
       <div ref="sidebarmenu-customcolor"/>
       <comp-code class="h-mt-md" title="Custom Color" :code="customColor">
-        <img src="imgsamples/sidebarMenuCustomColor.png"/>
+        <img src="/imgsamples/sidebarMenuCustomColor.png"/>
       </comp-code>
 
     </template>
