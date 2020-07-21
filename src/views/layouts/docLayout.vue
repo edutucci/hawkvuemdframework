@@ -29,15 +29,15 @@
                   class="column full-width"
                 >
                   <div class="text-body1 bg-primary text-white h-pa-sm text-bold">
-                    {{itemoption.value.parent}}
+                    {{itemoption.value.parent}} - {{itemoption.value.url}}
                   </div>
                   <div class="row align-items-center"
                     v-for="(topic, index) in itemoption.value.topics"
                     :key="index"
                   >
-                    <div class="col-auto text-body2 h-pr-sm text-right border-right border-gray bg-gray200 border-bottom -border-gray" style="width: 130px;line-height: 40px;">
+                    <div @click="goURL(topic.url)" class="col-auto text-body2 h-pr-sm text-right border-right border-gray bg-gray200 border-bottom -border-gray" style="width: 130px;line-height: 40px;">
                       <span></span>{{topic.text}}</div>
-                    <div class="col text-body2 h-ml-sm ">{{topic.topic}}</div>
+                    <div @click="goURL(topic.url)" class="col text-body2 h-ml-sm ">{{topic.topic}}</div>
                   </div>
                 </div>
               </template>
@@ -177,11 +177,15 @@ export default {
                })
             }
             this.webSearchOptions[this.webSearchOptions.length - 1].topics.push(
-              { text: model.text, topic: model.topic },
+              { text: model.text, topic: model.topic, url: model.url },
             )
           }
         })
       }
+    },
+    goURL (url) {
+      console.log('url: ', url)
+      this.$router.push(url)
     }
   }
 }
