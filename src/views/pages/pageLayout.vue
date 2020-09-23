@@ -73,12 +73,12 @@ export default {
     goToElement(element) {
       viewport.goToElement(element);
     },
-    pageResize(value) {
+    pageResize(data) {
       this.showDrawer = true
-      if (value < 961) {
+      if (data.mainBodyWidth < 961) {
         this.showDrawer = false
       }
-      this.$refs.navHelp.onResize(value);
+      this.$refs.navHelp.onResize(data.mainBodyWidth);
     }
   }
 };

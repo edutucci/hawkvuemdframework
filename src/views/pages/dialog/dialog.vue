@@ -265,8 +265,8 @@ export default {
         this.showDrawer = false
       }
     },
-    pageResize (value) {
-      this.$refs.navHelp.onResize(value)
+    pageResize (data) {
+      this.$refs.navHelp.onResize(data.mainBodyWidth)
     }  
   }
 }

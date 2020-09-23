@@ -79,9 +79,16 @@ export default {
       this.pageObject.opacity = '' + backgroundImageOpacity + ''
     },
     onResize () {
-      let size = viewport.mainBodyWidth()
-      this.$emit('onResize', size)
-      if (size < 961) {
+      let mainBodyWidth = viewport.mainBodyWidth()
+      let pageContentHeight = viewport.getPageContentHeight()
+      let pageContentWidth = viewport.getPageContentWidth()
+
+      this.$emit('onResize', { 
+        mainBodyWidth: mainBodyWidth,
+        pageContentHeight: pageContentHeight,
+        pageContentWidth: pageContentWidth
+      })
+      if (mainBodyWidth < 961) {
         let mld = document.getElementById('mainbody-left-drawer')
         let mrd = document.getElementById('mainbody-right-drawer')
         if (mld || mrd) {

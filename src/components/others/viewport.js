@@ -64,15 +64,27 @@ function mainBodyWidth () {
 //   return pageHeaderBottom
 // }
 
-// function getPageContentHeight () {
-//   let pageContent = document.getElementById('page-content')
-//   let pageContentHeight = 0
-//   if (pageContent) {
-//     let rectPageContent = pageContent.getClientRects()
-//     pageContentHeight = rectPageContent['0'].height
-//   }
-//   return pageContentHeight
-// }
+function getPageContentHeight () {
+  let pageContent = document.getElementById('page-content-slot')
+  let pageContentHeight = 0
+  if (pageContent) {
+    pageContentHeight = pageContent.clientHeight
+    // let rectPageContent = pageContent.getClientRects()
+    // pageContentHeight = rectPageContent['0'].height
+  }
+  return pageContentHeight
+}
+
+function getPageContentWidth () {
+  let pageContent = document.getElementById('page-content-slot')
+  let pageContentWidth = 0
+  if (pageContent) {
+    pageContentWidth = pageContent.clientWidth
+    // let rectPageContent = pageContent.getClientRects()
+    // pageContentHeight = rectPageContent['0'].height
+  }
+  return pageContentWidth
+}
 
 // function getPageFooterHeight () {
 //   let pageFooter = document.getElementById('page-footer')
@@ -107,7 +119,9 @@ let viewport = {
   elementBelowOfPage: elementBelowOfPage,
   goToElement: goToElement,
   subtractPageScroll: subtractPageScroll,
-  mainBodyWidth: mainBodyWidth
+  mainBodyWidth: mainBodyWidth,
+  getPageContentHeight: getPageContentHeight,
+  getPageContentWidth: getPageContentWidth
 }
 
 export default viewport

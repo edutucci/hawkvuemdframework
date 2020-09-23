@@ -242,8 +242,8 @@ export default {
     };
   },
   methods: {
-    pageResize(value) {
-      this.$refs.navHelp.onResize(value);
+    pageResize(data) {
+      this.$refs.navHelp.onResize(data.mainBodyWidth);
     }
   },
   mounted() {
