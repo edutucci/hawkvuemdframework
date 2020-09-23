@@ -266,7 +266,7 @@ export default {
       }
     },
     pageResize (value) {
-      this.$refs.navHelp.onResize(value)
+      this.$refs.navHelp.onResize(value.mainBodyWidth)
     }  
   }
 }

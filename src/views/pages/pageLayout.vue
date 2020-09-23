@@ -75,10 +75,10 @@ export default {
     },
     pageResize(value) {
       this.showDrawer = true
-      if (value < 961) {
+      if (value.mainBodyWidth < 961) {
         this.showDrawer = false
       }
-      this.$refs.navHelp.onResize(value);
+      this.$refs.navHelp.onResize(value.mainBodyWidth);
     }
   }
 };

@@ -243,7 +243,7 @@ export default {
   },
   methods: {
     pageResize(value) {
-      this.$refs.navHelp.onResize(value);
+      this.$refs.navHelp.onResize(value.mainBodyWidth);
     }
   },
   mounted() {
