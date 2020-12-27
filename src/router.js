@@ -80,7 +80,7 @@ export default new Router({
     // },
     {
       path: '/test',
-      component: () => import('./views/pages/test/ProgressCircular.vue')
+      component: () => import('./views/pages/test/card.vue')
     }
     // {
     //   path: '/example',

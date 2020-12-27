@@ -1,6 +1,6 @@
 <template lang="pug">
   .shadow-2.no-user-select.border-radius.bg-white(style="display: inline-block;")
-    .flex.flex-column
+    .column.full-height
       slot
 </template>
 
@@ -19,9 +19,8 @@ export default {
 </script>
 
 <style scoped>
-.media {
+/* .media {
   position: relative;
-  /* background-color: cadetblue; */
   min-height: 80px;
 }
 
@@ -35,9 +34,6 @@ img {
   top:-1px;
   left:-1px;
   z-index: 1;
-  /* color:white; */
-  /* background-color: aquamarine; */
-  /* opacity: 0.5; */
   margin: 5px;
   height:98%;
   width:98%;
@@ -69,6 +65,6 @@ img {
 
 .actions {
   padding: 8px;
-}
+} */
 
 </style>
