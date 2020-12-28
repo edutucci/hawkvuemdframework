@@ -1,79 +1,33 @@
 {
-  "name": "hawkvuemd",
-  "version": "1.0.12-beta.1",
-  "private": false,
-  "main": "./dist/hawkvuemd.common.js",
-  "keywords": [
-    "Vue",
-    "Material",
-    "Vue Components",
-    "Material Design",
-    "Vue Material"
-  ],
-  "homepage": "https://hawkvuemd.herokuapp.com/",
-  "license": "MIT",
-  "files": [
-    "dist/*",
-    "public/*",
-    "*.json",
-    "*.js"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/edutucci/hawkvuemdframework"
-  },
+  "name": "hawkvuemdframeworkvue3",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
     "dev": "vue-cli-service serve --open",
     "build": "vue-cli-service build",
-    "build-lib": "vue-cli-service build --target lib --name hawkvuemd ./src/index.js",
-    "lint": "vue-cli-service lint",
-    "copy-unix": "cp ./src/theme/*.* ./dist/",
-    "copy-win": "copy src\\theme\\*.* dist",
-    "build-lib-npm-unix": "yarn build-lib && yarn copy-unix",
-    "build-lib-npm-win": "yarn build-lib && yarn copy-win"
+    "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "axios": "^0.19.2",
-    "core-js": "^3.6.4",
-    "hawkvuemd": "^1.0.12-rc.0",
-    "moment": "^2.24.0",
-    "pug": "^2.0.4",
-    "pug-plain-loader": "^1.0.0",
-    "stylus": "^0.54.7",
-    "stylus-loader": "^3.0.2",
-    "vue": "^2.6.11",
-    "vue-clickaway": "^2.2.2",
-    "vue-dragscroll": "^2.0.1",
-    "vue-focus": "^2.1.0",
-    "vue-prismjs": "^1.2.0",
-    "vue-resize-directive": "^1.2.0",
-    "vue-router": "^3.1.6"
+    "core-js": "^3.6.5",
+    "register-service-worker": "^1.7.1",
+    "vue": "^3.0.0",
+    "vue-router": "^4.0.0-0",
+    "vuex": "^4.0.0-0"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^4.2.0",
-    "@vue/cli-plugin-eslint": "^4.2.0",
-    "@vue/cli-service": "^4.2.0",
-    "babel-eslint": "^10.0.3",
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-plugin-pwa": "~4.5.0",
+    "@vue/cli-plugin-router": "~4.5.0",
+    "@vue/cli-plugin-vuex": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "@vue/compiler-sfc": "^3.0.0",
+    "@vue/eslint-config-airbnb": "^5.0.2",
+    "babel-eslint": "^10.1.0",
     "eslint": "^6.7.2",
-    "eslint-plugin-vue": "^6.1.2",
-    "vue-template-compiler": "^2.6.11"
-  },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
-    },
-    "extends": [
-      "plugin:vue/essential",
-      "eslint:recommended"
-    ],
-    "parserOptions": {
-      "parser": "babel-eslint"
-    },
-    "rules": {}
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions"
-  ]
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-vue": "^7.0.0-0",
+    "stylus": "^0.54.7",
+    "stylus-loader": "^3.0.2"
+  }
 }
