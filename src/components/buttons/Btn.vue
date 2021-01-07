@@ -79,7 +79,7 @@ export default {
   mixins: [],
   extends: componentBase,
   props: {
-    value: {
+    modelValue: {
       type: Boolean,
       default: false,
     },
@@ -141,7 +141,7 @@ export default {
       default: 'fas fa-caret-down',
     },
   },
-  emits: ['click', 'input'],
+  emits: ['click', 'update:modelValue'],
   components: {
   },
   data() {
@@ -175,7 +175,7 @@ export default {
     this.changeComponentBackground(this.bgColor, this.outlined);
     this.changeFontSize();
     this.changeBorderColor();
-    this.showdropdown = this.value;
+    this.showdropdown = this.modelValue;
   },
   watch: {
     textButton(value) {
@@ -203,7 +203,8 @@ export default {
     size(value) {
       this.changeFontSize(value);
     },
-    value(value) {
+    modeValue(value) {
+      console.log('mudou modeValue:', value);
       this.showdropdown = value;
       if (value) {
         this.checkViewport();
@@ -261,7 +262,7 @@ export default {
       if (!this.disabled) {
         if (!this.dropdown) {
           this.$emit('click');
-        } else if (!this.value) {
+        } else if (!this.modelValue) {
           this.$emit('click');
         } else {
           this.close();
@@ -279,7 +280,7 @@ export default {
       this.isActive = value;
     },
     close() {
-      this.$emit('input', false);
+      this.$emit('update:modelValue', false);
     },
     updateDropdownPosition() {
       if (!this.showdropdown) {

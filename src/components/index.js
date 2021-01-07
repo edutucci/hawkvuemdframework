@@ -40,35 +40,61 @@ import HCollapsible from './collapsible/Collapsible.vue';
 import HCollapsibleMenu from './collapsible/CollapsibleMenu.vue';
 import HCollapsibleItem from './collapsible/CollapsibleItem.vue';
 
-// import HCard from './card/Card.vue'
-// import HCardSection from './card/CardSection'
-// import HCardMedia from './card/CardMedia'
-// import HCardMediaImg from './card/CardMediaImg.vue'
-// import HCardMediaText from './card/CardMediaText.vue'
+// List
+import HList from './list/List.vue';
+import HListItem from './list/ListItem.vue';
+import HListHeader from './list/ListHeader.vue';
+import HListItemContent from './list/ListItemContent.vue';
+import HListItemSide from './list/ListItemSide.vue';
+import HListItemText from './list/ListItemText.vue';
+import HListItemImg from './list/ListItemImg.vue';
+
+// Table
+import HTable from './table/Table.vue';
+import HtmlTable from './table/HtmlTable.vue';
+
+// Tabs
+import HTab from './tab/Tab.vue';
+import HTabs from './tab/Tabs.vue';
+
+// HScrollNavigator
+import HScrollNavigator from './scroll/ScrollNavigator.vue';
+
+// Chips
+import HChips from './chips/Chips.vue';
+import HCounter from './chips/Counter.vue';
+
+// Card
+import HCard from './card/Card.vue';
+import HCardSection from './card/CardSection.vue';
+import HCardMedia from './card/CardMedia.vue';
+import HCardMediaImg from './card/CardMediaImg.vue';
+import HCardMediaText from './card/CardMediaText.vue';
+import HCardActions from './card/CardActions.vue';
+
+// Video
+import HYoutubeVideo from './video/YoutubeVideo.vue';
+
+// Banner
+import HBanner from './banner/Banner.vue';
+
 // import HCardText from './card/CardText'
-// import HCardActions from './card/CardActions'
 // import HCardButtons from './card/CardButtons'
 // import HCardIcons from './card/CardIcons'
 // import HCheckbox from './checkbox/Checkbox.vue'
 
-// import HChips from './chips/Chips.vue'
-// import HCounter from './chips/Counter.vue'
-// import HCarousel from './carousel/Carousel.vue'
-// import HCarouselSlider from './carousel/CarouselSlider.vue'
-// import HDatePicker from './date/HDatePicker.vue'
-// import HDateTimeDialog from './date/DateTimeDialog.vue'
+// Carousel
+import HCarousel from './carousel/Carousel.vue';
+import HCarouselSlider from './carousel/CarouselSlider.vue';
 
-// import HTimePicker from './date/HTimePicker.vue'
+// Date and Time
+import HDatePicker from './date/HDatePicker.vue';
+import HDateTimeDialog from './date/DateTimeDialog.vue';
+import HTimePicker from './date/HTimePicker.vue';
 
-// import HFileUpload from './fileUpload/fileUpload.vue'
+// File Upload
+import HFileUpload from './fileUpload/fileUpload.vue';
 
-// import HList from './list/List.vue'
-// import HListItem from './list/ListItem.vue'
-// import HListHeader from './list/ListHeader.vue'
-// import HListItemContent from './list/ListItemContent'
-// import HListItemSide from './list/ListItemSide'
-// import HListItemText from './list/ListItemText'
-// import HListItemImg from './list/ListItemImg'
 // import HMenuBar from './menu/HMenuBar.vue'
 // import HMenuBarItem from './menu/HMenuBarItem.vue'
 // import HSideBarMenuItem from './menu/SideBarMenuItem'
@@ -76,10 +102,7 @@ import HCollapsibleItem from './collapsible/CollapsibleItem.vue';
 
 // import HRadio from './radio/HRadio.vue'
 // import HRating from './rating/Rating.vue'
-// import HTab from './tab/Tab.vue'
-// import HTabs from './tab/Tabs.vue'
-// import HTable from './table/Table.vue'
-// import HtmlTable from './table/HtmlTable'
+
 // import HInputContainer from './Inputs/InputContainer'
 // import HInputField from './Inputs/InputField'
 // import HInput from './Inputs/Input.vue'
@@ -88,10 +111,7 @@ import HCollapsibleItem from './collapsible/CollapsibleItem.vue';
 // import HToggle from './checkbox/Toggle'
 
 // import HParallax from './parallax/Parallax'
-// import HYoutubeVideo from './video/YoutubeVideo.vue'
 
-// import HBanner from './banner/Banner'
-// import HScrollNavigator from './scroll/ScrollNavigator'
 // import HProgressCircular from './progress/ProgressCircular'
 // import HProgressLinear from './progress/ProgressLinear'
 
@@ -119,34 +139,43 @@ const Components = {
   HCollapsible,
   HCollapsibleMenu,
   HCollapsibleItem,
+  HList,
+  HListItem,
+  HListHeader,
+  HListItemContent,
+  HListItemSide,
+  HListItemText,
+  HListItemImg,
+  HTable,
+  HtmlTable,
+  HTab,
+  HTabs,
+  HScrollNavigator,
+  HChips,
+  HCounter,
+  HCard,
+  HCardSection,
+  HCardMedia,
+  HCardMediaImg,
+  HCardMediaText,
+  HCardActions,
+  HYoutubeVideo,
+  HBanner,
 
-  // HCard,
-  // HCardSection,
-  // HCardMedia,
-  // HCardMediaImg,
-  // HCardMediaText,
   // HCardText,
-  // HCardActions,
   // HCardButtons,
   // HCardIcons,
   // HCheckbox,
 
-  // HChips,
-  // HCarousel,
-  // HCarouselSlider,
-  // HCounter,
-  // HDatePicker,
-  // HDateTimeDialog,
-  // HTimePicker,
+  HCarousel,
+  HCarouselSlider,
 
-  // HFileUpload,
-  // HList,
-  // HListItem,
-  // HListHeader,
-  // HListItemContent,
-  // HListItemSide,
-  // HListItemText,
-  // HListItemImg,
+  HDatePicker,
+  HDateTimeDialog,
+  HTimePicker,
+
+  HFileUpload,
+
   // HMenuBar,
   // HMenuBarItem,
   // HSideBarMenu,
@@ -154,10 +183,7 @@ const Components = {
 
   // HRadio,
   // HRating,
-  // HTab,
-  // HTabs,
-  // HTable,
-  // HtmlTable,
+
   // HInputContainer,
   // HInputField,
   // HInput,
@@ -165,11 +191,7 @@ const Components = {
   // HInputPlusMinus,
   // HToggle,
   // HParallax,
-  // HYoutubeVideo,
 
-  // HBanner,
-
-  // HScrollNavigator,
   // HProgressCircular,
   // HProgressLinear,
 };

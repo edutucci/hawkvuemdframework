@@ -1,0 +1,52 @@
+<template lang="pug">
+.media-img.border-radius.overflow-hidden.flex.flex-items-center
+  img.full-size(
+    v-if="img && img.length > 0" :src="img"
+  )
+  .media-text.full-size.overflow-hidden.flex
+    slot
+
+</template>
+
+<script>
+
+export default {
+  name: 'HCardMediaImg',
+  props: {
+    img: {
+      type: String,
+      default: '',
+    },
+  },
+  data() {
+    return {
+      imageSizeObject: {
+        width: '100px',
+        height: '100px',
+      },
+    };
+  },
+  watch: {
+    width(value) {
+      this.imageSizeObject.width = value;
+    },
+    height(value) {
+      this.imageSizeObject.height = value;
+    },
+  },
+};
+</script>
+
+<style scoped>
+
+.media-img {
+  position: relative;
+}
+
+.media-text {
+  position: absolute;
+  top:0px;
+  left:0px;
+  z-index: 10;
+}
+</style>

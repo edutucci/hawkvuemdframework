@@ -13,7 +13,8 @@ module.exports = {
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
-    'max-len': ["error", { "code": 180 }],
-    "linebreak-style": 0
+    'max-len': ["error", { "code": 250 }],
+    "linebreak-style": 0,
+    'func-names': ["error", "always", { "generators": "as-needed" }]
   },
 };

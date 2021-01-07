@@ -18,13 +18,13 @@
       .col-auto.scroll
         slot(name="footer")
   .col-auto.full-height.scroll
-    //- h-nav-drawer(
-    //-   id="mainbody-right-drawer"
-    //-   v-model="localShowDrawerRight"
-    //-   side="right"
-    //-   ref="navRight"
-    //- )
-    //-   slot(name="right")
+    h-nav-drawer(
+      id="mainbody-right-drawer"
+      v-model="localShowDrawerRight"
+      side="right"
+      ref="navRight"
+    )
+      slot(name="right")
 
 </template>
 
@@ -47,6 +47,7 @@ export default {
       default: false,
     },
   },
+  emits: ['update:showDrawerLeft', 'closeDrawerLeft', 'closeDrawerRight'],
   data() {
     return {
       localDisplayMode: '',
