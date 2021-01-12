@@ -81,7 +81,8 @@ import HBanner from './banner/Banner.vue';
 // import HCardText from './card/CardText'
 // import HCardButtons from './card/CardButtons'
 // import HCardIcons from './card/CardIcons'
-// import HCheckbox from './checkbox/Checkbox.vue'
+
+import HCheckbox from './checkbox/Checkbox.vue';
 
 // Carousel
 import HCarousel from './carousel/Carousel.vue';
@@ -100,7 +101,7 @@ import HFileUpload from './fileUpload/fileUpload.vue';
 // import HSideBarMenuItem from './menu/SideBarMenuItem'
 // import HSideBarMenu from './menu/SideBarMenu'
 
-// import HRadio from './radio/HRadio.vue'
+import HRadio from './radio/Radio.vue';
 // import HRating from './rating/Rating.vue'
 
 // import HInputContainer from './Inputs/InputContainer'
@@ -108,7 +109,8 @@ import HFileUpload from './fileUpload/fileUpload.vue';
 // import HInput from './Inputs/Input.vue'
 // import HInputPlusMinus from './Inputs/InputPlusMinus.vue'
 // import HRangeSlider from './Inputs/RangeSlider'
-// import HToggle from './checkbox/Toggle'
+
+import HToggle from './checkbox/Toggle.vue';
 
 // import HParallax from './parallax/Parallax'
 
@@ -165,7 +167,7 @@ const Components = {
   // HCardText,
   // HCardButtons,
   // HCardIcons,
-  // HCheckbox,
+  HCheckbox,
 
   HCarousel,
   HCarouselSlider,
@@ -181,7 +183,7 @@ const Components = {
   // HSideBarMenu,
   // HSideBarMenuItem,
 
-  // HRadio,
+  HRadio,
   // HRating,
 
   // HInputContainer,
@@ -189,7 +191,7 @@ const Components = {
   // HInput,
   // HRangeSlider,
   // HInputPlusMinus,
-  // HToggle,
+  HToggle,
   // HParallax,
 
   // HProgressCircular,

@@ -1,7 +1,7 @@
 <template lang="pug">
 .h-image-container(
   :style="[imgsize]"
-  @click="onClick"
+  @click="$emit('click')"
 )
   .h-image-content.flex.justify-center.overflow-hidden(
     v-if="src && src.length > 0"
@@ -41,6 +41,7 @@ export default {
       default: false,
     },
   },
+  emits: ['click'],
   data() {
     return {
       imgsize: {
@@ -60,9 +61,9 @@ export default {
     defineSize(size) {
       this.imgsize.fontSize = size;
     },
-    onClick() {
-      this.$emit('click');
-    },
+    // onClick() {
+    //   this.$emit('click');
+    // },
   },
 
 };

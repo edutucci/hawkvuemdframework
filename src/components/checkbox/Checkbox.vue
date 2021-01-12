@@ -15,13 +15,12 @@
 import _ from 'lodash';
 
 export default {
-  model: {
-    prop: 'model',
-    event: 'change',
-  },
   props: {
+    modelValue: {
+      type: [Boolean, String, Number, Object],
+    },
     value: {
-      type: [String, Number, Object],
+      type: [Boolean, String, Number, Object],
     },
     text: [String, Number],
     checked: {
@@ -32,11 +31,12 @@ export default {
       type: Boolean,
       default: false,
     },
-    model: {
-      type: [Array, Boolean],
-      default: undefined,
-    },
+    // model: {
+    //   type: [Array, Boolean],
+    //   default: undefined,
+    // },
   },
+  emits: ['update:modelValue'],
   data() {
     return {
       border: { borderColor: '#2196F3' },
@@ -50,15 +50,15 @@ export default {
   },
   computed: {
     checkboxState() {
-      if (this.model === undefined) {
+      if (this.modelValue === undefined) {
         return this.checked;
       }
 
-      if (Array.isArray(this.model)) {
-        return this.model.indexOf(this.value) !== -1;
+      if (Array.isArray(this.modelValue)) {
+        return this.modelValue.indexOf(this.value) !== -1;
       }
 
-      return this.model;
+      return this.modelValue;
     },
     bgcolor() {
       return (this.checkboxState) ? 'bg-primary' : 'bg-white';
@@ -80,7 +80,7 @@ export default {
   },
   methods: {
     checkIfValueExists(checked) {
-      let localModel = this.model;
+      let localModel = this.modelValue;
       // console.log('model: ', localModel)
       if (localModel !== undefined) {
         if (Array.isArray(localModel)) {
@@ -98,12 +98,12 @@ export default {
           // console.log('localModel is Boolean')
           localModel = checked;
           // console.log('localModel changed in Boolean:', localModel)
-          this.$emit('change', localModel);
+          this.$emit('update:modelValue', localModel);
         }
       }
     },
     onChange() {
-      let value = this.model;
+      let value = this.modelValue;
 
       if (Array.isArray(value)) {
         value = value.slice();
@@ -116,7 +116,7 @@ export default {
       } else {
         value = !this.checkboxState;
       }
-      this.$emit('change', value);
+      this.$emit('update:modelValue', value);
     },
   },
 };

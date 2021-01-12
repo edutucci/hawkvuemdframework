@@ -28,7 +28,7 @@
         </div>
       </comp-code>
 
-      <div ref="ck-checked" />
+     <div ref="ck-checked" />
       <comp-code
         class="h-mt-md"
         title="Option checked"
@@ -166,7 +166,7 @@ export default {
     return {
       ckChecked: true,
       termAccepted: false,
-      colors: [],
+      colors: ['Green'],
       checkedNumbers: [1, 3],
       checkedObjects: [],
       checkedObjectsOptions: [

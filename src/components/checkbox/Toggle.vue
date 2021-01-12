@@ -13,13 +13,16 @@
 <script>
 
 export default {
-  model: {
-    prop: 'model',
-    event: 'change',
-  },
+  // model: {
+  //   prop: 'model',
+  //   event: 'change',
+  // },
   props: {
+    modelValue: {
+      type: [Boolean, String, Number, Object],
+    },
     value: {
-      type: [String, Number, Object],
+      type: [Boolean, String, Number, Object],
     },
     text: [String, Number],
     checked: {
@@ -30,11 +33,12 @@ export default {
       type: Boolean,
       default: false,
     },
-    model: {
-      type: [Array, Boolean],
-      default: undefined,
-    },
+    // model: {
+    //   type: [Array, Boolean],
+    //   default: undefined,
+    // },
   },
+  emits: ['update:modelValue'],
   data() {
     return {};
   },
@@ -45,20 +49,20 @@ export default {
   },
   computed: {
     checkboxState() {
-      if (this.model === undefined) {
+      if (this.modelValue === undefined) {
         return this.checked;
       }
 
-      if (Array.isArray(this.model)) {
-        return this.model.indexOf(this.value) !== -1;
+      if (Array.isArray(this.modelValue)) {
+        return this.modelValue.indexOf(this.value) !== -1;
       }
 
-      return this.model;
+      return this.modelValue;
     },
   },
   methods: {
     onChange() {
-      let value = this.model;
+      let value = this.modelValue;
 
       if (Array.isArray(value)) {
         value = value.slice();
@@ -71,7 +75,7 @@ export default {
       } else {
         value = !this.checkboxState;
       }
-      this.$emit('change', value);
+      this.$emit('update:modelValue', value);
     },
   },
 };

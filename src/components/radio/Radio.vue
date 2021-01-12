@@ -15,11 +15,10 @@
 
 <script>
 export default {
-  model: {
-    prop: 'model',
-    event: 'change',
-  },
   props: {
+    modelValue: {
+      type: [Boolean, String, Number, Object],
+    },
     value: {
       type: [String, Number, Boolean, Object],
     },
@@ -37,6 +36,7 @@ export default {
       default: undefined,
     },
   },
+  emits: ['update:modelValue'],
   data() {
     return {
     };
@@ -53,16 +53,16 @@ export default {
   },
   computed: {
     radioState() {
-      if (this.model !== undefined) {
-        return this.model === this.value;
+      if (this.modelValue !== undefined) {
+        return this.modelValue === this.value;
       }
 
-      if (Array.isArray(this.model)) {
-        const idx = this.model.indexOf(this.value) !== -1;
+      if (Array.isArray(this.modelValue)) {
+        const idx = this.modelValue.indexOf(this.value) !== -1;
         return idx;
       }
 
-      return this.model;
+      return this.modelValue;
     },
     bgcolor() {
       return (this.radioState) ? 'bg-primary' : 'bg-white';
@@ -80,13 +80,13 @@ export default {
   methods: {
     checkIfValueExists(checked) {
       if (checked) {
-        this.$emit('change', this.value);
+        this.$emit('update:modelValue', this.value);
       } else {
-        this.$emit('change', '');
+        this.$emit('update:modelValue', '');
       }
     },
     onChange() {
-      this.$emit('change', this.value);
+      this.$emit('update:modelValue', this.value);
     },
   },
 };

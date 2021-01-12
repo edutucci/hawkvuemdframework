@@ -1,7 +1,7 @@
 <template lang="pug">
 .row.scroll.border.border-gray.border-radius
   .column.scroll.full-width
-    p Code under construction
+    slot
 //- .row.scroll.border.border-gray.border-radius
 //-   .column.scroll.full-width
 //-     .row.scroll.h-pa-md.bg-gray100
