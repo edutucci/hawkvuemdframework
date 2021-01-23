@@ -28,7 +28,7 @@ import resize from 'vue-resize-directive';
 import viewport from '../others/viewport';
 
 export default {
-  name: 'HPageContent',
+  name: 'HPage',
   directives: {
     resize,
   },
@@ -46,6 +46,7 @@ export default {
       default: 1,
     },
   },
+  emits: ['onResize', 'mainLayoutDrawerIsOpened'],
   data() {
     return {
       pageObject: {

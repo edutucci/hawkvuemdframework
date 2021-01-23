@@ -5,18 +5,18 @@
     class="border-radius"
     :class="[{'borders border border-gray': bordered, 'shadow-1': shadow, 'cell-separator': cellSeparator}]"
   )
-    thead
-      tr
-        th.text-left.h-pa-xs.text-body2(
-          v-for="(col, index) in columns" :key="col"
-        )
-          | {{col}}
-    tbody
-      tr(v-for="(row, index) in rows" :key="`row-${index}`")
-        td.h-pa-xs(
-          v-for="(col, index) in columns" :key="`rowcol-${index}`"
-        )
-          | {{row[col]}}
+    //- thead
+    //-   tr
+    //-     th.text-left.h-pa-xs.text-body2(
+    //-       v-for="(col, index) in columns" :key="col"
+    //-     )
+    //-       | {{col}}
+    //- tbody
+    //-   tr(v-for="(row, index) in rows" :key="`row-${index}`")
+    //-     td.h-pa-xs(
+    //-       v-for="(col, index) in columns" :key="`rowcol-${index}`"
+    //-     )
+    //-       | {{row[col]}}
 
     slot
 

@@ -1,5 +1,5 @@
 <template lang="pug">
-h-page-content(
+h-page(
   background-image="img/capa1.jpg"
 )
   .column.full-height

@@ -112,8 +112,8 @@ export default {
     };
   },
   mounted() {
-    console.log('parseInt(13.4, 10)', parseInt(13.4, 10));
-    console.log('parseInt(13.4, 2)', parseInt(13.4, 2));
+    // console.log('parseInt(13.4, 10)', parseInt(13.4, 10));
+    // console.log('parseInt(13.4, 2)', parseInt(13.4, 2));
   },
   methods: {
     goToElement(refName) {

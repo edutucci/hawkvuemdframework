@@ -8890,6 +8890,11 @@ uuid@^3.3.2, uuid@^3.4.0:
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.4.0.tgz#b23e4358afa8a202fe7a100af1f5f883f02007ee"
   integrity sha512-HjSDRw6gZE5JMggctHBcjVak08+KEVhSIiDzFnT9S9aegmp85S/bReBVTb4QTFaRNptJ9kuYaNhnbNEOkbKb/A==
 
+uuid@^8.3.2:
+  version "8.3.2"
+  resolved "https://registry.yarnpkg.com/uuid/-/uuid-8.3.2.tgz#80d5b5ced271bb9af6c445f21a1a04c606cefbe2"
+  integrity sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==
+
 uuidv1@^1.6.14:
   version "1.6.14"
   resolved "https://registry.yarnpkg.com/uuidv1/-/uuidv1-1.6.14.tgz#cbd3b6f5e3d0348a2635911ecfd04484a91b851d"
@@ -9017,6 +9022,11 @@ vue3-click-away@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/vue3-click-away/-/vue3-click-away-1.1.0.tgz#4970159bc4c5b80f0aac6f0d0cc9333c150624d6"
   integrity sha512-I1d/vX9vCW1on8MA7VeufV73iPL1WPaohzEJAA7SFsMDdUEEt59zW7xV3vEgS+VrwVAzcd3c1oX203RcCWS3Cw==
+
+vue3-focus@^0.0.34:
+  version "0.0.34"
+  resolved "https://registry.yarnpkg.com/vue3-focus/-/vue3-focus-0.0.34.tgz#7c8cc3e9e5896a13ece7720b6ccc1a91ced07730"
+  integrity sha512-kcYwZFLJJmgGGgS2PlJQP2lEMz0Da6DTfEWXOhkep3aAqoGt8V1h0kirczTAbzQXR0CEdf1Oz1EfIaDq5R6wYA==
 
 vue@^3.0.0:
   version "3.0.4"

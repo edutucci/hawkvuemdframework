@@ -1,5 +1,5 @@
 <template>
-<h-page-content>
+<h-page>
   <div class="flex flex-justify-center flex-items-center full-heigh">
     <div class="flex flex-column">
       <div class="text-center">
@@ -28,7 +28,7 @@
       </div>
     </div>
   </div>
-</h-page-content>
+</h-page>
 </template>
 
 <script>

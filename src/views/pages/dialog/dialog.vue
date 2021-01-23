@@ -1,5 +1,5 @@
 <template>
-  <h-page-content padding
+  <h-page padding
     @onResize="pageResize"
     @mainLayoutDrawerIsOpened="showDrawer = false"
   >
@@ -120,7 +120,7 @@
         </list-help>
       </h-nav-drawer>
     </template> -->
-  </h-page-content>
+  </h-page>
 
 </template>
 

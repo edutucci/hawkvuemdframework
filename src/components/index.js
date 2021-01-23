@@ -6,7 +6,7 @@ import TabsHelp from './others/TabsHelp.vue';
 
 // Layout Page
 import HMainBody from './page/MainBody.vue';
-import HPageContent from './page/PageContent.vue';
+import HPage from './page/Page.vue';
 
 // appBars
 import HAppToolbar from './appBar/AppToolbar.vue';
@@ -104,11 +104,11 @@ import HFileUpload from './fileUpload/fileUpload.vue';
 import HRadio from './radio/Radio.vue';
 // import HRating from './rating/Rating.vue'
 
-// import HInputContainer from './Inputs/InputContainer'
-// import HInputField from './Inputs/InputField'
-// import HInput from './Inputs/Input.vue'
-// import HInputPlusMinus from './Inputs/InputPlusMinus.vue'
-// import HRangeSlider from './Inputs/RangeSlider'
+import HInputContainer from './Inputs/InputContainer.vue';
+import HInputField from './Inputs/InputField.vue';
+import HInput from './Inputs/Input.vue';
+import HInputPlusMinus from './Inputs/InputPlusMinus.vue';
+import HRangeSlider from './Inputs/RangeSlider.vue';
 
 import HToggle from './checkbox/Toggle.vue';
 
@@ -122,7 +122,7 @@ const Components = {
   ListHelp,
   TabsHelp,
   HMainBody,
-  HPageContent,
+  HPage,
   HAppToolbar,
   HAppToolbarNavigation,
   HAppToolbarContainer,
@@ -186,11 +186,11 @@ const Components = {
   HRadio,
   // HRating,
 
-  // HInputContainer,
-  // HInputField,
-  // HInput,
-  // HRangeSlider,
-  // HInputPlusMinus,
+  HInputContainer,
+  HInputField,
+  HInput,
+  HRangeSlider,
+  HInputPlusMinus,
   HToggle,
   // HParallax,
 

@@ -136,7 +136,7 @@ export default {
 `,
       vuejsSample: `
 <template>
-  <h-page-content padding>
+  <h-page padding>
     <div class="row">
       <div class="col">
         <h-file-upload
@@ -148,7 +148,7 @@ export default {
     </div>
     <h-btn bg-color="bg-primary" text-color="text-white" text="Submit"
       @click="submitFile()"/>
-  </h-page-content>
+  </h-page>
 
 </template>
 `,

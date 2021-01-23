@@ -1,5 +1,5 @@
 <template>
-  <h-page-content padding
+  <h-page padding
   >
     <div class="row">
       <div class="col">
@@ -71,7 +71,7 @@
         </list-help>
       </h-nav-drawer>
     </template> -->
-  </h-page-content>
+  </h-page>
 </template>
 
 <script>

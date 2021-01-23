@@ -1,5 +1,5 @@
 <template>
-  <h-page-content padding @onResize="pageResize">
+  <h-page padding @onResize="pageResize">
     <div class="row">
       <div class="col">
         <div class="row">
@@ -118,7 +118,7 @@
         <tabs-help class="h-mt-md" :properties="helpTopics.properties" :events="helpTopics.events" />
       </div>
     </div>
-  </h-page-content>
+  </h-page>
 </template>
 <script>
 import mxButtonGroup from './mxButtonGroup';

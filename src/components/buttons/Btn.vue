@@ -70,7 +70,7 @@ div(
 <script>
 
 // eslint-disable-next-line import/no-extraneous-dependencies
-import uuidv1 from 'uuid/v1';
+import { v1 as uuidv1 } from 'uuid';
 import componentBase from '../componentBase.vue';
 import viewport from '../others/viewport';
 
