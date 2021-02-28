@@ -13,16 +13,9 @@
             <h-image src="imgIcons/png/icon-help.png" @click="showDrawer = !showDrawer"/>
           </div> -->
         </div>
-        <div class="row">
-          <div class="col">
 
-            <comp-code class="h-mt-lg" title="Modal Content" :code="modalContent" :script="modalContentScript"
-              javascript
-            >
-              <div>
-                <h-btn contained text="Modal Content" @click="openModal=true"/>
-              </div>
-
+         <div class="row">
+           <div class="col">
               <h-dialog modal v-model="openModal" title="Modal Content" show-title-bar>
                 <div class="flex flex-column flex-justify-center" style="width: 400px;">
                   <div class="h-pa-sm">
@@ -34,7 +27,11 @@
                   </div>
                 </div>
               </h-dialog>
-            </comp-code>
+           </div>
+         </div>
+
+        <div class="row">
+          <div class="col">
 
             <comp-code class="h-mt-lg" title="Confirm"  :code="modalConfirm" :script="modalConfirmScript"
               javascript
@@ -44,18 +41,19 @@
               </div>
 
               <h-dialog v-model="openModal2" title="Do you want do delete file" show-title-bar>
-                <div class="flex flex-column flex-justify-center h-pa-md">
-                  <div class="flex flex-justify-center">
+                <h-card>
+                  <h-card-section auto>
+                    <div class="text-h6">Delete File</div>
+                  </h-card-section>
+                  <h-card-section auto>
+                    Are you sure you want to delele it? <br/>
                     If you delete this file. It will not be possible to undo this action.
-                  </div>
-                  <div class="flex flex-justify-center h-pa-md">
-                    Are you sure you want to delele it?
-                  </div>
-                  <div class="flex flex-justify-center h-pa-md">
+                  </h-card-section>
+                  <h-card-actions class="text-center">
                     <h-btn contained text="OK" @click="openModal2=false"/>
                     <h-btn class="h-pl-sm" contained text="Cancel" @click="openModal2=false"/>
-                  </div>
-                </div>
+                  </h-card-actions>
+                </h-card>
               </h-dialog>
             </comp-code>
 
@@ -68,38 +66,43 @@
               </div>
 
               <h-dialog v-model="openModalRadio">
-                <div class="column justify-center h-pa-md">
-                  <div class="col text-h6">
-                    What type of movies do you like?
-                  </div>
-                  <div class="column h-mt-sm">
-                    <h-radio v-model="typeMovie" text="Comedy" value="Comedy"/>
-                    <h-radio v-model="typeMovie" text="Action" value="Action"/>
-                    <h-radio v-model="typeMovie" text="Science" value="Science"/>
-                    <h-radio v-model="typeMovie" text="Romance" value="Romance"/>
-                  </div>
-                  <div class="col">
-                    I like of: {{ typeMovie }}
-                  </div>
-                </div>
+                <h-card>
+                  <h-card-section auto>
+                    <div class="text-h6">What type of movies do you like?</div>
+                  </h-card-section>
+                  <h-card-section auto>
+                    <div class="column">
+                      <h-radio v-model="typeMovie" text="Comedy" value="Comedy"/>
+                      <h-radio v-model="typeMovie" text="Action" value="Action"/>
+                      <h-radio v-model="typeMovie" text="Science" value="Science"/>
+                      <h-radio v-model="typeMovie" text="Romance" value="Romance"/>
+                    </div>
+                  </h-card-section>
+                  <h-card-actions class="text-center">
+                    <h-btn contained text="OK" @click="openModalRadio=false"/>
+                    <h-btn class="h-pl-sm" contained text="Cancel" @click="openModalRadio=false"/>
+                  </h-card-actions>
+                </h-card>
               </h-dialog>
 
               <h-dialog v-model="openModalCheckbox">
-                <div class="column justify-center h-pa-md">
-                  <div class="col text-h6">
-                    Select your favorite colors
-                  </div>
-                  <div class="column h-mt-sm">
-                    <h-checkbox v-model="colors" text="Red" value="Red"/>
-                    <h-checkbox v-model="colors" text="Green" value="Green"/>
-                    <h-checkbox v-model="colors" text="Blue" value="Blue"/>
-                  </div>
-                  <div class="col">
-                    Your favorites colors: {{ colors }}
-                  </div>
-                </div>
+                <h-card>
+                  <h-card-section auto>
+                    <div class="text-h6">Select your favorite colors</div>
+                  </h-card-section>
+                  <h-card-section auto>
+                    <div class="column">
+                      <h-checkbox v-model="colors" text="Red" value="Red"/>
+                      <h-checkbox v-model="colors" text="Green" value="Green"/>
+                      <h-checkbox v-model="colors" text="Blue" value="Blue"/>
+                    </div>
+                  </h-card-section>
+                  <h-card-actions class="text-center">
+                    <h-btn contained text="OK" @click="openModalCheckbox=false"/>
+                    <h-btn class="h-pl-sm" contained text="Cancel" @click="openModalCheckbox=false"/>
+                  </h-card-actions>
+                </h-card>
               </h-dialog>
-
             </comp-code>
 
             <tabs-help

@@ -8,7 +8,7 @@
   <div class="col page-content full-height scroll"
     :class="[{'page-padding': padding}]"
   >
-    <div id="page-content-slot" class="full-height scroll" :style="[pageObject]">
+    <div id="page-content-slot" class="full-height" :style="[pageObject]">
       <slot></slot>
     </div>
     <div class="col-auto">

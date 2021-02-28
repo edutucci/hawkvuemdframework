@@ -1,5 +1,5 @@
 <template lang="pug">
-.h-card-section(
+.h-card-section.card-padding(
   :class="{'col-auto': auto, 'col': !auto}"
 )
   slot
