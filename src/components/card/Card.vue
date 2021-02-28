@@ -1,5 +1,5 @@
 <template lang="pug">
-.shadow-2.no-user-select.border-radius.bg-white(style="display: inline-block;")
+.shadow-2.no-user-select.border-radius.bg-white.h-pt-xs.h-pb-xs(style="display: inline-block;")
   .column.full-height
     slot
 </template>

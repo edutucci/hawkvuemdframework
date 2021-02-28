@@ -112,7 +112,7 @@ export default {
       return this.selectedIndex === tabIndex;
     },
     checkForDefaultTab() {
-      const index = this.tabs.findIndex((tab) => tab.name === this.value);
+      const index = this.tabs.findIndex((tab) => tab.name === this.modelValue);
       if (index !== -1) {
         const tab = this.tabs[index];
         this.selectTab(tab, index);

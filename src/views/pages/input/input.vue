@@ -1,7 +1,14 @@
 <template>
   <page-layout ref="pl" title="Input Textfield">
     <template v-slot:components>
-      <div ref="txt-outlined"/>
+      <div class="column col-inputs">
+        <h-input v-model="typesModel" label="Outlined" placeholder="Outlined"/>
+        <h-input v-model="typesModel" label="Outlined dense" placeholder="Outlined dense" dense/>
+      </div>
+      <div>
+        Model: {{typesModel}}
+      </div>
+      <!-- <div ref="txt-outlined"/>
       <comp-code class="h-mt-lg" title="Outlined" :code="txtoutlined">
         <div class="column col-inputs">
           <h-input v-model="typesModel" label="Outlined" placeholder="Outlined"/>
@@ -10,9 +17,9 @@
         <div>
           Model: {{typesModel}}
         </div>
-      </comp-code>
+      </comp-code> -->
 
-      <div ref="txt-filled"/>
+      <!-- <div ref="txt-filled"/>
       <comp-code class="h-mt-lg" title="Filled" :code="txtfilled">
         <div class="column col-inputs">
           <h-input v-model="typesModel" label="Filled" placeholder="Filled" filled/>
@@ -136,10 +143,10 @@
         <div>
           selectModel1: {{ selectModel1 }}
         </div>
-      </comp-code>
+      </comp-code> -->
 
       <div ref="customs-itens"/>
-      <comp-code class="h-mt-lg" title="Custom Items" :code="selectCustomItem" :script="selectCustomItemScript"
+      <!-- <comp-code class="h-mt-lg" title="Custom Items" :code="selectCustomItem" :script="selectCustomItemScript"
         javascript>
         <div class="row">
           <div class="col-6">
@@ -150,7 +157,7 @@
               label="Select with custom items"
               display-mode="icon"
             >
-              <!-- <template slot="itemoption" slot-scope="itemoption">
+              <template slot="itemoption" slot-scope="itemoption">
                 <h-list-item-side class="align-items-center">
                   <h-icon :icon="itemoption.value.icon"/>
                 </h-list-item-side>
@@ -169,7 +176,7 @@
                       url="https://discord.com/" new-window/>
                   </h-btn>
                 </h-list-item-side>
-              </template> -->
+              </template>
             </h-input>
           </div>
         </div>
@@ -177,8 +184,8 @@
         <div class="h-mt-md">
           selectModel: {{ selectModel }}
         </div>
-      </comp-code>
-
+      </comp-code> -->
+      <!--
       <div ref="select-multi"/>
       <comp-code class="h-mt-lg" title="Multi Select" :code="selectMulti" :script="selectMultiScript"
         javascript>
@@ -192,7 +199,7 @@
         <div>
           multiselect: {{ multiselect }}
         </div>
-      </comp-code>
+      </comp-code> -->
 
       <!-- <div ref="select-multi-chips"/>
       <comp-code class="h-mt-lg" title="Multi Select Chips" :code="selectMultiChips" :script="selectMultiChipsScript"
@@ -212,7 +219,7 @@
       <div class="text-h6 h-mt-md">Search</div>
       <h-separator></h-separator>
 
-      <div ref="search-default"/>
+      <!-- <div ref="search-default"/>
       <comp-code class="h-mt-lg" title="Standard" :code="exsearch" :script="exsearchScript"
         javascript>
         <h-input
@@ -230,9 +237,9 @@
         <div>
           model: {{search1}}
         </div>
-      </comp-code>
+      </comp-code> -->
 
-      <div ref="search-toolbar"/>
+      <!-- <div ref="search-toolbar"/>
       <comp-code class="h-mt-lg" title="Inside Toolbar" :code="exsearch2" :script="exsearchScript2"
         javascript>
         <h-app-toolbar bg-color="bg-primary" text-color="text-white">
@@ -257,7 +264,7 @@
             </h-app-toolbar-action>
           </h-app-toolbar-container>
         </h-app-toolbar>
-      </comp-code>
+      </comp-code> -->
 
       <!-- <div class="text-h6 h-mt-md">Chips</div>
       <h-separator></h-separator>
@@ -320,16 +327,16 @@
         <h-toggle class="h-mt-lg" v-model="masked" text="Masked?"/>
       </div>
 
-      <div ref="mask-text"/>
+      <!-- <div ref="mask-text"/>
       <comp-code class="h-mt-lg" title="Text (US Phone)" :code="extextmask">
         <h-input label="US Phone" dense use-mask :mask="'+1 (###) ###-####'"
           v-model="maskModelTel" leading-icon="fas fa-phone"
           :masked="masked" clearable/>
         <span>maskModel: {{maskModelTel}}</span>
 
-      </comp-code>
+      </comp-code> -->
 
-      <div ref="mask-search"/>
+      <!-- <div ref="mask-search"/>
       <comp-code class="h-mt-lg" title="Search(Dynamic Mask)" :code="extextsearch">
         <h-input class="h-mt-sm"
           type="search" label="Phone"
@@ -342,9 +349,9 @@
         />
         <span>maskModel: {{searchPhone}}</span>
 
-      </comp-code>
+      </comp-code> -->
 
-      <div ref="mask-currency"/>
+      <!-- <div ref="mask-currency"/>
       <comp-code class="h-mt-lg" title="Currency" :code="excurrencymask">
         <h-input type="currency" dense
           v-model="maskModelCurrency"
@@ -353,15 +360,15 @@
           decimal="," thousands="."
         />
         <span>maskModel: {{maskModelCurrency}}</span>
-      </comp-code>
+      </comp-code> -->
 
-      <comp-code class="h-mt-lg" title="CSS" hide-code>
+      <!-- <comp-code class="h-mt-lg" title="CSS" hide-code>
         <span class="bg-blue300">
           .col-inputs > .main-input-container {
             margin-top: 10px;
           }
         </span>
-      </comp-code>
+      </comp-code> -->
 
       <tabs-help
         class="h-mt-md"

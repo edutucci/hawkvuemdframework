@@ -2,7 +2,6 @@
 input.input-field(
   v-if="useMask"
   :id="inputId"
-  v-vue3focus="inputFocus"
   :class="[{'text-center': textCenter, 'readonly': readonly}, filled]"
   v-model="inputDisplay"
   v-mask="config"
@@ -21,7 +20,6 @@ input.input-field(
 input.input-field(
   v-else-if="type === 'currency'"
   :id="inputId"
-  v-vue3focus="inputFocus"
   :class="[{'text-center': textCenter, 'readonly': readonly}, filled]"
   v-model="inputDisplay"
   v-money="{ precision, decimal, thousands, currencyprefix, currencysuffix }"
@@ -38,7 +36,6 @@ input.input-field(
 input.input-field(
   v-else-if="type === 'text' || type === 'password' || type === 'select' || type === 'multi-select' || type === 'search'"
   :id="inputId"
-  v-vue3focus="inputFocus"
   :class="[{'text-center': textCenter, 'readonly': readonly}, filled]"
   v-model="inputDisplay"
   :type="type"
@@ -58,7 +55,6 @@ input.input-field(
 input.input-field(
   v-else-if="type === 'text' && this.chips"
   :id="inputId"
-  v-vue3focus="inputFocus"
   :class="[{'text-center': textCenter, 'readonly': readonly}, filled]"
   v-model="inputDisplay"
   :readonly="readonly"
@@ -80,7 +76,7 @@ input.input-field(
 <script>
 
 import { v1 as uuidv1 } from 'uuid';
-import { vue3Focus } from 'vue3-focus';
+// import { vue3Focus } from 'vue3-focus';
 import InputProperties from './InputProperties.vue';
 import money from './currencyDirective/directive';
 import mask from './maskDirective/directive';
@@ -88,7 +84,7 @@ import mask from './maskDirective/directive';
 export default {
   extends: InputProperties,
   mixins: [],
-  directives: { money, mask, vue3Focus },
+  directives: { money, mask },
   name: 'InputField',
   props: {
     modelValue: {

@@ -46,6 +46,7 @@ export default {
       default: 'Click to add files',
     },
   },
+  emits: ['addFiles'],
   data() {
     return {
       fileList: [],

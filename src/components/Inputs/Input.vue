@@ -30,136 +30,58 @@ h-input-container(
   :id="containerId"
   v-click-away="away"
 )
-  .column.full-width()
-    .col(
-      v-if="this.chips && type === 'text'"
-      @click="focus"
-    )
-      h-chips.h-pa-xs(
-        v-for="(chip, index) in selectChipsValue"
-        :key="index"
-        :text="chip.text"
-        dense
-        closable
-        @onClose="closeChip(index)"
-      )
-    .col(
-      v-else-if="selectChips && type === 'multi-select'"
-      @click="onShowDropdown"
-    )
-      .row.wrap
-        .col-auto(
-          v-for="(chip, index) in selectChipsValue"
-          :key="index"
-        )
-          h-chips.h-pa-xs(
-            :text="chip.text"
-            dense
-            closable
-            @onClose="closeSelectChip(index)"
-          )
-        .col
-          input.full-width.no-border.cursor-pointer(type="text"  @click="onShowDropdown" readonly)
-    .col(
-      v-if="!selectChips"
-    )
-      .row.align-items-center
-        .col-auto.h-pa-xs.h-ml-sm.bg-gray300.text-body1(v-if="prefix && prefix.length")
-          | {{prefix}}
-        .col()
-          h-input-field.text-caption.cursor-pointer(
-            :class="[inputContainerTextColor]"
-            :id="inputId"
-            v-model="inputDisplay"
-            :type="compInputType"
-            :maxlength="maxlength"
-            :readonly="readonly"
-            :filled="filled"
-            :textCenter="textCenter"
-            :placeholder="containerPlaceholder"
-            :focused="focused"
-            :chips="chips"
-            :use-mask="useMask"
-            :mask="mask"
-            :tokens="tokens"
-            :decimal="decimal"
-            :thousands="thousands"
-            @input="onInput"
-            @focus="focus"
-            @blur="blur"
-            @onKeyDown="onKeyDown"
-            @onTab="onTab"
-            @onEnter="onEnter"
-            @onEscape="onEscape"
-            @onDelete="onDelete"
-            @click="onClick"
-          )
-        .col-auto.h-pa-xs.h-ml-md.bg-gray300.text-body1(v-if="suffix && suffix.length")
-          | {{suffix}}
 
-    .bg-white.dropdown-content.scroll-y-only.shadow-2.border-radius(
-      :style="[dropdownObject]"
-      v-if="showdropdown && options && options.length > 0"
-      :id="dropMenuId"
-    )
-      h-list(v-if="type === 'select'")
-        h-list-item(
-          v-for="(option, index) in options"
-          :key="`${dropMenuId}-${index}`"
-          @click="onSelectItem(option)"
+.column
+  .col(
+    v-if="!selectChips"
+  )
+    .row.align-items-center
+      .col-auto.h-pa-xs.h-ml-sm.bg-gray300.text-body1(v-if="prefix && prefix.length")
+        | {{prefix}}
+      .col()
+        h-input-field.text-caption.cursor-pointer(
+          :class="[inputContainerTextColor]"
+          :id="inputId"
+          v-model="inputDisplay"
+          :type="compInputType"
+          :maxlength="maxlength"
+          :readonly="readonly"
+          :filled="filled"
+          :textCenter="textCenter"
+          :placeholder="containerPlaceholder"
+          :focused="focused"
+          :chips="chips"
+          :use-mask="useMask"
+          :mask="mask"
+          :tokens="tokens"
+          :decimal="decimal"
+          :thousands="thousands"
+          @input="onInput"
+          @focus="onFocus"
+          @blur="onBlur"
+          @onKeyDown="onKeyDown"
+          @onTab="onTab"
+          @onEnter="onEnter"
+          @onEscape="onEscape"
+          @onDelete="onDelete"
+          @click="onClick"
         )
-          slot(name="itemoption" :value="option")
-            h-list-item-side(v-if="displayMode ==='icon'")
-              h-icon(:icon="option.icon")
-            h-list-item-side(v-if="displayMode ==='avatar'")
-              h-image(:src="option.avatar" avatar)
-            // h-list-item-side(v-if="displayMode ==='image'")
-            //   img(:src="option.img" style="width:32px; height:32px;")
-            h-list-item-content
-              h-list-item-text(:title="option.text.toString()")
-
-      h-list(v-else-if="type === 'multi-select'")
-        h-list-item(
-          v-show="type === 'multi-select'"
-          v-for="(option, index) in options"
-          :key="`${dropMenuId}-${index}`"
-        )
-          h-list-item-side
-            h-checkbox(v-model="multiselectItem" :text="option.text" :value="option.value" @change="onSelectItem")
-
-      .dropdown-item-container(v-else-if="type === 'search'")
-        .dropdown-item-section(
-          v-for="(option, index) in options"
-          :key="`${dropMenuId}-${index}`"
-        )
-          slot(name="itemoption" :value="option")
-            h-list
-              h-list-item(
-                @click="onSelectItem(option)"
-              )
-                h-list-item-side.align-items-center(v-if="option.icon && option.icon.length")
-                  h-icon(:icon="option.icon" size="20px" style="color: gray")
-                h-list-item-side.align-items-center(v-else-if="option.avatar && option.avatar.length > 0")
-                  h-image(:src="option.avatar" size="24px" avatar)
-                h-list-item-side.align-items-center(v-else-if="option.img && option.img.length > 0")
-                  img(:src="option.img" width="24px" height="24px")
-                h-list-item-content
-                  h-list-item-text(:title="option.text" :caption="option.desc")
+      .col-auto.h-pa-xs.h-ml-md.bg-gray300.text-body1(v-if="suffix && suffix.length")
+        | {{suffix}}
 
 </template>
 
 <script>
 
-import _ from 'lodash';
+// import _ from 'lodash';
 import { v1 as uuidv1 } from 'uuid';
 import resize from 'vue-resize-directive';
 import InputProperties from './InputProperties.vue';
-import viewport from '../others/viewport';
-import { unformat, format } from './currencyDirective/utils';
-import masker from './maskDirective/masker';
+// import viewport from '../others/viewport';
+// import { unformat, format } from './currencyDirective/utils';
+// import masker from './maskDirective/masker';
 
 export default {
-  name: 'HInput',
   extends: InputProperties,
   directives: {
     resize,
@@ -208,34 +130,7 @@ export default {
       },
     };
   },
-  mounted() {
-    this.makeInputValue();
-    this.makeInputContainerColors();
-    this.inputType = this.type;
-  },
-  watch: {
-    value() {
-      this.makeInputValue();
-    },
-    bgColor() {
-      this.makeInputContainerColors();
-    },
-    textcolor() {
-      this.makeInputContainerColors();
-    },
-    masked() {
-      if (this.useMask) {
-        this.changeModelMask(this.inputDisplay);
-      } else if (this.type === 'currency') {
-        this.changeModelCurrencyMask();
-      }
-    },
-    options() {
-      this.onShowDropdown();
-    },
-    type(value) {
-      this.inputType = value;
-    },
+  created() {
   },
   computed: {
     containerLabel() {
@@ -247,20 +142,16 @@ export default {
       }
       return value;
     },
-    containerPlaceholder() {
-      const value = (this.placeholder && this.placeholder.length > 0) ? this.placeholder : this.label;
-      return value;
-    },
-    inputTextCounter() {
-      const valueLength = (this.modelValue) ? this.modelValue.length : `${0}`;
-      return `${valueLength} / ${this.textCounter}`;
-    },
     inputDropdown() {
       let value = false;
       if (this.type === 'search' || this.type === 'select' || this.type === 'multi-select') {
         value = true;
       }
       return value;
+    },
+    inputTextCounter() {
+      const valueLength = (this.modelValue) ? this.modelValue.length : `${0}`;
+      return `${valueLength} / ${this.textCounter}`;
     },
     compInputType() {
       let value = '';
@@ -273,111 +164,39 @@ export default {
       }
       return value;
     },
+    containerPlaceholder() {
+      const value = (this.placeholder && this.placeholder.length > 0) ? this.placeholder : this.label;
+      return value;
+    },
   },
   methods: {
-    makeInputValue() {
-      const localInputDisplay = this.modelValue;
-      if (this.type === 'text' || this.type === 'search' || this.type === 'password') {
-        this.inputDisplay = this.modelValue;
-      } else if (localInputDisplay) {
-        if (this.useMask) {
-          this.inputDisplay = this.modelValue;
-          // this.changeModelMask()
-        } else if (this.type === 'currency') {
-          this.changeModelCurrencyMask();
-        } else if (this.type === 'select' && (this.options && this.options.length)) {
-          const index = this.options.findIndex((item) => item.value === this.value);
-          if (index !== -1) {
-            const option = this.options[index];
-            this.onSelectItem(option);
-          }
-        } else if (this.chips) {
-          this.selectChipsValue = [];
-          if (Array.isArray(localInputDisplay)) {
-            localInputDisplay.forEach((item) => {
-              this.selectChipsValue.push({
-                text: item,
-                value: item,
-              });
-            });
-          }
-          this.inputDisplay = '';
-        } else if (this.type === 'multi-select' && (this.options && this.options.length)) {
-          const multiselectItem = [];
-          const arrDisp = [];
-          this.selectChipsValue = [];
-          if (Array.isArray(localInputDisplay)) {
-            localInputDisplay.forEach((item) => {
-              const index = this.options.findIndex((opt) => opt.value === item);
-              if (index !== -1) {
-                arrDisp.push(this.options[index].text);
-                multiselectItem.push(this.options[index].value);
-                this.selectChipsValue.push({
-                  text: this.options[index].text,
-                  value: this.options[index].value,
-                });
-              }
-            });
-            this.inputDisplay = arrDisp.join(', ');
-          }
-          this.multiselectItem = multiselectItem;
-        }
-      }
+    onClearable() {
+      this.inputDisplay = '';
+      this.$emit('clear');
     },
-    makeInputContainerColors() {
+    togglePassword() {
+      this.inputType = (this.inputType === 'password') ? 'text' : 'password';
+    },
+    onIconDropDownClick() {
+      this.onClick();
+      this.$nextTick(() => {
+        this.focus();
+      });
+    },
+    onFocus() {
+      this.focused = true;
+
       if (this.bgColor === 'bg-white') {
-        this.inputContainerFieldBottomBorderColor = 'border-gray500';
-        this.inputContainerFieldBackgroundColor = (!this.filled) ? 'bg-white' : 'bg-gray';
-        this.inputContainerBackgroundColor = 'bg-white';
-        this.inputContainerTextColor = 'text-black';
-        this.inputContainerLabelColor = 'text-black';
-        this.inputContainerIconColor = 'text-gray600';
-        this.inputContainerIconDropdownColor = 'text-primary';
-        this.inputContainerHelperTextColor = 'text-gray600';
-        this.inputContainerErrorTextColor = 'text-red800';
-        this.inputContainerIconErrorTextColor = 'text-red600';
-      } else {
-        this.inputContainerFieldBottomBorderColor = 'border-white';
-        this.inputContainerFieldBackgroundColor = this.bgColor;
-        this.inputContainerBackgroundColor = this.bgColor;
-        this.inputContainerTextColor = 'text-white';
-        this.inputContainerLabelColor = 'text-white';
-        this.inputContainerIconColor = 'text-white';
-        this.inputContainerIconDropdownColor = 'text-white';
-        this.inputContainerHelperTextColor = 'text-white';
-        this.inputContainerErrorTextColor = 'text-white';
-        this.inputContainerIconErrorTextColor = 'text-white';
-      }
-    },
-    changeModelMask(value) {
-      // console.log('entering changeModelMask:', value)
-      // console.log('this.inputDisplay:', this.inputDisplay)
-      // let modelValue = this.inputDisplay
-      // if (!this.masked) {
-      //   let patt = new RegExp('[()-/:._]', 'g')
-      //   modelValue = this.inputDisplay.replace(patt, '')
-      // }
-      // console.log('modeValue:', modelValue)
-      // this.$emit('input', modelValue)
-      // console.log('changeModelMask:', value)
-      this.inputDisplay = value;
-      const localvalue = masker(value, this.mask, this.masked, this.tokens);
-      if (localvalue !== this.lastValue) {
-        this.lastValue = localvalue;
-        this.$emit('update:modelValue', localvalue);
-        // console.log('mask field on input', localvalue)
-        if (this.type === 'search') {
-          this.onInputSearch(localvalue);
+        this.inputContainerLabelColor = 'text-primary';
+        if (this.filled) {
+          this.inputContainerFieldBottomBorderColor = 'border-primary';
         }
       }
     },
-    changeModelCurrencyMask() {
-      this.formatCurrency(this.inputDisplay);
-      const modelValue = (this.masked) ? this.inputDisplay : unformat(this.inputDisplay, this.precision);
-      this.$emit('update:modelValue', modelValue);
-    },
-    formatCurrency(value) {
-      this.inputDisplay = format(value, this.$props);
+    onBlur() {
+      this.focused = false;
+      this.makeInputContainerColors();
+      this.$emit('blur');
     },
     onInput(value) {
       if (this.useMask && (this.type === 'text' || this.type === 'search')) {
@@ -390,83 +209,6 @@ export default {
       } else if (this.type === 'currency') {
         this.changeModelCurrencyMask();
       }
-    },
-    onInputSearch: _.debounce((value) => {
-      this.$emit('onFilter', value);
-    }, 500),
-    focus() {
-      this.focused = true;
-
-      if (this.bgColor === 'bg-white') {
-        this.inputContainerLabelColor = 'text-primary';
-        if (this.filled) {
-          this.inputContainerFieldBottomBorderColor = 'border-primary';
-        }
-      }
-    },
-    updateDropdownPosition() {
-      if (!this.showdropdown) {
-        return false;
-      }
-      const containerElement = document.getElementById(this.containerId);
-      if (containerElement) {
-        const dropMenu = document.getElementById(this.dropMenuId);
-        const containerRect = containerElement.getClientRects();
-        if (this.containerRect.top !== containerRect[0].top
-          || this.containerRect.left !== containerRect[0].left
-          || viewport.elementBelowOfPage(dropMenu)
-          || this.window.width !== window.innerWidth
-          || this.window.height !== window.innerHeight
-        ) {
-          this.onShowDropdown();
-        } else {
-          setTimeout(() => {
-            this.updateDropdownPosition();
-          }, 100);
-        }
-      }
-      return true;
-    },
-    updateContainerRect(containerRect) {
-      this.containerRect.top = containerRect[0].top;
-      this.containerRect.left = containerRect[0].left;
-    },
-    onShowDropdown() {
-      this.showdropdown = true;
-
-      const containerElement = document.getElementById(this.containerId);
-      if (containerElement) {
-        const containerRect = containerElement.getClientRects();
-        this.updateContainerRect(containerRect);
-
-        this.dropdownObject.top = `${containerRect[0].bottom}px`;
-        this.dropdownObject.width = `${containerRect[0].width}px`;
-        this.dropdownObject.left = `${containerRect[0].left}px`;
-        this.windowWidth = window.innerWidth;
-        this.window.height = window.innerHeight;
-
-        this.$nextTick(() => {
-          const dropMenu = document.getElementById(this.dropMenuId);
-          if (dropMenu) {
-            if (viewport.elementBelowOfPage(dropMenu)) {
-              const menuHeight = document.getElementById(this.dropMenuId).clientHeight;
-              this.dropdownObject.top = `${this.containerRect.top - menuHeight}px`;
-            }
-          }
-
-          setTimeout(() => {
-            this.updateDropdownPosition();
-          }, 100);
-        });
-      }
-    },
-    blur() {
-      this.focused = false;
-      this.makeInputContainerColors();
-      this.$emit('blur');
-    },
-    togglePassword() {
-      this.inputType = (this.inputType === 'password') ? 'text' : 'password';
     },
     onKeyDown() {
       if (this.inputDropdown) {
@@ -499,46 +241,6 @@ export default {
       }
       this.$emit('onEscape');
     },
-    onClick() {
-      if (this.inputDropdown) {
-        this.onShowDropdown();
-      }
-      this.$emit('onClick');
-    },
-    onIconDropDownClick() {
-      this.onClick();
-      this.$nextTick(() => {
-        this.focus();
-      });
-    },
-    away() {
-      this.showdropdown = false;
-    },
-    onSelectItem(option) {
-      if (this.type === 'select' || this.type === 'search') {
-        this.inputDisplay = option.text;
-        this.$emit('update:modelValue', option.value);
-        this.away();
-      } else {
-        const multivalue = [];
-        this.selectChipsValue = [];
-        this.multiselectItem.forEach((item) => {
-          const idx = this.options.findIndex((opt) => opt.value === item);
-          if (idx !== -1) {
-            multivalue.push(this.options[idx].value);
-            this.selectChipsValue.push({
-              text: this.options[idx].text,
-              value: this.options[idx].value,
-            });
-          }
-        });
-        this.$emit('update:modelValue', this.multiselectItem);
-        this.$emit('changeMultiselect', this.multiselectItem);
-      }
-    },
-    closeChip(index) {
-      this.closeSelectChip(index);
-    },
     onDelete() {
       if (this.chips) {
         if (this.inputDisplay.length === 0 && this.modelValue && this.modelValue.length) {
@@ -546,21 +248,15 @@ export default {
         }
       }
     },
-    onClearable() {
-      this.inputDisplay = '';
-      this.$emit('clear');
+    onClick() {
+      if (this.inputDropdown) {
+        this.onShowDropdown();
+      }
+      this.$emit('onClick');
     },
-    closeSelectChip(index) {
-      this.$delete(this.selectChipsValue, index);
-      const arrValue = [];
-      this.selectChipsValue.forEach((chip) => {
-        arrValue.push(chip.value);
-      });
-      this.$emit('update:modelValue', arrValue);
+    away() {
+      this.showdropdown = false;
     },
   },
 };
 </script>
-
-<style scoped>
-</style>

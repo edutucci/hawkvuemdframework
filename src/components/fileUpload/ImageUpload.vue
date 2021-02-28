@@ -80,6 +80,7 @@ import uploadBase from './uploadBase.vue';
 export default {
   name: 'HFileUpload',
   extends: uploadBase,
+  emits: ['addFiles'],
   methods: {
     async handleFileChange(ev) {
       for (let i = 0; i < ev.target.files.length; i += 1) {

@@ -245,7 +245,7 @@
       </comp-code>
 
       <div ref="btn-dropdown" />
-      <comp-code
+      <!-- <comp-code
         class="h-mt-md"
         title="DropDown Buttons"
         :code="dropdownButtons"
@@ -357,7 +357,7 @@
             </h-btn>
           </div>
         </div>
-      </comp-code>
+      </comp-code> -->
 
       <div ref="btn-links" />
       <comp-code class="h-mt-md" title="Links" :code="linksButtons">

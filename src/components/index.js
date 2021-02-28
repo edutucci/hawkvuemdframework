@@ -102,7 +102,7 @@ import HFileUpload from './fileUpload/fileUpload.vue';
 // import HSideBarMenu from './menu/SideBarMenu'
 
 import HRadio from './radio/Radio.vue';
-// import HRating from './rating/Rating.vue'
+import HRating from './rating/Rating.vue';
 
 import HInputContainer from './Inputs/InputContainer.vue';
 import HInputField from './Inputs/InputField.vue';
@@ -184,7 +184,7 @@ const Components = {
   // HSideBarMenuItem,
 
   HRadio,
-  // HRating,
+  HRating,
 
   HInputContainer,
   HInputField,

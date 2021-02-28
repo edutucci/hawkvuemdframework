@@ -1,31 +1,79 @@
 <template lang="pug">
-.row.scroll.border.border-gray.border-radius
-  .column.scroll.full-width
-    slot
-//- .row.scroll.border.border-gray.border-radius
-//-   .column.scroll.full-width
-//-     .row.scroll.h-pa-md.bg-gray100
-//-       .flex-1.text-bold(@click="changePage('result')")
-//-         | {{title}}
-//-       .flex
-//-         h-icon(icon="far fa-file-code" @click="changePage('result')")
-//-         h-icon.h-ml-sm(v-if="!hideCode" icon="fas fa-code" @click="changePage('template')")
-//-         h-icon.h-ml-sm(v-if="javascript" icon="fab fa-js" @click="changePage('javascript')")
-//-     .column.scroll.full-width.bg-white.position-relative.scroll-x-only
-//-       div.scroll.h-pa-sm(v-if="pageName === 'result'")
-//-         slot
-//-       div.scroll.position-relative(v-if="pageName === 'template'" style="min-height: 60px;")
-//-         .top-right-absolute.h-mr-sm.h-mt-md.buttoncopycode
-//-           h-icon(icon="far fa-copy" text-color="text-primary" @click="copyCodeToClipboard")
-//-         prism(language="html" :code="code")
-//-       div.scroll.position-relative(v-if="pageName === 'javascript'" style="min-height: 60px;")
-//-         .top-right-absolute.h-mr-sm.h-mt-md.buttoncopycode
-//-           h-icon(icon="far fa-copy" text-color="text-primary" @click="copyCodeToClipboard")
-//-         prism(language="javascript" :code="script")
-//-       .divcopycode.top-left-absolute.full-size.h-mt-sm(
-//-         v-if="pageName === 'template' || pageName === 'javascript'"
-//-       )
-//-         textarea(:value="textareaCode" :id="textareaId" style="max-height: 86%; width: 98%;")
+.h-pa-xs
+  //- h-card.h-pa-xs(style="width: calc(100vw - 50px)")
+  h-card.justify-center.full-width
+    h-card-section(auto)
+      .column
+        .col
+          h-list
+            h-list-item.bg-gray300
+              h-list-item-side
+                h-icon(icon="fas fa-book-reader" text-color="text-primary" size="22px")
+              h-list-item-content
+                .text-h6.text-primary {{title}}
+
+        .col
+          h-tabs(v-model="horTab" bg-color="bg-primary" text-color="text-white")
+            h-tab(name="result" text="RESULT" left-icon="fas fa-file-alt")
+              .h-pa-xs
+                slot
+
+            h-tab(name="html" text="SOURCE" left-icon="fas fa-file-code")
+              div.scroll.position-relative
+                ssh-pre(language="html" label="HTML Vue Template")
+                  | {{code}}
+
+                textarea(:value="code" :id="textareaId" style="visibility: hidden; height: 1px")
+
+                .top-right-absolute.h-mr-sm.h-mt-md.buttoncopycode
+                  h-icon.cursor-pointer(icon="far fa-copy" size="24px" text-color="text-primary" @click="copyCodeToClipboard")
+
+            h-tab(name="javascript" text="JAVASCRIPT" left-icon="fas fa-file-code")
+              div.scroll.position-relative
+                ssh-pre(language="js" label="Javascript Vue")
+                  | {{script}}
+
+                textarea(:value="script" :id="textareaId" style="visibility: hidden; height: 1px")
+
+                .top-right-absolute.h-mr-sm.h-mt-md.buttoncopycode
+                  h-icon.cursor-pointer(icon="far fa-copy" size="24px" text-color="text-primary" @click="copyCodeToClipboard")
+
+              //- .h-mt-xs
+              //- ssh-pre(language="html" label="HTML Vue Template")
+                //- .top-right-absolute.h-mr-sm.h-mt-md.buttoncopycode
+                //-   h-icon(icon="far fa-copy" text-color="text-primary" @click="copyCodeToClipboard")
+
+                //- | {{code}}
+
+              //- .column.scroll.border.border-gray.border-radius
+              //-   .col
+              //-     | {{title}}
+              //-   .col.scroll.bg-negative
+              //-     slot
+              //- .row.scroll.border.border-gray.border-radius
+              //-   .column.scroll.full-width
+              //-     .row.scroll.h-pa-md.bg-gray100
+              //-       .flex-1.text-bold(@click="changePage('result')")
+              //-         | {{title}}
+              //-       .flex
+              //-         h-icon(icon="far fa-file-code" @click="changePage('result')")
+              //-         h-icon.h-ml-sm(v-if="!hideCode" icon="fas fa-code" @click="changePage('template')")
+              //-         h-icon.h-ml-sm(v-if="javascript" icon="fab fa-js" @click="changePage('javascript')")
+              //-     .column.scroll.full-width.bg-white.position-relative.scroll-x-only
+              //-       div.scroll.h-pa-sm(v-if="pageName === 'result'")
+              //-         slot
+              //-       div.scroll.position-relative(v-if="pageName === 'template'" style="min-height: 60px;")
+              //-         .top-right-absolute.h-mr-sm.h-mt-md.buttoncopycode
+              //-           h-icon(icon="far fa-copy" text-color="text-primary" @click="copyCodeToClipboard")
+              //-         prism(language="html" :code="code")
+              //-       div.scroll.position-relative(v-if="pageName === 'javascript'" style="min-height: 60px;")
+              //-         .top-right-absolute.h-mr-sm.h-mt-md.buttoncopycode
+              //-           h-icon(icon="far fa-copy" text-color="text-primary" @click="copyCodeToClipboard")
+              //-         prism(language="javascript" :code="script")
+              //-       .divcopycode.top-left-absolute.full-size.h-mt-sm(
+              //-         v-if="pageName === 'template' || pageName === 'javascript'"
+              //-       )
+              //-         textarea(:value="textareaCode" :id="textareaId" style="max-height: 86%; width: 98%;")
 
 </template>
 
@@ -33,6 +81,9 @@
 
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { v1 as uuidv1 } from 'uuid';
+
+import SshPre from 'simple-syntax-highlighter';
+import 'simple-syntax-highlighter/dist/sshpre.css';
 
 export default {
   name: 'CompCode',
@@ -62,11 +113,13 @@ export default {
       default: false,
     },
   },
+  components: { SshPre },
   data() {
     return {
       pageName: 'result',
       textareaId: uuidv1(),
       textareaCode: '',
+      horTab: 'html',
     };
   },
   watch: {
@@ -115,6 +168,12 @@ export default {
 }
 
 .buttoncopycode {
-  z-index: 110
+  z-index: 110;
+  top: 35px;
 }
+
+.ssh-pre button {
+  border: none;
+}
+
 </style>

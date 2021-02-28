@@ -69,7 +69,7 @@
         <div class="col">
           <h-collapsible>
 
-            <h-collapsible-menu icon="fas fa-question-circle" text="Guide">
+            <!-- <h-collapsible-menu icon="fas fa-question-circle" text="Guide">
               <h-collapsible-item text="Installation" @click="$router.push('/docs/installation'), showDrawer = false"/>
               <h-collapsible-item text="Layout" @click="$router.push('/docs/layout'), showDrawer = false"/>
               <h-collapsible-item text="Page" @click="$router.push('/docs/page'), showDrawer = false"/>
@@ -84,7 +84,7 @@
               <h-collapsible-item text="Text Alignment" @click="$router.push('/docs/textalignment'), showDrawer = false"/>
               <h-collapsible-item text="Visibility" @click="$router.push('/docs/visibility'), showDrawer = false"/>
               <h-collapsible-item text="Others" @click="$router.push('/docs/cssothers'), showDrawer = false"/>
-            </h-collapsible-menu>
+            </h-collapsible-menu> -->
 
             <h-collapsible-menu text="Components" icon="fas fa-hdd">
               <h-collapsible-item text="Appbar" @click="$router.push('/docs/appbar'), showDrawer = false"/>
@@ -115,10 +115,10 @@
               <h-collapsible-item text="Video" @click="$router.push('/docs/video'), showDrawer = false"/>
             </h-collapsible-menu>
 
-            <h-collapsible-menu icon="fas fa-plug" text="Plugins">
+            <!-- <h-collapsible-menu icon="fas fa-plug" text="Plugins">
               <h-collapsible-item text="Loading" @click="$router.push('/docs/loading'), showDrawer = false"/>
               <h-collapsible-item text="SnackBar" @click="$router.push('/docs/snack'), showDrawer = false"/>
-            </h-collapsible-menu>
+            </h-collapsible-menu> -->
 
           </h-collapsible>
         </div>

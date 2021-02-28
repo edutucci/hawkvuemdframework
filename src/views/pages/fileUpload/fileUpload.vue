@@ -7,9 +7,16 @@
         :multiple="true"
         @addFiles="addFiles"
         @removeFiles="removeFiles"
-        extensions=".pdf"
       />
     </comp-code>
+    <!-- <comp-code class="h-mt-lg" title="Files" :code="ex1">
+      <h-file-upload
+        :multiple="true"
+        @addFiles="addFiles"
+        @removeFiles="removeFiles"
+        extensions=".pdf"
+      />
+    </comp-code> -->
 
     <div ref="upload-image"/>
     <comp-code class="h-mt-lg" title="Images" :code="ex2" :script="ex2Script"

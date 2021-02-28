@@ -1,5 +1,5 @@
 <template lang="pug">
-.overflow-hidden.card-padding
+.overflow-hidden.card-padding2
   slot
 </template>
 

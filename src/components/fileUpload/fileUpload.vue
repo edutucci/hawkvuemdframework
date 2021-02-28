@@ -113,7 +113,7 @@ export default {
       this.emitAddedFiles();
     },
     preventDrop(ev) {
-      console.log('preventDrop');
+      // console.log('preventDrop');
       // Prevent default behavior (Prevent file from being opened)
       ev.preventDefault();
     },
