@@ -1,12 +1,13 @@
 <template lang="pug">
-.flex(style="display: inline-block;")
-  label.container
+.div(style="display: inline-flex;")
+  label.container.h-pos-rel
     | {{text}}
-    input(type="radio"
+    input.h-pos-abs(type="radio"
       :name="value"
       :checked="radioState"
       @change="onChange"
       :disabled="readonly"
+      style="top: 0px"
     )
     span.checkmark.border.border-2(:class="[bordercolor, {disabled:readonly}]")
       .radio-ball(:class="[bgcolor]")

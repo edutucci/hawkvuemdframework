@@ -6,14 +6,9 @@ export default {
       description: 'Model of the component.',
     },
     {
-      name: 'title',
-      type: 'String',
-      description: 'Text of the title bar.',
-    },
-    {
-      name: 'show-title-bar',
+      name: 'modal',
       type: 'Boolean',
-      description: 'Shows title bar',
+      description: 'Shows the dialog in modal mode. To close the dialog use a button.',
     },
   ],
 
