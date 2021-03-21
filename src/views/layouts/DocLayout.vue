@@ -7,7 +7,7 @@
       <!-- <p>showDrawer: {{showDrawer}}</p> -->
       <h-app-toolbar bg-color="bg-primary">
         <h-app-toolbar-container>
-          <h-app-toolbar-navigation text-color="text-white" @click="onTBNClick"/>
+          <h-app-toolbar-navigation text-color="text-white" @click="onBtnClick"/>
           <h-app-toolbar-title class="text-white">
             HawkVueMD Framework
           </h-app-toolbar-title>
@@ -161,7 +161,7 @@ export default {
     // console.log('this.searchModel: ', JSON.stringify(this.searchModel))
   },
   methods: {
-    onTBNClick() {
+    onBtnClick() {
       this.showDrawer = !this.showDrawer;
     },
     onSearchSite(query) {

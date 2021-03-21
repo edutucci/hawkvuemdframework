@@ -1,17 +1,30 @@
 <template lang="pug">
-.div(style="display: inline-flex;")
-  label.container.h-pos-rel
-    | {{text}}
-    input.h-pos-abs(type="radio"
-      :name="value"
-      :checked="radioState"
-      @change="onChange"
-      :disabled="readonly"
-      style="top: 0px"
-    )
-    span.checkmark.border.border-2(:class="[bordercolor, {disabled:readonly}]")
-      .radio-ball(:class="[bgcolor]")
+div(style="display: inline-block;")
+  //- label.container.h-pos-rel
+  //-
+  //- .row.align-items-center
+  //-   .col-auto.container.h-pos-rel
+  //-     input(type="radio"
+  //-       :name="value"
+  //-       :checked="radioState"
+  //-       @change="onChange"
+  //-       :disabled="readonly"
+  //-     )
+  //-     span(:class="[bordercolor, {disabled:readonly}]")
+  //-       .radio-ball(:class="[bgcolor]")
+  //-   .col-auto
+  //-     | {{text}}
+.checkbox-container(style="display:inline-flex;")
+  .row.cursor-pointer.align-items-center(@click="onChange()")
+    //- .col-auto
+    //-   | checkboxState: {{radioState}}
+    .col-auto
+      //- input(type="radio" :checked="radioState" v-show="false" :disabled="readonly")
+      h-icon(icon="far fa-circle" text-color="text-gray" v-if="!radioState" size="22px")
+      h-icon(icon="far fa-dot-circle" text-color="text-primary" v-if="radioState" size="22px")
 
+    .col-auto.text-body.h-pl-xs
+      | {{text}}
 </template>
 
 <script>
@@ -94,91 +107,5 @@ export default {
 </script>
 
 <style scoped>
-/* The container */
-.container {
-    display: block;
-    position: relative;
-    padding-left: 30px;
-    margin-bottom: 12px;
-    cursor: pointer;
-    font-size: 16px;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-
-/* Hide the browser's default radio button */
-.container input {
-    position: relative;
-    opacity: 0;
-    cursor: pointer;
-}
-
-/* Create a custom radio button */
-.checkmark {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 14px;
-    width: 14px;
-    /* border: 2px solid gray; */
-    border-radius: 50%;
-}
-
-.checkmark.disabled {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 14px;
-    width: 14px;
-    /* border: 2px solid lightgrey; */
-    border-radius: 50%;
-}
-
-/* On mouse-over, add a grey background color */
-/* .container:hover input ~ .checkmark {
-    background-color: #ccc;
-} */
-
-/* When the radio button is checked, add a blue background */
-.container input:checked ~ .checkmark {
-    background-color: white;
-}
-
-/* Create the indicator (the dot/circle - hidden when not checked) */
-.checkmark:after {
-    content: "";
-    position: absolute;
-    display: none;
-}
-
-/* Show the indicator (dot/circle) when checked */
-.container input:checked ~ .checkmark:after {
-    display: block;
-}
-
-/* Style the indicator (dot/circle) */
-.container .checkmark:after {
-  top: 3px;
-  left: 3px;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-}
-
-.radio-ball {
-  content: "";
-  position: absolute;
-  top: 3px;
-  left: 3px;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-}
-
-.radio-border-gray {
-  border-color: gray;
-}
 
 </style>

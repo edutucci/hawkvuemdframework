@@ -1,8 +1,39 @@
 <template>
   <page-layout ref="pl" title="Checkbox">
     <template v-slot:components>
+      <div ref="ck-styles" class="h-mt-md"/>
+      <comp-code title="Styles" :code="ckstyles" :script="ckstylesScript" javascript>
+        <div class="row">
+          <div class="col-auto">
+            <div class="column">
+              <div class="col">Select your favorites sports</div>
+              <div class="col">
+                <h-checkbox v-model="sports" text="Football" value="Football"/>
+                <h-checkbox v-model="sports" text="Volleyball" value="Volleyball"/>
+              </div>
+            </div>
+          </div>
+          <div class="col-auto h-pl-sm">
+            <div class="column">
+              <div class="col">Select your favorites sports</div>
+              <div class="col">
+                <h-checkbox avatar v-model="sports" text="Football" value="Football"/>
+                <h-checkbox avatar v-model="sports" text="Volleyball" value="Volleyball"/>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">Your option is: {{ sports }}</div>
+      </comp-code>
+
       <div ref="ck-boolean" />
-      <comp-code title="Boolean" :code="ckboolean" :script="ckbooleanScript" javascript>
+      <comp-code
+        class="h-mt-md"
+         title="Boolean"
+         :code="ckboolean"
+         :script="ckbooleanScript"
+         javascript
+      >
         <div class="column">
           <div class="col">Do you agree to our terms and conditions?</div>
           <div class="col">
@@ -174,10 +205,43 @@ export default {
         { id: 2, name: 'css' },
         { id: 3, name: 'vuejs' },
       ],
+      sports: [],
       helpTopics: {
         properties: [],
         events: [],
       },
+      ckstyles: `
+<div class="row">
+  <div class="col-auto">
+    <div class="column">
+      <div class="col">Select your favorites sports</div>
+      <div class="col">
+        <h-checkbox v-model="sports" text="Football" value="Football"/>
+        <h-checkbox v-model="sports" text="Volleyball" value="Volleyball"/>
+      </div>
+    </div>
+  </div>
+  <div class="col-auto h-pl-sm">
+    <div class="column">
+      <div class="col">Select your favorites sports</div>
+      <div class="col">
+        <h-checkbox avatar v-model="sports" text="Football" value="Football"/>
+        <h-checkbox avatar v-model="sports" text="Volleyball" value="Volleyball"/>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="col">Your option is: {{ sports }}</div>
+`,
+      ckstylesScript: `
+export default {
+  data () {
+    return {
+      sports: []
+    }
+  }
+}
+`,
       ckboolean: `
 <div class="column">
   <div class="col">

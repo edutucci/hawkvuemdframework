@@ -1,39 +1,12 @@
 <template lang="pug">
-.checkbox-container(style="display:inline-flex;")
-  .row.cursor-pointer.align-items-center(@click="onChange()")
-    //- .col-auto
-    //-   | checkboxState: {{checkboxState}}
-    .col-auto
-      //- input(type="checkbox" :checked="checkboxState" v-show="false" :disabled="readonly")
-      h-icon(
-        icon="far fa-square"
-        text-color="text-gray"
-        v-if="!checkboxState && !avatar" size="22px"
-        :class="[bgColor, textColor]"
-      )
-      h-icon(
-        icon="far fa-circle"
-        text-color="text-gray"
-        v-if="!checkboxState && avatar" size="22px"
-        :class="[bgColor, textColor, { 'border-circle': avatar }]"
-      )
-
-      h-icon(
-        icon="fas fa-check-square"
-        text-color="text-primary"
-        v-if="checkboxState && !avatar" size="22px"
-        :class="[bgColor, textColor]"
-      )
-
-      h-icon(
-        icon="fas fa-check-circle"
-        text-color="text-primary"
-        v-if="checkboxState && avatar" size="22px"
-        :class="[bgColor, textColor, { 'border-circle': avatar }]"
-      )
-
-    .col-auto.text-body.h-pl-xs
-      | {{text}}
+.flex(style="display: inline-block;")
+  label.container.text-body2
+    | {{text}}
+    input(
+      type="checkbox" @click="onChange()"
+      :checked="checkboxState" :disabled="readonly"
+    )
+    span.checkmark.border.border-2(:class="[bgcolor, bordercolor, {disabled:readonly}]")
 
 </template>
 
@@ -55,10 +28,6 @@ export default {
       default: false,
     },
     readonly: {
-      type: Boolean,
-      default: false,
-    },
-    avatar: {
       type: Boolean,
       default: false,
     },
@@ -134,22 +103,20 @@ export default {
       }
     },
     onChange() {
-      if (!this.readonly) {
-        let value = this.modelValue;
+      let value = this.modelValue;
 
-        if (Array.isArray(value)) {
-          value = value.slice();
-          const i = value.indexOf(this.value);
-          if (i === -1) {
-            value.push(this.value);
-          } else {
-            value.splice(i, 1);
-          }
+      if (Array.isArray(value)) {
+        value = value.slice();
+        const i = value.indexOf(this.value);
+        if (i === -1) {
+          value.push(this.value);
         } else {
-          value = !this.checkboxState;
+          value.splice(i, 1);
         }
-        this.$emit('update:modelValue', value);
+      } else {
+        value = !this.checkboxState;
       }
+      this.$emit('update:modelValue', value);
     },
   },
 };
@@ -160,7 +127,7 @@ export default {
 .container {
     display: inline-block;
     position: relative;
-    padding-left: 5px;
+    padding-left: 30px;
     cursor: pointer;
     font-size: 16px;
     -webkit-user-select: none;

@@ -50,7 +50,7 @@ export default {
   components: {},
   data() {
     return {
-      showDrawer: true,
+      showDrawer: false,
       // text: false,
       // icon: false,
       // avatar: false,
