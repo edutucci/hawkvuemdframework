@@ -9,7 +9,7 @@
       [compBgColor, textColor, compBorderColor, typography, \
       { 'border': outlined, 'dense': dense }]"
   )
-    .col-auto.h-pl-xs(v-if="this.filter && value")
+    .col-auto.h-pl-xs(v-if="this.filter && modelValue")
       h-icon(:text-color="textColor" icon="fas fa-check" :size="iconSize")
     .col-auto.h-pl-xs(v-else-if="icon && icon.length > 0")
       h-icon(:text-color="textColor" :icon="icon" :size="iconSize")

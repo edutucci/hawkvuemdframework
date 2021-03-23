@@ -203,7 +203,7 @@ export default {
     size(value) {
       this.changeFontSize(value);
     },
-    modeValue(value) {
+    modelValue(value) {
       console.log('mudou modeValue:', value);
       this.showdropdown = value;
       if (value) {
@@ -260,6 +260,7 @@ export default {
     },
     onClick() {
       if (!this.disabled) {
+        console.log('onClick: ', this.modelValue, '-', this.dropdown);
         if (!this.dropdown) {
           this.$emit('click');
         } else if (!this.modelValue) {

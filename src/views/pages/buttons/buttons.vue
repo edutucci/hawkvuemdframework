@@ -245,15 +245,14 @@
       </comp-code>
 
       <div ref="btn-dropdown" />
-      <!-- <comp-code
+      <comp-code
         class="h-mt-md"
         title="DropDown Buttons"
         :code="dropdownButtons"
         :script="scriptDropdownButtons"
         javascript
       >
-        <div class="row wrap">
-          <p>text: {{text}}</p>
+        <div class="row wrap align-items-center">
           <div class="col-auto">
             <h-btn
               dropdown
@@ -357,7 +356,7 @@
             </h-btn>
           </div>
         </div>
-      </comp-code> -->
+      </comp-code>
 
       <div ref="btn-links" />
       <comp-code class="h-mt-md" title="Links" :code="linksButtons">
