@@ -9,7 +9,7 @@ h-card(style="width: 100%")
   h-card-section(auto)
     h-tabs(v-model="horTab" bg-color="bg-primary" text-color="text-white")
       h-tab(name="result" text="RESULT" left-icon="fas fa-file-alt")
-        .h-pa-xs
+        .h-pa-xs.h-mt-sm
           slot
 
       h-tab(name="html" text="SOURCE" left-icon="fas fa-file-code")

@@ -96,7 +96,7 @@ export default {
       default: false,
     },
   },
-  emits: ['update:modelValue', 'focus', 'blur', 'onKeyDown', 'onTab', 'onEnter', 'onDelete', 'onEscape', 'click', 'onArrowDown'],
+  emits: ['input', 'focus', 'blur', 'onKeyDown', 'onTab', 'onEnter', 'onDelete', 'onEscape', 'click', 'onArrowDown'],
   data() {
     return {
       inputId: uuidv1(),
@@ -141,18 +141,18 @@ export default {
   },
   methods: {
     onInput(value) {
-      // console.log('value debounce input-field:', value)
+      // console.log('value debounce input-field:', value);
       // this.inputDisplay = value
-      this.$emit('update:modelValue', value);
+      this.$emit('input', value);
     },
     onInputMask(e) {
       if (e.isTrusted) return; // ignore native event
-      this.$emit('inupdate:modelValueput', e.target.value);
+      this.$emit('input', e.target.value);
     },
     onInputChip(value) {
       // console.log('onInputChip input-field:', value)
       this.inputDisplay = value;
-      this.$emit('inupdate:modelValueput', value);
+      this.$emit('input', value);
     },
     onInputFocus() {
       this.inputFocus = true;

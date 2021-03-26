@@ -144,6 +144,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    useDebounce: {
+      type: Boolean,
+      default: false,
+    },
   },
   data() {
     return {

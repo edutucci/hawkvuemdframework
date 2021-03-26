@@ -68,7 +68,7 @@ const routes = [
   // },
   {
     path: '/test',
-    component: () => import('../views/pages/tests/checkboxes/checkbox.vue'),
+    component: () => import('../views/pages/tests/input/inputfield.vue'),
   },
 ];
 
