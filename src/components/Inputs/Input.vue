@@ -79,7 +79,7 @@ h-input-container(
           :key="`${dropMenuId}-${index}`"
           @click="onSelectItem(option)"
         )
-          slot(name="itemoption" :value="option")
+          slot(:option="option")
             h-list-item-side(v-if="displayMode ==='icon'")
               h-icon(:icon="option.icon")
             h-list-item-side(v-if="displayMode ==='avatar'")
@@ -246,17 +246,17 @@ export default {
   },
   methods: {
     makeInputValue() {
-      const localInputDisplay = this.value;
+      const localInputDisplay = this.modelValue;
       if (this.type === 'text' || this.type === 'search' || this.type === 'password') {
-        this.inputDisplay = this.value;
+        this.inputDisplay = this.modelValue;
       } else if (localInputDisplay) {
         if (this.useMask) {
-          this.inputDisplay = this.value;
+          this.inputDisplay = this.modelValue;
           // this.changeModelMask()
         } else if (this.type === 'currency') {
           this.changeModelCurrencyMask();
         } else if (this.type === 'select' && (this.options && this.options.length)) {
-          const index = this.options.findIndex((item) => item.value === this.value);
+          const index = this.options.findIndex((item) => item.value === this.modelValue);
           if (index !== -1) {
             const option = this.options[index];
             this.onSelectItem(option);
@@ -385,7 +385,7 @@ export default {
         this.selectChipsValue.forEach((chip) => {
           arrValue.push(chip.value);
         });
-        this.$emit('input', arrValue);
+        this.$emit('update:modelValue', arrValue);
       } else {
         this.$emit('onEnter');
       }
@@ -505,7 +505,7 @@ export default {
     onSelectItem(option) {
       if (this.type === 'select' || this.type === 'search') {
         this.inputDisplay = option.text;
-        this.$emit('input', option.value);
+        this.$emit('update:modelValue', option.value);
         this.away();
       } else {
         const multivalue = [];

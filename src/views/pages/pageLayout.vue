@@ -1,5 +1,5 @@
 <template>
-  <h-page padding
+  <h-page
   @onResize="pageResize"
   @mainLayoutDrawerIsOpened="showDrawer = false"
   >

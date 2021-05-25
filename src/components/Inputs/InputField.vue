@@ -130,7 +130,7 @@ export default {
     type(value) {
       this.inputtype = value;
     },
-    value(value) {
+    modelValue(value) {
       // console.log('value change in input-field:', value)
       this.inputDisplay = value;
     },

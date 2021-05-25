@@ -13,10 +13,11 @@ module.exports = {
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
-    'max-len': ["error", { "code": 250 }],
+    'max-len': ["error", { "code": 270 }],
     "linebreak-style": 0,
     'func-names': ["error", "always", { "generators": "as-needed" }],
     'no-use-before-define': ["error", { "functions": false, "classes": false }],
-    'no-param-reassign': ["error", { "props": false }]
+    'no-param-reassign': ["error", { "props": false }],
+    'no-tabs': ["error", { allowIndentationTabs: true }]
   },
 };

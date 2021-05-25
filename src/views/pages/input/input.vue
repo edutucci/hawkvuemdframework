@@ -150,26 +150,25 @@
               label="Select with custom items"
               display-mode="icon"
             >
-              <template v-slot:itemoption>
-                <div>{{itemoption}}</div>
-                <!-- <h-list-item-side class="align-items-center">
-                  <h-icon :icon="itemoption.value.icon"/>
+              <template v-slot:default="slotProps">
+                <h-list-item-side class="align-items-center">
+                  <h-icon :icon="slotProps.option.icon"/>
                 </h-list-item-side>
                 <h-list-item-content>
-                  <h-list-item-text :title="itemoption.value.text" :caption="itemoption.value.desc" />
+                  <h-list-item-text :title="slotProps.option.text" :caption="slotProps.option.desc" />
                 </h-list-item-content>
-                <h-list-item-side v-if="itemoption.value.text === 'music'">
+                <h-list-item-side v-if="slotProps.option.text === 'music'">
                   <h-btn bg-color="bg-primary">
-                    <h-link :icon="itemoption.value.icon" text="homepage" text-color="text-white"
+                    <h-link :icon="slotProps.option.icon" text="homepage" text-color="text-white"
                       url="https://www.jango.com/" new-window/>
                   </h-btn>
                 </h-list-item-side>
-                <h-list-item-side v-if="itemoption.value.text === 'discord'">
+                <h-list-item-side v-if="slotProps.option.text === 'discord'">
                   <h-btn bg-color="bg-primary">
-                    <h-link :icon="itemoption.value.icon" text="homepage" text-color="text-white"
+                    <h-link :icon="slotProps.option.icon" text="homepage" text-color="text-white"
                       url="https://discord.com/" new-window/>
                   </h-btn>
-                </h-list-item-side> -->
+                </h-list-item-side>
               </template>
             </h-input>
           </div>
@@ -813,36 +812,39 @@ export default {
 }
 `,
       selectCustomItem: `
-<div class="col-6">
-  <h-input dense :options="options"
-    v-model="selectModel"
-    type="select"
-    input-icon="fas fa-angle-down"
-    label="Select with icons"
-    display-mode="icon"
-  >
-    <template slot="itemoption" slot-scope="itemoption">
-      <h-list-item-side class="align-items-center">
-        <h-icon :icon="itemoption.value.icon"/>
-      </h-list-item-side>
-      <h-list-item-content>
-        <h-list-item-text :title="itemoption.value.text" :caption="itemoption.value.desc" />
-      </h-list-item-content>
-      <h-list-item-side v-if="itemoption.value.text === 'music'">
-        <h-btn bg-color="bg-primary">
-          <h-link :icon="itemoption.value.icon" text="homepage" text-color="text-white"
-            url="https://www.jango.com/" new-window/>
-        </h-btn>
-      </h-list-item-side>
-      <h-list-item-side v-if="itemoption.value.text === 'discord'">
-        <h-btn bg-color="bg-primary">
-          <h-link :icon="itemoption.value.icon" text="homepage" text-color="text-white"
-            url="https://discord.com/" new-window/>
-        </h-btn>
-      </h-list-item-side>
-    </template>
-  </h-input>
+<div class="row">
+  <div class="col-6">
+    <h-input dense :options="options"
+      v-model="selectModel"
+      type="select"
+      input-icon="fas fa-angle-down"
+      label="Select with custom items"
+      display-mode="icon"
+    >
+      <template v-slot:default="slotProps">
+        <h-list-item-side class="align-items-center">
+          <h-icon :icon="slotProps.option.icon"/>
+        </h-list-item-side>
+        <h-list-item-content>
+          <h-list-item-text :title="slotProps.option.text" :caption="slotProps.option.desc" />
+        </h-list-item-content>
+        <h-list-item-side v-if="slotProps.option.text === 'music'">
+          <h-btn bg-color="bg-primary">
+            <h-link :icon="slotProps.option.icon" text="homepage" text-color="text-white"
+              url="https://www.jango.com/" new-window/>
+          </h-btn>
+        </h-list-item-side>
+        <h-list-item-side v-if="slotProps.option.text === 'discord'">
+          <h-btn bg-color="bg-primary">
+            <h-link :icon="slotProps.option.icon" text="homepage" text-color="text-white"
+              url="https://discord.com/" new-window/>
+          </h-btn>
+        </h-list-item-side>
+      </template>
+    </h-input>
+  </div>
 </div>
+
 <div class="h-mt-md">
   selectModel: {{ selectModel }}
 </div>
