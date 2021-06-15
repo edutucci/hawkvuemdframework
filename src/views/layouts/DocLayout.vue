@@ -96,21 +96,21 @@
               <h-collapsible-item text="Checkbox" @click="$router.push('/docs/checkbox'), showDrawer = false"/>
               <h-collapsible-item text="Chips" @click="$router.push('/docs/chip'), showDrawer = false"/>
               <h-collapsible-item text="Collapsible" @click="$router.push('/docs/collapsible'), showDrawer = false"/>
-              <h-collapsible-item text="Date and Time" @click="$router.push('/docs/datetime'), showDrawer = false"/>
+              <!-- <h-collapsible-item text="Date and Time" @click="$router.push('/docs/datetime'), showDrawer = false"/> -->
               <h-collapsible-item text="Dialog" @click="$router.push('/docs/dialog'), showDrawer = false"/>
-              <h-collapsible-item text="Drawer" @click="$router.push('/docs/drawer'), showDrawer = false"/>
+              <!-- <h-collapsible-item text="Drawer" @click="$router.push('/docs/drawer'), showDrawer = false"/> -->
               <h-collapsible-item text="File Upload" @click="$router.push('/docs/fileupload'), showDrawer = false"/>
-              <h-collapsible-item text="HtmlTable" @click="$router.push('/docs/htmltable'), showDrawer = false"/>
+              <!-- <h-collapsible-item text="HtmlTable" @click="$router.push('/docs/htmltable'), showDrawer = false"/> -->
               <h-collapsible-item text="Icons" @click="$router.push('/docs/icon'), showDrawer = false"/>
               <h-collapsible-item text="Image" @click="$router.push('/docs/compimage'), showDrawer = false"/>
               <h-collapsible-item text="Input Textfield" @click="$router.push('/docs/input'), showDrawer = false"/>
               <h-collapsible-item text="List" @click="$router.push('/docs/list'), showDrawer = false"/>
               <h-collapsible-item text="Radio" @click="$router.push('/docs/radio'), showDrawer = false"/>
-              <h-collapsible-item text="Range Slider" @click="$router.push('/docs/rangeslider'), showDrawer = false"/>
-              <h-collapsible-item text="Rating" @click="$router.push('/docs/rating'), showDrawer = false"/>
-              <h-collapsible-item text="SideBar Menu" @click="$router.push('/docs/sideBarMenu'), showDrawer = false"/>
+              <!-- <h-collapsible-item text="Range Slider" @click="$router.push('/docs/rangeslider'), showDrawer = false"/> -->
+              <!-- <h-collapsible-item text="Rating" @click="$router.push('/docs/rating'), showDrawer = false"/> -->
+              <!-- <h-collapsible-item text="SideBar Menu" @click="$router.push('/docs/sideBarMenu'), showDrawer = false"/> -->
               <h-collapsible-item text="Tab" @click="$router.push('/docs/tab'), showDrawer = false"/>
-              <h-collapsible-item text="Table" @click="$router.push('/docs/table'), showDrawer = false"/>
+              <!-- <h-collapsible-item text="Table" @click="$router.push('/docs/table'), showDrawer = false"/> -->
               <h-collapsible-item text="Toggle" @click="$router.push('/docs/toggle'), showDrawer = false"/>
               <h-collapsible-item text="Video" @click="$router.push('/docs/video'), showDrawer = false"/>
             </h-collapsible-menu>

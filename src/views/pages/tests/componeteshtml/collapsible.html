@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="fa-web/css/all.css" type="text/css" media="all">
+<style>
+
+.collapsible-container {
+  width: 80%;
+  padding: 4px;
+  margin: auto;
+}
+
+.collapsible-item {
+  background-color:white;
+  color: gray;
+  cursor: pointer;
+  padding: 18px;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.collapsible-content {
+  background-color: lightgray;
+  color: #565656;
+  font-family: "Poppins", Sans-serif;
+  font-size: 17px;
+  font-weight: 400;
+  padding: 18px;
+}
+
+/* .active, .collapsible:hover {
+  background-color: #555;
+} */
+
+.collapsible-content {
+  padding: 18px;
+  display: none;
+  overflow: hidden;
+  background-color: #f1f1f1;
+}
+.dot {
+  height: 25px;
+  width: 25px;
+  background-color: gray;
+  border-radius: 50%;
+  text-align: center;
+}
+.collapsible-item-title {
+  margin-left: 5px; 
+  font-family: "Poppins", Sans-serif;
+}
+</style>
+</head>
+<body>
+  <i aria-hidden="true" class="fas fa-check-double"></i>
+<h2>Collapsibles</h2>
+
+<div class="collapsible-container">
+  <div class="collapsible-item" id="colitem1" onclick="showHideItem('colitem1')">
+    <span class="dot">
+      <span style="margin-left: 5px;">
+        <i id="icon-colitem1" aria-hidden="true" class="fas fa-chevron-right" style="color: white;"></i>
+      </span>
+    </span>
+   <span class="collapsible-item-title" >Quanto tempo nos cabelos?</span>
+  </div>
+  <div class="collapsible-content" id="content-colitem1">
+    <span>
+      A durabilidade do resultado depende de alguns fatores, tais como, forma de aplicação, tipo de cabelo e tempo de pausa no procedimento. Porém nesse intervalo é necessário que tenha retoques pois os cabelos tendem a crescer, como o nosso produto não danifica os fios, o produto pode ser reaplicado após 15 dias da primeira aplicação caso necessário.
+    </span>
+  </div>
+  
+  <div class="collapsible-item" id="colitem4" onclick="showHideItem('colitem4')">
+    <span class="dot">
+      <span style="margin-left: 5px;">
+        <i id="icon-colitem4" aria-hidden="true" class="fas fa-chevron-right" style="color: white;"></i>
+      </span>
+    </span>
+   <span class="collapsible-item-title" >Tem contra indicação ou efeito colateral?</span>
+  </div>
+  <div class="collapsible-content" id="content-colitem4">
+    <span>
+      O Hidraliso é um produto sem contra indicação e não tem efeito colateral. Qualquer pessoa pode usar e aproveitar seus benefícios. Fique atento as especificações de uso do produto vide contra rótulo. Não inalar, e não utilizar em regiões sensibilizadas ou feridas.      Lave o seu cabelo com um shampoo; Aplique o Hidraliso e deixe o produto agir pelo tempo informado no manual que acompanha o produto (de acordo com o seu tipo de cabelo); Enxague o cabelo apenas com água e retire todo excesso de produto dos cabelos; Seque os cabelos com secador para termo ativar os fios; Pronto, você estará com os cabelos lisos, com brilho e super hidratados.
+    </span>
+  </div>
+  
+  <div class="collapsible-item" id="colitem2" onclick="showHideItem('colitem2')">
+    <span class="dot">
+      <span style="margin-left: 5px;">
+        <i id="icon-colitem2" aria-hidden="true" class="fas fa-chevron-right" style="color: white;"></i>
+      </span>
+    </span>
+   <span class="collapsible-item-title" >Grávidas podem usar o Hidraliso?</span>
+  </div>
+  <div class="collapsible-content" id="content-colitem2">
+    <span>
+      Gestante ou lactantes, idosas, crianças menores de 12 anos, pessoas com doenças pré existentes ou que utilizam algum remédio remédio regulamente é necessário a consulta médica antes de começar o uso do produto.
+    </span>
+  </div>
+  
+  <div class="collapsible-item" id="colitem3" onclick="showHideItem('colitem3')">
+    <span class="dot">
+      <span style="margin-left: 5px;">
+        <i id="icon-colitem3" aria-hidden="true" class="fas fa-chevron-right" style="color: white;"></i>
+      </span>
+    </span>
+   <span class="collapsible-item-title" >Como usar o Hidraliso?</span>
+  </div>
+  <div class="collapsible-content" id="content-colitem3">
+    <span>
+      Lave o seu cabelo com um shampoo; Aplique o Hidraliso e deixe o produto agir pelo tempo informado no manual que acompanha o produto (de acordo com o seu tipo de cabelo); Enxague o cabelo apenas com água e retire todo excesso de produto dos cabelos; Seque os cabelos com secador para termo ativar os fios; Pronto, você estará com os cabelos lisos, com brilho e super hidratados.    
+    </span>
+  </div>
+
+  <div class="collapsible-item" id="colitem5" onclick="showHideItem('colitem5')">
+    <span class="dot">
+      <span style="margin-left: 5px;">
+        <i id="icon-colitem5" aria-hidden="true" class="fas fa-chevron-right" style="color: white;"></i>
+      </span>
+    </span>
+   <span class="collapsible-item-title" > Já usei outros produtos. Posso usar o Hidraliso? </span>
+  </div>
+  <div class="collapsible-content" id="content-colitem5">
+    <span>
+      Sim, a fórmula do Hidraliso é compatível com outras químicas, como tioglicolato, guanidina, hidróxidos, entre outros.    
+    </span>
+  </div>
+
+  <div class="collapsible-item" id="colitem6" onclick="showHideItem('colitem6')">
+    <span class="dot">
+      <span style="margin-left: 5px;">
+        <i id="icon-colitem6" aria-hidden="true" class="fas fa-chevron-right" style="color: white;"></i>
+      </span>
+    </span>
+   <span class="collapsible-item-title" >Qual o prazo de entrega do produto?</span>
+  </div>
+  <div class="collapsible-content" id="content-colitem6">
+    <span>
+      O prazo médio de entrega para a região sudeste é de até 7 dias úteis. Para as demais regiões, o prazo de entrega é de até 15 dias úteis, normalmente sendo entregue antes. O prazo passa a valer após a confirmação do seu pagamento pela administradora do seu cartão de crédito ou após a confirmação do pagamento do boleto. Para saber mais detalhes, acesse <a href="https://www.hidraliso.com.br/prazo-de-entrega/" target="_blank" rel="noopener" data-wplink-edit="true">este link.</a>.    </span>
+  </div>
+</div>
+
+<script>
+
+function showHideItem(id) {
+  var itemId = 'content-' + id
+  var content = document.getElementById(itemId)
+  if (content) {
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  }
+
+  var iconId = 'icon-' + id
+  var iconElement = document.getElementById(iconId)
+  if (iconId) {
+    if (iconElement.className === 'fas fa-chevron-right') {
+      iconElement.className = 'fas fa-chevron-down'
+    } else {
+      iconElement.className = 'fas fa-chevron-right'
+    }
+  }
+}
+</script>
+
+</body>
+</html>

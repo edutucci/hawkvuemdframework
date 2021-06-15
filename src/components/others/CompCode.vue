@@ -7,12 +7,12 @@ h-card(style="width: 100%")
       .col.h-pl-sm.text-h6.text-primary
         | {{title}}
   h-card-section(auto)
-    h-tabs(v-model="horTab" bg-color="bg-primary" text-color="text-white")
-      h-tab(name="result" text="RESULT" left-icon="fas fa-file-alt")
+    h-tabs(v-model="pageName" bg-color="bg-primary" text-color="text-white")
+      h-tab(v-if="!hideResult" name="result" text="RESULT" left-icon="fas fa-file-alt")
         .h-pa-xs.h-mt-sm
           slot
 
-      h-tab(name="html" text="SOURCE" left-icon="fas fa-file-code")
+      h-tab(v-if="!hideCode" name="html" text="SOURCE" left-icon="fas fa-file-code")
         div.scroll.position-relative
           ssh-pre(language="html" label="HTML Vue Template")
             | {{code}}
@@ -65,6 +65,10 @@ export default {
       type: String,
       default: 'result',
     },
+    hideResult: {
+      type: Boolean,
+      default: false,
+    },
     hideCode: {
       type: Boolean,
       default: false,
@@ -76,7 +80,6 @@ export default {
       pageName: 'result',
       textareaId: uuidv1(),
       textareaCode: '',
-      horTab: 'result',
     };
   },
   watch: {

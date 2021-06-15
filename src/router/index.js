@@ -68,7 +68,7 @@ const routes = [
   // },
   {
     path: '/test',
-    component: () => import('../views/pages/tests/template/vuefile.vue'),
+    component: () => import('../views/pages/tests/visibility/visibility.vue'),
   },
 ];
 

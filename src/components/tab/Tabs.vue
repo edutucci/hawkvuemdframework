@@ -99,6 +99,9 @@ export default {
     bgColor(value) {
       this.onBackgroundHover(value);
     },
+    modelValue() {
+      this.checkForDefaultTab();
+    },
   },
   methods: {
     addTab(tab) {

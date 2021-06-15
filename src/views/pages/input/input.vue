@@ -178,7 +178,7 @@
           selectModel: {{ selectModel }}
         </div>
       </comp-code>
-      <div ref="select-multi"/>
+      <!-- <div ref="select-multi"/>
       <comp-code class="h-mt-lg" title="Multi Select" :code="selectMulti" :script="selectMultiScript"
         javascript>
         <div class="col-6">
@@ -191,7 +191,7 @@
         <div>
           multiselect: {{ multiselect }}
         </div>
-      </comp-code>
+      </comp-code> -->
 
       <!-- <div ref="select-multi-chips"/>
       <comp-code class="h-mt-lg" title="Multi Select Chips" :code="selectMultiChips" :script="selectMultiChipsScript"
@@ -277,7 +277,7 @@
         </div>
       </comp-code> -->
 
-      <div class="text-h6 h-mt-md">Masks</div>
+      <!-- <div class="text-h6 h-mt-md">Masks</div>
       <h-separator></h-separator>
 
       <html-table class="h-mt-lg" bordered cell-separator>
@@ -317,7 +317,7 @@
 
       <div>
         <h-toggle class="h-mt-lg" v-model="masked" text="Masked?"/>
-      </div>
+      </div> -->
 
       <!-- <div ref="mask-text"/>
       <comp-code class="h-mt-lg" title="Text (US Phone)" :code="extextmask">

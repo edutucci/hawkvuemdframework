@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="fa-web/css/all.css" type="text/css" media="all">
+
+<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+<!-- <script>
+$( document ).ready(function() {
+    console.log( "document loaded" );
+});
+
+$( window ).on( "load", function() {
+    console.log( "window loaded" );
+});
+</script> -->
+
+<style>
+
+body {
+  position: relative;
+  background-color: #DDDDDD;
+  font-family: "helvetica", sans-serif;
+  font-weight: lighter;
+  font-size: 14px;
+  color: #555;
+  margin: 0;
+  padding: 0;
+  min-width: 320px;
+}
+
+h1 {
+  text-transform: uppercase;
+  color: #333;
+}
+
+h3 {
+  font-weight: lighter;
+  color: #555555;
+}
+
+a {
+  position: relative;
+  color: #a8244f;
+  text-decoration: none;
+}
+a:before {
+  content: "";
+  height: 2px;
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  right: 0;
+  background-color: #7e1b3b;
+  transform: rotateY(90deg);
+  transition: transform 0.2s ease-in-out;
+}
+a:hover {
+  color: #7e1b3b;
+  text-decoration: none;
+}
+a:hover:before {
+  transform: rotateY(0deg);
+}
+
+.split {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: strech;
+}
+.split p {
+  flex-basis: 100%;
+}
+@media screen and (min-width: 767px) {
+  .split p {
+    flex-basis: 48%;
+  }
+}
+
+nav.social {
+  display: inline-block;
+  padding: 0;
+  margin-bottom: 18px;
+}
+nav.social li {
+  list-style: none;
+  float: left;
+}
+nav.social li a {
+  padding: 5px;
+}
+nav.social li:first-child a {
+  padding-left: 0;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  margin: 50px 0;
+}
+.container .inner {
+  position: relative;
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: 20px 30px;
+  background-color: #EEE;
+}
+
+.comparison-slider-wrapper {
+  position: relative;
+  width: 100%;
+  margin: 20px 0;
+  background-color: white;
+}
+.comparison-slider-wrapper .comparison-slider {
+  position: relative;
+  width: 100%;
+  margin: 0;
+  border: 5px white solid;
+  box-sizing: border-box;
+}
+.comparison-slider-wrapper .comparison-slider > img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.comparison-slider-wrapper .comparison-slider .overlay {
+  display: none;
+  position: absolute;
+  width: 250px;
+  bottom: 20px;
+  right: 20px;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 10px;
+  box-sizing: border-box;
+  color: #DDD;
+  text-align: right;
+}
+@media screen and (min-width: 767px) {
+  .comparison-slider-wrapper .comparison-slider .overlay {
+    display: block;
+  }
+}
+.comparison-slider-wrapper .comparison-slider .resize {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 50%;
+  overflow: hidden;
+}
+.comparison-slider-wrapper .comparison-slider .resize > img {
+  display: block;
+}
+.comparison-slider-wrapper .comparison-slider .resize .overlay {
+  right: auto;
+  left: 20px;
+  text-align: left;
+}
+.comparison-slider-wrapper .comparison-slider .divider {
+  position: absolute;
+  width: 2px;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.2);
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  margin-left: -1px;
+  cursor: ew-resize;
+}
+.comparison-slider-wrapper .comparison-slider .divider:before {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  left: -9px;
+  top: 50%;
+  margin-top: -10px;
+  background-color: white;
+  transform: rotate(45deg);
+  transition: all 0.1s ease-in-out;
+}
+.comparison-slider-wrapper .comparison-slider .divider:after {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  left: -5px;
+  top: 50%;
+  margin-top: -6px;
+  background-color: white;
+  transform: rotate(45deg);
+  transition: all 0.1s ease-in-out;
+}
+.comparison-slider-wrapper .comparison-slider .divider.draggable:before {
+  width: 30px;
+  height: 30px;
+  left: -14px;
+  margin-top: -15px;
+}
+.comparison-slider-wrapper .comparison-slider .divider.draggable:after {
+  width: 20px;
+  height: 20px;
+  left: -9px;
+  margin-top: -10px;
+  background-color: #555;
+}
+.comparison-slider-wrapper .caption {
+  position: relative;
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  font-size: 12px;
+  font-style: italic;
+}
+
+.suppoprt-me {
+  display: inline-block;
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  width: 20vw;
+  max-width: 250px;
+  min-width: 200px;
+  z-index: 9;
+}
+.suppoprt-me img {
+  width: 100%;
+  height: auto;
+}
+</style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="inner">
+      
+      <!-- <h1>Image Comparison Slider</h1>
+   
+      <h3>A cool way to show diferences between two image, using CSS3 and jQuery.</h3>
+      
+      <p>Checkout <a href="https://pnewton84.github.io/chindits-in-colour.html" target="_blank">this demo</a> by <a href="https://twitter.com/pnewton84" target="_blank">Pault Newton</a> on his blog.</p> -->
+      
+      <!-- COMPARISON SLIDER CODE START -->
+      
+      <div class="comparison-slider-wrapper" style="width: 417px; height: 556px ;">
+       <!-- Comparison Slider - this div contain the slider with the individual images captions -->
+        <div class="comparison-slider">
+         <div class="overlay"><strong>Depois</strong></div>
+         <img src="https://i1.wp.com/www.hidraliso.com.br/wp-content/uploads/2021/06/depois-hidraliso.jpeg?w=1165&ssl=1" alt="marioPhoto 1">
+        <!-- Div containing the image layed out on top from the left -->
+        <div class="resize">
+          <div class="overlay"><strong>Antes</strong></div>
+          <img src="https://i2.wp.com/www.hidraliso.com.br/wp-content/uploads/2021/06/antes-hidraliso.jpeg?w=1165&ssl=1" alt="marioPhoto 2">
+      </div>
+        <!-- Divider where user will interact with the slider -->
+        <div class="divider"></div>
+       </div>
+       <!-- All global captions if exist can go on the div bellow -->
+        <!-- <div class="caption">I am the caption for the comparison slider and i can give in more detail a context off what you looking at, in this case we are looking at a demo of the comparison slider :)</div> -->
+      </div>
+      
+      <!-- COMPARISON SLIDER CODE END -->
+      
+      <!-- <div class="split">
+        <p>Cupcake ipsum dolor sit amet tart sesame snaps I love tart. Macaroon I love chocolate cake cupcake wafer oat cake carrot cake. Halvah lemon drops icing. Jelly beans I love lollipop danish. I love chupa chups gummi bears donut toffee. Fruitcake halvah chocolate bar chocolate. Apple pie danish liquorice sugar plum apple pie cheesecake. I love dessert caramels carrot cake cheesecake carrot cake dessert.</p>
+   
+       <p>Icing biscuit I love pudding I love. Tart tart marshmallow fruitcake cookie bear claw jujubes I love. Soufflé I love candy fruitcake pie cake gingerbread chocolate bar. Sesame snaps pudding candy. Pudding croissant candy canes gummies chocolate tart cheesecake. Gummies chupa chups candy canes tiramisu carrot cake gummi bears tart. I love toffee powder. Pie cake I love cupcake oat cake tootsie roll chocolate bar I love.</p>
+      </div> -->
+      
+      <!-- <p><strong>Photography by</strong> <a href="http:mariodesigns.co.uk/" target="blank">Mario Duarte</a></p>
+   
+        <nav class="social">
+          <li><strong>Follow me on: </strong></li>
+          <li><a href="https://dribbble.com/MDesignsuk" target="_blank"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
+          <li><a href="https://www.behance.net/mdesignsuk" target="_blank"><i class="fa fa-behance" aria-hidden="true"></i></a></li>
+          <li><a href="http://codepen.io/MarioDesigns/" target="_blank"><i class="fa fa-codepen" aria-hidden="true"></i></a></li>
+          <li><a href="https://bitbucket.org/Mario_Duarte/" target="_blank"><i class="fa fa-bitbucket" aria-hidden="true"></i></a></li>
+          <li><a href="https://github.com/Mario-Duarte" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a></li>
+          <li><a href="https://twitter.com/MDesignsuk" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+          <li><a href="https://www.instagram.com/m.duarte_/" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+          <li><a href="https://www.facebook.com/mariodesigns/" target="_blank"><i class="fa fa-facebook-official" aria-hidden="true"></i></a></li>
+        </nav> -->
+   
+    </div>
+   </div>
+   
+   <!-- <a class="suppoprt-me" href="https://www.buymeacoffee.com/marioduarte" target="_blank"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a Coffee&nbsp&emoji=&slug=marioduarte&button_colour=FF5F5F&font_colour=ffffff&font_family=Cookie&outline_colour=000000&coffee_colour=FFDD00"></a> -->
+
+
+<script>
+
+$(document).ready(function () {
+  // If the comparison slider is present on the page lets initialise it, this is good you will include this in the main js to prevent the code from running when not needed
+  if ($(".comparison-slider")[0]) {
+    let compSlider = $(".comparison-slider");
+
+    //let's loop through the sliders and initialise each of them
+    compSlider.each(function () {
+      let compSliderWidth = $(this).width() + "px";
+      $(this).find(".resize img").css({ width: compSliderWidth });
+      drags($(this).find(".divider"), $(this).find(".resize"), $(this));
+    });
+
+    //if the user resizes the windows lets update our variables and resize our images
+    $(window).on("resize", function () {
+      let compSliderWidth = compSlider.width() + "px";
+      compSlider.find(".resize img").css({ width: compSliderWidth });
+    });
+  }
+});
+
+// This is where all the magic happens
+// This is a modified version of the pen from Ege Görgülü - https://codepen.io/bamf/pen/jEpxOX - and you should check it out too.
+function drags(dragElement, resizeElement, container) {
+  // This creates a variable that detects if the user is using touch input insted of the mouse.
+  let touched = false;
+  window.addEventListener("touchstart", function () {
+    touched = true;
+  });
+  window.addEventListener("touchend", function () {
+    touched = false;
+  });
+
+  // clicp the image and move the slider on interaction with the mouse or the touch input
+  dragElement.
+  on("mousedown touchstart", function (e) {
+    //add classes to the emelents - good for css animations if you need it to
+    dragElement.addClass("draggable");
+    resizeElement.addClass("resizable");
+    //create vars
+    let startX = e.pageX ? e.pageX : e.originalEvent.touches[0].pageX;
+    let dragWidth = dragElement.outerWidth();
+    let posX = dragElement.offset().left + dragWidth - startX;
+    let containerOffset = container.offset().left;
+    let containerWidth = container.outerWidth();
+    let minLeft = containerOffset + 10;
+    let maxLeft = containerOffset + containerWidth - dragWidth - 10;
+
+    //add event listner on the divider emelent
+    dragElement.
+    parents().
+    on("mousemove touchmove", function (e) {
+      // if the user is not using touch input let do preventDefault to prevent the user from slecting the images as he moves the silder arround.
+      if (touched === false) {
+        e.preventDefault();
+      }
+
+      let moveX = e.pageX ? e.pageX : e.originalEvent.touches[0].pageX;
+      let leftValue = moveX + posX - dragWidth;
+
+      // stop the divider from going over the limits of the container
+      if (leftValue < minLeft) {
+        leftValue = minLeft;
+      } else if (leftValue > maxLeft) {
+        leftValue = maxLeft;
+      }
+
+      let widthValue =
+      (leftValue + dragWidth / 2 - containerOffset) * 100 / containerWidth +
+      "%";
+
+      $(".draggable").
+      css("left", widthValue).
+      on("mouseup touchend touchcancel", function () {
+        $(this).removeClass("draggable");
+        resizeElement.removeClass("resizable");
+      });
+
+      $(".resizable").css("width", widthValue);
+    }).
+    on("mouseup touchend touchcancel", function () {
+      dragElement.removeClass("draggable");
+      resizeElement.removeClass("resizable");
+    });
+  }).
+  on("mouseup touchend touchcancel", function (e) {
+    // stop clicping the image and move the slider
+    dragElement.removeClass("draggable");
+    resizeElement.removeClass("resizable");
+  });
+}
+</script>
+
+</body>
+</html>

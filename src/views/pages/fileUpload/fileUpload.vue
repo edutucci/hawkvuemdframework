@@ -40,11 +40,13 @@
     </comp-code>
 
     <div ref="vuejs-sample"/>
-    <comp-code class="h-mt-lg" title="Vuejs Sample" :code="vuejsSample" page="template" :script="vuejsSampleScript" javascript>
+    <comp-code class="h-mt-lg" title="Vuejs Sample" :code="vuejsSample"
+     page="html" :script="vuejsSampleScript" hide-result
+     >
     </comp-code>
 
     <div ref="express-server"/>
-    <comp-code class="h-mt-lg" title="Express Server" :script="expressServer" page="javascript" hide-code javascript>
+    <comp-code class="h-mt-lg" title="Express Server" :script="expressServer" page="javascript" hide-code hide-result>
     </comp-code>
 
     <tabs-help

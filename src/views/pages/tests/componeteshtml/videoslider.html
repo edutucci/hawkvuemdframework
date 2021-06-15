@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="fa-web/css/all.css" type="text/css" media="all">
+<link rel="stylesheet" href="css/flexbox.css" type="text/css">
+
+<script>
+
+</script>
+
+<style>
+
+.video-container {
+  overflow: hidden;
+  padding: 10px;
+}
+
+.video-panel {
+  min-width: 330px;
+  overflow: hidden;
+  max-width: 70%;;
+}
+
+.video-item {
+  margin: 0px 0px 0px 15px;
+  border-style: solid;
+  border-width: 5px 5px 5px 5px;
+  border-color: #3F3768;
+  border-radius: 25px 25px 25px 25px;
+}
+
+.dot {
+  height: 35px;
+  width: 35px;
+  background-color:transparent;
+  border-radius: 50%;
+  text-align: center;
+  color: white;
+  border-color: white;
+  border-width: 1;
+  border-style: solid;
+  cursor: pointer;
+}
+
+</style>
+</head>
+<body onresize="onresize()">
+
+  <div class="row align-items-center justify-center video-container" style="background-color: lightgray">
+    <div class="col-auto video-panel" style="position: relative;">
+      <div class="row" id="videoitempanel" style="overflow: hidden;">
+        <iframe class="video-item" width="225" height="400" src="https://www.youtube.com/embed/JZaYGKV-kIY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe class="video-item" width="225" height="400" src="https://www.youtube.com/embed/PnGAaszHpu4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe class="video-item" width="225" height="400" src="https://www.youtube.com/embed/eizeHWazuCc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe class="video-item" width="225" height="400" src="https://www.youtube.com/embed/uOxzmJfF3S4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div id="btnvidleft" class="col-auto" style="position: absolute; top: 0; height: 333px;">
+        <div class="row justify-center align-items-center" style="height: 100%; padding: 7px;">
+          <div class="dot" onclick="setscroll(-318)" style="background-color: purple;">
+            <div class="row justify-center align-items-center" style="height: 100%;">
+              <i class="fas fa-chevron-left"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="btnvidright" class="col-auto" style="position: absolute; right: 0; top: 0; height: 333px;">
+        <div class="row justify-center align-items-center" style="height: 100%; padding: 7px;">
+          <div class="dot" onclick="setscroll(318)" style="background-color: purple;">
+            <div class="row justify-center align-items-center" style="height: 100%;">
+              <i class="fas fa-chevron-right"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script>
+function setscroll(value) {
+  var imgpanel = document.getElementById("videoitempanel")
+  if (imgpanel) {
+    imgpanel.scrollLeft += value;
+  }
+}
+
+function onresize() {
+  showhidebtnsvideopanel()
+}
+
+function showhidebtnsvideopanel () {
+  var videoitempanel = document.getElementById('videoitempanel');
+  if (videoitempanel) {
+    var scrollWidth = videoitempanel.scrollWidth
+    var clientWidth = videoitempanel.clientWidth
+
+    var btnvidright = document.getElementById("btnvidright")
+    if (scrollWidth > clientWidth) {
+      if (btnvidright) {
+        btnvidright.style.display = "block"
+      }
+    } else {
+      if (btnvidright) {
+        btnvidright.style.display = "none"
+      }
+    }
+
+    var btnvidleft = document.getElementById("btnvidleft")
+    if (scrollWidth > clientWidth) {
+      if (btnvidleft) {
+        btnvidleft.style.display = "block"
+      }
+    } else {
+      if (btnvidleft) {
+        btnvidleft.style.display = "none"
+      }
+    }    
+  }
+}
+
+</script>
+
+</body>
+</html>

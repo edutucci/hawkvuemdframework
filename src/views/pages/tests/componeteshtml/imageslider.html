@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="fa-web/css/all.css" type="text/css" media="all">
+<link rel="stylesheet" href="css/flexbox.css" type="text/css">
+
+<script>
+
+</script>
+
+<style>
+
+.image-container {
+  height: 400px;
+  overflow: hidden;
+}
+
+.image-panel {
+  min-width: 450px;
+  overflow: hidden;
+  max-width: 70%;
+}
+
+.image-item {
+  width: 318px;
+  height: 333px;
+}
+
+.dot {
+  height: 35px;
+  width: 35px;
+  background-color:transparent;
+  border-radius: 50%;
+  text-align: center;
+  color: white;
+  border-color: white;
+  border-width: 1;
+  border-style: solid;
+  cursor: pointer;
+}
+
+</style>
+</head>
+<body onresize="onresize()">
+
+  <div class="row align-items-center justify-center image-container" style="background-color: lightgray">
+    <div class="col-auto image-panel" style="position: relative;">
+      <div class="row" id="imgitempanel" style="overflow: hidden;">
+        <img class="image-item" src="https://i2.wp.com/www.hidraliso.com.br/wp-content/uploads/2021/05/antes-deois-hidraliso.jpg"/>
+        <img class="image-item" src="https://i0.wp.com/www.hidraliso.com.br/wp-content/uploads/2021/06/deoimento-3-antes-depois.jpg"/>
+        <img class="image-item" src="https://i1.wp.com/www.hidraliso.com.br/wp-content/uploads/2021/06/deoimento-2-antes-depois.jpg"/>
+        <img class="image-item" src="https://i2.wp.com/www.hidraliso.com.br/wp-content/uploads/2021/05/antes-deois-hidraliso.jpg"/>
+        <img class="image-item" src="https://i0.wp.com/www.hidraliso.com.br/wp-content/uploads/2021/06/deoimento-3-antes-depois.jpg"/>
+        <img class="image-item" src="https://i1.wp.com/www.hidraliso.com.br/wp-content/uploads/2021/06/deoimento-2-antes-depois.jpg"/>
+        <img class="image-item" src="https://i2.wp.com/www.hidraliso.com.br/wp-content/uploads/2021/05/antes-deois-hidraliso.jpg"/>
+      </div>
+      <div id="btnimgleft" class="col-auto" style="position: absolute; top: 0; height: 333px;">
+        <div class="row justify-center align-items-center" style="height: 100%; padding: 7px;">
+          <div class="dot" onclick="setscroll(-318)" style="background-color: purple;">
+            <div class="row justify-center align-items-center" style="height: 100%;">
+              <i class="fas fa-chevron-left"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="btnimgright" class="col-auto" style="position: absolute; right: 0; top: 0; height: 333px;">
+        <div class="row justify-center align-items-center" style="height: 100%; padding: 7px;">
+          <div class="dot" onclick="setscroll(318)" style="background-color: purple;">
+            <div class="row justify-center align-items-center" style="height: 100%;">
+              <i class="fas fa-chevron-right"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>    
+
+<script>
+function setscroll(value) {
+  var imgpanel = document.getElementById("imgitempanel")
+  if (imgpanel) {
+    imgpanel.scrollLeft += value;
+  }
+}
+
+function onresize() {
+  showhidebtnsimgpanel()
+}
+
+function showhidebtnsimgpanel () {
+  var imgitempanel = document.getElementById('imgitempanel');
+  if (imgitempanel) {
+    var scrollWidth = imgitempanel.scrollWidth
+    var clientWidth = imgitempanel.clientWidth
+
+    console.log('scrollWidth: ', scrollWidth)
+    console.log('clientWidth:', clientWidth)
+
+    var btnvidright = document.getElementById("btnimgright")
+    if (scrollWidth > clientWidth) {
+      if (btnvidright) {
+        btnvidright.style.display = "block"
+      }
+    } else {
+      if (btnvidright) {
+        btnvidright.style.display = "none"
+      }
+    }
+
+    var btnvidleft = document.getElementById("btnimgleft")
+    if (scrollWidth > clientWidth) {
+      if (btnvidleft) {
+        btnvidleft.style.display = "block"
+      }
+    } else {
+      if (btnvidleft) {
+        btnvidleft.style.display = "none"
+      }
+    }    
+  }
+}
+
+</script>
+
+</body>
+</html>
